@@ -30,6 +30,9 @@ Item {
     property int weeks: 6
     property date currentDate: new Date()
     
+    property alias month: monthModelProvider.month
+    property alias year: monthModelProvider.year
+    
     // HACK: Added only as a temporary model provider, to be replaced with the real model provider
     Labs.AbstractMonthGrid { 
         id: monthModelProvider
@@ -48,49 +51,30 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             Layout.bottomMargin: Kirigami.Units.gridUnit/2
             
-            Controls2.ToolButton {
-                id: previous_month
-
-                width: Kirigami.Units.gridUnit*2
-                height: width
-                
-                
-                icon.name: "go-previous"
-                onClicked: { 
-                    var prv = monthModelProvider.month - 1 ;
-                    if (prv == -1 ) {
-                        monthModelProvider.month = 11;
-                        --monthModelProvider.year;
-                    }
-                    else {
-                        monthModelProvider.month = prv
-                    }               
-                }
-            }
+//             Controls2.ToolButton {
+//                 id: previous_month
+// 
+//                 width: Kirigami.Units.gridUnit*2
+//                 height: width
+//                 
+//                 
+//                 icon.name: "go-previous"
+//                 onClicked: { 
+//                     var prv = monthModelProvider.month - 1 ;
+//                     if (prv == -1 ) {
+//                         monthModelProvider.month = 11;
+//                         --monthModelProvider.year;
+//                     }
+//                     else {
+//                         monthModelProvider.month = prv
+//                     }               
+//                 }
+//             }
             
             Controls2.Label {                
                 color: Kirigami.Theme.textColor
                 font.pixelSize: Kirigami.Units.gridUnit    
                 text: Qt.formatDate(new Date(monthModelProvider.year, monthModelProvider.month), "MMM yyyy")
-            }
-            
-            Controls2.ToolButton {
-                id: next_month
-                
-                width: Kirigami.Units.gridUnit*2
-                height: width
-                
-                icon.name: "go-next"
-                onClicked: { 
-                    var nxt = monthModelProvider.month + 1 ;
-                    if (nxt == 12) {
-                        monthModelProvider.month = 0;
-                        ++monthModelProvider.year;
-                    }
-                    else {
-                        monthModelProvider.month = nxt
-                    }               
-                }
             }
         }
         
