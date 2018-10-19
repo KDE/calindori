@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Mobile Calendar
+Comment=Mobile Calendar
+Version=0.1
+Exec=mobilecalendar
+MimeType=application/x-mobilecalendar;
+Icon=languages
+Type=Application
+Terminal=false
+Categories=Qt;KDE;

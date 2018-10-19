@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="CalendarView.qml">contents/ui/CalendarView.qml</file>
+        <file alias="PlayMonthView.qml">contents/ui/kirigami-playground/PlayMonthView.qml</file>
+        <file alias="mobilemain.qml">contents/ui/mobilemain.qml</file>
+        <file alias="desktopmain.qml">contents/ui/desktopmain.qml</file>
+        <file alias="Main.qml">contents/ui/Main.qml</file>
+    </qresource>
+</RCC>
