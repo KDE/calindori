@@ -50,7 +50,6 @@ Kirigami.ApplicationWindow {
             id: monthPage
             
             anchors.fill: parent
-            
             title: qsTr("Mobile Calendar")
             
             actions {                
@@ -92,7 +91,6 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
-            
             
             mainItem: PlayMonthView {
                 id: monthView
