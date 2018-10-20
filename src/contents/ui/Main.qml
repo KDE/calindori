@@ -25,77 +25,70 @@ import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
 
 Kirigami.ApplicationWindow {
     id: root
-
+    
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
-
+        
         title: "Mobile Calendar"
-
+        
         contentItem.implicitWidth: Math.min (Kirigami.Units.gridUnit * 15, root.width * 0.8)
-
+        
         topContent: Column {
-
+            
             spacing: Kirigami.Units.gridUnit * 2
         }
     }
-
+    
     pageStack.initialPage: [calendarDashboardComponent]
-
-
+    
+    
     Component {
         id: calendarDashboardComponent
-
-
+        
+        
         Kirigami.ScrollablePage {
             id: monthPage
             
             anchors.fill: parent
-
+            
             title: qsTr("Mobile Calendar")
             
-            actions {
+            actions {                
                 left: Kirigami.Action {
                     iconName: "go-previous"
+                    
+                    onTriggered: {
+                        var prv = monthView.month - 1 ;
+                        if (prv == -1 ) {
+                            monthView.month = 11;
+                            --monthView.year;
+                        }
+                        else {
+                            monthView.month = prv
+                        }               
+                    }
                 }
-
+                
                 right: Kirigami.Action {
                     iconName: "go-next"
+                    
+                    onTriggered: {                    
+                        var nxt = monthView.month + 1 ;
+                        if (nxt == 12) {
+                            monthView.month = 0;
+                            ++monthView.year;
+                        }
+                        else {
+                            monthView.month = nxt
+                        }                                   
+                    }
                 }
             }
             
-            Connections {
-                target: actions.left
-
-                onTriggered: {
-                    var prv = monthView.month - 1 ;
-                    if (prv == -1 ) {
-                        monthView.month = 11;
-                        --monthView.year;
-                    }
-                    else {
-                        monthView.month = prv
-                    }               
-                }
-            }
-
-            Connections {
-                target: actions.right
-
-                onTriggered: {                    
-                    var nxt = monthView.month + 1 ;
-                    if (nxt == 12) {
-                        monthView.month = 0;
-                        ++monthView.year;
-                    }
-                    else {
-                        monthView.month = nxt
-                    }                                   
-                }
-            }
             
-             mainItem: PlayMonthView {
+            mainItem: PlayMonthView {
                 id: monthView
-
+                
                 height: monthPage.height
                 width: monthPage.width
             }
