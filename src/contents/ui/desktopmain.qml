@@ -23,5 +23,5 @@ Main {
     id: root
 
     contextDrawer: null
-    pageStack.defaultColumnWidth: pageStack.width > Kirigami.Units.gridUnit * 25 ? pageStack.width / 2 : pageStack.width
+    pageStack.defaultColumnWidth: pageStack.width;
 }

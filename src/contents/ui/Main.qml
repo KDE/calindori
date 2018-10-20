@@ -19,13 +19,12 @@
 
 import QtQuick 2.1
 import QtQuick.Layouts 1.2
-import QtQuick.Controls 1.4 as QuickControls
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
 
 Kirigami.ApplicationWindow {
     id: root
-    
+       
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
         
@@ -46,11 +45,14 @@ Kirigami.ApplicationWindow {
         id: calendarDashboardComponent
         
         
-        Kirigami.ScrollablePage {
+        Kirigami.Page {
             id: monthPage
-            
+        
+            property alias month: monthView.month
+            property alias year: monthView.year
+
             anchors.fill: parent
-            title: qsTr("Mobile Calendar")
+            title: Qt.formatDate(new Date(year, month), "MMM yyyy")
             
             actions {                
                 left: Kirigami.Action {
@@ -58,13 +60,18 @@ Kirigami.ApplicationWindow {
                     
                     onTriggered: {
                         var prv = monthView.month - 1 ;
+                        var pushYear, pushMonth;
+                        
                         if (prv == -1 ) {
-                            monthView.month = 11;
-                            --monthView.year;
+
+                            pushMonth = 11;
+                            pushYear = monthView.year + 1;
                         }
                         else {
-                            monthView.month = prv
-                        }               
+                            pushMonth = prv;
+                            pushYear = monthView.year;                            
+                        }
+                        root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})                        
                     }
                 }
                 
@@ -81,18 +88,23 @@ Kirigami.ApplicationWindow {
                     
                     onTriggered: {                    
                         var nxt = monthView.month + 1 ;
+                        var pushYear, pushMonth;
+
                         if (nxt == 12) {
-                            monthView.month = 0;
-                            ++monthView.year;
+
+                            pushMonth = 0;
+                            pushYear = monthView.year + 1;                            
                         }
                         else {
-                            monthView.month = nxt
-                        }                                   
+                            pushMonth = nxt;
+                            pushYear = monthView.year;                            
+                        }
+                        root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})
                     }
                 }
             }
             
-            mainItem: PlayMonthView {
+            PlayMonthView {
                 id: monthView
                 
                 height: monthPage.height

@@ -33,12 +33,12 @@ Item {
     property alias month: monthModelProvider.month
     property alias year: monthModelProvider.year
     
-    // HACK: Added only as a temporary model provider, to be replaced with the real model provider
+    // HACK: Added only as a temporary model provider, to be replaced with a real model provider
     Labs.AbstractMonthGrid { 
         id: monthModelProvider
     }
     
-    //HACK:Added only as a temporary model provider, to be replaced with the real model provider
+    //HACK:Added only as a temporary model provider, to be replaced with a real model provider
     Labs.AbstractDayOfWeekRow {
         id: weekModelProvider
     }
