@@ -108,7 +108,7 @@ Item {
                 
                 width: Kirigami.Units.gridUnit*2
                 height: width
-                checkable: true
+                //checkable: true //TODO: Make just a single toolbutton selectable
                 text: model.day
                 
             }
