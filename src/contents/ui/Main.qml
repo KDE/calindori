@@ -59,27 +59,30 @@ Kirigami.ApplicationWindow {
                     iconName: "go-previous"
                     
                     onTriggered: {
-                        var prv = monthView.month - 1 ;
+                        var pushMonth = monthView.month - 1 ;
                         var pushYear, pushMonth;
                         
-                        if (prv == -1 ) {
+                        if (pushMonth == -1 ) {
 
                             pushMonth = 11;
                             pushYear = monthView.year - 1;
                         }
                         else {
-                            pushMonth = prv;
                             pushYear = monthView.year;                            
                         }
-                        root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})                        
+                        year = pushYear;
+                        month = pushMonth;
+//                         root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})                        
                     }
                 }
                 
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
-                    onTriggered: {           
-                        monthView.month =  Qt.formatDate(new Date(), "MM") - 1;
-                        monthView.year = Qt.formatDate(new Date(), "yyyy");
+                    onTriggered: {
+                        month = Qt.formatDate(new Date(), "MM") - 1;
+                        year = Qt.formatDate(new Date(), "yyyy");
+//                         root.pageStack.clear();
+//                         root.pageStack.push(calendarDashboardComponent,{month: Qt.formatDate(new Date(), "MM") - 1, year: Qt.formatDate(new Date(), "yyyy")})
                     }
                 }
                 
@@ -87,19 +90,20 @@ Kirigami.ApplicationWindow {
                     iconName: "go-next"
                     
                     onTriggered: {                    
-                        var nxt = monthView.month + 1 ;
-                        var pushYear, pushMonth;
+                        var pushMonth = monthView.month + 1 ;
+                        var pushYear;
 
-                        if (nxt == 12) {
+                        if (pushMonth == 12) {
 
                             pushMonth = 0;
                             pushYear = monthView.year + 1;                            
                         }
                         else {
-                            pushMonth = nxt;
                             pushYear = monthView.year;                            
                         }
-                        root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})
+                        year = pushYear;
+                        month = pushMonth;
+//                         root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})
                     }
                 }
             }
