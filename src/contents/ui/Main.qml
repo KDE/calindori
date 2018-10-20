@@ -65,7 +65,7 @@ Kirigami.ApplicationWindow {
                         if (prv == -1 ) {
 
                             pushMonth = 11;
-                            pushYear = monthView.year + 1;
+                            pushYear = monthView.year - 1;
                         }
                         else {
                             pushMonth = prv;
