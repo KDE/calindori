@@ -69,6 +69,14 @@ Kirigami.ApplicationWindow {
                     }
                 }
                 
+                main: Kirigami.Action {
+                    iconName: "view-calendar-day"
+                    onTriggered: {           
+                        monthView.month =  Qt.formatDate(new Date(), "MM") - 1;
+                        monthView.year = Qt.formatDate(new Date(), "yyyy");
+                    }
+                }
+                
                 right: Kirigami.Action {
                     iconName: "go-next"
                     
