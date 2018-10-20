@@ -49,27 +49,7 @@ Item {
         RowLayout {
             spacing: 10
             Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: Kirigami.Units.gridUnit/2
-            
-//             Controls2.ToolButton {
-//                 id: previous_month
-// 
-//                 width: Kirigami.Units.gridUnit*2
-//                 height: width
-//                 
-//                 
-//                 icon.name: "go-previous"
-//                 onClicked: { 
-//                     var prv = monthModelProvider.month - 1 ;
-//                     if (prv == -1 ) {
-//                         monthModelProvider.month = 11;
-//                         --monthModelProvider.year;
-//                     }
-//                     else {
-//                         monthModelProvider.month = prv
-//                     }               
-//                 }
-//             }
+            Layout.bottomMargin: Kirigami.Units.gridUnit/2            
             
             Controls2.Label {                
                 color: Kirigami.Theme.textColor
