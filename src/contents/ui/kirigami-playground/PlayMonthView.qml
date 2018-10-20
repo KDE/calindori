@@ -105,11 +105,14 @@ Item {
                 
                 property bool currentDate: Qt.formatDate(model.date, "MM-dd-yyyy") == 
                 Qt.formatDate(monthview.currentDate, "MM-dd-yyyy")
+
+                property bool currentMonth: (Qt.formatDate(model.date, "MM") -1) == monthview.month
                 
                 width: Kirigami.Units.gridUnit*2
                 height: width
                 //checkable: true //TODO: Make just a single toolbutton selectable
                 text: model.day
+                enabled: currentMonth
                 
             }
 
