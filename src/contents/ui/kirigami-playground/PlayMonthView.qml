@@ -108,7 +108,7 @@ Item {
 
                 property bool currentMonth: (Qt.formatDate(model.date, "MM") -1) == monthview.month
                 
-                width: Kirigami.Units.gridUnit*2
+                width: Kirigami.Units.gridUnit*3
                 height: width
                 //checkable: true //TODO: Make just a single toolbutton selectable
                 text: model.day
@@ -134,7 +134,7 @@ Item {
             Controls2.ToolButton {
                 id: dayButton
                                 
-                width: Kirigami.Units.gridUnit*2
+                width: Kirigami.Units.gridUnit*3
                 height: width
                 
                 text: model.shortName                
