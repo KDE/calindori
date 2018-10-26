@@ -38,7 +38,6 @@ Item {
        
     onNextMonth: {
         plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
-
     }
     
     onPreviousMonth: {
@@ -83,8 +82,7 @@ Item {
          * Grid that displays the days of a month (normally 6x7)
          */        
         Grid {        
-            Layout.fillWidth: true
-            
+            Layout.fillWidth: true            
             columns: root.days
             rows: root.weeks
             

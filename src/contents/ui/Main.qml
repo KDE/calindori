@@ -28,8 +28,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
         
-        title: "Mobile Calendar"
-        
+        title: "Mobile Calendar"       
         contentItem.implicitWidth: Math.min (Kirigami.Units.gridUnit * 15, root.width * 0.8)
         
         topContent: Column {
@@ -43,8 +42,7 @@ Kirigami.ApplicationWindow {
     
     Component {
         id: calendarDashboardComponent
-        
-        
+                
         Kirigami.Page {
             id: monthPage
         
@@ -79,8 +77,7 @@ Kirigami.ApplicationWindow {
                 
                 height: monthPage.height
                 width: monthPage.width
-            }
-            
+            }            
         }
     }
     
