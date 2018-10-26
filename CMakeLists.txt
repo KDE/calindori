@@ -31,7 +31,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 
 set(KF5_VERSION "5.22.0")
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Gui Qml QuickControls2)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Gui Svg Test Qml QuickControls2)
 
 find_package(KF5Config ${KF5_DEP_VERSION} "5.22.0")
 find_package(KF5Kirigami2 ${KF5_DEP_VERSION} "5.22.0")

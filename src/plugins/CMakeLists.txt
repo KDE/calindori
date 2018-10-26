@@ -11,8 +11,6 @@ target_link_libraries (mobilecalendarqmlplugin
     Qt5::Qml
     Qt5::Quick
     KF5::ConfigCore
-#    KF5::KIOCore
-#    KF5::KIOWidgets
 )
 
 install (TARGETS mobilecalendarqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/mobilecalendar)
