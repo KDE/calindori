@@ -13,7 +13,7 @@ qt5_add_resources(RESOURCES resources.qrc)
 add_subdirectory(plugins)
 
 add_executable(mobilecalendar ${mobilecalendar_SRCS} ${RESOURCES})
-target_link_libraries(mobilecalendar Qt5::Core  Qt5::Qml Qt5::Quick Qt5::Svg KF5::ConfigCore)
+target_link_libraries(mobilecalendar Qt5::Core Qt5::Qml Qt5::Quick KF5::ConfigCore KF5::Plasma)
 
 install(TARGETS mobilecalendar ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
