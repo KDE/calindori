@@ -48,63 +48,29 @@ Kirigami.ApplicationWindow {
         Kirigami.Page {
             id: monthPage
         
-            property alias month: monthView.month
+            property alias monthName: monthView.monthName
             property alias year: monthView.year
 
             anchors.fill: parent
-            title: Qt.formatDate(new Date(year, month), "MMM yyyy")
+            title: monthView.monthName + " " + monthView.year
             
             actions {                
                 left: Kirigami.Action {
                     iconName: "go-previous"
                     
-                    onTriggered: {
-                        var pushMonth = monthView.month - 1 ;
-                        var pushYear, pushMonth;
-                        
-                        if (pushMonth == -1 ) {
-
-                            pushMonth = 11;
-                            pushYear = monthView.year - 1;
-                        }
-                        else {
-                            pushYear = monthView.year;                            
-                        }
-                        year = pushYear;
-                        month = pushMonth;
-//                         root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})                        
-                    }
+                    onTriggered: monthView.previousMonth()
                 }
                 
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
-                    onTriggered: {
-                        month = Qt.formatDate(new Date(), "MM") - 1;
-                        year = Qt.formatDate(new Date(), "yyyy");
-//                         root.pageStack.clear();
-//                         root.pageStack.push(calendarDashboardComponent,{month: Qt.formatDate(new Date(), "MM") - 1, year: Qt.formatDate(new Date(), "yyyy")})
-                    }
+                    
+                    onTriggered: monthView.goToday()
                 }
                 
                 right: Kirigami.Action {
                     iconName: "go-next"
                     
-                    onTriggered: {                    
-                        var pushMonth = monthView.month + 1 ;
-                        var pushYear;
-
-                        if (pushMonth == 12) {
-
-                            pushMonth = 0;
-                            pushYear = monthView.year + 1;                            
-                        }
-                        else {
-                            pushYear = monthView.year;                            
-                        }
-                        year = pushYear;
-                        month = pushMonth;
-//                         root.pageStack.push(calendarDashboardComponent,{month: pushMonth, year: pushYear})
-                    }
+                    onTriggered: monthView.nextMonth()
                 }
             }
             

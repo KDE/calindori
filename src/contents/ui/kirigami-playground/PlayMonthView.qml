@@ -20,75 +20,85 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
-import Qt.labs.calendar 1.0 as Labs //TODO: To be removed, added just to provide a model
 import org.kde.kirigami 2.0 as Kirigami
 
 Item {
-    id: monthview
+    id: root
     
     property int days: 7
     property int weeks: 6
     property date currentDate: new Date()
     
-    property alias month: monthModelProvider.month
-    property alias year: monthModelProvider.year
-    
-    // HACK: Added only as a temporary model provider, to be replaced with a real model provider
-    Labs.AbstractMonthGrid { 
-        id: monthModelProvider
+    property alias monthName: plasmaCalendar.displayedDateMonthName
+    property alias year: plasmaCalendar.year
+        
+    signal nextMonth
+    signal previousMonth
+    signal goToday
+       
+    onNextMonth: {
+        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
+
     }
     
-    //HACK:Added only as a temporary model provider, to be replaced with a real model provider
-    Labs.AbstractDayOfWeekRow {
-        id: weekModelProvider
+    onPreviousMonth: {
+        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() -1));
     }
+    
+    onGoToday: {
+        plasmaCalendar.displayedDate = root.currentDate;        
+    }
+    
+    // HACK: Added only as a temporary model provider, to be replaced with a real model provider    
+    CalendarBackend {
+        id: plasmaCalendar
+        
+        property int displayedDateMonth: Qt.formatDate(plasmaCalendar.displayedDate,"MM")
+        property string displayedDateMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(displayedDateMonth-1) 
+        
+        days: root.days
+        weeks: root.weeks
+        today: root.currentDate
+    }
+    
     
     ColumnLayout {
         spacing: 0
         
-        RowLayout {
-            spacing: 10
-            Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: Kirigami.Units.gridUnit/2            
-            
-            Controls2.Label {                
-                color: Kirigami.Theme.textColor
-                font.pixelSize: Kirigami.Units.gridUnit    
-                text: Qt.formatDate(new Date(monthModelProvider.year, monthModelProvider.month), "MMM yyyy")
-            }
-        }
-        
-        Rectangle {
-            height: 1
-            Layout.fillWidth: true
-            color: Kirigami.Theme.disabledTextColor
-        }
-
+        /**
+         * Header of the days' calendar grid
+         * E.g.
+         * Mon Tue Wed ...
+         */
         RowLayout {
             spacing: 0           
             
             Repeater {
-                model: weekModelProvider.source
+                model: root.days
                 delegate: weekDayDelegate
             }
         }
         
+        /**
+         * Grid that displays the days of a month (normally 6x7)
+         */        
         Grid {        
             Layout.fillWidth: true
             
-            columns: monthview.days
-            rows: monthview.weeks
+            columns: root.days
+            rows: root.weeks
             
             Repeater {
-                model: monthModelProvider.source
-                
+                model: plasmaCalendar.daysModel
                 delegate: monthDayDelegate             
             }
         }
     }
-
+    
     /**
      * Month Day Delegate
+     * 
+     * Controls the display of each day of a months' grid
      */
     Component {
         id: monthDayDelegate 
@@ -96,51 +106,46 @@ Item {
         Rectangle {
             width: childrenRect.width
             height: childrenRect.height
-            opacity: dayButton.currentDate ? 0.4 : 1
-            color: dayButton.currentDate ? Kirigami.Theme.textColor : Kirigami.Theme.backgroundColor                    
+            opacity: dayButton.isCurrentDate ? 0.4 : 1
+            color: dayButton.isCurrentDate ? Kirigami.Theme.textColor : Kirigami.Theme.backgroundColor                    
             border.color: Kirigami.Theme.disabledTextColor
-
+            
             Controls2.ToolButton {
                 id: dayButton
                 
-                property bool currentDate: Qt.formatDate(model.date, "MM-dd-yyyy") == 
-                Qt.formatDate(monthview.currentDate, "MM-dd-yyyy")
-
-                property bool currentMonth: (Qt.formatDate(model.date, "MM") -1) == monthview.month
+                property bool isCurrentDate: ( Qt.formatDate(root.currentDate, "yyyy") ==  model.yearNumber ) && ( Qt.formatDate(root.currentDate, "MM") ==  model.monthNumber ) && ( Qt.formatDate(root.currentDate, "dd") ==  model.dayNumber )
+                
+                property bool isCurrentMonth: model.monthNumber == Qt.formatDate(plasmaCalendar.displayedDate, "MM")
                 
                 width: Kirigami.Units.gridUnit*3
                 height: width
-                //checkable: true //TODO: Make just a single toolbutton selectable
-                text: model.day
-                enabled: currentMonth
-                
+                text: model.dayNumber
+                enabled: isCurrentMonth
             }
-
+            
         }
     }
-
+    
     /**
      * Week Day Delegate
-     */
+     * 
+     * Controls the display of the elements of the header
+     */    
     Component {
         id: weekDayDelegate 
         
         Rectangle {
-            width: childrenRect.width
-            height: childrenRect.height
-            color: Kirigami.Theme.textColor 
-            opacity: 0.4
-            
-            Controls2.ToolButton {
-                id: dayButton
-                                
-                width: Kirigami.Units.gridUnit*3
-                height: width
-                
-                text: model.shortName                
-            }
-
+            width: Kirigami.Units.gridUnit*3
+            height: width
+            color: Kirigami.Theme.disabledTextColor
+            opacity: 0.8
+        
+            Controls2.Label {                
+                anchors.centerIn: parent
+                color: Kirigami.Theme.textColor
+                text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((plasmaCalendar.firstDayOfWeek + model.index) % root.days), Locale.ShortFormat) 
+            }            
         }
     }
-
+    
 }
