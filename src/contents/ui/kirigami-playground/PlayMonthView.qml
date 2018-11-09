@@ -28,7 +28,7 @@ Item {
     property int days: 7
     property int weeks: 6
     property date currentDate: new Date()
-    
+    property int dayRectWidth: Kirigami.Units.gridUnit*2.5
     property alias monthName: plasmaCalendar.displayedDateMonthName
     property alias year: plasmaCalendar.year
         
@@ -115,7 +115,7 @@ Item {
                 
                 property bool isCurrentMonth: model.monthNumber == Qt.formatDate(plasmaCalendar.displayedDate, "MM")
                 
-                width: Kirigami.Units.gridUnit*3
+                width: root.dayRectWidth
                 height: width
                 text: model.dayNumber
                 enabled: isCurrentMonth
@@ -133,7 +133,7 @@ Item {
         id: weekDayDelegate 
         
         Rectangle {
-            width: Kirigami.Units.gridUnit*3
+            width: root.dayRectWidth
             height: width
             color: Kirigami.Theme.disabledTextColor
             opacity: 0.8
