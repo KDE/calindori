@@ -21,6 +21,10 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include <QUrl>
+// #include <KCalCore/MemoryCalendar>
+// #include <KCalCore/FileStorage>
+// using namespace KCalCore;
+
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -42,7 +46,40 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
+    
+/**     
+ * Calendar POC
 
+    QDateTime now = QDateTime::currentDateTime();
+    MemoryCalendar::Ptr localCalendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+    QUrl localUrl("./localfile");
+    FileStorage storage(localCalendar);
+    storage.setFileName(localUrl.path());
+ 
+    bool success = false;
+    success = storage.load();
+ 
+    Todo::List todos;
+    todos = localCalendar->rawTodos();
+    
+    int todosCnt = todos.length();
+    for(int i = 0; i < todosCnt; ++i) {
+        qDebug() << i << ": " << todos.at(i)->summary() ;
+    }
+    
+
+    Create todos
+    Todo::Ptr todo = Todo::Ptr(new Todo());
+    QString todoSuffix(now.toString("hhmmsszzz"));
+    todo->setUid(QStringLiteral("todo") + todoSuffix);
+    todo->setDtStart(QDateTime::currentDateTimeUtc());
+    todo->setSummary(QStringLiteral("summary") + todoSuffix);
+    localCalendar->addTodo(todo);
+    qDebug() << now.toString("hh:mm:ss.zzz") << ": Hello calendar POC";
+    success = storage.save();
+*/
     int ret = app.exec();
     return ret;
+
+
 }
