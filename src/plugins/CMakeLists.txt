@@ -1,6 +1,7 @@
 set(qmlplugin_SRCS
     qmlplugin.cpp
-    MobileCalendarConfig.cpp
+    mobilecalendarconfig.cpp
+    todosmodel.cpp
 )
 
 add_library (mobilecalendarqmlplugin SHARED ${qmlplugin_SRCS})
@@ -11,6 +12,7 @@ target_link_libraries (mobilecalendarqmlplugin
     Qt5::Qml
     Qt5::Quick
     KF5::ConfigCore
+    KF5::CalendarCore
 )
 
 install (TARGETS mobilecalendarqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/mobilecalendar)

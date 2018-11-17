@@ -18,7 +18,8 @@
 
 #include "qmlplugin.h"
 
-#include "MobileCalendarConfig.h"
+#include "mobilecalendarconfig.h"
+#include "todosmodel.h"
 
 #include <QQmlEngine>
 #include <QtQml/qqml.h>
@@ -27,4 +28,5 @@
 void QmlPlugins::registerTypes(const char *uri)
 {
     qmlRegisterType<MobileCalendarConfig>(uri, 0, 1, "Config");
+    qmlRegisterType<TodosModel>(uri, 0, 1, "TodosModel");
 }

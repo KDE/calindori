@@ -36,6 +36,8 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Gui 
 find_package(KF5Config ${KF5_DEP_VERSION} "5.22.0")
 find_package(KF5Kirigami2 ${KF5_DEP_VERSION} "5.22.0")
 find_package(KF5Plasma)
+find_package(KF5CalendarCore)
+
 
 ################# Enable C++11 features for clang and gcc #################
 
