@@ -84,4 +84,8 @@ Kirigami.ApplicationWindow {
     MobileCalendar.Config {
         id: mobileCalendarConfig;
     }
+    
+    MobileCalendar.TodosModel {
+        id: todosModel
+    }
 }
