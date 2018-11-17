@@ -16,7 +16,7 @@
  *
  */
 
-#include "MobileCalendarConfig.h"
+#include "mobilecalendarconfig.h"
 
 #include <KConfig>
 #include <KConfigGroup>
