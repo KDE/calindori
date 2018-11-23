@@ -31,7 +31,10 @@ Item {
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
     property alias monthName: plasmaCalendar.displayedDateMonthName
     property alias year: plasmaCalendar.year
-        
+    property int selectedYear
+    property int selectedMonth
+    property int selectedDay
+    
     signal nextMonth
     signal previousMonth
     signal goToday
@@ -39,7 +42,10 @@ Item {
     
     
     onDayClicked: {
-        console.log("Day " + index + " featuring date " + model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
+        root.selectedYear = model.yearNumber;
+        root.selectedMonth = model.monthNumber;
+        root.selectedDay = model.dayNumber;
+        //         console.log("Day " + index + " featuring date " + model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
     }
     
     onNextMonth: {
@@ -99,6 +105,9 @@ Item {
                             
                             currentDate: root.currentDate
                             delegateWidth: root.dayRectWidth
+                            selectedYear: root.selectedYear
+                            selectedMonth: root.selectedMonth
+                            selectedDay: root.selectedDay
                             
                             onDayClicked: root.dayClicked(index, model, monthDayDelegate)
                 }
