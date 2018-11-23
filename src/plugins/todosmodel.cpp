@@ -23,7 +23,8 @@ TodosModel::TodosModel(QObject* parent)
     m_todos(Todo::List()),
     m_cal_url(QUrl()),
     m_calendar(nullptr),
-    m_cal_storage(nullptr)
+    m_cal_storage(nullptr),
+    m_filterdt(QDate())
 
 {}
 
@@ -115,6 +116,33 @@ QUrl TodosModel::calendar() const
     return m_cal_url;
 }
 
+QDate TodosModel::filterdt() const
+{
+    return m_filterdt;
+}
+
+void TodosModel::setFilterdt(QDate filterDate)
+{
+    qDebug() << filterDate.toString();
+    m_filterdt = filterDate;
+    if(m_calendar != nullptr) {
+        loadTasks(m_filterdt);
+    }
+    
+}
+
+
+void TodosModel::loadTasks(QDate taskDt)
+{
+    beginResetModel();
+    m_todos.clear();
+    qDebug() << "Show tasks of " + taskDt.toString();
+    m_todos =  m_calendar->rawTodos(taskDt,taskDt);
+    endResetModel();
+    emit rowsChanged();
+    emit calendarChanged();
+}
+
 void TodosModel::setCalendar(QUrl calendarUrl)
 {
     if(m_cal_url != calendarUrl) {
@@ -126,15 +154,16 @@ void TodosModel::setCalendar(QUrl calendarUrl)
             m_cal_url = calendarUrl; //TODO: create a calendar-url-storage type ?
             m_calendar = calendar;
             m_cal_storage = storage;
-            beginResetModel();
-            m_todos.clear();
-            m_todos =  m_calendar->rawTodos();
-            endResetModel();
-            emit rowsChanged();
-            emit calendarChanged();
+            loadTasks(m_filterdt);
+//             beginResetModel();
+//             m_todos.clear();
+//             m_todos =  m_calendar->rawTodos();
+//             endResetModel();
+//             emit rowsChanged();
+//             emit calendarChanged();
         }
         else {
-            qDebug() << "Cannot open calendar file";
+            qDebug() << "Cannot open calendar file " << calendarUrl.toDisplayString() ;
         }
     }
 }

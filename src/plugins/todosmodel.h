@@ -30,6 +30,7 @@ class TodosModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QUrl calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 public:
     enum Roles {
@@ -52,7 +53,9 @@ public:
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
     void setCalendar(QUrl canledarUrl);
+    void setFilterdt(QDate filterDate);
     QUrl calendar() const;
+    QDate filterdt() const;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -65,12 +68,15 @@ private Q_SLOTS:
 Q_SIGNALS:
     void rowsChanged();
     void calendarChanged();
+    void filterdtChanged();
 
 private:
     Todo::List m_todos;
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
     QUrl m_cal_url;
+    QDate m_filterdt;
+    void loadTasks(QDate taskDt);
 };
 
 #endif // TODOSMODEL_H
