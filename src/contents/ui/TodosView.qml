@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
             MobileCalendar.TodosModel {
                 id: todosModel
                 
-                filterdt: new Date()
+                filterdt: todoDt
                 calendar:  Qt.resolvedUrl( StandardPaths.standardLocations(StandardPaths.DataLocation)[0] + "/localcalendar")
             }
         
