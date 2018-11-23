@@ -92,7 +92,7 @@ Kirigami.ApplicationWindow {
                     iconName: "edit"
                     text: "Add task"
                     onTriggered: {
-                        showPassiveNotification( "Add task");
+                        showPassiveNotification("Add task");
                     }
                 }
             ]
