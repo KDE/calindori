@@ -9,20 +9,29 @@ import org.kde.kirigami 2.0 as Kirigami
 * Controls the display of each day of a months' grid
 */
 Rectangle {
+    id: dayDelegate
+
+    property date currentDate
+    property int delegateWidth
+
+    signal dayClicked
+
     width: childrenRect.width
     height: childrenRect.height
     opacity: dayButton.isCurrentDate ? 0.4 : 1
     color: dayButton.isCurrentDate ? Kirigami.Theme.textColor : Kirigami.Theme.backgroundColor                    
     border.color: Kirigami.Theme.disabledTextColor
     
+
     Controls2.ToolButton {
         id: dayButton
         
-        property bool isCurrentDate: ( Qt.formatDate(root.currentDate, "yyyy") ==  model.yearNumber ) && ( Qt.formatDate(root.currentDate, "MM") ==  model.monthNumber ) && ( Qt.formatDate(root.currentDate, "dd") ==  model.dayNumber )
-        
+        property bool isCurrentDate: ( Qt.formatDate(dayDelegate.currentDate, "yyyy") ==  model.yearNumber ) && ( Qt.formatDate(dayDelegate.currentDate, "MM") ==  model.monthNumber ) && ( Qt.formatDate(dayDelegate.currentDate, "dd") ==  model.dayNumber )
         property bool isCurrentMonth: model.monthNumber == Qt.formatDate(plasmaCalendar.displayedDate, "MM")
         
-        width: root.dayRectWidth
+        onClicked: dayDelegate.dayClicked()
+        
+        width: dayDelegate.delegateWidth
         height: width
         text: model.dayNumber
         enabled: isCurrentMonth

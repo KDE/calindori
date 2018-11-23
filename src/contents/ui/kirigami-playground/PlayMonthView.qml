@@ -35,7 +35,13 @@ Item {
     signal nextMonth
     signal previousMonth
     signal goToday
-       
+    signal dayClicked(int index, var model, var item)
+    
+    
+    onDayClicked: {
+        console.log("Day " + index + " featuring date " + model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
+    }
+    
     onNextMonth: {
         plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
     }
@@ -89,7 +95,12 @@ Item {
             Repeater {
                 model: plasmaCalendar.daysModel
                 delegate: MonthDayDelegate {
-                            id: monthDayDelegate                    
+                            id: monthDayDelegate    
+                            
+                            currentDate: root.currentDate
+                            delegateWidth: root.dayRectWidth
+                            
+                            onDayClicked: root.dayClicked(index, model, monthDayDelegate)
                 }
                      
             }
