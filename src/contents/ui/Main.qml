@@ -77,15 +77,35 @@ Kirigami.ApplicationWindow {
                 
                 height: monthPage.height
                 width: monthPage.width
-            }            
+            }
+
+            contextualActions: [
+                Kirigami.Action {
+                    iconName: "edit"
+                    text: "Show tasks"
+                    onTriggered: {
+                        console.log("View tasks of " + monthView.selectedYear + "-" + monthView.selectedMonth  + "-" + monthView.selectedDay);
+                        root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )
+                    }
+                },
+                Kirigami.Action {
+                    iconName: "edit"
+                    text: "Add task"
+                    onTriggered: {
+                        showPassiveNotification( "Add task");
+                    }
+                }
+            ]
+            
         }
     }
     
+    TodosView {
+        id: todosView
+    }
+
     MobileCalendar.Config {
         id: mobileCalendarConfig;
     }
     
-    MobileCalendar.TodosModel {
-        id: todosModel
-    }
 }
