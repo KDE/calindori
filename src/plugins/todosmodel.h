@@ -31,6 +31,8 @@ class TodosModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QUrl calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
+    Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar NOTIFY memorycalendarChanged )
+    Q_PROPERTY(QSharedPointer<FileStorage> calendarstorage READ calendarstorage NOTIFY calendarstorageChanged) 
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 public:
     enum Roles {
@@ -55,6 +57,8 @@ public:
     void setCalendar(QUrl canledarUrl);
     void setFilterdt(QDate filterDate);
     QUrl calendar() const;
+    MemoryCalendar::Ptr memorycalendar() const;
+    FileStorage::Ptr calendarstorage() const;
     QDate filterdt() const;
 
     QHash<int, QByteArray> roleNames() const override;
@@ -68,6 +72,8 @@ private Q_SLOTS:
 Q_SIGNALS:
     void rowsChanged();
     void calendarChanged();
+    void memorycalendarChanged();
+    void calendarstorageChanged();
     void filterdtChanged();
 
 private:

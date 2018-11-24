@@ -7,5 +7,6 @@
         <file alias="desktopmain.qml">contents/ui/desktopmain.qml</file>
         <file alias="Main.qml">contents/ui/Main.qml</file>
         <file alias="TodosView.qml">contents/ui/TodosView.qml</file>
+        <file alias="TodoPage.qml">contents/ui/TodoPage.qml</file>
     </qresource>
 </RCC>

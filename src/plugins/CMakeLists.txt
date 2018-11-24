@@ -2,6 +2,7 @@ set(qmlplugin_SRCS
     qmlplugin.cpp
     mobilecalendarconfig.cpp
     todosmodel.cpp
+    localcalendar.cpp
 )
 
 add_library (mobilecalendarqmlplugin SHARED ${qmlplugin_SRCS})

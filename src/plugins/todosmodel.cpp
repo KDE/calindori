@@ -116,6 +116,16 @@ QUrl TodosModel::calendar() const
     return m_cal_url;
 }
 
+MemoryCalendar::Ptr TodosModel::memorycalendar() const
+{
+    return m_calendar;
+}
+
+FileStorage::Ptr TodosModel::calendarstorage() const
+{
+    return m_cal_storage;
+}
+
 QDate TodosModel::filterdt() const
 {
     return m_filterdt;

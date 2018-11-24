@@ -29,7 +29,8 @@ Kirigami.ScrollablePage {
     id: root
     
     property date todoDt
-    
+    property alias calendar: todosModel.calendar
+    property alias todosmodel: cardsListview.model
     title: qsTr("Tasks")
     
     

@@ -92,7 +92,7 @@ Kirigami.ApplicationWindow {
                     iconName: "edit"
                     text: "Add task"
                     onTriggered: {
-                        showPassiveNotification("Add task");
+                        root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} );
                     }
                 }
             ]
@@ -104,6 +104,19 @@ Kirigami.ApplicationWindow {
         id: todosView
     }
 
+    Component {
+        id: todoPage
+        
+        TodoPage {
+            onTaskeditcompleted: {
+                console.log("Closing todo page");
+                root.pageStack.pop(todoPage);
+            }
+        }
+    }
+    
+    
+    
     MobileCalendar.Config {
         id: mobileCalendarConfig;
     }
