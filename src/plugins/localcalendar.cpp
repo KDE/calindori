@@ -50,7 +50,7 @@ QString LocalCalendar::name() const
 void LocalCalendar::setName(QString calendarName)
 {
     if (m_name != calendarName) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
         QString fullPathName = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/" + calendarName; //TODO: Consider changing to GenericDataLocation if calendar should be shared with other apps
         
@@ -94,16 +94,21 @@ void LocalCalendar::setCalendarstorage(FileStorage::Ptr calendarStorage)
     }
 }
 
-void LocalCalendar::addTask(QString summary, QString description, QDate startDate)
+void LocalCalendar::addTask(QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location)
 {
-    qDebug() << "Creating todo" << "summary:" << summary << ", description:" << description << ", startDate:" << startDate.toString();
+    qDebug() << "Creating todo" << "summary:" << summary << ", description:" << description << ", startDate:" << startDate.toString() << ", startHour: " << startHour << " , startMinute: " << startMinute << " , allDayFlg: " << allDayFlg;
     QDateTime now = QDateTime::currentDateTime();
+    QDateTime startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
+//     startDateTime.setTime(QTime(startHour, startMinute, 0, 0));
     
     Todo::Ptr todo(new Todo());
     todo->setUid(summary.left(1) + now.toString("yyyyMMddhhmmsszzz"));
-    todo->setDtStart(QDateTime(startDate));
+    todo->setDtStart(startDateTime);
     todo->setDescription(description);
     todo->setSummary(summary);
+    todo->setAllDay(allDayFlg);
+    todo->setLocation(location);
+
     m_calendar->addTodo(todo);
     bool success = m_cal_storage->save();
     qDebug() << "Storage save: " << success;

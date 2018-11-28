@@ -21,7 +21,6 @@
 #include "mobilecalendarconfig.h"
 #include "localcalendar.h"
 #include "todosmodel.h"
-
 #include <QQmlEngine>
 #include <QtQml/qqml.h>
 

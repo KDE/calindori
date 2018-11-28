@@ -29,19 +29,19 @@ Kirigami.ScrollablePage {
     property date todoDt
     property var calendar
     property alias todosmodel: cardsListview.model
-
+    
     title: qsTr("Tasks")
     
     Kirigami.CardsListView {
         id: cardsListview
-
+        
         model: 
-            MobileCalendar.TodosModel {
-                id: todosModel
-                
-                filterdt: todoDt
-                memorycalendar: root.calendar.memorycalendar
-            }
+        MobileCalendar.TodosModel {
+            id: todosModel
+            
+            filterdt: todoDt
+            memorycalendar: root.calendar.memorycalendar
+        }
         
         delegate: Kirigami.AbstractCard {               
             header: Kirigami.Heading {
@@ -49,9 +49,39 @@ Kirigami.ScrollablePage {
                 level: 2
             }
             
-            contentItem: Controls2.Label {
-                wrapMode: Text.WordWrap
+            contentItem: ColumnLayout {
+                Controls2.Label {
+                    wrapMode: Text.WordWrap
                     text: model.description
+                }
+                
+                RowLayout {
+                    visible: model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: "Start Time: "
+                    }
+                    
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
+                    }
+                } 
+                
+                RowLayout {
+                    visible: model.location != ""
+                    
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: "Location: "
+                    }
+                    
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: model.location
+                    }    
+                }                
             }
         }
     }

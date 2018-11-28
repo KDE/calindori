@@ -27,7 +27,13 @@ import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
 Kirigami.Page {
     id: root
     
-    property date startdt
+    property date startdt;
+    property alias summary: summary.text;
+    property alias description: description.text;
+    property alias startHour: startHourSelector.value;
+    property alias startMinute: startMinuteSelector.value;
+    property alias allDay: allDaySelector.checked;
+    property alias location: location.text;
     property var calendar
     
     signal taskeditcompleted
@@ -38,12 +44,12 @@ Kirigami.Page {
         id: todoCard
         
         anchors.fill: parent
-//         header: Kirigami.Heading {
-//             text: "New Task"
-//         }
-//         
+        //         header: Kirigami.Heading {
+        //             text: "New Task"
+        //         }
+        //         
         contentItem: ColumnLayout {
-
+            
             Controls2.Label {
                 text: startdt.toLocaleDateString(Qt.locale())
             }
@@ -54,14 +60,46 @@ Kirigami.Page {
                 placeholderText: qsTr("Summary")
             }
             
+            RowLayout {
+                Controls2.Label {
+                    text: "Start time"
+                }
+            
+                Controls2.SpinBox {
+                    id: startHourSelector
+                    
+                    from: 0
+                    to: 23
+                }
+                Controls2.SpinBox {
+                    id: startMinuteSelector
+                    
+                    from: 0
+                    to: 59   
+                }
+            }
+            
+            Controls2.CheckBox {
+                    id: allDaySelector
+                    
+                    checked: false
+                    text: qsTr("All day")
+            }
+            
             Controls2.TextArea {
-                id:description
-
+                id: description
+                
                 placeholderText: qsTr("Description")
             }
             
-            RowLayout {
+            Controls2.TextArea {
+                id: location
+                
+                placeholderText: qsTr("Location")
+            }
             
+            RowLayout {
+                
                 Controls2.Button {
                     id: saveBtn
                     
@@ -70,7 +108,7 @@ Kirigami.Page {
                     onClicked: {
                         if(summary.text) {
                             console.log("Saving task");
-                            root.calendar.addTask(summary.text, description.text, root.startdt);      
+                            root.calendar.addTask(root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
                             taskeditcompleted();
                         }
                         else {

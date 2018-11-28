@@ -46,7 +46,7 @@ public:
     void setName(QString calendarName);
     
 public Q_SLOTS:
-    void addTask(QString summary, QString description, QDate startDate);
+    void addTask(QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
     
 Q_SIGNALS:
     void memorycalendarChanged();
