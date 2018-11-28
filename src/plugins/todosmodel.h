@@ -23,16 +23,16 @@
 #include <QSharedPointer>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
+#include "localcalendar.h"
 
 using namespace KCalCore;
 
 class TodosModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QUrl calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
-    Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar NOTIFY memorycalendarChanged )
-    Q_PROPERTY(QSharedPointer<FileStorage> calendarstorage READ calendarstorage NOTIFY calendarstorageChanged) 
+    Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged )
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 public:
     enum Roles {
@@ -54,33 +54,26 @@ public:
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
-    void setCalendar(QUrl canledarUrl);
-    void setFilterdt(QDate filterDate);
-    QUrl calendar() const;
     MemoryCalendar::Ptr memorycalendar() const;
-    FileStorage::Ptr calendarstorage() const;
+    void setMemorycalendar(MemoryCalendar::Ptr calendarPtr);
+
     QDate filterdt() const;
+    void setFilterdt(QDate filterDate);
 
     QHash<int, QByteArray> roleNames() const override;
 
 public Q_SLOTS:
-    void deleteTodo(int row);
-
-private Q_SLOTS:
-    void addTodos(const Todo::List& todos);
+    void reloadTasks();
 
 Q_SIGNALS:
     void rowsChanged();
-    void calendarChanged();
     void memorycalendarChanged();
-    void calendarstorageChanged();
     void filterdtChanged();
 
 private:
+
     Todo::List m_todos;
     MemoryCalendar::Ptr m_calendar;
-    FileStorage::Ptr m_cal_storage;
-    QUrl m_cal_url;
     QDate m_filterdt;
     void loadTasks(QDate taskDt);
 };

@@ -20,12 +20,9 @@
 #include <QDebug>
 TodosModel::TodosModel(QObject* parent)
     : QAbstractListModel(parent), 
-    m_todos(Todo::List()),
-    m_cal_url(QUrl()),
     m_calendar(nullptr),
-    m_cal_storage(nullptr),
-    m_filterdt(QDate())
-
+    m_filterdt(QDate()),
+    m_todos(Todo::List())
 {}
 
 TodosModel::~TodosModel() = default;
@@ -80,50 +77,15 @@ QVariant TodosModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-int TodosModel::rowCount(const QModelIndex& parent) const
-{
-    if(parent.isValid())
-        return 0;
-    return m_todos.count();
-}
-
-
-void TodosModel::addTodos(const Todo::List& todos)
-{
-    qDebug() << "Add Todos (not implemented yet)";
-
-//     if(!todos.isEmpty()) {
-//         beginInsertRows(QModelIndex(), rowCount(), rowCount()+todos.size()-1);
-//         m_todos += todos;
-// 
-//         //TODO: add todos to calendar
-//         //TODO: save storage
-//         endInsertRows();
-//         emit rowsChanged();
-//     }
-}
-
-void TodosModel::deleteTodo(int row)
-{
-
-    qDebug() << "Delete Todo (not implemented yet)";
-//     Todo::Ptr = m_todos[row].data();
-}
-
-
-QUrl TodosModel::calendar() const
-{
-    return m_cal_url;
-}
 
 MemoryCalendar::Ptr TodosModel::memorycalendar() const
 {
     return m_calendar;
 }
 
-FileStorage::Ptr TodosModel::calendarstorage() const
+void TodosModel::setMemorycalendar(MemoryCalendar::Ptr calendarPtr)
 {
-    return m_cal_storage;
+    m_calendar = calendarPtr;
 }
 
 QDate TodosModel::filterdt() const
@@ -137,8 +99,16 @@ void TodosModel::setFilterdt(QDate filterDate)
     m_filterdt = filterDate;
     if(m_calendar != nullptr) {
         loadTasks(m_filterdt);
-    }
-    
+    }    
+}
+
+
+
+int TodosModel::rowCount(const QModelIndex& parent) const
+{
+    if(parent.isValid())
+        return 0;
+    return m_todos.count();
 }
 
 
@@ -149,33 +119,15 @@ void TodosModel::loadTasks(QDate taskDt)
     qDebug() << "Show tasks of " + taskDt.toString();
     m_todos =  m_calendar->rawTodos(taskDt,taskDt);
     endResetModel();
-    emit rowsChanged();
-    emit calendarChanged();
 }
 
-void TodosModel::setCalendar(QUrl calendarUrl)
+void TodosModel::reloadTasks()
 {
-    if(m_cal_url != calendarUrl) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
-        FileStorage::Ptr storage(new FileStorage(calendar));
-        storage->setFileName(calendarUrl.path());
-
-        if(storage->load()) {
-            m_cal_url = calendarUrl; //TODO: create a calendar-url-storage type ?
-            m_calendar = calendar;
-            m_cal_storage = storage;
-            loadTasks(m_filterdt);
-//             beginResetModel();
-//             m_todos.clear();
-//             m_todos =  m_calendar->rawTodos();
-//             endResetModel();
-//             emit rowsChanged();
-//             emit calendarChanged();
-        }
-        else {
-            qDebug() << "Cannot open calendar file " << calendarUrl.toDisplayString() ;
-        }
-    }
+    loadTasks(m_filterdt);
 }
+
+
+
+
 
 

@@ -22,17 +22,15 @@ import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
 import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
-import Qt.labs.platform 1.0 
-
 
 Kirigami.ScrollablePage {
     id: root
     
     property date todoDt
-    property alias calendar: todosModel.calendar
+    property var calendar
     property alias todosmodel: cardsListview.model
+
     title: qsTr("Tasks")
-    
     
     Kirigami.CardsListView {
         id: cardsListview
@@ -42,7 +40,7 @@ Kirigami.ScrollablePage {
                 id: todosModel
                 
                 filterdt: todoDt
-                calendar:  Qt.resolvedUrl( StandardPaths.standardLocations(StandardPaths.DataLocation)[0] + "/localcalendar")
+                memorycalendar: root.calendar.memorycalendar
             }
         
         delegate: Kirigami.AbstractCard {               

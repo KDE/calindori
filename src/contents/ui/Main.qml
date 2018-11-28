@@ -102,23 +102,31 @@ Kirigami.ApplicationWindow {
     
     TodosView {
         id: todosView
+        
+        calendar: localCalendar
     }
 
     Component {
         id: todoPage
         
         TodoPage {
+            calendar: localCalendar
+        
             onTaskeditcompleted: {
                 console.log("Closing todo page");
-                root.pageStack.pop(todoPage);
+                todosView.todosmodel.reloadTasks();
+                root.pageStack.pop(todoPage);                                
             }
         }
     }
     
-    
+    MobileCalendar.LocalCalendar {
+        id: localCalendar
+
+        name: "personal"
+    }
     
     MobileCalendar.Config {
         id: mobileCalendarConfig;
-    }
-    
+    }    
 }
