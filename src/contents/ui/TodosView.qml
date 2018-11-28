@@ -43,11 +43,31 @@ Kirigami.ScrollablePage {
             memorycalendar: root.calendar.memorycalendar
         }
         
-        delegate: Kirigami.AbstractCard {               
+        delegate: Kirigami.Card {               
             header: Kirigami.Heading {
                 text: model.summary
                 level: 2
             }
+            
+            actions: [
+                Kirigami.Action {
+                    text: qsTr("Edit")
+                    icon.name: "editor"
+                    
+                     onTriggered: {
+                         showPassiveNotification("Editing. Coming soon...");
+                     }
+                },
+                Kirigami.Action {
+                    text: qsTr("Delete")
+                    icon.name: "delete"
+                    
+                    onTriggered: {
+                        showPassiveNotification("Delete. Coming soon...");
+                    }
+
+            }
+            ]
             
             contentItem: ColumnLayout {
                 Controls2.Label {

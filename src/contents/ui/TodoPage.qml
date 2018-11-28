@@ -40,7 +40,7 @@ Kirigami.Page {
     
     title: qsTr("Task")
     
-    Kirigami.AbstractCard { 
+    Kirigami.Card { 
         id: todoCard
         
         anchors.fill: parent
