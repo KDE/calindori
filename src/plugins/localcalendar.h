@@ -46,13 +46,13 @@ public:
     void setName(QString calendarName);
     
 public Q_SLOTS:
-    void addTask(QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
+    void addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
+    void deleteTask(QString uid);    
     
 Q_SIGNALS:
     void memorycalendarChanged();
     void calendarstorageChanged();
     void nameChanged();
-    void todoAdded();
     
 private:
     MemoryCalendar::Ptr m_calendar;
