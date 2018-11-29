@@ -28,22 +28,26 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication app(argc, argv);
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("mobilecalendar");
-
+    
     QQmlApplicationEngine engine;
-
-    if (!(QString::fromLatin1(qgetenv("DESKTOP_SESSION")).isEmpty())) {
-        engine.load(QUrl(QStringLiteral("qrc:///desktopmain.qml")));
-    }
-    else {
+    
+    
+    if (qEnvironmentVariableIsSet("QT_QUICK_CONTROLS_MOBILE") &&
+        (QString::fromLatin1(qgetenv("QT_QUICK_CONTROLS_MOBILE")) == QStringLiteral("1") ||
+        QString::fromLatin1(qgetenv("QT_QUICK_CONTROLS_MOBILE")) == QStringLiteral("true")))
+    {
         engine.load(QUrl(QStringLiteral("qrc:///mobilemain.qml")));
     }
-
+    else {
+        engine.load(QUrl(QStringLiteral("qrc:///desktopmain.qml")));
+    }
+    
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
     
     int ret = app.exec();
     return ret;
-
-
+    
+    
 }

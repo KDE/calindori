@@ -70,6 +70,24 @@ Kirigami.ApplicationWindow {
                     
                     onTriggered: monthView.nextMonth()
                 }
+                
+                contextualActions: [
+                        Kirigami.Action {
+                            iconName: "edit"
+                            text: "Show tasks"
+                            onTriggered: {
+                                console.log("View tasks of " + monthView.selectedYear + "-" + monthView.selectedMonth  + "-" + monthView.selectedDay);
+                                root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )
+                            }
+                        },
+                        Kirigami.Action {
+                            iconName: "edit"
+                            text: "Add task"
+                            onTriggered: {
+                                root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} );
+                            }
+                        }
+                    ]
             }
             
             PlayMonthView {
@@ -78,25 +96,7 @@ Kirigami.ApplicationWindow {
                 height: monthPage.height
                 width: monthPage.width
             }
-
-            contextualActions: [
-                Kirigami.Action {
-                    iconName: "edit"
-                    text: "Show tasks"
-                    onTriggered: {
-                        console.log("View tasks of " + monthView.selectedYear + "-" + monthView.selectedMonth  + "-" + monthView.selectedDay);
-                        root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )
-                    }
-                },
-                Kirigami.Action {
-                    iconName: "edit"
-                    text: "Add task"
-                    onTriggered: {
-                        root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} );
-                    }
-                }
-            ]
-            
+          
         }
     }
     
