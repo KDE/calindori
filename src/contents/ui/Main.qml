@@ -104,6 +104,11 @@ Kirigami.ApplicationWindow {
         id: todosView
         
         calendar: localCalendar
+        
+        onEditTask: {
+            console.log(" Editing task " + modelData.uid);
+            root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData });
+        }
     }
 
     Component {
@@ -116,7 +121,7 @@ Kirigami.ApplicationWindow {
                 console.log("Closing todo page");
                 todosView.todosmodel.reloadTasks();
                 root.pageStack.pop(todoPage);                                
-            }
+            }            
         }
     }
     

@@ -28,19 +28,21 @@ Kirigami.Page {
     id: root
     
     property date startdt;
+    property string uid;
     property alias summary: summary.text;
     property alias description: description.text;
     property alias startHour: startHourSelector.value;
     property alias startMinute: startMinuteSelector.value;
     property alias allDay: allDaySelector.checked;
     property alias location: location.text;
-    property var calendar
+    property var calendar;
+    property var todoData;
     
     signal taskeditcompleted
     
     title: qsTr("Task")
     
-    Kirigami.Card { 
+    Kirigami.FormLayout { 
         id: todoCard
         
         anchors.fill: parent
@@ -48,83 +50,96 @@ Kirigami.Page {
         //             text: "New Task"
         //         }
         //         
-        contentItem: ColumnLayout {
+        
+        Controls2.Label {
+            text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
+        }
+        
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+        }
+
+        Controls2.TextField {
+            id: summary
             
-            Controls2.Label {
-                text: startdt.toLocaleDateString(Qt.locale())
-            }
+            Kirigami.FormData.label: qsTr("Summary:")
+            text: todoData ? todoData.summary : ""
+        }
+        
+        Controls2.TextArea {
+            id: description
             
-            Controls2.TextField {
-                id: summary
+            Kirigami.FormData.label: qsTr("Description:")            
+            text: todoData ? todoData.description : ""
+        }
+        
+        RowLayout {
+            Kirigami.FormData.label: qsTr("Start time:")
+            
+            Controls2.SpinBox {
+                id: startHourSelector
                 
-                placeholderText: qsTr("Summary")
+                enabled: !allDaySelector.checked
+                value: allDaySelector.checkedtodoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
+                from: 0
+                to: 23
             }
-            
-            RowLayout {
-                Controls2.Label {
-                    text: "Start time"
-                }
-            
-                Controls2.SpinBox {
-                    id: startHourSelector
-                    
-                    from: 0
-                    to: 23
-                }
-                Controls2.SpinBox {
-                    id: startMinuteSelector
-                    
-                    from: 0
-                    to: 59   
-                }
-            }
-            
-            Controls2.CheckBox {
-                    id: allDaySelector
-                    
-                    checked: false
-                    text: qsTr("All day")
-            }
-            
-            Controls2.TextArea {
-                id: description
+            Controls2.SpinBox {
+                id: startMinuteSelector
                 
-                placeholderText: qsTr("Description")
+                enabled: !allDaySelector.checked
+                value: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0                    
+                from: 0
+                to: 59   
             }
+        }
+               
+        Controls2.CheckBox {
+            id: allDaySelector
             
-            Controls2.TextArea {
-                id: location
-                
-                placeholderText: qsTr("Location")
-            }
+            checked: todoData ? todoData.allday: false
+            text: qsTr("All day")
+        }
+        
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+        }        
+        
+        Controls2.TextField {
+            id: location
             
-            RowLayout {
+            Kirigami.FormData.label: qsTr("Location:")
+            text: todoData ? todoData.location : ""
+        }
+        
+        RowLayout {
+            
+            Controls2.Button {
+                id: saveBtn
                 
-                Controls2.Button {
-                    id: saveBtn
-                    
-                    text: "Save"
-                    
-                    onClicked: {
-                        if(summary.text) {
-                            console.log("Saving task");
-                            root.calendar.addTask(root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
-                            taskeditcompleted();
-                        }
-                        else {
-                            showPassiveNotification("Summary should not be empty");
-                        }                                                
-                    }
-                }
+                text: qsTr("Save")
+                icon.name : "document-save"
                 
-                Controls2.Button {
-                    id: cancelBtn
-                    
-                    text: "Cancel"
-                    
-                    onClicked: {
+                onClicked: {
+                    if(summary.text) {
+                        console.log("Saving task");
+                        root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
                         taskeditcompleted();
                     }
+                    else {
+                        showPassiveNotification("Summary should not be empty");
+                    }                                                
+                }
+            }
+            
+            Controls2.Button {
+                id: cancelBtn
+                
+                text: qsTr("Cancel")
+                icon.name : "dialog-cancel"
+                
+                onClicked: {
+                    taskeditcompleted();
                 }
             }
         }
