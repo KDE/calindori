@@ -51,29 +51,29 @@ Kirigami.ScrollablePage {
             }
             
             actions: [
-                Kirigami.Action {
-                    text: qsTr("Edit")
-                    icon.name: "editor"
-                    
-                    onTriggered: {
-                        //                          showPassiveNotification("Editing...");
-                        root.editTask(model);
-                    }
-                },
-                Kirigami.Action {
-                    text: qsTr("Delete")
-                    icon.name: "delete"
-                    
-                    onTriggered: {
-                        root.calendar.deleteTask(model.uid);
-                        root.todosmodel.reloadTasks();
-                    }
-                    
+            Kirigami.Action {
+                text: qsTr("Delete")
+                icon.name: "delete"
+                
+                onTriggered: {
+                    root.calendar.deleteTask(model.uid);
+                    root.todosmodel.reloadTasks();
+                }                    
+            },
+            
+            Kirigami.Action {
+                text: qsTr("Edit")
+                icon.name: "editor"
+                
+                onTriggered: {
+                    root.editTask(model);
                 }
+            }
+            
             ]
             
             contentItem: ColumnLayout {
-
+                
                 Controls2.Label {
                     wrapMode: Text.WordWrap
                     text: model.description
@@ -82,11 +82,6 @@ Kirigami.ScrollablePage {
                 RowLayout {
                     visible: model.dtstart.toLocaleTimeString(Qt.locale()) != ""
                     
-                    //                     Controls2.Label {
-                    //                         wrapMode: Text.WordWrap
-                    //                         text: "Start Time: "
-                    //                     }
-                    //                     
                     Controls2.Label {
                         wrapMode: Text.WordWrap
                         text: model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
@@ -95,11 +90,6 @@ Kirigami.ScrollablePage {
                 
                 RowLayout {
                     visible: model.location != ""
-                    
-                    //                     Controls2.Label {
-                    //                         wrapMode: Text.WordWrap
-                    //                         text: "Location: "
-                    //                     }
                     
                     Controls2.Label {
                         wrapMode: Text.WordWrap

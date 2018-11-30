@@ -73,7 +73,7 @@ Kirigami.ApplicationWindow {
                 
                 contextualActions: [
                         Kirigami.Action {
-                            iconName: "edit"
+                            iconName: "view-calendar-tasks"
                             text: "Show tasks"
                             onTriggered: {
                                 console.log("View tasks of " + monthView.selectedYear + "-" + monthView.selectedMonth  + "-" + monthView.selectedDay);
@@ -81,7 +81,7 @@ Kirigami.ApplicationWindow {
                             }
                         },
                         Kirigami.Action {
-                            iconName: "edit"
+                            iconName: "resource-calendar-insert"
                             text: "Add task"
                             onTriggered: {
                                 root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} );

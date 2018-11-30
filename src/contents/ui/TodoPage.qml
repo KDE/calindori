@@ -42,106 +42,137 @@ Kirigami.Page {
     
     title: qsTr("Task")
     
-    Kirigami.FormLayout { 
-        id: todoCard
+    ColumnLayout {
         
-        anchors.fill: parent
-        //         header: Kirigami.Heading {
-        //             text: "New Task"
-        //         }
-        //         
+        anchors.centerIn: parent
         
-        Controls2.Label {
-            text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
+        Kirigami.FormLayout { 
+            id: todoCard
+            
+            //         header: Kirigami.Heading {
+            //             text: "New Task"
+            //         }
+            //         
+            
+            Controls2.Label {
+                text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
+            }
+            
+            Kirigami.Separator {
+                Kirigami.FormData.isSection: true
+            }
+            
+            Controls2.TextField {
+                id: summary
+                
+                Layout.fillWidth: true
+                Kirigami.FormData.label: qsTr("Summary:")
+                text: todoData ? todoData.summary : ""
+                
+            }       
+            
+            RowLayout {
+                Kirigami.FormData.label: qsTr("Start time:")
+                
+                Controls2.SpinBox {
+                    id: startHourSelector
+                    
+                    enabled: !allDaySelector.checked
+                    value: allDaySelector.checkedtodoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
+                    from: 0
+                    to: 23
+                }
+                Controls2.SpinBox {
+                    id: startMinuteSelector
+                    
+                    enabled: !allDaySelector.checked
+                    value: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0                    
+                    from: 0
+                    to: 59   
+                }
+            }
+            
+            Controls2.CheckBox {
+                id: allDaySelector
+                
+                checked: todoData ? todoData.allday: false
+                text: qsTr("All day")
+            }
+            
+            Kirigami.Separator {
+                Kirigami.FormData.isSection: true
+            }        
+            
+            Controls2.TextField {
+                id: location
+                
+                Layout.fillWidth: true
+                Kirigami.FormData.label: qsTr("Location:")
+                text: todoData ? todoData.location : ""
+            }
+            
         }
         
         Kirigami.Separator {
-            Kirigami.FormData.isSection: true
-        }
-
-        Controls2.TextField {
-            id: summary
-            
-            Kirigami.FormData.label: qsTr("Summary:")
-            text: todoData ? todoData.summary : ""
-        }
+            Layout.fillWidth: true
+        }      
+        
         
         Controls2.TextArea {
             id: description
             
-            Kirigami.FormData.label: qsTr("Description:")            
+            Layout.fillWidth: true
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 4
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 4
+            wrapMode: Controls2.TextArea.WordWrap            
             text: todoData ? todoData.description : ""
-        }
-        
-        RowLayout {
-            Kirigami.FormData.label: qsTr("Start time:")
-            
-            Controls2.SpinBox {
-                id: startHourSelector
-                
-                enabled: !allDaySelector.checked
-                value: allDaySelector.checkedtodoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
-                from: 0
-                to: 23
-            }
-            Controls2.SpinBox {
-                id: startMinuteSelector
-                
-                enabled: !allDaySelector.checked
-                value: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0                    
-                from: 0
-                to: 59   
-            }
-        }
-               
-        Controls2.CheckBox {
-            id: allDaySelector
-            
-            checked: todoData ? todoData.allday: false
-            text: qsTr("All day")
-        }
-        
-        Kirigami.Separator {
-            Kirigami.FormData.isSection: true
+            placeholderText:  qsTr("Description")        
         }        
+    }
+    
+    actions {
         
-        Controls2.TextField {
-            id: location
+        left: Kirigami.Action {
+            id: cancelAction
             
-            Kirigami.FormData.label: qsTr("Location:")
-            text: todoData ? todoData.location : ""
+            text: qsTr("Cancel")
+            icon.name : "dialog-cancel"
+            
+            onTriggered: {
+                taskeditcompleted();
+            }
         }
         
-        RowLayout {
+        
+        main: Kirigami.Action {
+            id: info
             
-            Controls2.Button {
-                id: saveBtn
-                
-                text: qsTr("Save")
-                icon.name : "document-save"
-                
-                onClicked: {
-                    if(summary.text) {
-                        console.log("Saving task");
-                        root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
-                        taskeditcompleted();
-                    }
-                    else {
-                        showPassiveNotification("Summary should not be empty");
-                    }                                                
-                }
+            text: qStr("Info")
+            icon.name : "documentinfo"
+            
+            onTriggered: {
+                showPassiveNotification("Please save or cancel this task");
             }
+        }
+        
+        right: Kirigami.Action {
+            id: saveAction
             
-            Controls2.Button {
-                id: cancelBtn
-                
-                text: qsTr("Cancel")
-                icon.name : "dialog-cancel"
-                
-                onClicked: {
+            text: qsTr("Save")            
+            icon.name : "dialog-ok"
+            
+            onTriggered: {
+                if(summary.text) {
+                    console.log("Saving task");
+                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
                     taskeditcompleted();
                 }
+                else {
+                    showPassiveNotification("Summary should not be empty");
+                }                                                
             }
-        }
+        }        
+
     }
+    
 }
