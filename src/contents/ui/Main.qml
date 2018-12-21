@@ -39,19 +39,20 @@ Kirigami.ApplicationWindow {
     
     pageStack.initialPage: [calendarDashboardComponent]
     
+    signal todoCompleted;               
     
     Component {
         id: calendarDashboardComponent
                 
         Kirigami.Page {
-            id: monthPage
         
             property alias monthName: monthView.monthName
             property alias year: monthView.year
-
-            anchors.fill: parent
+            
+            //anchors.fill: parent
             title: monthView.monthName + " " + monthView.year
             
+
             actions {                
                 left: Kirigami.Action {
                     iconName: "go-previous"
@@ -92,9 +93,25 @@ Kirigami.ApplicationWindow {
             
             PlayMonthView {
                 id: monthView
+
+                anchors.centerIn: parent
+
+                todosCount: function (dayNumber, monthNumber, yearNumber) {
+                    var date = new Date(yearNumber, monthNumber-1, dayNumber);
+                    var todos = localCalendar.todosCount(date);
+                    //DEBUG console.log(date.toString() + " has " + todos + " todos");
+                    return localCalendar.todosCount(date);
+                }
                 
-                height: monthPage.height
-                width: monthPage.width
+                Connections {
+                    target: root
+                    
+                    onTodoCompleted: { 
+                        console.log("daysModel update");
+                        monthView.daysModel.update();
+                    }
+                }
+                
             }
           
         }
@@ -116,10 +133,11 @@ Kirigami.ApplicationWindow {
         
         TodoPage {
             calendar: localCalendar
-        
+                   
             onTaskeditcompleted: {
                 console.log("Closing todo page");
                 todosView.todosmodel.reloadTasks();
+                root.todoCompleted();
                 root.pageStack.pop(todoPage);                                
             }            
         }

@@ -34,18 +34,25 @@ Item {
     property int selectedYear: currentDate.getFullYear()
     property int selectedMonth: currentDate.getMonth() + 1
     property int selectedDay: currentDate.getDate()
+    property string selectedDayName: new Date().toLocaleDateString(Qt.locale(), "dddd");
+    property var todosCount: function (dayNumber, monthNumber, yearNumber) {
+        return 0;
+    }    
+    property int selectedDayTodosCount: todosCount(selectedDay, selectedMonth,selectedYear)
+    property alias daysModel: plasmaCalendar.daysModel
     
     signal nextMonth
     signal previousMonth
     signal goToday
-    signal dayClicked(int index, var model, var item)
+    signal populateDay(int index, var model, var item)
     
-    
-    onDayClicked: {
+    onPopulateDay: {
         root.selectedYear = model.yearNumber;
         root.selectedMonth = model.monthNumber;
         root.selectedDay = model.dayNumber;
-         console.log("Selected date: "+  model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
+        root.selectedDayName = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber).toLocaleDateString(Qt.locale(), "dddd");
+        
+        //DEBUG console.log("Selected date: " + " " +  model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
     }
     
     onNextMonth: {
@@ -74,7 +81,41 @@ Item {
     
     
     ColumnLayout {
-        spacing: 0
+        anchors.centerIn: parent
+
+        spacing:  Kirigami.Units.gridUnit / 4
+        
+        RowLayout {
+            id: selectedDayHeading
+            
+            spacing:  Kirigami.Units.gridUnit / 2
+            
+            Controls2.Label {              
+                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 4
+                text: root.selectedDay
+                opacity: 0.6
+            }
+            
+            ColumnLayout {
+
+                spacing:  Kirigami.Units.gridUnit / 6
+
+                Controls2.Label {                   
+                    text: root.selectedDayName
+                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                }
+            
+                Controls2.Label {                    
+                    text: root.monthName + " " + root.selectedYear
+                }
+            }
+        }
+        
+        Controls2.Label {
+            text: (root.selectedDayTodosCount) ? i18np("%1 task for today", "%1 tasks for today",root.selectedDayTodosCount) : ""
+            opacity: 0.6
+            bottomPadding: Kirigami.Units.gridUnit / 2
+        }
         
         /**
          * Header of the days' calendar grid
@@ -99,6 +140,8 @@ Item {
             rows: root.weeks
             
             Repeater {
+                id: dayRepeater
+                
                 model: plasmaCalendar.daysModel
                 delegate: MonthDayDelegate {
                             id: monthDayDelegate    
@@ -108,12 +151,14 @@ Item {
                             selectedYear: root.selectedYear
                             selectedMonth: root.selectedMonth
                             selectedDay: root.selectedDay
+                            todosCount: root.todosCount(model.dayNumber, model.monthNumber, model.yearNumber)
                             
-                            onDayClicked: root.dayClicked(index, model, monthDayDelegate)
+                            onDayClicked: root.populateDay(index, model, monthDayDelegate)
                 }
                      
             }
         }
+        
     }
 
     /**

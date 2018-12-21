@@ -147,7 +147,7 @@ Kirigami.Page {
         main: Kirigami.Action {
             id: info
             
-            text: qStr("Info")
+            text: qsTr("Info")
             icon.name : "documentinfo"
             
             onTriggered: {

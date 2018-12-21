@@ -131,12 +131,16 @@ void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, Q
     qDebug() << "Todo has been saved"; 
 }
 
-
-
 void LocalCalendar::deleteTask(QString uid) {
     qDebug() << "Deleting task: " << uid;
     Todo::Ptr todo = m_calendar->todo(uid);
     m_calendar->deleteTodo(todo);
     bool success = m_cal_storage->save();
     qDebug() << "Task deleted? " << success;
+}
+
+int LocalCalendar::todosCount(const QDate &date) const {
+    Todo::List todoList = m_calendar->rawTodos(date,date);
+    //DEBUG qDebug() << todoList.size() << " todos found in " << date.toString();
+    return todoList.size();
 }
