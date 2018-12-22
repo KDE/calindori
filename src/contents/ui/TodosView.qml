@@ -31,6 +31,7 @@ Kirigami.ScrollablePage {
     property alias todosmodel: cardsListview.model
     
     signal editTask(var modelData)
+    signal taskDeleted
     
     title: qsTr("Tasks")
     
@@ -57,7 +58,7 @@ Kirigami.ScrollablePage {
                 
                 onTriggered: {
                     root.calendar.deleteTask(model.uid);
-                    root.todosmodel.reloadTasks();
+                    taskDeleted();
                 }                    
             },
             
