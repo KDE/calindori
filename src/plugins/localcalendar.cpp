@@ -52,7 +52,7 @@ void LocalCalendar::setName(QString calendarName)
     if (m_name != calendarName) {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
-        QString fullPathName = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + calendarName + "_mobile_calendar" ; 
+        QString fullPathName = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + calendarName + "_local.ical" ; 
         
         QFile calendarFile(fullPathName);
         storage->setFileName(fullPathName);
