@@ -31,7 +31,7 @@ Item {
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
     property alias monthName: plasmaCalendar.displayedDateMonthName
     property alias year: plasmaCalendar.year
-    property int selectedYear: currentDate.getFullYear()
+    property int selectedYear: currentDate.getFullYear() //TODO: Prevent multiple properties, a single date should be OK
     property int selectedMonth: currentDate.getMonth() + 1
     property int selectedDay: currentDate.getDate()
     property string selectedDayName: new Date().toLocaleDateString(Qt.locale(), "dddd");
