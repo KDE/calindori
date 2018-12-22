@@ -52,25 +52,22 @@ Kirigami.ScrollablePage {
             }
             
             actions: [
-            Kirigami.Action {
-                text: qsTr("Delete")
-                icon.name: "delete"
+                Kirigami.Action {
+                    text: qsTr("Delete")
+                    icon.name: "delete"
+                    
+                    onTriggered: {
+                        root.calendar.deleteTask(model.uid);
+                        taskDeleted();
+                    }                    
+                },
                 
-                onTriggered: {
-                    root.calendar.deleteTask(model.uid);
-                    taskDeleted();
-                }                    
-            },
-            
-            Kirigami.Action {
-                text: qsTr("Edit")
-                icon.name: "editor"
-                
-                onTriggered: {
-                    root.editTask(model);
-                }
-            }
-            
+                Kirigami.Action {
+                    text: qsTr("Edit")
+                    icon.name: "editor"
+                    
+                    onTriggered: root.editTask(model)
+                }            
             ]
             
             contentItem: ColumnLayout {
