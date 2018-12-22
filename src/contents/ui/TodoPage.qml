@@ -49,11 +49,6 @@ Kirigami.Page {
         Kirigami.FormLayout { 
             id: todoCard
             
-            //         header: Kirigami.Heading {
-            //             text: "New Task"
-            //         }
-            //         
-            
             Controls2.Label {
                 text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
             }
