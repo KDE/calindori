@@ -29,60 +29,25 @@ Item {
     property int weeks: 6
     property date currentDate: new Date()
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
-    property alias monthName: plasmaCalendar.displayedDateMonthName
-    property alias year: plasmaCalendar.year
-    property int selectedYear: currentDate.getFullYear() //TODO: Prevent multiple properties, a single date should be OK
-    property int selectedMonth: currentDate.getMonth() + 1
-    property int selectedDay: currentDate.getDate()
-    property string selectedDayName: new Date().toLocaleDateString(Qt.locale(), "dddd");
-    property var todosCount: function (dayNumber, monthNumber, yearNumber) {
+    property var currentMonthName
+    property var currentYear
+    property date selectedDate: new Date()
+    property int selectedDayTodosCount: 0
+    /**
+     * A model that provides:
+     * 
+     * 1. dayNumber
+     * 2. monthNumber
+     * 3. yearNumber
+     */
+    property var daysModel
+    property var todosCount: function (todosDate) {
         return 0;
-    }    
-    property int selectedDayTodosCount: todosCount(selectedDay, selectedMonth,selectedYear)
-    property alias daysModel: plasmaCalendar.daysModel
-    
-    signal nextMonth
-    signal previousMonth
-    signal goToday
-    signal populateDay(int index, var model, var item)
-    
-    onPopulateDay: {
-        root.selectedYear = model.yearNumber;
-        root.selectedMonth = model.monthNumber;
-        root.selectedDay = model.dayNumber;
-        root.selectedDayName = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber).toLocaleDateString(Qt.locale(), "dddd");
-        
-        //DEBUG console.log("Selected date: " + " " +  model.yearNumber + model.monthNumber + model.dayNumber + " clicked");
-    }
-    
-    onNextMonth: {
-        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
-    }
-    
-    onPreviousMonth: {
-        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() -1));
-    }
-    
-    onGoToday: {
-        plasmaCalendar.displayedDate = root.currentDate;        
-    }
-    
-    // HACK: Added only as a temporary model provider, to be replaced with a real model provider    
-    CalendarBackend {
-        id: plasmaCalendar
-        
-        property int displayedDateMonth: Qt.formatDate(plasmaCalendar.displayedDate,"MM")
-        property string displayedDateMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(displayedDateMonth-1) 
-        
-        days: root.days
-        weeks: root.weeks
-        today: root.currentDate
-    }
-    
+    }        
     
     ColumnLayout {
         anchors.centerIn: parent
-
+        
         spacing:  Kirigami.Units.gridUnit / 4
         
         RowLayout {
@@ -92,21 +57,21 @@ Item {
             
             Controls2.Label {              
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 4
-                text: root.selectedDay
+                text: root.selectedDate.getDate()
                 opacity: 0.6
             }
             
             ColumnLayout {
-
+                
                 spacing:  Kirigami.Units.gridUnit / 6
-
+                
                 Controls2.Label {                   
-                    text: root.selectedDayName
+                    text: root.selectedDate.toLocaleDateString(Qt.locale(), "dddd");
                     font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
                 }
-            
+                
                 Controls2.Label {                    
-                    text: root.monthName + " " + root.selectedYear
+                    text: root.currentMonthName + " " + root.selectedDate.getFullYear()
                 }
             }
         }
@@ -142,25 +107,23 @@ Item {
             Repeater {
                 id: dayRepeater
                 
-                model: plasmaCalendar.daysModel
+                model: root.daysModel
                 delegate: MonthDayDelegate {
-                            id: monthDayDelegate    
-                            
-                            currentDate: root.currentDate
-                            delegateWidth: root.dayRectWidth
-                            selectedYear: root.selectedYear
-                            selectedMonth: root.selectedMonth
-                            selectedDay: root.selectedDay
-                            todosCount: root.todosCount(model.dayNumber, model.monthNumber, model.yearNumber)
-                            
-                            onDayClicked: root.populateDay(index, model, monthDayDelegate)
-                }
-                     
+                    id: monthDayDelegate    
+                    
+                    currentDate: root.currentDate
+                    delegateWidth: root.dayRectWidth
+                    selectedYear: root.selectedDate.getFullYear()
+                    selectedMonth: root.selectedDate.getMonth() + 1
+                    selectedDay: root.selectedDate.getDate()
+                    todosCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
+                    
+                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)                    
+                }                
             }
-        }
-        
+        }        
     }
-
+    
     /**
      * Week Day Delegate
      * 
@@ -174,11 +137,11 @@ Item {
             height: width
             color: Kirigami.Theme.disabledTextColor
             opacity: 0.8
-        
+            
             Controls2.Label {                
                 anchors.centerIn: parent
                 color: Kirigami.Theme.textColor
-                text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((plasmaCalendar.firstDayOfWeek + model.index) % root.days), Locale.ShortFormat) 
+                text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index) % root.days), Locale.ShortFormat) 
             }            
         }
     }

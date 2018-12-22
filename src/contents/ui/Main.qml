@@ -47,11 +47,8 @@ Kirigami.ApplicationWindow {
         id: calendarDashboardComponent
                 
         Kirigami.Page {
-        
-            property alias monthName: monthView.monthName
-            property alias year: monthView.year
-            
-            title: monthView.monthName + " " + monthView.year
+                    
+            title: monthView.currentMonthName + " " + monthView.currentYear
 
             actions {                
                 left: Kirigami.Action {
@@ -77,28 +74,27 @@ Kirigami.ApplicationWindow {
                             iconName: "view-calendar-tasks"
                             text: "Show tasks"
                     
-                            onTriggered: root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )                            
+                            onTriggered: root.pageStack.push(todosView, { todoDt: monthView.selectedDate } )                            
                         },
                         Kirigami.Action {
                             iconName: "resource-calendar-insert"
                             text: "Add task"
                             
-                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} )                            
+                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: monthView.selectedDate} )                            
                         }
                     ]
             }
             
-            PlayMonthView {
+            MonthGrid {
                 id: monthView
 
                 anchors.centerIn: parent
 
-                todosCount: function (dayNumber, monthNumber, yearNumber) {
-                    var date = new Date(yearNumber, monthNumber-1, dayNumber);
-                    var todos = localCalendar.todosCount(date);
-                    //DEBUG console.log(date.toString() + " has " + todos + " todos");
+                todosCount: function (todosDate) {
+                     var todos = localCalendar.todosCount(todosDate);
+                    console.log(todosDate.toString() + " has " + todos + " todos");
 
-                    return localCalendar.todosCount(date);
+                    return localCalendar.todosCount(todosDate);
                 }
                 
                 Connections {
