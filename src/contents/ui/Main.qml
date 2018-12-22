@@ -31,15 +31,17 @@ Kirigami.ApplicationWindow {
         title: "Mobile Calendar"       
         contentItem.implicitWidth: Math.min (Kirigami.Units.gridUnit * 15, root.width * 0.8)
         
-        topContent: Column {
-            
+        topContent: Column {            
             spacing: Kirigami.Units.gridUnit * 2
         }
     }
     
     pageStack.initialPage: [calendarDashboardComponent]
     
-    signal todoCompleted;               
+    /**
+     * To be emitted when data displayed should be refreshed
+    */
+    signal refreshNeeded;
     
     Component {
         id: calendarDashboardComponent
@@ -49,9 +51,7 @@ Kirigami.ApplicationWindow {
             property alias monthName: monthView.monthName
             property alias year: monthView.year
             
-            //anchors.fill: parent
             title: monthView.monthName + " " + monthView.year
-            
 
             actions {                
                 left: Kirigami.Action {
@@ -76,17 +76,14 @@ Kirigami.ApplicationWindow {
                         Kirigami.Action {
                             iconName: "view-calendar-tasks"
                             text: "Show tasks"
-                            onTriggered: {
-                                console.log("View tasks of " + monthView.selectedYear + "-" + monthView.selectedMonth  + "-" + monthView.selectedDay);
-                                root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )
-                            }
+                    
+                            onTriggered: root.pageStack.push(todosView, { todoDt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay) } )                            
                         },
                         Kirigami.Action {
                             iconName: "resource-calendar-insert"
                             text: "Add task"
-                            onTriggered: {
-                                root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} );
-                            }
+                            
+                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: new Date(monthView.selectedYear, monthView.selectedMonth -1, monthView.selectedDay)} )                            
                         }
                     ]
             }
@@ -100,16 +97,14 @@ Kirigami.ApplicationWindow {
                     var date = new Date(yearNumber, monthNumber-1, dayNumber);
                     var todos = localCalendar.todosCount(date);
                     //DEBUG console.log(date.toString() + " has " + todos + " todos");
+
                     return localCalendar.todosCount(date);
                 }
                 
                 Connections {
                     target: root
                     
-                    onTodoCompleted: { 
-                        console.log("daysModel update");
-                        monthView.daysModel.update();
-                    }
+                    onRefreshNeeded: monthView.daysModel.update()
                 }
                 
             }
@@ -122,9 +117,14 @@ Kirigami.ApplicationWindow {
         
         calendar: localCalendar
         
-        onEditTask: {
-            console.log(" Editing task " + modelData.uid);
-            root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData });
+        onEditTask: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
+        
+        onTaskDeleted: root.refreshNeeded()
+        
+        Connections {
+            target: root
+            
+            onRefreshNeeded: todosView.todosmodel.reloadTasks()
         }
     }
 
@@ -136,8 +136,7 @@ Kirigami.ApplicationWindow {
                    
             onTaskeditcompleted: {
                 console.log("Closing todo page");
-                todosView.todosmodel.reloadTasks();
-                root.todoCompleted();
+                root.refreshNeeded();
                 root.pageStack.pop(todoPage);                                
             }            
         }
