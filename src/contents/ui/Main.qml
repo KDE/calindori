@@ -104,7 +104,10 @@ Kirigami.ApplicationWindow {
                 Connections {
                     target: root
                     
-                    onRefreshNeeded: monthView.daysModel.update()
+                    onRefreshNeeded: {
+                        monthView.daysModel.update();
+                        monthView.selectedDayTodosCount = monthView.todosCount(monthView.selectedDay, monthView.selectedMonth,monthView.selectedYear);
+                    }
                 }
                 
             }
