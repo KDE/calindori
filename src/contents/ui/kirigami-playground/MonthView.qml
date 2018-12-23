@@ -50,36 +50,11 @@ Item {
         
         spacing:  Kirigami.Units.gridUnit / 4
         
-        RowLayout {
-            id: selectedDayHeading
+        CalendarHeader {
+            id: calendarHeader
             
-            spacing:  Kirigami.Units.gridUnit / 2
-            
-            Controls2.Label {              
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 4
-                text: root.selectedDate.getDate()
-                opacity: 0.6
-            }
-            
-            ColumnLayout {
-                
-                spacing:  Kirigami.Units.gridUnit / 6
-                
-                Controls2.Label {                   
-                    text: root.selectedDate.toLocaleDateString(Qt.locale(), "dddd");
-                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                }
-                
-                Controls2.Label {                    
-                    text: root.currentMonthName + " " + root.selectedDate.getFullYear()
-                }
-            }
-        }
-        
-        Controls2.Label {
-            text: (root.selectedDayTodosCount) ? i18np("%1 task for today", "%1 tasks for today",root.selectedDayTodosCount) : ""
-            opacity: 0.6
-            bottomPadding: Kirigami.Units.gridUnit / 2
+            headerDate: root.selectedDate
+            todosCount: root.selectedDayTodosCount
         }
         
         /**
@@ -108,8 +83,8 @@ Item {
                 id: dayRepeater
                 
                 model: root.daysModel
-                delegate: MonthDayDelegate {
-                    id: monthDayDelegate    
+                delegate: DayDelegate {
+                    id: dayDelegate    
                     
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth

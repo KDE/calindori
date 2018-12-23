@@ -2,12 +2,13 @@
     <qresource prefix="/">
         <file alias="CalendarBackend.qml">contents/ui/backends/CalendarBackend.qml</file>
         <file alias="MonthView.qml">contents/ui/kirigami-playground/MonthView.qml</file>
-        <file alias="MonthDayDelegate.qml">contents/ui/kirigami-playground/MonthDayDelegate.qml</file>
+        <file alias="DayDelegate.qml">contents/ui/kirigami-playground/DayDelegate.qml</file>
         <file alias="mobilemain.qml">contents/ui/mobilemain.qml</file>
         <file alias="desktopmain.qml">contents/ui/desktopmain.qml</file>
         <file alias="Main.qml">contents/ui/Main.qml</file>
         <file alias="TodosView.qml">contents/ui/TodosView.qml</file>
         <file alias="TodoPage.qml">contents/ui/TodoPage.qml</file>
         <file alias="MonthGrid.qml">contents/ui/MonthGrid.qml</file>
+        <file alias="CalendarHeader.qml">contents/ui/kirigami-playground/CalendarHeader.qml</file>        
     </qresource>
 </RCC>
