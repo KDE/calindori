@@ -38,7 +38,7 @@ MonthView {
     
     onRefresh: {
         daysModel.update();
-        //root.selectedDayTodosCount = todosCount(selectedDate);        
+        reloadSelectedDate();
     }
     
     onNextMonth: {

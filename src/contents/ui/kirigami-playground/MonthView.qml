@@ -45,7 +45,13 @@ Item {
         return 0;
     }        
     property bool showHeader: false
+
+    function reloadSelectedDate() {
+        root.selectedDayTodosCount = root.todosCount(root.selectedDate)
+    }
     
+    onSelectedDateChanged: reloadSelectedDate()
+
     ColumnLayout {
         anchors.centerIn: parent
         
@@ -55,7 +61,7 @@ Item {
             id: calendarHeader
             
             headerDate: root.selectedDate
-            todosCount: root.selectedDayTodosCount
+            headerTodosCount: root.selectedDayTodosCount
             visible: root.showHeader
         }
         

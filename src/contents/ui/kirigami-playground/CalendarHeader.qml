@@ -26,8 +26,7 @@ ColumnLayout {
     id: root
     
     property date headerDate
-    property int todosCount
-    
+    property int headerTodosCount
     RowLayout {
         id: selectedDayHeading
         
@@ -55,8 +54,9 @@ ColumnLayout {
     }
     
     Controls2.Label {
-        text: (root.todosCount) ? i18np("%1 task for today", "%1 tasks for today",root.todosCount) : ""
+        text: (root.headerTodosCount > 0) ? i18np("%1 task for today", "%1 tasks for today",root.headerTodosCount) : ""
         opacity: 0.6
         bottomPadding: Kirigami.Units.gridUnit / 2
     }
+    
 }
