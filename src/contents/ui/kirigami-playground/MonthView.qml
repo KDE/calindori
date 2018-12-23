@@ -60,6 +60,7 @@ Item {
         CalendarHeader {
             id: calendarHeader
             
+            Layout.bottomMargin: Kirigami.Units.gridUnit / 2
             headerDate: root.selectedDate
             headerTodosCount: root.selectedDayTodosCount
             visible: root.showHeader
