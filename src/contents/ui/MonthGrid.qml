@@ -28,12 +28,18 @@ MonthView {
     signal nextMonth
     signal previousMonth
     signal goToday
+    signal refresh
     
     currentMonthName: plasmaCalendar.displayedDateMonthName
     currentYear: plasmaCalendar.year
     selectedDayTodosCount: todosCount(selectedDate)      
     daysModel: plasmaCalendar.daysModel
     showHeader: true
+    
+    onRefresh: {
+        daysModel.update();
+        //root.selectedDayTodosCount = todosCount(selectedDate);        
+    }
     
     onNextMonth: {
         plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));

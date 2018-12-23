@@ -100,7 +100,7 @@ Kirigami.ApplicationWindow {
                 Connections {
                     target: root
                     
-                    onRefreshNeeded: monthGrid.daysModel.update()
+                    onRefreshNeeded: monthGrid.refresh()
                 }
                 
             }

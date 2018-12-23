@@ -44,12 +44,12 @@ ColumnLayout {
             spacing:  Kirigami.Units.gridUnit / 6
             
             Controls2.Label {                   
-                text: root.headerDate.toLocaleDateString(Qt.locale(), "dddd");
+                text: root.headerDate.toLocaleDateString(Qt.locale(), "dddd")
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
             }
             
             Controls2.Label {                    
-                text: root.currentMonthName + " " + root.headerDate.getFullYear()
+                text: root.headerDate.toLocaleDateString(Qt.locale(), "MMMM") + " " + root.headerDate.getFullYear()
             }
         }
     }
