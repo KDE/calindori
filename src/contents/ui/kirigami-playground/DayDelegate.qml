@@ -38,10 +38,8 @@ Rectangle {
     
     property date currentDate
     property int delegateWidth
-    property int selectedYear
-    property int selectedMonth
-    property int selectedDay
-    property bool highlight: (model.yearNumber == selectedYear)  &&  (model.monthNumber == selectedMonth) &&  (model.dayNumber == selectedDay)
+    property date selectedDate
+    property bool highlight: (model.yearNumber == selectedDate.getFullYear())  &&  (model.monthNumber == selectedDate.getMonth() + 1) &&  (model.dayNumber == root.selectedDate.getDate())
     property int todosCount
     
     signal dayClicked

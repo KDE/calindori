@@ -97,9 +97,7 @@ Item {
                     
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth
-                    selectedYear: root.selectedDate.getFullYear()
-                    selectedMonth: root.selectedDate.getMonth() + 1
-                    selectedDay: root.selectedDate.getDate()
+                    selectedDate: root.selectedDate
                     todosCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
                     
                     onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)                    
