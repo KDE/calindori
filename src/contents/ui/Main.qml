@@ -48,25 +48,25 @@ Kirigami.ApplicationWindow {
                 
         Kirigami.Page {
                     
-            title: monthView.currentMonthName + " " + monthView.currentYear
+            title: monthGrid.currentMonthName + " " + monthGrid.currentYear
 
             actions {                
                 left: Kirigami.Action {
                     iconName: "go-previous"
                     
-                    onTriggered: monthView.previousMonth()
+                    onTriggered: monthGrid.previousMonth()
                 }
                 
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
                     
-                    onTriggered: monthView.goToday()
+                    onTriggered: monthGrid.goToday()
                 }
                 
                 right: Kirigami.Action {
                     iconName: "go-next"
                     
-                    onTriggered: monthView.nextMonth()
+                    onTriggered: monthGrid.nextMonth()
                 }
                 
                 contextualActions: [
@@ -74,25 +74,25 @@ Kirigami.ApplicationWindow {
                             iconName: "view-calendar-tasks"
                             text: "Show tasks"
                     
-                            onTriggered: root.pageStack.push(todosView, { todoDt: monthView.selectedDate } )                            
+                            onTriggered: root.pageStack.push(todosView, { todoDt: monthGrid.selectedDate } )                            
                         },
                         Kirigami.Action {
                             iconName: "resource-calendar-insert"
                             text: "Add task"
                             
-                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: monthView.selectedDate} )                            
+                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: monthGrid.selectedDate} )                            
                         }
                     ]
             }
             
             MonthGrid {
-                id: monthView
+                id: monthGrid
 
                 anchors.centerIn: parent
 
                 todosCount: function (todosDate) {
                      var todos = localCalendar.todosCount(todosDate);
-                    console.log(todosDate.toString() + " has " + todos + " todos");
+                     //console.log(todosDate.toString() + " has " + todos + " todos");
 
                     return localCalendar.todosCount(todosDate);
                 }
@@ -100,7 +100,7 @@ Kirigami.ApplicationWindow {
                 Connections {
                     target: root
                     
-                    onRefreshNeeded: monthView.daysModel.update()
+                    onRefreshNeeded: monthGrid.daysModel.update()
                 }
                 
             }
