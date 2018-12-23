@@ -131,7 +131,7 @@ Kirigami.ApplicationWindow {
             calendar: localCalendar
                    
             onTaskeditcompleted: {
-                console.log("Closing todo page");
+                //console.log("Closing todo page");
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);                                
             }            

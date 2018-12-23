@@ -44,6 +44,7 @@ Item {
     property var todosCount: function (todosDate) {
         return 0;
     }        
+    property bool showHeader: false
     
     ColumnLayout {
         anchors.centerIn: parent
@@ -55,6 +56,7 @@ Item {
             
             headerDate: root.selectedDate
             todosCount: root.selectedDayTodosCount
+            visible: root.showHeader
         }
         
         /**

@@ -33,6 +33,7 @@ MonthView {
     currentYear: plasmaCalendar.year
     selectedDayTodosCount: todosCount(selectedDate)      
     daysModel: plasmaCalendar.daysModel
+    showHeader: true
     
     onNextMonth: {
         plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
