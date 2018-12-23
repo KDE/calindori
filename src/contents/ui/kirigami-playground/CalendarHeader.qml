@@ -31,7 +31,7 @@ ColumnLayout {
     RowLayout {
         id: selectedDayHeading
         
-        spacing:  Kirigami.Units.gridUnit / 2
+        spacing:  Kirigami.Units.largeSpacing
         
         Controls2.Label {              
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 4
@@ -40,8 +40,8 @@ ColumnLayout {
         }
         
         ColumnLayout {
-            spacing:  Kirigami.Units.gridUnit / 6
-            
+            spacing:  Kirigami.Units.smallSpacing
+        
             Controls2.Label {                   
                 text: root.headerDate.toLocaleDateString(Qt.locale(), "dddd")
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
@@ -49,6 +49,7 @@ ColumnLayout {
             
             Controls2.Label {                    
                 text: root.headerDate.toLocaleDateString(Qt.locale(), "MMMM") + " " + root.headerDate.getFullYear()
+                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize 
             }
         }
     }
