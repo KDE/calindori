@@ -29,8 +29,6 @@ Item {
     property int weeks: 6
     property date currentDate: new Date()
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
-    property var currentMonthName
-    property var currentYear
     property date selectedDate: new Date()
     property int selectedDayTodosCount: 0
     /**
