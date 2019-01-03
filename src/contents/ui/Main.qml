@@ -74,7 +74,14 @@ Kirigami.ApplicationWindow {
                             iconName: "view-calendar-tasks"
                             text: "Show tasks"
                     
-                            onTriggered: root.pageStack.push(todosView, { todoDt: monthGrid.selectedDate } )                            
+                            onTriggered: {
+                                if(localCalendar.todosCount( monthGrid.selectedDate) > 0) {
+                                    root.pageStack.push(todosView, { todoDt: monthGrid.selectedDate });
+                                }
+                                else {
+                                    showPassiveNotification (i18n("There is no task for the day selected"));
+                                }
+                            }
                         },
                         Kirigami.Action {
                             iconName: "resource-calendar-insert"
