@@ -20,9 +20,9 @@
 #include <QDebug>
 TodosModel::TodosModel(QObject* parent)
     : QAbstractListModel(parent), 
+    m_todos(Todo::List()),
     m_calendar(nullptr),
-    m_filterdt(QDate()),
-    m_todos(Todo::List())
+    m_filterdt(QDate())
 {}
 
 TodosModel::~TodosModel() = default;
