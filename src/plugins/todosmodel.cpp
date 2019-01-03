@@ -120,11 +120,14 @@ void TodosModel::loadTasks(QDate taskDt)
     qDebug() << "Show tasks of " + taskDt.toString();
     m_todos =  m_calendar->rawTodos(taskDt,taskDt);
     endResetModel();
+
 }
 
 void TodosModel::reloadTasks()
 {
-    loadTasks(m_filterdt);
+    if (m_filterdt.isValid()) {
+        loadTasks(m_filterdt);
+    }
 }
 
 
