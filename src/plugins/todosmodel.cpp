@@ -95,11 +95,12 @@ QDate TodosModel::filterdt() const
 
 void TodosModel::setFilterdt(QDate filterDate)
 {
-    qDebug() << filterDate.toString();
-    m_filterdt = filterDate;
-    if(m_calendar != nullptr) {
-        loadTasks(m_filterdt);
-    }    
+    if (filterDate.isValid()) {
+        m_filterdt = filterDate;
+        if(m_calendar != nullptr) {
+            loadTasks(m_filterdt);
+        }    
+    }
 }
 
 
