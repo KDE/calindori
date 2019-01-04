@@ -28,23 +28,35 @@ Kirigami.ScrollablePage {
     
     property date todoDt
     property var calendar
-    property alias todosmodel: cardsListview.model
     
     signal editTask(var modelData)
     signal taskDeleted
+    signal refreshNeeded
+    
+    function reloadModel() {
+        cardsListview.model.reloadTasks();
+    }
+    
+    function setModel() {
+        var todosModelObj = todosModelComponent.createObject(root,  {"filterdt": root.todoDt, "memorycalendar": root.calendar.memorycalendar });
+        cardsListview.model = todosModelObj;
+        cardsListview.model.reloadTasks();
+    }
+        
+    onTodoDtChanged: setModel()
+    onRefreshNeeded: reloadModel()
     
     title: qsTr("Tasks")
     
+    Component {
+        id: todosModelComponent
+        
+        Calindori.TodosModel {}
+    }
+    
     Kirigami.CardsListView {
-        id: cardsListview
-        
-        model: Calindori.TodosModel {
-            id: todosModel
-            
-            filterdt: todoDt
-            memorycalendar: root.calendar.memorycalendar
-        }
-        
+        id: cardsListview        
+       
         delegate: Kirigami.Card {               
             header: Kirigami.Heading {
                 text: model.summary
@@ -96,6 +108,6 @@ Kirigami.ScrollablePage {
                 }                
             }
         }
-    }
+    }    
 }
 

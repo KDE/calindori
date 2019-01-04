@@ -76,7 +76,7 @@ Kirigami.ApplicationWindow {
                     
                             onTriggered: {
                                 if(localCalendar.todosCount( calendarMonthView.selectedDate) > 0) {
-                                    root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
+                                    root.pageStack.push(todosViewComponent, { todoDt: calendarMonthView.selectedDate });
                                 }
                                 else {
                                     showPassiveNotification (i18n("There is no task for the day selected"));
@@ -87,7 +87,7 @@ Kirigami.ApplicationWindow {
                             iconName: "resource-calendar-insert"
                             text: "Add task"
                             
-                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: calendarMonthView.selectedDate} )                            
+                            onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )                            
                         }
                     ]
             }
@@ -115,19 +115,23 @@ Kirigami.ApplicationWindow {
         }
     }
     
-    TodosView {
-        id: todosView
-        
-        calendar: localCalendar
-        
-        onEditTask: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
-        
-        onTaskDeleted: root.refreshNeeded()
-        
-        Connections {
-            target: root
+    Component {
+        id: todosViewComponent
+
+        TodosView {
+
+            id: todosView
             
-            onRefreshNeeded: todosView.todosmodel.reloadTasks()
+            calendar: localCalendar
+            
+            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })            
+            onTaskDeleted: root.refreshNeeded()
+            
+            Connections {
+                target: root
+                
+                onRefreshNeeded: todosView.refreshNeeded()
+            }
         }
     }
 
