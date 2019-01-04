@@ -22,6 +22,14 @@ import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.0 as Kirigami
 
+/*
+ * Component that displays the days of a month as a 6x7 table
+ * 
+ * Optionally, it may display:
+ * - a header on top of the table showing the current date
+ * - inside each day cell, a small indicator in case that tasks 
+ *   exist for this day
+ */
 Item {
     id: root
     
@@ -39,9 +47,16 @@ Item {
      * 3. yearNumber
      */
     property var daysModel
+    /**
+     * Function that returns the amount of tasks of each day
+     * 
+     * If implemented, a small indicator will be displayed
+     * into the cell of each day. Default implementation returns 0,
+     * so no indicator is displayed.
+     */
     property var todosCount: function (todosDate) {
         return 0;
-    }        
+    }
     property bool showHeader: false
 
     function reloadSelectedDate() {
@@ -55,6 +70,11 @@ Item {
         
         spacing:  Kirigami.Units.gridUnit / 4
         
+        /**
+         * Optional header on top of the table
+         * that displays the current date and 
+         * the amount of the day's tasks
+         */
         CalendarHeader {
             id: calendarHeader
             
@@ -65,7 +85,7 @@ Item {
         }
         
         /**
-         * Header of the days' calendar grid
+         * Styled week day names of the days' calendar grid
          * E.g.
          * Mon Tue Wed ...
          */
@@ -74,7 +94,19 @@ Item {
             
             Repeater {
                 model: root.days
-                delegate: weekDayDelegate
+                delegate: 
+                    Rectangle {
+                        width: root.dayRectWidth
+                        height: width
+                        color: Kirigami.Theme.disabledTextColor
+                        opacity: 0.8
+                        
+                        Controls2.Label {                
+                            anchors.centerIn: parent
+                            color: Kirigami.Theme.textColor
+                            text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat) 
+                        }            
+                }
             }
         }
         
@@ -86,13 +118,9 @@ Item {
             columns: root.days
             rows: root.weeks
             
-            Repeater {
-                id: dayRepeater
-                
+            Repeater {               
                 model: root.daysModel
-                delegate: DayDelegate {
-                    id: dayDelegate    
-                    
+                delegate: DayDelegate {                    
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth
                     selectedDate: root.selectedDate
@@ -103,27 +131,4 @@ Item {
             }
         }        
     }
-    
-    /**
-     * Week Day Delegate
-     * 
-     * Controls the display of the elements of the header
-     */    
-    Component {
-        id: weekDayDelegate 
-        
-        Rectangle {
-            width: root.dayRectWidth
-            height: width
-            color: Kirigami.Theme.disabledTextColor
-            opacity: 0.8
-            
-            Controls2.Label {                
-                anchors.centerIn: parent
-                color: Kirigami.Theme.textColor
-                text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat) 
-            }            
-        }
-    }
-    
 }

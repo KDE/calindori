@@ -22,6 +22,12 @@ import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.0 as Kirigami
 
+/**
+ * Calendar component that displays:
+ *  - a header with currrent day's information
+ *  - a table (grid) with the days of the current month
+ *  - a set of actions to navigate between months
+ */ 
 MonthView {
     id: root
         
@@ -32,6 +38,7 @@ MonthView {
     
     property string currentMonthName: plasmaCalendar.displayedDateMonthName
     property int currentYear: plasmaCalendar.year
+    
     selectedDayTodosCount: todosCount(selectedDate)      
     daysModel: plasmaCalendar.daysModel
     showHeader: true
@@ -53,7 +60,7 @@ MonthView {
         plasmaCalendar.displayedDate = root.currentDate;        
     }
     
-    // HACK: Added only as a temporary model provider, to be replaced with a real model provider    
+    // HACK: Added as a temporary model provider, to be replaced with a non-plasma dependant backend
     CalendarBackend {
         id: plasmaCalendar
         

@@ -54,6 +54,10 @@ Rectangle {
         width: dayDelegate.delegateWidth
         height: width
         
+        /**
+         * Display a tiny indicator in case that 
+         * todos exist for the day of the model
+         */
         Rectangle {
             anchors {
                 bottom: parent.bottom

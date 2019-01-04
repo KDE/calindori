@@ -48,25 +48,25 @@ Kirigami.ApplicationWindow {
                 
         Kirigami.Page {
                     
-            title: monthGrid.currentMonthName + " " + monthGrid.currentYear
+            title: calendarMonthView.currentMonthName + " " + calendarMonthView.currentYear
 
             actions {                
                 left: Kirigami.Action {
                     iconName: "go-previous"
                     
-                    onTriggered: monthGrid.previousMonth()
+                    onTriggered: calendarMonthView.previousMonth()
                 }
                 
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
                     
-                    onTriggered: monthGrid.goToday()
+                    onTriggered: calendarMonthView.goToday()
                 }
                 
                 right: Kirigami.Action {
                     iconName: "go-next"
                     
-                    onTriggered: monthGrid.nextMonth()
+                    onTriggered: calendarMonthView.nextMonth()
                 }
                 
                 contextualActions: [
@@ -75,8 +75,8 @@ Kirigami.ApplicationWindow {
                             text: "Show tasks"
                     
                             onTriggered: {
-                                if(localCalendar.todosCount( monthGrid.selectedDate) > 0) {
-                                    root.pageStack.push(todosView, { todoDt: monthGrid.selectedDate });
+                                if(localCalendar.todosCount( calendarMonthView.selectedDate) > 0) {
+                                    root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
                                 }
                                 else {
                                     showPassiveNotification (i18n("There is no task for the day selected"));
@@ -87,13 +87,13 @@ Kirigami.ApplicationWindow {
                             iconName: "resource-calendar-insert"
                             text: "Add task"
                             
-                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: monthGrid.selectedDate} )                            
+                            onTriggered: root.pageStack.push(todoPage, { todosmodel: todosView.todosmodel, startdt: calendarMonthView.selectedDate} )                            
                         }
                     ]
             }
             
-            MonthGrid {
-                id: monthGrid
+            CalendarMonthView {
+                id: calendarMonthView
 
                 anchors.centerIn: parent
 
@@ -107,7 +107,7 @@ Kirigami.ApplicationWindow {
                 Connections {
                     target: root
                     
-                    onRefreshNeeded: monthGrid.refresh()
+                    onRefreshNeeded: calendarMonthView.refresh()
                 }
                 
             }
