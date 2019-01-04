@@ -21,7 +21,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
-import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
+import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
     id: root
@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     Kirigami.CardsListView {
         id: cardsListview
         
-        model: MobileCalendar.TodosModel {
+        model: Calindori.TodosModel {
             id: todosModel
             
             filterdt: todoDt

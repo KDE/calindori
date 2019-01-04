@@ -27,7 +27,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     QCoreApplication::setOrganizationDomain("kde.org");
-    QCoreApplication::setApplicationName("mobilecalendar");
+    QCoreApplication::setApplicationName("calindori");
     
     QQmlApplicationEngine engine;
     

@@ -20,7 +20,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.0 as Kirigami
-import org.kde.phone.mobilecalendar 0.1 as MobileCalendar
+import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
     id: root
@@ -28,7 +28,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
         
-        title: "Mobile Calendar"       
+        title: "Calindori"       
         contentItem.implicitWidth: Math.min (Kirigami.Units.gridUnit * 15, root.width * 0.8)
         
         topContent: Column {            
@@ -145,13 +145,13 @@ Kirigami.ApplicationWindow {
         }
     }
     
-    MobileCalendar.LocalCalendar {
+    Calindori.LocalCalendar {
         id: localCalendar
 
         name: "personal"
     }
     
-    MobileCalendar.Config {
+    Calindori.Config {
         id: mobileCalendarConfig;
     }    
 }

@@ -21,15 +21,15 @@
 
 #include <QObject>
 
-class MobileCalendarConfig : public QObject
+class CalindoriConfig : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString viewMode READ viewMode WRITE setviewMode NOTIFY viewModeChanged)
 
 public:
 
-    explicit MobileCalendarConfig(QObject* parent = nullptr);
-    ~MobileCalendarConfig() override;
+    explicit CalindoriConfig(QObject* parent = nullptr);
+    ~CalindoriConfig() override;
 
     QString viewMode() const;
     Q_INVOKABLE void setviewMode(const QString& mode);

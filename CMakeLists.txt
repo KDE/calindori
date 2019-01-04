@@ -1,4 +1,4 @@
-project(mobilecalendar)
+project(calindori)
 
 cmake_minimum_required(VERSION 2.8.12)
 set(KF5_MIN_VERSION "5.18.0")
@@ -7,7 +7,7 @@ set(QT_MIN_VERSION "5.5.0")
 ################# Disallow in-source build #################
 
 if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
-   message(FATAL_ERROR "Mobile Calendar requires an out of source build. Please create a separate build directory.")
+   message(FATAL_ERROR "Calindori requires an out of source build. Please create a separate build directory.")
 endif()
 
 
@@ -58,8 +58,8 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ecm_install_po_files_as_qm(po)
 endif()
 
-install(FILES org.kde.phone.mobilecalendar.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(PROGRAMS org.kde.phone.mobilecalendar.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.phone.calindori.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(PROGRAMS org.kde.phone.calindori.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

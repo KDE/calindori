@@ -1,14 +1,14 @@
 set(qmlplugin_SRCS
     qmlplugin.cpp
-    mobilecalendarconfig.cpp
+    calindoriconfig.cpp
     todosmodel.cpp
     localcalendar.cpp
 )
 
-add_library (mobilecalendarqmlplugin SHARED ${qmlplugin_SRCS})
+add_library (calindoriqmlplugin SHARED ${qmlplugin_SRCS})
 
 
-target_link_libraries (mobilecalendarqmlplugin
+target_link_libraries (calindoriqmlplugin
     Qt5::Core
     Qt5::Qml
     Qt5::Quick
@@ -16,5 +16,5 @@ target_link_libraries (mobilecalendarqmlplugin
     KF5::CalendarCore
 )
 
-install (TARGETS mobilecalendarqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/mobilecalendar)
-install (FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/mobilecalendar)
+install (TARGETS calindoriqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/calindori)
+install (FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/phone/calindori)

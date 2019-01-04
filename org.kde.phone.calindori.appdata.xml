@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.phone.mobilecalendar.desktop</id>
+  <id>org.kde.phone.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3+</project_license>
-  <name>Mobile Calendar</name>
-  <summary>=Mobile Calendar</summary>
+  <name>Calindori</name>
+  <summary>=Calindori</summary>
   <description>
     <p>
         <ul>
@@ -21,6 +21,6 @@
   </screenshots>
   <project_group>KDE</project_group>
   <provides>
-    <binary>mobilecalendar</binary>
+    <binary>calindori</binary>
   </provides>
 </component>

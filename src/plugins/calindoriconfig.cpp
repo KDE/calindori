@@ -16,21 +16,21 @@
  *
  */
 
-#include "mobilecalendarconfig.h"
+#include "calindoriconfig.h"
 
 #include <KConfig>
 #include <KConfigGroup>
 
-class MobileCalendarConfig::Private
+class CalindoriConfig::Private
 {
 public:
     Private()
-        : config("mobilecalendarrc")
+        : config("calindorirc")
     {};
     KConfig config;
 };
 
-MobileCalendarConfig::MobileCalendarConfig(QObject* parent)
+CalindoriConfig::CalindoriConfig(QObject* parent)
     : QObject(parent)
     , d(new Private)
 {
@@ -40,18 +40,18 @@ MobileCalendarConfig::MobileCalendarConfig(QObject* parent)
     }
 }
 
-MobileCalendarConfig::~MobileCalendarConfig()
+CalindoriConfig::~CalindoriConfig()
 {
     delete d;
 }
 
-QString MobileCalendarConfig::viewMode() const
+QString CalindoriConfig::viewMode() const
 {
     QString viewMode = d->config.group("general").readEntry("view_mode", QString());
     return viewMode;
 }
 
-void MobileCalendarConfig::setviewMode(const QString & mode)
+void CalindoriConfig::setviewMode(const QString & mode)
 {
         d->config.group("general").writeEntry("view_mode", mode);
         d->config.sync();

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Calindori
+Comment=Calindori
+Version=0.1
+Exec=calindori
+MimeType=application/x-calindori;
+Icon=view-calendar-day
+Type=Application
+Terminal=false
+Categories=Qt;KDE;

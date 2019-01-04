@@ -1,2 +1,2 @@
-module org.kde.phone.mobilecalendar
-plugin mobilecalendarqmlplugin
+module org.kde.phone.calindori
+plugin calindoriqmlplugin
