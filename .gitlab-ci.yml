@@ -7,7 +7,7 @@ variables:
 flatpak:
   extends: .flatpak
   variables:
-    MANIFEST_PATH: org.kde.phone.calindori.flatpak
+    MANIFEST_PATH: org.kde.phone.calindori.json
     APP_ID: org.kde.phone.calindori.flatpak
     FLATPAK_MODULE: calindori
     CMAKE_ARGS: -DENABLE_TESTING=OFF
