@@ -2,23 +2,17 @@
 <component type="desktop">
   <id>org.kde.phone.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3+</project_license>
+  <project_license>GPL-3.0+</project_license>
   <name>Calindori</name>
-  <summary>=Calindori</summary>
+  <summary>Calendar application</summary>
   <description>
-    <p>
-        <ul>
-            <li>Mobile</li>
-            <li>Agenda</li>
-            <li>Events</li>
-        </ul>
-    </p>
+    <p>Calindori supports:</p>
+    <ul>
+      <li>Agenda</li>
+      <li>Events</li>
+    </ul>
   </description>
   <url type="bugtracker">https://phabricator.kde.org/T6942</url>
-  <screenshots>
-    <screenshot type="default">
-    </screenshot>
-  </screenshots>
   <project_group>KDE</project_group>
   <provides>
     <binary>calindori</binary>
