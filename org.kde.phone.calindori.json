@@ -1,5 +1,5 @@
 {
-    "id": "org.kde.phone.mobilecalender",
+    "id": "org.kde.phone.calindori",
     "runtime": "org.kde.Platform",
     "runtime-version": "5.11",
     "sdk": "org.kde.Sdk",
