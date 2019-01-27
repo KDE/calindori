@@ -98,9 +98,6 @@ Kirigami.ApplicationWindow {
                 anchors.centerIn: parent
 
                 todosCount: function (todosDate) {
-                     var todos = localCalendar.todosCount(todosDate);
-                     //console.log(todosDate.toString() + " has " + todos + " todos");
-
                     return localCalendar.todosCount(todosDate);
                 }
                 
