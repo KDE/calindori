@@ -10,5 +10,7 @@
         <file alias="TodoPage.qml">contents/ui/TodoPage.qml</file>
         <file alias="CalendarMonthView.qml">contents/ui/CalendarMonthView.qml</file>
         <file alias="CalendarHeader.qml">contents/ui/kirigami-playground/CalendarHeader.qml</file>        
+        <file alias="TimePicker.qml">contents/ui/kirigami-playground/TimePicker.qml</file>
+        <file alias="ClockElement.qml">contents/ui/kirigami-playground/ClockElement.qml</file>
     </qresource>
 </RCC>

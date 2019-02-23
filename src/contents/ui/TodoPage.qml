@@ -27,16 +27,17 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
     
-    property date startdt;
-    property string uid;
-    property alias summary: summary.text;
-    property alias description: description.text;
-    property alias startHour: startHourSelector.value;
-    property alias startMinute: startMinuteSelector.value;
-    property alias allDay: allDaySelector.checked;
-    property alias location: location.text;
-    property var calendar;
-    property var todoData;
+    property date startdt
+    property string uid
+    property alias summary: summary.text
+    property alias description: description.text
+    property alias startHour: startTimeSelector.startHour
+    property alias startMinute: startTimeSelector.startMinutes
+    property alias allDay: allDaySelector.checked
+    property alias location: location.text
+    property var calendar
+    property var todoData
+    property alias timePicker: timePickerSheet
     
     signal taskeditcompleted
     
@@ -69,21 +70,16 @@ Kirigami.Page {
             RowLayout {
                 Kirigami.FormData.label: qsTr("Start time:")
                 
-                Controls2.SpinBox {
-                    id: startHourSelector
+                Controls2.ToolButton {
+                    id: startTimeSelector
                     
-                    enabled: !allDaySelector.checked
-                    value: allDaySelector.checkedtodoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
-                    from: 0
-                    to: 23
-                }
-                Controls2.SpinBox {
-                    id: startMinuteSelector
+                    property int startHour: timePickerSheet.hours
+                    property int startMinutes: timePickerSheet.minutes
                     
+                    text: startHour + ":" + startMinutes
                     enabled: !allDaySelector.checked
-                    value: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0                    
-                    from: 0
-                    to: 59   
+
+                    onClicked: timePickerSheet.open()
                 }
             }
             
@@ -170,4 +166,38 @@ Kirigami.Page {
 
     }
     
+    Kirigami.OverlaySheet {
+        id: timePickerSheet
+
+        property int hours: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
+        property int minutes: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+
+        ColumnLayout {
+
+            TimePicker {
+                id: timePicker
+                hours: timePickerSheet.hours
+                minutes: timePickerSheet.minutes
+            }
+        }
+
+        footer: RowLayout {
+            Item {
+                Layout.fillWidth: true
+            }
+            Controls2.ToolButton {
+                text: qsTr("OK")
+                onClicked: {
+                    timePickerSheet.hours = timePicker.hours
+                    timePickerSheet.minutes = timePicker.minutes
+                    timePickerSheet.close()
+                }
+            }
+            Controls2.ToolButton {
+                text: qsTr("Cancel")
+                onClicked: timePickerSheet.close()
+            }
+        }
+    }
+
 }
