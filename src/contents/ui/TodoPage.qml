@@ -73,10 +73,12 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     id: startTimeSelector
                     
-                    property int startHour: timePickerSheet.hours
+                    property int startHour: timePickerSheet.hours + (timePickerSheet.pm ?  12 : 0)
                     property int startMinutes: timePickerSheet.minutes
+                    property date startTime: root.startdt
+
+                    text: (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour, startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm")
                     
-                    text: startHour + ":" + startMinutes
                     enabled: !allDaySelector.checked
 
                     onClicked: timePickerSheet.open()
@@ -169,8 +171,9 @@ Kirigami.Page {
     Kirigami.OverlaySheet {
         id: timePickerSheet
 
-        property int hours: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") : 0
+        property int hours: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
         property int minutes: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+        property bool pm: (todoData && todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
 
         ColumnLayout {
 
@@ -178,6 +181,7 @@ Kirigami.Page {
                 id: timePicker
                 hours: timePickerSheet.hours
                 minutes: timePickerSheet.minutes
+                pm: timePickerSheet.pm
             }
         }
 
@@ -190,12 +194,17 @@ Kirigami.Page {
                 onClicked: {
                     timePickerSheet.hours = timePicker.hours
                     timePickerSheet.minutes = timePicker.minutes
+                    timePickerSheet.pm = timePicker.pm
                     timePickerSheet.close()
                 }
             }
             Controls2.ToolButton {
                 text: qsTr("Cancel")
-                onClicked: timePickerSheet.close()
+                onClicked: {
+                    timePicker.hours = timePickerSheet.hours
+                    timePicker.minutes = timePickerSheet.minutes
+                    timePickerSheet.close()
+                }
             }
         }
     }

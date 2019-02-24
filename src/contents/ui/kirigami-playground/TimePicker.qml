@@ -28,6 +28,7 @@ ColumnLayout {
     
     property int hours
     property int minutes
+    property bool pm
     
     implicitWidth: clock.width
     implicitHeight: clock.height
@@ -88,18 +89,20 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
 
         Controls2.Label {
-            text: root.hours + ":" + root.minutes
-            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 2
+            text: root.hours + ":" + ( (root.minutes < 10) ? "0" : "") + root.minutes
+            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
         }
         
-        //TODO: Handle AM/PM
-//         Controls2.ToolButton {
-//             id: pm
-//             
-//             checkable: true
-//            
-//             text: checked ? "PM" : "AM"
-//         }
+        Controls2.ToolButton {
+            id: pm
+
+            checked: root.pm
+            checkable: true
+            text: checked ? "PM" : "AM"
+            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+
+            onClicked: root.pm = checked
+        }
     }
 
     
