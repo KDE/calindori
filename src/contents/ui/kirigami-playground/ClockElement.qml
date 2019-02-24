@@ -32,18 +32,18 @@ Controls2.ToolButton {
     checkable: true
     checked: index == selectedValue
     autoExclusive: true       
-    text: index == selectedValue ? ((type == "hours" && index == 0) ? 12 : index) : "." 
-    
+    text: index == selectedValue ? ( (type == "hours" && index == 0) ? 12 : index )
+                                 : ( (type == "hours") ? ( index == 0 ? 12 : ( (index % 3 == 0) ? index : ".") ) : (index % 15 == 0) ? index : ".")
     contentItem: Controls2.Label {
         text: hoursButton.text
-        color: index < parent.selectedValue ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+        color: index <= parent.selectedValue ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
     
     background: Rectangle {
         implicitHeight: Kirigami.Units.gridUnit
-        implicitWidth: width
+        implicitWidth: height
         radius: width*0.5
         color: parent.checked ? Kirigami.Theme.buttonBackgroundColor : "transparent"
     }                 
