@@ -31,28 +31,11 @@ ColumnLayout {
     
     implicitWidth: clock.width
     implicitHeight: clock.height
-    
-    RowLayout {
-        Layout.alignment: Qt.AlignHCenter
         
-        Controls2.Label {
-            text: root.hours + ":" + root.minutes
-        }
-        
-        //TODO: Handle AM/PM
-//         Controls2.ToolButton {
-//             id: pm
-//             
-//             checkable: true
-//            
-//             text: checked ? "PM" : "AM"
-//         }
-    }
-    
     Item {
         id: clock
-        width: Kirigami.Units.gridUnit * 22
-        height: Kirigami.Units.gridUnit * 22
+        width: Kirigami.Units.gridUnit * 14
+        height: Kirigami.Units.gridUnit * 14
         
         //Hours clock
         PathView {
@@ -66,30 +49,16 @@ ColumnLayout {
             model: 12
             path: Path {
                 PathAngleArc {
-                    centerX: Kirigami.Units.gridUnit * 10
-                    centerY: Kirigami.Units.gridUnit * 10
-                    radiusX: Kirigami.Units.gridUnit * 5
-                    radiusY: Kirigami.Units.gridUnit * 5
+                    centerX: Kirigami.Units.gridUnit * 7
+                    centerY: Kirigami.Units.gridUnit * 7
+                    radiusX: Kirigami.Units.gridUnit * 3
+                    radiusY: Kirigami.Units.gridUnit * 3
                     startAngle: -90
                     sweepAngle: 360
                 }   
             }
         }
-        
-        PathView {
-            Path {     
-                startX: 0
-                startY: Kirigami.Units.gridUnit * 10        
-                PathArc {
-                    x: 0
-                    y: Kirigami.Units.gridUnit * 10
-                    radiusX: Kirigami.Units.gridUnit * 5
-                    radiusY: Kirigami.Units.gridUnit * 5
-                    useLargeArc: true
-                }  
-            }
-        }
-        
+                
         //Minutes clock
         PathView {
             id: minutesClock
@@ -104,14 +73,34 @@ ColumnLayout {
             
             path: Path {
                 PathAngleArc {
-                    centerX: Kirigami.Units.gridUnit * 10
-                    centerY: Kirigami.Units.gridUnit * 10
-                    radiusX: Kirigami.Units.gridUnit * 8
-                    radiusY: Kirigami.Units.gridUnit * 8
+                    centerX: Kirigami.Units.gridUnit * 7
+                    centerY: Kirigami.Units.gridUnit * 7
+                    radiusX: Kirigami.Units.gridUnit * 6
+                    radiusY: Kirigami.Units.gridUnit * 6
                     startAngle: -90
                     sweepAngle: 360
                 }           
             }
         }
     }
+
+    RowLayout {
+        Layout.alignment: Qt.AlignHCenter
+
+        Controls2.Label {
+            text: root.hours + ":" + root.minutes
+            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 2
+        }
+        
+        //TODO: Handle AM/PM
+//         Controls2.ToolButton {
+//             id: pm
+//             
+//             checkable: true
+//            
+//             text: checked ? "PM" : "AM"
+//         }
+    }
+
+    
 }
