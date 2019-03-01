@@ -24,7 +24,8 @@ import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
     id: root
-       
+    
+    
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
         
@@ -99,6 +100,12 @@ Kirigami.ApplicationWindow {
 
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);
+                }
+                
+                onSelectedDateChanged: {
+                    if (root.pageStack.depth > 1) {
+                        root.pageStack.pop(null);
+                    }
                 }
                 
                 Connections {
