@@ -30,13 +30,11 @@ ColumnLayout {
     property int minutes
     property bool pm
     
-    implicitWidth: clock.width
-    implicitHeight: clock.height
         
     Item {
         id: clock
-        width: Kirigami.Units.gridUnit * 14
-        height: Kirigami.Units.gridUnit * 14
+        width: Kirigami.Units.gridUnit * 18
+        height: width
         
         //Hours clock
         PathView {
@@ -50,10 +48,10 @@ ColumnLayout {
             model: 12
             path: Path {
                 PathAngleArc {
-                    centerX: Kirigami.Units.gridUnit * 7
-                    centerY: Kirigami.Units.gridUnit * 7
-                    radiusX: Kirigami.Units.gridUnit * 3
-                    radiusY: Kirigami.Units.gridUnit * 3
+                    centerX: Kirigami.Units.gridUnit * 9
+                    centerY: centerX
+                    radiusX: Kirigami.Units.gridUnit * 4
+                    radiusY: radiusX
                     startAngle: -90
                     sweepAngle: 360
                 }   
@@ -74,10 +72,10 @@ ColumnLayout {
             
             path: Path {
                 PathAngleArc {
-                    centerX: Kirigami.Units.gridUnit * 7
-                    centerY: Kirigami.Units.gridUnit * 7
-                    radiusX: Kirigami.Units.gridUnit * 6
-                    radiusY: Kirigami.Units.gridUnit * 6
+                    centerX: Kirigami.Units.gridUnit * 9
+                    centerY: centerX
+                    radiusX: Kirigami.Units.gridUnit * 7
+                    radiusY: radiusX
                     startAngle: -90
                     sweepAngle: 360
                 }           
@@ -104,6 +102,5 @@ ColumnLayout {
             onClicked: root.pm = checked
         }
     }
-
     
 }

@@ -175,14 +175,15 @@ Kirigami.Page {
         property int minutes: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
         property bool pm: (todoData && todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
 
-        ColumnLayout {
+        rightPadding: 0
+        leftPadding: 0
 
-            TimePicker {
-                id: timePicker
-                hours: timePickerSheet.hours
-                minutes: timePickerSheet.minutes
-                pm: timePickerSheet.pm
-            }
+        contentItem: TimePicker {
+            id: timePicker
+
+            hours: timePickerSheet.hours
+            minutes: timePickerSheet.minutes
+            pm: timePickerSheet.pm
         }
 
         footer: RowLayout {
