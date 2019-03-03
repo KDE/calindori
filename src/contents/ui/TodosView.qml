@@ -33,31 +33,19 @@ Kirigami.Page {
     signal taskDeleted
     signal refreshNeeded
     
-    function reloadModel() {
-        cardsListview.model.reloadTasks();
-    }
-    
-    function setModel() {
-        var todosModelObj = todosModelComponent.createObject(root,  {"filterdt": root.todoDt, "memorycalendar": root.calendar.memorycalendar });
-        cardsListview.model = todosModelObj;
-        cardsListview.model.reloadTasks();
-    }
-        
-    onTodoDtChanged: setModel()
-    onRefreshNeeded: reloadModel()
+    onRefreshNeeded: cardsListview.model.reloadTasks()
     
     title: qsTr("Tasks")
-    
-    Component {
-        id: todosModelComponent
-        
-        Calindori.TodosModel {}
-    }
     
     Kirigami.CardsListView {
         id: cardsListview
         anchors.fill: parent
        
+        model: Calindori.TodosModel {
+            filterdt: root.todoDt
+            memorycalendar: root.calendar.memorycalendar
+        }
+
         delegate: Kirigami.Card {
             banner.title: model.summary
             banner.titleLevel: 3
