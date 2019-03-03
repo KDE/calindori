@@ -58,12 +58,10 @@ Kirigami.Page {
         id: cardsListview
         anchors.fill: parent
        
-        delegate: Kirigami.Card {               
-            header: Kirigami.Heading {
-                text: model.summary
-                level: 3
-            }
-            
+        delegate: Kirigami.Card {
+            banner.title: model.summary
+            banner.titleLevel: 3
+
             actions: [
                 Kirigami.Action {
                     text: qsTr("Delete")
