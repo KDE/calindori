@@ -44,6 +44,8 @@ Kirigami.ApplicationWindow {
     */
     signal refreshNeeded;
     
+    onRefreshNeeded: todosView.refreshNeeded()
+
     Component {
         id: calendarDashboardComponent
                 
@@ -77,7 +79,7 @@ Kirigami.ApplicationWindow {
                     
                             onTriggered: {
                                 if(localCalendar.todosCount( calendarMonthView.selectedDate) > 0) {
-                                    root.pageStack.push(todosViewComponent, { todoDt: calendarMonthView.selectedDate });
+                                    root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
                                 }
                                 else {
                                     showPassiveNotification (i18n("There is no task for the day selected"));
@@ -118,25 +120,14 @@ Kirigami.ApplicationWindow {
           
         }
     }
-    
-    Component {
-        id: todosViewComponent
 
-        TodosView {
+    TodosView {
+        id: todosView
 
-            id: todosView
-            
-            calendar: localCalendar
-            
-            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })            
-            onTaskDeleted: root.refreshNeeded()
-            
-            Connections {
-                target: root
-                
-                onRefreshNeeded: todosView.refreshNeeded()
-            }
-        }
+        calendar: localCalendar
+
+        onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
+        onTaskDeleted: root.refreshNeeded()
     }
 
     Component {
