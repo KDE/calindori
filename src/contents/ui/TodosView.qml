@@ -81,7 +81,7 @@ Kirigami.Page {
                 }            
             ]
             
-            contentItem: ColumnLayout {
+            contentItem: Column {
                 
                 Controls2.Label {
                     wrapMode: Text.WordWrap
