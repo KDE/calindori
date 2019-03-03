@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
 import org.kde.phone.calindori 0.1 as Calindori
 
-Kirigami.ScrollablePage {
+Kirigami.Page {
     id: root
     
     property date todoDt
@@ -55,7 +55,8 @@ Kirigami.ScrollablePage {
     }
     
     Kirigami.CardsListView {
-        id: cardsListview        
+        id: cardsListview
+        anchors.fill: parent
        
         delegate: Kirigami.Card {               
             header: Kirigami.Heading {
