@@ -31,17 +31,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     
     QQmlApplicationEngine engine;
     
-    
-    if (qEnvironmentVariableIsSet("QT_QUICK_CONTROLS_MOBILE") &&
-        (QString::fromLatin1(qgetenv("QT_QUICK_CONTROLS_MOBILE")) == QStringLiteral("1") ||
-        QString::fromLatin1(qgetenv("QT_QUICK_CONTROLS_MOBILE")) == QStringLiteral("true")))
-    {
-        engine.load(QUrl(QStringLiteral("qrc:///mobilemain.qml")));
-    }
-    else {
-        engine.load(QUrl(QStringLiteral("qrc:///desktopmain.qml")));
-    }
-    
+    engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
+
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }

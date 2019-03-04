@@ -36,8 +36,13 @@ Kirigami.ApplicationWindow {
             spacing: Kirigami.Units.gridUnit * 2
         }
     }
+
+    contextDrawer: Kirigami.ContextDrawer {
+        id: contextDrawer
+    }
     
     pageStack.initialPage: [calendarDashboardComponent]
+    pageStack.defaultColumnWidth: pageStack.width
     
     /**
      * To be emitted when data displayed should be refreshed
