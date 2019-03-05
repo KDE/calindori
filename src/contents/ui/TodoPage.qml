@@ -47,12 +47,16 @@ Kirigami.Page {
         
         anchors.centerIn: parent
         
+        Controls2.Label {
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
+            text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
+        }
+
         Kirigami.FormLayout { 
             id: todoCard
             
-            Controls2.Label {
-                text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
-            }
             
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
