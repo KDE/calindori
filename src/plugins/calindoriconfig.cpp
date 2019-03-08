@@ -99,9 +99,13 @@ QString CalindoriConfig::addCalendar(const QString & calendar)
 
 void CalindoriConfig::removeCalendar(const QString& calendar)
 {
-    //TODO: IMPLEMENT
-    qDebug() << "Removing calendar " << calendar;
-
-    emit calendarsChanged();
-
+    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
+    if(calendarsList.contains(calendar))
+    {
+        qDebug() << "Removing calendar " << calendar;
+        calendarsList.removeAll(calendar);
+        d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
+        d->config.sync();
+        emit calendarsChanged();
+    }
 }

@@ -30,31 +30,33 @@ Kirigami.ApplicationWindow {
      */
     signal refreshNeeded;
 
+    /**
+     * Creates the list of actions of 'Calendars' action container
+     */
     function loadGlobalActions() {
         var cfgCalendars = calindoriConfig.calendars.split(calindoriConfig.calendars.includes(";") ? ";" : null);
+        var currentChildren = calendarActions.children;
+        var newChildren = [];
 
+        //Preserve non-dynamic actions
+        for(var i=0; i <currentChildren.length; ++i)
+        {
+            if(!(currentChildren[i].hasOwnProperty("isCalendar")))
+            {
+                newChildren.push(currentChildren[i]);
+            }
+        }
+
+        //Add calendars from configuration
         for (var i=0; i < cfgCalendars.length; ++i)
         {
-            var isActive = (cfgCalendars[i] == calindoriConfig.activeCalendar);
-            if(!calendarActionExists(cfgCalendars[i]))
-            {
-                calendarActions.children.push(calendarAction.createObject(calendarActions, { text: cfgCalendars[i] }));
-            }
-        }
-    }
-
-    function calendarActionExists(name)
-    {
-        for(var i=0; i < calendarActions.children.length; ++i)
-        {
-            if(calendarActions.children[i].hasOwnProperty("type") && calendarActions.children[i].type == "calendar" && calendarActions.children[i].text == name)
-            {
-                return true;
-            }
+            newChildren.push(calendarAction.createObject(calendarActions, { text: cfgCalendars[i] }));
         }
 
-        return false;
+        calendarActions.children = newChildren;
     }
+
+
 
     onRefreshNeeded: todosView.refreshNeeded()
 
@@ -110,7 +112,7 @@ Kirigami.ApplicationWindow {
 
         Kirigami.Action {
 
-            property string type: "calendar"
+            property bool isCalendar: true
 
             checked: (text == calindoriConfig.activeCalendar)
 
