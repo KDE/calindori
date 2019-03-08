@@ -24,82 +24,172 @@ import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
     id: root
-    
-    
+
+    /**
+     * To be emitted when data displayed should be refreshed
+     */
+    signal refreshNeeded;
+
+    function loadGlobalActions() {
+        var cfgCalendars = calindoriConfig.calendars.split(calindoriConfig.calendars.includes(";") ? ";" : null);
+
+        for (var i=0; i < cfgCalendars.length; ++i)
+        {
+            var isActive = (cfgCalendars[i] == calindoriConfig.activeCalendar);
+            if(!calendarActionExists(cfgCalendars[i]))
+            {
+                calendarActions.children.push(calendarAction.createObject(calendarActions, { text: cfgCalendars[i] }));
+            }
+        }
+    }
+
+    function calendarActionExists(name)
+    {
+        for(var i=0; i < calendarActions.children.length; ++i)
+        {
+            if(calendarActions.children[i].hasOwnProperty("type") && calendarActions.children[i].type == "calendar" && calendarActions.children[i].text == name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    onRefreshNeeded: todosView.refreshNeeded()
+
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
-        
-        title: "Calindori"       
-        contentItem.implicitWidth: Math.min (Kirigami.Units.gridUnit * 15, root.width * 0.8)
-        
-        topContent: Column {            
-            spacing: Kirigami.Units.gridUnit * 2
-        }
+
+        title: "Calindori"
+        actions: [
+            Kirigami.Action {
+                id: calendarActions
+
+                text: "Calendars"
+                iconName: "view-list-icons"
+
+                Kirigami.Action {
+                    text: "Add calendar..."
+                    onTriggered: root.pageStack.push(calendarInputPage);
+                }
+
+                Kirigami.Action {
+                    separator: true
+                }
+            }
+        ]
+
+        Component.onCompleted: root.loadGlobalActions()
     }
 
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
     }
-    
+
     pageStack.initialPage: [calendarDashboardComponent]
     pageStack.defaultColumnWidth: pageStack.width
-    
-    /**
-     * To be emitted when data displayed should be refreshed
-    */
-    signal refreshNeeded;
-    
-    onRefreshNeeded: todosView.refreshNeeded()
+
+    Calindori.Config {
+        id: calindoriConfig
+
+        onActiveCalendarChanged: root.loadGlobalActions()
+        onCalendarsChanged: root.loadGlobalActions()
+    }
+
+    Calindori.LocalCalendar {
+        id: localCalendar
+
+        name: calindoriConfig.activeCalendar
+
+        onNameChanged: root.refreshNeeded()
+    }
+
+    Component {
+        id: calendarAction
+
+        Kirigami.Action {
+
+            property string type: "calendar"
+
+            checked: (text == calindoriConfig.activeCalendar)
+
+            Kirigami.Action {
+                text: "Activate"
+
+                onTriggered: {
+                    calindoriConfig.activeCalendar = parent.text;
+                }
+            }
+
+            Kirigami.Action {
+                text: "Delete"
+
+                onTriggered: {
+                    if (calindoriConfig.activeCalendar == parent.text) {
+                        showPassiveNotification("Active calendar cannot be deleted");
+                    }
+                    else {
+                        showPassiveNotification("Deleting calendar " + parent.text);
+                        var toRemoveCalendarComponent =  Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + parent.text + "\"}",root);
+                        toRemoveCalendarComponent.deleteCalendar();
+                        calindoriConfig.removeCalendar(parent.text);
+                    }
+                }
+            }
+
+        }
+    }
 
     Component {
         id: calendarDashboardComponent
-                
+
         Kirigami.Page {
-                    
+
             title: calendarMonthView.currentMonthName + " " + calendarMonthView.currentYear
 
-            actions {                
+            actions {
                 left: Kirigami.Action {
                     iconName: "go-previous"
-                    
+
                     onTriggered: calendarMonthView.previousMonth()
                 }
-                
+
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
-                    
+
                     onTriggered: calendarMonthView.goToday()
                 }
-                
+
                 right: Kirigami.Action {
                     iconName: "go-next"
-                    
+
                     onTriggered: calendarMonthView.nextMonth()
                 }
-                
+
                 contextualActions: [
-                        Kirigami.Action {
-                            iconName: "view-calendar-tasks"
-                            text: "Show tasks"
-                    
-                            onTriggered: {
-                                if(localCalendar.todosCount( calendarMonthView.selectedDate) > 0) {
-                                    root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
-                                }
-                                else {
-                                    showPassiveNotification (i18n("There is no task for the day selected"));
-                                }
+                    Kirigami.Action {
+                        iconName: "view-calendar-tasks"
+                        text: "Show tasks"
+
+                        onTriggered: {
+                            if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
+                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
                             }
-                        },
-                        Kirigami.Action {
-                            iconName: "resource-calendar-insert"
-                            text: "Add task"
-                            
-                            onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )                            
+                            else {
+                                showPassiveNotification (i18n("There is no task for the day selected"));
+                            }
                         }
-                    ]
+                    },
+                    Kirigami.Action {
+                        iconName: "resource-calendar-insert"
+                        text: "Add task"
+
+                        onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )
+                    }
+                ]
             }
-            
+
             CalendarMonthView {
                 id: calendarMonthView
 
@@ -108,21 +198,19 @@ Kirigami.ApplicationWindow {
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);
                 }
-                
+
                 onSelectedDateChanged: {
                     if (root.pageStack.depth > 1) {
                         root.pageStack.pop(null);
                     }
                 }
-                
+
                 Connections {
                     target: root
-                    
+
                     onRefreshNeeded: calendarMonthView.refresh()
                 }
-                
             }
-          
         }
     }
 
@@ -137,25 +225,46 @@ Kirigami.ApplicationWindow {
 
     Component {
         id: todoPage
-        
+
         TodoPage {
             calendar: localCalendar
-                   
+
             onTaskeditcompleted: {
                 //console.log("Closing todo page");
                 root.refreshNeeded();
-                root.pageStack.pop(todoPage);                                
-            }            
+                root.pageStack.pop(todoPage);
+            }
         }
     }
-    
-    Calindori.LocalCalendar {
-        id: localCalendar
 
-        name: "personal"
+    Component {
+        id: calendarInputPage
+
+        CalendarInputPage {
+
+            onCalendarAdded: {
+                var calendarAddResult = "";
+                calendarAddResult = calindoriConfig.addCalendar(calendarName);
+
+                if(calendarAddResult != "")
+                {
+                    showPassiveNotification(calendarAddResult);
+                    return;
+                }
+
+                if(activeCalendar)
+                {
+                    calindoriConfig.activeCalendar = calendarName;
+                }
+                root.refreshNeeded();
+                root.pageStack.pop(calendarInputPage);
+            }
+
+            onCalendarAddCanceled: {
+                root.pageStack.pop(calendarInputPage);
+            }
+
+        }
     }
-    
-    Calindori.Config {
-        id: mobileCalendarConfig;
-    }    
 }
+

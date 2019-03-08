@@ -49,6 +49,7 @@ public Q_SLOTS:
     void addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
     void deleteTask(QString uid);    
     int todosCount(const QDate &date) const;
+    void deleteCalendar();
     
 Q_SIGNALS:
     void memorycalendarChanged();
@@ -58,7 +59,8 @@ Q_SIGNALS:
 private:
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
-    QString m_name;    
+    QString m_name;
+    QString m_fullpath;
 };
 
 #endif // LOCALCALENDAR_H

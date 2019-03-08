@@ -24,16 +24,23 @@
 class CalindoriConfig : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString viewMode READ viewMode WRITE setviewMode NOTIFY viewModeChanged)
-
+    Q_PROPERTY(QString calendars READ calendars NOTIFY calendarsChanged)
+    Q_PROPERTY(QString activeCalendar READ activeCalendar WRITE setActiveCalendar NOTIFY activeCalendarChanged)
 public:
 
     explicit CalindoriConfig(QObject* parent = nullptr);
     ~CalindoriConfig() override;
 
-    QString viewMode() const;
-    Q_INVOKABLE void setviewMode(const QString& mode);
-    Q_SIGNAL void viewModeChanged();
+    QString calendars() const;
+    Q_SIGNAL void calendarsChanged();
+
+    QString activeCalendar() const;
+    void setActiveCalendar(const QString& calendar);
+    Q_SIGNAL void activeCalendarChanged();
+
+public Q_SLOTS:
+    QString addCalendar(const QString& calendar);
+    void removeCalendar(const QString& calendar);
 
 private:
     class Private;

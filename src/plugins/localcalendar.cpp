@@ -21,7 +21,7 @@
 #include <QDebug>
 #include <KCalCore/Todo>
 #include <QFile>
-#include <QStandardPaths> 
+#include <QStandardPaths>
 
 using namespace KCalCore;
 
@@ -52,20 +52,23 @@ void LocalCalendar::setName(QString calendarName)
     if (m_name != calendarName) {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
-        QString fullPathName = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + calendarName + "_local.ical" ; 
-        
-        QFile calendarFile(fullPathName);
-        storage->setFileName(fullPathName);
-        
+        m_fullpath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/" + calendarName + "_local.ical" ;
+
+        QFile calendarFile(m_fullpath);
+        storage->setFileName(m_fullpath);
+
         if (!calendarFile.exists()) {
             qDebug() << "Creating file" << storage->save();
         }
-        
+
         if(storage->load()) {
-            m_name = calendarName; 
+            m_name = calendarName;
             m_calendar = calendar;
             m_cal_storage = storage;
         }
+
+        emit nameChanged();
+        emit memorycalendarChanged();
     }
 }
 
@@ -75,10 +78,7 @@ void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
     if(m_calendar != memoryCalendar) {
         m_calendar = memoryCalendar;
         qDebug() << "Calendar succesfully set";
-        
-    }
-    else {
-        qDebug() << "Cannot set calendar ";
+
     }
 }
 
@@ -87,18 +87,21 @@ void LocalCalendar::setCalendarstorage(FileStorage::Ptr calendarStorage)
     if(m_cal_storage != calendarStorage) {
         m_cal_storage = calendarStorage;
         qDebug() << "Storage succesfully set";
-        
-    }
-    else {
-        qDebug() << "Cannot set storage ";
+
     }
 }
 
 void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location)
 {
+    if ( m_calendar == nullptr)
+    {
+        qDebug() << "Calendar not initialized, cannot add/edit tasks";
+        return;
+    }
+
     qDebug() << "Creating todo" << "summary:" << summary << ", description:" << description << ", startDate:" << startDate.toString() << ", startHour: " << startHour << " , startMinute: " << startMinute << " , allDayFlg: " << allDayFlg;
     QDateTime now = QDateTime::currentDateTime();
-    
+
     Todo::Ptr todo;
     if (uid == "") {
         todo = Todo::Ptr(new Todo());
@@ -113,7 +116,7 @@ void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, Q
     QDateTime startDateTime;
 
     if(allDayFlg) {
-        startDateTime = QDateTime(startDate);  
+        startDateTime = QDateTime(startDate);
     }
     else {
         startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
@@ -127,11 +130,12 @@ void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, Q
 
     m_calendar->addTodo(todo);
     bool success = m_cal_storage->save();
-    qDebug() << "Storage save: " << success;    
-    qDebug() << "Todo has been saved"; 
+    qDebug() << "Storage save: " << success;
+    qDebug() << "Todo has been saved";
 }
 
 void LocalCalendar::deleteTask(QString uid) {
+
     qDebug() << "Deleting task: " << uid;
     Todo::Ptr todo = m_calendar->todo(uid);
     m_calendar->deleteTodo(todo);
@@ -140,7 +144,21 @@ void LocalCalendar::deleteTask(QString uid) {
 }
 
 int LocalCalendar::todosCount(const QDate &date) const {
+    if(m_calendar == nullptr)
+    {
+        return 0;
+    }
     Todo::List todoList = m_calendar->rawTodos(date,date);
     //DEBUG qDebug() << todoList.size() << " todos found in " << date.toString();
     return todoList.size();
+}
+
+void LocalCalendar::deleteCalendar()
+{
+        qDebug() << "Deleting calendar at " << m_fullpath;
+        QFile calendarFile(m_fullpath);
+
+        if (calendarFile.exists()) {
+            calendarFile.remove();
+        }
 }

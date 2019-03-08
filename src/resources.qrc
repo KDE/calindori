@@ -10,5 +10,6 @@
         <file alias="CalendarHeader.qml">contents/ui/kirigami-playground/CalendarHeader.qml</file>        
         <file alias="TimePicker.qml">contents/ui/kirigami-playground/TimePicker.qml</file>
         <file alias="ClockElement.qml">contents/ui/kirigami-playground/ClockElement.qml</file>
+        <file alias="CalendarInputPage.qml">contents/ui/CalendarInputPage.qml</file>
     </qresource>
 </RCC>

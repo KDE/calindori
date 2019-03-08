@@ -20,7 +20,7 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-
+#include <QDebug>
 class CalindoriConfig::Private
 {
 public:
@@ -34,8 +34,11 @@ CalindoriConfig::CalindoriConfig(QObject* parent)
     : QObject(parent)
     , d(new Private)
 {
-    QString viewMode = d->config.group("general").readEntry("view_mode", QString());
-    if(viewMode.isEmpty()) {
+    QString calendars = d->config.group("general").readEntry("calendars", QString());
+    if(calendars.isEmpty()) {
+        qDebug() << "No calendar found, creating a default one";
+        addCalendar("personal");
+        setActiveCalendar("personal");
         d->config.sync();
     }
 }
@@ -45,16 +48,60 @@ CalindoriConfig::~CalindoriConfig()
     delete d;
 }
 
-QString CalindoriConfig::viewMode() const
+QString CalindoriConfig::calendars() const
 {
-    QString viewMode = d->config.group("general").readEntry("view_mode", QString());
-    return viewMode;
+   return d->config.group("general").readEntry("calendars", QString());
 }
 
-void CalindoriConfig::setviewMode(const QString & mode)
+QString CalindoriConfig::activeCalendar() const
 {
-        d->config.group("general").writeEntry("view_mode", mode);
-        d->config.sync();
-        emit viewModeChanged();
+    return d->config.group("general").readEntry("activeCalendar", QString());
 }
 
+
+void CalindoriConfig::setActiveCalendar(const QString & calendar)
+{
+    d->config.group("general").writeEntry("activeCalendar", calendar);
+    d->config.sync();
+    emit activeCalendarChanged();
+}
+
+QString CalindoriConfig::addCalendar(const QString & calendar)
+{
+    if(calendar.contains(";"))
+    {
+        return "Calendar name should not contain semicolons";
+    }
+
+    if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
+    {
+        qDebug() << "Calendar list is empty";
+        d->config.group("general").writeEntry("calendars", calendar);
+        return QString();
+    }
+
+    qDebug() << "Calendar list is not empty, adding calendar " << calendar;
+    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
+
+    if(calendarsList.contains(calendar))
+    {
+        return "Calendar already exists";
+    }
+
+    calendarsList.append(calendar);
+    d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
+    d->config.sync();
+
+    emit calendarsChanged();
+
+    return QString();
+}
+
+void CalindoriConfig::removeCalendar(const QString& calendar)
+{
+    //TODO: IMPLEMENT
+    qDebug() << "Removing calendar " << calendar;
+
+    emit calendarsChanged();
+
+}
