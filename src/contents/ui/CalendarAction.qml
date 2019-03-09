@@ -27,6 +27,8 @@ Kirigami.Action {
     property bool isCalendar: true
     property var configuration
 
+    signal deleteCalendar
+
     checked: (text == configuration.activeCalendar)
 
     Kirigami.Action {
@@ -42,16 +44,6 @@ Kirigami.Action {
         text: "Delete"
         iconName: "delete"
 
-        onTriggered: {
-            if (configuration.activeCalendar == parent.text) {
-                showPassiveNotification("Active calendar cannot be deleted");
-            }
-            else {
-                var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + parent.text + "\"}",root);
-                toRemoveCalendarComponent.deleteCalendar();
-                configuration.removeCalendar(parent.text);
-                showPassiveNotification("Calendar " + parent.text + " has been deleted");                        
-            }
-        }
+        onTriggered: (configuration.activeCalendar == parent.text) ? showPassiveNotification("Active calendar cannot be deleted") : deleteCalendar()
     }
 }

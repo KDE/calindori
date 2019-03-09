@@ -20,6 +20,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.0 as Kirigami
+import QtQuick.Controls 2.4 as Controls2
 import org.kde.phone.calindori 0.1 as Calindori
 import "Utils.js" as Utils
 
@@ -89,6 +90,11 @@ Kirigami.ApplicationWindow {
 
         CalendarAction {
             configuration: calindoriConfig
+
+            onDeleteCalendar: {
+                deleteSheet.calendar = text;
+                deleteSheet.open();
+            }
         }
     }
 
@@ -216,6 +222,12 @@ Kirigami.ApplicationWindow {
             }
 
         }
+    }
+
+    ConfirmationSheet {
+        id: deleteSheet
+
+        configuration: calindoriConfig
     }
 }
 
