@@ -69,10 +69,11 @@ Kirigami.ApplicationWindow {
                 id: calendarActions
 
                 text: "Calendars"
-                iconName: "view-list-icons"
+                iconName: "view-calendar"
 
                 Kirigami.Action {
                     text: "Add calendar..."
+                    iconName: "list-add"
                     onTriggered: root.pageStack.push(calendarInputPage);
                 }
 
@@ -118,6 +119,7 @@ Kirigami.ApplicationWindow {
 
             Kirigami.Action {
                 text: "Activate"
+                iconName: "dialog-ok"
 
                 onTriggered: {
                     calindoriConfig.activeCalendar = parent.text;
@@ -126,6 +128,7 @@ Kirigami.ApplicationWindow {
 
             Kirigami.Action {
                 text: "Delete"
+                iconName: "delete"
 
                 onTriggered: {
                     if (calindoriConfig.activeCalendar == parent.text) {
