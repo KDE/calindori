@@ -23,7 +23,9 @@ TodosModel::TodosModel(QObject* parent)
     m_todos(Todo::List()),
     m_calendar(nullptr),
     m_filterdt(QDate())
-{}
+{
+    connect(this, &TodosModel::memorycalendarChanged, this, &TodosModel::reloadTasks);
+}
 
 TodosModel::~TodosModel() = default;
 
@@ -86,6 +88,8 @@ MemoryCalendar::Ptr TodosModel::memorycalendar() const
 void TodosModel::setMemorycalendar(MemoryCalendar::Ptr calendarPtr)
 {
     m_calendar = calendarPtr;
+
+    emit memorycalendarChanged();
 }
 
 QDate TodosModel::filterdt() const
@@ -102,7 +106,6 @@ void TodosModel::setFilterdt(QDate filterDate)
         }    
     }
 }
-
 
 
 int TodosModel::rowCount(const QModelIndex& parent) const

@@ -31,10 +31,12 @@ Kirigami.Page {
     
     signal editTask(var modelData)
     signal taskDeleted
-    signal refreshNeeded
     
-    onRefreshNeeded: cardsListview.model.reloadTasks()
-    
+    function reload()
+    {
+        cardsListview.model.reloadTasks();
+    }
+
     title: qsTr("Tasks")
     
     Kirigami.CardsListView {

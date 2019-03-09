@@ -32,7 +32,7 @@ Kirigami.ApplicationWindow {
      */
     signal refreshNeeded;
 
-    onRefreshNeeded: todosView.refreshNeeded()
+    onRefreshNeeded: todosView.reload()
 
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
@@ -78,7 +78,10 @@ Kirigami.ApplicationWindow {
 
         name: calindoriConfig.activeCalendar
 
-        onNameChanged: root.refreshNeeded()
+        onNameChanged: {
+            root.refreshNeeded();
+            root.pageStack.pop(null);
+        }
     }
 
     /**
