@@ -21,6 +21,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.phone.calindori 0.1 as Calindori
+import "Utils.js" as Utils
 
 Kirigami.ApplicationWindow {
     id: root
@@ -29,34 +30,6 @@ Kirigami.ApplicationWindow {
      * To be emitted when data displayed should be refreshed
      */
     signal refreshNeeded;
-
-    /**
-     * Creates the list of actions of 'Calendars' action container
-     */
-    function loadGlobalActions() {
-        var cfgCalendars = calindoriConfig.calendars.split(calindoriConfig.calendars.includes(";") ? ";" : null);
-        var currentChildren = calendarActions.children;
-        var newChildren = [];
-
-        //Preserve non-dynamic actions
-        for(var i=0; i <currentChildren.length; ++i)
-        {
-            if(!(currentChildren[i].hasOwnProperty("isCalendar")))
-            {
-                newChildren.push(currentChildren[i]);
-            }
-        }
-
-        //Add calendars from configuration
-        for (var i=0; i < cfgCalendars.length; ++i)
-        {
-            newChildren.push(calendarAction.createObject(calendarActions, { text: cfgCalendars[i] }));
-        }
-
-        calendarActions.children = newChildren;
-    }
-
-
 
     onRefreshNeeded: todosView.refreshNeeded()
 
@@ -82,8 +55,7 @@ Kirigami.ApplicationWindow {
                 }
             }
         ]
-
-        Component.onCompleted: root.loadGlobalActions()
+        Component.onCompleted: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
     }
 
     contextDrawer: Kirigami.ContextDrawer {
@@ -96,8 +68,8 @@ Kirigami.ApplicationWindow {
     Calindori.Config {
         id: calindoriConfig
 
-        onActiveCalendarChanged: root.loadGlobalActions()
-        onCalendarsChanged: root.loadGlobalActions()
+        onActiveCalendarChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
+        onCalendarsChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
     }
 
     Calindori.LocalCalendar {
@@ -108,41 +80,15 @@ Kirigami.ApplicationWindow {
         onNameChanged: root.refreshNeeded()
     }
 
+    /**
+     * Action that represents a calendar configuration entry
+     * It is added dynamically to the global drawer
+     */
     Component {
         id: calendarAction
 
-        Kirigami.Action {
-
-            property bool isCalendar: true
-
-            checked: (text == calindoriConfig.activeCalendar)
-
-            Kirigami.Action {
-                text: "Activate"
-                iconName: "dialog-ok"
-
-                onTriggered: {
-                    calindoriConfig.activeCalendar = parent.text;
-                }
-            }
-
-            Kirigami.Action {
-                text: "Delete"
-                iconName: "delete"
-
-                onTriggered: {
-                    if (calindoriConfig.activeCalendar == parent.text) {
-                        showPassiveNotification("Active calendar cannot be deleted");
-                    }
-                    else {
-                        showPassiveNotification("Deleting calendar " + parent.text);
-                        var toRemoveCalendarComponent =  Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + parent.text + "\"}",root);
-                        toRemoveCalendarComponent.deleteCalendar();
-                        calindoriConfig.removeCalendar(parent.text);
-                    }
-                }
-            }
-
+        CalendarAction {
+            configuration: calindoriConfig
         }
     }
 
