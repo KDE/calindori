@@ -182,7 +182,7 @@ Kirigami.ApplicationWindow {
         calendar: localCalendar
 
         onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
-        onTaskDeleted: root.refreshNeeded()
+        onTasksUpdated: root.refreshNeeded()
     }
 
     Component {

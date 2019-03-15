@@ -30,8 +30,8 @@ Kirigami.Page {
     property var calendar
     
     signal editTask(var modelData)
-    signal taskDeleted
-    
+    signal tasksUpdated
+
     function reload()
     {
         cardsListview.model.reloadTasks();
@@ -51,7 +51,7 @@ Kirigami.Page {
             calendar: localCalendar
 
             onTaskeditcompleted: {
-                root.refreshNeeded();
+                tasksUpdated();
                 pageStack.pop(todoPage);
             }
         }
@@ -77,7 +77,7 @@ Kirigami.Page {
 
                     onTriggered: {
                         root.calendar.deleteTask(model.uid);
-                        taskDeleted();
+                        tasksUpdated();
                     }
                 },
 
