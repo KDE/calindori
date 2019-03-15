@@ -30,19 +30,37 @@ Kirigami.Page {
     property var calendar
     
     signal editTask(var modelData)
-    signal taskDeleted
-    
+    signal tasksUpdated
+
     function reload()
     {
         cardsListview.model.reloadTasks();
     }
 
     title: qsTr("Tasks")
-    
+
+    actions.main: Kirigami.Action {
+        icon.name: "resource-calendar-insert"
+        text: qsTr("Add task")
+        onTriggered: pageStack.push(todoPage, { startdt: todoDt} )
+    }
+
+    Component {
+        id: todoPage
+        TodoPage {
+            calendar: localCalendar
+
+            onTaskeditcompleted: {
+                tasksUpdated();
+                pageStack.pop(todoPage);
+            }
+        }
+    }
+
     Kirigami.CardsListView {
         id: cardsListview
         anchors.fill: parent
-       
+
         model: Calindori.TodosModel {
             filterdt: root.todoDt
             memorycalendar: root.calendar.memorycalendar
@@ -56,47 +74,46 @@ Kirigami.Page {
                 Kirigami.Action {
                     text: qsTr("Delete")
                     icon.name: "delete"
-                    
+
                     onTriggered: {
                         root.calendar.deleteTask(model.uid);
-                        taskDeleted();
-                    }                    
+                        tasksUpdated();
+                    }
                 },
-                
+
                 Kirigami.Action {
                     text: qsTr("Edit")
                     icon.name: "editor"
-                    
+
                     onTriggered: root.editTask(model)
-                }            
+                }
             ]
-            
+
             contentItem: Column {
-                
+
                 Controls2.Label {
                     wrapMode: Text.WordWrap
                     text: model.description
                 }
-                
+
                 RowLayout {
                     visible: model.dtstart.toLocaleTimeString(Qt.locale()) != ""
-                    
+
                     Controls2.Label {
                         wrapMode: Text.WordWrap
                         text: model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
                     }
-                } 
-                
+                }
+
                 RowLayout {
                     visible: model.location != ""
-                    
+
                     Controls2.Label {
                         wrapMode: Text.WordWrap
                         text: model.location
-                    }    
-                }                
+                    }
+                }
             }
         }
-    }    
+    }
 }
-
