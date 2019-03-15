@@ -80,7 +80,9 @@ Kirigami.ApplicationWindow {
 
         onNameChanged: {
             root.refreshNeeded();
-            root.pageStack.pop(null);
+            if (root.pageStack.depth > 1) {
+                root.pageStack.pop(null);
+            }
         }
     }
 
