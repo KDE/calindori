@@ -25,6 +25,7 @@ TodosModel::TodosModel(QObject* parent)
     m_filterdt(QDate())
 {
     connect(this, &TodosModel::memorycalendarChanged, this, &TodosModel::reloadTasks);
+    connect(this, &TodosModel::filterdtChanged, this, &TodosModel::reloadTasks);
 }
 
 TodosModel::~TodosModel() = default;
@@ -101,12 +102,10 @@ void TodosModel::setFilterdt(QDate filterDate)
 {
     if (filterDate.isValid()) {
         m_filterdt = filterDate;
-        if(m_calendar != nullptr) {
-            loadTasks(m_filterdt);
-        }    
     }
-}
 
+    emit filterdtChanged();
+}
 
 int TodosModel::rowCount(const QModelIndex& parent) const
 {
@@ -115,15 +114,14 @@ int TodosModel::rowCount(const QModelIndex& parent) const
     return m_todos.count();
 }
 
-
 void TodosModel::loadTasks(QDate taskDt)
 {
     beginResetModel();
     m_todos.clear();
-    qDebug() << "Show tasks of " + taskDt.toString();
-    m_todos =  m_calendar->rawTodos(taskDt,taskDt);
+    if(m_calendar != nullptr) {
+        m_todos =  m_calendar->rawTodos(taskDt,taskDt);
+    }
     endResetModel();
-
 }
 
 void TodosModel::reloadTasks()
@@ -132,9 +130,3 @@ void TodosModel::reloadTasks()
         loadTasks(m_filterdt);
     }
 }
-
-
-
-
-
-
