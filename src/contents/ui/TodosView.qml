@@ -28,13 +28,14 @@ Kirigami.Page {
     
     property date todoDt
     property var calendar
+    property bool filtered
     
     signal editTask(var modelData)
     signal tasksUpdated
 
     function reload()
     {
-        cardsListview.model.reloadTasks();
+        cardsListview.model.loadTasks();
     }
 
     title: qsTr("Tasks")
@@ -62,6 +63,7 @@ Kirigami.Page {
         anchors.fill: parent
 
         model: Calindori.TodosModel {
+            filtered: root.filtered
             filterdt: root.todoDt
             memorycalendar: root.calendar.memorycalendar
         }

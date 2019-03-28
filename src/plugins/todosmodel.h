@@ -31,6 +31,7 @@ class TodosModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool filtered READ filtered WRITE setFiltered NOTIFY filteredChanged)
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged )
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
@@ -60,22 +61,26 @@ public:
     QDate filterdt() const;
     void setFilterdt(QDate filterDate);
 
+    bool filtered() const;
+    void setFiltered(bool hasFilter);
+
     QHash<int, QByteArray> roleNames() const override;
 
 public Q_SLOTS:
-    void reloadTasks();
+    void loadTasks();
 
 Q_SIGNALS:
     void rowsChanged();
     void memorycalendarChanged();
     void filterdtChanged();
+    void filteredChanged();
 
 private:
 
     Todo::List m_todos;
     MemoryCalendar::Ptr m_calendar;
     QDate m_filterdt;
-    void loadTasks(QDate taskDt);
+    bool m_filtered;
 };
 
 #endif // TODOSMODEL_H

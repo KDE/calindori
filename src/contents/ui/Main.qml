@@ -54,8 +54,34 @@ Kirigami.ApplicationWindow {
                 Kirigami.Action {
                     separator: true
                 }
+            },
+
+            Kirigami.Action {
+                id: show
+
+                text: "Show"
+                //TODO iconName:
+
+                Kirigami.Action {
+                    text: "Calendar"
+                    //TODO iconName:
+                    onTriggered: {
+                        pageStack.clear();
+                        pageStack.push(calendarDashboardComponent)
+                    }
+                }
+
+                Kirigami.Action {
+                    text: "Tasks"
+                    //TODO iconName:
+                    onTriggered: {
+                        pageStack.clear();
+                        pageStack.push(todosView, {filtered: false});
+                    }
+                }
             }
         ]
+
         Component.onCompleted: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
     }
 
@@ -136,7 +162,7 @@ Kirigami.ApplicationWindow {
 
                         onTriggered: {
                             if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
-                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
+                                root.pageStack.push(todosView, { filtered: true, todoDt: calendarMonthView.selectedDate });
                             }
                             else {
                                 showPassiveNotification (i18n("There is no task for the day selected"));
@@ -192,7 +218,6 @@ Kirigami.ApplicationWindow {
             calendar: localCalendar
 
             onTaskeditcompleted: {
-                //console.log("Closing todo page");
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);
             }

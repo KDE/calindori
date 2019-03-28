@@ -19,13 +19,14 @@
 #include "todosmodel.h"
 #include <QDebug>
 TodosModel::TodosModel(QObject* parent)
-    : QAbstractListModel(parent), 
+    : QAbstractListModel(parent),
     m_todos(Todo::List()),
     m_calendar(nullptr),
     m_filterdt(QDate())
 {
-    connect(this, &TodosModel::memorycalendarChanged, this, &TodosModel::reloadTasks);
-    connect(this, &TodosModel::filterdtChanged, this, &TodosModel::reloadTasks);
+    connect(this, &TodosModel::memorycalendarChanged, this, &TodosModel::loadTasks);
+    connect(this, &TodosModel::filterdtChanged, this, &TodosModel::loadTasks);
+    connect(this, &TodosModel::filteredChanged, this, &TodosModel::loadTasks);
 }
 
 TodosModel::~TodosModel() = default;
@@ -102,9 +103,8 @@ void TodosModel::setFilterdt(QDate filterDate)
 {
     if (filterDate.isValid()) {
         m_filterdt = filterDate;
+        emit filterdtChanged();
     }
-
-    emit filterdtChanged();
 }
 
 int TodosModel::rowCount(const QModelIndex& parent) const
@@ -114,19 +114,26 @@ int TodosModel::rowCount(const QModelIndex& parent) const
     return m_todos.count();
 }
 
-void TodosModel::loadTasks(QDate taskDt)
+void TodosModel::loadTasks()
 {
     beginResetModel();
     m_todos.clear();
-    if(m_calendar != nullptr) {
-        m_todos =  m_calendar->rawTodos(taskDt,taskDt);
+    if(m_calendar != nullptr && m_filterdt.isValid() && filtered()) {
+        m_todos =  m_calendar->rawTodos(m_filterdt,m_filterdt);
+    }
+    if (m_calendar != nullptr && !(filtered())) {
+        m_todos =  m_calendar->rawTodos();
     }
     endResetModel();
 }
 
-void TodosModel::reloadTasks()
+void TodosModel::setFiltered(bool hasFilter)
 {
-    if (m_filterdt.isValid()) {
-        loadTasks(m_filterdt);
-    }
+    m_filtered = hasFilter;
+    emit filteredChanged();
+}
+
+bool TodosModel::filtered() const
+{
+    return m_filtered;
 }
