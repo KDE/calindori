@@ -60,11 +60,11 @@ Kirigami.ApplicationWindow {
                 id: show
 
                 text: "Show"
-                //TODO iconName:
+                iconName: "view-choose"
 
                 Kirigami.Action {
                     text: "Calendar"
-                    //TODO iconName:
+                    iconName: "view-calendar-day"
                     onTriggered: {
                         pageStack.clear();
                         pageStack.push(calendarDashboardComponent)
@@ -73,10 +73,10 @@ Kirigami.ApplicationWindow {
 
                 Kirigami.Action {
                     text: "Tasks"
-                    //TODO iconName:
+                    iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(todosView, {filtered: false});
+                        pageStack.push(todosView, {filtered: false, todoDt: null});
                     }
                 }
             }

@@ -25,11 +25,11 @@ import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.Page {
     id: root
-    
-    property date todoDt
+
+    property var todoDt
     property var calendar
     property bool filtered
-    
+
     signal editTask(var modelData)
     signal tasksUpdated
 
@@ -45,6 +45,7 @@ Kirigami.Page {
         text: qsTr("Add task")
         onTriggered: pageStack.push(todoPage, { startdt: todoDt} )
     }
+
 
     Component {
         id: todoPage
@@ -64,8 +65,9 @@ Kirigami.Page {
 
         model: Calindori.TodosModel {
             filtered: root.filtered
-            filterdt: root.todoDt
+            filterdt: root.todoDt != null && !isNaN(root.todoDt) ? root.todoDt : new Date("No Date")
             memorycalendar: root.calendar.memorycalendar
+
         }
 
         delegate: Kirigami.Card {
@@ -98,22 +100,22 @@ Kirigami.Page {
                     text: model.description
                 }
 
-                RowLayout {
-                    visible: model.dtstart.toLocaleTimeString(Qt.locale()) != ""
-
-                    Controls2.Label {
-                        wrapMode: Text.WordWrap
-                        text: model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
-                    }
+                Controls2.Label {
+                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    wrapMode: Text.WordWrap
+                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleDateString(Qt.locale()) : ""
                 }
 
-                RowLayout {
-                    visible: model.location != ""
+                Controls2.Label {
+                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    wrapMode: Text.WordWrap
+                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                }
 
-                    Controls2.Label {
-                        wrapMode: Text.WordWrap
-                        text: model.location
-                    }
+                Controls2.Label {
+                    visible: model.location != ""
+                    wrapMode: Text.WordWrap
+                    text: model.location
                 }
             }
         }

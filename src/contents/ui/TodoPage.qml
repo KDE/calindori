@@ -26,7 +26,7 @@ import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.Page {
     id: root
-    
+
     property date startdt
     property string uid
     property alias summary: summary.text
@@ -38,126 +38,129 @@ Kirigami.Page {
     property var calendar
     property var todoData
     property alias timePicker: timePickerSheet
-    
+
     signal taskeditcompleted
-    
+
     title: qsTr("Task")
-    
+
     ColumnLayout {
-        
+
         anchors.centerIn: parent
-        
+
         Controls2.Label {
+            visible: root.startdt != undefined && !isNaN(root.startdt)
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: todoData ? todoData.dtstart.toLocaleDateString(Qt.locale()) : startdt.toLocaleDateString(Qt.locale())
+            text: todoData && !isNaN(todoData.dtstart) ? todoData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startdt) ? root.startdt.toLocaleDateString(Qt.locale()) : "")
         }
 
-        Kirigami.FormLayout { 
+        Kirigami.FormLayout {
             id: todoCard
-            
-            
+
+
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
             }
-            
+
             Controls2.TextField {
                 id: summary
-                
+
                 Layout.fillWidth: true
                 Kirigami.FormData.label: qsTr("Summary:")
                 text: todoData ? todoData.summary : ""
-                
-            }       
-            
+
+            }
+
             RowLayout {
                 Kirigami.FormData.label: qsTr("Start time:")
-                
+                enabled: root.startdt != undefined && !isNaN(root.startdt)
+
                 Controls2.ToolButton {
                     id: startTimeSelector
-                    
+
                     property int startHour: timePickerSheet.hours + (timePickerSheet.pm ?  12 : 0)
                     property int startMinutes: timePickerSheet.minutes
                     property date startTime: root.startdt
 
-                    text: (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour, startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm")
-                    
+                    text: !isNaN(startdt) ? (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour, startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm"): "00:00"
+
                     enabled: !allDaySelector.checked
 
                     onClicked: timePickerSheet.open()
                 }
             }
-            
+
             Controls2.CheckBox {
                 id: allDaySelector
-                
+
+                enabled: !isNaN(root.startdt)
                 checked: todoData ? todoData.allday: false
                 text: qsTr("All day")
             }
-            
+
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
-            }        
-            
+            }
+
             Controls2.TextField {
                 id: location
-                
+
                 Layout.fillWidth: true
                 Kirigami.FormData.label: qsTr("Location:")
                 text: todoData ? todoData.location : ""
             }
-            
+
         }
-        
+
         Kirigami.Separator {
             Layout.fillWidth: true
-        }      
-        
-        
+        }
+
+
         Controls2.TextArea {
             id: description
-            
+
             Layout.fillWidth: true
             Layout.minimumWidth: Kirigami.Units.gridUnit * 4
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-            wrapMode: Controls2.TextArea.WordWrap            
+            wrapMode: Controls2.TextArea.WordWrap
             text: todoData ? todoData.description : ""
-            placeholderText:  qsTr("Description")        
-        }        
+            placeholderText:  qsTr("Description")
+        }
     }
-    
+
     actions {
-        
+
         left: Kirigami.Action {
             id: cancelAction
-            
+
             text: qsTr("Cancel")
             icon.name : "dialog-cancel"
-            
+
             onTriggered: {
                 taskeditcompleted();
             }
         }
-        
-        
+
+
         main: Kirigami.Action {
             id: info
-            
+
             text: qsTr("Info")
             icon.name : "documentinfo"
-            
+
             onTriggered: {
                 showPassiveNotification("Please save or cancel this task");
             }
         }
-        
+
         right: Kirigami.Action {
             id: saveAction
-            
-            text: qsTr("Save")            
+
+            text: qsTr("Save")
             icon.name : "dialog-ok"
-            
+
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving task");
@@ -166,12 +169,31 @@ Kirigami.Page {
                 }
                 else {
                     showPassiveNotification("Summary should not be empty");
-                }                                                
+                }
             }
-        }        
+        }
 
+        //TODO
+//         contextualActions: [
+//             Kirigami.Action {
+//                 iconName:"editor"
+//                 text: "Edit Start Date"
+//
+//                 onTriggered: showPassiveNotification("Edit start date")
+//
+//             }
+//             ,
+//             Kirigami.Action { //TODO: Do we needed it?
+//                 iconName:"delete"
+//                 text: "Clear Start Date"
+//
+//                 onTriggered: {
+//                     root.startdt = new Date("No Date");
+//                 }
+//             }
+//         ]
     }
-    
+
     Kirigami.OverlaySheet {
         id: timePickerSheet
 
