@@ -63,6 +63,18 @@ Kirigami.Page {
                 Kirigami.FormData.isSection: true
             }
 
+            Controls2.Label {
+                id: calendarName
+
+                Kirigami.FormData.label: qsTr("Calendar:")
+                Layout.fillWidth: true
+                text: root.calendar.name
+            }
+
+            Kirigami.Separator {
+                Kirigami.FormData.isSection: true
+            }
+
             Controls2.TextField {
                 id: summary
 
