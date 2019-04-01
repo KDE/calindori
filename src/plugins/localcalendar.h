@@ -30,32 +30,33 @@ class LocalCalendar : public QObject
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
-    Q_PROPERTY(QSharedPointer<FileStorage> calendarstorage READ calendarstorage WRITE setCalendarstorage NOTIFY calendarstorageChanged)    
+    Q_PROPERTY(QSharedPointer<FileStorage> calendarstorage READ calendarstorage WRITE setCalendarstorage NOTIFY calendarstorageChanged)
+    Q_PROPERTY(QDateTime nulldate READ nulldate CONSTANT)
 
 public:
-    
     explicit LocalCalendar(QObject* parent = nullptr);
     ~LocalCalendar() override;
-    
+
     MemoryCalendar::Ptr memorycalendar() const;
     FileStorage::Ptr calendarstorage() const;
     QString name() const;
+    QDateTime nulldate() const;
 
     void setMemorycalendar(MemoryCalendar::Ptr memoryCalendar);
     void setCalendarstorage(FileStorage::Ptr calendarStorage);
     void setName(QString calendarName);
-    
+
 public Q_SLOTS:
     void addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
-    void deleteTask(QString uid);    
+    void deleteTask(QString uid);
     int todosCount(const QDate &date) const;
     void deleteCalendar();
-    
+
 Q_SIGNALS:
     void memorycalendarChanged();
     void calendarstorageChanged();
     void nameChanged();
-    
+
 private:
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;

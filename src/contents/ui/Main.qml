@@ -72,11 +72,11 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: "Tasks"
+                    text: "Tasks" + " (" + localCalendar.name + ")"
                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(todosView, {filtered: false, todoDt: null});
+                        pageStack.push(todosView, { todoDt: localCalendar.nulldate });
                     }
                 }
             }
@@ -162,7 +162,7 @@ Kirigami.ApplicationWindow {
 
                         onTriggered: {
                             if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
-                                root.pageStack.push(todosView, { filtered: true, todoDt: calendarMonthView.selectedDate });
+                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
                             }
                             else {
                                 showPassiveNotification (i18n("There is no task for the day selected"));

@@ -26,9 +26,8 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property var todoDt
+    property date todoDt
     property var calendar
-    property bool filtered
 
     signal editTask(var modelData)
     signal tasksUpdated
@@ -43,7 +42,7 @@ Kirigami.Page {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: qsTr("Add task")
-        onTriggered: pageStack.push(todoPage, { startdt: todoDt} )
+        onTriggered: pageStack.push(todoPage, {startdt: todoDt})
     }
 
 
@@ -64,8 +63,7 @@ Kirigami.Page {
         anchors.fill: parent
 
         model: Calindori.TodosModel {
-            filtered: root.filtered
-            filterdt: root.todoDt != null && !isNaN(root.todoDt) ? root.todoDt : new Date("No Date")
+            filterdt: root.todoDt
             memorycalendar: root.calendar.memorycalendar
 
         }

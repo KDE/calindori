@@ -162,3 +162,9 @@ void LocalCalendar::deleteCalendar()
             calendarFile.remove();
         }
 }
+
+
+QDateTime LocalCalendar::nulldate() const
+{
+    return QDateTime();
+}
