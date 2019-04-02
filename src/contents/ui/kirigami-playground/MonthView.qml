@@ -24,24 +24,25 @@ import org.kde.kirigami 2.0 as Kirigami
 
 /*
  * Component that displays the days of a month as a 6x7 table
- * 
+ *
  * Optionally, it may display:
  * - a header on top of the table showing the current date
- * - inside each day cell, a small indicator in case that tasks 
+ * - inside each day cell, a small indicator in case that tasks
  *   exist for this day
  */
 Item {
     id: root
-    
+
     property int days: 7
     property int weeks: 6
     property date currentDate: new Date()
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
     property date selectedDate: new Date()
     property int selectedDayTodosCount: 0
+    property string currentMonthName
     /**
      * A model that provides:
-     * 
+     *
      * 1. dayNumber
      * 2. monthNumber
      * 3. yearNumber
@@ -49,7 +50,7 @@ Item {
     property var daysModel
     /**
      * Function that returns the amount of tasks of each day
-     * 
+     *
      * If implemented, a small indicator will be displayed
      * into the cell of each day. Default implementation returns 0,
      * so no indicator is displayed.
@@ -58,77 +59,85 @@ Item {
         return 0;
     }
     property bool showHeader: false
+    property bool showMonthName: true
 
     function reloadSelectedDate() {
         root.selectedDayTodosCount = root.todosCount(root.selectedDate)
     }
-    
+
     onSelectedDateChanged: reloadSelectedDate()
 
     ColumnLayout {
         anchors.centerIn: parent
-        
+
         spacing:  Kirigami.Units.gridUnit / 4
-        
+
         /**
          * Optional header on top of the table
-         * that displays the current date and 
+         * that displays the current date and
          * the amount of the day's tasks
          */
         CalendarHeader {
             id: calendarHeader
-            
+
             Layout.bottomMargin: Kirigami.Units.gridUnit / 2
             headerDate: root.selectedDate
             headerTodosCount: root.selectedDayTodosCount
             visible: root.showHeader
         }
-        
+
+
+        Controls2.Label {
+            visible: showMonthName
+            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+            text: currentMonthName
+        }
+
         /**
          * Styled week day names of the days' calendar grid
          * E.g.
          * Mon Tue Wed ...
          */
         RowLayout {
-            spacing: 0           
-            
+            spacing: 0
+
             Repeater {
                 model: root.days
-                delegate: 
+                delegate:
                     Rectangle {
                         width: root.dayRectWidth
                         height: width
                         color: Kirigami.Theme.disabledTextColor
                         opacity: 0.8
-                        
-                        Controls2.Label {                
+
+                        Controls2.Label {
                             anchors.centerIn: parent
                             color: Kirigami.Theme.textColor
-                            text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat) 
-                        }            
+                            text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat)
+                        }
                 }
             }
         }
-        
+
         /**
          * Grid that displays the days of a month (normally 6x7)
-         */        
-        Grid {        
-            Layout.fillWidth: true            
+         */
+        Grid {
+            Layout.fillWidth: true
             columns: root.days
             rows: root.weeks
-            
-            Repeater {               
+
+            Repeater {
                 model: root.daysModel
-                delegate: DayDelegate {                    
+                delegate: DayDelegate {
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth
                     selectedDate: root.selectedDate
                     todosCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
-                    
-                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)                    
-                }                
+
+                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)
+                }
             }
-        }        
+        }
     }
 }
