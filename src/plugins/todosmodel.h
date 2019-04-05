@@ -46,7 +46,8 @@ public:
         Categories,
         Priority,
         Created,
-        Secrecy
+        Secrecy,
+        Completed
     };
 
     explicit TodosModel(QObject* parent = nullptr);

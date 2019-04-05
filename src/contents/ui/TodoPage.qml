@@ -35,6 +35,7 @@ Kirigami.Page {
     property alias startMinute: startTimeSelector.startMinutes
     property alias allDay: allDaySelector.checked
     property alias location: location.text
+    property alias completed: completed.checked
     property var calendar
     property var todoData
     property alias timePicker: timePickerSheet
@@ -58,6 +59,7 @@ Kirigami.Page {
         Kirigami.FormLayout {
             id: todoCard
 
+            enabled: !root.completed
 
             Kirigami.Separator {
                 Kirigami.FormData.isSection: true
@@ -133,12 +135,24 @@ Kirigami.Page {
         Controls2.TextArea {
             id: description
 
+            enabled: !root.completed
             Layout.fillWidth: true
             Layout.minimumWidth: Kirigami.Units.gridUnit * 4
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
             wrapMode: Controls2.TextArea.WordWrap
             text: todoData ? todoData.description : ""
             placeholderText:  qsTr("Description")
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        Controls2.CheckBox {
+            id: completed
+
+            text: qsTr("Completed")
+            checked: todoData ? todoData.completed: false
         }
     }
 
@@ -176,7 +190,7 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving task");
-                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location); //TODO: Pass a Todo object
+                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
                     taskeditcompleted();
                 }
                 else {

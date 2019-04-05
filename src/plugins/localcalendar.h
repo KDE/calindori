@@ -47,7 +47,7 @@ public:
     void setName(QString calendarName);
 
 public Q_SLOTS:
-    void addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location);
+    void addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location, bool completed);
     void deleteTask(QString uid);
     int todosCount(const QDate &date) const;
     void deleteCalendar();

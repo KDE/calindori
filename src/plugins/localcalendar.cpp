@@ -91,7 +91,7 @@ void LocalCalendar::setCalendarstorage(FileStorage::Ptr calendarStorage)
     }
 }
 
-void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location)
+void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location, bool completed)
 {
     if ( m_calendar == nullptr)
     {
@@ -127,6 +127,7 @@ void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, Q
     todo->setSummary(summary);
     todo->setAllDay(allDayFlg);
     todo->setLocation(location);
+    todo->setCompleted(completed);
 
     m_calendar->addTodo(todo);
     bool success = m_cal_storage->save();

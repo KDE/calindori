@@ -44,6 +44,7 @@ QHash< int, QByteArray > TodosModel::roleNames() const
     roles.insert(Priority, "priority");
     roles.insert(Created, "created");
     roles.insert(Secrecy, "secrecy");
+    roles.insert(Completed, "completed");
     return roles;
 }
 
@@ -76,6 +77,8 @@ QVariant TodosModel::data(const QModelIndex& index, int role) const
             return m_todos.at(index.row())->created();
         case Secrecy:
             return m_todos.at(index.row())->secrecy();
+        case Completed:
+            return m_todos.at(index.row())->isCompleted();
     }
     return QVariant();
 }

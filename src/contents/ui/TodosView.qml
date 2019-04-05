@@ -93,6 +93,8 @@ Kirigami.Page {
 
             contentItem: Column {
 
+                enabled: !model.completed
+
                 Controls2.Label {
                     wrapMode: Text.WordWrap
                     text: model.description
