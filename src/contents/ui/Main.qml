@@ -32,8 +32,6 @@ Kirigami.ApplicationWindow {
      */
     signal refreshNeeded;
 
-    onRefreshNeeded: todosView.reload()
-
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
 
@@ -202,13 +200,22 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    TodosView {
+    Component {
         id: todosView
 
-        calendar: localCalendar
+        TodosView {
 
-        onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
-        onTasksUpdated: root.refreshNeeded()
+            calendar: localCalendar
+
+            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
+            onTasksUpdated: root.refreshNeeded()
+
+            Connections {
+                target: root
+
+                onRefreshNeeded: reload()
+            }
+        }
     }
 
     Component {
@@ -216,7 +223,6 @@ Kirigami.ApplicationWindow {
 
         TodoPage {
             calendar: localCalendar
-
             onTaskeditcompleted: {
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);
