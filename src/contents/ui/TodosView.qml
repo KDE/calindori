@@ -22,6 +22,7 @@ import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
 import org.kde.phone.calindori 0.1 as Calindori
+import org.kube.framework 1.0 as Kube
 
 Kirigami.Page {
     id: root
@@ -56,18 +57,23 @@ Kirigami.Page {
                 pageStack.pop(todoPage);
             }
         }
+           }
+          Kube.CalendarSelector {
+               id: accountSwitcher
+        visible: false
     }
 
     Kirigami.CardsListView {
         id: cardsListview
         anchors.fill: parent
 
-        model: Calindori.TodosModel {
-            filterdt: root.todoDt
-            memorycalendar: root.calendar.memorycalendar
-
+//         model: Calindori.TodosModel {
+//             filterdt: root.todoDt
+//             memorycalendar: root.calendar.memorycalendar
+//         }
+        model: Kube.TodoModel {
+            calendarFilter: accountSwitcher.enabledCalendars
         }
-
         delegate: Kirigami.Card {
             banner.title: model.summary
             banner.titleLevel: 3

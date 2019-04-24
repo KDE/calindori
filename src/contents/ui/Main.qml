@@ -23,6 +23,7 @@ import org.kde.kirigami 2.0 as Kirigami
 import QtQuick.Controls 2.4 as Controls2
 import org.kde.phone.calindori 0.1 as Calindori
 import "Utils.js" as Utils
+import org.kube.framework 1.0 as Kube
 
 Kirigami.ApplicationWindow {
     id: root
@@ -37,6 +38,12 @@ Kirigami.ApplicationWindow {
 
         title: "Calindori"
         actions: [
+            Kirigami.Action {
+                id: onlineCalendars
+
+                text: "Online Calendars"
+                onTriggered: root.pageStack.push(accountSwitcher);
+            },
             Kirigami.Action {
                 id: calendarActions
 
@@ -257,6 +264,98 @@ Kirigami.ApplicationWindow {
                 root.pageStack.pop(calendarInputPage);
             }
 
+        }
+    }
+
+    Kube.CheckedEntities {
+        id: calendarFilterCollector
+    }
+
+    Component {
+        id: accountSwitcher
+
+        Kirigami.Page {
+
+
+        Kube.ListView {
+                id: listView
+
+                anchors.fill: parent
+                Layout.fillWidth: true
+                Layout.maximumHeight: Math.min(contentHeight, parent.height - Kube.Units.gridUnit)
+                Layout.preferredHeight: contentHeight
+                spacing: Kube.Units.smallSpacing
+                model: Kube.CheckableEntityModel {
+                    id: calendarModel
+                    type: "calendar"
+                    roles: ["name", "color", "enabled"]
+                    sortRole: "name"
+                    filter: {} //root.editMode ? {} : {enabled: true}
+                    accountId: ""
+                    checkedEntities: calendarFilterCollector
+                }
+                delegate: Kube.ListDelegate {
+                    id: delegate
+                    width: listView.availableWidth
+                    height: Kube.Units.gridUnit
+                    hoverEnabled: true
+                    background: Item {}
+                    RowLayout {
+                        anchors.fill: parent
+                        spacing: Kube.Units.smallSpacing
+                        Kube.CheckBox {
+                            id: checkBox
+                            opacity: 0.9
+                            visible: root.editMode
+                            checked: model.checked || model.enabled
+                            onCheckedChanged: {
+                                model.checked = checked
+                                model.enabled = checked
+                            }
+
+                            indicator: Rectangle {
+                                width: Kube.Units.gridUnit * 0.8
+                                height: Kube.Units.gridUnit * 0.8
+
+                                color: model.color
+
+                                Rectangle {
+                                    id: highlight
+                                    anchors.fill: parent
+                                    visible: checkBox.hovered || checkBox.visualFocus
+                                    color: Kube.Colors.highlightColor
+                                    opacity: 0.4
+                                }
+
+                                Kube.Icon {
+                                    anchors.centerIn: parent
+                                    height: Kube.Units.gridUnit
+                                    width: Kube.Units.gridUnit
+                                    visible: checkBox.checked
+                                    iconName: Kube.Icons.checkbox_inverted
+                                }
+                            }
+
+                        }
+                        Kube.Label {
+                            id: label
+                            Layout.fillWidth: true
+                            text: model.name
+                            color: Kube.Colors.highlightedTextColor
+                            elide: Text.ElideLeft
+                            clip: true
+                        }
+                        Rectangle {
+                            visible: !root.editMode
+                            width: Kube.Units.gridUnit * 0.8
+                            height: Kube.Units.gridUnit * 0.8
+                            radius: width / 2
+                            color: model.color
+                        }
+
+                    }
+                }
+            }
         }
     }
 
