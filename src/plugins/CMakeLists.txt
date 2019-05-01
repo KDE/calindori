@@ -3,6 +3,7 @@ set(qmlplugin_SRCS
     calindoriconfig.cpp
     todosmodel.cpp
     localcalendar.cpp
+    eventmodel.cpp
 )
 
 add_library (calindoriqmlplugin SHARED ${qmlplugin_SRCS})
