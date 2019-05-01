@@ -89,7 +89,7 @@ MemoryCalendar::Ptr TodosModel::memorycalendar() const
     return m_calendar;
 }
 
-void TodosModel::setMemorycalendar(MemoryCalendar::Ptr calendarPtr)
+void TodosModel::setMemorycalendar(const MemoryCalendar::Ptr calendarPtr)
 {
     m_calendar = calendarPtr;
 

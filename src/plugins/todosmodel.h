@@ -56,7 +56,7 @@ public:
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
     MemoryCalendar::Ptr memorycalendar() const;
-    void setMemorycalendar(MemoryCalendar::Ptr calendarPtr);
+    void setMemorycalendar(const MemoryCalendar::Ptr calendarPtr);
 
     QDate filterdt() const;
     void setFilterdt(const QDate& filterDate);
