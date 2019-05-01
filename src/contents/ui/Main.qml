@@ -28,6 +28,7 @@ import org.kube.framework 1.0 as Kube
 Kirigami.ApplicationWindow {
     id: root
 
+    property alias localCalendar : local_calendar
     /**
      * To be emitted when data displayed should be refreshed
      */
@@ -38,26 +39,33 @@ Kirigami.ApplicationWindow {
 
         title: "Calindori"
         actions: [
-            Kirigami.Action {
-                id: onlineCalendars
-
-                text: "Online Calendars"
-                onTriggered: root.pageStack.push(accountSwitcher);
-            },
+            
             Kirigami.Action {
                 id: calendarActions
 
                 text: "Calendars"
                 iconName: "view-calendar"
-
+                
                 Kirigami.Action {
-                    text: "Add calendar..."
-                    iconName: "list-add"
-                    onTriggered: root.pageStack.push(calendarInputPage);
+                    id: onlineCalendarActions
+
+                    text: "Online"
                 }
 
                 Kirigami.Action {
-                    separator: true
+                    id: localCalendarActions
+
+                    text: "Local"
+
+                    Kirigami.Action {
+                        text: "Add calendar..."
+                        iconName: "list-add"
+                        onTriggered: root.pageStack.push(calendarInputPage);
+                    }
+
+                    Kirigami.Action {
+                        separator: true
+                    }
                 }
             },
 
@@ -77,17 +85,17 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: "Tasks" + " (" + localCalendar.name + ")"
+                    text: "Tasks"
                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(todosView, { todoDt: localCalendar.nulldate });
+                        pageStack.push(todosView, { todoDt: localCalendar.nulldate, onlineCalendarFilter: calendarFilter, isOnline: (calindoriConfig.activeOnlineCalendar != ""), calendar: root.localCalendar});
                     }
                 }
             }
         ]
 
-        Component.onCompleted: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
+        Component.onCompleted: Utils.createLocalCalendarActions(calindoriConfig.calendars, localCalendarActions, calendarAction)
     }
 
     contextDrawer: Kirigami.ContextDrawer {
@@ -100,14 +108,22 @@ Kirigami.ApplicationWindow {
     Calindori.Config {
         id: calindoriConfig
 
-        onActiveCalendarChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
-        onCalendarsChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
+        onActiveLocalCalendarChanged: {
+            Utils.createLocalCalendarActions(calindoriConfig.calendars, localCalendarActions, calendarAction);
+            calendarFilter.clearFilter();
+        }
+        onActiveOnlineCalendarChanged: {
+            calendarFilter.clearFilter();
+            calendarFilter.addFilter(activeOnlineCalendar);
+        }
+        
+        onCalendarsChanged: Utils.createLocalCalendarActions(calindoriConfig.calendars, localCalendarActions, calendarAction)
     }
 
     Calindori.LocalCalendar {
-        id: localCalendar
+        id: local_calendar
 
-        name: calindoriConfig.activeCalendar
+        name: calindoriConfig.activeLocalCalendar 
 
         onNameChanged: {
             root.refreshNeeded();
@@ -134,6 +150,18 @@ Kirigami.ApplicationWindow {
         }
     }
 
+        /**
+     * Action that represents a calendar configuration entry
+     * It is added dynamically to the global drawer
+     */
+    Component {
+        id: onlineCalendarAction
+
+        CalendarAction {
+            isOnline: true
+            configuration: calindoriConfig
+        }
+    }
     Component {
         id: calendarDashboardComponent
 
@@ -166,12 +194,12 @@ Kirigami.ApplicationWindow {
                         text: "Show tasks"
 
                         onTriggered: {
-                            if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
-                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
-                            }
-                            else {
-                                showPassiveNotification (i18n("There is no task for the day selected"));
-                            }
+//                             if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
+                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate, onlineCalendarFilter: calendarFilter, isOnline: (calindoriConfig.activeOnlineCalendar != "")  , calendar: root.localCalendar});
+//                             }
+//                             else {
+//                                 showPassiveNotification (i18n("There is no task for the day selected"));
+//                             }
                         }
                     },
                     Kirigami.Action {
@@ -214,7 +242,7 @@ Kirigami.ApplicationWindow {
 
             calendar: localCalendar
 
-            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
+            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.startDate, uid: modelData.uid, todoData: modelData })
             onTasksUpdated: root.refreshNeeded()
 
             Connections {
@@ -229,7 +257,7 @@ Kirigami.ApplicationWindow {
         id: todoPage
 
         TodoPage {
-            calendar: localCalendar
+            localCalendar: root.localCalendar
             onTaskeditcompleted: {
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);
@@ -267,41 +295,32 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Component {
-        id: accountSwitcher
 
-        Kirigami.Page {
-
-
-            Kirigami.CardsListView {
-                id: listView
-
-                anchors.fill: parent
-
-                model: Kube.EntityModel {
-                    id: calendarModel
-                    type: "calendar"
-                    roles: ["name", "color"]
-                    sortRole: "name"
-                    filter: {"enabled": true}
-
-                    onInitialItemsLoaded: {
-                        if (currentIndex >= 0) {
-                            root.selected(calendarModel.data(currentIndex).object)
-                        }
-                    }
-                }
-
-                delegate: Kirigami.Card {
-                    contentItem: Controls2.Label {
-                        wrapMode: Text.WordWrap
-                        text: model.name
-                    }
-                }
+    Kube.EntityModel {
+        id: calendarModel
+        type: "calendar"
+        roles: ["name", "identifier", "enabled"]
+        sortRole: "name"
+        filter: {"enabled": true}
+    
+        onInitialItemsLoaded: {
+            var calendarList = [];
+            for(var i=0; i<calendarModel.rowCount(); ++i) {                
+                calendarList.push(calendarModel.data(i));
             }
+            Utils.createOnlineCalendarActions(calendarList, onlineCalendarActions, onlineCalendarAction)
         }
     }
 
+    Calindori.CalendarFilter {
+        id: calendarFilter
+    
+        Component.onCompleted: { //TODO: if config is not loaded, this will not work. we need property binding
+            clearFilter();
+            addFilter(calindoriConfig.activeOnlineCalendar);
+        }
+    }
+        
     ConfirmationSheet {
         id: deleteSheet
 

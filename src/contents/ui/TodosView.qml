@@ -29,6 +29,8 @@ Kirigami.Page {
 
     property date todoDt
     property var calendar
+    property var onlineCalendarFilter
+    property string isOnline
 
     signal editTask(var modelData)
     signal tasksUpdated
@@ -50,30 +52,36 @@ Kirigami.Page {
     Component {
         id: todoPage
         TodoPage {
-            calendar: localCalendar
+            localCalendar: root.calendar
 
             onTaskeditcompleted: {
                 tasksUpdated();
                 pageStack.pop(todoPage);
             }
         }
-           }
-          Kube.CalendarSelector {
-               id: accountSwitcher
-        visible: false
     }
-
+    
+           
+    Calindori.TodosModel {
+        id: localCalendarModel
+    
+        filterdt: root.todoDt
+        memorycalendar: root.calendar.memorycalendar
+    }
+        
+    Kube.TodoModel {
+        id: onlineCalendarModel
+            
+        calendarFilter: root.onlineCalendarFilter.filter
+        filter: (root.isOnline =="true" && !isNaN(root.todoDt)) ? {"startDate" : root.todoDt} : {}            
+    }
+    
+    
     Kirigami.CardsListView {
         id: cardsListview
         anchors.fill: parent
 
-//         model: Calindori.TodosModel {
-//             filterdt: root.todoDt
-//             memorycalendar: root.calendar.memorycalendar
-//         }
-        model: Kube.TodoModel {
-            calendarFilter: accountSwitcher.enabledCalendars
-        }
+        model: (isOnline == "true") ? onlineCalendarModel : localCalendarModel
         delegate: Kirigami.Card {
             banner.title: model.summary
             banner.titleLevel: 3
@@ -99,7 +107,7 @@ Kirigami.Page {
 
             contentItem: Column {
 
-                enabled: !model.completed
+                enabled: !model.complete
 
                 Controls2.Label {
                     wrapMode: Text.WordWrap
@@ -107,22 +115,24 @@ Kirigami.Page {
                 }
 
                 Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    visible: model.startDate && !isNaN(model.startDate) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
                     wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleDateString(Qt.locale()) : ""
+                    text: (model.startDate && !isNaN(model.startDate)) ? model.startDate.toLocaleDateString(Qt.locale()) : ""
                 }
 
                 Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    visible: model.startDate && !isNaN(model.startDate) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
                     wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                    text: (model.startDate && !isNaN(model.startDate)) ? model.startDate.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
                 }
+                
+                //Not supported in Kube models
 
-                Controls2.Label {
-                    visible: model.location != ""
-                    wrapMode: Text.WordWrap
-                    text: model.location
-                }
+//                 Controls2.Label {
+//                     visible: model.location != ""
+//                     wrapMode: Text.WordWrap
+//                     text: model.location
+//                 }
             }
         }
     }

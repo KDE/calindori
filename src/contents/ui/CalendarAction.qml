@@ -23,27 +23,32 @@ import org.kde.kirigami 2.4 as Kirigami
 import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.Action {
+    id: root
 
     property bool isCalendar: true
+    property bool isOnline: false
     property var configuration
+    property string identifier
 
     signal deleteCalendar
 
-    checked: (text == configuration.activeCalendar)
+    checked: (text == configuration.activeLocalCalendar) || (identifier == configuration.activeOnlineCalendar)
 
     Kirigami.Action {
         text: "Activate"
         iconName: "dialog-ok"
 
         onTriggered: {
-            configuration.activeCalendar = parent.text;
+            configuration.activeLocalCalendar = (root.isOnline) ? "" : parent.text;
+            configuration.activeOnlineCalendar = (root.isOnline) ? parent.identifier: "";
         }
     }
 
     Kirigami.Action {
         text: "Delete"
         iconName: "delete"
+        visible: !isOnline
 
-        onTriggered: (configuration.activeCalendar == parent.text) ? showPassiveNotification("Active calendar cannot be deleted") : deleteCalendar()
+        onTriggered: (configuration.activeLocalCalendar == parent.text) ? showPassiveNotification("Active calendar cannot be deleted") : deleteCalendar()
     }
 }

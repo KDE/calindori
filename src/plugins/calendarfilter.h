@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Dimitris Kardarakos
+ * Copyright (C) 2019 Dimitris Kardarakos
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -16,20 +16,35 @@
  *
  */
 
-#include "qmlplugin.h"
+#ifndef CALENDARFILTER_H
+#define CALENDARFILTER_H
 
-#include "calindoriconfig.h"
-#include "localcalendar.h"
-#include "calendarfilter.h"
-#include "todosmodel.h"
-#include <QQmlEngine>
-#include <QtQml/qqml.h>
+#include <QObject>
+#include <QSet>
+#include <QByteArray> 
 
-
-void QmlPlugins::registerTypes(const char *uri)
+class CalendarFilter : public QObject
 {
-    qmlRegisterType<CalindoriConfig>(uri, 0, 1, "Config");
-    qmlRegisterType<TodosModel>(uri, 0, 1, "TodosModel");
-    qmlRegisterType<LocalCalendar>(uri, 0, 1, "LocalCalendar");
-    qmlRegisterType<CalendarFilter>(uri, 0, 1, "CalendarFilter");
-}
+    Q_OBJECT
+    Q_PROPERTY(QSet<QByteArray> filter READ filter NOTIFY filterChanged)
+
+
+public:
+    explicit CalendarFilter(QObject* parent = nullptr);
+    ~CalendarFilter() override;
+
+    QSet<QByteArray> filter() const;
+
+public Q_SLOTS:
+    void addFilter(const QVariant & calendarId) ;
+    void clearFilter();
+
+Q_SIGNALS:
+    void filterChanged();
+
+private:
+    QSet<QByteArray> m_filter;
+};
+
+#endif // CALENDARFILTER_H
+

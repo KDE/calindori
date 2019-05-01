@@ -34,7 +34,7 @@ QHash< int, QByteArray > TodosModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles.insert(Uid, "uid");
-    roles.insert(DtStart, "dtstart");
+    roles.insert(DtStart, "startDate"); //FROM: dtstart
     roles.insert(Description, "description");
     roles.insert(Summary, "summary");
     roles.insert(LastModified, "lastmodified");
@@ -44,7 +44,8 @@ QHash< int, QByteArray > TodosModel::roleNames() const
     roles.insert(Priority, "priority");
     roles.insert(Created, "created");
     roles.insert(Secrecy, "secrecy");
-    roles.insert(Completed, "completed");
+    roles.insert(Completed, "complete"); //FROM: completed
+    
     return roles;
 }
 

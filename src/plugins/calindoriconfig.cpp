@@ -38,7 +38,7 @@ CalindoriConfig::CalindoriConfig(QObject* parent)
     if(calendars.isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
         addCalendar("personal");
-        setActiveCalendar("personal");
+        setActiveLocalCalendar("personal");
         d->config.sync();
     }
 }
@@ -53,17 +53,28 @@ QString CalindoriConfig::calendars() const
    return d->config.group("general").readEntry("calendars", QString());
 }
 
-QString CalindoriConfig::activeCalendar() const
+QString CalindoriConfig::activeLocalCalendar() const
 {
-    return d->config.group("general").readEntry("activeCalendar", QString());
+    return d->config.group("general").readEntry("activeLocalCalendar", QString());
 }
 
-
-void CalindoriConfig::setActiveCalendar(const QString & calendar)
+QString CalindoriConfig::activeOnlineCalendar() const
 {
-    d->config.group("general").writeEntry("activeCalendar", calendar);
+    return d->config.group("general").readEntry("activeOnlineCalendar", QString());
+}
+
+void CalindoriConfig::setActiveLocalCalendar(const QString & calendar)
+{
+    d->config.group("general").writeEntry("activeLocalCalendar", calendar);
     d->config.sync();
-    emit activeCalendarChanged();
+    emit activeLocalCalendarChanged();
+}
+
+void CalindoriConfig::setActiveOnlineCalendar(const QString & calendar)
+{
+    d->config.group("general").writeEntry("activeOnlineCalendar", calendar);
+    d->config.sync();
+    emit activeOnlineCalendarChanged();
 }
 
 QString CalindoriConfig::addCalendar(const QString & calendar)

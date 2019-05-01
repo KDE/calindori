@@ -25,7 +25,8 @@ class CalindoriConfig : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString calendars READ calendars NOTIFY calendarsChanged)
-    Q_PROPERTY(QString activeCalendar READ activeCalendar WRITE setActiveCalendar NOTIFY activeCalendarChanged)
+    Q_PROPERTY(QString activeLocalCalendar READ activeLocalCalendar WRITE setActiveLocalCalendar NOTIFY activeLocalCalendarChanged)
+    Q_PROPERTY(QString activeOnlineCalendar READ activeOnlineCalendar WRITE setActiveOnlineCalendar NOTIFY activeOnlineCalendarChanged)
 public:
 
     explicit CalindoriConfig(QObject* parent = nullptr);
@@ -34,9 +35,14 @@ public:
     QString calendars() const;
     Q_SIGNAL void calendarsChanged();
 
-    QString activeCalendar() const;
-    void setActiveCalendar(const QString& calendar);
-    Q_SIGNAL void activeCalendarChanged();
+    QString activeLocalCalendar() const;
+    void setActiveLocalCalendar(const QString& calendar);
+    Q_SIGNAL void activeLocalCalendarChanged();
+
+    QString activeOnlineCalendar() const;
+    void setActiveOnlineCalendar(const QString& calendar);
+    Q_SIGNAL void activeOnlineCalendarChanged();
+
 
 public Q_SLOTS:
     QString addCalendar(const QString& calendar);

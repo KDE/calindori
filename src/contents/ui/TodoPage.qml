@@ -34,9 +34,9 @@ Kirigami.Page {
     property alias startHour: startTimeSelector.startHour
     property alias startMinute: startTimeSelector.startMinutes
     property alias allDay: allDaySelector.checked
-    property alias location: location.text
+    property string location: "" //location.text
     property alias completed: completed.checked
-    property var calendar
+    property var localCalendar
     property var todoData
     property alias timePicker: timePickerSheet
 
@@ -53,7 +53,7 @@ Kirigami.Page {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: todoData && !isNaN(todoData.dtstart) ? todoData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startdt) ? root.startdt.toLocaleDateString(Qt.locale()) : "")
+            text: todoData && !isNaN(todoData.startDate) ? todoData.startDate.toLocaleDateString(Qt.locale()) : (!isNaN(root.startdt) ? root.startdt.toLocaleDateString(Qt.locale()) : "")
         }
 
         Kirigami.FormLayout {
@@ -66,11 +66,11 @@ Kirigami.Page {
             }
 
             Controls2.Label {
-                id: calendarName
+                id: localCalendarName
 
                 Kirigami.FormData.label: qsTr("Calendar:")
                 Layout.fillWidth: true
-                text: root.calendar.name
+                text: root.localCalendar.name
             }
 
             Kirigami.Separator {
@@ -113,17 +113,17 @@ Kirigami.Page {
                 text: qsTr("All day")
             }
 
-            Kirigami.Separator {
-                Kirigami.FormData.isSection: true
-            }
-
-            Controls2.TextField {
-                id: location
-
-                Layout.fillWidth: true
-                Kirigami.FormData.label: qsTr("Location:")
-                text: todoData ? todoData.location : ""
-            }
+//             Kirigami.Separator {
+//                 Kirigami.FormData.isSection: true
+//             }
+// 
+//             Controls2.TextField {
+//                 id: location
+// 
+//                 Layout.fillWidth: true
+//                 Kirigami.FormData.label: qsTr("Location:")
+//                 text: todoData ? todoData.location : ""
+//             }
 
         }
 
@@ -152,7 +152,7 @@ Kirigami.Page {
             id: completed
 
             text: qsTr("Completed")
-            checked: todoData ? todoData.completed: false
+            checked: todoData ? todoData.complete: false
         }
     }
 
@@ -190,7 +190,7 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving task");
-                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
+                    root.localCalendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
                     taskeditcompleted();
                 }
                 else {
@@ -223,9 +223,9 @@ Kirigami.Page {
     Kirigami.OverlaySheet {
         id: timePickerSheet
 
-        property int hours: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-        property int minutes: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-        property bool pm: (todoData && todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
+        property int hours: todoData ? todoData.startDate.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+        property int minutes: todoData ? todoData.startDate.toLocaleTimeString(Qt.locale(), "mm") : 0
+        property bool pm: (todoData && todoData.startDate.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
 
         rightPadding: 0
         leftPadding: 0
