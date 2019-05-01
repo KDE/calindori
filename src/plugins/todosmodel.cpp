@@ -125,4 +125,5 @@ void TodosModel::loadTasks()
         m_todos =  m_calendar->rawTodos();
     }
     endResetModel();
+    emit rowCountChanged();
 }

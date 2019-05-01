@@ -33,7 +33,7 @@ class TodosModel : public QAbstractListModel
 
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged )
-    Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
+    Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
 public:
     enum Roles {
         Uid=Qt::UserRole+1,
@@ -67,7 +67,7 @@ public Q_SLOTS:
     void loadTasks();
 
 Q_SIGNALS:
-    void rowsChanged();
+    void rowCountChanged();
     void memorycalendarChanged();
     void filterdtChanged();
 
