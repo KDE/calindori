@@ -101,7 +101,7 @@ QDate TodosModel::filterdt() const
     return m_filterdt;
 }
 
-void TodosModel::setFilterdt(QDate filterDate)
+void TodosModel::setFilterdt(const QDate& filterDate)
 {
     m_filterdt = filterDate;
     emit filterdtChanged();

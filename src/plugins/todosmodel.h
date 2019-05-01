@@ -59,7 +59,7 @@ public:
     void setMemorycalendar(MemoryCalendar::Ptr calendarPtr);
 
     QDate filterdt() const;
-    void setFilterdt(QDate filterDate);
+    void setFilterdt(const QDate& filterDate);
 
     QHash<int, QByteArray> roleNames() const override;
 
