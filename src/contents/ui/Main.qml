@@ -156,42 +156,16 @@ Kirigami.ApplicationWindow {
                 contextualActions: [
                     Kirigami.Action {
                         iconName: "view-calendar-tasks"
-                        text: "Show tasks"
+                        text: "Tasks"
 
-                        onTriggered: {
-                            if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
-                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
-                            }
-                            else {
-                                showPassiveNotification (i18n("There is no task for the day selected"));
-                            }
-                        }
+                        onTriggered: root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate })
                     },
-                    Kirigami.Action {
-                        iconName: "resource-calendar-insert"
-                        text: "Add task"
-
-                        onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )
-                     },
 
                     Kirigami.Action {
                         iconName: "view-calendar-events"
-                        text: "Show events"
+                        text: "Events"
 
-                        onTriggered: {
-//                             if(localCalendar.eventsCount(calendarMonthView.selectedDate) > 0) { //TODO: Implement eventsCount
-                                root.pageStack.push(eventsView, { eventDt: calendarMonthView.selectedDate });
-//                             }
-//                             else {
-//                                 showPassiveNotification (i18n("There is no event for the day selected"));
-//                             }
-                        }
-                    },
-                    Kirigami.Action {
-                        iconName: "resource-calendar-insert"
-                        text: "Add event"
-
-                        onTriggered: root.pageStack.push(eventEditor, { startdt: calendarMonthView.selectedDate} )
+                        onTriggered: root.pageStack.push(eventsView, { eventStartDt: calendarMonthView.selectedDate })
                     }
                 ]
             }
@@ -203,6 +177,10 @@ Kirigami.ApplicationWindow {
 
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);
+                }
+
+                eventsCount: function (eventsDate) {
+                    return localCalendar.eventsCount(eventsDate);
                 }
 
                 onSelectedDateChanged: {
@@ -245,7 +223,7 @@ Kirigami.ApplicationWindow {
         EventsView {
             calendar: localCalendar
 
-            onEditEvent: root.pageStack.push(eventEditor, {  startdt: modelData.dtstart, uid: modelData.uid, eventData: modelData })
+            onEditEvent: root.pageStack.push(eventEditor, { startdt: modelData.dtstart, uid: modelData.uid, eventData: modelData })
             onEventsUpdated: root.refreshNeeded()
 
             Connections {

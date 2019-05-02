@@ -40,7 +40,7 @@ Rectangle {
     property int delegateWidth
     property date selectedDate
     property bool highlight: (model.yearNumber == selectedDate.getFullYear())  &&  (model.monthNumber == selectedDate.getMonth() + 1) &&  (model.dayNumber == root.selectedDate.getDate())
-    property int todosCount
+    property int incidentsCount
     
     signal dayClicked
     
@@ -56,7 +56,7 @@ Rectangle {
         
         /**
          * Display a tiny indicator in case that 
-         * todos exist for the day of the model
+         * todos or events exist for the day of the model
          */
         Rectangle {
             anchors {
@@ -71,7 +71,7 @@ Rectangle {
             height: width
             radius: 50
             color: Kirigami.Theme.selectionFocusColor            
-            visible: todosCount > 0
+            visible: incidentsCount > 0
         }
         
         Controls2.ToolButton {

@@ -126,10 +126,14 @@ void EventModel::loadEvents()
     m_events.clear();
 
     if(m_calendar != nullptr && m_filterdt.isValid())
-        m_events = m_calendar->rawEventsForDate(m_filterdt);
+    {
+        m_events = m_calendar->rawEvents(m_filterdt,m_filterdt);
+    }
 
     if(m_calendar != nullptr && m_filterdt.isNull())
+    {
         m_events = m_calendar->rawEvents();
+    }
 
     endResetModel();
     emit rowCountChanged();

@@ -26,7 +26,7 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property date eventDt
+    property date eventStartDt
     property var calendar
 
     signal editEvent(var modelData)

@@ -27,6 +27,7 @@ ColumnLayout {
     
     property date headerDate
     property int headerTodosCount
+    property int headerEventsCount
     
     RowLayout {
         id: selectedDayHeading
@@ -55,8 +56,10 @@ ColumnLayout {
     }
     
     Controls2.Label {
-        text: (root.headerTodosCount > 0) ? i18np("%1 task for today", "%1 tasks for today",root.headerTodosCount) : ""
+        text: ((root.headerTodosCount > 0) ? i18np("%1 task", "%1 tasks",root.headerTodosCount) : "") +
+                ((root.headerTodosCount > 0 && root.headerEventsCount > 0) ? " and " : "") +
+                    ((root.headerEventsCount > 0) ? i18np("%1 event", "%1 events",root.headerEventsCount) : "")
         opacity: 0.6
     }
-    
+
 }
