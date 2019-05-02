@@ -22,6 +22,7 @@
 #include <QSharedPointer>
 #include <KCalCore/MemoryCalendar>
 #include <KCalCore/FileStorage>
+#include <KCalCore/Event>
 
 using namespace KCalCore;
 
@@ -52,6 +53,9 @@ public Q_SLOTS:
     int todosCount(const QDate &date) const;
     void deleteCalendar();
 
+    void addEditEvent(const QVariantMap& eventObject);
+    void deleteEvent(QString uid);
+    int eventsCount(const QDate& date) const;
 Q_SIGNALS:
     void memorycalendarChanged();
     void calendarstorageChanged();

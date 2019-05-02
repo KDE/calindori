@@ -172,6 +172,26 @@ Kirigami.ApplicationWindow {
                         text: "Add task"
 
                         onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )
+                     },
+
+                    Kirigami.Action {
+                        iconName: "view-calendar-events"
+                        text: "Show events"
+
+                        onTriggered: {
+//                             if(localCalendar.eventsCount(calendarMonthView.selectedDate) > 0) { //TODO: Implement eventsCount
+                                root.pageStack.push(eventsView, { eventDt: calendarMonthView.selectedDate });
+//                             }
+//                             else {
+//                                 showPassiveNotification (i18n("There is no event for the day selected"));
+//                             }
+                        }
+                    },
+                    Kirigami.Action {
+                        iconName: "resource-calendar-insert"
+                        text: "Add event"
+
+                        onTriggered: root.pageStack.push(eventEditor, { startdt: calendarMonthView.selectedDate} )
                     }
                 ]
             }
@@ -218,6 +238,24 @@ Kirigami.ApplicationWindow {
         }
     }
 
+
+    Component {
+        id: eventsView
+
+        EventsView {
+            calendar: localCalendar
+
+            onEditEvent: root.pageStack.push(eventEditor, {  startdt: modelData.dtstart, uid: modelData.uid, eventData: modelData })
+            onEventsUpdated: root.refreshNeeded()
+
+            Connections {
+                target: root
+
+                onRefreshNeeded: reload()
+            }
+        }
+    }
+
     Component {
         id: todoPage
 
@@ -226,6 +264,18 @@ Kirigami.ApplicationWindow {
             onTaskeditcompleted: {
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);
+            }
+        }
+    }
+
+    Component {
+        id: eventEditor
+
+        EventEditor {
+            calendar: localCalendar
+            onEditcompleted: {
+                root.refreshNeeded();
+                root.pageStack.pop(eventEditor);
             }
         }
     }

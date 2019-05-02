@@ -83,8 +83,30 @@ QVariant EventModel::data(const QModelIndex& index, int role) const
     {
         case Uid :
             return m_events.at(index.row())->uid();
+        case DtStart:
+            return m_events.at(index.row())->dtStart();
+        case AllDay:
+            return m_events.at(index.row())->allDay();
+        case Description:
+            return m_events.at(index.row())->description();
         case Summary:
             return m_events.at(index.row())->summary();
+        case LastModified:
+            return m_events.at(index.row())->lastModified();
+        case Location:
+            return m_events.at(index.row())->location();
+        case Categories:
+            return m_events.at(index.row())->categories();
+        case Priority:
+            return m_events.at(index.row())->priority();
+        case Created:
+            return m_events.at(index.row())->created();
+        case Secrecy:
+            return m_events.at(index.row())->secrecy();
+        case EndDate:
+            return m_events.at(index.row())->dtEnd();
+        case Transparency:
+            return m_events.at(index.row())->transparency();
         default:
             return QVariant();
     }

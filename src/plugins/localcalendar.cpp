@@ -169,3 +169,71 @@ QDateTime LocalCalendar::nulldate() const
 {
     return QDateTime();
 }
+
+
+void LocalCalendar::addEditEvent(const QVariantMap& eventObject)
+{
+    if ( m_calendar == nullptr)
+    {
+        qDebug() << "Calendar not initialized, cannot add/edit events";
+        return;
+    }
+
+    qDebug() << "Creating event";
+    QDateTime now = QDateTime::currentDateTime();
+
+    Event::Ptr event;
+    QString uid = eventObject["uid"].value<QString>();
+    QString summary = eventObject["summary"].value<QString>();
+
+    if (uid == "") {
+        event = Event::Ptr(new Event());
+        event->setUid(summary.left(1) + now.toString("yyyyMMddhhmmsszzz"));
+    }
+    else {
+        event = m_calendar->event(uid);
+        event->setUid(uid);
+    }
+    QDate startDate = eventObject["startDate"].value<QDate>();
+    int startHour = eventObject["startHour"].value<int>();
+    int startMinute = eventObject["startMinute"].value<int>();
+
+    QDateTime startDateTime;
+    bool allDayFlg= eventObject["allDay"].value<bool>();
+
+    if(allDayFlg) {
+        startDateTime = QDateTime(startDate);
+    }
+    else {
+        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
+    }
+
+    event->setDtStart(startDateTime);
+    event->setDescription(eventObject["description"].value<QString>());
+    event->setSummary(summary);
+    event->setAllDay(allDayFlg);
+    event->setLocation(eventObject["location"].value<QString>());
+
+    m_calendar->addEvent(event);
+    bool success = m_cal_storage->save();
+    qDebug() << "Saving event object: " << success;
+}
+
+
+void LocalCalendar::deleteEvent(QString uid) {
+
+    qDebug() << "Deleting event: " << uid;
+    Event::Ptr event = m_calendar->event(uid);
+    m_calendar->deleteEvent(event);
+    bool success = m_cal_storage->save();
+    qDebug() << "Event deleted? " << success;
+}
+
+int LocalCalendar::eventsCount(const QDate& date) const {
+    if(m_calendar == nullptr)
+    {
+        return 0;
+    }
+    Event::List eventList = m_calendar->rawEventsForDate(date);
+    return eventList.count();
+}
