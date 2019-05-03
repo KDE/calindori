@@ -94,20 +94,17 @@ Kirigami.Page {
             contentItem: Column {
 
                 Controls2.Label {
+                    property bool sameEndStart : model.dtstart && !isNaN(model.dtstart) && model.dtend && !isNaN(model.dtend) && model.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == model.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
+
+                    wrapMode: Text.WordWrap
+                    text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), "ddd d MMM yyyy hh:mm" ) : "") +
+                        (model.dtend && !isNaN(model.dtend) ? " - " +
+                            model.dtend.toLocaleString(Qt.locale(), sameEndStart ? "hh:mm" : "ddd d MMM yyyy hh:mm" ) : "")
+                }
+
+                Controls2.Label {
                     wrapMode: Text.WordWrap
                     text: model.description
-                }
-
-                Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
-                    wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleDateString(Qt.locale()) : ""
-                }
-
-                Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
-                    wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
                 }
 
                 Controls2.Label {
