@@ -33,14 +33,16 @@ Kirigami.Page {
     property alias description: description.text
     property alias startHour: startTimeSelector.startHour
     property alias startMinute: startTimeSelector.startMinutes
+    property alias startPm: startTimeSelector.startPm
     property alias allDay: allDaySelector.checked
     property alias location: location.text
     property var calendar
     property var eventData
     property alias timePicker: timePickerSheet
-//     property alias enddt: endDateSelector.endDate TODO
-//     property alias endHour: endTimeSelector.endHour TODO
-//     property alias endMinute: endTimeSelector.endMinutes TODO
+    property date enddt
+    property alias endHour: endTimeSelector.endHour
+    property alias endMinute: endTimeSelector.endMinutes
+    property alias endPm: endTimeSelector.endPm
     signal editcompleted
 
     title: qsTr("Event")
@@ -94,15 +96,72 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     id: startTimeSelector
 
-                    property int startHour: timePickerSheet.hours + (timePickerSheet.pm ?  12 : 0)
-                    property int startMinutes: timePickerSheet.minutes
-                    property date startTime: root.startdt
+                    property int startHour:  root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    property int startMinutes: root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    property bool startPm : (root.eventData && root.eventData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
 
-                    text: !isNaN(startdt) ? (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour, startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm"): "00:00"
+                    text: !isNaN(startdt) ? (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour + (startPm ? 12 : 0), startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
 
                     enabled: !allDaySelector.checked
 
-                    onClicked: timePickerSheet.open()
+                    onClicked: {
+                        timePickerSheet.hours = startTimeSelector.startHour
+                        timePickerSheet.minutes = startTimeSelector.startMinutes
+                        timePickerSheet.pm = startTimeSelector.startPm
+                        timePickerSheet.type = "start-picker"
+
+                        timePickerSheet.open()
+                    }
+
+                    Connections {
+                        target: timePickerSheet
+
+                        onDatePicked: {
+                            if(timePickerSheet.type ==  "start-picker") {
+                                startTimeSelector.startHour = timePickerSheet.hours
+                                startTimeSelector.startMinutes = timePickerSheet.minutes
+                                startTimeSelector.startPm = timePickerSheet.pm
+                            }
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: qsTr("End time:")
+                enabled: root.enddt != undefined && !isNaN(root.enddt)
+
+                Controls2.ToolButton {
+                    id: endTimeSelector
+
+                    property int endHour:  root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    property int endMinutes: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    property bool endPm : (root.eventData && root.eventData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+
+                    text: !isNaN(enddt) ? (new Date(enddt.getFullYear(), enddt.getMonth() , enddt.getDate(), endHour + (endPm ? 12 : 0), endMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
+
+                    enabled: !allDaySelector.checked
+
+                    onClicked: {
+                        timePickerSheet.hours = endTimeSelector.endHour
+                        timePickerSheet.minutes = endTimeSelector.endMinutes
+                        timePickerSheet.pm = endTimeSelector.endPm
+                        timePickerSheet.type = "end-picker"
+
+                        timePickerSheet.open()
+                    }
+
+                    Connections {
+                        target: timePickerSheet
+
+                        onDatePicked: {
+                            if(timePickerSheet.type ==  "end-picker") {
+                                endTimeSelector.endHour = timePickerSheet.hours
+                                endTimeSelector.endMinutes = timePickerSheet.minutes
+                                endTimeSelector.endPm = timePickerSheet.pm
+                            }
+                        }
+                    }
                 }
             }
 
@@ -180,7 +239,7 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving event, root.startdt:" + startdt);
-                    root.calendar.addEditEvent( { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour, "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location }) ; 
+                    root.calendar.addEditEvent( { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.enddt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, }) ;
                     editcompleted();
                 }
                 else {
@@ -188,34 +247,17 @@ Kirigami.Page {
                 }
             }
         }
-
-        //TODO
-//         contextualActions: [
-//             Kirigami.Action {
-//                 iconName:"editor"
-//                 text: "Edit Start Date"
-//
-//                 onTriggered: showPassiveNotification("Edit start date")
-//
-//             }
-//             ,
-//             Kirigami.Action { //TODO: Do we needed it?
-//                 iconName:"delete"
-//                 text: "Clear Start Date"
-//
-//                 onTriggered: {
-//                     root.startdt = new Date("No Date");
-//                 }
-//             }
-//         ]
     }
 
     Kirigami.OverlaySheet {
         id: timePickerSheet
 
-        property int hours: eventData ? eventData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-        property int minutes: eventData ? eventData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-        property bool pm: (eventData && eventData.dtstart.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
+        property int hours
+        property int minutes
+        property bool pm
+        property string type
+
+        signal datePicked
 
         rightPadding: 0
         leftPadding: 0
@@ -238,6 +280,7 @@ Kirigami.Page {
                     timePickerSheet.hours = timePicker.hours
                     timePickerSheet.minutes = timePicker.minutes
                     timePickerSheet.pm = timePicker.pm
+                    timePickerSheet.datePicked()
                     timePickerSheet.close()
                 }
             }
@@ -246,6 +289,7 @@ Kirigami.Page {
                 onClicked: {
                     timePicker.hours = timePickerSheet.hours
                     timePicker.minutes = timePickerSheet.minutes
+                    timePicker.pm = timePickerSheet.pm
                     timePickerSheet.close()
                 }
             }

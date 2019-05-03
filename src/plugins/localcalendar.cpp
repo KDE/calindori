@@ -198,17 +198,26 @@ void LocalCalendar::addEditEvent(const QVariantMap& eventObject)
     int startHour = eventObject["startHour"].value<int>();
     int startMinute = eventObject["startMinute"].value<int>();
 
+
+    QDate endDate = eventObject["endDate"].value<QDate>();
+    int endHour = eventObject["endHour"].value<int>();
+    int endMinute = eventObject["endMinute"].value<int>();
+
     QDateTime startDateTime;
+    QDateTime endDateTime;
     bool allDayFlg= eventObject["allDay"].value<bool>();
 
     if(allDayFlg) {
         startDateTime = QDateTime(startDate);
+        endDateTime = QDateTime(endDate);
     }
     else {
         startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
+        endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());
     }
 
     event->setDtStart(startDateTime);
+    event->setDtEnd(endDateTime);
     event->setDescription(eventObject["description"].value<QString>());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);

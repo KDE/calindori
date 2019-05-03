@@ -223,7 +223,7 @@ Kirigami.ApplicationWindow {
         EventsView {
             calendar: localCalendar
 
-            onEditEvent: root.pageStack.push(eventEditor, { startdt: modelData.dtstart, uid: modelData.uid, eventData: modelData })
+            onEditEvent: root.pageStack.push(eventEditor, { startdt: modelData.dtstart,  enddt: modelData.dtend, uid: modelData.uid, eventData: modelData })
             onEventsUpdated: root.refreshNeeded()
 
             Connections {
