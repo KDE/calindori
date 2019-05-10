@@ -150,9 +150,23 @@ Kirigami.Page {
                         target: endTimePickerSheet
 
                         onDatePicked: {
-                            endTimeSelector.endHour = endTimePickerSheet.hours
-                            endTimeSelector.endMinutes = endTimePickerSheet.minutes
-                            endTimeSelector.endPm = endTimePickerSheet.pm
+                            var endDtTime = root.enddt;
+                            endDtTime.setHours(endTimePickerSheet.hours + (endTimePickerSheet.pm ? 12 : 0));
+                            endDtTime.setMinutes( endTimePickerSheet.minutes);
+
+                            var startDtTime = root.startdt;
+                            startDtTime.setHours(root.startHour + (root.startPm ? 12 : 0));
+                            startDtTime.setMinutes(root.startMinute);
+
+                            if(endDtTime >= startDtTime) {
+                                endTimeSelector.endHour = endTimePickerSheet.hours
+                                endTimeSelector.endMinutes = endTimePickerSheet.minutes
+                                endTimeSelector.endPm = endTimePickerSheet.pm
+                            }
+                            else
+                            {
+                                showPassiveNotification("End date time should be after start date time");
+                            }
                         }
                     }
                 }
