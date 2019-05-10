@@ -52,10 +52,8 @@ public Q_SLOTS:
     void deleteTask(QString uid);
     int todosCount(const QDate &date) const;
     void deleteCalendar();
-
-    void addEditEvent(const QVariantMap& eventObject);
-    void deleteEvent(QString uid);
     int eventsCount(const QDate& date) const;
+    bool save();
 Q_SIGNALS:
     void memorycalendarChanged();
     void calendarstorageChanged();

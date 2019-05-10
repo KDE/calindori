@@ -4,6 +4,7 @@ set(qmlplugin_SRCS
     todosmodel.cpp
     localcalendar.cpp
     eventmodel.cpp
+    eventcontroller.cpp
 )
 
 add_library (calindoriqmlplugin SHARED ${qmlplugin_SRCS})

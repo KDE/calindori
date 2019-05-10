@@ -239,7 +239,9 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving event, root.startdt:" + startdt);
-                    root.calendar.addEditEvent( { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.enddt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, }) ;
+                    var controller = eventController.createObject(parent, {calendar: root.calendar});
+                    controller.vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.enddt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute };
+                    controller.addEdit();
                     editcompleted();
                 }
                 else {
@@ -296,4 +298,10 @@ Kirigami.Page {
         }
     }
 
+    Component {
+        id: eventController
+
+        Calindori.EventController {
+        }
+    }
 }
