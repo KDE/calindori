@@ -36,9 +36,9 @@ void EventController::setCalendar(QObject * const calendarPtr)
     if(calendarPtr != m_calendar)
     {
         m_calendar = calendarPtr;
+        emit calendarChanged();
     }
 
-    emit calendarChanged();
 }
 
 QVariantMap EventController::vevent() const
