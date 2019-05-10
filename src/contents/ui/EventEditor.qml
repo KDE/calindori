@@ -38,7 +38,6 @@ Kirigami.Page {
     property alias location: location.text
     property var calendar
     property var eventData
-    property alias timePicker: timePickerSheet
     property date enddt
     property alias endHour: endTimeSelector.endHour
     property alias endMinute: endTimeSelector.endMinutes
@@ -105,23 +104,20 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
 
                     onClicked: {
-                        timePickerSheet.hours = startTimeSelector.startHour
-                        timePickerSheet.minutes = startTimeSelector.startMinutes
-                        timePickerSheet.pm = startTimeSelector.startPm
-                        timePickerSheet.type = "start-picker"
+                        startTimePickerSheet.hours = startTimeSelector.startHour
+                        startTimePickerSheet.minutes = startTimeSelector.startMinutes
+                        startTimePickerSheet.pm = startTimeSelector.startPm
 
-                        timePickerSheet.open()
+                        startTimePickerSheet.open()
                     }
 
                     Connections {
-                        target: timePickerSheet
+                        target: startTimePickerSheet
 
                         onDatePicked: {
-                            if(timePickerSheet.type ==  "start-picker") {
-                                startTimeSelector.startHour = timePickerSheet.hours
-                                startTimeSelector.startMinutes = timePickerSheet.minutes
-                                startTimeSelector.startPm = timePickerSheet.pm
-                            }
+                            startTimeSelector.startHour = startTimePickerSheet.hours
+                            startTimeSelector.startMinutes = startTimePickerSheet.minutes
+                            startTimeSelector.startPm = startTimePickerSheet.pm
                         }
                     }
                 }
@@ -134,7 +130,7 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     id: endTimeSelector
 
-                    property int endHour:  root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    property int endHour: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
                     property int endMinutes: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
                     property bool endPm : (root.eventData && root.eventData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
 
@@ -143,23 +139,20 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
 
                     onClicked: {
-                        timePickerSheet.hours = endTimeSelector.endHour
-                        timePickerSheet.minutes = endTimeSelector.endMinutes
-                        timePickerSheet.pm = endTimeSelector.endPm
-                        timePickerSheet.type = "end-picker"
+                        endTimePickerSheet.hours = endTimeSelector.endHour
+                        endTimePickerSheet.minutes = endTimeSelector.endMinutes
+                        endTimePickerSheet.pm = endTimeSelector.endPm
 
-                        timePickerSheet.open()
+                        endTimePickerSheet.open()
                     }
 
                     Connections {
-                        target: timePickerSheet
+                        target: endTimePickerSheet
 
                         onDatePicked: {
-                            if(timePickerSheet.type ==  "end-picker") {
-                                endTimeSelector.endHour = timePickerSheet.hours
-                                endTimeSelector.endMinutes = timePickerSheet.minutes
-                                endTimeSelector.endPm = timePickerSheet.pm
-                            }
+                            endTimeSelector.endHour = endTimePickerSheet.hours
+                            endTimeSelector.endMinutes = endTimePickerSheet.minutes
+                            endTimeSelector.endPm = endTimePickerSheet.pm
                         }
                     }
                 }
@@ -251,51 +244,12 @@ Kirigami.Page {
         }
     }
 
-    Kirigami.OverlaySheet {
-        id: timePickerSheet
+    TimePickerSheet {
+        id: startTimePickerSheet
+    }
 
-        property int hours
-        property int minutes
-        property bool pm
-        property string type
-
-        signal datePicked
-
-        rightPadding: 0
-        leftPadding: 0
-
-        contentItem: TimePicker {
-            id: timePicker
-
-            hours: timePickerSheet.hours
-            minutes: timePickerSheet.minutes
-            pm: timePickerSheet.pm
-        }
-
-        footer: RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-            Controls2.ToolButton {
-                text: qsTr("OK")
-                onClicked: {
-                    timePickerSheet.hours = timePicker.hours
-                    timePickerSheet.minutes = timePicker.minutes
-                    timePickerSheet.pm = timePicker.pm
-                    timePickerSheet.datePicked()
-                    timePickerSheet.close()
-                }
-            }
-            Controls2.ToolButton {
-                text: qsTr("Cancel")
-                onClicked: {
-                    timePicker.hours = timePickerSheet.hours
-                    timePicker.minutes = timePickerSheet.minutes
-                    timePicker.pm = timePickerSheet.pm
-                    timePickerSheet.close()
-                }
-            }
-        }
+    TimePickerSheet {
+        id: endTimePickerSheet
     }
 
     Component {
