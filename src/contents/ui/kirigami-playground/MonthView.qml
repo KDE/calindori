@@ -39,6 +39,7 @@ Item {
     property int dayRectWidth: Kirigami.Units.gridUnit*2.5
     property date selectedDate: new Date()
     property int selectedDayTodosCount: 0
+    property int selectedDayEventsCount: 0
     property string currentMonthName
     /**
      * A model that provides:
@@ -58,11 +59,23 @@ Item {
     property var todosCount: function (todosDate) {
         return 0;
     }
+
+    /**
+     * Function that returns the amount of events of each day
+     *
+     * If implemented, a small indicator will be displayed
+     * into the cell of each day. Default implementation returns 0,
+     * so no indicator is displayed.
+     */
+    property var eventsCount: function (eventsDate) {
+        return 0;
+    }
     property bool showHeader: false
     property bool showMonthName: true
 
     function reloadSelectedDate() {
         root.selectedDayTodosCount = root.todosCount(root.selectedDate)
+        root.selectedDayEventsCount = root.eventsCount(root.selectedDate)
     }
 
     onSelectedDateChanged: reloadSelectedDate()
@@ -83,6 +96,7 @@ Item {
             Layout.bottomMargin: Kirigami.Units.gridUnit / 2
             headerDate: root.selectedDate
             headerTodosCount: root.selectedDayTodosCount
+            headerEventsCount: root.selectedDayEventsCount
             visible: root.showHeader
         }
 
@@ -133,7 +147,8 @@ Item {
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth
                     selectedDate: root.selectedDate
-                    todosCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
+                    incidentsCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
+                                    + root.eventsCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
 
                     onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)
                 }

@@ -169,3 +169,17 @@ QDateTime LocalCalendar::nulldate() const
 {
     return QDateTime();
 }
+
+int LocalCalendar::eventsCount(const QDate& date) const {
+    if(m_calendar == nullptr)
+    {
+        return 0;
+    }
+    Event::List eventList = m_calendar->rawEvents(date,date);
+    return eventList.count();
+}
+
+bool LocalCalendar::save()
+{
+    return m_cal_storage->save();
+}

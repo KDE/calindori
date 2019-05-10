@@ -40,6 +40,7 @@ MonthView {
 
     currentMonthName: plasmaCalendar.displayedDateMonthName
     selectedDayTodosCount: todosCount(selectedDate)
+    selectedDayEventsCount: eventsCount(selectedDate)
     daysModel: plasmaCalendar.daysModel
     showHeader: true
     showMonthName: true

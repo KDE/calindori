@@ -156,22 +156,16 @@ Kirigami.ApplicationWindow {
                 contextualActions: [
                     Kirigami.Action {
                         iconName: "view-calendar-tasks"
-                        text: "Show tasks"
+                        text: "Tasks"
 
-                        onTriggered: {
-                            if(localCalendar.todosCount(calendarMonthView.selectedDate) > 0) {
-                                root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate });
-                            }
-                            else {
-                                showPassiveNotification (i18n("There is no task for the day selected"));
-                            }
-                        }
+                        onTriggered: root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate })
                     },
-                    Kirigami.Action {
-                        iconName: "resource-calendar-insert"
-                        text: "Add task"
 
-                        onTriggered: root.pageStack.push(todoPage, { startdt: calendarMonthView.selectedDate} )
+                    Kirigami.Action {
+                        iconName: "view-calendar-events"
+                        text: "Events"
+
+                        onTriggered: root.pageStack.push(eventsView, { eventStartDt: calendarMonthView.selectedDate })
                     }
                 ]
             }
@@ -183,6 +177,10 @@ Kirigami.ApplicationWindow {
 
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);
+                }
+
+                eventsCount: function (eventsDate) {
+                    return localCalendar.eventsCount(eventsDate);
                 }
 
                 onSelectedDateChanged: {
@@ -218,6 +216,24 @@ Kirigami.ApplicationWindow {
         }
     }
 
+
+    Component {
+        id: eventsView
+
+        EventsView {
+            calendar: localCalendar
+
+            onEditEvent: root.pageStack.push(eventEditor, { startdt: modelData.dtstart,  enddt: modelData.dtend, uid: modelData.uid, eventData: modelData })
+            onEventsUpdated: root.refreshNeeded()
+
+            Connections {
+                target: root
+
+                onRefreshNeeded: reload()
+            }
+        }
+    }
+
     Component {
         id: todoPage
 
@@ -226,6 +242,18 @@ Kirigami.ApplicationWindow {
             onTaskeditcompleted: {
                 root.refreshNeeded();
                 root.pageStack.pop(todoPage);
+            }
+        }
+    }
+
+    Component {
+        id: eventEditor
+
+        EventEditor {
+            calendar: localCalendar
+            onEditcompleted: {
+                root.refreshNeeded();
+                root.pageStack.pop(eventEditor);
             }
         }
     }

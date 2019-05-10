@@ -14,5 +14,8 @@
         <file alias="Utils.js">contents/code/Utils.js</file>
         <file alias="CalendarAction.qml">contents/ui/CalendarAction.qml</file>
         <file alias="ConfirmationSheet.qml">contents/ui/ConfirmationSheet.qml</file>
+        <file alias="EventsView.qml">contents/ui/EventsView.qml</file>
+        <file alias="EventEditor.qml">contents/ui/EventEditor.qml</file>
+        <file alias="TimePickerSheet.qml">contents/ui/TimePickerSheet.qml</file>
     </qresource>
 </RCC>
