@@ -207,7 +207,9 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving task");
-                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour + (root.startPm ? 12 : 0), root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
+                    var controller = todoController.createObject(parent, { calendar: root.calendar });
+                    controller.vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startdt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed};
+                    controller.addEdit();
                     taskeditcompleted();
                 }
                 else {
@@ -240,4 +242,11 @@ Kirigami.Page {
     TimePickerSheet {
         id: startTimePickerSheet
     }
+
+    Component {
+        id: todoController
+
+        Calindori.TodoController {}
+    }
+
 }

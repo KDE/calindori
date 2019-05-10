@@ -1,4 +1,3 @@
-#include <QObject>
 /*
  * Copyright (C) 2019 Dimitris Kardarakos
  *
@@ -17,39 +16,39 @@
  *
  */
 
-#ifndef EVENTCONTROLLER_H
-#define EVENTCONTROLLER_H
-
+#ifndef TODOCONTROLLER_H
+#define TODOCONTROLLER_H
 #include <QObject>
 #include <QVariantMap>
 
-class EventController : public QObject
+class TodoController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QVariantMap vevent READ vevent WRITE setVevent NOTIFY veventChanged)
-    Q_PROPERTY(QObject* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(QObject* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged);
+    Q_PROPERTY(QVariantMap vtodo READ vtodo WRITE setVtodo NOTIFY vtodoChanged);
 
 public:
-    explicit EventController(QObject* parent = nullptr);
-    ~EventController() override;
-    
-    QVariantMap vevent() const;
-    void setVevent(const QVariantMap& event);
+    explicit TodoController(QObject* parent = nullptr);
+    ~TodoController() override;
 
     QObject* calendar() const;
-    void setCalendar(QObject* const calendarPtr);
+    void setCalendar(QObject* const calendarPtr );
+
+    QVariantMap vtodo() const;
+    void setVtodo(const QVariantMap& todo);
 
     Q_INVOKABLE void remove();
     Q_INVOKABLE void addEdit();
 
 Q_SIGNALS:
-    void veventChanged();
     void calendarChanged();
-    void veventsUpdated();
+    void vtodoChanged();
+    void vtodosUpdated();
 
 private:
-    QVariantMap m_event;
     QObject* m_calendar;
+    QVariantMap m_todo;
 };
 #endif
+

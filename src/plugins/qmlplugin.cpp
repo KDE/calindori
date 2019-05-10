@@ -23,6 +23,7 @@
 #include "todosmodel.h"
 #include "eventmodel.h"
 #include "eventcontroller.h"
+#include "todocontroller.h"
 #include <QQmlEngine>
 #include <QtQml/qqml.h>
 
@@ -34,4 +35,5 @@ void QmlPlugins::registerTypes(const char *uri)
     qmlRegisterType<LocalCalendar>(uri, 0, 1, "LocalCalendar");
     qmlRegisterType<EventModel>(uri, 0, 1, "EventModel");
     qmlRegisterType<EventController>(uri,0,1,"EventController");
+    qmlRegisterType<TodoController>(uri,0,1,"TodoController");
 }

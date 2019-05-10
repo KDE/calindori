@@ -49,6 +49,7 @@ QVariantMap EventController::vevent() const
 void EventController::setVevent(const QVariantMap& event)
 {
     m_event = event;
+    emit veventChanged();
 }
 
 void EventController::remove()
@@ -65,7 +66,7 @@ void EventController::remove()
     qDebug() << "Event deleted: " << deleted;
 
     emit veventChanged();
-
+    emit veventsUpdated();
 }
 
 void EventController::addEdit()
@@ -123,4 +124,5 @@ void EventController::addEdit()
     qDebug() << "Event added/updated: " << merged;
 
     emit veventChanged();
+    emit veventsUpdated();
 }

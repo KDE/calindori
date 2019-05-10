@@ -91,59 +91,6 @@ void LocalCalendar::setCalendarstorage(FileStorage::Ptr calendarStorage)
     }
 }
 
-void LocalCalendar::addEditTask(QString uid, QDate startDate, QString summary, QString description, int startHour, int startMinute, bool allDayFlg, QString location, bool completed)
-{
-    if ( m_calendar == nullptr)
-    {
-        qDebug() << "Calendar not initialized, cannot add/edit tasks";
-        return;
-    }
-
-    qDebug() << "Creating todo" << "summary:" << summary << ", description:" << description << ", startDate:" << startDate.toString() << ", startHour: " << startHour << " , startMinute: " << startMinute << " , allDayFlg: " << allDayFlg;
-    QDateTime now = QDateTime::currentDateTime();
-
-    Todo::Ptr todo;
-    if (uid == "") {
-        todo = Todo::Ptr(new Todo());
-        todo->setUid(summary.left(1) + now.toString("yyyyMMddhhmmsszzz"));
-    }
-    else {
-        todo = m_calendar->todo(uid);
-        todo->setUid(uid);
-
-    }
-
-    QDateTime startDateTime;
-
-    if(allDayFlg) {
-        startDateTime = QDateTime(startDate);
-    }
-    else {
-        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
-    }
-
-    todo->setDtStart(startDateTime);
-    todo->setDescription(description);
-    todo->setSummary(summary);
-    todo->setAllDay(allDayFlg);
-    todo->setLocation(location);
-    todo->setCompleted(completed);
-
-    m_calendar->addTodo(todo);
-    bool success = m_cal_storage->save();
-    qDebug() << "Storage save: " << success;
-    qDebug() << "Todo has been saved";
-}
-
-void LocalCalendar::deleteTask(QString uid) {
-
-    qDebug() << "Deleting task: " << uid;
-    Todo::Ptr todo = m_calendar->todo(uid);
-    m_calendar->deleteTodo(todo);
-    bool success = m_cal_storage->save();
-    qDebug() << "Task deleted? " << success;
-}
-
 int LocalCalendar::todosCount(const QDate &date) const {
     if(m_calendar == nullptr)
     {

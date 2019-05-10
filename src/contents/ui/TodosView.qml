@@ -78,7 +78,9 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        root.calendar.deleteTask(model.uid);
+                        var controller = todoController.createObject(parent, { calendar: root.calendar });
+                        controller.vtodo = { "uid" : model.uid };
+                        controller.remove();
                         tasksUpdated();
                     }
                 },
@@ -113,5 +115,11 @@ Kirigami.Page {
                 }
             }
         }
+    }
+
+    Component {
+        id: todoController
+
+        Calindori.TodoController {}
     }
 }
