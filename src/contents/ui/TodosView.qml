@@ -42,18 +42,18 @@ Kirigami.Page {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: qsTr("Add task")
-        onTriggered: pageStack.push(todoPage, {startdt: todoDt})
+        onTriggered: pageStack.push(todoEditor, {startdt: todoDt})
     }
 
 
     Component {
-        id: todoPage
-        TodoPage {
+        id: todoEditor
+        TodoEditor {
             calendar: localCalendar
 
             onTaskeditcompleted: {
                 tasksUpdated();
-                pageStack.pop(todoPage);
+                pageStack.pop(todoEditor);
             }
         }
     }

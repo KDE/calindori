@@ -33,12 +33,12 @@ Kirigami.Page {
     property alias description: description.text
     property alias startHour: startTimeSelector.startHour
     property alias startMinute: startTimeSelector.startMinutes
+    property alias startPm: startTimeSelector.startPm
     property alias allDay: allDaySelector.checked
     property alias location: location.text
     property alias completed: completed.checked
     property var calendar
     property var todoData
-    property alias timePicker: timePickerSheet
 
     signal taskeditcompleted
 
@@ -93,15 +93,32 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     id: startTimeSelector
 
-                    property int startHour: timePickerSheet.hours + (timePickerSheet.pm ?  12 : 0)
-                    property int startMinutes: timePickerSheet.minutes
+                    property int startHour : root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    property int startMinutes: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    property bool startPm: (root.todoData && root.todoData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
                     property date startTime: root.startdt
 
-                    text: !isNaN(startdt) ? (new Date(startdt.getFullYear(), startdt.getMonth() , startdt.getDate(), startHour, startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm"): "00:00"
+                    text: !isNaN(root.startdt) ? (new Date(root.startdt.getFullYear(), root.startdt.getMonth() , root.startdt.getDate(), startHour + (startPm ? 12 : 0), startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
 
                     enabled: !allDaySelector.checked
 
-                    onClicked: timePickerSheet.open()
+                    onClicked: {
+                        startTimePickerSheet.hours = startTimeSelector.startHour
+                        startTimePickerSheet.minutes = startTimeSelector.startMinutes
+                        startTimePickerSheet.pm = startTimeSelector.startPm
+
+                        startTimePickerSheet.open()
+                    }
+
+                    Connections {
+                        target: startTimePickerSheet
+
+                        onDatePicked: {
+                            startTimeSelector.startHour = startTimePickerSheet.hours
+                            startTimeSelector.startMinutes = startTimePickerSheet.minutes
+                            startTimeSelector.startPm = startTimePickerSheet.pm
+                        }
+                    }
                 }
             }
 
@@ -190,7 +207,7 @@ Kirigami.Page {
             onTriggered: {
                 if(summary.text) {
                     console.log("Saving task");
-                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour, root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
+                    root.calendar.addEditTask(root.uid, root.startdt, root.summary, root.description, root.startHour + (root.startPm ? 12 : 0), root.startMinute, root.allDay, root.location, root.completed); //TODO: Pass a Todo object
                     taskeditcompleted();
                 }
                 else {
@@ -220,46 +237,7 @@ Kirigami.Page {
 //         ]
     }
 
-    Kirigami.OverlaySheet {
-        id: timePickerSheet
-
-        property int hours: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-        property int minutes: todoData ? todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-        property bool pm: (todoData && todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") > 12) ? true : false
-
-        rightPadding: 0
-        leftPadding: 0
-
-        contentItem: TimePicker {
-            id: timePicker
-
-            hours: timePickerSheet.hours
-            minutes: timePickerSheet.minutes
-            pm: timePickerSheet.pm
-        }
-
-        footer: RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-            Controls2.ToolButton {
-                text: qsTr("OK")
-                onClicked: {
-                    timePickerSheet.hours = timePicker.hours
-                    timePickerSheet.minutes = timePicker.minutes
-                    timePickerSheet.pm = timePicker.pm
-                    timePickerSheet.close()
-                }
-            }
-            Controls2.ToolButton {
-                text: qsTr("Cancel")
-                onClicked: {
-                    timePicker.hours = timePickerSheet.hours
-                    timePicker.minutes = timePickerSheet.minutes
-                    timePickerSheet.close()
-                }
-            }
-        }
+    TimePickerSheet {
+        id: startTimePickerSheet
     }
-
 }

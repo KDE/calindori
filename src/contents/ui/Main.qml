@@ -205,7 +205,7 @@ Kirigami.ApplicationWindow {
 
             calendar: localCalendar
 
-            onEditTask: root.pageStack.push(todoPage, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
+            onEditTask: root.pageStack.push(todoEditor, {  startdt: modelData.dtstart, uid: modelData.uid, todoData: modelData })
             onTasksUpdated: root.refreshNeeded()
 
             Connections {
@@ -235,13 +235,13 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
-        id: todoPage
+        id: todoEditor
 
-        TodoPage {
+        TodoEditor {
             calendar: localCalendar
             onTaskeditcompleted: {
                 root.refreshNeeded();
-                root.pageStack.pop(todoPage);
+                root.pageStack.pop(todoEditor);
             }
         }
     }
