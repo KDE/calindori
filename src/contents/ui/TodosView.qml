@@ -101,15 +101,9 @@ Kirigami.Page {
                 }
 
                 Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
+                    visible: model.dtstart && !isNaN(model.dtstart)
                     wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleDateString(Qt.locale()) : ""
-                }
-
-                Controls2.Label {
-                    visible: model.dtstart && !isNaN(model.dtstart) //&& model.dtstart.toLocaleTimeString(Qt.locale()) != ""
-                    wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
                 }
 
                 Controls2.Label {
