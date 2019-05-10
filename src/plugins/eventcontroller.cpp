@@ -18,6 +18,8 @@
 
 #include "eventcontroller.h"
 #include "localcalendar.h"
+#include <KCalCore/Event>
+#include <KCalCore/MemoryCalendar>
 #include <QDebug>
 
 EventController::EventController(QObject* parent) : QObject(parent) {}

@@ -1,3 +1,4 @@
+#include <QObject>
 /*
  * Copyright (C) 2019 Dimitris Kardarakos
  *
@@ -20,9 +21,7 @@
 #define EVENTCONTROLLER_H
 
 #include <QObject>
-#include <KCalCore/Event>
-#include <KCalCore/MemoryCalendar>
-#include <KCalCore/FileStorage>
+#include <QVariantMap>
 
 class EventController : public QObject
 {
