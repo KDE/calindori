@@ -29,7 +29,6 @@ Kirigami.Page {
     property date eventStartDt
     property var calendar
 
-    signal editEvent(var modelData)
     signal eventsUpdated
 
     function reload()
@@ -88,7 +87,7 @@ Kirigami.Page {
                     text: qsTr("Edit")
                     icon.name: "editor"
 
-                    onTriggered: root.editEvent(model)
+                    onTriggered: pageStack.push(eventEditor, { startdt: model.dtstart,  enddt: model.dtend, uid: model.uid, eventData: model })
                 }
             ]
 

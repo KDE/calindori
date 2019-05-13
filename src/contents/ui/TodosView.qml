@@ -29,7 +29,6 @@ Kirigami.Page {
     property date todoDt
     property var calendar
 
-    signal editTask(var modelData)
     signal tasksUpdated
 
     function reload()
@@ -89,7 +88,7 @@ Kirigami.Page {
                     text: qsTr("Edit")
                     icon.name: "editor"
 
-                    onTriggered: root.editTask(model)
+                    onTriggered: pageStack.push(todoEditor, { startdt: model.dtstart, uid: model.uid, todoData: model })
                 }
             ]
 
