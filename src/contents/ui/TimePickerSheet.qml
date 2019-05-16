@@ -26,9 +26,9 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.OverlaySheet {
     id: timePickerSheet
 
-    property int hours
-    property int minutes
-    property bool pm
+    property alias hours: timePicker.hours
+    property alias minutes: timePicker.minutes
+    property alias pm: timePicker.pm
 
     signal datePicked
 
@@ -37,32 +37,25 @@ Kirigami.OverlaySheet {
 
     contentItem: TimePicker {
         id: timePicker
-
-        hours: timePickerSheet.hours
-        minutes: timePickerSheet.minutes
-        pm: timePickerSheet.pm
     }
 
     footer: RowLayout {
+
         Item {
             Layout.fillWidth: true
         }
+
         Controls2.ToolButton {
             text: qsTr("OK")
             onClicked: {
-                timePickerSheet.hours = timePicker.hours
-                timePickerSheet.minutes = timePicker.minutes
-                timePickerSheet.pm = timePicker.pm
                 timePickerSheet.datePicked()
                 timePickerSheet.close()
             }
         }
+
         Controls2.ToolButton {
             text: qsTr("Cancel")
             onClicked: {
-                timePicker.hours = timePickerSheet.hours
-                timePicker.minutes = timePickerSheet.minutes
-                timePicker.pm = timePickerSheet.pm
                 timePickerSheet.close()
             }
         }
