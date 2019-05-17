@@ -41,7 +41,7 @@ Kirigami.Page {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: qsTr("Add event")
-        onTriggered: pageStack.push(eventEditor, {startdt: eventStartDt, enddt: eventStartDt})
+        onTriggered: pageStack.push(eventEditor, {startdt: eventStartDt})
     }
 
     Component {
@@ -87,7 +87,7 @@ Kirigami.Page {
                     text: qsTr("Edit")
                     icon.name: "editor"
 
-                    onTriggered: pageStack.push(eventEditor, { startdt: model.dtstart,  enddt: model.dtend, uid: model.uid, eventData: model })
+                    onTriggered: pageStack.push(eventEditor, { startdt: model.dtstart, uid: model.uid, eventData: model })
                 }
             ]
 

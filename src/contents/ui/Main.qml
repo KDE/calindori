@@ -174,6 +174,8 @@ Kirigami.ApplicationWindow {
                 id: calendarMonthView
 
                 anchors.centerIn: parent
+                showHeader: true
+                showMonthName: true
 
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);

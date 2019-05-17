@@ -1,6 +1,6 @@
 
 /*
- *   Copyright 2018 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -38,11 +38,39 @@ Kirigami.Page {
     property alias location: location.text
     property var calendar
     property var eventData
-    property date enddt
+    property alias enddt: endDateSelector.endDate
     property alias endHour: endTimeSelector.endHour
     property alias endMinute: endTimeSelector.endMinutes
     property alias endPm: endTimeSelector.endPm
+
     signal editcompleted
+
+    /**
+     * Function taht checks that the user input is valid
+     *
+     * Returns an object with success status and reason
+     */
+    function validate()
+    {
+        var result = { success: false, reason: "" };
+
+        if(!(root.summary)) {
+            result.reason = "Summary should not be empty";
+            return result;
+        }
+
+        var endDtTime = new Date(root.enddt.getFullYear(), root.enddt.getMonth(), root.enddt.getDate(), root.endHour + (root.endPm ? 12 : 0), root.endMinute);
+
+        var startDtTime = new Date(root.startdt.getFullYear(), root.startdt.getMonth(), root.startdt.getDate(), root.startHour + (root.startPm ? 12 : 0), root.startMinute);
+
+        if(!(root.allDay) && (endDtTime < startDtTime)) {
+            result.reason = "End date time should be after start date time";
+            return result;
+        }
+
+        result.success = true;
+        return result;
+    }
 
     title: qsTr("Event")
 
@@ -50,22 +78,10 @@ Kirigami.Page {
 
         anchors.centerIn: parent
 
-        Controls2.Label {
-            visible: root.startdt != undefined && !isNaN(root.startdt)
-            Layout.fillWidth: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: eventData && !isNaN(eventData.dtstart) ? eventData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startdt) ? root.startdt.toLocaleDateString(Qt.locale()) : "")
-        }
-
         Kirigami.FormLayout {
             id: eventCard
 
             enabled: !root.completed
-
-            Kirigami.Separator {
-                Kirigami.FormData.isSection: true
-            }
 
             Controls2.Label {
                 id: calendarName
@@ -89,25 +105,28 @@ Kirigami.Page {
             }
 
             RowLayout {
-                Kirigami.FormData.label: qsTr("Start time:")
-                enabled: root.startdt != undefined && !isNaN(root.startdt)
+                Kirigami.FormData.label: qsTr("Start:")
+                spacing: 0
+
+                Controls2.ToolButton {
+                    Layout.fillWidth: true
+                    text: root.startdt.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+                }
 
                 Controls2.ToolButton {
                     id: startTimeSelector
 
                     property int startHour:  root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
                     property int startMinutes: root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    property bool startPm : (root.eventData && root.eventData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    property bool startPm: (root.eventData && root.eventData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
 
-                    text: !isNaN(root.startdt) ? (new Date(root.startdt.getFullYear(), root.startdt.getMonth() , root.startdt.getDate(), startHour + (startPm ? 12 : 0), startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
-
+                    text: (new Date(root.startdt.getFullYear(), root.startdt.getMonth() , root.startdt.getDate(), startHour + (startPm ? 12 : 0), startMinutes)).toLocaleTimeString(Qt.locale(), "HH:mm")
                     enabled: !allDaySelector.checked
 
                     onClicked: {
                         startTimePickerSheet.hours = startTimeSelector.startHour
                         startTimePickerSheet.minutes = startTimeSelector.startMinutes
                         startTimePickerSheet.pm = startTimeSelector.startPm
-
                         startTimePickerSheet.open()
                     }
 
@@ -124,25 +143,45 @@ Kirigami.Page {
             }
 
             RowLayout {
-                Kirigami.FormData.label: qsTr("End time:")
-                enabled: root.enddt != undefined && !isNaN(root.enddt)
+                Kirigami.FormData.label: "End:"
+                spacing: 0
+
+                Controls2.ToolButton {
+                    id: endDateSelector
+
+                    property date endDate: root.eventData ? root.eventData.dtend : root.startdt
+
+                    text: endDateSelector.endDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+                    enabled: !allDaySelector.checked
+
+                    onClicked: {
+                        endDatePickerSheet.selectedDate = endDateSelector.endDate
+                        endDatePickerSheet.open()
+                    }
+
+                    Connections {
+                        target: endDatePickerSheet
+
+                        onDatePicked: {
+                            endDateSelector.endDate = endDatePickerSheet.selectedDate
+                        }
+                    }
+                }
 
                 Controls2.ToolButton {
                     id: endTimeSelector
 
                     property int endHour: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
                     property int endMinutes: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    property bool endPm : (root.eventData && root.eventData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    property bool endPm: (root.eventData && root.eventData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
 
-                    text: !isNaN(enddt) ? (new Date(enddt.getFullYear(), enddt.getMonth() , enddt.getDate(), endHour + (endPm ? 12 : 0), endMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
-
-                    enabled: !allDaySelector.checked
+                    text: !isNaN(enddt) ? (new Date(enddt.getFullYear(), enddt.getMonth() , enddt.getDate(), endHour + (endPm ? 12 : 0), endMinutes)).toLocaleTimeString(Qt.locale(), "HH:mm"): "00:00"
+                    enabled: !allDaySelector.checked && (root.enddt != undefined && !isNaN(root.enddt))
 
                     onClicked: {
                         endTimePickerSheet.hours = endTimeSelector.endHour
                         endTimePickerSheet.minutes = endTimeSelector.endMinutes
                         endTimePickerSheet.pm = endTimeSelector.endPm
-
                         endTimePickerSheet.open()
                     }
 
@@ -150,23 +189,9 @@ Kirigami.Page {
                         target: endTimePickerSheet
 
                         onDatePicked: {
-                            var endDtTime = root.enddt;
-                            endDtTime.setHours(endTimePickerSheet.hours + (endTimePickerSheet.pm ? 12 : 0));
-                            endDtTime.setMinutes( endTimePickerSheet.minutes);
-
-                            var startDtTime = root.startdt;
-                            startDtTime.setHours(root.startHour + (root.startPm ? 12 : 0));
-                            startDtTime.setMinutes(root.startMinute);
-
-                            if(endDtTime >= startDtTime) {
-                                endTimeSelector.endHour = endTimePickerSheet.hours
-                                endTimeSelector.endMinutes = endTimePickerSheet.minutes
-                                endTimeSelector.endPm = endTimePickerSheet.pm
-                            }
-                            else
-                            {
-                                showPassiveNotification("End date time should be after start date time");
-                            }
+                            endTimeSelector.endHour = endTimePickerSheet.hours
+                            endTimeSelector.endMinutes = endTimePickerSheet.minutes
+                            endTimeSelector.endPm = endTimePickerSheet.pm
                         }
                     }
                 }
@@ -191,13 +216,11 @@ Kirigami.Page {
                 Kirigami.FormData.label: qsTr("Location:")
                 text: eventData ? eventData.location : ""
             }
-
         }
 
         Kirigami.Separator {
             Layout.fillWidth: true
         }
-
 
         Controls2.TextArea {
             id: description
@@ -207,9 +230,8 @@ Kirigami.Page {
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
             wrapMode: Controls2.TextArea.WordWrap
             text: eventData ? eventData.description : ""
-            placeholderText:  qsTr("Description")
+            placeholderText: qsTr("Description")
         }
-
     }
 
     actions {
@@ -220,11 +242,8 @@ Kirigami.Page {
             text: qsTr("Cancel")
             icon.name : "dialog-cancel"
 
-            onTriggered: {
-                editcompleted();
-            }
+            onTriggered: editcompleted()
         }
-
 
         main: Kirigami.Action {
             id: info
@@ -232,9 +251,7 @@ Kirigami.Page {
             text: qsTr("Info")
             icon.name : "documentinfo"
 
-            onTriggered: {
-                showPassiveNotification("Please save or cancel this event");
-            }
+            onTriggered: showPassiveNotification("Please save or cancel this event")
         }
 
         right: Kirigami.Action {
@@ -244,15 +261,17 @@ Kirigami.Page {
             icon.name : "dialog-ok"
 
             onTriggered: {
-                if(summary.text) {
+                var validation = validate();
+
+                if(validation.success) {
                     console.log("Saving event, root.startdt:" + startdt);
                     var controller = eventController.createObject(parent, {calendar: root.calendar});
-                    controller.vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.enddt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute };
+                    controller.vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute };
                     controller.addEdit();
                     editcompleted();
                 }
                 else {
-                    showPassiveNotification("Summary should not be empty");
+                    showPassiveNotification(validation.reason);
                 }
             }
         }
@@ -264,6 +283,10 @@ Kirigami.Page {
 
     TimePickerSheet {
         id: endTimePickerSheet
+    }
+
+    DatePickerSheet {
+        id: endDatePickerSheet
     }
 
     Component {

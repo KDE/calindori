@@ -42,8 +42,8 @@ MonthView {
     selectedDayTodosCount: todosCount(selectedDate)
     selectedDayEventsCount: eventsCount(selectedDate)
     daysModel: plasmaCalendar.daysModel
-    showHeader: true
-    showMonthName: true
+    Layout.preferredHeight: childrenRect.height
+    Layout.preferredWidth: childrenRect.width
 
     onRefresh: {
         daysModel.update();
