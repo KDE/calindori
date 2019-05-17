@@ -132,7 +132,7 @@ Kirigami.ApplicationWindow {
 
         Kirigami.Page {
 
-            title: calendarMonthView.currentMonthName + " " + calendarMonthView.currentYear
+            title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
 
             actions {
                 left: Kirigami.Action {

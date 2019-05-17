@@ -36,9 +36,8 @@ MonthView {
     signal goToday
     signal refresh
 
-    property int currentYear: plasmaCalendar.year
-
-    currentMonthName: plasmaCalendar.displayedDateMonthName
+    displayedYear: plasmaCalendar.year
+    displayedMonthName: plasmaCalendar.displayedDateMonthName
     selectedDayTodosCount: todosCount(selectedDate)
     selectedDayEventsCount: eventsCount(selectedDate)
     daysModel: plasmaCalendar.daysModel

@@ -40,7 +40,9 @@ Item {
     property date selectedDate: new Date()
     property int selectedDayTodosCount: 0
     property int selectedDayEventsCount: 0
-    property string currentMonthName
+    property string displayedMonthName
+    property int displayedYear
+
     /**
      * A model that provides:
      *
@@ -72,6 +74,7 @@ Item {
     }
     property bool showHeader: false
     property bool showMonthName: true
+    property bool showYear: true
 
     function reloadSelectedDate() {
         root.selectedDayTodosCount = root.todosCount(root.selectedDate)
@@ -101,10 +104,19 @@ Item {
         }
 
 
-        Controls2.Label {
-            visible: showMonthName
-            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-            text: currentMonthName
+        RowLayout {
+
+            Controls2.Label {
+                visible: showMonthName
+                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                text: displayedMonthName
+            }
+
+            Controls2.Label {
+                visible: showYear
+                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                text: displayedYear
+            }
         }
 
         /**
