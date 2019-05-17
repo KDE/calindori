@@ -46,6 +46,7 @@ Kirigami.Page {
 
     Component {
         id: eventEditor
+
         EventEditor {
             calendar: localCalendar
 
@@ -58,6 +59,7 @@ Kirigami.Page {
 
     Kirigami.CardsListView {
         id: cardsListview
+
         anchors.fill: parent
 
         model: Calindori.EventModel {
@@ -96,10 +98,14 @@ Kirigami.Page {
                 Controls2.Label {
                     property bool sameEndStart : model.dtstart && !isNaN(model.dtstart) && model.dtend && !isNaN(model.dtend) && model.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == model.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
 
+                    property string timeFormat: model.allday ? "" : "hh:mm"
+                    property string dateFormat: model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm"
+                    property string separator: model.allday ? "" : " - "
+
                     wrapMode: Text.WordWrap
-                    text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), "ddd d MMM yyyy hh:mm" ) : "") +
-                        (model.dtend && !isNaN(model.dtend) ? " - " +
-                            model.dtend.toLocaleString(Qt.locale(), sameEndStart ? "hh:mm" : "ddd d MMM yyyy hh:mm" ) : "")
+                    text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), dateFormat ) : "") +
+                        (model.dtend && !isNaN(model.dtend) ? separator +
+                            model.dtend.toLocaleString(Qt.locale(), sameEndStart ? timeFormat : dateFormat ) : "")
                 }
 
                 Controls2.Label {
