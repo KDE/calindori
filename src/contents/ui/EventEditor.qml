@@ -230,7 +230,8 @@ Kirigami.Page {
             Layout.fillWidth: true
             Layout.minimumWidth: Kirigami.Units.gridUnit * 4
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-            wrapMode: Controls2.TextArea.WordWrap
+            Layout.maximumWidth: eventCard.width
+            wrapMode: Text.WrapAnywhere
             text: eventData ? eventData.description : ""
             placeholderText: qsTr("Description")
         }

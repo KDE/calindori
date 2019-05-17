@@ -68,6 +68,8 @@ Kirigami.Page {
         }
 
         delegate: Kirigami.Card {
+            id: cardDelegate
+
             banner.title: model.summary
             banner.titleLevel: 3
 
@@ -97,17 +99,20 @@ Kirigami.Page {
                 enabled: !model.completed
 
                 Controls2.Label {
+                    width: cardDelegate.availableWidth
                     wrapMode: Text.WordWrap
                     text: model.description
                 }
 
                 Controls2.Label {
+                    width: cardDelegate.availableWidth
                     visible: model.dtstart && !isNaN(model.dtstart)
                     wrapMode: Text.WordWrap
                     text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
                 }
 
                 Controls2.Label {
+                    width: cardDelegate.availableWidth
                     visible: model.location != ""
                     wrapMode: Text.WordWrap
                     text: model.location

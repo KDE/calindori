@@ -156,7 +156,8 @@ Kirigami.Page {
             Layout.fillWidth: true
             Layout.minimumWidth: Kirigami.Units.gridUnit * 4
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-            wrapMode: Controls2.TextArea.WordWrap
+            Layout.maximumWidth: todoCard.width
+            wrapMode: Text.WrapAnywhere
             text: todoData ? todoData.description : ""
             placeholderText:  qsTr("Description")
         }
