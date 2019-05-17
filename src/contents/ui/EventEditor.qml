@@ -111,6 +111,8 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     Layout.fillWidth: true
                     text: root.startdt.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+
+                    onClicked: showPassiveNotification("Start date cannot be changed")
                 }
 
                 Controls2.ToolButton {
