@@ -17,7 +17,7 @@ include(FeatureSummary)
 
 ################# set KDE specific information #################
 
-find_package(ECM 0.0.8 REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -29,15 +29,12 @@ include(KDECMakeSettings)
 include(ECMPoQmTools)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-set(KF5_VERSION "5.22.0")
-
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Gui Svg Test Qml QuickControls2)
 
-find_package(KF5Config ${KF5_DEP_VERSION} "5.22.0")
-find_package(KF5Kirigami2 ${KF5_DEP_VERSION} "5.22.0")
+find_package(KF5Config)
+find_package(KF5Kirigami2)
 find_package(KF5Plasma)
 find_package(KF5CalendarCore REQUIRED)
-
 
 ################# Enable C++11 features for clang and gcc #################
 
@@ -46,8 +43,6 @@ if(UNIX)
 endif()
 
 ################# now find all used packages #################
-
-set (QT_MIN_VERSION "5.6.0")
 
 find_package(PkgConfig)
 #########################################################################
