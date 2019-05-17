@@ -33,8 +33,10 @@ ColumnLayout {
         
     Item {
         id: clock
+
         width: Kirigami.Units.gridUnit * 18
         height: width
+        Layout.alignment: Qt.AlignHCenter
         
         //Hours clock
         PathView {
