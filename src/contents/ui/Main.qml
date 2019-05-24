@@ -44,9 +44,16 @@ Kirigami.ApplicationWindow {
                 iconName: "view-calendar"
 
                 Kirigami.Action {
-                    text: "Add calendar..."
+                    text: "Create"
                     iconName: "list-add"
-                    onTriggered: root.pageStack.push(calendarInputPage);
+                    onTriggered: root.pageStack.push(calendarEditor, {mode: "add"});
+                }
+
+                Kirigami.Action {
+                    text: "Import"
+                    iconName: "document-import"
+
+                    onTriggered: root.pageStack.push(calendarEditor, {mode: "import"});
                 }
 
                 Kirigami.Action {
@@ -106,6 +113,7 @@ Kirigami.ApplicationWindow {
             root.refreshNeeded();
             if (root.pageStack.depth > 1) {
                 root.pageStack.pop(null);
+                root.pageStack.push(calendarDashboardComponent);
             }
         }
     }
@@ -217,7 +225,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-
     Component {
         id: eventsView
 
@@ -234,32 +241,20 @@ Kirigami.ApplicationWindow {
         }
     }
 
-
     Component {
-        id: calendarInputPage
+        id: calendarEditor
 
-        CalendarInputPage {
+        CalendarEditor {
+
+            configuration: calindoriConfig
 
             onCalendarAdded: {
-                var calendarAddResult = "";
-                calendarAddResult = calindoriConfig.addCalendar(calendarName);
-
-                if(calendarAddResult != "")
-                {
-                    showPassiveNotification(calendarAddResult);
-                    return;
-                }
-
-                if(activeCalendar)
-                {
-                    calindoriConfig.activeCalendar = calendarName;
-                }
                 root.refreshNeeded();
-                root.pageStack.pop(calendarInputPage);
+                root.pageStack.pop(calendarEditor);
             }
 
             onCalendarAddCanceled: {
-                root.pageStack.pop(calendarInputPage);
+                root.pageStack.pop(calendarEditor);
             }
 
         }

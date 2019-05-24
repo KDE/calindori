@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Dimitris Kardarakos
+ * Copyright (C) 2019 Dimitris Kardarakos
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,6 +21,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
+#include <QRegExp>
+
 class CalindoriConfig::Private
 {
 public:
@@ -66,35 +68,66 @@ void CalindoriConfig::setActiveCalendar(const QString & calendar)
     emit activeCalendarChanged();
 }
 
-QString CalindoriConfig::addCalendar(const QString & calendar)
+QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
 {
-    if(calendar.contains(";"))
+    QVariantMap result;
+    result["success"] = QVariant(true);
+    result["reason"] = QVariant(QString());
+
+    QRegExp invalidChars("[\\;\\\\/<>:\\?\\*|\"\']");
+    if(calendar.contains(invalidChars))
     {
-        return "Calendar name should not contain semicolons";
+        result["success"] = QVariant(false);
+        result["reason"] = QVariant("Calendar name contains invalid characters");
+        return result;
     }
 
     if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
     {
-        qDebug() << "Calendar list is empty";
-        d->config.group("general").writeEntry("calendars", calendar);
-        return QString();
+        return result;
     }
 
-    qDebug() << "Calendar list is not empty, adding calendar " << calendar;
     QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
 
     if(calendarsList.contains(calendar))
     {
-        return "Calendar already exists";
+        result["success"] = QVariant(false);
+        result["reason"] = QVariant("Calendar already exists");
+        return result;
     }
 
+    return result;
+}
+
+QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
+{
+    QVariantMap result;
+    result["success"] = QVariant(true);
+    result["reason"] = QVariant(QString());
+
+    QVariantMap canAddResult = canAddCalendar(calendar);
+
+    if(!(canAddResult["success"].toBool()))
+    {
+        result["success"] = QVariant(false);
+        result["reason"] = QVariant(canAddResult["reason"].toString());
+        return result;
+    }
+
+    if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
+    {
+        d->config.group("general").writeEntry("calendars", calendar);
+        return result;
+    }
+
+    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
     calendarsList.append(calendar);
     d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
     d->config.sync();
 
     emit calendarsChanged();
 
-    return QString();
+    return result;
 }
 
 void CalindoriConfig::removeCalendar(const QString& calendar)
