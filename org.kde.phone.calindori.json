@@ -29,7 +29,7 @@
                 {
                     "type": "git",
                     "url": "https://anongit.kde.org/kcalcore.git",
-                    "branch": "master"
+                    "branch": "Applications/19.04"
                 }
             ],
             "modules": [
