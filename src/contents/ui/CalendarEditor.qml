@@ -100,21 +100,12 @@ Kirigami.Page {
             Kirigami.FormData.label: qsTr("Active:")
         }
 
-        RowLayout {
+        Controls2.TextField {
+            id: importFilePath
+
             visible: (mode == "import")
             Kirigami.FormData.label: qsTr("File:")
-
-            Controls2.TextField {
-                id: importFilePath
-            }
-
-            Controls2.Button {
-                text: "Add"
-
-                onClicked: fileChooser.open()
-            }
         }
-
     }
 
     actions {
@@ -133,11 +124,11 @@ Kirigami.Page {
         main: Kirigami.Action {
             id: info
 
-            text: qsTr("Info")
-            icon.name : "documentinfo"
+            text: (mode == "import") ? qsTr("Import") : qsTr("Info")
+            icon.name : (mode == "import") ? "list-add" : "documentinfo"
 
             onTriggered: {
-                showPassiveNotification("Please save or cancel the creation of the new calendar");
+                onClicked: (mode == "import") ? fileChooser.open() : showPassiveNotification("Please save or cancel the creation of the new calendar")
             }
         }
 
