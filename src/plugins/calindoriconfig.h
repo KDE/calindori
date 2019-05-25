@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Dimitris Kardarakos
+ * Copyright (C) 2019 Dimitris Kardarakos
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,6 +20,7 @@
 #define MOBILECALENDARCONFIG_H
 
 #include <QObject>
+#include <QVariantMap>
 
 class CalindoriConfig : public QObject
 {
@@ -39,7 +40,8 @@ public:
     Q_SIGNAL void activeCalendarChanged();
 
 public Q_SLOTS:
-    QString addCalendar(const QString& calendar);
+    QVariantMap canAddCalendar(const QString& calendar);
+    QVariantMap addCalendar(const QString& calendar);
     void removeCalendar(const QString& calendar);
 
 private:
