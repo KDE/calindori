@@ -81,9 +81,14 @@ Rectangle {
             property bool isCurrentMonth: model.monthNumber == Qt.formatDate(plasmaCalendar.displayedDate, "MM")
                                     
             anchors.fill: parent
-            text: model.dayNumber
             enabled: isCurrentMonth
             
+            contentItem: Controls2.Label {
+                text: model.dayNumber
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
             onClicked: dayDelegate.dayClicked()                        
         }
     }
