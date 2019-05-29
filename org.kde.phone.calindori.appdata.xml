@@ -6,13 +6,18 @@
   <name>Calindori</name>
   <summary>Calendar application</summary>
   <description>
-    <p>Calindori supports:</p>
+      <p>Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
+      <p>When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
+      <p>Features:</p>
     <ul>
       <li>Agenda</li>
       <li>Events</li>
+      <li>Todos</li>
+      <li>Multiple calendars</li>
+      <li>Import calendar</li>
     </ul>
   </description>
-  <url type="bugtracker">https://phabricator.kde.org/T6942</url>
+  <url type="bugtracker">https://invent.kde.org/dkardarakos/calindori/issues</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>calindori</binary>

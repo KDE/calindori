@@ -1,5 +1,5 @@
 /*
- *   Copyright 2018 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -40,20 +40,20 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 id: calendarActions
 
-                text: "Calendars"
+                text: i18n("Calendars")
                 iconName: "view-calendar"
 
                 Kirigami.Action {
-                    text: "Create"
+                    text: i18n("Create")
                     iconName: "list-add"
-                    onTriggered: root.pageStack.push(calendarEditor, {mode: "add"});
+                    onTriggered: root.pageStack.push(calendarEditor, {mode: "add"})
                 }
 
                 Kirigami.Action {
-                    text: "Import"
+                    text: i18n("Import")
                     iconName: "document-import"
 
-                    onTriggered: root.pageStack.push(calendarEditor, {mode: "import"});
+                    onTriggered: root.pageStack.push(calendarEditor, {mode: "import"})
                 }
 
                 Kirigami.Action {
@@ -64,7 +64,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 id: show
 
-                text: "Show"
+                text: i18n("Show")
                 iconName: "view-choose"
 
                 Kirigami.Action {
@@ -72,12 +72,12 @@ Kirigami.ApplicationWindow {
                     iconName: "view-calendar-day"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(calendarDashboardComponent)
+                        pageStack.push(calendarDashboardComponent);
                     }
                 }
 
                 Kirigami.Action {
-                    text: "Tasks" + " (" + localCalendar.name + ")"
+                    text: i18n("Tasks (%1)", localCalendar.name)
                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
@@ -164,14 +164,14 @@ Kirigami.ApplicationWindow {
                 contextualActions: [
                     Kirigami.Action {
                         iconName: "view-calendar-tasks"
-                        text: "Tasks"
+                        text: i18n("Tasks")
 
                         onTriggered: root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate })
                     },
 
                     Kirigami.Action {
                         iconName: "view-calendar-events"
-                        text: "Events"
+                        text: i18n("Events")
 
                         onTriggered: root.pageStack.push(eventsView, { eventStartDt: calendarMonthView.selectedDate })
                     }

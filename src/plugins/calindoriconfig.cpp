@@ -18,6 +18,7 @@
 
 #include "calindoriconfig.h"
 
+#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
@@ -78,7 +79,7 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
     if(calendar.contains(invalidChars))
     {
         result["success"] = QVariant(false);
-        result["reason"] = QVariant("Calendar name contains invalid characters");
+        result["reason"] = QVariant(i18n("Calendar name contains invalid characters"));
         return result;
     }
 
@@ -92,7 +93,7 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
     if(calendarsList.contains(calendar))
     {
         result["success"] = QVariant(false);
-        result["reason"] = QVariant("Calendar already exists");
+        result["reason"] = QVariant(i18n("Calendar already exists"));
         return result;
     }
 

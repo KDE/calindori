@@ -42,7 +42,7 @@ Kirigami.Page {
 
     signal taskeditcompleted
 
-    title: qsTr("Task")
+    title: i18n("Task")
 
     ColumnLayout {
 
@@ -68,7 +68,7 @@ Kirigami.Page {
             Controls2.Label {
                 id: calendarName
 
-                Kirigami.FormData.label: qsTr("Calendar:")
+                Kirigami.FormData.label: i18n("Calendar:")
                 Layout.fillWidth: true
                 text: root.calendar.name
             }
@@ -81,13 +81,13 @@ Kirigami.Page {
                 id: summary
 
                 Layout.fillWidth: true
-                Kirigami.FormData.label: qsTr("Summary:")
+                Kirigami.FormData.label: i18n("Summary:")
                 text: todoData ? todoData.summary : ""
 
             }
 
             RowLayout {
-                Kirigami.FormData.label: qsTr("Start time:")
+                Kirigami.FormData.label: i18n("Start time:")
                 enabled: root.startdt != undefined && !isNaN(root.startdt)
 
                 Controls2.ToolButton {
@@ -103,20 +103,19 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
 
                     onClicked: {
-                        startTimePickerSheet.hours = startTimeSelector.startHour
-                        startTimePickerSheet.minutes = startTimeSelector.startMinutes
-                        startTimePickerSheet.pm = startTimeSelector.startPm
-
-                        startTimePickerSheet.open()
+                        startTimePickerSheet.hours = startTimeSelector.startHour;
+                        startTimePickerSheet.minutes = startTimeSelector.startMinutes;
+                        startTimePickerSheet.pm = startTimeSelector.startPm;
+                        startTimePickerSheet.open();
                     }
 
                     Connections {
                         target: startTimePickerSheet
 
                         onDatePicked: {
-                            startTimeSelector.startHour = startTimePickerSheet.hours
-                            startTimeSelector.startMinutes = startTimePickerSheet.minutes
-                            startTimeSelector.startPm = startTimePickerSheet.pm
+                            startTimeSelector.startHour = startTimePickerSheet.hours;
+                            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
+                            startTimeSelector.startPm = startTimePickerSheet.pm;
                         }
                     }
                 }
@@ -127,7 +126,7 @@ Kirigami.Page {
 
                 enabled: !isNaN(root.startdt)
                 checked: todoData ? todoData.allday: false
-                text: qsTr("All day")
+                text: i18n("All day")
             }
 
             Kirigami.Separator {
@@ -138,7 +137,7 @@ Kirigami.Page {
                 id: location
 
                 Layout.fillWidth: true
-                Kirigami.FormData.label: qsTr("Location:")
+                Kirigami.FormData.label: i18n("Location:")
                 text: todoData ? todoData.location : ""
             }
 
@@ -159,7 +158,7 @@ Kirigami.Page {
             Layout.maximumWidth: todoCard.width
             wrapMode: Text.WrapAnywhere
             text: todoData ? todoData.description : ""
-            placeholderText:  qsTr("Description")
+            placeholderText: i18n("Description")
         }
 
         Kirigami.Separator {
@@ -169,7 +168,7 @@ Kirigami.Page {
         Controls2.CheckBox {
             id: completed
 
-            text: qsTr("Completed")
+            text: i18n("Completed")
             checked: todoData ? todoData.completed: false
         }
     }
@@ -179,7 +178,7 @@ Kirigami.Page {
         left: Kirigami.Action {
             id: cancelAction
 
-            text: qsTr("Cancel")
+            text: i18n("Cancel")
             icon.name : "dialog-cancel"
 
             onTriggered: {
@@ -191,18 +190,18 @@ Kirigami.Page {
         main: Kirigami.Action {
             id: info
 
-            text: qsTr("Info")
+            text: i18n("Info")
             icon.name : "documentinfo"
 
             onTriggered: {
-                showPassiveNotification("Please save or cancel this task");
+                showPassiveNotification(i18n("Please save or cancel this task"));
             }
         }
 
         right: Kirigami.Action {
             id: saveAction
 
-            text: qsTr("Save")
+            text: i18n("Save")
             icon.name : "dialog-ok"
 
             onTriggered: {
@@ -219,25 +218,6 @@ Kirigami.Page {
             }
         }
 
-        //TODO
-//         contextualActions: [
-//             Kirigami.Action {
-//                 iconName:"editor"
-//                 text: "Edit Start Date"
-//
-//                 onTriggered: showPassiveNotification("Edit start date")
-//
-//             }
-//             ,
-//             Kirigami.Action { //TODO: Do we needed it?
-//                 iconName:"delete"
-//                 text: "Clear Start Date"
-//
-//                 onTriggered: {
-//                     root.startdt = new Date("No Date");
-//                 }
-//             }
-//         ]
     }
 
     TimePickerSheet {

@@ -17,6 +17,7 @@ target_link_libraries (calindoriqmlplugin
     Qt5::Quick
     KF5::ConfigCore
     KF5::CalendarCore
+    KF5::I18n
 )
 
 install (TARGETS calindoriqmlplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/phone/calindori)

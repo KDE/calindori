@@ -22,6 +22,7 @@
 #include <KCalCore/Todo>
 #include <QFile>
 #include <QStandardPaths>
+#include <KLocalizedString>
 
 using namespace KCalCore;
 
@@ -148,7 +149,7 @@ QVariantMap LocalCalendar::canCreateFile(const QString& calendarName)
     if(calendarFile.exists())
     {
         result["success"] = QVariant(false);
-        result["reason"] = QVariant(QString("A calendar with the same name already exists"));
+        result["reason"] = QVariant(QString(i18n("A calendar with the same name already exists")));
 
         return result;
     }
@@ -178,7 +179,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QSt
 
     if(!(storage->load()))
     {
-        result["reason"] = QVariant(QString("The calendar file is not valid"));
+        result["reason"] = QVariant(QString(i18n("The calendar file is not valid")));
 
         return result;
     }
@@ -187,7 +188,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QSt
 
     if(!(storage->save()))
     {
-        result["reason"] = QVariant(QString("The calendar file cannot be saved"));
+        result["reason"] = QVariant(QString(i18n("The calendar file cannot be saved")));
 
         return result;
     }

@@ -19,9 +19,10 @@
  */
 
 /**
-* Creates the list of actions of 'Calendars' action container
-*/
-function loadGlobalActions(calendars, calendarActions, calendarActionComp) {
+ * Creates the list of actions of 'Calendars' action container
+ */
+function loadGlobalActions(calendars, calendarActions, calendarActionComp)
+{
     var cfgCalendars = calendars.split(calendars.includes(";") ? ";" : null);
     var currentChildren = calendarActions.children;
     var newChildren = [];

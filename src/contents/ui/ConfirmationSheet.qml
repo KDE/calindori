@@ -31,7 +31,7 @@ Kirigami.OverlaySheet {
     contentItem: Controls2.Label {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
-        text: "All data included in this calendar will be deleted. Proceed with deletion?"
+        text: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
     }
     
     parent: applicationWindow().overlay
@@ -42,13 +42,13 @@ Kirigami.OverlaySheet {
         }
         
         Controls2.ToolButton {
-            text: qsTr("Delete")
+            text: i18n("Delete")
 
             onClicked: {
                 var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + deleteSheet.calendar + "\"}",root);
                 toRemoveCalendarComponent.deleteCalendar();
                 configuration.removeCalendar(deleteSheet.calendar);
-                showPassiveNotification("Calendar " + deleteSheet.calendar + " has been deleted");          
+                showPassiveNotification(i18n("Calendar %1 has been deleted",deleteSheet.calendar));
                 deleteSheet.close();
             }
         }

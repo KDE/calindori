@@ -61,5 +61,4 @@ ColumnLayout {
                     ((root.headerEventsCount > 0) ? i18np("%1 event", "%1 events",root.headerEventsCount) : "")
         opacity: 0.6
     }
-
 }

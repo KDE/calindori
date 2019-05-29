@@ -40,7 +40,7 @@ Kirigami.Page {
 
     function importCalendar() {
         if(root.fileToImport.text == "") {
-            showPassiveNotification("Please import a calendar file");
+            showPassiveNotification(i18n("Please import a calendar file"));
             return;
         }
 
@@ -54,7 +54,7 @@ Kirigami.Page {
         var importResult = calendarController.importCalendar(root.calendarName, root.fileToImport);
 
         if(!(importResult.success)) {
-            showPassiveNotification("Calendar not imported. " + importResult.reason);
+            showPassiveNotification(i18n("Calendar not imported. %1",importResult.reason));
             return;
         }
 

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dimitris Kardarakos
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -46,17 +46,17 @@ Kirigami.OverlaySheet {
         }
 
         Controls2.ToolButton {
-            text: qsTr("OK")
+            text: i18n("OK")
             onClicked: {
-                timePickerSheet.datePicked()
-                timePickerSheet.close()
+                timePickerSheet.datePicked();
+                timePickerSheet.close();
             }
         }
 
         Controls2.ToolButton {
-            text: qsTr("Cancel")
+            text: i18n("Cancel")
             onClicked: {
-                timePickerSheet.close()
+                timePickerSheet.close();
             }
         }
     }

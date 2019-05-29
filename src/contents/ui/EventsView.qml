@@ -1,5 +1,5 @@
 /*
- *   Copyright 2018 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -36,11 +36,11 @@ Kirigami.Page {
         cardsListview.model.loadEvents();
     }
 
-    title: qsTr("Events")
+    title: i18n("Events")
 
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
-        text: qsTr("Add event")
+        text: i18n("Add event")
         onTriggered: pageStack.push(eventEditor, {startdt: eventStartDt})
     }
 
@@ -76,7 +76,7 @@ Kirigami.Page {
 
             actions: [
                 Kirigami.Action {
-                    text: qsTr("Delete")
+                    text: i18n("Delete")
                     icon.name: "delete"
 
                     onTriggered: {
@@ -88,7 +88,7 @@ Kirigami.Page {
                 },
 
                 Kirigami.Action {
-                    text: qsTr("Edit")
+                    text: i18n("Edit")
                     icon.name: "editor"
 
                     onTriggered: pageStack.push(eventEditor, { startdt: model.dtstart, uid: model.uid, eventData: model })
@@ -99,7 +99,6 @@ Kirigami.Page {
 
                 Controls2.Label {
                     property bool sameEndStart : model.dtstart && !isNaN(model.dtstart) && model.dtend && !isNaN(model.dtend) && model.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == model.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
-
                     property string timeFormat: model.allday ? "" : "hh:mm"
                     property string dateFormat: model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm"
                     property string separator: model.allday ? "" : " - "
@@ -131,8 +130,7 @@ Kirigami.Page {
     Component {
         id: eventController
 
-        Calindori.EventController {
-        }
+        Calindori.EventController {}
     }
 
 }

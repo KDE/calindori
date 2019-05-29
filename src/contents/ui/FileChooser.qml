@@ -38,7 +38,7 @@ Item {
 	property string filterName: "All files"
 	property string fileUrl
 	property bool selectFolder: false
-	property string title: qsTr("Select a file")
+	property string title: i18n("Select a file")
 	signal accepted
 
 	Loader {

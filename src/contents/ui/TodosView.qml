@@ -1,5 +1,5 @@
 /*
- *   Copyright 2018 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -36,14 +36,13 @@ Kirigami.Page {
         cardsListview.model.loadTasks();
     }
 
-    title: qsTr("Tasks")
+    title: i18n("Tasks")
 
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
-        text: qsTr("Add task")
+        text: i18n("Add task")
         onTriggered: pageStack.push(todoEditor, {startdt: todoDt})
     }
-
 
     Component {
         id: todoEditor
@@ -64,7 +63,6 @@ Kirigami.Page {
         model: Calindori.TodosModel {
             filterdt: root.todoDt
             memorycalendar: root.calendar.memorycalendar
-
         }
 
         delegate: Kirigami.Card {
@@ -75,7 +73,7 @@ Kirigami.Page {
 
             actions: [
                 Kirigami.Action {
-                    text: qsTr("Delete")
+                    text: i18n("Delete")
                     icon.name: "delete"
 
                     onTriggered: {
@@ -87,7 +85,7 @@ Kirigami.Page {
                 },
 
                 Kirigami.Action {
-                    text: qsTr("Edit")
+                    text: i18n("Edit")
                     icon.name: "editor"
 
                     onTriggered: pageStack.push(todoEditor, { startdt: model.dtstart, uid: model.uid, todoData: model })

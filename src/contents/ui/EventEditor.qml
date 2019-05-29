@@ -1,6 +1,6 @@
 
 /*
- *   Copyright 2019 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -72,7 +72,7 @@ Kirigami.Page {
         return result;
     }
 
-    title: qsTr("Event")
+    title: i18n("Event")
 
     ColumnLayout {
 
@@ -86,7 +86,7 @@ Kirigami.Page {
             Controls2.Label {
                 id: calendarName
 
-                Kirigami.FormData.label: qsTr("Calendar:")
+                Kirigami.FormData.label: i18n("Calendar:")
                 Layout.fillWidth: true
                 text: root.calendar.name
             }
@@ -99,20 +99,20 @@ Kirigami.Page {
                 id: summary
 
                 Layout.fillWidth: true
-                Kirigami.FormData.label: qsTr("Summary:")
+                Kirigami.FormData.label: i18n("Summary:")
                 text: eventData ? eventData.summary : ""
 
             }
 
             RowLayout {
-                Kirigami.FormData.label: qsTr("Start:")
+                Kirigami.FormData.label: i18n("Start:")
                 spacing: 0
 
                 Controls2.ToolButton {
                     Layout.fillWidth: true
                     text: root.startdt.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
 
-                    onClicked: showPassiveNotification("Start date cannot be changed")
+                    onClicked: showPassiveNotification(i18n("Start date cannot be changed"))
                 }
 
                 Controls2.ToolButton {
@@ -126,26 +126,26 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
 
                     onClicked: {
-                        startTimePickerSheet.hours = startTimeSelector.startHour
-                        startTimePickerSheet.minutes = startTimeSelector.startMinutes
-                        startTimePickerSheet.pm = startTimeSelector.startPm
-                        startTimePickerSheet.open()
+                        startTimePickerSheet.hours = startTimeSelector.startHour;
+                        startTimePickerSheet.minutes = startTimeSelector.startMinutes;
+                        startTimePickerSheet.pm = startTimeSelector.startPm;
+                        startTimePickerSheet.open();
                     }
 
                     Connections {
                         target: startTimePickerSheet
 
                         onDatePicked: {
-                            startTimeSelector.startHour = startTimePickerSheet.hours
-                            startTimeSelector.startMinutes = startTimePickerSheet.minutes
-                            startTimeSelector.startPm = startTimePickerSheet.pm
+                            startTimeSelector.startHour = startTimePickerSheet.hours;
+                            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
+                            startTimeSelector.startPm = startTimePickerSheet.pm;
                         }
                     }
                 }
             }
 
             RowLayout {
-                Kirigami.FormData.label: "End:"
+                Kirigami.FormData.label: i18n("End:")
                 spacing: 0
 
                 Controls2.ToolButton {
@@ -157,15 +157,15 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
 
                     onClicked: {
-                        endDatePickerSheet.selectedDate = endDateSelector.endDate
-                        endDatePickerSheet.open()
+                        endDatePickerSheet.selectedDate = endDateSelector.endDate;
+                        endDatePickerSheet.open();
                     }
 
                     Connections {
                         target: endDatePickerSheet
 
                         onDatePicked: {
-                            endDateSelector.endDate = endDatePickerSheet.selectedDate
+                            endDateSelector.endDate = endDatePickerSheet.selectedDate;
                         }
                     }
                 }
@@ -181,19 +181,19 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked && (root.enddt != undefined && !isNaN(root.enddt))
 
                     onClicked: {
-                        endTimePickerSheet.hours = endTimeSelector.endHour
-                        endTimePickerSheet.minutes = endTimeSelector.endMinutes
-                        endTimePickerSheet.pm = endTimeSelector.endPm
-                        endTimePickerSheet.open()
+                        endTimePickerSheet.hours = endTimeSelector.endHour;
+                        endTimePickerSheet.minutes = endTimeSelector.endMinutes;
+                        endTimePickerSheet.pm = endTimeSelector.endPm;
+                        endTimePickerSheet.open();
                     }
 
                     Connections {
                         target: endTimePickerSheet
 
                         onDatePicked: {
-                            endTimeSelector.endHour = endTimePickerSheet.hours
-                            endTimeSelector.endMinutes = endTimePickerSheet.minutes
-                            endTimeSelector.endPm = endTimePickerSheet.pm
+                            endTimeSelector.endHour = endTimePickerSheet.hours;
+                            endTimeSelector.endMinutes = endTimePickerSheet.minutes;
+                            endTimeSelector.endPm = endTimePickerSheet.pm;
                         }
                     }
                 }
@@ -204,7 +204,7 @@ Kirigami.Page {
 
                 enabled: !isNaN(root.startdt)
                 checked: eventData ? eventData.allday: false
-                text: qsTr("All day")
+                text: i18n("All day")
             }
 
             Kirigami.Separator {
@@ -215,7 +215,7 @@ Kirigami.Page {
                 id: location
 
                 Layout.fillWidth: true
-                Kirigami.FormData.label: qsTr("Location:")
+                Kirigami.FormData.label: i18n("Location:")
                 text: eventData ? eventData.location : ""
             }
         }
@@ -233,7 +233,7 @@ Kirigami.Page {
             Layout.maximumWidth: eventCard.width
             wrapMode: Text.WrapAnywhere
             text: eventData ? eventData.description : ""
-            placeholderText: qsTr("Description")
+            placeholderText: i18n("Description")
         }
     }
 
@@ -242,7 +242,7 @@ Kirigami.Page {
         left: Kirigami.Action {
             id: cancelAction
 
-            text: qsTr("Cancel")
+            text: i18n("Cancel")
             icon.name : "dialog-cancel"
 
             onTriggered: editcompleted()
@@ -251,7 +251,7 @@ Kirigami.Page {
         main: Kirigami.Action {
             id: info
 
-            text: qsTr("Info")
+            text: i18n("Info")
             icon.name : "documentinfo"
 
             onTriggered: showPassiveNotification("Please save or cancel this event")
@@ -260,8 +260,8 @@ Kirigami.Page {
         right: Kirigami.Action {
             id: saveAction
 
-            text: qsTr("Save")
-            icon.name : "dialog-ok"
+            text: i18n("Save")
+            icon.name: "dialog-ok"
 
             onTriggered: {
                 var validation = validate();

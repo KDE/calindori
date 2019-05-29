@@ -29,7 +29,6 @@ ColumnLayout {
     property int hours
     property int minutes
     property bool pm
-    
         
     Item {
         id: clock
@@ -38,7 +37,9 @@ ColumnLayout {
         height: width
         Layout.alignment: Qt.AlignHCenter
         
-        //Hours clock
+        /**
+         * Hours clock
+         */
         PathView {
             id: hoursClock
             
@@ -60,7 +61,9 @@ ColumnLayout {
             }
         }
                 
-        //Minutes clock
+        /** 
+         * Minutes clock
+         */
         PathView {
             id: minutesClock
             
@@ -98,7 +101,7 @@ ColumnLayout {
 
             checked: root.pm
             checkable: true
-            text: checked ? "PM" : "AM"
+            text: checked ? i18n("PM") : i18n("AM")
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
 
             onClicked: root.pm = checked
