@@ -61,7 +61,7 @@ Kirigami.Page {
         addCalendarToConfig(false);
     }
 
-    function addCalendarToConfig(validateEntry==true) {
+    function addCalendarToConfig(validateEntry=true) {
         var canAddResult = validateEntry ? configuration.canAddCalendar(root.calendarName) : null;
 
         if(canAddResult && !(canAddResult.success)) {
