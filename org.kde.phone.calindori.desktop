@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Calindori
+Name[ca]=Calindori
+Name[it]=Calindori
+Name[nl]=Calindori
+Name[pt]=Calindori
+Name[sv]=Calindori
+Name[uk]=Calindori
+Name[x-test]=xxCalindorixx
 Comment=Calindori
+Comment[ca]=Calindori
+Comment[it]=Calindori
+Comment[nl]=Calindori
+Comment[pt]=Calindori
+Comment[sv]=Calindori
+Comment[uk]=Calindori
+Comment[x-test]=xxCalindorixx
 Exec=calindori
 MimeType=application/x-calindori;
 Icon=calindori
