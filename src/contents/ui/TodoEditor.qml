@@ -42,7 +42,7 @@ Kirigami.Page {
 
     signal taskeditcompleted
 
-    title: i18n("Task")
+    title: uid == "" ? i18n("Add task") : i18n("Edit task")
 
     ColumnLayout {
 
