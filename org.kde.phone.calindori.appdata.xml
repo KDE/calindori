@@ -6,6 +6,7 @@
   <name>Calindori</name>
   <name xml:lang="ca">Calindori</name>
   <name xml:lang="es">Calindori</name>
+  <name xml:lang="gl">Calindori</name>
   <name xml:lang="it">Calindori</name>
   <name xml:lang="nl">Calindori</name>
   <name xml:lang="pt">Calindori</name>
@@ -15,6 +16,7 @@
   <summary>Calendar application</summary>
   <summary xml:lang="ca">Aplicació de calendari</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
+  <summary xml:lang="gl">Aplicativo de calendario</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="pt">Aplicação de calendário</summary>
@@ -25,6 +27,7 @@
     <p>Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
     <p xml:lang="ca">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. El usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
     <p xml:lang="es">Calindori es una aplicación de calendarios táctil. Ha sido diseñada para dispositivos móviles, aunque también se puede ejecutar en entornos de escritorio. Los usuarios de Calindori pueden comprobar fechas anteriores y futuras, así como gestionar tareas y eventos.</p>
+    <p xml:lang="gl">Calindori é un aplicativo de calendario optimizado para uso táctil. Deseñouse para dispositivos móbiles pero tamén pode usarse en ambientes de escritorio. Os usuarios de Calindori poden consultar datas pasadas e futuras e xestionar tarefas e eventos.</p>
     <p xml:lang="it">Calindori è un'applicazione calendario amichevole. È stato progettato per i dispositivi mobili, ma può anche funzionare in ambienti desktop. Gli utenti di Calindori sono in grado di controllare date precedenti e future, e di gestire attività ed eventi.</p>
     <p xml:lang="nl">Calindori is een agendatoepassing vriendelijk voor aanraken. Het is ontworpen voor mobiele apparaten maar het kan ook in een bureaubladomgeving werken. Gebruikers van Calindori kunnen eerdere en toekomstige datums controleren en taken en afspraken beheren.</p>
     <p xml:lang="pt">O Calindori é uma aplicação de calendário amigável para dispositivos tácteis. Foi desenhada para dispositivos móveis, mas também pode ser executada em computadores. Os utilizadores do Calindori poderão ver as datas anteriores e futuras, assim como gerir as tarefas e eventos.</p>
@@ -34,6 +37,7 @@
     <p>When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
     <p xml:lang="ca">En executar l'aplicació per primera vegada, es crea un fitxer nou de calendari que segueix l'estàndard «ical». Alternativament, els usuaris poden crear calendaris addicionals o importar-ne d'existents.</p>
     <p xml:lang="es">Al ejecutar la aplicación por primera vez, se crea un nuevo archivo de calendario conforme al estándar ical. De forma alternativa, los usuarios pueden crear calendarios adicionales o importar otros existentes.</p>
+    <p xml:lang="gl">Ao executar o aplicativo por vez primeira, créase un novo ficheiro de calendario que segue o estándar de iCal. De maneira alternativa, os usuarios poden crear calendarios adicionais ou importar calendarios existentes.</p>
     <p xml:lang="it">Quando si esegue l'applicazione per la prima volta viene creato un nuovo file di calendario che segue lo standard ical. In alternativa, gli utenti possono creare dei calendari aggiuntivi, oppure importare quelli esistenti.</p>
     <p xml:lang="nl">Bij het de eeerste keer uitvoeren van de toepassing, wordt een nieuw agendabestand aangemaakt die de ical-standaard gebruikt. Alternatief kunnen gebruikers extra agenda's aanmaken of bestaande importeren.</p>
     <p xml:lang="pt">Ao executar a aplicação pela primeira vez, será criado um ficheiro de calendário novo que segue a norma iCal. Em alternativa, os utilizadores poderão criar calendários adicionais ou importar existentes.</p>
@@ -43,6 +47,7 @@
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="es">Funcionalidades:</p>
+    <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pt">Funcionalidades:</p>
@@ -53,6 +58,7 @@
       <li>Agenda</li>
       <li xml:lang="ca">Agenda</li>
       <li xml:lang="es">Agenda</li>
+      <li xml:lang="gl">Axenda</li>
       <li xml:lang="it">Agenda</li>
       <li xml:lang="nl">Agenda</li>
       <li xml:lang="pt">Agenda</li>
@@ -62,6 +68,7 @@
       <li>Events</li>
       <li xml:lang="ca">Esdeveniments</li>
       <li xml:lang="es">Eventos</li>
+      <li xml:lang="gl">Eventos</li>
       <li xml:lang="it">Eventi</li>
       <li xml:lang="nl">Afspraken</li>
       <li xml:lang="pt">Eventos</li>
@@ -71,6 +78,7 @@
       <li>Todos</li>
       <li xml:lang="ca">Pendents</li>
       <li xml:lang="es">Listas de tareas</li>
+      <li xml:lang="gl">Tarefas</li>
       <li xml:lang="it">Cose da fare</li>
       <li xml:lang="nl">Taken</li>
       <li xml:lang="pt">Itens Por-Fazer</li>
@@ -80,6 +88,7 @@
       <li>Multiple calendars</li>
       <li xml:lang="ca">Calendaris múltiples</li>
       <li xml:lang="es">Múltiples calendarios</li>
+      <li xml:lang="gl">Varios calendarios</li>
       <li xml:lang="it">Calendari multipli</li>
       <li xml:lang="nl">Meerdere agenda's</li>
       <li xml:lang="pt">Vários calendários</li>
@@ -89,6 +98,7 @@
       <li>Import calendar</li>
       <li xml:lang="ca">Importa calendaris</li>
       <li xml:lang="es">Importar calendario</li>
+      <li xml:lang="gl">Importar un calendario</li>
       <li xml:lang="it">Importa calendario</li>
       <li xml:lang="nl">Agenda importeren </li>
       <li xml:lang="pt">Importar o calendário</li>
