@@ -33,6 +33,7 @@ public:
     ~CalindoriConfig() override;
 
     QString calendars() const;
+    QString calendarFile(const QString & calendarName);
     Q_SIGNAL void calendarsChanged();
 
     QString activeCalendar() const;
@@ -45,6 +46,8 @@ public Q_SLOTS:
     void removeCalendar(const QString& calendar);
 
 private:
+    static QString filenameToPath(const QString & calendarName) ;
+
     class Private;
     Private* d;
 };

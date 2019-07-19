@@ -29,13 +29,17 @@ include(KDECMakeSettings)
 include(ECMPoQmTools)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Gui Svg Test Qml QuickControls2)
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS DBus Core Quick Gui Svg Test Qml QuickControls2)
 
 find_package(KF5Config)
 find_package(KF5Kirigami2)
 find_package(KF5Plasma)
 find_package(KF5I18n)
 find_package(KF5CalendarCore REQUIRED)
+find_package(KF5DBusAddons CONFIG REQUIRED)
+find_package(KF5Notifications CONFIG REQUIRED)
+find_package(KF5Service CONFIG REQUIRED)
 
 ################# Enable C++11 features for clang and gcc #################
 
@@ -49,6 +53,7 @@ find_package(PkgConfig)
 #########################################################################
 
 add_subdirectory(src)
+add_subdirectory(calindac)
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ecm_install_po_files_as_qm(po)

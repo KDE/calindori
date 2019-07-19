@@ -18,6 +18,7 @@
  */
 
 #include "localcalendar.h"
+#include "calindoriconfig.h"
 #include <QDebug>
 #include <KCalCore/Todo>
 #include <QFile>
@@ -54,7 +55,9 @@ void LocalCalendar::setName(QString calendarName)
     {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
-        m_fullpath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/calindori_" + calendarName + ".ics" ;
+        CalindoriConfig* config = new CalindoriConfig();
+
+        m_fullpath = config->calendarFile(calendarName);
 
         QFile calendarFile(m_fullpath);
         storage->setFileName(m_fullpath);

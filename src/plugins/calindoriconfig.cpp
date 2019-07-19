@@ -118,6 +118,8 @@ QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
     if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
     {
         d->config.group("general").writeEntry("calendars", calendar);
+        d->config.sync();
+
         return result;
     }
 
@@ -133,13 +135,34 @@ QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
 
 void CalindoriConfig::removeCalendar(const QString& calendar)
 {
+    d->config.reparseConfiguration();
     QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
     if(calendarsList.contains(calendar))
     {
         qDebug() << "Removing calendar " << calendar;
         calendarsList.removeAll(calendar);
+
+        d->config.deleteGroup(calendar);
         d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
         d->config.sync();
+
         emit calendarsChanged();
     }
+}
+
+QString CalindoriConfig::calendarFile(const QString& calendarName)
+{
+    if(d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("file"))
+    {
+        return  d->config.group(calendarName).readEntry("file");
+    }
+    d->config.group(calendarName).writeEntry("file", filenameToPath(calendarName));
+    d->config.sync();
+
+    return filenameToPath(calendarName);
+}
+
+QString CalindoriConfig::filenameToPath(const QString& calendarName)
+{
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/calindori_" + calendarName + ".ics";
 }

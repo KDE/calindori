@@ -71,7 +71,7 @@ void EventController::remove()
 
 void EventController::addEdit()
 {
-    qDebug() << "Creating event";
+    qDebug() << "\naddEdit:\tCreating event";
 
     auto localcalendar = qobject_cast<LocalCalendar*>(m_calendar);
     MemoryCalendar::Ptr memoryCalendar = localcalendar->memorycalendar();
@@ -117,11 +117,30 @@ void EventController::addEdit()
     event->setAllDay(allDayFlg);
     event->setLocation(m_event["location"].value<QString>());
 
+    event->clearAlarms();
+    QVariantList newAlarms = m_event["alarms"].value<QVariantList>();
+    QVariantList::const_iterator itr = newAlarms.constBegin();
+    while(itr != newAlarms.constEnd())
+    {
+        Alarm::Ptr newAlarm = event->newAlarm();
+        QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
+        int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
+        int startOffsetType = newAlarmHashMap["startOffsetType"].value<int>();
+        int actionType = newAlarmHashMap["actionType"].value<int>();
+
+        qDebug() << "addEdit:\tAdding alarm with start offset value " << startOffsetValue;
+        newAlarm->setStartOffset(Duration(startOffsetValue, static_cast<Duration::Type>(startOffsetType)));
+        newAlarm->setType(static_cast<Alarm::Type>(actionType));
+        newAlarm->setEnabled(true);
+        newAlarm->setText((event->summary()).isEmpty() ?  event->description() : event->summary());
+        ++itr;
+    }
+
     memoryCalendar->addEvent(event);
 
     bool merged = localcalendar->save();
-    
-    qDebug() << "Event added/updated: " << merged;
+
+    qDebug() << "addEdit:\tEvent added/updated: " << merged;
 
     emit veventChanged();
     emit veventsUpdated();

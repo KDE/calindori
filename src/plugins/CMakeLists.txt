@@ -6,6 +6,7 @@ set(qmlplugin_SRCS
     eventmodel.cpp
     eventcontroller.cpp
     todocontroller.cpp
+    incidencealarmsmodel.cpp
 )
 
 add_library (calindoriqmlplugin SHARED ${qmlplugin_SRCS})

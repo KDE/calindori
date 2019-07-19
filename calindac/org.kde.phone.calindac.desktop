@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Calindori Reminder Client
+Exec=calindac
+Icon=calindori
+Type=Application
+Categories=Qt;KDE;
+GenericName=Calindori Reminder Daemon Client
+Terminal=false
+X-KDE-autostart-phase=2
+X-KDE-autostart-condition=calindacrc:General:Autostart:true
+X-DBUS-StartupType=Unique

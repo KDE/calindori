@@ -235,6 +235,49 @@ Kirigami.Page {
             text: eventData ? eventData.description : ""
             placeholderText: i18n("Description")
         }
+
+        RowLayout {
+            Controls2.Label {
+                id: remindersLabel
+
+                Layout.fillWidth: true
+                text: i18n("Reminders")
+            }
+
+            Controls2.ToolButton {
+                text: i18n("Add")
+
+                onClicked: reminderEditor.open()
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        Repeater {
+            id: alarmsList
+
+            model: incidenceAlarmsModel
+
+            delegate: Kirigami.SwipeListItem {
+                contentItem: Controls2.Label {
+                    text: model.display
+                }
+
+                Layout.fillWidth: true
+
+                actions: [
+                     Kirigami.Action {
+                        id: deleteAlarm
+
+                        iconName: "delete"
+                        onTriggered: incidenceAlarmsModel.removeAlarm(model.index)
+                    }
+                ]
+            }
+        }
+
     }
 
     actions {
@@ -269,7 +312,7 @@ Kirigami.Page {
                 if(validation.success) {
                     console.log("Saving event, root.startdt:" + startdt);
                     var controller = eventController.createObject(parent, {calendar: root.calendar});
-                    controller.vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute };
+                    controller.vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms() };
                     controller.addEdit();
                     editcompleted();
                 }
@@ -297,5 +340,17 @@ Kirigami.Page {
 
         Calindori.EventController {
         }
+    }
+
+    Calindori.IncidenceAlarmsModel {
+
+        id: incidenceAlarmsModel
+        alarmProperties: { "calendar" : root.calendar, "uid": root.uid }
+    }
+
+    ReminderEditor {
+        id: reminderEditor
+
+        onOffsetSelected: incidenceAlarmsModel.addAlarm(offset)
     }
 }

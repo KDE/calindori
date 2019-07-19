@@ -1,0 +1,17 @@
+[Global]
+IconName=kalarm
+Comment=Plasma Mobile Calendar
+Name=Calindori
+
+[Context/uid]
+Name=Incidence uid
+Comment=The uid of the incidence of the alarm
+        
+[Event/alarm]
+Name=Alarm
+Contexts=uid
+Comment=Alarm Notification
+Action=Popup
+Urgency=Critical
+
+
