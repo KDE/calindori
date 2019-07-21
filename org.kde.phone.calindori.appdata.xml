@@ -6,6 +6,7 @@
   <name>Calindori</name>
   <name xml:lang="ca">Calindori</name>
   <name xml:lang="es">Calindori</name>
+  <name xml:lang="fr">Calindori</name>
   <name xml:lang="gl">Calindori</name>
   <name xml:lang="it">Calindori</name>
   <name xml:lang="nl">Calindori</name>
@@ -16,6 +17,7 @@
   <summary>Calendar application</summary>
   <summary xml:lang="ca">Aplicació de calendari</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
+  <summary xml:lang="fr">Application de calendrier</summary>
   <summary xml:lang="gl">Aplicativo de calendario</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
@@ -47,6 +49,7 @@
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="es">Funcionalidades:</p>
+    <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -58,6 +61,7 @@
       <li>Agenda</li>
       <li xml:lang="ca">Agenda</li>
       <li xml:lang="es">Agenda</li>
+      <li xml:lang="fr">Agenda</li>
       <li xml:lang="gl">Axenda</li>
       <li xml:lang="it">Agenda</li>
       <li xml:lang="nl">Agenda</li>
@@ -68,6 +72,7 @@
       <li>Events</li>
       <li xml:lang="ca">Esdeveniments</li>
       <li xml:lang="es">Eventos</li>
+      <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
       <li xml:lang="it">Eventi</li>
       <li xml:lang="nl">Afspraken</li>
@@ -78,6 +83,7 @@
       <li>Todos</li>
       <li xml:lang="ca">Pendents</li>
       <li xml:lang="es">Listas de tareas</li>
+      <li xml:lang="fr">Tâches</li>
       <li xml:lang="gl">Tarefas</li>
       <li xml:lang="it">Cose da fare</li>
       <li xml:lang="nl">Taken</li>
@@ -88,6 +94,7 @@
       <li>Multiple calendars</li>
       <li xml:lang="ca">Calendaris múltiples</li>
       <li xml:lang="es">Múltiples calendarios</li>
+      <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
       <li xml:lang="it">Calendari multipli</li>
       <li xml:lang="nl">Meerdere agenda's</li>
@@ -98,6 +105,7 @@
       <li>Import calendar</li>
       <li xml:lang="ca">Importa calendaris</li>
       <li xml:lang="es">Importar calendario</li>
+      <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
       <li xml:lang="it">Importa calendario</li>
       <li xml:lang="nl">Agenda importeren </li>
