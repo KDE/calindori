@@ -54,7 +54,7 @@ void IncidenceAlarmsModel::removeAlarm(const int row)
 
 void IncidenceAlarmsModel::addAlarm(const int secondsFromStart)
 {
-    qDebug() << "\nAddAlarm:\tAdding alarm. Seconds from start: " << secondsFromStart;
+    qDebug() << "\nAddAlarm:\tAdding alarm. Seconds before start: " << secondsFromStart;
 
     beginInsertRows(QModelIndex(), mAlarms.count(), mAlarms.count());
 
@@ -175,11 +175,11 @@ QString IncidenceAlarmsModel::alarmStartOffsetType(const int idx) const
     {
         case Duration::Type::Days:
         {
-            return QString(i18n("days from start"));
+            return QString(i18n("days before start"));
         }
         case Duration::Type::Seconds:
         {
-            return QString(i18n("seconds from strart"));
+            return QString(i18n("seconds before start"));
         }
         default:
         {
@@ -229,7 +229,7 @@ QString IncidenceAlarmsModel::displayText(const int idx) const
     }
     if(durationType == Duration::Type::Days)
     {
-        return i18np("1 day from start", "%1 days from start", durationValue);
+        return i18np("1 day before start", "%1 days before start", durationValue);
     }
 
     QString alarmText;
@@ -242,6 +242,6 @@ QString IncidenceAlarmsModel::displayText(const int idx) const
     int durSeconds = durationValue - durMins*60- durHours*3600 - durDays*86400;
     alarmText = (durSeconds != 0) ? QString("%1 %2").arg(alarmText, i18np("1 second", "%1 seconds", durSeconds)) : alarmText;
 
-    return QString("%1 %2").arg(alarmText, i18n("from start"));
+    return QString("%1 %2").arg(alarmText, i18n("before start"));
 }
 

@@ -41,7 +41,7 @@ Kirigami.OverlaySheet {
     contentItem: ColumnLayout {
             Kirigami.Heading {
                 level:2
-                text: i18n("Remind time from start")
+                text: i18n("Time before start")
                 Layout.alignment : Qt.AlignHCenter
             }
 
