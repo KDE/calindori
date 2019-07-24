@@ -1,13 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <defs id="defs3051">
-    <style type="text/css" id="current-color-scheme">
-      .ColorScheme-Text {
-        color:#4d4d4d;
-      }
-      </style>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="e">
+      <stop offset="0" stop-opacity=".677"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="f" x1="24" x2="24" y1="292" y2="287" gradientTransform="matrix(.5122 0 0 .5139 -.03658513 -128.03181)" gradientUnits="userSpaceOnUse" xlink:href="#a"/>
+    <linearGradient id="a">
+      <stop offset="0" stop-color="#7f8c8d"/>
+      <stop offset="1" stop-color="#bdc3c7"/>
+    </linearGradient>
+    <linearGradient id="g" x1="24" x2="24" y1="289" y2="161" gradientTransform="matrix(.5122 0 0 .5139 -.03658513 -128.03181)" gradientUnits="userSpaceOnUse" xlink:href="#b"/>
+    <linearGradient id="b">
+      <stop offset="0" stop-color="#eff0f1"/>
+      <stop offset="1" stop-color="#bdc3c7"/>
+    </linearGradient>
+    <linearGradient id="w" x1="24" x2="24" y1="264" y2="225" gradientTransform="matrix(.5122 0 0 .5139 -.03658513 -128.03181)" gradientUnits="userSpaceOnUse" xlink:href="#c"/>
+    <linearGradient id="c">
+      <stop offset="0" stop-color="#da4453"/>
+      <stop offset="1" stop-color="#ed1515"/>
+    </linearGradient>
+    <linearGradient id="d">
+      <stop offset="0" stop-color="#bdc3c7"/>
+      <stop offset="1" stop-color="#eff0f1"/>
+    </linearGradient>
+    <linearGradient id="x" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="y" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(31.999997 .00000918)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="z" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(7.9999999 .0000023)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="A" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(15.999999 .00000459)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="B" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(23.999998 .00000689)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="H" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(-3.3e-7 8.0000021)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="I" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(31.999997 8.0000112)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="J" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(7.9999996 8.0000044)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="K" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(15.999999 8.0000066)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="L" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(23.999998 8.0000089)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="C" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(-3.3e-7 8.0000021)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="D" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(31.999997 8.0000112)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="E" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(7.9999996 8.0000044)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="F" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(15.999999 8.0000066)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="G" x1="7.9999995" x2="7.9999995" y1="273" y2="258" gradientTransform="translate(23.999998 8.0000089)" gradientUnits="userSpaceOnUse" xlink:href="#d"/>
+    <linearGradient id="t" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="h" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="i" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="j" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="k" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientTransform="translate(16.390243)" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="u" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="l" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientTransform="translate(16.390243 4.1112222)" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="s" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="m" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientTransform="translate(16.390243 8.2224424)" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="n" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="o" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="p" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="q" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="v" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
+    <linearGradient id="r" x1="-7.0556498" x2="6.1097569" y1="-.90345532" y2="12.263659" gradientUnits="userSpaceOnUse" xlink:href="#e"/>
   </defs>
-  <path style="fill:currentColor;fill-opacity:1;stroke:none" 
-    d="m 7,4 c 0,0 -1,-3e-5 -1,1 l -2,0 0,3 0,11 0,1 16,0 0,-1 0,-11 0,-3 -2,0 C 18,3.99997 17,4 17,4 l -3,0 c 0,0 -1,-3e-5 -1,1 L 11,5 C 11,3.99997 10,4 10,4 L 7,4 Z m 0,1 3,0 0,1 -3,0 0,-1 z m 7,0 3,0 0,1 -3,0 0,-1 z M 5,8 19,8 19,19 5,19 5,8 Z m 2,1 0,2 2,0 0,-2 -2,0 z m 4,0 0,2 2,0 0,-2 -2,0 z m 4,0 0,2 2,0 0,-2 -2,0 z m -8,3 0,2 2,0 0,-2 -2,0 z m 4,0 0,2 2,0 0,-2 -2,0 z m 4,0 0,2 2,0 0,-2 -2,0 z m 0,3 0,2 2,0 0,-2 -2,0 z"
-    class="ColorScheme-Text"
-    />
+  <rect width="21" height="16.95879" x="1.5000004" y="4.0412135" fill="url(#f)" paint-order="markers fill stroke" ry="0"/>
+  <path fill="url(#g)" d="M1.5000004 4.0412135h21v16.444889h-21z" paint-order="markers fill stroke"/>
+  <path fill="url(#h)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(4.097561)"/>
+  <path fill="url(#i)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(8.195123)"/>
+  <path fill="url(#j)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(12.292682)"/>
+  <path fill="url(#k)" d="M21.988281 8.1523438L18.402344 11.75 22.5 15.845703V8.6640625z" opacity=".29078014"/>
+  <path fill="url(#l)" d="M21.988281 12.263672l-3.585937 3.597656L22.5 19.957031v-7.18164z" opacity=".29078014"/>
+  <path fill="url(#m)" d="M21.988281 16.375l-3.585937 3.597656.513672.513672H22.5v-3.599609z" opacity=".29078014"/>
+  <path fill="url(#n)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(4.097561 4.1112224)"/>
+  <path fill="url(#o)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(0 4.1112224)"/>
+  <path fill="url(#p)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(0 8.2224424)"/>
+  <path fill="url(#q)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(4.097561 8.2224424)"/>
+  <path fill="url(#r)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(12.292683 8.2224424)"/>
+  <path fill="url(#s)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(8.195121 4.1112222)"/>
+  <path fill="url(#t)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014"/>
+  <path fill="url(#u)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29078014" transform="translate(12.292682 4.1112222)"/>
+  <path fill="url(#v)" d="M2.0121955 11.749756l4.7959308 4.795931 4.0355967-3.14709-5.2461612-5.2461603-3.5853663 3.5973193z" opacity=".29" transform="translate(8.1951219 8.2224424)"/>
+  <path fill="url(#w)" d="M1.5000004 4.0412135h21v3.5973208h-21z" paint-order="markers fill stroke"/>
+  <g stroke-dashoffset="24.94488144" stroke-linecap="square" stroke-linejoin="round" stroke-width=".1">
+    <path fill="url(#x)" d="M3.9999998 265h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#y)" d="M35.999996 265h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#z)" d="M12 265h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#A)" d="M20 265h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#B)" d="M27.999998 265h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+  </g>
+  <path fill="#16a085" d="M2.0121951 11.235855h3.5853658v.51390278H2.0121951z" paint-order="markers fill stroke"/>
+  <g stroke-dashoffset="24.94488144" stroke-linecap="square" stroke-linejoin="round" stroke-width=".1">
+    <path fill="url(#C)" d="M3.9999995 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#D)" d="M35.999996 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#E)" d="M12 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#F)" d="M20 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+    <path fill="url(#G)" d="M27.999998 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658509 -128.0318)"/>
+  </g>
+  <path fill="#16a085" d="M14.304879 15.347077h3.5853658v.51390278H14.304879z" paint-order="markers fill stroke"/>
+  <path fill="#f39c1f" d="M18.402441 11.235855h3.5853658v.51390278H18.402441z" paint-order="markers fill stroke"/>
+  <g stroke-dashoffset="24.94488144" stroke-linecap="square" stroke-linejoin="round" stroke-width=".1">
+    <path fill="url(#H)" d="M3.9999995 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658536 -123.92058)"/>
+    <path fill="url(#I)" d="M35.999996 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658536 -123.92058)"/>
+    <path fill="url(#J)" d="M12 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658536 -123.92058)"/>
+    <path fill="url(#K)" d="M20 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658536 -123.92058)"/>
+    <path fill="url(#L)" d="M27.999998 273h7v7.0000019h-7z" paint-order="markers fill stroke" transform="matrix(.5122 0 0 .5139 -.03658536 -123.92058)"/>
+  </g>
+  <path fill="#f39c1f" d="M6.109756 19.458298h3.5853658v.51390278H6.109756z" paint-order="markers fill stroke"/>
+  <ellipse cx="5.4213099" cy="-4.0653982" fill="#2c3e50" stroke="#232629" stroke-dashoffset="24.94488144" stroke-linejoin="round" stroke-width=".31978127" paint-order="markers fill stroke" rx=".30386141" ry=".30285171" transform="rotate(90)"/>
+  <path fill="none" stroke="#bdc3c7" stroke-dashoffset="24.94488144" stroke-linecap="round" stroke-linejoin="round" stroke-width=".36147374" d="M4.5310122 3.4708242c-.0463025-.2953499-.1280742-.5351049-.2333765-.66707-.1674418-.2098551-.3604932-.09532-.4889057.29026-.1284125.385585-.1669601.9662249-.0976551 1.4707551.069316.50453.3438725.84948.3438725.84948" paint-order="markers fill stroke"/>
+  <path stroke="#9ca5ac" stroke-dashoffset="24.94488144" stroke-linejoin="round" stroke-width=".36147368" d="M4.5731711 4.0412093c.0004442-.54596-.1080835-1.0276101-.2755354-1.2374551-.014546-.01825-.036519-.0406-.051404-.053955" paint-order="markers fill stroke"/>
+  <ellipse cx="5.4213099" cy="-19.943447" fill="#2c3e50" stroke="#232629" stroke-dashoffset="24.94488144" stroke-linejoin="round" stroke-width=".31978127" paint-order="markers fill stroke" rx=".30386141" ry=".30285171" transform="rotate(90)"/>
+  <path fill="none" stroke="#bdc3c7" stroke-dashoffset="24.94488144" stroke-linecap="round" stroke-linejoin="round" stroke-width=".36147374" d="M20.40906 3.4708242c-.0463-.2953499-.128073-.5351049-.233376-.66707-.167442-.2098551-.360492-.09532-.488907.29026-.128412.385585-.166958.9662249-.09765 1.4707551.06932.50453.343873.84948.343873.84948" paint-order="markers fill stroke"/>
+  <path stroke="#9ca5ac" stroke-dashoffset="24.94488144" stroke-linejoin="round" stroke-width=".36147368" d="M20.45122 4.0412093c.000355-.54596-.108085-1.0276101-.275536-1.2374551-.01455-.01825-.03652-.0406-.0514-.053955" paint-order="markers fill stroke"/>
 </svg>
