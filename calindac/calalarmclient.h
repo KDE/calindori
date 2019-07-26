@@ -36,7 +36,7 @@ class NotificationHandler;
 class CalAlarmClient : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO( "D-Bus Interface", "org.kde.phone.calindac" )
+    Q_CLASSINFO( "D-Bus Interface", "org.kde.calindac" )
 
 public:
     explicit CalAlarmClient(QObject* parent = nullptr);

@@ -13,7 +13,7 @@ set(calindac_SRCS
     notificationhandler.cpp
     )
 
-qt5_add_dbus_adaptor(calindac_SRCS org.kde.phone.calindac.xml calalarmclient.h CalAlarmClient)
+qt5_add_dbus_adaptor(calindac_SRCS org.kde.calindac.xml calalarmclient.h CalAlarmClient)
 
 add_executable(calindac ${calindac_SRCS} ${RESOURCES})
 
@@ -31,13 +31,13 @@ install(TARGETS
     )
 
 install(FILES
-    org.kde.phone.calindac.desktop
+    org.kde.calindac.desktop
     DESTINATION ${KDE_INSTALL_AUTOSTARTDIR}
     )
 
 
 install(FILES
-    org.kde.phone.calindac.xml
+    org.kde.calindac.xml
     DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
     )
 
