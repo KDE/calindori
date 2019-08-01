@@ -45,6 +45,12 @@ Kirigami.Page {
     }
 
     Component {
+        id: eventController
+
+        Calindori.EventController {}
+    }
+
+    Component {
         id: eventEditor
 
         EventEditor {
@@ -57,16 +63,22 @@ Kirigami.Page {
         }
     }
 
+    Controls2.Label {
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        visible: eventsModel.count == 0
+        wrapMode: Text.WordWrap
+        text: eventStartDt.toLocaleDateString() != "" ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No events scheduled")
+        font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+    }
+
     Kirigami.CardsListView {
         id: cardsListview
 
         anchors.fill: parent
 
-        model: Calindori.EventModel {
-            filterdt: root.eventStartDt
-            memorycalendar: root.calendar.memorycalendar
-
-        }
+        model: eventsModel
 
         delegate: Kirigami.Card {
             id: cardDelegate
@@ -127,10 +139,11 @@ Kirigami.Page {
         }
     }
 
-    Component {
-        id: eventController
+    Calindori.EventModel {
+        id: eventsModel
 
-        Calindori.EventController {}
+        filterdt: root.eventStartDt
+        memorycalendar: root.calendar.memorycalendar
     }
 
 }

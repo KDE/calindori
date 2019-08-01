@@ -56,14 +56,28 @@ Kirigami.Page {
         }
     }
 
+    Component {
+        id: todoController
+
+        Calindori.TodoController {}
+    }
+
+    Controls2.Label {
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        visible: todosModel.count == 0
+        wrapMode: Text.WordWrap
+        text: todoDt.toLocaleDateString() != "" ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No tasks scheduled")
+        font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+    }
+
     Kirigami.CardsListView {
         id: cardsListview
+
         anchors.fill: parent
 
-        model: Calindori.TodosModel {
-            filterdt: root.todoDt
-            memorycalendar: root.calendar.memorycalendar
-        }
+        model: todosModel
 
         delegate: Kirigami.Card {
             id: cardDelegate
@@ -119,9 +133,10 @@ Kirigami.Page {
         }
     }
 
-    Component {
-        id: todoController
+    Calindori.TodosModel {
+        id: todosModel
 
-        Calindori.TodoController {}
+        filterdt: root.todoDt
+        memorycalendar: root.calendar.memorycalendar
     }
 }
