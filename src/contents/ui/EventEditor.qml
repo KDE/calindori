@@ -72,7 +72,7 @@ Kirigami.Page {
         return result;
     }
 
-    title: i18n("Event")
+    title: uid == "" ? i18n("Add event") : i18n("Edit event")
 
     ColumnLayout {
 
