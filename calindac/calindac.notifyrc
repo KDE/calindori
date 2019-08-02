@@ -2,11 +2,22 @@
 IconName=kalarm
 Comment=Plasma Mobile Calendar
 Name=Calindori
+Name[ca]=Calindori
+Name[es]=Calindori
+Name[fr]=Calindori
+Name[gl]=Calindori
+Name[it]=Calindori
+Name[nl]=Calindori
+Name[pl]=Calindori
+Name[pt]=Calindori
+Name[sv]=Calindori
+Name[uk]=Calindori
+Name[x-test]=xxCalindorixx
 
 [Context/uid]
 Name=Incidence uid
 Comment=The uid of the incidence of the alarm
-        
+
 [Event/alarm]
 Name=Alarm
 Contexts=uid
