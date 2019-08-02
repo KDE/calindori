@@ -83,11 +83,7 @@ Rectangle {
             anchors.fill: parent
             enabled: isCurrentMonth
             
-            contentItem: Controls2.Label {
-                text: model.dayNumber
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
+            text: model.dayNumber
 
             onClicked: dayDelegate.dayClicked()                        
         }
