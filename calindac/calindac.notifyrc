@@ -1,6 +1,12 @@
 [Global]
 IconName=kalarm
 Comment=Plasma Mobile Calendar
+Comment[ca]=Calendari del Plasma Mòbil
+Comment[nl]=Plasma agenda voor mobiel
+Comment[pt]=Calendário do Plasma Mobile
+Comment[sv]=Plasma mobilkalender
+Comment[uk]=Календар для мобільної Плазми
+Comment[x-test]=xxPlasma Mobile Calendarxx
 Name=Calindori
 Name[ca]=Calindori
 Name[es]=Calindori
@@ -16,12 +22,36 @@ Name[x-test]=xxCalindorixx
 
 [Context/uid]
 Name=Incidence uid
+Name[ca]=UID de la incidència
+Name[nl]=Uid van incident
+Name[pt]=UID da incidência
+Name[sv]=Förekomstens användar-id
+Name[uk]=Ідентифікатор випадку
+Name[x-test]=xxIncidence uidxx
 Comment=The uid of the incidence of the alarm
+Comment[ca]=L'UID de la incidència de l'alarma
+Comment[nl]=De uid van het incident van het alarm
+Comment[pt]=O UID da incidência do alarme
+Comment[sv]=Användar-id för förekomsten av alarmet
+Comment[uk]=Ідентифікатор випадку нагадування
+Comment[x-test]=xxThe uid of the incidence of the alarmxx
 
 [Event/alarm]
 Name=Alarm
+Name[ca]=Alarma
+Name[nl]=Alarm
+Name[pt]=Alarme
+Name[sv]=Alarm
+Name[uk]=Нагадування
+Name[x-test]=xxAlarmxx
 Contexts=uid
 Comment=Alarm Notification
+Comment[ca]=Notificació de l'alarma
+Comment[nl]=Alarmmelding
+Comment[pt]=Notificação do Alarme
+Comment[sv]=Alarmunderrättelse
+Comment[uk]=Сповіщення для нагадування
+Comment[x-test]=xxAlarm Notificationxx
 Action=Popup
 Urgency=Critical
 

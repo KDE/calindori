@@ -1,10 +1,22 @@
 [Desktop Entry]
 Name=Calindori Reminder Client
+Name[ca]=Client de recordatori del Calindori
+Name[nl]=Calindori client voor herinnering
+Name[pt]=Cliente de Chamadas de Atenção do Calindori
+Name[sv]=Calindori påminnelseklient
+Name[uk]=Клієнт нагадування Calindori
+Name[x-test]=xxCalindori Reminder Clientxx
 Exec=calindac
 Icon=calindori
 Type=Application
 Categories=Qt;KDE;
 GenericName=Calindori Reminder Daemon Client
+GenericName[ca]=Client del dimoni de recordatori del Calindori
+GenericName[nl]=Calindori client voor herinneringsdaemon
+GenericName[pt]=Cliente do Serviço de Chamadas de Atenção do Calindori
+GenericName[sv]=Calindori påminnelsedemonklient
+GenericName[uk]=Клієнт фонової служби нагадування Calindori
+GenericName[x-test]=xxCalindori Reminder Daemon Clientxx
 Terminal=false
 X-KDE-autostart-phase=2
 X-KDE-autostart-condition=calindacrc:General:Autostart:true
