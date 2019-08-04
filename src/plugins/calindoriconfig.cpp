@@ -23,6 +23,7 @@
 #include <KConfigGroup>
 #include <QDebug>
 #include <QRegExp>
+#include <QDir>
 
 class CalindoriConfig::Private
 {
@@ -164,5 +165,9 @@ QString CalindoriConfig::calendarFile(const QString& calendarName)
 
 QString CalindoriConfig::filenameToPath(const QString& calendarName)
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/calindori_" + calendarName + ".ics";
+    QString basePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir baseFolder(basePath);
+    baseFolder.mkpath(QStringLiteral("."));
+
+    return basePath + "/calindori_" + calendarName + ".ics";
 }
