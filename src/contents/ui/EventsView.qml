@@ -184,7 +184,7 @@ Kirigami.Page {
         id: eventsModel
 
         filterdt: root.eventStartDt
-        memorycalendar: root.calendar.memorycalendar
+        calendar: root.calendar
     }
 
 }

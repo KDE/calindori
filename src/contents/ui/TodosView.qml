@@ -155,6 +155,6 @@ Kirigami.Page {
         id: todosModel
 
         filterdt: root.todoDt
-        memorycalendar: root.calendar.memorycalendar
+        calendar: root.calendar
     }
 }

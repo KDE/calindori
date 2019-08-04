@@ -24,7 +24,7 @@ TodosModel::TodosModel(QObject* parent)
     m_calendar(nullptr),
     m_filterdt(QDate())
 {
-    connect(this, &TodosModel::memorycalendarChanged, this, &TodosModel::loadTasks);
+    connect(this, &TodosModel::calendarChanged, this, &TodosModel::loadTasks);
     connect(this, &TodosModel::filterdtChanged, this, &TodosModel::loadTasks);
 }
 
@@ -84,16 +84,16 @@ QVariant TodosModel::data(const QModelIndex& index, int role) const
 }
 
 
-MemoryCalendar::Ptr TodosModel::memorycalendar() const
+LocalCalendar * TodosModel::calendar() const
 {
     return m_calendar;
 }
 
-void TodosModel::setMemorycalendar(const MemoryCalendar::Ptr calendarPtr)
+void TodosModel::setCalendar(LocalCalendar *calendarPtr)
 {
     m_calendar = calendarPtr;
 
-    emit memorycalendarChanged();
+    emit calendarChanged();
 }
 
 QDate TodosModel::filterdt() const
@@ -119,10 +119,10 @@ void TodosModel::loadTasks()
     beginResetModel();
     m_todos.clear();
     if(m_calendar != nullptr && m_filterdt.isValid()) {
-        m_todos =  m_calendar->rawTodos(m_filterdt,m_filterdt);
+        m_todos =  m_calendar->memorycalendar()->rawTodos(m_filterdt,m_filterdt);
     }
     if (m_calendar != nullptr && m_filterdt.isNull()) {
-        m_todos =  m_calendar->rawTodos(TodoSortStartDate, SortDirectionDescending);
+        m_todos =  m_calendar->memorycalendar()->rawTodos(TodoSortStartDate, SortDirectionDescending);
     }
     endResetModel();
     emit rowCountChanged();
