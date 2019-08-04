@@ -32,6 +32,7 @@
 #include "incidencealarmsmodel.h"
 #include "daysofmonthmodel.h"
 #include "recurrenceperiodmodel.h"
+#include "daysofmonthincidencemodel.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -49,6 +50,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
     qmlRegisterType<DaysOfMonthModel>("org.kde.phone.calindori",0,1,"DaysOfMonthModel");
     qmlRegisterType<ReccurencePeriodModel>("org.kde.phone.calindori",0,1,"ReccurencePeriodModel");
+    qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.phone.calindori",0,1,"DaysOfMonthIncidenceModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

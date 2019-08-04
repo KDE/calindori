@@ -40,7 +40,6 @@ Rectangle {
     property int delegateWidth
     property date selectedDate
     property bool highlight: (model.yearNumber == selectedDate.getFullYear())  &&  (model.monthNumber == selectedDate.getMonth() + 1) &&  (model.dayNumber == root.selectedDate.getDate())
-    property int incidentsCount
     
     signal dayClicked
     
@@ -71,7 +70,7 @@ Rectangle {
             height: width
             radius: 50
             color: Kirigami.Theme.selectionFocusColor            
-            visible: incidentsCount > 0
+            visible: incidenceCount > 0
         }
         
         Controls2.ToolButton {

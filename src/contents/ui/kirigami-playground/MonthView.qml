@@ -51,34 +51,14 @@ Item {
      * 3. yearNumber
      */
     property var daysModel
-    /**
-     * Function that returns the amount of tasks of each day
-     *
-     * If implemented, a small indicator will be displayed
-     * into the cell of each day. Default implementation returns 0,
-     * so no indicator is displayed.
-     */
-    property var todosCount: function (todosDate) {
-        return 0;
-    }
 
-    /**
-     * Function that returns the amount of events of each day
-     *
-     * If implemented, a small indicator will be displayed
-     * into the cell of each day. Default implementation returns 0,
-     * so no indicator is displayed.
-     */
-    property var eventsCount: function (eventsDate) {
-        return 0;
-    }
     property bool showHeader: false
     property bool showMonthName: true
     property bool showYear: true
 
     function reloadSelectedDate() {
-        root.selectedDayTodosCount = root.todosCount(root.selectedDate)
-        root.selectedDayEventsCount = root.eventsCount(root.selectedDate)
+        root.selectedDayTodosCount = cal.todosCount(root.selectedDate)
+        root.selectedDayEventsCount = cal.eventsCount(root.selectedDate)
     }
 
     onSelectedDateChanged: reloadSelectedDate()
@@ -159,8 +139,6 @@ Item {
                     currentDate: root.currentDate
                     delegateWidth: root.dayRectWidth
                     selectedDate: root.selectedDate
-                    incidentsCount: root.todosCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
-                                    + root.eventsCount(new Date(model.yearNumber, model.monthNumber -1, model.dayNumber))
 
                     onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)
                 }

@@ -200,28 +200,17 @@ Kirigami.ApplicationWindow {
                 id: calendarMonthView
 
                 anchors.fill: parent
+                cal: localCalendar
+
+                anchors.centerIn: parent
                 showHeader: true
                 showMonthName: false
                 showYear: false
-
-                todosCount: function (todosDate) {
-                    return localCalendar.todosCount(todosDate);
-                }
-
-                eventsCount: function (eventsDate) {
-                    return localCalendar.eventsCount(eventsDate);
-                }
 
                 onSelectedDateChanged: {
                     if (root.pageStack.depth > 1) {
                         root.pageStack.pop(null);
                     }
-                }
-
-                Connections {
-                    target: root
-
-                    onRefreshNeeded: calendarMonthView.refresh()
                 }
             }
         }
