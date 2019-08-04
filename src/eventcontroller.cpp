@@ -35,7 +35,7 @@ void EventController::remove(LocalCalendar *calendar, const QVariantMap &eventDa
     Event::Ptr event = memoryCalendar->event(uid);
     memoryCalendar->deleteEvent(event);
     bool deleted = calendar->save();
-    Q_EMIT calendar->somethingChanged();
+    Q_EMIT calendar->eventsChanged();
 
     qDebug() << "Event deleted: " << deleted;
 }
@@ -149,7 +149,7 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
     if (uid == "") memoryCalendar->addEvent(event);
 
     bool merged = calendar->save();
-    Q_EMIT calendar->somethingChanged();
+    Q_EMIT calendar->eventsChanged();
 
     qDebug() << "addEdit:\tEvent added/updated: " << merged;
 }

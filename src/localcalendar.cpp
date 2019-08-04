@@ -71,7 +71,8 @@ void LocalCalendar::setName(QString calendarName)
 
         emit nameChanged();
         emit memorycalendarChanged();
-        emit somethingChanged();
+        emit todosChanged();
+        emit eventsChanged();
     }
 }
 

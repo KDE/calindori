@@ -54,8 +54,8 @@ public Q_SLOTS:
 Q_SIGNALS:
     void memorycalendarChanged();
     void nameChanged();
-    //FIXME This should be replaced with a more fine-grained signal that doesn't get emitted from the outside
-    void somethingChanged();
+    void todosChanged();
+    void eventsChanged();
 
 private:
     static QVariantMap canCreateFile(const QString& calendarName);

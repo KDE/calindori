@@ -69,7 +69,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     memoryCalendar->addTodo(vtodo);
     bool merged = calendar->save();
 
-    Q_EMIT calendar->somethingChanged();
+    Q_EMIT calendar->todosChanged();
 
     qDebug() << "Todo added/updated: " << merged;
 }
@@ -85,6 +85,6 @@ void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
     memoryCalendar->deleteTodo(vtodo);
     bool removed = calendar->save();
 
-    Q_EMIT calendar->somethingChanged();
+    Q_EMIT calendar->todosChanged();
     qDebug() << "Todo deleted: " << removed;
 }

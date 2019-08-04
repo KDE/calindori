@@ -55,7 +55,10 @@ void DaysOfMonthIncidenceModel::setCalendar(LocalCalendar* calendar)
     if (m_calendar != calendar) {
         m_calendar = calendar;
         Q_EMIT calendarChanged();
-        connect(m_calendar, &LocalCalendar::somethingChanged, this, [this] {
+        connect(m_calendar, &LocalCalendar::todosChanged, this, [this] {
+            Q_EMIT dataChanged(index(0,0), index(rowCount(QModelIndex()) - 1));
+        });
+        connect(m_calendar, &LocalCalendar::eventsChanged, this, [this] {
             Q_EMIT dataChanged(index(0,0), index(rowCount(QModelIndex()) - 1));
         });
     }
