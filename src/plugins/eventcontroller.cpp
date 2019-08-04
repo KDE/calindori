@@ -26,58 +26,27 @@ EventController::EventController(QObject* parent) : QObject(parent) {}
 
 EventController::~EventController() = default;
 
-QObject*  EventController::calendar() const
-{
-    return m_calendar;
-}
-
-void EventController::setCalendar(QObject * const calendarPtr)
-{
-    if(calendarPtr != m_calendar)
-    {
-        m_calendar = calendarPtr;
-        emit calendarChanged();
-    }
-
-}
-
-QVariantMap EventController::vevent() const
-{
-    return m_event;
-}
-
-void EventController::setVevent(const QVariantMap& event)
-{
-    m_event = event;
-    emit veventChanged();
-}
-
-void EventController::remove()
+void EventController::remove(LocalCalendar *calendar, const QVariantMap &eventData)
 {
     qDebug() << "Deleting event";
 
-    auto localcalendar = qobject_cast<LocalCalendar*>(m_calendar);
-    MemoryCalendar::Ptr memoryCalendar = localcalendar->memorycalendar();
-    QString uid = m_event["uid"].value<QString>();
+    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    QString uid = eventData["uid"].value<QString>();
     Event::Ptr event = memoryCalendar->event(uid);
     memoryCalendar->deleteEvent(event);
-    bool deleted = localcalendar->save();
+    bool deleted = calendar->save();
 
     qDebug() << "Event deleted: " << deleted;
-
-    emit veventChanged();
-    emit veventsUpdated();
 }
 
-void EventController::addEdit()
+void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventData)
 {
     qDebug() << "\naddEdit:\tCreating event";
 
-    auto localcalendar = qobject_cast<LocalCalendar*>(m_calendar);
-    MemoryCalendar::Ptr memoryCalendar = localcalendar->memorycalendar();
+    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = m_event["uid"].value<QString>();
-    QString summary = m_event["summary"].value<QString>();
+    QString uid = eventData["uid"].value<QString>();
+    QString summary = eventData["summary"].value<QString>();
 
     Event::Ptr event;
     if (uid == "") {
@@ -89,17 +58,17 @@ void EventController::addEdit()
         event->setUid(uid);
     }
 
-    QDate startDate = m_event["startDate"].value<QDate>();
-    int startHour = m_event["startHour"].value<int>();
-    int startMinute = m_event["startMinute"].value<int>();
+    QDate startDate = eventData["startDate"].value<QDate>();
+    int startHour = eventData["startHour"].value<int>();
+    int startMinute = eventData["startMinute"].value<int>();
 
-    QDate endDate = m_event["endDate"].value<QDate>();
-    int endHour = m_event["endHour"].value<int>();
-    int endMinute = m_event["endMinute"].value<int>();
+    QDate endDate = eventData["endDate"].value<QDate>();
+    int endHour = eventData["endHour"].value<int>();
+    int endMinute = eventData["endMinute"].value<int>();
 
     QDateTime startDateTime;
     QDateTime endDateTime;
-    bool allDayFlg= m_event["allDay"].value<bool>();
+    bool allDayFlg= eventData["allDay"].value<bool>();
 
     if(allDayFlg) {
         startDateTime = QDateTime(startDate);
@@ -112,13 +81,13 @@ void EventController::addEdit()
 
     event->setDtStart(startDateTime);
     event->setDtEnd(endDateTime);
-    event->setDescription(m_event["description"].value<QString>());
+    event->setDescription(eventData["description"].value<QString>());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);
-    event->setLocation(m_event["location"].value<QString>());
+    event->setLocation(eventData["location"].value<QString>());
 
     event->clearAlarms();
-    QVariantList newAlarms = m_event["alarms"].value<QVariantList>();
+    QVariantList newAlarms = eventData["alarms"].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
     while(itr != newAlarms.constEnd())
     {
@@ -138,10 +107,7 @@ void EventController::addEdit()
 
     memoryCalendar->addEvent(event);
 
-    bool merged = localcalendar->save();
+    bool merged = calendar->save();
 
     qDebug() << "addEdit:\tEvent added/updated: " << merged;
-
-    emit veventChanged();
-    emit veventsUpdated();
 }

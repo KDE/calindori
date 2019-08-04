@@ -23,33 +23,17 @@
 #include <QObject>
 #include <QVariantMap>
 
+class LocalCalendar;
+
 class EventController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QVariantMap vevent READ vevent WRITE setVevent NOTIFY veventChanged)
-    Q_PROPERTY(QObject* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
-
 public:
     explicit EventController(QObject* parent = nullptr);
     ~EventController() override;
-    
-    QVariantMap vevent() const;
-    void setVevent(const QVariantMap& event);
 
-    QObject* calendar() const;
-    void setCalendar(QObject* const calendarPtr);
-
-    Q_INVOKABLE void remove();
-    Q_INVOKABLE void addEdit();
-
-Q_SIGNALS:
-    void veventChanged();
-    void calendarChanged();
-    void veventsUpdated();
-
-private:
-    QVariantMap m_event;
-    QObject* m_calendar;
+    Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap &event);
+    Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap &event);
 };
 #endif

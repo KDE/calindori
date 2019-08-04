@@ -92,9 +92,9 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var controller = eventController.createObject(parent, { calendar: root.calendar });
-                        controller.vevent = { uid: model.uid } ;
-                        controller.remove();
+                        var controller = eventController.createObject(parent, {});
+                        var vevent = { uid: model.uid } ;
+                        controller.remove(root.calendar, vevent);
                         eventsUpdated();
                     }
                 },
