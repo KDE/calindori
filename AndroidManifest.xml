@@ -4,7 +4,7 @@
           android:versionName="0.0.1"
           android:versionCode="1"
           android:installLocation="auto">
-    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Calindori">
+    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Calindori" android:icon="@drawable/calindori">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
                   android:label="Calindori"
