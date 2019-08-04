@@ -26,45 +26,19 @@ TodoController::TodoController(QObject* parent) : QObject(parent) {}
 
 TodoController::~TodoController() = default;
 
-QObject * TodoController::calendar() const
-{
-    return m_calendar;
-}
-
-void TodoController::setCalendar(QObject *const calendarPtr)
-{
-    if(m_calendar != calendarPtr)
-    {
-        m_calendar = calendarPtr;
-        emit calendarChanged();
-    }
-}
-
-QVariantMap TodoController::vtodo() const
-{
-    return m_todo;
-}
-
-void TodoController::setVtodo(const QVariantMap& todo)
-{
-    m_todo = todo;
-    emit vtodoChanged();
-}
-
-void TodoController::addEdit()
+void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
 {
     qDebug() << "Adding/updating todo";
 
-    auto localCalendar = qobject_cast<LocalCalendar*>(m_calendar);
-    MemoryCalendar::Ptr memoryCalendar = localCalendar->memorycalendar();
+    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = m_todo["uid"].value<QString>();
-    QString summary = m_todo["summary"].value<QString>();
-    QDate startDate = m_todo["startDate"].value<QDate>();
-    int startHour = m_todo["startHour"].value<int>();
-    int startMinute = m_todo["startMinute"].value<int>();
-    bool allDayFlg= m_todo["allDay"].value<bool>();
+    QString uid = todo["uid"].value<QString>();
+    QString summary = todo["summary"].value<QString>();
+    QDate startDate = todo["startDate"].value<QDate>();
+    int startHour = todo["startHour"].value<int>();
+    int startMinute = todo["startMinute"].value<int>();
+    bool allDayFlg= todo["allDay"].value<bool>();
 
     if(uid == "")
     {
@@ -86,35 +60,28 @@ void TodoController::addEdit()
     }
 
     vtodo->setDtStart(startDateTime);
-    vtodo->setDescription(m_todo["description"].value<QString>());
+    vtodo->setDescription(todo["description"].value<QString>());
     vtodo->setSummary(summary);
     vtodo->setAllDay(allDayFlg);
-    vtodo->setLocation(m_todo["location"].value<QString>());
-    vtodo->setCompleted(m_todo["completed"].value<bool>());
+    vtodo->setLocation(todo["location"].value<QString>());
+    vtodo->setCompleted(todo["completed"].value<bool>());
 
     memoryCalendar->addTodo(vtodo);
-    bool merged = localCalendar->save();
+    bool merged = calendar->save();
 
     qDebug() << "Todo added/updated: " << merged;
-
-    emit vtodoChanged();
-    emit vtodosUpdated();
 }
 
-void TodoController::remove()
+void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
 {
     qDebug() << "Deleting todo";
 
-    auto localCalendar = qobject_cast<LocalCalendar*>(m_calendar);
-    MemoryCalendar::Ptr memoryCalendar = localCalendar->memorycalendar();
-    QString uid = m_todo["uid"].value<QString>();
+    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    QString uid = todo["uid"].value<QString>();
     Todo::Ptr vtodo = memoryCalendar->todo(uid);
 
     memoryCalendar->deleteTodo(vtodo);
-    bool removed = localCalendar->save();
+    bool removed = calendar->save();
 
     qDebug() << "Todo deleted: " << removed;
-
-    emit vtodoChanged();
-    emit vtodosUpdated();
 }

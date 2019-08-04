@@ -21,34 +21,19 @@
 #include <QObject>
 #include <QVariantMap>
 
+class LocalCalendar;
+
 class TodoController : public QObject
 {
     Q_OBJECT
-
-    Q_PROPERTY(QObject* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged);
-    Q_PROPERTY(QVariantMap vtodo READ vtodo WRITE setVtodo NOTIFY vtodoChanged);
 
 public:
     explicit TodoController(QObject* parent = nullptr);
     ~TodoController() override;
 
-    QObject* calendar() const;
-    void setCalendar(QObject* const calendarPtr );
+    Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap& todo);
+    Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap& todo);
 
-    QVariantMap vtodo() const;
-    void setVtodo(const QVariantMap& todo);
-
-    Q_INVOKABLE void remove();
-    Q_INVOKABLE void addEdit();
-
-Q_SIGNALS:
-    void calendarChanged();
-    void vtodoChanged();
-    void vtodosUpdated();
-
-private:
-    QObject* m_calendar;
-    QVariantMap m_todo;
 };
 #endif
 

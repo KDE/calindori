@@ -91,9 +91,9 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var controller = todoController.createObject(parent, { calendar: root.calendar });
-                        controller.vtodo = { "uid" : model.uid };
-                        controller.remove();
+                        var controller = todoController.createObject(parent, {});
+                        var vtodo = { "uid" : model.uid };
+                        controller.remove(root.calendar, vtodo);
                         tasksUpdated();
                     }
                 },
