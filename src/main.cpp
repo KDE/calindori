@@ -23,13 +23,29 @@
 #include <QUrl>
 #include <KLocalizedContext>
 
+#include "calindoriconfig.h"
+#include "todosmodel.h"
+#include "localcalendar.h"
+#include "eventmodel.h"
+#include "eventcontroller.h"
+#include "todocontroller.h"
+#include "incidencealarmsmodel.h"
+
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("calindori");
-    
+
+    qmlRegisterType<CalindoriConfig>("org.kde.phone.calindori", 0, 1, "Config");
+    qmlRegisterType<TodosModel>("org.kde.phone.calindori", 0, 1, "TodosModel");
+    qmlRegisterType<LocalCalendar>("org.kde.phone.calindori", 0, 1, "LocalCalendar");
+    qmlRegisterType<EventModel>("org.kde.phone.calindori", 0, 1, "EventModel");
+    qmlRegisterType<EventController>("org.kde.phone.calindori",0,1,"EventController");
+    qmlRegisterType<TodoController>("org.kde.phone.calindori",0,1,"TodoController");
+    qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     
