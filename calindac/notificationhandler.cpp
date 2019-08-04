@@ -56,7 +56,7 @@ void NotificationHandler::sendSuspendedNotifications()
     QHash<QString, AlarmNotification*>::iterator suspItr = mSuspendedNotifications.begin();
     while(suspItr != mSuspendedNotifications.end())
     {
-        if(suspItr.value()->remindAt() < mPeriod["to"].value<QDateTime>())
+        if(suspItr.value()->remindAt() < mPeriod["to"].toDateTime())
         {
             qDebug() << "sendNotifications:\tSending notification for suspended alarm" <<  suspItr.value()->uid() << ", text is" << suspItr.value()->text();
 

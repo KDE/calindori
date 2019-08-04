@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KAboutData aboutData(QStringLiteral("calindac"), i18n("Calindori Alarm Check Daemon"),
-                         QStringLiteral(), i18n("Calindori Alarm Check Daemon"),
+                         QString(), i18n("Calindori Alarm Check Daemon"),
                          KAboutLicense::GPL,
                          i18n("(c) 2019 Dimitris Kardarakos"),
                          QString(), QStringLiteral("https://invent.kde.org/kde/calindori"));

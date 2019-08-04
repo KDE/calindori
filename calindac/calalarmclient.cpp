@@ -108,7 +108,7 @@ void CalAlarmClient::checkAlarms()
     for(int i=0; i<mAlarmsModel->rowCount(); ++i)
     {
         QModelIndex index = mAlarmsModel->index(i, 0, QModelIndex());
-        mNotificationHandler->addActiveNotification(mAlarmsModel->data(index, AlarmsModel::Roles::Uid).value<QString>(), QString("%1\n%2").arg(mAlarmsModel->data(index, AlarmsModel::Roles::IncidenceStartDt).value<QDateTime>().toString("hh:mm"), mAlarmsModel->data(index, AlarmsModel::Roles::Text).value<QString>()));
+        mNotificationHandler->addActiveNotification(mAlarmsModel->data(index, AlarmsModel::Roles::Uid).toString(), QString("%1\n%2").arg(mAlarmsModel->data(index, AlarmsModel::Roles::IncidenceStartDt).toDateTime().toString("hh:mm"), mAlarmsModel->data(index, AlarmsModel::Roles::Text).toString()));
     }
 
     mNotificationHandler->sendNotifications();
@@ -187,7 +187,7 @@ QStringList CalAlarmClient::dumpAlarms() const
     for(int i=0; i<model->rowCount(); ++i)
     {
         QModelIndex index = model->index(i, 0, QModelIndex());
-        lst << QStringLiteral("%1: \"%2\"").arg(model->data(index, AlarmsModel::Roles::Time).value<QString>(), model->data(index, AlarmsModel::Roles::Uid).value<QString>());
+        lst << QStringLiteral("%1: \"%2\"").arg(model->data(index, AlarmsModel::Roles::Time).toString(), model->data(index, AlarmsModel::Roles::Uid).toString());
     }
 
     return lst;
@@ -230,10 +230,10 @@ QString CalAlarmClient::alarmText(const QString& uid) const
     for(int i=0; i < model->rowCount(); ++i)
     {
         QModelIndex index = model->index(i, 0, QModelIndex());
-        if(model->data(index, AlarmsModel::Roles::Uid).value<QString>() == uid)
+        if(model->data(index, AlarmsModel::Roles::Uid).toString() == uid)
         {
-            qDebug() << "alarmText: text of" << model->data(index, AlarmsModel::Roles::Uid).value<QString>() << " is" << model->data(index, AlarmsModel::Roles::Text).value<QString>();
-            return model->data(index, AlarmsModel::Roles::Text).value<QString>();
+            qDebug() << "alarmText: text of" << model->data(index, AlarmsModel::Roles::Uid).toString() << " is" << model->data(index, AlarmsModel::Roles::Text).toString();
+            return model->data(index, AlarmsModel::Roles::Text).toString();
         }
     }
 

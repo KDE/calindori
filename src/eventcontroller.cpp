@@ -31,7 +31,7 @@ void EventController::remove(LocalCalendar *calendar, const QVariantMap &eventDa
     qDebug() << "Deleting event";
 
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
-    QString uid = eventData["uid"].value<QString>();
+    QString uid = eventData["uid"].toString();
     Event::Ptr event = memoryCalendar->event(uid);
     memoryCalendar->deleteEvent(event);
     bool deleted = calendar->save();
@@ -45,8 +45,8 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
 
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = eventData["uid"].value<QString>();
-    QString summary = eventData["summary"].value<QString>();
+    QString uid = eventData["uid"].toString();
+    QString summary = eventData["summary"].toString();
 
     Event::Ptr event;
     if (uid == "") {
@@ -58,17 +58,17 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
         event->setUid(uid);
     }
 
-    QDate startDate = eventData["startDate"].value<QDate>();
+    QDate startDate = eventData["startDate"].toDate();
     int startHour = eventData["startHour"].value<int>();
     int startMinute = eventData["startMinute"].value<int>();
 
-    QDate endDate = eventData["endDate"].value<QDate>();
+    QDate endDate = eventData["endDate"].toDate();
     int endHour = eventData["endHour"].value<int>();
     int endMinute = eventData["endMinute"].value<int>();
 
     QDateTime startDateTime;
     QDateTime endDateTime;
-    bool allDayFlg= eventData["allDay"].value<bool>();
+    bool allDayFlg= eventData["allDay"].toBool();
 
     if(allDayFlg) {
         startDateTime = QDateTime(startDate);
@@ -81,10 +81,10 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
 
     event->setDtStart(startDateTime);
     event->setDtEnd(endDateTime);
-    event->setDescription(eventData["description"].value<QString>());
+    event->setDescription(eventData["description"].toString());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);
-    event->setLocation(eventData["location"].value<QString>());
+    event->setLocation(eventData["location"].toString());
 
     event->clearAlarms();
     QVariantList newAlarms = eventData["alarms"].value<QVariantList>();

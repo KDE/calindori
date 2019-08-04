@@ -90,8 +90,8 @@ void AlarmsModel::loadAlarms()
     QVector<MemoryCalendar::Ptr>::const_iterator itr = mMemoryCalendars.constBegin();
     while(itr != mMemoryCalendars.constEnd())
     {
-        QDateTime from = mPeriod["from"].value<QDateTime>();
-        QDateTime to = mPeriod["to"].value<QDateTime>();
+        QDateTime from = mPeriod["from"].toDateTime();
+        QDateTime to = mPeriod["to"].toDateTime();
         qDebug() << "loadAlarms:\tLooking for alarms in calendar #" << cnt << ", from" << from.toString("dd.MM.yyyy hh:mm:ss") << "to" << to.toString("dd.MM.yyyy hh:mm:ss");
 
         Alarm::List calendarAlarms;
@@ -151,7 +151,7 @@ void AlarmsModel::setParams(const QHash<QString, QVariant>& parameters)
 {
     mParams = parameters;
 
-    QStringList calendarFiles = mParams["calendarFiles"].value<QStringList>();
+    QStringList calendarFiles = mParams["calendarFiles"].toStringList();
     QVariantMap period = (mParams["period"].value<QVariant>()).value<QVariantMap>();
 
     mCalendarFiles = calendarFiles;

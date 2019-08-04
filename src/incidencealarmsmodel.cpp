@@ -125,7 +125,7 @@ void IncidenceAlarmsModel::loadPersistentAlarms()
     beginResetModel();
 
     LocalCalendar* localCalendar = mAlarmProperties["calendar"].value<LocalCalendar*>();
-    QString uid = mAlarmProperties["uid"].value<QString>();
+    QString uid = mAlarmProperties["uid"].toString();
     MemoryCalendar::Ptr memCalendar;
     Incidence::Ptr alarmIncidence;
     Alarm::List persistentAlarms = Alarm::List();
@@ -162,7 +162,7 @@ QString IncidenceAlarmsModel::alarmText(const int idx) const
 {
     QHash<QString, QVariant> alarm = mAlarms.at(idx).value<QHash<QString, QVariant>>();
 
-    return alarm["text"].value<QString>();
+    return alarm["text"].toString();
 }
 
 QString IncidenceAlarmsModel::alarmStartOffsetType(const int idx) const
@@ -200,7 +200,7 @@ QString IncidenceAlarmsModel::alarmUid(const int idx) const
 {
     QHash<QString, QVariant> alarm = mAlarms.at(idx).value<QHash<QString, QVariant>>();
 
-    return alarm["uid"].value<QString>();
+    return alarm["uid"].toString();
 }
 
 int IncidenceAlarmsModel::alarmActionType(const int idx) const

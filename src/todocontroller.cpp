@@ -33,12 +33,12 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = todo["uid"].value<QString>();
-    QString summary = todo["summary"].value<QString>();
-    QDate startDate = todo["startDate"].value<QDate>();
+    QString uid = todo["uid"].toString();
+    QString summary = todo["summary"].toString();
+    QDate startDate = todo["startDate"].toDate();
     int startHour = todo["startHour"].value<int>();
     int startMinute = todo["startMinute"].value<int>();
-    bool allDayFlg= todo["allDay"].value<bool>();
+    bool allDayFlg= todo["allDay"].toBool();
 
     if(uid == "")
     {
@@ -60,11 +60,11 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     }
 
     vtodo->setDtStart(startDateTime);
-    vtodo->setDescription(todo["description"].value<QString>());
+    vtodo->setDescription(todo["description"].toString());
     vtodo->setSummary(summary);
     vtodo->setAllDay(allDayFlg);
-    vtodo->setLocation(todo["location"].value<QString>());
-    vtodo->setCompleted(todo["completed"].value<bool>());
+    vtodo->setLocation(todo["location"].toString());
+    vtodo->setCompleted(todo["completed"].toBool());
 
     memoryCalendar->addTodo(vtodo);
     bool merged = calendar->save();
@@ -77,7 +77,7 @@ void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
     qDebug() << "Deleting todo";
 
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
-    QString uid = todo["uid"].value<QString>();
+    QString uid = todo["uid"].toString();
     Todo::Ptr vtodo = memoryCalendar->todo(uid);
 
     memoryCalendar->deleteTodo(vtodo);
