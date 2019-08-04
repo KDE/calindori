@@ -51,6 +51,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     
     engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
 
+    TodoController todoController;
+    engine.rootContext()->setContextProperty(QStringLiteral("_todoController"), &todoController);
+
+    EventController eventController;
+    engine.rootContext()->setContextProperty(QStringLiteral("_eventController"), &eventController);
+
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }

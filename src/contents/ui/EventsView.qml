@@ -45,12 +45,6 @@ Kirigami.Page {
     }
 
     Component {
-        id: eventController
-
-        Calindori.EventController {}
-    }
-
-    Component {
         id: eventEditor
 
         EventEditor {
@@ -92,9 +86,8 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var controller = eventController.createObject(parent, {});
                         var vevent = { uid: model.uid } ;
-                        controller.remove(root.calendar, vevent);
+                        _eventController.remove(root.calendar, vevent);
                         eventsUpdated();
                     }
                 },

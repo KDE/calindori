@@ -207,9 +207,8 @@ Kirigami.Page {
 
             onTriggered: {
                 console.log("Saving task");
-                var controller = todoController.createObject(parent, {});
                 var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startdt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed};
-                controller.addEdit(root.calendar, vtodo);
+                _todoController.addEdit(root.calendar, vtodo);
                 taskeditcompleted();
             }
         }
@@ -219,11 +218,4 @@ Kirigami.Page {
     TimePickerSheet {
         id: startTimePickerSheet
     }
-
-    Component {
-        id: todoController
-
-        Calindori.TodoController {}
-    }
-
 }

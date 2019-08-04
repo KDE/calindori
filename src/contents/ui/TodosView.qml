@@ -56,12 +56,6 @@ Kirigami.Page {
         }
     }
 
-    Component {
-        id: todoController
-
-        Calindori.TodoController {}
-    }
-
     Controls2.Label {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
@@ -91,9 +85,8 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var controller = todoController.createObject(parent, {});
                         var vtodo = { "uid" : model.uid };
-                        controller.remove(root.calendar, vtodo);
+                        _todoController.remove(root.calendar, vtodo);
                         tasksUpdated();
                     }
                 },

@@ -311,9 +311,8 @@ Kirigami.Page {
 
                 if(validation.success) {
                     console.log("Saving event, root.startdt:" + startdt);
-                    var controller = eventController.createObject(parent, {});
                     var vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms() };
-                    controller.addEdit(root.calendar, vevent);
+                    _eventController.addEdit(root.calendar, vevent);
                     editcompleted();
                 }
                 else {
@@ -333,13 +332,6 @@ Kirigami.Page {
 
     DatePickerSheet {
         id: endDatePickerSheet
-    }
-
-    Component {
-        id: eventController
-
-        Calindori.EventController {
-        }
     }
 
     Calindori.IncidenceAlarmsModel {
