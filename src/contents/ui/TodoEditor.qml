@@ -203,18 +203,14 @@ Kirigami.Page {
 
             text: i18n("Save")
             icon.name : "dialog-ok"
+            enabled: summary.text
 
             onTriggered: {
-                if(summary.text) {
-                    console.log("Saving task");
-                    var controller = todoController.createObject(parent, {});
-                    var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startdt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed};
-                    controller.addEdit(root.calendar, vtodo);
-                    taskeditcompleted();
-                }
-                else {
-                    showPassiveNotification("Summary should not be empty");
-                }
+                console.log("Saving task");
+                var controller = todoController.createObject(parent, {});
+                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startdt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed};
+                controller.addEdit(root.calendar, vtodo);
+                taskeditcompleted();
             }
         }
 
