@@ -21,6 +21,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.phone.calindori 0.1
 
 /**
  * Calendar component that displays:
@@ -36,11 +37,11 @@ MonthView {
     signal goToday
     signal refresh
 
-    displayedYear: plasmaCalendar.year
-    displayedMonthName: plasmaCalendar.displayedDateMonthName
+    displayedYear: mm.year
+    displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
     selectedDayTodosCount: todosCount(selectedDate)
     selectedDayEventsCount: eventsCount(selectedDate)
-    daysModel: plasmaCalendar.daysModel
+    daysModel: mm
     Layout.preferredHeight: childrenRect.height
     Layout.preferredWidth: childrenRect.width
 
@@ -49,28 +50,15 @@ MonthView {
         reloadSelectedDate();
     }
 
-    onNextMonth: {
-        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() + 1));
-    }
+    onNextMonth: mm.goNextMonth()
 
-    onPreviousMonth: {
-        plasmaCalendar.displayedDate = new Date(plasmaCalendar.displayedDate.setMonth(plasmaCalendar.displayedDate.getMonth() -1));
-    }
+    onPreviousMonth: mm.goPreviousMonth()
 
-    onGoToday: {
-        plasmaCalendar.displayedDate = root.currentDate;
-    }
+    onGoToday: mm.goCurrentMonth()
 
-    // HACK: Added as a temporary model provider, to be replaced with a non-plasma dependant backend
-    CalendarBackend {
-        id: plasmaCalendar
-
-        property int displayedDateMonth: Qt.formatDate(plasmaCalendar.displayedDate,"MM")
-        property string displayedDateMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(displayedDateMonth-1)
-
-        days: root.days
-        weeks: root.weeks
-        today: root.currentDate
+    DaysOfMonthModel {
+        id: mm
+        year: 2019
+        month: 8
     }
 }
-

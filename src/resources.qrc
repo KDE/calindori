@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="CalendarBackend.qml">contents/ui/backends/CalendarBackend.qml</file>
         <file alias="MonthView.qml">contents/ui/kirigami-playground/MonthView.qml</file>
         <file alias="DayDelegate.qml">contents/ui/kirigami-playground/DayDelegate.qml</file>
         <file alias="Main.qml">contents/ui/Main.qml</file>

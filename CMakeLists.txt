@@ -34,7 +34,6 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS DBus Core Quick
 
 find_package(KF5Config)
 find_package(KF5Kirigami2)
-find_package(KF5Plasma)
 find_package(KF5I18n)
 find_package(KF5CalendarCore REQUIRED)
 find_package(KF5DBusAddons CONFIG REQUIRED)

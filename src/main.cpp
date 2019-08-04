@@ -30,6 +30,7 @@
 #include "eventcontroller.h"
 #include "todocontroller.h"
 #include "incidencealarmsmodel.h"
+#include "daysofmonthmodel.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -45,6 +46,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<EventController>("org.kde.phone.calindori",0,1,"EventController");
     qmlRegisterType<TodoController>("org.kde.phone.calindori",0,1,"TodoController");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
+    qmlRegisterType<DaysOfMonthModel>("org.kde.phone.calindori",0,1,"DaysOfMonthModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

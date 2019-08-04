@@ -46,8 +46,8 @@ Rectangle {
     
     width: childrenRect.width
     height: childrenRect.height
-    opacity:(dayButton.isCurrentDate || highlight )  ? 0.4 : 1
-    color: dayButton.isCurrentDate ? Kirigami.Theme.textColor : ( highlight ? Kirigami.Theme.selectionBackgroundColor : Kirigami.Theme.backgroundColor )                   
+    opacity:(isToday || highlight )  ? 0.4 : 1
+    color: isToday ? Kirigami.Theme.textColor : ( highlight ? Kirigami.Theme.selectionBackgroundColor : Kirigami.Theme.backgroundColor )
     border.color: Kirigami.Theme.disabledTextColor
     
     Item {
@@ -77,9 +77,6 @@ Rectangle {
         Controls2.ToolButton {
             id: dayButton
                         
-            property bool isCurrentDate: ( Qt.formatDate(dayDelegate.currentDate, "yyyy") ==  model.yearNumber ) && ( Qt.formatDate(dayDelegate.currentDate, "MM") ==  model.monthNumber ) && ( Qt.formatDate(dayDelegate.currentDate, "dd") ==  model.dayNumber )
-            property bool isCurrentMonth: model.monthNumber == Qt.formatDate(plasmaCalendar.displayedDate, "MM")
-                                    
             anchors.fill: parent
             enabled: isCurrentMonth
             
