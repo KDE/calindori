@@ -58,7 +58,7 @@ MonthView {
 
     DaysOfMonthModel {
         id: mm
-        year: 2019
-        month: 8
+        year: root.selectedDate.getFullYear()
+        month: root.selectedDate.getMonth() + 1
     }
 }
