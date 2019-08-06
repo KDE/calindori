@@ -54,11 +54,6 @@ Kirigami.Page {
     {
         var result = { success: false, reason: "" };
 
-        if(!(root.summary)) {
-            result.reason = "Summary should not be empty";
-            return result;
-        }
-
         var endDtTime = new Date(root.enddt.getFullYear(), root.enddt.getMonth(), root.enddt.getDate(), root.endHour + (root.endPm ? 12 : 0), root.endMinute);
 
         var startDtTime = new Date(root.startdt.getFullYear(), root.startdt.getMonth(), root.startdt.getDate(), root.startHour + (root.startPm ? 12 : 0), root.startMinute);
@@ -305,6 +300,7 @@ Kirigami.Page {
 
             text: i18n("Save")
             icon.name: "dialog-ok"
+            enabled: summary.text
 
             onTriggered: {
                 var validation = validate();
