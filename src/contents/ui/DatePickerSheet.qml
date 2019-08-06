@@ -29,10 +29,8 @@ Kirigami.OverlaySheet {
 
     signal datePicked
 
-    rightPadding: 0
-    leftPadding: 0
-
     ColumnLayout {
+        Layout.preferredWidth: childrenRect.width + datePickerSheet.rightPadding + datePickerSheet.leftPadding
 
         CalendarMonthView {
             id: calendarMonth

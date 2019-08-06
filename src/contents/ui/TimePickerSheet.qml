@@ -32,11 +32,10 @@ Kirigami.OverlaySheet {
 
     signal datePicked
 
-    rightPadding: 0
-    leftPadding: 0
-
     contentItem: TimePicker {
         id: timePicker
+
+        Layout.preferredWidth: childrenRect.width + timePickerSheet.rightPadding + timePickerSheet.leftPadding
     }
 
     footer: RowLayout {
