@@ -5,6 +5,7 @@
   <project_license>GPL-3.0+</project_license>
   <name>Calindori</name>
   <name xml:lang="ca">Calindori</name>
+  <name xml:lang="de">Calindori</name>
   <name xml:lang="es">Calindori</name>
   <name xml:lang="fr">Calindori</name>
   <name xml:lang="gl">Calindori</name>
@@ -17,6 +18,7 @@
   <name xml:lang="x-test">xxCalindorixx</name>
   <summary>Calendar application</summary>
   <summary xml:lang="ca">Aplicació de calendari</summary>
+  <summary xml:lang="de">Kalenderprogramm</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
   <summary xml:lang="fr">Application de calendrier</summary>
   <summary xml:lang="gl">Aplicativo de calendario</summary>
@@ -52,6 +54,7 @@
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
+    <p xml:lang="de">Funktionen:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -65,6 +68,7 @@
     <ul>
       <li>Agenda</li>
       <li xml:lang="ca">Agenda</li>
+      <li xml:lang="de">Agenda</li>
       <li xml:lang="es">Agenda</li>
       <li xml:lang="fr">Agenda</li>
       <li xml:lang="gl">Axenda</li>
@@ -77,6 +81,7 @@
       <li xml:lang="x-test">xxAgendaxx</li>
       <li>Events</li>
       <li xml:lang="ca">Esdeveniments</li>
+      <li xml:lang="de">Ereignisse</li>
       <li xml:lang="es">Eventos</li>
       <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
@@ -89,6 +94,7 @@
       <li xml:lang="x-test">xxEventsxx</li>
       <li>Todos</li>
       <li xml:lang="ca">Pendents</li>
+      <li xml:lang="de">Aufgaben</li>
       <li xml:lang="es">Listas de tareas</li>
       <li xml:lang="fr">Tâches</li>
       <li xml:lang="gl">Tarefas</li>
@@ -101,6 +107,7 @@
       <li xml:lang="x-test">xxTodosxx</li>
       <li>Multiple calendars</li>
       <li xml:lang="ca">Calendaris múltiples</li>
+      <li xml:lang="de">Mehrere Kalender</li>
       <li xml:lang="es">Múltiples calendarios</li>
       <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
@@ -113,6 +120,7 @@
       <li xml:lang="x-test">xxMultiple calendarsxx</li>
       <li>Import calendar</li>
       <li xml:lang="ca">Importa calendaris</li>
+      <li xml:lang="de">Kalender importieren</li>
       <li xml:lang="es">Importar calendario</li>
       <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
