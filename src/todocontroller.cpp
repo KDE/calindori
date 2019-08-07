@@ -43,7 +43,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     if(uid == "")
     {
         vtodo = Todo::Ptr(new Todo());
-        vtodo->setUid(summary.left(1) + now.toString("yyyyMMddhhmmsszzz"));
+        vtodo->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     }
     else
     {

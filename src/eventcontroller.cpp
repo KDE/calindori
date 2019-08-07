@@ -51,7 +51,7 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
     Event::Ptr event;
     if (uid == "") {
         event = Event::Ptr(new Event());
-        event->setUid(summary.left(1) + now.toString("yyyyMMddhhmmsszzz"));
+        event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     }
     else {
         event = memoryCalendar->event(uid);
