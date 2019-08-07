@@ -77,7 +77,6 @@ private:
     void flushSuspendedToConfig();
     QStringList calendarFileList() const;
 
-    QStringList mCalendarFiles;
     AlarmsModel* mAlarmsModel;
     QDateTime mLastChecked;
     QTimer mCheckTimer;
