@@ -2,6 +2,7 @@
 Name=Calindori Reminder Client
 Name[ca]=Client de recordatori del Calindori
 Name[de]=Calindori-Erinnerungsprogramm
+Name[es]=Cliente de recordatorios de Calindori
 Name[gl]=Cliente de lembranzas de Calindori
 Name[nl]=Calindori client voor herinnering
 Name[pl]=Klient przypominania Calindori
@@ -15,6 +16,7 @@ Type=Application
 Categories=Qt;KDE;
 GenericName=Calindori Reminder Daemon Client
 GenericName[ca]=Client del dimoni de recordatori del Calindori
+GenericName[es]=Cliente del demonio de recordatorios de Calindori
 GenericName[gl]=Cliente do servizo de lembranzas de Calindori
 GenericName[nl]=Calindori client voor herinneringsdaemon
 GenericName[pl]=Klient usługi przypominania Calindori
