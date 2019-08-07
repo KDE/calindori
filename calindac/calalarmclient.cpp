@@ -118,13 +118,6 @@ void CalAlarmClient::checkAlarms()
     qDebug() << "\ncheckAlarms:\tWaiting for" << mCheckInterval << " seconds";
 }
 
-void CalAlarmClient::quitCalindac()
-{
-    flushSuspendedToConfig();
-    saveLastCheckTime();
-    quit();
-}
-
 void CalAlarmClient::saveLastCheckTime()
 {
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
@@ -148,6 +141,8 @@ void CalAlarmClient::saveSuspendSeconds()
 
 void CalAlarmClient::quit()
 {
+    flushSuspendedToConfig();
+    saveLastCheckTime();
     qDebug("\nquit");
     qApp->quit();
 }

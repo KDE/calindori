@@ -67,7 +67,6 @@ public Q_SLOTS:
     QStringList dumpAlarms() const;
 
 private:
-    void quitCalindac();
     QString alarmText(const QString& uid) const;
     void checkAlarms();
     void saveLastCheckTime();
