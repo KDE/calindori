@@ -17,6 +17,7 @@ Type=Application
 Categories=Qt;KDE;
 GenericName=Calindori Reminder Daemon Client
 GenericName[ca]=Client del dimoni de recordatori del Calindori
+GenericName[de]=Dienst für das Calindori-Erinnerungsprogramm
 GenericName[es]=Cliente del demonio de recordatorios de Calindori
 GenericName[gl]=Cliente do servizo de lembranzas de Calindori
 GenericName[it]=Client promemoria del demone di Calindori

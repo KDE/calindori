@@ -29,6 +29,7 @@ Name[x-test]=xxCalindorixx
 [Context/uid]
 Name=Incidence uid
 Name[ca]=UID de la incidència
+Name[de]=Ereigniskennung
 Name[es]=UID de la incidencia
 Name[gl]=Identificador único de incidencia
 Name[it]=UID incidenza
@@ -40,6 +41,7 @@ Name[uk]=Ідентифікатор випадку
 Name[x-test]=xxIncidence uidxx
 Comment=The uid of the incidence of the alarm
 Comment[ca]=L'UID de la incidència de l'alarma
+Comment[de]=Die Ereigniskennung der Erinnerung
 Comment[es]=El UID de la incidencia de la alarma
 Comment[gl]=O identificador único da incidencia da alarma
 Comment[it]=L'UID dell'incidenza dell'allarme
