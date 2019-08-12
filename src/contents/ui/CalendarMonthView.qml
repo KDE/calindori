@@ -56,7 +56,6 @@ Controls2.SwipeView {
 
     Connections {
         target: cal
-
         onTodosChanged: monthView.reloadSelectedDate()
         onEventsChanged: monthView.reloadSelectedDate()
     }
