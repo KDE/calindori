@@ -61,6 +61,12 @@ Item {
         root.selectedDayEventsCount = cal.eventsCount(root.selectedDate)
     }
 
+    Connections {
+        target: cal
+        onTodosChanged: reloadSelectedDate()
+        onEventsChanged: reloadSelectedDate()
+    }
+
     onSelectedDateChanged: reloadSelectedDate()
 
     ColumnLayout {
