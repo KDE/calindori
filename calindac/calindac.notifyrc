@@ -15,6 +15,7 @@ Comment[uk]=Календар для мобільної Плазми
 Comment[x-test]=xxPlasma Mobile Calendarxx
 Name=Calindori
 Name[ca]=Calindori
+Name[cs]=Calindori
 Name[de]=Calindori
 Name[es]=Calindori
 Name[fr]=Calindori
@@ -58,6 +59,7 @@ Comment[x-test]=xxThe uid of the incidence of the alarmxx
 [Event/alarm]
 Name=Alarm
 Name[ca]=Alarma
+Name[cs]=Alarm
 Name[de]=Erinnerung
 Name[es]=Alarma
 Name[fr]=Alarme
