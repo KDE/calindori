@@ -20,7 +20,7 @@
 
     "modules": [
         {
-            "name": "kcalcore",
+            "name": "kcalendarcore",
             "config-opts": [
                 "-DBUILD_TESTING=OFF",
                 "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
@@ -29,8 +29,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://anongit.kde.org/kcalcore.git",
-                    "branch": "Applications/19.04"
+                    "url": "https://anongit.kde.org/kcalendarcore.git",
+                    "branch": "Applications/19.08"
                 }
             ],
             "modules": [
