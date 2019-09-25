@@ -20,12 +20,12 @@
 #define LOCALCALENDAR_H
 
 #include <QSharedPointer>
-#include <KCalCore/MemoryCalendar>
-#include <KCalCore/FileStorage>
-#include <KCalCore/Event>
+#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/FileStorage>
+#include <KCalendarCore/Event>
 #include <QVariantMap>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 class LocalCalendar : public QObject
 {

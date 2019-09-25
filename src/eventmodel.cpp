@@ -18,7 +18,7 @@
 
 #include "eventmodel.h"
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 EventModel::EventModel(QObject* parent) :
     QAbstractListModel(parent),

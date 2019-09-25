@@ -21,11 +21,11 @@
 
 #include <QModelIndex>
 #include <QSharedPointer>
-#include <KCalCore/MemoryCalendar>
-#include <KCalCore/FileStorage>
+#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/FileStorage>
 #include "localcalendar.h"
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 class TodosModel : public QAbstractListModel
 {

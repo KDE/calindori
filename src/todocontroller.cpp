@@ -18,8 +18,8 @@
 
 #include "todocontroller.h"
 #include "localcalendar.h"
-#include <KCalCore/Todo>
-#include <KCalCore/MemoryCalendar>
+#include <KCalendarCore/Todo>
+#include <KCalendarCore/MemoryCalendar>
 #include <QDebug>
 
 TodoController::TodoController(QObject* parent) : QObject(parent) {}

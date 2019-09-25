@@ -20,10 +20,10 @@
 #define EVENTMODEL_H
 
 #include <QAbstractListModel>
-#include <KCalCore/Event>
-#include <KCalCore/MemoryCalendar>
+#include <KCalendarCore/Event>
+#include <KCalendarCore/MemoryCalendar>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 class EventModel : public QAbstractListModel
 {

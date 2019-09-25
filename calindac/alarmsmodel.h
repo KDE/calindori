@@ -24,12 +24,12 @@
 #define ALARMSMODEL_H
 
 #include <QAbstractListModel>
-#include <KCalCore/Alarm>
-#include <KCalCore/MemoryCalendar>
-#include <KCalCore/FileStorage>
+#include <KCalendarCore/Alarm>
+#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/FileStorage>
 #include <QVariantMap>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 /**
  * @brief Model that serves the alarms found in a set of calendar files for a specific time period, as set in the model input parameters

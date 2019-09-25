@@ -20,12 +20,12 @@
 #include "localcalendar.h"
 #include "calindoriconfig.h"
 #include <QDebug>
-#include <KCalCore/Todo>
+#include <KCalendarCore/Todo>
 #include <QFile>
 #include <QStandardPaths>
 #include <KLocalizedString>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 LocalCalendar::LocalCalendar(QObject* parent)
 : QObject(parent)

@@ -31,7 +31,7 @@
 #include <QVariantMap>
 #include <KLocalizedString>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 CalAlarmClient::CalAlarmClient(QObject* parent)
 : QObject(parent), mAlarmsModel(new AlarmsModel()), mNotificationHandler(new NotificationHandler())
