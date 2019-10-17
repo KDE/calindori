@@ -287,17 +287,6 @@ Kirigami.Page {
         }
 
         main: Kirigami.Action {
-            id: info
-
-            text: i18n("Info")
-            icon.name : "documentinfo"
-
-            onTriggered: showPassiveNotification("Please save or cancel this event")
-        }
-
-        right: Kirigami.Action {
-            id: saveAction
-
             text: i18n("Save")
             icon.name: "dialog-ok"
             enabled: summary.text

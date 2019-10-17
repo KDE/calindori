@@ -186,21 +186,7 @@ Kirigami.Page {
             }
         }
 
-
         main: Kirigami.Action {
-            id: info
-
-            text: i18n("Info")
-            icon.name : "documentinfo"
-
-            onTriggered: {
-                showPassiveNotification(i18n("Please save or cancel this task"));
-            }
-        }
-
-        right: Kirigami.Action {
-            id: saveAction
-
             text: i18n("Save")
             icon.name : "dialog-ok"
             enabled: summary.text
@@ -212,7 +198,6 @@ Kirigami.Page {
                 taskeditcompleted();
             }
         }
-
     }
 
     TimePickerSheet {
