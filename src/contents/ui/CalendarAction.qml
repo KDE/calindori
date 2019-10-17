@@ -30,6 +30,7 @@ Kirigami.Action {
     signal deleteCalendar
 
     checked: (text == configuration.activeCalendar)
+    iconName: (text == configuration.activeCalendar) ? "emblem-ok-symbolic" : ""
 
     Kirigami.Action {
         text: "Activate"
