@@ -28,37 +28,83 @@ import org.kde.phone.calindori 0.1
  *  - a header with currrent day's information
  *  - a table (grid) with the days of the current month
  *  - a set of actions to navigate between months
+ * It offers vertical swiping
  */
-MonthView {
+Controls2.SwipeView {
     id: root
+
+    property alias selectedDate: monthView.selectedDate
+    property alias displayedMonthName: monthView.displayedMonthName
+    property alias displayedYear: monthView.displayedYear
+    property alias showHeader: monthView.showHeader
+    property alias showMonthName: monthView.showMonthName
+    property alias todosCount: monthView.todosCount
+    property alias eventsCount: monthView.eventsCount
+    property int backMonthPad: 720
+    property int fwdMonthPad: 480
+    property int previousIndex
+    property var manageIndex: function () {}
 
     signal nextMonth
     signal previousMonth
     signal goToday
     signal refresh
 
-    displayedYear: mm.year
-    displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
-    selectedDayTodosCount: todosCount(selectedDate)
-    selectedDayEventsCount: eventsCount(selectedDate)
-    daysModel: mm
-    Layout.preferredHeight: childrenRect.height
-    Layout.preferredWidth: childrenRect.width
-
     onRefresh: {
-        daysModel.update();
-        reloadSelectedDate();
+        mm.update();
+        monthView.reloadSelectedDate();
     }
 
     onNextMonth: mm.goNextMonth()
-
     onPreviousMonth: mm.goPreviousMonth()
-
     onGoToday: mm.goCurrentMonth()
+    onCurrentItemChanged: manageIndex()
+
+    Component.onCompleted: {
+        currentIndex = backMonthPad;
+        previousIndex = currentIndex;
+        manageIndex = function() {
+            monthView.daysModel = null;
+            (currentIndex < previousIndex) ? mm.goPreviousMonth() : mm.goNextMonth();
+            previousIndex = currentIndex;
+            monthView.parent = currentItem;
+            monthView.daysModel = mm;
+        };
+    }
+
+    orientation: Qt.Vertical
 
     DaysOfMonthModel {
         id: mm
-        year: root.selectedDate.getFullYear()
-        month: root.selectedDate.getMonth() + 1
+
+        year: monthView.selectedDate.getFullYear()
+        month: monthView.selectedDate.getMonth() + 1
+    }
+
+    Repeater {
+        id: backRepeater
+
+        model: backMonthPad
+        delegate: Item {}
+    }
+
+    Item {
+        MonthView {
+            id: monthView
+
+            anchors.centerIn: parent
+            displayedYear: mm.year
+            displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
+            selectedDayTodosCount: todosCount(selectedDate)
+            selectedDayEventsCount: eventsCount(selectedDate)
+            daysModel: mm
+        }
+    }
+
+    Repeater {
+        id: forwardRepeater
+
+        model: fwdMonthPad
+        delegate: Item {}
     }
 }

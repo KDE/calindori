@@ -145,6 +145,7 @@ Kirigami.ApplicationWindow {
             actions {
                 left: Kirigami.Action {
                     iconName: "go-previous"
+                    visible: !(Kirigami.Settings.isMobile)
 
                     onTriggered: calendarMonthView.previousMonth()
                 }
@@ -157,6 +158,7 @@ Kirigami.ApplicationWindow {
 
                 right: Kirigami.Action {
                     iconName: "go-next"
+                    visible: !(Kirigami.Settings.isMobile)
 
                     onTriggered: calendarMonthView.nextMonth()
                 }
@@ -181,7 +183,7 @@ Kirigami.ApplicationWindow {
             CalendarMonthView {
                 id: calendarMonthView
 
-                anchors.centerIn: parent
+                anchors.fill: parent
                 showHeader: true
                 showMonthName: true
 
