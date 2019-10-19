@@ -64,11 +64,9 @@ Controls2.SwipeView {
         currentIndex = backMonthPad;
         previousIndex = currentIndex;
         manageIndex = function() {
-            monthView.daysModel = null;
             (currentIndex < previousIndex) ? mm.goPreviousMonth() : mm.goNextMonth();
             previousIndex = currentIndex;
             monthView.parent = currentItem;
-            monthView.daysModel = mm;
         };
     }
 
