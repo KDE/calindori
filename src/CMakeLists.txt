@@ -29,6 +29,8 @@ if(ANDROID)
         list-add documentinfo
         go-previous
         go-next
+        go-up
+        go-down
         resource-calendar-insert
         editor
         go-parent-folder
