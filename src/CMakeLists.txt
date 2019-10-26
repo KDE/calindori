@@ -22,27 +22,27 @@ target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg
 
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS
-        view-calendar-day
-        dialog-ok
         delete
         dialog-cancel
-        list-add documentinfo
-        go-previous
-        go-next
-        go-up
-        go-down
-        resource-calendar-insert
-        editor
-        go-parent-folder
         dialog-close
-        folder
+        dialog-ok
+        document-import
+        documentinfo
+        editor
+        emblem-ok-symbolic
+        go-down
+        go-next
+        go-parent-folder
+        go-previous
+        go-up
+        list-add
+        resource-calendar-insert
+        tag-events
         text-x-plain
         view-calendar
-        document-import
-        view-choose
         view-calendar-day
         view-calendar-tasks
-        view-calendar-event
+        view-choose
     )
 endif()
 install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
