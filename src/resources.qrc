@@ -21,5 +21,6 @@
         <file alias="FileChooserDesktop.qml">contents/ui/FileChooserDesktop.qml</file>
         <file alias="FileChooser.qml">contents/ui/FileChooser.qml</file>
         <file alias="ReminderEditor.qml">contents/ui/ReminderEditor.qml</file>
+        <file alias="PickerMonthView.qml">contents/ui/PickerMonthView.qml</file>
     </qresource>
 </RCC>
