@@ -170,7 +170,7 @@ Kirigami.ApplicationWindow {
                     },
 
                     Kirigami.Action {
-                        iconName: "view-calendar-events"
+                        iconName: "tag-events"
                         text: i18n("Events")
 
                         onTriggered: root.pageStack.push(eventsView, { eventStartDt: calendarMonthView.selectedDate })
