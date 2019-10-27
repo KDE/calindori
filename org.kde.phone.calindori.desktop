@@ -30,6 +30,7 @@ Comment[pt]=Calindori
 Comment[sv]=Calindori
 Comment[uk]=Calindori
 Comment[x-test]=xxCalindorixx
+Comment[zh_TW]=Calindori
 Exec=calindori
 MimeType=application/x-calindori;
 Icon=calindori
