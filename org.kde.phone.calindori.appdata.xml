@@ -154,7 +154,7 @@
       <li xml:lang="x-test">xxImport calendarxx</li>
     </ul>
   </description>
-  <url type="bugtracker">https://invent.kde.org/dkardarakos/calindori/issues</url>
+  <url type="bugtracker">https://invent.kde.org/kde/calindori/issues</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>calindori</binary>
