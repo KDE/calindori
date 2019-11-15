@@ -11,9 +11,6 @@ if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
    message(FATAL_ERROR "Calindori requires an out of source build. Please create a separate build directory.")
 endif()
 
-
-# Make CPack available to easy generate binary packages
-include(CPack)
 include(FeatureSummary)
 
 ################# set KDE specific information #################
