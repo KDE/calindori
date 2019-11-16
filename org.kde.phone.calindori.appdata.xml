@@ -18,6 +18,7 @@
   <name xml:lang="sv">Calindori</name>
   <name xml:lang="uk">Calindori</name>
   <name xml:lang="x-test">xxCalindorixx</name>
+  <name xml:lang="zh-TW">Calindori</name>
   <summary>Calendar application</summary>
   <summary xml:lang="ca">Aplicació de calendari</summary>
   <summary xml:lang="cs">Aplikace kalendáře</summary>
@@ -33,6 +34,7 @@
   <summary xml:lang="sv">Kalenderprogram</summary>
   <summary xml:lang="uk">Програма-календар</summary>
   <summary xml:lang="x-test">xxCalendar applicationxx</summary>
+  <summary xml:lang="zh-TW">行事曆應用程式</summary>
   <description>
     <p>Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
     <p xml:lang="ca">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. El usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
@@ -77,6 +79,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Agenda</li>
       <li xml:lang="ca">Agenda</li>
@@ -108,6 +111,7 @@
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="uk">Події</li>
       <li xml:lang="x-test">xxEventsxx</li>
+      <li xml:lang="zh-TW">活動</li>
       <li>Todos</li>
       <li xml:lang="ca">Pendents</li>
       <li xml:lang="cs">Úkoly</li>
@@ -123,6 +127,7 @@
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="uk">Завдання</li>
       <li xml:lang="x-test">xxTodosxx</li>
+      <li xml:lang="zh-TW">待辦事項</li>
       <li>Multiple calendars</li>
       <li xml:lang="ca">Calendaris múltiples</li>
       <li xml:lang="de">Mehrere Kalender</li>
@@ -137,6 +142,7 @@
       <li xml:lang="sv">Flera kalendrar</li>
       <li xml:lang="uk">Користування декількома календарями</li>
       <li xml:lang="x-test">xxMultiple calendarsxx</li>
+      <li xml:lang="zh-TW">多行事曆</li>
       <li>Import calendar</li>
       <li xml:lang="ca">Importa calendaris</li>
       <li xml:lang="cs">Importovat kalendář</li>
@@ -152,6 +158,7 @@
       <li xml:lang="sv">Importera kalender</li>
       <li xml:lang="uk">Імпортування календарів</li>
       <li xml:lang="x-test">xxImport calendarxx</li>
+      <li xml:lang="zh-TW">匯入行事曆</li>
     </ul>
   </description>
   <url type="bugtracker">https://invent.kde.org/kde/calindori/issues</url>
