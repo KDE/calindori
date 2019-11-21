@@ -93,6 +93,8 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
+
+        title: (pageStack.currentItem.hasOwnProperty("selectedDate") && !isNaN(pageStack.currentItem.selectedDate)) ? pageStack.currentItem.selectedDate.toLocaleDateString(Qt.locale()) : ""
     }
 
     pageStack.initialPage: [calendarDashboardComponent]
@@ -139,7 +141,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: calendarDashboardComponent
 
+
         Kirigami.Page {
+
+            property alias selectedDate: calendarMonthView.selectedDate
 
             title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
 
