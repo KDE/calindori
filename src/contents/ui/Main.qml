@@ -97,8 +97,10 @@ Kirigami.ApplicationWindow {
         title: (pageStack.currentItem.hasOwnProperty("selectedDate") && !isNaN(pageStack.currentItem.selectedDate)) ? pageStack.currentItem.selectedDate.toLocaleDateString(Qt.locale()) : ""
     }
 
-    pageStack.initialPage: [calendarDashboardComponent]
-    pageStack.defaultColumnWidth: pageStack.width
+    pageStack {
+        initialPage: [calendarDashboardComponent]
+        separatorVisible: false
+    }
 
     Calindori.Config {
         id: calindoriConfig
