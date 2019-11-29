@@ -191,7 +191,8 @@ Kirigami.ApplicationWindow {
 
                 anchors.fill: parent
                 showHeader: true
-                showMonthName: true
+                showMonthName: false
+                showYear: false
 
                 todosCount: function (todosDate) {
                     return localCalendar.todosCount(todosDate);

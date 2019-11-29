@@ -38,6 +38,7 @@ Controls2.SwipeView {
     property alias displayedYear: monthView.displayedYear
     property alias showHeader: monthView.showHeader
     property alias showMonthName: monthView.showMonthName
+    property alias showYear: monthView.showYear
     property alias todosCount: monthView.todosCount
     property alias eventsCount: monthView.eventsCount
     property int backMonthPad: 720
