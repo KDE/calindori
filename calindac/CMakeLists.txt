@@ -2,12 +2,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"calindac\")
 
 set(calindac_SRCS
     calalarmclient.cpp
-    )
-
-set(calindac_SRCS ${calindac_SRCS} calindacmain.cpp)
-
-set(calindac_SRCS
-    ${calindac_SRCS}
+    calindacmain.cpp
     alarmsmodel.cpp
     alarmnotification.cpp
     notificationhandler.cpp
@@ -34,7 +29,6 @@ install(FILES
     org.kde.calindac.desktop
     DESTINATION ${KDE_INSTALL_AUTOSTARTDIR}
     )
-
 
 install(FILES
     org.kde.calindac.xml

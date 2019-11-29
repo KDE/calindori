@@ -45,6 +45,7 @@ if(ANDROID)
         view-choose
     )
 endif()
+
 install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES contents/ui/calindori.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
