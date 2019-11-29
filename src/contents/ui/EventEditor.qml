@@ -126,16 +126,6 @@ Kirigami.Page {
                         startTimePickerSheet.pm = startTimeSelector.startPm;
                         startTimePickerSheet.open();
                     }
-
-                    Connections {
-                        target: startTimePickerSheet
-
-                        onDatePicked: {
-                            startTimeSelector.startHour = startTimePickerSheet.hours;
-                            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
-                            startTimeSelector.startPm = startTimePickerSheet.pm;
-                        }
-                    }
                 }
             }
 
@@ -155,14 +145,6 @@ Kirigami.Page {
                         endDatePickerSheet.selectedDate = endDateSelector.endDate;
                         endDatePickerSheet.open();
                     }
-
-                    Connections {
-                        target: endDatePickerSheet
-
-                        onDatePicked: {
-                            endDateSelector.endDate = endDatePickerSheet.selectedDate;
-                        }
-                    }
                 }
 
                 Controls2.ToolButton {
@@ -180,16 +162,6 @@ Kirigami.Page {
                         endTimePickerSheet.minutes = endTimeSelector.endMinutes;
                         endTimePickerSheet.pm = endTimeSelector.endPm;
                         endTimePickerSheet.open();
-                    }
-
-                    Connections {
-                        target: endTimePickerSheet
-
-                        onDatePicked: {
-                            endTimeSelector.endHour = endTimePickerSheet.hours;
-                            endTimeSelector.endMinutes = endTimePickerSheet.minutes;
-                            endTimeSelector.endPm = endTimePickerSheet.pm;
-                        }
                     }
                 }
             }
@@ -309,14 +281,30 @@ Kirigami.Page {
 
     TimePickerSheet {
         id: startTimePickerSheet
+
+        onDatePicked: {
+            startTimeSelector.startHour = startTimePickerSheet.hours;
+            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
+            startTimeSelector.startPm = startTimePickerSheet.pm;
+        }
     }
 
     TimePickerSheet {
         id: endTimePickerSheet
+
+        onDatePicked: {
+            endTimeSelector.endHour = endTimePickerSheet.hours;
+            endTimeSelector.endMinutes = endTimePickerSheet.minutes;
+            endTimeSelector.endPm = endTimePickerSheet.pm;
+        }
     }
 
     DatePickerSheet {
         id: endDatePickerSheet
+
+        onDatePicked: {
+            endDateSelector.endDate = endDatePickerSheet.selectedDate;
+        }
     }
 
     Calindori.IncidenceAlarmsModel {

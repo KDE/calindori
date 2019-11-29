@@ -108,16 +108,6 @@ Kirigami.Page {
                         startTimePickerSheet.pm = startTimeSelector.startPm;
                         startTimePickerSheet.open();
                     }
-
-                    Connections {
-                        target: startTimePickerSheet
-
-                        onDatePicked: {
-                            startTimeSelector.startHour = startTimePickerSheet.hours;
-                            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
-                            startTimeSelector.startPm = startTimePickerSheet.pm;
-                        }
-                    }
                 }
             }
 
@@ -202,5 +192,11 @@ Kirigami.Page {
 
     TimePickerSheet {
         id: startTimePickerSheet
+
+        onDatePicked: {
+            startTimeSelector.startHour = startTimePickerSheet.hours;
+            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
+            startTimeSelector.startPm = startTimePickerSheet.pm;
+        }
     }
 }
