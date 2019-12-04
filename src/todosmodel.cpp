@@ -122,7 +122,7 @@ void TodosModel::loadTasks()
         m_todos =  m_calendar->rawTodos(m_filterdt,m_filterdt);
     }
     if (m_calendar != nullptr && m_filterdt.isNull()) {
-        m_todos =  m_calendar->rawTodos();
+        m_todos =  m_calendar->rawTodos(TodoSortStartDate, SortDirectionDescending);
     }
     endResetModel();
     emit rowCountChanged();
