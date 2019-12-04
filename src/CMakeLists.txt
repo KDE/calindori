@@ -42,6 +42,7 @@ if(ANDROID)
         view-calendar
         view-calendar-day
         view-calendar-tasks
+        view-calendar-upcoming-events
         view-choose
     )
 endif()
