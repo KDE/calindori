@@ -44,6 +44,7 @@ if(ANDROID)
         view-calendar-tasks
         view-calendar-upcoming-events
         view-choose
+        find-location
     )
 endif()
 

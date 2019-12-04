@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
@@ -101,18 +101,48 @@ Kirigami.Page {
             ]
 
             contentItem: Column {
+                spacing: Kirigami.Units.largeSpacing
+                topPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
 
-                Controls2.Label {
-                    property bool sameEndStart : model.dtstart && !isNaN(model.dtstart) && model.dtend && !isNaN(model.dtend) && model.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == model.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
-                    property string timeFormat: model.allday ? "" : "hh:mm"
-                    property string dateFormat: model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm"
-                    property string separator: model.allday ? "" : " - "
-
+                Row {
                     width: cardDelegate.availableWidth
-                    wrapMode: Text.WordWrap
-                    text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), dateFormat ) : "") +
-                        (model.dtend && !isNaN(model.dtend) ? separator +
-                            model.dtend.toLocaleString(Qt.locale(), sameEndStart ? timeFormat : dateFormat ) : "")
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Icon {
+                        source: "view-calendar-day"
+                        width: Kirigami.Units.iconSizes.small
+                        height: width
+                    }
+
+                    Controls2.Label {
+                        property bool sameEndStart : model.dtstart && !isNaN(model.dtstart) && model.dtend && !isNaN(model.dtend) && model.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == model.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
+                        property string timeFormat: model.allday ? "" : "hh:mm"
+                        property string dateFormat: model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm"
+                        property string separator: model.allday ? "" : " - "
+
+                        wrapMode: Text.WordWrap
+                        text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), dateFormat ) : "") +
+                            (model.dtend && !isNaN(model.dtend) ? separator +
+                                model.dtend.toLocaleString(Qt.locale(), sameEndStart ? timeFormat : dateFormat ) : "")
+                    }
+                }
+
+                Row {
+                    visible: model.location != ""
+                    width: cardDelegate.availableWidth
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Icon {
+                        source: "find-location"
+                        width: Kirigami.Units.iconSizes.small
+                        height: width
+                    }
+
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: model.location
+                    }
                 }
 
                 Controls2.Label {
@@ -120,13 +150,6 @@ Kirigami.Page {
                     wrapMode: Text.WordWrap
                     text: model.description
 
-                }
-
-                Controls2.Label {
-                    width: cardDelegate.availableWidth
-                    visible: model.location != ""
-                    wrapMode: Text.WordWrap
-                    text: model.location
                 }
             }
         }
