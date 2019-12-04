@@ -127,7 +127,6 @@ Kirigami.ApplicationWindow {
             root.refreshNeeded();
             if (root.pageStack.depth > 1) {
                 root.pageStack.pop(null);
-                root.pageStack.push(calendarDashboardComponent);
             }
         }
     }
