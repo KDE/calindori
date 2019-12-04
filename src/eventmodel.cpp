@@ -132,7 +132,7 @@ void EventModel::loadEvents()
 
     if(m_calendar != nullptr && m_filterdt.isNull())
     {
-        m_events = m_calendar->rawEvents();
+        m_events = m_calendar->rawEvents(EventSortStartDate, SortDirectionDescending);
     }
 
     endResetModel();

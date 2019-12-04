@@ -85,6 +85,15 @@ Kirigami.ApplicationWindow {
                         pageStack.push(todosView, { todoDt: localCalendar.nulldate });
                     }
                 }
+
+                Kirigami.Action {
+                    text: i18n("Events (%1)", localCalendar.name)
+                    iconName: "view-calendar-upcoming-events"
+                    onTriggered: {
+                        pageStack.clear();
+                        pageStack.push(eventsView, {eventStartDt: ""});
+                    }
+                }
             }
         ]
 
