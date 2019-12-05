@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
@@ -100,27 +100,49 @@ Kirigami.Page {
             ]
 
             contentItem: Column {
-
                 enabled: !model.completed
+                spacing: Kirigami.Units.largeSpacing
+                topPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
+
+                Row {
+                    visible: model.dtstart && !isNaN(model.dtstart)
+                    width: cardDelegate.availableWidth
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Icon {
+                        source: "view-calendar-day"
+                        width: Kirigami.Units.iconSizes.small
+                        height: width
+                    }
+
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
+                    }
+                }
+
+                Row {
+                    visible: model.location != ""
+                    width: cardDelegate.availableWidth
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Icon {
+                        source: "find-location"
+                        width: Kirigami.Units.iconSizes.small
+                        height: width
+                    }
+
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: model.location
+                    }
+                }
 
                 Controls2.Label {
                     width: cardDelegate.availableWidth
                     wrapMode: Text.WordWrap
                     text: model.description
-                }
-
-                Controls2.Label {
-                    width: cardDelegate.availableWidth
-                    visible: model.dtstart && !isNaN(model.dtstart)
-                    wrapMode: Text.WordWrap
-                    text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
-                }
-
-                Controls2.Label {
-                    width: cardDelegate.availableWidth
-                    visible: model.location != ""
-                    wrapMode: Text.WordWrap
-                    text: model.location
                 }
             }
         }
