@@ -41,7 +41,7 @@ Kirigami.Page {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: i18n("Add event")
-        onTriggered: pageStack.push(eventEditor, {startdt: eventStartDt})
+        onTriggered: pageStack.push(eventEditor, {startdt: (eventStartDt && !isNaN(eventStartDt)) ? eventStartDt : new Date() })
     }
 
     Component {
