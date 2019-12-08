@@ -91,7 +91,7 @@ Kirigami.ApplicationWindow {
                     iconName: "view-calendar-upcoming-events"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(eventsView, {eventStartDt: ""});
+                        pageStack.push(eventsView, {eventStartDt: new Date()});
                     }
                 }
             }
