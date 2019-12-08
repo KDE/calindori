@@ -130,7 +130,7 @@ int LocalCalendar::eventsCount(const QDate& date) const {
     {
         return 0;
     }
-    Event::List eventList = m_calendar->rawEvents(date,date);
+    Event::List eventList = m_calendar->rawEventsForDate(date);
 
     return eventList.count();
 }
