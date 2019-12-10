@@ -30,7 +30,7 @@
                 {
                     "type": "git",
                     "url": "https://anongit.kde.org/kcalendarcore.git",
-                    "branch": "Applications/19.08"
+                    "branch": "v5.64.0"
                 }
             ],
             "modules": [
