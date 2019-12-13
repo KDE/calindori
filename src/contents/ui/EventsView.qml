@@ -145,6 +145,23 @@ Kirigami.Page {
                     }
                 }
 
+                Row {
+                    visible: model.isRepeating
+                    width: cardDelegate.availableWidth
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Icon {
+                        source: "media-playlist-repeat"
+                        width: Kirigami.Units.iconSizes.small
+                        height: width
+                    }
+
+                    Controls2.Label {
+                        wrapMode: Text.WordWrap
+                        text: _repeatModel.repeatDescription(model.repeatType, model.repeatEvery, model.repeatStopAfter)
+                    }
+                }
+
                 Controls2.Label {
                     width: cardDelegate.availableWidth
                     wrapMode: Text.WordWrap

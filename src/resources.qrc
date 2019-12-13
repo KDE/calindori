@@ -22,5 +22,6 @@
         <file alias="FileChooser.qml">contents/ui/FileChooser.qml</file>
         <file alias="ReminderEditor.qml">contents/ui/ReminderEditor.qml</file>
         <file alias="PickerMonthView.qml">contents/ui/PickerMonthView.qml</file>
+        <file alias="RecurrencePickerSheet.qml">contents/ui/RecurrencePickerSheet.qml</file>
     </qresource>
 </RCC>

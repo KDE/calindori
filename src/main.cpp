@@ -31,6 +31,7 @@
 #include "todocontroller.h"
 #include "incidencealarmsmodel.h"
 #include "daysofmonthmodel.h"
+#include "recurrenceperiodmodel.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -47,10 +48,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<TodoController>("org.kde.phone.calindori",0,1,"TodoController");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
     qmlRegisterType<DaysOfMonthModel>("org.kde.phone.calindori",0,1,"DaysOfMonthModel");
+    qmlRegisterType<ReccurencePeriodModel>("org.kde.phone.calindori",0,1,"ReccurencePeriodModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    
+
     engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
 
     TodoController todoController;
@@ -59,12 +61,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     EventController eventController;
     engine.rootContext()->setContextProperty(QStringLiteral("_eventController"), &eventController);
 
+    ReccurencePeriodModel repeatModel;
+    engine.rootContext()->setContextProperty(QStringLiteral("_repeatModel"), &repeatModel);
+
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
-    
+
     int ret = app.exec();
     return ret;
-    
-    
+
+
 }

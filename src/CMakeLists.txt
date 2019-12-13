@@ -13,6 +13,7 @@ set(calindori_SRCS
     todocontroller.cpp
     incidencealarmsmodel.cpp
     daysofmonthmodel.cpp
+    recurrenceperiodmodel.cpp
     )
 
 qt5_add_resources(RESOURCES resources.qrc)
@@ -45,6 +46,7 @@ if(ANDROID)
         view-calendar-upcoming-events
         view-choose
         find-location
+        media-playlist-repeat
     )
 endif()
 

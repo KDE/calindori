@@ -17,6 +17,7 @@
  */
 
 #include "eventmodel.h"
+#include <KLocalizedString>
 
 using namespace KCalendarCore;
 
@@ -70,7 +71,10 @@ QHash<int, QByteArray> EventModel::roleNames() const
     roles.insert(Secrecy, "secrecy");
     roles.insert(EndDate, "dtend");
     roles.insert(Transparency, "transparency");
-
+    roles.insert(RepeatPeriodType, "repeatType");
+    roles.insert(RepeatEvery, "repeatEvery");
+    roles.insert(RepeatStopAfter, "repeatStopAfter");
+    roles.insert(IsRepeating, "isRepeating");
     return roles;
 }
 
@@ -107,6 +111,14 @@ QVariant EventModel::data(const QModelIndex& index, int role) const
             return m_events.at(index.row())->dtEnd();
         case Transparency:
             return m_events.at(index.row())->transparency();
+        case RepeatPeriodType:
+            return repeatPeriodType(index.row());
+        case RepeatEvery:
+            return repeatEvery(index.row());
+        case RepeatStopAfter:
+            return repeatStopAfter(index.row());
+        case IsRepeating:
+            return m_events.at(index.row())->recurs();
         default:
             return QVariant();
     }
@@ -137,4 +149,26 @@ void EventModel::loadEvents()
 
     endResetModel();
     emit rowCountChanged();
+}
+
+int EventModel::repeatEvery(const int idx) const
+{
+    if(!(m_events.at(idx)->recurs())) return 0;
+
+    return m_events.at(idx)->recurrence()->frequency();
+}
+
+int EventModel::repeatStopAfter(const int idx) const
+{
+
+    if(!(m_events.at(idx)->recurs())) return -1;
+
+    return m_events.at(idx)->recurrence()->duration();
+}
+
+ushort EventModel::repeatPeriodType(const int idx) const
+{
+    if(!(m_events.at(idx)->recurs())) return Recurrence::rNone;
+
+    return m_events.at(idx)->recurrence()->recurrenceType();
 }

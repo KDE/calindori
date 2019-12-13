@@ -42,6 +42,9 @@ Kirigami.Page {
     property alias endHour: endTimeSelector.endHour
     property alias endMinute: endTimeSelector.endMinutes
     property alias endPm: endTimeSelector.endPm
+    property alias repeatType: repeatSelector.repeatType
+    property alias repeatEvery: repeatSelector.repeatEvery
+    property alias repeatStopAfter: repeatSelector.stopAfter
 
     signal editcompleted
 
@@ -185,6 +188,20 @@ Kirigami.Page {
                 Kirigami.FormData.label: i18n("Location:")
                 text: eventData ? eventData.location : ""
             }
+
+            Controls2.ToolButton {
+                id: repeatSelector
+
+                property int repeatType: eventData != null && eventData.isRepeating ? eventData.repeatType : _repeatModel.noRepeat
+                property int repeatEvery: eventData != null && eventData.isRepeating ? eventData.repeatEvery : 1
+                property string repeatDescription: _repeatModel.periodDecription(repeatType)
+                property int stopAfter: eventData != null && eventData.isRepeating ? eventData.repeatStopAfter: -1
+
+                text: _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
+                Kirigami.FormData.label: i18n("Repeat:")
+
+                onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter )
+            }
         }
 
         Kirigami.Separator {
@@ -269,7 +286,8 @@ Kirigami.Page {
 
                 if(validation.success) {
                     console.log("Saving event, root.startdt:" + startdt);
-                    var vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms() };
+                    var vevent = { "uid" : root.uid, "startDate": root.startdt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startdt : root.enddt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
+
                     _eventController.addEdit(root.calendar, vevent);
                     editcompleted();
                 }
@@ -311,7 +329,18 @@ Kirigami.Page {
     Calindori.IncidenceAlarmsModel {
 
         id: incidenceAlarmsModel
+
         alarmProperties: { "calendar" : root.calendar, "uid": root.uid }
+    }
+
+    RecurrencePickerSheet {
+        id: recurPickerSheet
+
+        onRecurrencePicked: {
+            repeatSelector.repeatType = recurPickerSheet.selectedRepeatType;
+            repeatSelector.repeatEvery = recurPickerSheet.selectedRepeatEvery
+            repeatSelector.stopAfter = recurPickerSheet.selectedStopAfter;
+        }
     }
 
     ReminderEditor {

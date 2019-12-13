@@ -51,7 +51,11 @@ public:
         Created,
         Secrecy,
         EndDate,
-        Transparency
+        Transparency,
+        IsRepeating,
+        RepeatPeriodType,
+        RepeatEvery,
+        RepeatStopAfter
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -74,6 +78,24 @@ Q_SIGNALS:
     void rowCountChanged();
 
 private:
+    /**
+     * @return The INTERVAL of RFC 5545. It contains a positive integer representing at
+      which intervals the recurrence rule repeats.
+     */
+    int repeatEvery(const int idx) const;
+
+    /**
+     * @return The COUNT of RFC 5545. It defines the number of occurrences at which to
+      range-bound the recurrence.  The "DTSTART" property value always
+      counts as the first occurrence.
+     */
+    int repeatStopAfter(const int idx) const;
+
+    /**
+     * return The FREQ rule part which identifies the type of recurrence rule
+     */
+    ushort repeatPeriodType(const int idx) const;
+
     Event::List m_events;
     QDate m_filterdt;
     MemoryCalendar::Ptr m_calendar;
