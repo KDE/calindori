@@ -161,18 +161,21 @@ Kirigami.ApplicationWindow {
             actions {
                 left: Kirigami.Action {
                     iconName: "go-down"
+                    text: i18n("Previous month")
 
                     onTriggered: calendarMonthView.previousMonth()
                 }
 
                 main: Kirigami.Action {
                     iconName: "view-calendar-day"
+                    text: i18n("Today")
 
                     onTriggered: calendarMonthView.goToday()
                 }
 
                 right: Kirigami.Action {
                     iconName: "go-up"
+                    text: i18n("Next month")
 
                     onTriggered: calendarMonthView.nextMonth()
                 }
