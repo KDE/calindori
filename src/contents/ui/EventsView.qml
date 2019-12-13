@@ -105,7 +105,7 @@ Kirigami.Page {
                 topPadding: Kirigami.Units.largeSpacing
                 bottomPadding: Kirigami.Units.largeSpacing
 
-                Row {
+                RowLayout {
                     width: cardDelegate.availableWidth
                     spacing: Kirigami.Units.smallSpacing
 
@@ -125,10 +125,12 @@ Kirigami.Page {
                         text: ((model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), dateFormat ) : "") +
                             (model.dtend && !isNaN(model.dtend) ? separator +
                                 model.dtend.toLocaleString(Qt.locale(), sameEndStart ? timeFormat : dateFormat ) : "")
+                        Layout.fillWidth: true
+
                     }
                 }
 
-                Row {
+                RowLayout {
                     visible: model.location != ""
                     width: cardDelegate.availableWidth
                     spacing: Kirigami.Units.smallSpacing
@@ -142,10 +144,11 @@ Kirigami.Page {
                     Controls2.Label {
                         wrapMode: Text.WordWrap
                         text: model.location
+                        Layout.fillWidth: true
                     }
                 }
 
-                Row {
+                RowLayout {
                     visible: model.isRepeating
                     width: cardDelegate.availableWidth
                     spacing: Kirigami.Units.smallSpacing
@@ -159,6 +162,7 @@ Kirigami.Page {
                     Controls2.Label {
                         wrapMode: Text.WordWrap
                         text: _repeatModel.repeatDescription(model.repeatType, model.repeatEvery, model.repeatStopAfter)
+                        Layout.fillWidth: true
                     }
                 }
 
