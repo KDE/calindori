@@ -254,6 +254,7 @@ Kirigami.Page {
 
             text: i18n("Cancel")
             icon.name : "dialog-cancel"
+            shortcut: "Esc"
 
             onTriggered: editcompleted()
         }
