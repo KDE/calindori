@@ -247,6 +247,7 @@ Kirigami.Page {
             delegate: Kirigami.SwipeListItem {
                 contentItem: Controls2.Label {
                     text: model.display
+                    wrapMode: Text.WordWrap
                 }
 
                 Layout.fillWidth: true
