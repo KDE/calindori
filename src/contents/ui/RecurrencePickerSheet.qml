@@ -39,15 +39,11 @@ Kirigami.OverlaySheet {
         root.open();
     }
 
-    ColumnLayout {
-        implicitWidth: Kirigami.Units.gridUnit * 20
-        spacing: Kirigami.Units.largeSpacing * 2
+    Kirigami.FormLayout {
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 15
 
         Repeater {
             id: repeatTypesList
-
-            Layout.preferredHeight: childrenRect.height
-            Layout.fillWidth: true
 
             model: _repeatModel
 
@@ -58,55 +54,37 @@ Kirigami.OverlaySheet {
 
                 onClicked: {selectedRepeatType = model.repeatCode}
             }
-        }
-
-        Kirigami.FormLayout {
-            id: repeatDetails
 
             Layout.fillWidth: true
+        }
 
-            RowLayout {
-                spacing: Kirigami.Units.smallSpacing
-                enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+        Controls.SpinBox {
+            id: repeatEverySpin
 
-                Kirigami.FormData.label: i18n("Every:")
-
-                Controls.SpinBox {
-                    id: repeatEverySpin
-
-                    from: 1
-                }
-
-                Controls.Label {
-                    text: (selectedRepeatType == repeatTypesList.model.repeatYearlyMonth || selectedRepeatType == repeatTypesList.model.repeatYearlyDay || selectedRepeatType == repeatTypesList.model.repeatYearlyPos) ? i18np("year", "years",repeatEverySpin.value) :
-                            (selectedRepeatType == repeatTypesList.model.repeatMonthlyDay || selectedRepeatType == repeatTypesList.model.repeatMonthlyPos) ? i18np("month", "months",repeatEverySpin.value) :
-                                (selectedRepeatType == repeatTypesList.model.repeatWeekly) ? i18np("week", "weeks",repeatEverySpin.value) :
-                                    (selectedRepeatType == repeatTypesList.model.repeatDaily) ? i18np("day", "days",repeatEverySpin.value) : ""
-                }
+            textFromValue: function(value, locale) {
+                return (selectedRepeatType == repeatTypesList.model.repeatYearlyMonth || selectedRepeatType == repeatTypesList.model.repeatYearlyDay || selectedRepeatType == repeatTypesList.model.repeatYearlyPos) ? i18np("%1 year", "%1 years", repeatEverySpin.value) :
+                        (selectedRepeatType == repeatTypesList.model.repeatMonthlyDay || selectedRepeatType == repeatTypesList.model.repeatMonthlyPos) ? i18np("%1 month", "%1 months",repeatEverySpin.value) :
+                            (selectedRepeatType == repeatTypesList.model.repeatWeekly) ? i18np("%1 week", "%1 weeks",repeatEverySpin.value) :
+                                (selectedRepeatType == repeatTypesList.model.repeatDaily) ? i18np("%1 day", "%1 days",repeatEverySpin.value) : "";
             }
 
-            RowLayout {
-                spacing: Kirigami.Units.smallSpacing
-                enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+            enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+            from: 1
 
-                Kirigami.FormData.label: i18n("Stop After:")
+            Kirigami.FormData.label: i18n("Every:")
+        }
 
-                Controls.SpinBox {
-                    id: stopAfterSpin
+        Controls.SpinBox {
+            id: stopAfterSpin
 
-                    textFromValue: function(value, locale) {
-                        if(value == 0) return i18n("Never stop");
-
-                        return value;
-                    }
-
-                    from: 0
-                }
-
-                Controls.Label {
-                    text: stopAfterSpin.value > 0 ? i18np("repeat", "repeats", stopAfterSpin.value) : ""
-                }
+            textFromValue: function(value, locale) {
+                return stopAfterSpin.value > 0 ? i18np("%1 repeat", "%1 repeats", stopAfterSpin.value) : i18n("Never stop")
             }
+
+            enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+            from: 0
+
+            Kirigami.FormData.label: i18n("Stop After:")
         }
     }
 
