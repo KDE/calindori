@@ -167,6 +167,7 @@ Kirigami.Page {
                 }
 
                 Controls2.Label {
+                    visible: model.description != ""
                     width: cardDelegate.availableWidth
                     wrapMode: Text.WordWrap
                     text: model.description
