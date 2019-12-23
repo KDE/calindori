@@ -35,7 +35,6 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
 
-        isMenu: true
         title: "Calindori"
         actions: [
             Kirigami.Action {
