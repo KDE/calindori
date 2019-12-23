@@ -76,6 +76,11 @@ Kirigami.Page {
         delegate: Kirigami.Card {
             id: cardDelegate
 
+            padding: Kirigami.Units.smallSpacing
+            leftPadding: Kirigami.Units.smallSpacing
+            bottomPadding: Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.smallSpacing
+
             banner.title: model.summary
             banner.titleLevel: 3
 
