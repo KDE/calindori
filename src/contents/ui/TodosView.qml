@@ -107,7 +107,7 @@ Kirigami.Page {
             contentItem: Column {
                 enabled: !model.completed
                 spacing: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.largeSpacing
+                topPadding: 0
                 bottomPadding: Kirigami.Units.largeSpacing
 
                 Row {
