@@ -38,6 +38,9 @@ Kirigami.Page {
 
     title: i18n("Events")
 
+    leftPadding: 0
+    rightPadding: 0
+
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: i18n("Add event")
@@ -76,11 +79,6 @@ Kirigami.Page {
 
         delegate: Kirigami.Card {
             id: cardDelegate
-
-            padding: Kirigami.Units.smallSpacing
-            leftPadding: Kirigami.Units.smallSpacing
-            bottomPadding: Kirigami.Units.smallSpacing
-            rightPadding: Kirigami.Units.smallSpacing
 
             banner.title: model.summary
             banner.titleLevel: 3
