@@ -27,10 +27,10 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property date startdt
     property string uid
     property alias summary: summary.text
     property alias description: description.text
+    property alias startdt: startDateSelector.startDate
     property alias startHour: startTimeSelector.startHour
     property alias startMinute: startTimeSelector.startMinutes
     property alias startPm: startTimeSelector.startPm
@@ -107,10 +107,16 @@ Kirigami.Page {
                 spacing: 0
 
                 Controls2.ToolButton {
-                    Layout.fillWidth: true
-                    text: root.startdt.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+                    id: startDateSelector
 
-                    onClicked: showPassiveNotification(i18n("Start date cannot be changed"))
+                    property date startDate
+
+                    text: startDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+
+                    onClicked: {
+                        startDatePickerSheet.selectedDate = startDate;
+                        startDatePickerSheet.open();
+                    }
                 }
 
                 Controls2.ToolButton {
@@ -139,7 +145,7 @@ Kirigami.Page {
                 Controls2.ToolButton {
                     id: endDateSelector
 
-                    property date endDate: root.eventData ? root.eventData.dtend : root.startdt
+                    property date endDate
 
                     text: endDateSelector.endDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
                     enabled: !allDaySelector.checked
@@ -148,6 +154,8 @@ Kirigami.Page {
                         endDatePickerSheet.selectedDate = endDateSelector.endDate;
                         endDatePickerSheet.open();
                     }
+
+                    Component.onCompleted: endDate = root.eventData ? root.eventData.dtend : root.startdt // Do not bind, just initialize
                 }
 
                 Controls2.ToolButton {
@@ -317,6 +325,12 @@ Kirigami.Page {
             endTimeSelector.endMinutes = endTimePickerSheet.minutes;
             endTimeSelector.endPm = endTimePickerSheet.pm;
         }
+    }
+
+    DatePickerSheet {
+        id: startDatePickerSheet
+
+        onDatePicked: startDateSelector.startDate = startDatePickerSheet.selectedDate
     }
 
     DatePickerSheet {
