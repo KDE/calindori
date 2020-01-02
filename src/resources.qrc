@@ -24,5 +24,6 @@
         <file alias="PickerMonthView.qml">contents/ui/PickerMonthView.qml</file>
         <file alias="RecurrencePickerSheet.qml">contents/ui/RecurrencePickerSheet.qml</file>
         <file alias="DateSelectorButton.qml">contents/ui/DateSelectorButton.qml</file>
+        <file alias="TimeSelectorButton.qml">contents/ui/TimeSelectorButton.qml</file>
     </qresource>
 </RCC>

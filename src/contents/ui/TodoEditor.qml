@@ -31,9 +31,9 @@ Kirigami.Page {
     property string uid
     property alias summary: summary.text
     property alias description: description.text
-    property alias startHour: startTimeSelector.startHour
-    property alias startMinute: startTimeSelector.startMinutes
-    property alias startPm: startTimeSelector.startPm
+    property alias startHour: startTimeSelector.selectorHour
+    property alias startMinute: startTimeSelector.selectorMinutes
+    property alias startPm: startTimeSelector.selectorPm
     property alias allDay: allDaySelector.checked
     property alias location: location.text
     property alias completed: completed.checked
@@ -83,31 +83,20 @@ Kirigami.Page {
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Summary:")
                 text: todoData ? todoData.summary : ""
-
             }
 
             RowLayout {
                 Kirigami.FormData.label: i18n("Start time:")
                 enabled: root.startdt != undefined && !isNaN(root.startdt)
 
-                Controls2.ToolButton {
+                TimeSelectorButton {
                     id: startTimeSelector
 
-                    property int startHour : root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    property int startMinutes: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    property bool startPm: (root.todoData && root.todoData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
-                    property date startTime: root.startdt
-
-                    text: !isNaN(root.startdt) ? (new Date(root.startdt.getFullYear(), root.startdt.getMonth() , root.startdt.getDate(), startHour + (startPm ? 12 : 0), startMinutes)).toLocaleTimeString(Qt.locale(), "hh:mm AP"): "00:00"
-
+                    selectorDate: root.startdt
+                    selectorHour: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: (root.todoData && root.todoData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
                     enabled: !allDaySelector.checked
-
-                    onClicked: {
-                        startTimePickerSheet.hours = startTimeSelector.startHour;
-                        startTimePickerSheet.minutes = startTimeSelector.startMinutes;
-                        startTimePickerSheet.pm = startTimeSelector.startPm;
-                        startTimePickerSheet.open();
-                    }
                 }
             }
 
@@ -137,7 +126,6 @@ Kirigami.Page {
             Layout.fillWidth: true
         }
 
-
         Controls2.TextArea {
             id: description
 
@@ -164,7 +152,6 @@ Kirigami.Page {
     }
 
     actions {
-
         left: Kirigami.Action {
             id: cancelAction
 
@@ -188,16 +175,6 @@ Kirigami.Page {
                 _todoController.addEdit(root.calendar, vtodo);
                 taskeditcompleted();
             }
-        }
-    }
-
-    TimePickerSheet {
-        id: startTimePickerSheet
-
-        onDatePicked: {
-            startTimeSelector.startHour = startTimePickerSheet.hours;
-            startTimeSelector.startMinutes = startTimePickerSheet.minutes;
-            startTimeSelector.startPm = startTimePickerSheet.pm;
         }
     }
 }
