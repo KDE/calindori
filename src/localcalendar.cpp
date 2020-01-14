@@ -39,11 +39,6 @@ MemoryCalendar::Ptr LocalCalendar::memorycalendar() const
     return m_calendar;
 }
 
-FileStorage::Ptr LocalCalendar::calendarstorage() const
-{
-    return m_cal_storage;
-}
-
 QString LocalCalendar::name() const
 {
     return m_name;
@@ -86,15 +81,6 @@ void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
     {
         m_calendar = memoryCalendar;
         qDebug() << "Calendar succesfully set";
-    }
-}
-
-void LocalCalendar::setCalendarstorage(FileStorage::Ptr calendarStorage)
-{
-    if(m_cal_storage != calendarStorage)
-    {
-        m_cal_storage = calendarStorage;
-        qDebug() << "Storage succesfully set";
     }
 }
 

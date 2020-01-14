@@ -32,7 +32,6 @@ class LocalCalendar : public QObject
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
-    Q_PROPERTY(QSharedPointer<FileStorage> calendarstorage READ calendarstorage WRITE setCalendarstorage NOTIFY calendarstorageChanged)
     Q_PROPERTY(QDateTime nulldate READ nulldate CONSTANT)
 
 public:
@@ -40,12 +39,10 @@ public:
     ~LocalCalendar() override;
 
     MemoryCalendar::Ptr memorycalendar() const;
-    FileStorage::Ptr calendarstorage() const;
     QString name() const;
     QDateTime nulldate() const;
 
     void setMemorycalendar(MemoryCalendar::Ptr memoryCalendar);
-    void setCalendarstorage(FileStorage::Ptr calendarStorage);
     void setName(QString calendarName);
 
 public Q_SLOTS:
@@ -56,7 +53,6 @@ public Q_SLOTS:
     static QVariantMap importCalendar(const QString& calendarName, const QString& sourcePath);
 Q_SIGNALS:
     void memorycalendarChanged();
-    void calendarstorageChanged();
     void nameChanged();
 
 private:
