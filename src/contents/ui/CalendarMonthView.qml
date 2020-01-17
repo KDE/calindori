@@ -56,6 +56,7 @@ Controls2.SwipeView {
 
     Connections {
         target: cal
+
         onTodosChanged: monthView.reloadSelectedDate()
         onEventsChanged: monthView.reloadSelectedDate()
     }
@@ -94,8 +95,8 @@ Controls2.SwipeView {
             anchors.centerIn: parent
             displayedYear: mm.year
             displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
-            selectedDayTodosCount: todosCount(selectedDate)
-            selectedDayEventsCount: eventsCount(selectedDate)
+            selectedDayTodosCount: cal.todosCount(selectedDate)
+            selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
      
             reloadSelectedDate: function() {
