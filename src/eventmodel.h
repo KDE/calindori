@@ -22,6 +22,7 @@
 #include <QAbstractListModel>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/MemoryCalendar>
+#include "localcalendar.h"
 
 using namespace KCalendarCore;
 
@@ -30,7 +31,7 @@ class EventModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
-    Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
+    Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
 
 public:
@@ -65,8 +66,8 @@ public:
     QDate filterdt() const;
     void setFilterdt(const QDate & filterDate);
 
-    MemoryCalendar::Ptr memorycalendar() const;
-    void setMemorycalendar(const MemoryCalendar::Ptr calendarPtr);
+    LocalCalendar *calendar() const;
+    void setCalendar(LocalCalendar *calendarPtr);
 
 public Q_SLOTS:
     void loadEvents();
@@ -74,7 +75,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void filterdtChanged();
-    void memorycalendarChanged();
+    void calendarChanged();
     void rowCountChanged();
 
 private:
@@ -98,7 +99,7 @@ private:
 
     Event::List m_events;
     QDate m_filterdt;
-    MemoryCalendar::Ptr m_calendar;
+    LocalCalendar *m_calendar;
 };
 
 #endif //EVENTMODEL_H

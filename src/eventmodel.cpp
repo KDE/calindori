@@ -28,7 +28,7 @@ EventModel::EventModel(QObject* parent) :
     m_calendar(nullptr)
 {
     connect(this, &EventModel::filterdtChanged, this, &EventModel::loadEvents);
-    connect(this, &EventModel::memorycalendarChanged, this, &EventModel::loadEvents);
+    connect(this, &EventModel::calendarChanged, this, &EventModel::loadEvents);
 }
 
 EventModel::~EventModel() = default;
@@ -44,15 +44,15 @@ void EventModel::setFilterdt(const QDate& filterDate)
     emit filterdtChanged();
 }
 
-MemoryCalendar::Ptr EventModel::memorycalendar() const
+LocalCalendar *EventModel::calendar() const
 {
     return m_calendar;
 }
 
-void EventModel::setMemorycalendar(const MemoryCalendar::Ptr calendarPtr)
+void EventModel::setCalendar(LocalCalendar *calendarPtr)
 {
     m_calendar = calendarPtr;
-    emit memorycalendarChanged();
+    emit calendarChanged();
 }
 
 QHash<int, QByteArray> EventModel::roleNames() const
@@ -139,12 +139,12 @@ void EventModel::loadEvents()
 
     if(m_calendar != nullptr && m_filterdt.isValid())
     {
-        m_events = m_calendar->rawEventsForDate(m_filterdt);
+        m_events = m_calendar->memorycalendar()->rawEventsForDate(m_filterdt);
     }
 
     if(m_calendar != nullptr && m_filterdt.isNull())
     {
-        m_events = m_calendar->rawEvents(EventSortStartDate, SortDirectionDescending);
+        m_events = m_calendar->memorycalendar()->rawEvents(EventSortStartDate, SortDirectionDescending);
     }
 
     endResetModel();
