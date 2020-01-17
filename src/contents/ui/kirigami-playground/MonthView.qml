@@ -42,6 +42,7 @@ Item {
     property int selectedDayEventsCount: 0
     property string displayedMonthName
     property int displayedYear
+    property var reloadSelectedDate: function() {}
 
     /**
      * A model that provides:
@@ -55,17 +56,6 @@ Item {
     property bool showHeader: false
     property bool showMonthName: true
     property bool showYear: true
-
-    function reloadSelectedDate() {
-        root.selectedDayTodosCount = cal.todosCount(root.selectedDate)
-        root.selectedDayEventsCount = cal.eventsCount(root.selectedDate)
-    }
-
-    Connections {
-        target: cal
-        onTodosChanged: reloadSelectedDate()
-        onEventsChanged: reloadSelectedDate()
-    }
 
     onSelectedDateChanged: reloadSelectedDate()
 
