@@ -93,6 +93,8 @@ void TodosModel::setCalendar(LocalCalendar *calendarPtr)
 {
     m_calendar = calendarPtr;
 
+    connect(m_calendar, &LocalCalendar::todosChanged, this, &TodosModel::loadTasks);
+
     emit calendarChanged();
 }
 

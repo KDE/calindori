@@ -27,11 +27,6 @@ import "Utils.js" as Utils
 Kirigami.ApplicationWindow {
     id: root
 
-    /**
-     * To be emitted when data displayed should be refreshed
-     */
-    signal refreshNeeded;
-
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
 
@@ -123,7 +118,6 @@ Kirigami.ApplicationWindow {
         name: calindoriConfig.activeCalendar
 
         onNameChanged: {
-            root.refreshNeeded();
             if (root.pageStack.depth > 1) {
                 root.pageStack.pop(null);
             }
@@ -200,28 +194,17 @@ Kirigami.ApplicationWindow {
                 id: calendarMonthView
 
                 anchors.fill: parent
+                cal: localCalendar
+
+                anchors.centerIn: parent
                 showHeader: true
                 showMonthName: false
                 showYear: false
-
-                todosCount: function (todosDate) {
-                    return localCalendar.todosCount(todosDate);
-                }
-
-                eventsCount: function (eventsDate) {
-                    return localCalendar.eventsCount(eventsDate);
-                }
 
                 onSelectedDateChanged: {
                     if (root.pageStack.depth > 1) {
                         root.pageStack.pop(null);
                     }
-                }
-
-                Connections {
-                    target: root
-
-                    onRefreshNeeded: calendarMonthView.refresh()
                 }
             }
         }
@@ -233,14 +216,6 @@ Kirigami.ApplicationWindow {
         TodosView {
 
             calendar: localCalendar
-
-            onTasksUpdated: root.refreshNeeded()
-
-            Connections {
-                target: root
-
-                onRefreshNeeded: reload()
-            }
         }
     }
 
@@ -249,14 +224,6 @@ Kirigami.ApplicationWindow {
 
         EventsView {
             calendar: localCalendar
-
-            onEventsUpdated: root.refreshNeeded()
-
-            Connections {
-                target: root
-
-                onRefreshNeeded: reload()
-            }
         }
     }
 
@@ -268,7 +235,6 @@ Kirigami.ApplicationWindow {
             configuration: calindoriConfig
 
             onCalendarAdded: {
-                root.refreshNeeded();
                 root.pageStack.pop(calendarEditor);
             }
 

@@ -54,6 +54,8 @@ public Q_SLOTS:
 Q_SIGNALS:
     void memorycalendarChanged();
     void nameChanged();
+    void todosChanged();
+    void eventsChanged();
 
 private:
     static QVariantMap canCreateFile(const QString& calendarName);

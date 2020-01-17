@@ -39,27 +39,27 @@ Controls2.SwipeView {
     property alias showHeader: monthView.showHeader
     property alias showMonthName: monthView.showMonthName
     property alias showYear: monthView.showYear
-    property alias todosCount: monthView.todosCount
-    property alias eventsCount: monthView.eventsCount
     property int backMonthPad: 720
     property int fwdMonthPad: 480
     property int previousIndex
+    property var cal
     property var manageIndex: function () {}
 
     signal nextMonth
     signal previousMonth
     signal goToday
-    signal refresh
-
-    onRefresh: {
-        mm.update();
-        monthView.reloadSelectedDate();
-    }
 
     onNextMonth: mm.goNextMonth()
     onPreviousMonth: mm.goPreviousMonth()
     onGoToday: mm.goCurrentMonth()
     onCurrentItemChanged: manageIndex()
+
+    Connections {
+        target: cal
+
+        onTodosChanged: monthView.reloadSelectedDate()
+        onEventsChanged: monthView.reloadSelectedDate()
+    }
 
     Component.onCompleted: {
         currentIndex = backMonthPad;
@@ -73,11 +73,12 @@ Controls2.SwipeView {
 
     orientation: Qt.Vertical
 
-    DaysOfMonthModel {
+    DaysOfMonthIncidenceModel {
         id: mm
 
         year: monthView.selectedDate.getFullYear()
         month: monthView.selectedDate.getMonth() + 1
+        calendar: cal
     }
 
     Repeater {
@@ -94,9 +95,14 @@ Controls2.SwipeView {
             anchors.centerIn: parent
             displayedYear: mm.year
             displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
-            selectedDayTodosCount: todosCount(selectedDate)
-            selectedDayEventsCount: eventsCount(selectedDate)
+            selectedDayTodosCount: cal.todosCount(selectedDate)
+            selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
+     
+            reloadSelectedDate: function() {
+                selectedDayTodosCount = cal.todosCount(root.selectedDate)                
+                selectedDayEventsCount = cal.eventsCount(root.selectedDate)
+            }
         }
     }
 
