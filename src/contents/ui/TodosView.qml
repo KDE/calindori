@@ -29,13 +29,6 @@ Kirigami.Page {
     property date todoDt
     property var calendar
 
-    signal tasksUpdated
-
-    function reload()
-    {
-        cardsListview.model.loadTasks();
-    }
-
     title: i18n("Tasks")
 
     actions.main: Kirigami.Action {
@@ -52,10 +45,7 @@ Kirigami.Page {
         TodoEditor {
             calendar: localCalendar
 
-            onTaskeditcompleted: {
-                tasksUpdated();
-                pageStack.pop(todoEditor);
-            }
+            onTaskeditcompleted: pageStack.pop(todoEditor)
         }
     }
 
@@ -90,7 +80,6 @@ Kirigami.Page {
                     onTriggered: {
                         var vtodo = { "uid" : model.uid };
                         _todoController.remove(root.calendar, vtodo);
-                        tasksUpdated();
                     }
                 },
 

@@ -52,6 +52,9 @@ LocalCalendar *EventModel::calendar() const
 void EventModel::setCalendar(LocalCalendar *calendarPtr)
 {
     m_calendar = calendarPtr;
+
+    connect(m_calendar, &LocalCalendar::eventsChanged, this, &EventModel::loadEvents);
+
     emit calendarChanged();
 }
 

@@ -29,13 +29,6 @@ Kirigami.Page {
     property date eventStartDt
     property var calendar
 
-    signal eventsUpdated
-
-    function reload()
-    {
-        cardsListview.model.loadEvents();
-    }
-
     title: i18n("Events")
 
     leftPadding: 0
@@ -54,7 +47,6 @@ Kirigami.Page {
             calendar: localCalendar
 
             onEditcompleted: {
-                eventsUpdated();
                 pageStack.pop(eventEditor);
             }
         }
@@ -91,7 +83,6 @@ Kirigami.Page {
                     onTriggered: {
                         var vevent = { uid: model.uid } ;
                         _eventController.remove(root.calendar, vevent);
-                        eventsUpdated();
                     }
                 },
 

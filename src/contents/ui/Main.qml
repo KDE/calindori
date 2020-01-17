@@ -27,11 +27,6 @@ import "Utils.js" as Utils
 Kirigami.ApplicationWindow {
     id: root
 
-    /**
-     * To be emitted when data displayed should be refreshed
-     */
-    signal refreshNeeded;
-
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
 
@@ -123,7 +118,6 @@ Kirigami.ApplicationWindow {
         name: calindoriConfig.activeCalendar
 
         onNameChanged: {
-            root.refreshNeeded();
             if (root.pageStack.depth > 1) {
                 root.pageStack.pop(null);
             }
@@ -222,14 +216,6 @@ Kirigami.ApplicationWindow {
         TodosView {
 
             calendar: localCalendar
-
-            onTasksUpdated: root.refreshNeeded()
-
-            Connections {
-                target: root
-
-                onRefreshNeeded: reload()
-            }
         }
     }
 
@@ -238,14 +224,6 @@ Kirigami.ApplicationWindow {
 
         EventsView {
             calendar: localCalendar
-
-            onEventsUpdated: root.refreshNeeded()
-
-            Connections {
-                target: root
-
-                onRefreshNeeded: reload()
-            }
         }
     }
 
@@ -257,7 +235,6 @@ Kirigami.ApplicationWindow {
             configuration: calindoriConfig
 
             onCalendarAdded: {
-                root.refreshNeeded();
                 root.pageStack.pop(calendarEditor);
             }
 
