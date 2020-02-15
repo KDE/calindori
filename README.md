@@ -2,15 +2,65 @@
 
 Calendar application for Plasma Mobile
 
-Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.
+## Features
 
-When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.
+Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. It offers:
+
+* Monthly agenda
+* Multiple calendars
+* Event management
+* Task management
+* Calendar import
+
+![](screenshots/calindori_screenshot.png)
+
+The calendars that the application handles follow the [ical](https://tools.ietf.org/html/rfc5545) standard.
+
+## Installation
+
+### KDE Neon 
+
+On mobile devices that run KDE Neon, run:
+
+```
+sudo apt install calindori
+```
+
+### Android
+
+The nightly build of Calindori for Android can be found in the F-Droid instance of KDE. You can add the repository following these [instructions](https://community.kde.org/Android/FDroid) and install  Calindori.
 
 
 ## Build
 
-mkdir build  
-cd build  
-cmake -DKDE_INSTALL_USE_QT_SYS_PATHS=ON  ..  
-make  
-(sudo) make install  
+To build Calindori from source on Linux, execute the below commands.
+
+### Compile
+
+```
+git clone https://invent.kde.org/kde/calindori.git
+cd calindori
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+```
+
+#### Run
+
+```
+bin/calindori
+```
+
+*To simulate Plasma Mobile user experience:*
+
+```
+QT_QUICK_CONTROLS_MOBILE=true QT_QUICK_CONTROLS_STYLE=Plasma bin/calindori
+```
+
+#### Install
+
+```
+sudo make install
+```
+
