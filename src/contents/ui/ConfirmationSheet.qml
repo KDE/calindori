@@ -24,23 +24,21 @@ import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.OverlaySheet {
     id: deleteSheet
-    
+
     property string calendar
     property var configuration
-            
+
     contentItem: Controls2.Label {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
         text: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
     }
-    
-    parent: applicationWindow().overlay
-    
+
     footer: RowLayout {
         Item {
             Layout.fillWidth: true
         }
-        
+
         Controls2.ToolButton {
             text: i18n("Delete")
 
@@ -52,11 +50,11 @@ Kirigami.OverlaySheet {
                 deleteSheet.close();
             }
         }
-        
+
         Controls2.ToolButton {
             text: qsTr("Cancel")
 
-            onClicked: deleteSheet.close()                
+            onClicked: deleteSheet.close()
         }
     }
 }

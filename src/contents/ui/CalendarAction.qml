@@ -35,16 +35,16 @@ Kirigami.Action {
     Kirigami.Action {
         text: "Activate"
         iconName: "dialog-ok"
+        visible: configuration.activeCalendar != parent.text
 
-        onTriggered: {
-            configuration.activeCalendar = parent.text;
-        }
+        onTriggered: configuration.activeCalendar = parent.text
     }
 
     Kirigami.Action {
         text: "Delete"
         iconName: "delete"
+        visible: configuration.activeCalendar != parent.text
 
-        onTriggered: (configuration.activeCalendar == parent.text) ? showPassiveNotification(i18n("The active calendar cannot be deleted")) : deleteCalendar()
+        onTriggered: deleteCalendar()
     }
 }
