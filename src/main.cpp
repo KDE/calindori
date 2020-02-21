@@ -41,7 +41,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("calindori");
 
-    qmlRegisterType<CalindoriConfig>("org.kde.phone.calindori", 0, 1, "Config");
+    qmlRegisterType<CalindoriConfig>("org.kde.phone.calindori", 0, 1, "CalindoriConfig");
     qmlRegisterType<TodosModel>("org.kde.phone.calindori", 0, 1, "TodosModel");
     qmlRegisterType<LocalCalendar>("org.kde.phone.calindori", 0, 1, "LocalCalendar");
     qmlRegisterType<EventModel>("org.kde.phone.calindori", 0, 1, "EventModel");
@@ -55,8 +55,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
-    engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
-
     TodoController todoController;
     engine.rootContext()->setContextProperty(QStringLiteral("_todoController"), &todoController);
 
@@ -65,6 +63,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     ReccurencePeriodModel repeatModel;
     engine.rootContext()->setContextProperty(QStringLiteral("_repeatModel"), &repeatModel);
+
+    CalindoriConfig calindoriConfig;
+    engine.rootContext()->setContextProperty(QStringLiteral("_calindoriConfig"), &calindoriConfig);
+
+    engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

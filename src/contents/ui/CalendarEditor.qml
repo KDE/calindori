@@ -30,11 +30,10 @@ Kirigami.Page {
     property alias calendarName: nameInput.text
     property alias activeCalendar: isactive.checked
     property string mode: "add"
-    property var configuration
     property alias fileToImport: importFilePath.text
 
-    signal calendarAdded;
-    signal calendarAddCanceled;
+    signal calendarAdded
+    signal calendarAddCanceled
 
     title: qsTr("New calendar")
 
@@ -44,7 +43,7 @@ Kirigami.Page {
             return;
         }
 
-        var canAddResult = configuration.canAddCalendar(root.calendarName);
+        var canAddResult = _calindoriConfig.canAddCalendar(root.calendarName);
 
         if(!(canAddResult.success)) {
             showPassiveNotification(canAddResult.reason);
@@ -62,14 +61,14 @@ Kirigami.Page {
     }
 
     function addCalendarToConfig(validateEntry=true) {
-        var canAddResult = validateEntry ? configuration.canAddCalendar(root.calendarName) : null;
+        var canAddResult = validateEntry ? _calindoriConfig.canAddCalendar(root.calendarName) : null;
 
         if(canAddResult && !(canAddResult.success)) {
             showPassiveNotification(canAddResult.reason);
             return;
         }
 
-        var insertResult = configuration.addCalendar(root.calendarName);
+        var insertResult = _calindoriConfig.addCalendar(root.calendarName);
 
         if(!(insertResult.success)) {
             showPassiveNotification(insertResult.reason);
@@ -77,7 +76,7 @@ Kirigami.Page {
         }
 
         if(root.activeCalendar) {
-            configuration.activeCalendar = root.calendarName;
+            _calindoriConfig.activeCalendar = root.calendarName;
         }
 
         calendarAdded();

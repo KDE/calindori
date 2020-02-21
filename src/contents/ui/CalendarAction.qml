@@ -25,26 +25,33 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Action {
 
     property bool isCalendar: true
-    property var configuration
 
     signal deleteCalendar
 
-    checked: (text == configuration.activeCalendar)
-    iconName: (text == configuration.activeCalendar) ? "emblem-ok-symbolic" : ""
+    checked: (text == _calindoriConfig.activeCalendar)
+    iconName: (text == _calindoriConfig.activeCalendar) ? "emblem-ok-symbolic" : ""
 
     Kirigami.Action {
         text: "Activate"
         iconName: "dialog-ok"
-        visible: configuration.activeCalendar != parent.text
+        visible: _calindoriConfig.activeCalendar != parent.text
 
-        onTriggered: configuration.activeCalendar = parent.text
+        onTriggered: _calindoriConfig.activeCalendar = parent.text
     }
 
     Kirigami.Action {
         text: "Delete"
         iconName: "delete"
-        visible: configuration.activeCalendar != parent.text
+        visible: _calindoriConfig.activeCalendar != parent.text
 
-        onTriggered: deleteCalendar()
+        onTriggered: {
+            deleteSheet.calendar = parent.text;
+            deleteSheet.open();
+        }
+
+    }
+
+    ConfirmationSheet {
+        id: deleteSheet
     }
 }

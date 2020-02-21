@@ -22,7 +22,6 @@ import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.0 as Kirigami
 import QtQuick.Controls 2.4 as Controls2
 import org.kde.phone.calindori 0.1 as Calindori
-import "Utils.js" as Utils
 
 Kirigami.ApplicationWindow {
     id: root
@@ -38,22 +37,8 @@ Kirigami.ApplicationWindow {
                 text: i18n("Calendars")
                 iconName: "view-calendar"
 
-                Kirigami.Action {
-                    text: i18n("Create")
-                    iconName: "list-add"
-                    onTriggered: root.pageStack.push(calendarEditor, {mode: "add"})
-                }
+                children: [calendarCreateAction, calendarImportAction, actionSeparator]
 
-                Kirigami.Action {
-                    text: i18n("Import")
-                    iconName: "document-import"
-
-                    onTriggered: root.pageStack.push(calendarEditor, {mode: "import"})
-                }
-
-                Kirigami.Action {
-                    separator: true
-                }
             },
 
             Kirigami.Action {
@@ -91,7 +76,25 @@ Kirigami.ApplicationWindow {
             }
         ]
 
-        Component.onCompleted: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
+        Instantiator {
+            model: _calindoriConfig.calendars.split(_calindoriConfig.calendars.includes(";") ? ";" : null)
+
+            delegate: CalendarAction {
+                text: modelData
+            }
+
+            onObjectAdded: {
+                calendarActions.children.push(object)
+            }
+
+            onObjectRemoved: {
+                // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
+                calendarActions.children = []
+                calendarActions.children.push(calendarCreateAction)
+                calendarActions.children.push(calendarImportAction)
+                calendarActions.children.push(actionSeparator)
+            }
+        }
     }
 
     contextDrawer: Kirigami.ContextDrawer {
@@ -105,38 +108,15 @@ Kirigami.ApplicationWindow {
         separatorVisible: false
     }
 
-    Calindori.Config {
-        id: calindoriConfig
-
-        onActiveCalendarChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
-        onCalendarsChanged: Utils.loadGlobalActions(calindoriConfig.calendars, calendarActions, calendarAction)
-    }
 
     Calindori.LocalCalendar {
         id: localCalendar
 
-        name: calindoriConfig.activeCalendar
+        name: _calindoriConfig.activeCalendar
 
         onNameChanged: {
             if (root.pageStack.depth > 1) {
                 root.pageStack.pop(null);
-            }
-        }
-    }
-
-    /**
-     * Action that represents a calendar configuration entry
-     * It is added dynamically to the global drawer
-     */
-    Component {
-        id: calendarAction
-
-        CalendarAction {
-            configuration: calindoriConfig
-
-            onDeleteCalendar: {
-                deleteSheet.calendar = text;
-                deleteSheet.open();
             }
         }
     }
@@ -231,24 +211,32 @@ Kirigami.ApplicationWindow {
         id: calendarEditor
 
         CalendarEditor {
-
-            configuration: calindoriConfig
-
-            onCalendarAdded: {
-                root.pageStack.pop(calendarEditor);
-            }
-
-            onCalendarAddCanceled: {
-                root.pageStack.pop(calendarEditor);
-            }
-
+            onCalendarAdded: root.pageStack.pop(calendarEditor)
+            onCalendarAddCanceled: root.pageStack.pop(calendarEditor)
         }
     }
 
-    ConfirmationSheet {
-        id: deleteSheet
+    Kirigami.Action {
+        id: calendarCreateAction
 
-        configuration: calindoriConfig
+        text: i18n("Create")
+        iconName: "list-add"
+        onTriggered: root.pageStack.push(calendarEditor, {mode: "add"})
+    }
+
+    Kirigami.Action {
+        id: calendarImportAction
+
+        text: i18n("Import")
+        iconName: "document-import"
+
+        onTriggered: root.pageStack.push(calendarEditor, {mode: "import"})
+    }
+
+    Kirigami.Action {
+        id: actionSeparator
+
+        separator: true
     }
 }
 
