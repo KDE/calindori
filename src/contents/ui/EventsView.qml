@@ -56,7 +56,7 @@ Kirigami.Page {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        visible: eventsModel.count == 0
+        visible: cardsListview.count == 0
         wrapMode: Text.WordWrap
         text: eventStartDt.toLocaleDateString() != "" ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No events scheduled")
         font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5

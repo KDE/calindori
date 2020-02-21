@@ -33,7 +33,6 @@ class TodosModel : public QAbstractListModel
 
     Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
     Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
-    Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
 public:
     enum Roles {
         Uid=Qt::UserRole+1,
