@@ -67,6 +67,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     CalindoriConfig calindoriConfig;
     engine.rootContext()->setContextProperty(QStringLiteral("_calindoriConfig"), &calindoriConfig);
 
+    engine.rootContext()->setContextProperty(QStringLiteral("_nullDate"), QDateTime());
+
     engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
 
     if (engine.rootObjects().isEmpty()) {

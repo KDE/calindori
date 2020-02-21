@@ -32,7 +32,6 @@ class LocalCalendar : public QObject
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
-    Q_PROPERTY(QDateTime nulldate READ nulldate CONSTANT)
 
 public:
     explicit LocalCalendar(QObject* parent = nullptr);
@@ -40,7 +39,6 @@ public:
 
     MemoryCalendar::Ptr memorycalendar() const;
     QString name() const;
-    QDateTime nulldate() const;
 
     void setMemorycalendar(MemoryCalendar::Ptr memoryCalendar);
     void setName(QString calendarName);

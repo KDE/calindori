@@ -61,7 +61,7 @@ Kirigami.ApplicationWindow {
                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(todosView, { todoDt: localCalendar.nulldate });
+                        pageStack.push(todosView, { todoDt: _nullDate });
                     }
                 }
 

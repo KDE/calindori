@@ -108,11 +108,6 @@ void LocalCalendar::deleteCalendar()
 }
 
 
-QDateTime LocalCalendar::nulldate() const
-{
-    return QDateTime();
-}
-
 int LocalCalendar::eventsCount(const QDate& date) const {
     if(m_calendar == nullptr)
     {
