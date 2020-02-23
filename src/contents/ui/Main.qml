@@ -29,27 +29,20 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
 
-        title: "Calindori"
+        title: _calindoriConfig.activeCalendar
+//         titleIcon: "view-calendar"
         actions: [
-            Kirigami.Action {
-                id: calendarActions
-
-                text: i18n("Calendars")
-                iconName: "view-calendar"
-
-                children: [calendarCreateAction, calendarImportAction, actionSeparator]
-
-            },
-
             Kirigami.Action {
                 id: show
 
-                text: i18n("Show")
+                text: i18n("View")
                 iconName: "view-choose"
+                expandible: true
 
                 Kirigami.Action {
-                    text: "Calendar"
-                    iconName: "view-calendar-day"
+                    text: i18n("Month")
+//                     iconName: "view-calendar-day"
+
                     onTriggered: {
                         pageStack.clear();
                         pageStack.push(calendarDashboardComponent);
@@ -57,8 +50,8 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: i18n("Tasks (%1)", localCalendar.name)
-                    iconName: "view-calendar-tasks"
+                    text: i18n("Tasks")
+//                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
                         pageStack.push(todosView, { todoDt: _nullDate });
@@ -66,14 +59,31 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: i18n("Events (%1)", localCalendar.name)
-                    iconName: "view-calendar-upcoming-events"
+                    text: i18n("Events")
+//                     iconName: "view-calendar-upcoming-events"
                     onTriggered: {
                         pageStack.clear();
                         pageStack.push(eventsView, {eventStartDt: ""});
                     }
                 }
+            },
+
+            Kirigami.Action {
+                id: sectionSeparator
+
+                separator: true
+            },
+
+            Kirigami.Action {
+                id: calendarManagement
+
+                text: i18n("Manage")
+                iconName: "view-calendar"
+
+                children: [calendarCreateAction, calendarImportAction, actionSeparator]
+
             }
+
         ]
 
         Instantiator {
@@ -84,15 +94,15 @@ Kirigami.ApplicationWindow {
             }
 
             onObjectAdded: {
-                calendarActions.children.push(object)
+                calendarManagement.children.push(object)
             }
 
             onObjectRemoved: {
                 // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
-                calendarActions.children = []
-                calendarActions.children.push(calendarCreateAction)
-                calendarActions.children.push(calendarImportAction)
-                calendarActions.children.push(actionSeparator)
+                calendarManagement.children = []
+                calendarManagement.children.push(calendarCreateAction)
+                calendarManagement.children.push(calendarImportAction)
+                calendarManagement.children.push(actionSeparator)
             }
         }
     }

@@ -29,12 +29,11 @@ Kirigami.Action {
     signal deleteCalendar
 
     checked: (text == _calindoriConfig.activeCalendar)
-    iconName: (text == _calindoriConfig.activeCalendar) ? "emblem-ok-symbolic" : ""
+    visible: _calindoriConfig.activeCalendar != text
 
     Kirigami.Action {
         text: "Activate"
         iconName: "dialog-ok"
-        visible: _calindoriConfig.activeCalendar != parent.text
 
         onTriggered: _calindoriConfig.activeCalendar = parent.text
     }
@@ -42,13 +41,11 @@ Kirigami.Action {
     Kirigami.Action {
         text: "Delete"
         iconName: "delete"
-        visible: _calindoriConfig.activeCalendar != parent.text
 
         onTriggered: {
             deleteSheet.calendar = parent.text;
             deleteSheet.open();
         }
-
     }
 
     ConfirmationSheet {
