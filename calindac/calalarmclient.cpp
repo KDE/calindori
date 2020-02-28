@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *  Copyright (c) 2019-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -65,16 +65,14 @@ QStringList CalAlarmClient::calendarFileList() const
     QString calendars = calindoriCfgGeneral.readEntry("calendars",QString());
     QStringList calendarList = calendars.split(";");
 
-    QStringList::const_iterator itr = calendarList.constBegin();
-    while(itr != calendarList.constEnd())
+    for(const auto& c: calendarList)
     {
-        QString fileName = KSharedConfig::openConfig("calindorirc")->group(*itr).readEntry("file");
+        QString fileName = KSharedConfig::openConfig("calindorirc")->group(c).readEntry("file");
 
         if(!(fileName.isNull()))
         {
             filesList.append(fileName);
         }
-        itr++;
     }
 
     qDebug() << "\ncalendarFileList:\tCalindori calendars:" << filesList.join(",");
@@ -194,10 +192,9 @@ void CalAlarmClient::restoreSuspendedFromConfig()
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
     QStringList suspendedAlarms = suspendedGroup.groupList();
 
-    QStringList::const_iterator cfgSuspItr = suspendedAlarms.constBegin();
-    while(cfgSuspItr != suspendedAlarms.constEnd())
+    for(const auto& s : suspendedAlarms)
     {
-        KConfigGroup suspendedAlarm(&suspendedGroup, *cfgSuspItr);
+        KConfigGroup suspendedAlarm(&suspendedGroup, s);
         QString uid = suspendedAlarm.readEntry("UID");
         QString txt = alarmText(uid);
         QDateTime remindAt = QDateTime::fromString(suspendedAlarm.readEntry("RemindAt"), "yyyy,M,d,HH,m,s");
@@ -207,7 +204,6 @@ void CalAlarmClient::restoreSuspendedFromConfig()
         {
             mNotificationHandler->addSuspendedNotification(uid, txt, remindAt);
         }
-        ++cfgSuspItr;
     }
 }
 
@@ -251,14 +247,12 @@ void CalAlarmClient::flushSuspendedToConfig()
         return;
     }
 
-    QHash<QString, AlarmNotification*>::const_iterator suspItr = suspendedNotifications.constBegin();
-    while(suspItr != suspendedNotifications.constEnd())
+    for(const auto& s : suspendedNotifications)
     {
-        qDebug() << "flushSuspendedToConfig:\tFlushing suspended alarm" << suspItr.value()->uid() << " to config";
-        KConfigGroup notificationGroup(&suspendedGroup, suspItr.value()->uid());
-        notificationGroup.writeEntry("UID", suspItr.value()->uid());
-        notificationGroup.writeEntry("RemindAt", suspItr.value()->remindAt());
-        suspItr++;
+        qDebug() << "flushSuspendedToConfig:\tFlushing suspended alarm" << s->uid() << " to config";
+        KConfigGroup notificationGroup(&suspendedGroup, s->uid());
+        notificationGroup.writeEntry("UID", s->uid());
+        notificationGroup.writeEntry("RemindAt", s->remindAt());
     }
     KSharedConfig::openConfig()->sync();
 }

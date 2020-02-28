@@ -87,6 +87,5 @@ private:
     Alarm::List mAlarms;
     QStringList mCalendarFiles;
     QHash<QString, QVariant> mParams;
-
 };
 #endif

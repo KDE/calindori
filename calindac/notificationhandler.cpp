@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2019 Dimitris Kardarakos <dimkard@posteo.net>
+  Copyright (c) 2019-2020 Dimitris Kardarakos <dimkard@posteo.net>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -53,13 +53,12 @@ void NotificationHandler::addSuspendedNotification(const QString& uid, const QSt
 
 void NotificationHandler::sendSuspendedNotifications()
 {
-    QHash<QString, AlarmNotification*>::iterator suspItr = mSuspendedNotifications.begin();
+    auto suspItr = mSuspendedNotifications.begin();
     while(suspItr != mSuspendedNotifications.end())
     {
         if(suspItr.value()->remindAt() < mPeriod["to"].toDateTime())
         {
             qDebug() << "sendNotifications:\tSending notification for suspended alarm" <<  suspItr.value()->uid() << ", text is" << suspItr.value()->text();
-
             suspItr.value()->send();
             suspItr = mSuspendedNotifications.erase(suspItr);
        }
@@ -72,13 +71,10 @@ void NotificationHandler::sendSuspendedNotifications()
 
 void NotificationHandler::sendActiveNotifications()
 {
-    QHash<QString, AlarmNotification*>::const_iterator activeItr = mActiveNotifications.constBegin();
-    while(activeItr != mActiveNotifications.constEnd())
+    for(const auto& n: mActiveNotifications)
     {
-        qDebug() << "sendNotifications:\tSending notification for alarm" <<  activeItr.value()->uid();
-
-        activeItr.value()->send();
-        activeItr++;
+        qDebug() << "sendNotifications:\tSending notification for alarm" <<  n->uid();
+        n->send();
     }
 }
 
@@ -128,5 +124,3 @@ QHash<QString, AlarmNotification *> NotificationHandler::suspendedNotifications(
 {
     return mSuspendedNotifications;
 }
-
-

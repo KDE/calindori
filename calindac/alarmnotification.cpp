@@ -70,4 +70,3 @@ void AlarmNotification::setRemindAt(const QDateTime& remindAtDt)
 {
     mRemindAt = remindAtDt;
 }
-

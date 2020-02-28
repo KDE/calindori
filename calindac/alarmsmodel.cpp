@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *  Copyright (c) 2019-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -35,13 +35,12 @@ AlarmsModel::~AlarmsModel() = default;
 
 QHash<int, QByteArray> AlarmsModel::roleNames() const
 {
-    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles.insert(Uid, "uid");
-    roles.insert(Text, "text");
-    roles.insert(Time, "time");
-    roles.insert(IncidenceStartDt, "incidenceStartDt");
-
-    return roles;
+    return {
+        {Uid, "uid"},
+        {Text, "text"},
+        {Time, "time"},
+        {IncidenceStartDt, "incidenceStartDt"}
+    };
 }
 
 QVariant AlarmsModel::data(const QModelIndex& index, int role) const
@@ -80,15 +79,13 @@ int AlarmsModel::rowCount(const QModelIndex& parent) const
 
 void AlarmsModel::loadAlarms()
 {
-    qDebug() << "\nloadAlarms";
-
     beginResetModel();
     mAlarms.clear();
     openLoadStorages();
 
     int cnt = 0;
-    QVector<MemoryCalendar::Ptr>::const_iterator itr = mMemoryCalendars.constBegin();
-    while(itr != mMemoryCalendars.constEnd())
+
+    for(const auto& m : mMemoryCalendars)
     {
         QDateTime from = mPeriod["from"].toDateTime();
         QDateTime to = mPeriod["to"].toDateTime();
@@ -98,11 +95,11 @@ void AlarmsModel::loadAlarms()
 
         if(from.isValid() && to.isValid())
         {
-            calendarAlarms = (*itr)->alarms(from, to, true);
+            calendarAlarms = m->alarms(from, to, true);
         }
         else if(!(from.isValid()) && to.isValid())
         {
-            calendarAlarms = (*itr)->alarmsTo(to);
+            calendarAlarms = m->alarmsTo(to);
         }
 
         qDebug() << "loadAlarms:\t" << calendarAlarms.count() << "alarms found in calendar #" << cnt;
@@ -112,7 +109,6 @@ void AlarmsModel::loadAlarms()
         }
 
         ++cnt;
-        ++itr;
     }
 
     closeStorages();
@@ -124,20 +120,17 @@ void AlarmsModel::setCalendars()
     mFileStorages.clear();
     mMemoryCalendars.clear();
 
-    qDebug() << "\nsetCalendars";
-    QStringList::const_iterator itr = mCalendarFiles.constBegin();
-    while(itr != mCalendarFiles.constEnd())
+    for(const auto& cf : mCalendarFiles)
     {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
-        storage->setFileName(*itr);
+        storage->setFileName(cf);
         if(!(storage->fileName().isNull()))
         {
-            qDebug() << "setCalendars:\t"<< "Appending calendar" << *itr;
+            qDebug() << "setCalendars:\t"<< "Appending calendar" << cf;
             mFileStorages.append(storage);
             mMemoryCalendars.append(calendar);
         }
-        ++itr;
     }
 }
 
@@ -163,35 +156,23 @@ void AlarmsModel::setParams(const QHash<QString, QVariant>& parameters)
 
 void AlarmsModel::openLoadStorages()
 {
-    QVector<FileStorage::Ptr>::const_iterator itr = mFileStorages.constBegin();
-    while(itr != mFileStorages.constEnd())
+    for (const auto& fs : mFileStorages)
     {
-        if((*itr)->open())
-        {
-            qDebug() << "loadAlarms:\t" << (*itr)->fileName() << "opened";
-        }
-
-        if((*itr)->load())
-        {
-            qDebug() << "loadAlarms:\t" << (*itr)->fileName() << "loaded";
-        }
-        ++itr;
+        auto opened = fs->open();
+        qDebug() << "openLoadStorages:\t" << fs->fileName() << "opened: " << opened;
+        auto loaded = fs->load();
+        qDebug() << "openLoadStorages:\t" << fs->fileName() << "loaded: " << loaded;
     }
 }
 
 void AlarmsModel::closeStorages()
 {
-    QVector<FileStorage::Ptr>::const_iterator itr = mFileStorages.constBegin();
-    while(itr != mFileStorages.constEnd())
+    for (const auto& fs : mFileStorages)
     {
-        if((*itr)->close())
-        {
-            qDebug() << "loadAlarms:\t" << (*itr)->fileName() << "closed";
-        }
-        ++itr;
+        auto closed = fs->close();
+        qDebug() << "closeStorages:\t" << fs->fileName() << "closed: " << closed;
     }
 }
-
 
 QDateTime AlarmsModel::parentStartDt(const int idx) const
 {
@@ -212,4 +193,3 @@ QDateTime AlarmsModel::parentStartDt(const int idx) const
 
     return alarmTime;
 }
-
