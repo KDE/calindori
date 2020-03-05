@@ -1,7 +1,7 @@
 {
     "id": "org.kde.phone.calindori",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.13",
+    "runtime-version": "5.14",
     "sdk": "org.kde.Sdk",
     "command": "calindori",
     "rename-icon": "calindori",
