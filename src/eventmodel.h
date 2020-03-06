@@ -55,7 +55,9 @@ public:
         IsRepeating,
         RepeatPeriodType,
         RepeatEvery,
-        RepeatStopAfter
+        RepeatStopAfter,
+        DisplayDate,
+        DisplayTime
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

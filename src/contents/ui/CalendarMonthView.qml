@@ -98,9 +98,9 @@ Controls2.SwipeView {
             selectedDayTodosCount: cal.todosCount(selectedDate)
             selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
-     
+
             reloadSelectedDate: function() {
-                selectedDayTodosCount = cal.todosCount(root.selectedDate)                
+                selectedDayTodosCount = cal.todosCount(root.selectedDate)
                 selectedDayEventsCount = cal.eventsCount(root.selectedDate)
             }
         }

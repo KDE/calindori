@@ -17,24 +17,28 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.4 as Controls2
+import QtQuick 2.7
+import org.kde.kirigami 2.4 as Kirigami
 
-Controls2.ToolButton {
+Kirigami.Page {
     id: root
 
-    property date selectorDate
+    property var event
+    property var calendar
 
-    text: selectorDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+    title: event.summary
 
-    onClicked: {
-        datePickerSheet.selectedDate = selectorDate;
-        datePickerSheet.open();
+    actions.main:
+        Kirigami.Action {
+            text: i18n("Close")
+            icon.name: "window-close-symbolic"
+
+            onTriggered: pageStack.pop(null)
+        }
+
+    EventCard {
+        anchors.fill: parent
+        dataModel: root.event
     }
 
-    DatePickerSheet {
-        id: datePickerSheet
-
-        onDatePicked: root.selectorDate = selectedDate
-    }
 }

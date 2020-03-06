@@ -43,12 +43,21 @@ Kirigami.Action {
         iconName: "delete"
 
         onTriggered: {
-            deleteSheet.calendar = parent.text;
+            deleteSheet.calendarName = parent.text;
             deleteSheet.open();
         }
     }
 
     ConfirmationSheet {
         id: deleteSheet
+
+        property string calendarName
+        message: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
+
+        operation: function() {
+            var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + calendarName + "\"}",deleteSheet);
+            toRemoveCalendarComponent.deleteCalendar();
+            _calindoriConfig.removeCalendar(calendarName);
+        }
     }
 }

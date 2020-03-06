@@ -63,7 +63,7 @@ Kirigami.ApplicationWindow {
 //                     iconName: "view-calendar-upcoming-events"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(eventsView, {eventStartDt: ""});
+                        pageStack.push(eventsListView, {eventStartDt: ""});
                     }
                 }
             },
@@ -175,7 +175,7 @@ Kirigami.ApplicationWindow {
                         iconName: "tag-events"
                         text: i18n("Events")
 
-                        onTriggered: root.pageStack.push(eventsView, { eventStartDt: calendarMonthView.selectedDate })
+                        onTriggered: root.pageStack.push(eventsCardView, { eventStartDt: calendarMonthView.selectedDate })
                     }
                 ]
             }
@@ -210,9 +210,17 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
-        id: eventsView
+        id: eventsCardView
 
-        EventsView {
+        EventsCardView {
+            calendar: localCalendar
+        }
+    }
+
+    Component {
+        id: eventsListView
+
+        EventsListView {
             calendar: localCalendar
         }
     }

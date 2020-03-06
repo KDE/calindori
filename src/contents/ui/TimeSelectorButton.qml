@@ -45,5 +45,5 @@ Controls2.ToolButton {
             root.selectorMinutes = timePickerSheet.minutes;
             root.selectorPm = timePickerSheet.pm;
         }
-    }    
+    }
 }

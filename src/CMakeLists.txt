@@ -27,6 +27,8 @@ if(ANDROID)
         delete
         dialog-cancel
         dialog-close
+        document-edit-symbolic
+        documentinfo
         dialog-ok
         document-import
         documentinfo

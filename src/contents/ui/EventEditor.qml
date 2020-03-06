@@ -46,7 +46,7 @@ Kirigami.Page {
     property alias repeatEvery: repeatSelector.repeatEvery
     property alias repeatStopAfter: repeatSelector.stopAfter
 
-    signal editcompleted
+    signal editcompleted(var vevent)
 
     /**
      * Function taht checks that the user input is valid
@@ -249,7 +249,7 @@ Kirigami.Page {
             icon.name : "dialog-cancel"
             shortcut: "Esc"
 
-            onTriggered: editcompleted()
+            onTriggered: editcompleted(null)
         }
 
         main: Kirigami.Action {
@@ -265,7 +265,7 @@ Kirigami.Page {
                     var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startDt : root.endDt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
 
                     _eventController.addEdit(root.calendar, vevent);
-                    editcompleted();
+                    editcompleted(vevent);
                 }
                 else {
                     showPassiveNotification(validation.reason);

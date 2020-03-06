@@ -30,7 +30,7 @@ Kirigami.OverlaySheet {
     property alias minutesOffset: minutes.value
     property alias hoursOffset: hours.value
     property alias daysOffset: days.value
-    
+
     property int offset: seconds.value + minutes.value*60 + hours.value*3600 + days.value*86400
 
     signal offsetSelected
@@ -47,47 +47,47 @@ Kirigami.OverlaySheet {
 
             Kirigami.FormLayout {
             id: alarmOffsetPicker
-            
+
             Controls2.SpinBox {
                 id: seconds
-                
+
                 from: 0
                 to: 60
                 value: 0
-                
+
                 Kirigami.FormData.label: i18n("Seconds:")
-            }        
+            }
             Controls2.SpinBox {
                 id: minutes
-                
+
                 from: 0
                 to: 60
                 value: 0
-                
+
                 Kirigami.FormData.label: i18n("Minutes:")
             }
-            
+
             Controls2.SpinBox {
                 id: hours
-                
+
                 from: 0
                 to: 24
                 value: 0
-                
+
                 Kirigami.FormData.label: i18n("Hours:")
             }
-            
+
             Controls2.SpinBox {
                 id: days
-                
+
                 from: 0
                 value: 0
-                
+
                 Kirigami.FormData.label: i18n("Days:")
             }
         }
     }
-        
+
 
     footer: RowLayout {
 

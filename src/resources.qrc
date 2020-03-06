@@ -12,7 +12,7 @@
         <file alias="CalendarEditor.qml">contents/ui/CalendarEditor.qml</file>
         <file alias="CalendarAction.qml">contents/ui/CalendarAction.qml</file>
         <file alias="ConfirmationSheet.qml">contents/ui/ConfirmationSheet.qml</file>
-        <file alias="EventsView.qml">contents/ui/EventsView.qml</file>
+        <file alias="EventsCardView.qml">contents/ui/EventsCardView.qml</file>
         <file alias="EventEditor.qml">contents/ui/EventEditor.qml</file>
         <file alias="TimePickerSheet.qml">contents/ui/TimePickerSheet.qml</file>
         <file alias="DatePickerSheet.qml">contents/ui/DatePickerSheet.qml</file>
@@ -24,5 +24,8 @@
         <file alias="RecurrencePickerSheet.qml">contents/ui/RecurrencePickerSheet.qml</file>
         <file alias="DateSelectorButton.qml">contents/ui/DateSelectorButton.qml</file>
         <file alias="TimeSelectorButton.qml">contents/ui/TimeSelectorButton.qml</file>
+        <file alias="EventsListView.qml">contents/ui/EventsListView.qml</file>
+        <file alias="EventPage.qml">contents/ui/EventPage.qml</file>
+        <file alias="EventCard.qml">contents/ui/EventCard.qml</file>
     </qresource>
 </RCC>

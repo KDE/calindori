@@ -23,30 +23,30 @@ import org.kde.kirigami 2.0 as Kirigami
 import QtQuick.Layouts 1.11
 
 ColumnLayout {
-    
+
     id: root
-    
+
     property int hours
     property int minutes
     property bool pm
-        
+
     Item {
         id: clock
 
         width: Kirigami.Units.gridUnit * 18
         height: width
         Layout.alignment: Qt.AlignHCenter
-        
+
         /**
          * Hours clock
          */
         PathView {
             id: hoursClock
-            
+
             delegate: ClockElement {
                 type: "hours"
                 selectedValue: root.hours
-                onClicked: root.hours = index 
+                onClicked: root.hours = index
             }
             model: 12
             path: Path {
@@ -57,24 +57,24 @@ ColumnLayout {
                     radiusY: radiusX
                     startAngle: -90
                     sweepAngle: 360
-                }   
+                }
             }
         }
-                
-        /** 
+
+        /**
          * Minutes clock
          */
         PathView {
             id: minutesClock
-            
+
             model: 60
-            
+
             delegate: ClockElement {
                 type: "minutes"
                 selectedValue: root.minutes
-                onClicked: root.minutes = index 
+                onClicked: root.minutes = index
             }
-            
+
             path: Path {
                 PathAngleArc {
                     centerX: Kirigami.Units.gridUnit * 9
@@ -83,7 +83,7 @@ ColumnLayout {
                     radiusY: radiusX
                     startAngle: -90
                     sweepAngle: 360
-                }           
+                }
             }
         }
     }
@@ -95,7 +95,7 @@ ColumnLayout {
             text: ((root.hours < 10) ? "0" : "" ) + root.hours + ":" + ( (root.minutes < 10) ? "0" : "") + root.minutes
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
         }
-        
+
         Controls2.ToolButton {
             id: pm
 
@@ -107,5 +107,5 @@ ColumnLayout {
             onClicked: root.pm = checked
         }
     }
-    
+
 }
