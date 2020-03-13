@@ -20,7 +20,8 @@ set(calindori_SRCS
 qt5_add_resources(RESOURCES resources.qrc)
 
 add_executable(calindori ${calindori_SRCS} ${RESOURCES})
-target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg KF5::ConfigCore KF5::I18n KF5::CalendarCore)
+target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons)
+
 
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS
@@ -39,6 +40,7 @@ if(ANDROID)
         go-parent-folder
         go-previous
         go-up
+        help-about-symbolic
         list-add
         resource-calendar-insert
         tag-events
