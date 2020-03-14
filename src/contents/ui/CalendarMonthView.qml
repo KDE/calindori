@@ -94,7 +94,7 @@ Controls2.SwipeView {
 
             anchors.centerIn: parent
             displayedYear: mm.year
-            displayedMonthName: Qt.locale(Qt.locale().uiLanguages[0]).monthName(mm.month-1)
+            displayedMonthName: Qt.locale().monthName(mm.month-1)
             selectedDayTodosCount: cal.todosCount(selectedDate)
             selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
