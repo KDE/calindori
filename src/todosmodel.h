@@ -46,7 +46,10 @@ public:
         Priority,
         Created,
         Secrecy,
-        Completed
+        Completed,
+        DisplayDate,
+        DisplayTime
+
     };
 
     explicit TodosModel(QObject* parent = nullptr);

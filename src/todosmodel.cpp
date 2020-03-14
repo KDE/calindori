@@ -17,6 +17,7 @@
  */
 
 #include "todosmodel.h"
+#include <KLocalizedString>
 #include <QDebug>
 TodosModel::TodosModel(QObject* parent)
     : QAbstractListModel(parent),
@@ -45,6 +46,8 @@ QHash< int, QByteArray > TodosModel::roleNames() const
     roles.insert(Created, "created");
     roles.insert(Secrecy, "secrecy");
     roles.insert(Completed, "completed");
+    roles.insert(DisplayDate, "displayDate");
+    roles.insert(DisplayTime, "displayTime");
     return roles;
 }
 
@@ -79,6 +82,28 @@ QVariant TodosModel::data(const QModelIndex& index, int role) const
             return m_todos.at(index.row())->secrecy();
         case Completed:
             return m_todos.at(index.row())->isCompleted();
+        case DisplayDate:
+        {
+            auto startDt = m_todos.at(index.row())->dtStart();
+
+            if(startDt.isValid())
+            {
+                return m_todos.at(index.row())->dtStart().date().toString(Qt::SystemLocaleLongDate);
+            }
+
+            return "";
+        }
+        case DisplayTime:
+        {
+            auto startDt = m_todos.at(index.row())->dtStart();
+
+            if(startDt.isValid())
+            {
+                return m_todos.at(index.row())->allDay() ? i18n("All day") : m_todos.at(index.row())->dtStart().time().toString("hh:mm");
+            }
+
+            return "";
+        }
     }
     return QVariant();
 }

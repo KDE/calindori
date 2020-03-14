@@ -26,29 +26,20 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property date eventStartDt
+    property date incidenceStartDt
     property var calendar
+    property var incidenceType : ""
 
-    title: i18n("Events")
-
+    title: incidenceType == "event" ? i18n("Events") : i18n("Tasks")
     leftPadding: 0
     rightPadding: 0
 
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
-        text: i18n("Add event")
-        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? eventStartDt : new Date() })
-    }
-
-    Component {
-        id: eventEditor
-
-        EventEditor {
-            calendar: localCalendar
-
-            onEditcompleted: {
-                pageStack.pop(eventEditor);
-            }
+        text: i18n("Add")
+        onTriggered: {
+            var lStartDt = (incidenceType == "event" && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date() : incidenceStartDt;
+            pageStack.push(incidenceType == "event" ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
     }
 
@@ -56,18 +47,19 @@ Kirigami.Page {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        visible: cardsListview.count == 0
+        visible: listView.count == 0
         wrapMode: Text.WordWrap
-        text: eventStartDt.toLocaleDateString() != "" ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No events scheduled")
+        text: incidenceStartDt.toLocaleDateString() != "" ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("Nothing scheduled")
         font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
     }
 
     ListView {
-        id: cardsListview
+        id: listView
 
         anchors.fill: parent
 
-        model: eventsModel
+        model: (incidenceType == "event") ? eventsModel : todosModel
+
         section {
             property: "displayDate"
             criteria: ViewSection.FullString
@@ -86,7 +78,7 @@ Kirigami.Page {
                     icon.name: "delete"
 
                     onTriggered: {
-                        deleteSheet.event = { uid: model.uid, summary: model.summary};
+                        deleteSheet.incidence = { uid: model.uid, summary: model.summary };
                         deleteSheet.open();
                     }
                 },
@@ -95,14 +87,14 @@ Kirigami.Page {
                     text: i18n("Edit")
                     icon.name: "document-edit-symbolic"
 
-                    onTriggered: pageStack.push(eventEditor, { startDt: model.dtstart, uid: model.uid, eventData: model })
+                    onTriggered: pageStack.push(incidenceType == "event" ? eventEditor : todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 },
 
                 Kirigami.Action {
                     text: i18n("Info")
                     icon.name: "documentinfo"
 
-                    onTriggered: pageStack.push(eventPage, {event: model })
+                    onTriggered: pageStack.push(incidencePage, { incidence: model, incidenceType: root.incidenceType })
                 }
             ]
 
@@ -111,6 +103,7 @@ Kirigami.Page {
                 width: parent.width
 
                 Controls2.Label {
+                    visible: model.displayTime != ""
                     width: Kirigami.Units.gridUnit * 20
                     text: model.displayTime
                 }
@@ -128,26 +121,61 @@ Kirigami.Page {
     Calindori.EventModel {
         id: eventsModel
 
-        filterdt: root.eventStartDt
+        filterdt: root.incidenceStartDt
+        calendar: root.calendar
+    }
+
+    Calindori.TodosModel {
+        id: todosModel
+
+        filterdt: root.incidenceStartDt
         calendar: root.calendar
     }
 
     Component {
-        id: eventPage
+        id: incidencePage
 
-        EventPage {
+        IncidencePage {
             calendar: root.calendar
+        }
+    }
+
+    Component {
+        id: eventEditor
+
+        EventEditor {
+            calendar: localCalendar
+
+            onEditcompleted: pageStack.pop(eventEditor)
+        }
+    }
+
+
+    Component {
+        id: todoEditor
+
+        TodoEditor {
+            calendar: localCalendar
+
+            onEditcompleted: pageStack.pop(todoEditor)
         }
     }
 
     ConfirmationSheet {
         id: deleteSheet
 
-        property var event
-        message: i18n("Event %1 will be deleted. Proceed?", event.summary);
+        property var incidence
+        message: i18n("%1 will be deleted. Proceed?", incidence.summary || "");
 
         operation: function() {
-            _eventController.remove(root.calendar, event);
+            if(incidenceType == "event")
+            {
+                _eventController.remove(root.calendar, incidence);
+            }
+            else
+            {
+                _todoController.remove(root.calendar, incidence);
+            }
         }
     }
 

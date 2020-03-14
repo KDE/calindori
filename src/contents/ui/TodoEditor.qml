@@ -1,6 +1,5 @@
-
 /*
- *   Copyright 2018 Dimitris Kardarakos <dimkard@gmail.com>
+ *   Copyright 2018-2020 Dimitris Kardarakos <dimkard@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -27,7 +26,7 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property date startdt
+    property date startDt
     property string uid
     property alias summary: summary.text
     property alias description: description.text
@@ -38,9 +37,9 @@ Kirigami.Page {
     property alias location: location.text
     property alias completed: completed.checked
     property var calendar
-    property var todoData
+    property var incidenceData
 
-    signal taskeditcompleted
+    signal editcompleted
 
     title: uid == "" ? i18n("Add task") : i18n("Edit task")
 
@@ -49,11 +48,11 @@ Kirigami.Page {
         anchors.centerIn: parent
 
         Controls2.Label {
-            visible: root.startdt != undefined && !isNaN(root.startdt)
+            visible: root.startDt != undefined && !isNaN(root.startDt)
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: todoData && !isNaN(todoData.dtstart) ? todoData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startdt) ? root.startdt.toLocaleDateString(Qt.locale()) : "")
+            text: incidenceData && !isNaN(incidenceData.dtstart) ? incidenceData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startDt) ? root.startDt.toLocaleDateString(Qt.locale()) : "")
         }
 
         Kirigami.FormLayout {
@@ -82,20 +81,20 @@ Kirigami.Page {
 
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Summary:")
-                text: todoData ? todoData.summary : ""
+                text: incidenceData ? incidenceData.summary : ""
             }
 
             RowLayout {
                 Kirigami.FormData.label: i18n("Start time:")
-                enabled: root.startdt != undefined && !isNaN(root.startdt)
+                enabled: root.startDt != undefined && !isNaN(root.startDt)
 
                 TimeSelectorButton {
                     id: startTimeSelector
 
-                    selectorDate: root.startdt
-                    selectorHour: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.todoData ? root.todoData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.todoData && root.todoData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    selectorDate: root.startDt
+                    selectorHour: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: (root.incidenceData && root.incidenceData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
                     enabled: !allDaySelector.checked
                 }
             }
@@ -103,8 +102,8 @@ Kirigami.Page {
             Controls2.CheckBox {
                 id: allDaySelector
 
-                enabled: !isNaN(root.startdt)
-                checked: todoData ? todoData.allday: false
+                enabled: !isNaN(root.startDt)
+                checked: incidenceData ? incidenceData.allday: false
                 text: i18n("All day")
             }
 
@@ -117,7 +116,7 @@ Kirigami.Page {
 
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Location:")
-                text: todoData ? todoData.location : ""
+                text: incidenceData ? incidenceData.location : ""
             }
 
         }
@@ -135,7 +134,7 @@ Kirigami.Page {
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
             Layout.maximumWidth: todoCard.width
             wrapMode: Text.WrapAnywhere
-            text: todoData ? todoData.description : ""
+            text: incidenceData ? incidenceData.description : ""
             placeholderText: i18n("Description")
         }
 
@@ -147,7 +146,7 @@ Kirigami.Page {
             id: completed
 
             text: i18n("Completed")
-            checked: todoData ? todoData.completed: false
+            checked: incidenceData ? incidenceData.completed: false
         }
     }
 
@@ -160,7 +159,7 @@ Kirigami.Page {
             shortcut: "Esc"
 
             onTriggered: {
-                taskeditcompleted();
+                editcompleted();
             }
         }
 
@@ -171,9 +170,9 @@ Kirigami.Page {
 
             onTriggered: {
                 console.log("Saving task");
-                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startdt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed};
+                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed };
                 _todoController.addEdit(root.calendar, vtodo);
-                taskeditcompleted();
+                editcompleted();
             }
         }
     }

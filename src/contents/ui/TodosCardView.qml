@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *   Copyright 2018-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -34,7 +34,7 @@ Kirigami.Page {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: i18n("Add task")
-        onTriggered: pageStack.push(todoEditor, {startdt: todoDt})
+        onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
     }
 
     leftPadding: 0
@@ -45,7 +45,7 @@ Kirigami.Page {
         TodoEditor {
             calendar: localCalendar
 
-            onTaskeditcompleted: pageStack.pop(todoEditor)
+            onEditcompleted: pageStack.pop(todoEditor)
         }
     }
 
@@ -66,11 +66,10 @@ Kirigami.Page {
 
         model: todosModel
 
-        delegate: Kirigami.Card {
+        delegate: TodoCard {
             id: cardDelegate
 
-            banner.title: model.summary
-            banner.titleLevel: 3
+            dataModel: model
 
             actions: [
                 Kirigami.Action {
@@ -87,56 +86,9 @@ Kirigami.Page {
                     text: i18n("Edit")
                     icon.name: "editor"
 
-                    onTriggered: pageStack.push(todoEditor, { startdt: model.dtstart, uid: model.uid, todoData: model })
+                    onTriggered: pageStack.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
-
-            contentItem: Column {
-                enabled: !model.completed
-                spacing: Kirigami.Units.largeSpacing
-                topPadding: 0
-                bottomPadding: Kirigami.Units.largeSpacing
-
-                Row {
-                    visible: model.dtstart && !isNaN(model.dtstart)
-                    width: cardDelegate.availableWidth
-                    spacing: Kirigami.Units.smallSpacing
-
-                    Kirigami.Icon {
-                        source: "view-calendar-day"
-                        width: Kirigami.Units.iconSizes.small
-                        height: width
-                    }
-
-                    Controls2.Label {
-                        wrapMode: Text.WordWrap
-                        text: (model.dtstart && !isNaN(model.dtstart)) ? model.dtstart.toLocaleString(Qt.locale(), model.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
-                    }
-                }
-
-                Row {
-                    visible: model.location != ""
-                    width: cardDelegate.availableWidth
-                    spacing: Kirigami.Units.smallSpacing
-
-                    Kirigami.Icon {
-                        source: "find-location"
-                        width: Kirigami.Units.iconSizes.small
-                        height: width
-                    }
-
-                    Controls2.Label {
-                        wrapMode: Text.WordWrap
-                        text: model.location
-                    }
-                }
-
-                Controls2.Label {
-                    width: cardDelegate.availableWidth
-                    wrapMode: Text.WordWrap
-                    text: model.description
-                }
-            }
         }
     }
 

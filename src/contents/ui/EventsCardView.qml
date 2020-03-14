@@ -88,7 +88,7 @@ Kirigami.Page {
                     text: i18n("Edit")
                     icon.name: "editor"
 
-                    onTriggered: pageStack.push(eventEditor, { startDt: model.dtstart, uid: model.uid, eventData: model })
+                    onTriggered: pageStack.push(eventEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
         }

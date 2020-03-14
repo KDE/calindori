@@ -23,10 +23,11 @@ import org.kde.kirigami 2.4 as Kirigami
 Kirigami.Page {
     id: root
 
-    property var event
+    property var incidence
     property var calendar
+    property string incidenceType : ""
 
-    title: event.summary
+    title: incidence.summary
 
     actions.main:
         Kirigami.Action {
@@ -36,9 +37,24 @@ Kirigami.Page {
             onTriggered: pageStack.pop(null)
         }
 
-    EventCard {
+    Loader {
         anchors.fill: parent
-        dataModel: root.event
+        sourceComponent: incidenceType == "event" ? eventCard : todoCard
     }
 
+    Component {
+        id: eventCard
+
+        EventCard {
+            dataModel: root.incidence
+        }
+    }
+
+    Component {
+        id: todoCard
+
+        TodoCard {
+            dataModel: root.incidence
+        }
+    }
 }

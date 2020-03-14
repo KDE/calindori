@@ -1,6 +1,5 @@
-
 /*
- *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *   Copyright 2018-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -37,7 +36,7 @@ Kirigami.Page {
     property alias allDay: allDaySelector.checked
     property alias location: location.text
     property var calendar
-    property var eventData
+    property var incidenceData
     property alias endDt: endDateSelector.selectorDate
     property alias endHour: endTimeSelector.selectorHour
     property alias endMinute: endTimeSelector.selectorMinutes
@@ -98,7 +97,7 @@ Kirigami.Page {
 
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Summary:")
-                text: eventData ? eventData.summary : ""
+                text: incidenceData ? incidenceData.summary : ""
 
             }
 
@@ -114,9 +113,9 @@ Kirigami.Page {
                     id: startTimeSelector
 
                     selectorDate: root.startDt
-                    selectorHour: root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.eventData ? root.eventData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.eventData && root.eventData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    selectorHour: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: (root.incidenceData && root.incidenceData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
                     enabled: !allDaySelector.checked
                 }
             }
@@ -130,16 +129,16 @@ Kirigami.Page {
 
                     enabled: !allDaySelector.checked
 
-                    Component.onCompleted: selectorDate = root.eventData ? root.eventData.dtend : root.startDt // Do not bind, just initialize
+                    Component.onCompleted: selectorDate = root.incidenceData ? root.incidenceData.dtend : root.startDt // Do not bind, just initialize
                 }
 
                 TimeSelectorButton {
                     id: endTimeSelector
 
                     selectorDate: root.endDt
-                    selectorHour: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.eventData ? root.eventData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.eventData && root.eventData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    selectorHour: root.incidenceData ? root.incidenceData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: root.incidenceData ? root.incidenceData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: (root.incidenceData && root.incidenceData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
                     enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
                 }
             }
@@ -148,7 +147,7 @@ Kirigami.Page {
                 id: allDaySelector
 
                 enabled: !isNaN(root.startDt)
-                checked: eventData ? eventData.allday: false
+                checked: incidenceData ? incidenceData.allday: false
                 text: i18n("All day")
             }
 
@@ -161,16 +160,16 @@ Kirigami.Page {
 
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Location:")
-                text: eventData ? eventData.location : ""
+                text: incidenceData ? incidenceData.location : ""
             }
 
             Controls2.ToolButton {
                 id: repeatSelector
 
-                property int repeatType: eventData != null && eventData.isRepeating ? eventData.repeatType : _repeatModel.noRepeat
-                property int repeatEvery: eventData != null && eventData.isRepeating ? eventData.repeatEvery : 1
+                property int repeatType: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatType : _repeatModel.noRepeat
+                property int repeatEvery: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatEvery : 1
                 property string repeatDescription: _repeatModel.periodDecription(repeatType)
-                property int stopAfter: eventData != null && eventData.isRepeating ? eventData.repeatStopAfter: -1
+                property int stopAfter: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatStopAfter: -1
 
                 text: _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
                 Kirigami.FormData.label: i18n("Repeat:")
@@ -191,7 +190,7 @@ Kirigami.Page {
             Layout.minimumHeight: Kirigami.Units.gridUnit * 4
             Layout.maximumWidth: eventCard.width
             wrapMode: Text.WrapAnywhere
-            text: eventData ? eventData.description : ""
+            text: incidenceData ? incidenceData.description : ""
             placeholderText: i18n("Description")
         }
 

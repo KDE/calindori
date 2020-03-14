@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *   Copyright 2018-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -54,7 +54,7 @@ Kirigami.ApplicationWindow {
 //                     iconName: "view-calendar-tasks"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(todosView, { todoDt: _nullDate });
+                        pageStack.push(incdidenceListView, { incidenceStartDt: _nullDate, incidenceType: "todo" });
                     }
                 }
 
@@ -63,7 +63,7 @@ Kirigami.ApplicationWindow {
 //                     iconName: "view-calendar-upcoming-events"
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(eventsListView, {eventStartDt: ""});
+                        pageStack.push(incdidenceListView, {incidenceStartDt: "", incidenceType: "event"});
                     }
                 }
             },
@@ -210,8 +210,7 @@ Kirigami.ApplicationWindow {
     Component {
         id: todosView
 
-        TodosView {
-
+        TodosCardView {
             calendar: localCalendar
         }
     }
@@ -225,9 +224,9 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
-        id: eventsListView
+        id: incdidenceListView
 
-        EventsListView {
+        IncidenceListView {
             calendar: localCalendar
         }
     }
