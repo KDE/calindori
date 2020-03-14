@@ -115,7 +115,7 @@ Item {
                         Controls2.Label {
                             anchors.centerIn: parent
                             color: Kirigami.Theme.textColor
-                            text: Qt.locale(Qt.locale().uiLanguages[0]).dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat)
+                            text: Qt.locale().dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat)
                         }
                 }
             }
