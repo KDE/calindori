@@ -32,14 +32,14 @@ Kirigami.Action {
     visible: _calindoriConfig.activeCalendar != text
 
     Kirigami.Action {
-        text: "Activate"
+        text: "Activate calendar"
         iconName: "dialog-ok"
 
         onTriggered: _calindoriConfig.activeCalendar = parent.text
     }
 
     Kirigami.Action {
-        text: "Delete"
+        text: "Delete calendar"
         iconName: "delete"
 
         onTriggered: {

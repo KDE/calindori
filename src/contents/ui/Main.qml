@@ -58,7 +58,7 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: i18n("Tasks")
+                    text: i18n("All Tasks")
 
                     onTriggered: {
                         pageStack.clear();
@@ -67,7 +67,7 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: i18n("Events")
+                    text: i18n("All Events")
 
                     onTriggered: {
                         pageStack.clear();
@@ -85,7 +85,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 id: calendarManagement
 
-                text: i18n("Manage")
+                text: i18n("Calendar Management")
                 iconName: "view-calendar"
 
                 children: [calendarCreateAction, calendarImportAction, actionSeparator]
@@ -318,7 +318,7 @@ Kirigami.ApplicationWindow {
     Kirigami.Action {
         id: calendarCreateAction
 
-        text: i18n("Create")
+        text: i18n("New calendar")
         iconName: "list-add"
         onTriggered: root.pageStack.push(calendarEditor, {mode: "add"})
     }
@@ -326,7 +326,7 @@ Kirigami.ApplicationWindow {
     Kirigami.Action {
         id: calendarImportAction
 
-        text: i18n("Import")
+        text: i18n("Import calendar")
         iconName: "document-import"
 
         onTriggered: root.pageStack.push(calendarEditor, {mode: "import"})
