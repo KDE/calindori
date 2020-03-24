@@ -48,6 +48,7 @@ QHash< int, QByteArray > TodosModel::roleNames() const
     roles.insert(Completed, "completed");
     roles.insert(DisplayDate, "displayDate");
     roles.insert(DisplayTime, "displayTime");
+    roles.insert(IncidenceType, "type");
     return roles;
 }
 
@@ -104,6 +105,8 @@ QVariant TodosModel::data(const QModelIndex& index, int role) const
 
             return "";
         }
+        case IncidenceType:
+            return m_todos.at(index.row())->type();
     }
     return QVariant();
 }

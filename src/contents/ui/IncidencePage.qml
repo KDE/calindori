@@ -25,21 +25,12 @@ Kirigami.Page {
 
     property var incidence
     property var calendar
-    property string incidenceType : ""
 
     title: incidence.summary
 
-    actions.main:
-        Kirigami.Action {
-            text: i18n("Close")
-            icon.name: "window-close-symbolic"
-
-            onTriggered: pageStack.pop(null)
-        }
-
     Loader {
         anchors.fill: parent
-        sourceComponent: incidenceType == "event" ? eventCard : todoCard
+        sourceComponent: incidence.type == 0 ? eventCard : todoCard
     }
 
     Component {

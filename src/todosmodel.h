@@ -48,8 +48,8 @@ public:
         Secrecy,
         Completed,
         DisplayDate,
-        DisplayTime
-
+        DisplayTime,
+        IncidenceType
     };
 
     explicit TodosModel(QObject* parent = nullptr);

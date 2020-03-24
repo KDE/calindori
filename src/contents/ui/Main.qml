@@ -41,7 +41,6 @@ Kirigami.ApplicationWindow {
 
                 Kirigami.Action {
                     text: i18n("Month")
-//                     iconName: "view-calendar-day"
 
                     onTriggered: {
                         pageStack.clear();
@@ -50,20 +49,29 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
-                    text: i18n("Tasks")
-//                     iconName: "view-calendar-tasks"
+                    text: i18n("Day")
+
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(incdidenceListView, { incidenceStartDt: _nullDate, incidenceType: "todo" });
+                        pageStack.push(dayDashboardComponent);
+                    }
+                }
+
+                Kirigami.Action {
+                    text: i18n("Tasks")
+
+                    onTriggered: {
+                        pageStack.clear();
+                        pageStack.push(incdidenceListView, { incidenceStartDt: _nullDate, incidenceType: 1 });
                     }
                 }
 
                 Kirigami.Action {
                     text: i18n("Events")
-//                     iconName: "view-calendar-upcoming-events"
+
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(incdidenceListView, {incidenceStartDt: "", incidenceType: "event"});
+                        pageStack.push(incdidenceListView, { incidenceStartDt: "", incidenceType: 0 });
                     }
                 }
             },
@@ -197,6 +205,64 @@ Kirigami.ApplicationWindow {
                 showHeader: true
                 showMonthName: false
                 showYear: false
+
+                onSelectedDateChanged: {
+                    if (root.pageStack.depth > 1) {
+                        root.pageStack.pop(null);
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: dayDashboardComponent
+
+        Kirigami.Page {
+            title: dayView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
+
+            actions {
+                left: Kirigami.Action {
+                    iconName: "go-down"
+                    text: i18n("Previous day")
+
+                    onTriggered: dayView.previousDay()
+                }
+
+                main: Kirigami.Action {
+                    iconName: "view-calendar-day"
+                    text: i18n("Today")
+
+                    onTriggered: dayView.goToday()
+                }
+
+                right: Kirigami.Action {
+                    iconName: "go-up"
+                    text: i18n("Next day")
+
+                    onTriggered: dayView.nextDay()
+                }
+
+                contextualActions: [
+                    Kirigami.Action {
+                        icon.name: "tag-events"
+                        text: i18n("Add Event")
+                        onTriggered: dayView.addEvent()
+                    },
+
+                    Kirigami.Action {
+                        icon.name: "view-calendar-tasks"
+                        text: i18n("Add Task")
+                        onTriggered: dayView.addTodo()
+                    }
+                ]
+            }
+
+            DayView {
+                id: dayView
+
+                cal: localCalendar
+                anchors.fill: parent
 
                 onSelectedDateChanged: {
                     if (root.pageStack.depth > 1) {

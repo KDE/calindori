@@ -28,9 +28,9 @@ Kirigami.Page {
 
     property date incidenceStartDt
     property var calendar
-    property var incidenceType : ""
+    property int incidenceType : -1
 
-    title: incidenceType == "event" ? i18n("Events") : i18n("Tasks")
+    title: incidenceType == 0 ? i18n("Events") : i18n("Tasks")
     leftPadding: 0
     rightPadding: 0
 
@@ -38,8 +38,8 @@ Kirigami.Page {
         icon.name: "resource-calendar-insert"
         text: i18n("Add")
         onTriggered: {
-            var lStartDt = (incidenceType == "event" && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date() : incidenceStartDt;
-            pageStack.push(incidenceType == "event" ? eventEditor : todoEditor, { startDt: lStartDt } );
+            var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date() : incidenceStartDt;
+            pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
     }
 
@@ -58,7 +58,7 @@ Kirigami.Page {
 
         anchors.fill: parent
 
-        model: (incidenceType == "event") ? eventsModel : todosModel
+        model: (incidenceType == 0 ) ? eventsModel : todosModel
 
         section {
             property: "displayDate"
@@ -87,14 +87,14 @@ Kirigami.Page {
                     text: i18n("Edit")
                     icon.name: "document-edit-symbolic"
 
-                    onTriggered: pageStack.push(incidenceType == "event" ? eventEditor : todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
+                    onTriggered: pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 },
 
                 Kirigami.Action {
                     text: i18n("Info")
                     icon.name: "documentinfo"
 
-                    onTriggered: pageStack.push(incidencePage, { incidence: model, incidenceType: root.incidenceType })
+                    onTriggered: pageStack.push(incidencePage, { incidence: model })
                 }
             ]
 
@@ -137,6 +137,14 @@ Kirigami.Page {
 
         IncidencePage {
             calendar: root.calendar
+
+            actions.main:
+                Kirigami.Action {
+                    text: i18n("Close")
+                    icon.name: "window-close-symbolic"
+
+                    onTriggered: pageStack.pop(null)
+                }
         }
     }
 
@@ -168,7 +176,7 @@ Kirigami.Page {
         message: i18n("%1 will be deleted. Proceed?", incidence.summary || "");
 
         operation: function() {
-            if(incidenceType == "event")
+            if(incidenceType == 0)
             {
                 _eventController.remove(root.calendar, incidence);
             }

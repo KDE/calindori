@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Dimitris Kardarakos
+ * Copyright (C) 2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -16,26 +16,28 @@
  *
  */
 
-#ifndef EVENTMODEL_H
-#define EVENTMODEL_H
+#ifndef INCIDENCE_MODEL_H
+#define INCIDENCE_MODEL_H
 
 #include <QAbstractListModel>
+#include <KCalendarCore/Incidence>
 #include <KCalendarCore/Event>
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Todo>
 #include "localcalendar.h"
 
 using namespace KCalendarCore;
 
-class EventModel : public QAbstractListModel
+class IncidenceModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(QDate filterdt READ filterdt WRITE setFilterdt NOTIFY filterdtChanged)
+    Q_PROPERTY(QDate filterDt READ filterDt WRITE setFilterDt NOTIFY filterDtChanged)
+    Q_PROPERTY(int filterHour READ filterHour WRITE setFilterHour NOTIFY filterHourChanged)
     Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 
 public:
-    explicit EventModel(QObject* parent = nullptr);
-    ~EventModel() override;
+    explicit IncidenceModel(QObject* parent = nullptr);
+    ~IncidenceModel() override;
 
     enum Roles
     {
@@ -51,13 +53,13 @@ public:
         Created,
         Secrecy,
         EndDate,
-        Transparency,
         IsRepeating,
         RepeatPeriodType,
         RepeatEvery,
         RepeatStopAfter,
         DisplayDate,
         DisplayTime,
+        Completed,
         IncidenceType
     };
 
@@ -65,20 +67,20 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QDate filterdt() const;
-    void setFilterdt(const QDate & filterDate);
+    QDate filterDt() const;
+    void setFilterDt(const QDate & filterDate);
+
+    int filterHour() const;
+    void setFilterHour(const int hour);
 
     LocalCalendar *calendar() const;
     void setCalendar(LocalCalendar *calendarPtr);
 
-public Q_SLOTS:
-    void loadEvents();
-
 
 Q_SIGNALS:
-    void filterdtChanged();
+    void filterDtChanged();
+    void filterHourChanged();
     void calendarChanged();
-    void rowCountChanged();
 
 private:
     /**
@@ -99,9 +101,13 @@ private:
      */
     ushort repeatPeriodType(const int idx) const;
 
-    Event::List m_events;
-    QDate m_filterdt;
+    void loadIncidences();
+    Incidence::List mergedHourList(const Event::List & eventList, const Todo::List & todoList);
+
+    QDate m_filter_dt;
+    int m_filter_hour;
     LocalCalendar *m_calendar;
+    Incidence::List m_incidences;
 };
 
-#endif //EVENTMODEL_H
+#endif //INCIDENCE_MODEL_H

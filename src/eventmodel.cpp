@@ -80,6 +80,7 @@ QHash<int, QByteArray> EventModel::roleNames() const
     roles.insert(IsRepeating, "isRepeating");
     roles.insert(DisplayDate, "displayDate");
     roles.insert(DisplayTime, "displayTime");
+    roles.insert(IncidenceType, "type");
     return roles;
 }
 
@@ -128,6 +129,8 @@ QVariant EventModel::data(const QModelIndex& index, int role) const
             return m_events.at(index.row())->dtStart().date().toString(Qt::SystemLocaleLongDate);
         case DisplayTime:
             return m_events.at(index.row())->allDay() ? i18n("All day") : m_events.at(index.row())->dtStart().time().toString("hh:mm");
+        case IncidenceType:
+            return m_events.at(index.row())->type();
         default:
             return QVariant();
     }

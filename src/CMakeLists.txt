@@ -15,6 +15,7 @@ set(calindori_SRCS
     daysofmonthmodel.cpp
     recurrenceperiodmodel.cpp
     daysofmonthincidencemodel.cpp
+    incidencemodel.cpp
     )
 
 qt5_add_resources(RESOURCES resources.qrc)
