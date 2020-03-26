@@ -27,9 +27,7 @@
 #include <KLocalizedString>
 
 #include "calindoriconfig.h"
-#include "todosmodel.h"
 #include "localcalendar.h"
-#include "eventmodel.h"
 #include "eventcontroller.h"
 #include "todocontroller.h"
 #include "incidencealarmsmodel.h"
@@ -68,9 +66,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication::setApplicationVersion(aboutData.version());
 
     qmlRegisterType<CalindoriConfig>("org.kde.phone.calindori", 0, 1, "CalindoriConfig");
-    qmlRegisterType<TodosModel>("org.kde.phone.calindori", 0, 1, "TodosModel");
     qmlRegisterType<LocalCalendar>("org.kde.phone.calindori", 0, 1, "LocalCalendar");
-    qmlRegisterType<EventModel>("org.kde.phone.calindori", 0, 1, "EventModel");
     qmlRegisterType<EventController>("org.kde.phone.calindori",0,1,"EventController");
     qmlRegisterType<TodoController>("org.kde.phone.calindori",0,1,"TodoController");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
@@ -93,8 +89,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     CalindoriConfig calindoriConfig;
     engine.rootContext()->setContextProperty(QStringLiteral("_calindoriConfig"), &calindoriConfig);
-
-    engine.rootContext()->setContextProperty(QStringLiteral("_nullDate"), QDateTime());
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(aboutData));
 

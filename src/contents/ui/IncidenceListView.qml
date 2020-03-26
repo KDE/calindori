@@ -29,6 +29,7 @@ Kirigami.Page {
     property date incidenceStartDt
     property var calendar
     property int incidenceType : -1
+    property int filterMode: 0
 
     title: incidenceType == 0 ? i18n("Events") : i18n("Tasks")
     leftPadding: 0
@@ -58,7 +59,7 @@ Kirigami.Page {
 
         anchors.fill: parent
 
-        model: (incidenceType == 0 ) ? eventsModel : todosModel
+        model: incidenceModel
 
         section {
             property: "displayDate"
@@ -68,68 +69,21 @@ Kirigami.Page {
             }
         }
 
-        delegate: Kirigami.SwipeListItem {
+        delegate: Kirigami.BasicListItem {
             id: itemDelegate
+            
+            reserveSpaceForIcon: false
+            label: "%1\t%2".arg(model.displayTime).arg(model.summary)
 
-            actions: [
-
-                Kirigami.Action {
-                    text: i18n("Delete")
-                    icon.name: "delete"
-
-                    onTriggered: {
-                        deleteSheet.incidence = { uid: model.uid, summary: model.summary };
-                        deleteSheet.open();
-                    }
-                },
-
-                Kirigami.Action {
-                    text: i18n("Edit")
-                    icon.name: "document-edit-symbolic"
-
-                    onTriggered: pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
-                },
-
-                Kirigami.Action {
-                    text: i18n("Info")
-                    icon.name: "documentinfo"
-
-                    onTriggered: pageStack.push(incidencePage, { incidence: model })
-                }
-            ]
-
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing * 2
-                width: parent.width
-
-                Controls2.Label {
-                    visible: model.displayTime != ""
-                    width: Kirigami.Units.gridUnit * 20
-                    text: model.displayTime
-                }
-
-                Controls2.Label {
-                    visible: model.summary != ""
-                    elide: Text.ElideRight
-                    text: model.summary
-                    Layout.fillWidth: true
-                }
-            }
+            onClicked: pageStack.push(incidencePage, { incidence: model })
         }
     }
 
-    Calindori.EventModel {
-        id: eventsModel
+    Calindori.IncidenceModel {
+        id: incidenceModel
 
-        filterdt: root.incidenceStartDt
         calendar: root.calendar
-    }
-
-    Calindori.TodosModel {
-        id: todosModel
-
-        filterdt: root.incidenceStartDt
-        calendar: root.calendar
+        filterMode: root.filterMode
     }
 
     Component {
@@ -138,13 +92,29 @@ Kirigami.Page {
         IncidencePage {
             calendar: root.calendar
 
-            actions.main:
-                Kirigami.Action {
-                    text: i18n("Close")
-                    icon.name: "window-close-symbolic"
+            actions.left: Kirigami.Action {
+                text: i18n("Delete")
+                icon.name: "delete"
 
-                    onTriggered: pageStack.pop(null)
+                onTriggered: {
+                    deleteSheet.incidenceData = { uid: incidence.uid, summary: incidence.summary, type: incidence.type };
+                    deleteSheet.open();
                 }
+            }
+
+            actions.main: Kirigami.Action {
+                text: i18n("Close")
+                icon.name: "window-close-symbolic"
+
+                onTriggered: pageStack.pop(null)
+            }
+
+            actions.right: Kirigami.Action {
+                text: i18n("Edit")
+                icon.name: "document-edit-symbolic"
+
+                onTriggered: pageStack.push(incidence.type == 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
+            }
         }
     }
 
@@ -154,7 +124,10 @@ Kirigami.Page {
         EventEditor {
             calendar: localCalendar
 
-            onEditcompleted: pageStack.pop(eventEditor)
+            onEditcompleted: {
+                pageStack.pop(eventEditor);
+                pageStack.flickBack();
+            }
         }
     }
 
@@ -165,25 +138,29 @@ Kirigami.Page {
         TodoEditor {
             calendar: localCalendar
 
-            onEditcompleted: pageStack.pop(todoEditor)
+            onEditcompleted: {
+                pageStack.pop(todoEditor)
+                pageStack.flickBack();
+            }
         }
     }
 
     ConfirmationSheet {
         id: deleteSheet
 
-        property var incidence
-        message: i18n("%1 will be deleted. Proceed?", incidence.summary || "");
+        property var incidenceData
+        message: i18n("%1 will be deleted. Proceed?", incidenceData.summary || "");
 
         operation: function() {
             if(incidenceType == 0)
             {
-                _eventController.remove(root.calendar, incidence);
+                _eventController.remove(root.calendar, incidenceData);
             }
             else
             {
-                _todoController.remove(root.calendar, incidence);
+                _todoController.remove(root.calendar, incidenceData);
             }
+            pageStack.pop(incidencePage);
         }
     }
 

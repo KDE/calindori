@@ -94,11 +94,12 @@ Kirigami.Page {
         }
     }
 
-    Calindori.EventModel {
+    Calindori.IncidenceModel {
         id: eventsModel
 
-        filterdt: root.eventStartDt
+        filterDt: root.eventStartDt
         calendar: root.calendar
+        filterMode: 5
     }
 
 }

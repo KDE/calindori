@@ -62,7 +62,7 @@ Kirigami.ApplicationWindow {
 
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(incdidenceListView, { incidenceStartDt: _nullDate, incidenceType: 1 });
+                        pageStack.push(incdidenceListView, { incidenceType: 1, filterMode: 9 });
                     }
                 }
 
@@ -71,7 +71,7 @@ Kirigami.ApplicationWindow {
 
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(incdidenceListView, { incidenceStartDt: "", incidenceType: 0 });
+                        pageStack.push(incdidenceListView, { incidenceType: 0, filterMode: 8 });
                     }
                 }
             },

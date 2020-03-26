@@ -6,9 +6,7 @@ endif()
 set(calindori_SRCS
     main.cpp
     calindoriconfig.cpp
-    todosmodel.cpp
     localcalendar.cpp
-    eventmodel.cpp
     eventcontroller.cpp
     todocontroller.cpp
     incidencealarmsmodel.cpp

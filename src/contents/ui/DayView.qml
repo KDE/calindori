@@ -80,6 +80,7 @@ ListView {
                         calendar: root.cal
                         filterDt: root.selectedDate
                         filterHour: hourListItem.hour
+                        filterMode: 1
                     }
 
                     Kirigami.BasicListItem  {

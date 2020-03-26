@@ -31,6 +31,7 @@ class IncidenceModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY(int filterMode READ filterMode WRITE setFilterMode NOTIFY filterModeChanged)
     Q_PROPERTY(QDate filterDt READ filterDt WRITE setFilterDt NOTIFY filterDtChanged)
     Q_PROPERTY(int filterHour READ filterHour WRITE setFilterHour NOTIFY filterHourChanged)
     Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
@@ -38,6 +39,19 @@ class IncidenceModel : public QAbstractListModel
 public:
     explicit IncidenceModel(QObject* parent = nullptr);
     ~IncidenceModel() override;
+
+    enum FilterModes {
+        Invalid = 0,
+        HourIncidences,
+        HourEvents,
+        HourTodos,
+        DayIncidences,
+        DayEvents,
+        DayTodos,
+        AllIncidences,
+        AllEvents,
+        AllTodos
+    };
 
     enum Roles
     {
@@ -73,6 +87,9 @@ public:
     int filterHour() const;
     void setFilterHour(const int hour);
 
+    int filterMode() const;
+    void setFilterMode(const int mode);
+
     LocalCalendar *calendar() const;
     void setCalendar(LocalCalendar *calendarPtr);
 
@@ -81,6 +98,7 @@ Q_SIGNALS:
     void filterDtChanged();
     void filterHourChanged();
     void calendarChanged();
+    void filterModeChanged();
 
 private:
     /**
@@ -102,8 +120,20 @@ private:
     ushort repeatPeriodType(const int idx) const;
 
     void loadIncidences();
-    Incidence::List mergedHourList(const Event::List & eventList, const Todo::List & todoList);
+    Incidence::List hourIncidences() const;
+    Incidence::List hourEvents() const;
+    Incidence::List hourTodos() const;
+    Incidence::List dayIncidences() const;
+    Incidence::List dayEvents() const;
+    Incidence::List dayTodos() const;
+    Incidence::List allIncidences() const;
+    Incidence::List allEvents() const;
+    Incidence::List allTodos() const;
+    Incidence::List toIncidences(const Event::List & eventList) const;
+    Incidence::List toIncidences(const Todo::List & todoList) const;
+    Incidence::List toIncidences(const Event::List & eventList, const Todo::List & todoList) const;
 
+    int m_filter_mode;
     QDate m_filter_dt;
     int m_filter_hour;
     LocalCalendar *m_calendar;

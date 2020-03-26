@@ -92,10 +92,11 @@ Kirigami.Page {
         }
     }
 
-    Calindori.TodosModel {
+    Calindori.IncidenceModel {
         id: todosModel
 
-        filterdt: root.todoDt
+        filterDt: root.todoDt
         calendar: root.calendar
+        filterMode: 6
     }
 }
