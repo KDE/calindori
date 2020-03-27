@@ -58,6 +58,15 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Action {
+                    text: i18n("Week")
+
+                    onTriggered: {
+                        pageStack.clear();
+                        pageStack.push(weekDashboardComponent, { startDate: new Date() } );
+                    }
+                }
+
+                Kirigami.Action {
                     text: i18n("All Tasks")
 
                     onTriggered: {
@@ -265,6 +274,66 @@ Kirigami.ApplicationWindow {
                 anchors.fill: parent
 
                 onSelectedDateChanged: {
+                    if (root.pageStack.depth > 1) {
+                        root.pageStack.pop(null);
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: weekDashboardComponent
+
+        Kirigami.Page {
+            property alias startDate: weekView.startDate
+
+            title: weekView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
+
+            actions {
+                left: Kirigami.Action {
+                    iconName: "go-down"
+                    text: i18n("Previous week")
+
+                    onTriggered: weekView.previousWeek()
+                }
+
+                main: Kirigami.Action {
+                    iconName: "view-calendar-day"
+                    text: i18n("Current week")
+
+                    onTriggered: weekView.goCurrentWeek()
+                }
+
+                right: Kirigami.Action {
+                    iconName: "go-up"
+                    text: i18n("Next week")
+
+                    onTriggered: weekView.nextWeek()
+                }
+
+                contextualActions: [
+                    Kirigami.Action {
+                        icon.name: "tag-events"
+                        text: i18n("Add Event")
+                        onTriggered: weekView.addEvent()
+                    },
+
+                    Kirigami.Action {
+                        icon.name: "view-calendar-tasks"
+                        text: i18n("Add Task")
+                        onTriggered: weekView.addTodo()
+                    }
+                ]
+            }
+
+            WeekView {
+                id: weekView
+
+                cal: localCalendar
+                anchors.fill: parent
+
+                onSelectedWeekDateChanged: {
                     if (root.pageStack.depth > 1) {
                         root.pageStack.pop(null);
                     }

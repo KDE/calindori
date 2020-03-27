@@ -29,5 +29,6 @@
         <file alias="EventCard.qml">contents/ui/EventCard.qml</file>
         <file alias="TodoCard.qml">contents/ui/TodoCard.qml</file>
         <file alias="DayView.qml">contents/ui/DayView.qml</file>
+        <file alias="WeekView.qml">contents/ui/WeekView.qml</file>
     </qresource>
 </RCC>

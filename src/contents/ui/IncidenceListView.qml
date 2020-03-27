@@ -71,7 +71,7 @@ Kirigami.Page {
 
         delegate: Kirigami.BasicListItem {
             id: itemDelegate
-            
+
             reserveSpaceForIcon: false
             label: "%1\t%2".arg(model.displayTime).arg(model.summary)
 
