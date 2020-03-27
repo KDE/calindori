@@ -18,9 +18,7 @@
  */
 
 import QtQuick 2.1
-import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.6 as Kirigami
-import QtQuick.Controls 2.4 as Controls2
 import org.kde.phone.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
@@ -30,7 +28,6 @@ Kirigami.ApplicationWindow {
         id: drawer
 
         title: _calindoriConfig.activeCalendar
-//         titleIcon: "view-calendar"
         actions: [
             Kirigami.Action {
                 id: show
@@ -44,7 +41,7 @@ Kirigami.ApplicationWindow {
 
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(calendarDashboardComponent);
+                        pageStack.push(calendarMonthPage);
                     }
                 }
 
@@ -53,7 +50,7 @@ Kirigami.ApplicationWindow {
 
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(dayDashboardComponent);
+                        pageStack.push(dayPage);
                     }
                 }
 
@@ -62,7 +59,7 @@ Kirigami.ApplicationWindow {
 
                     onTriggered: {
                         pageStack.clear();
-                        pageStack.push(weekDashboardComponent, { startDate: new Date() } );
+                        pageStack.push(weekPage, { startDate: new Date() } );
                     }
                 }
 
@@ -138,7 +135,7 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack {
-        initialPage: [calendarDashboardComponent]
+        initialPage: [calendarMonthPage]
         separatorVisible: false
     }
 
@@ -156,190 +153,21 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
-        id: calendarDashboardComponent
+        id: calendarMonthPage
 
-
-        Kirigami.Page {
-
-            property alias selectedDate: calendarMonthView.selectedDate
-
-            title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
-
-            actions {
-                left: Kirigami.Action {
-                    iconName: "go-down"
-                    text: i18n("Previous month")
-
-                    onTriggered: calendarMonthView.previousMonth()
-                }
-
-                main: Kirigami.Action {
-                    iconName: "view-calendar-day"
-                    text: i18n("Today")
-
-                    onTriggered: calendarMonthView.goToday()
-                }
-
-                right: Kirigami.Action {
-                    iconName: "go-up"
-                    text: i18n("Next month")
-
-                    onTriggered: calendarMonthView.nextMonth()
-                }
-
-                contextualActions: [
-                    Kirigami.Action {
-                        iconName: "view-calendar-tasks"
-                        text: i18n("Tasks")
-
-                        onTriggered: root.pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate })
-                    },
-
-                    Kirigami.Action {
-                        iconName: "tag-events"
-                        text: i18n("Events")
-
-                        onTriggered: root.pageStack.push(eventsCardView, { eventStartDt: calendarMonthView.selectedDate })
-                    }
-                ]
-            }
-
-            CalendarMonthView {
-                id: calendarMonthView
-
-                anchors.fill: parent
-                cal: localCalendar
-
-                anchors.centerIn: parent
-                showHeader: true
-                showMonthName: false
-                showYear: false
-
-                onSelectedDateChanged: {
-                    if (root.pageStack.depth > 1) {
-                        root.pageStack.pop(null);
-                    }
-                }
-            }
-        }
+        CalendarMonthPage {}
     }
 
     Component {
-        id: dayDashboardComponent
+        id: dayPage
 
-        Kirigami.Page {
-            title: dayView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
-
-            actions {
-                left: Kirigami.Action {
-                    iconName: "go-down"
-                    text: i18n("Previous day")
-
-                    onTriggered: dayView.previousDay()
-                }
-
-                main: Kirigami.Action {
-                    iconName: "view-calendar-day"
-                    text: i18n("Today")
-
-                    onTriggered: dayView.goToday()
-                }
-
-                right: Kirigami.Action {
-                    iconName: "go-up"
-                    text: i18n("Next day")
-
-                    onTriggered: dayView.nextDay()
-                }
-
-                contextualActions: [
-                    Kirigami.Action {
-                        icon.name: "tag-events"
-                        text: i18n("Add Event")
-                        onTriggered: dayView.addEvent()
-                    },
-
-                    Kirigami.Action {
-                        icon.name: "view-calendar-tasks"
-                        text: i18n("Add Task")
-                        onTriggered: dayView.addTodo()
-                    }
-                ]
-            }
-
-            DayView {
-                id: dayView
-
-                cal: localCalendar
-                anchors.fill: parent
-
-                onSelectedDateChanged: {
-                    if (root.pageStack.depth > 1) {
-                        root.pageStack.pop(null);
-                    }
-                }
-            }
-        }
+        DayPage {}
     }
 
     Component {
-        id: weekDashboardComponent
+        id: weekPage
 
-        Kirigami.Page {
-            property alias startDate: weekView.startDate
-
-            title: weekView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
-
-            actions {
-                left: Kirigami.Action {
-                    iconName: "go-down"
-                    text: i18n("Previous week")
-
-                    onTriggered: weekView.previousWeek()
-                }
-
-                main: Kirigami.Action {
-                    iconName: "view-calendar-day"
-                    text: i18n("Current week")
-
-                    onTriggered: weekView.goCurrentWeek()
-                }
-
-                right: Kirigami.Action {
-                    iconName: "go-up"
-                    text: i18n("Next week")
-
-                    onTriggered: weekView.nextWeek()
-                }
-
-                contextualActions: [
-                    Kirigami.Action {
-                        icon.name: "tag-events"
-                        text: i18n("Add Event")
-                        onTriggered: weekView.addEvent()
-                    },
-
-                    Kirigami.Action {
-                        icon.name: "view-calendar-tasks"
-                        text: i18n("Add Task")
-                        onTriggered: weekView.addTodo()
-                    }
-                ]
-            }
-
-            WeekView {
-                id: weekView
-
-                cal: localCalendar
-                anchors.fill: parent
-
-                onSelectedWeekDateChanged: {
-                    if (root.pageStack.depth > 1) {
-                        root.pageStack.pop(null);
-                    }
-                }
-            }
-        }
+        WeekPage {}
     }
 
     Component {

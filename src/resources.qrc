@@ -30,5 +30,8 @@
         <file alias="TodoCard.qml">contents/ui/TodoCard.qml</file>
         <file alias="DayView.qml">contents/ui/DayView.qml</file>
         <file alias="WeekView.qml">contents/ui/WeekView.qml</file>
+        <file alias="CalendarMonthPage.qml">contents/ui/CalendarMonthPage.qml</file>
+        <file alias="DayPage.qml">contents/ui/DayPage.qml</file>
+        <file alias="WeekPage.qml">contents/ui/WeekPage.qml</file>
     </qresource>
 </RCC>

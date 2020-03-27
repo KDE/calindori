@@ -41,7 +41,7 @@ ListView {
     {
         var movedDt = startDt;
         movedDt.setDate(startDt.getDate() + offset);
-        
+
         return movedDt;
     }
 
@@ -62,7 +62,7 @@ ListView {
         selectedDate = selectedWeekDate;
         currentIndex = 0;
     }
-    
+
     onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate })
 
     onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate })
