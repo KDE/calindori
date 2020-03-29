@@ -134,8 +134,8 @@
       <li xml:lang="x-test">xxEventsxx</li>
       <li xml:lang="zh-TW">活動</li>
       <li>Todos</li>
-      <li xml:lang="ca">Pendents</li>
-      <li xml:lang="ca-valencia">Pendents</li>
+      <li xml:lang="ca">Tasques pendents</li>
+      <li xml:lang="ca-valencia">Tasques pendents</li>
       <li xml:lang="cs">Úkoly</li>
       <li xml:lang="de">Aufgaben</li>
       <li xml:lang="es">Listas de tareas</li>
