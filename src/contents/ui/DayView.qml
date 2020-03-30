@@ -70,6 +70,7 @@ ListView {
             Controls2.Label {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
                 text: model.index < 10 ? "0" + model.index : model.index
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 2
             }
 
             ColumnLayout {

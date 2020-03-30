@@ -81,6 +81,7 @@ ListView {
             Controls2.Label {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
                 text: Qt.locale().dayName(model.index + Qt.locale().firstDayOfWeek, Locale.NarrowFormat)
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 3
             }
 
             ColumnLayout {
