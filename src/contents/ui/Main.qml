@@ -28,6 +28,9 @@ Kirigami.ApplicationWindow {
         id: drawer
 
         title: _calindoriConfig.activeCalendar
+        drawerOpen: !Kirigami.Settings.isMobile
+        handleVisible: Kirigami.Settings.isMobile
+        modal: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
                 id: show
