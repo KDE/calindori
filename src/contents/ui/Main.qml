@@ -187,7 +187,10 @@ Kirigami.ApplicationWindow {
         id: calendarEditor
 
         CalendarEditor {
-            onCalendarAdded: root.pageStack.pop(calendarEditor)
+            onCalendarAdded: {
+                root.pageStack.pop(calendarEditor);
+                root.pageStack.push(calendarMonthPage);
+            }
             onCalendarAddCanceled: root.pageStack.pop(calendarEditor)
         }
     }
