@@ -19,6 +19,7 @@
   <name xml:lang="nl">Calindori</name>
   <name xml:lang="pl">Calindori</name>
   <name xml:lang="pt">Calindori</name>
+  <name xml:lang="pt-BR">Calindori</name>
   <name xml:lang="sv">Calindori</name>
   <name xml:lang="uk">Calindori</name>
   <name xml:lang="x-test">xxCalindorixx</name>
@@ -39,6 +40,7 @@
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="pl">Aplikacja kalendarza</summary>
   <summary xml:lang="pt">Aplicação de calendário</summary>
+  <summary xml:lang="pt-BR">Aplicativo de calendário</summary>
   <summary xml:lang="sv">Kalenderprogram</summary>
   <summary xml:lang="uk">Програма-календар</summary>
   <summary xml:lang="x-test">xxCalendar applicationxx</summary>
@@ -59,6 +61,7 @@
     <p xml:lang="nl">Calindori is een agendatoepassing vriendelijk voor aanraken. Het is ontworpen voor mobiele apparaten maar het kan ook in een bureaubladomgeving werken. Gebruikers van Calindori kunnen eerdere en toekomstige datums controleren en taken en afspraken beheren.</p>
     <p xml:lang="pl">Calindori jest aplikacją kalendarza przystosowaną do dotyku. Została stworzona dla urządzeń przenośnych, lecz można ją także uruchomić na komputerach stacjonarnych. Użytkownicy Calindori mogą  sprawdzać poprzednie i przyszłe daty oraz zarządzać zadaniami i wydarzeniami.</p>
     <p xml:lang="pt">O Calindori é uma aplicação de calendário amigável para dispositivos tácteis. Foi desenhada para dispositivos móveis, mas também pode ser executada em computadores. Os utilizadores do Calindori poderão ver as datas anteriores e futuras, assim como gerir as tarefas e eventos.</p>
+    <p xml:lang="pt-BR">O Calindori é um aplicativo de calendário amigável ao toque. Ele foi desenhado para dispositivos móveis mas também pode ser executado em ambientes de trabalho. Os usuários do Calindori podem verificar as datas anteriores e futuras e gerenciar tarefas e eventos.</p>
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
     <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
@@ -77,6 +80,7 @@
     <p xml:lang="nl">Bij het de eeerste keer uitvoeren van de toepassing, wordt een nieuw agendabestand aangemaakt die de ical-standaard gebruikt. Alternatief kunnen gebruikers extra agenda's aanmaken of bestaande importeren.</p>
     <p xml:lang="pl">Przy wykonywaniu aplikacji po raz pierwszy, tworzony jest plik nowego kalendarza, który przestrzega standardu ical. Alternatywnie, użytkownicy mogą stworzyć dodatkowe kalendarz lub zaimportować już istniejące.</p>
     <p xml:lang="pt">Ao executar a aplicação pela primeira vez, será criado um ficheiro de calendário novo que segue a norma iCal. Em alternativa, os utilizadores poderão criar calendários adicionais ou importar existentes.</p>
+    <p xml:lang="pt-BR">Ao executar o aplicativo pela primeira vez, um novo arquivo de calendário que segue o padrão ical é criado. Alternativamente, os usuários podem criar calendários adicionais ou importar os existentes.</p>
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
@@ -96,6 +100,7 @@
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
+    <p xml:lang="pt-BR">Recursos:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
@@ -117,6 +122,7 @@
       <li xml:lang="nl">Agenda</li>
       <li xml:lang="pl">Rozkład zajęć</li>
       <li xml:lang="pt">Agenda</li>
+      <li xml:lang="pt-BR">Agenda</li>
       <li xml:lang="sv">Agenda</li>
       <li xml:lang="uk">Порядок денний</li>
       <li xml:lang="x-test">xxAgendaxx</li>
@@ -136,6 +142,7 @@
       <li xml:lang="nl">Afspraken</li>
       <li xml:lang="pl">Wydarzenia</li>
       <li xml:lang="pt">Eventos</li>
+      <li xml:lang="pt-BR">Eventos</li>
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="uk">Події</li>
       <li xml:lang="x-test">xxEventsxx</li>
@@ -156,6 +163,7 @@
       <li xml:lang="nl">Taken</li>
       <li xml:lang="pl">Zadania-do-zrobienia</li>
       <li xml:lang="pt">Itens Por-Fazer</li>
+      <li xml:lang="pt-BR">Tarefas</li>
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="uk">Завдання</li>
       <li xml:lang="x-test">xxTodosxx</li>
@@ -175,6 +183,7 @@
       <li xml:lang="nl">Meerdere agenda's</li>
       <li xml:lang="pl">Wiele kalendarzy</li>
       <li xml:lang="pt">Vários calendários</li>
+      <li xml:lang="pt-BR">Múltiplos calendários</li>
       <li xml:lang="sv">Flera kalendrar</li>
       <li xml:lang="uk">Користування декількома календарями</li>
       <li xml:lang="x-test">xxMultiple calendarsxx</li>
@@ -195,6 +204,7 @@
       <li xml:lang="nl">Agenda importeren </li>
       <li xml:lang="pl">Importowanie kalendarzy</li>
       <li xml:lang="pt">Importar o calendário</li>
+      <li xml:lang="pt-BR">Importar calendário</li>
       <li xml:lang="sv">Importera kalender</li>
       <li xml:lang="uk">Імпортування календарів</li>
       <li xml:lang="x-test">xxImport calendarxx</li>
