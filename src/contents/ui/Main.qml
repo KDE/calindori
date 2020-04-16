@@ -155,7 +155,9 @@ Kirigami.ApplicationWindow {
     Component {
         id: calendarMonthPage
 
-        CalendarMonthPage {}
+        CalendarMonthPage {
+            calendar: localCalendar
+        }
     }
 
     Component {
@@ -168,22 +170,6 @@ Kirigami.ApplicationWindow {
         id: weekPage
 
         WeekPage {}
-    }
-
-    Component {
-        id: todosView
-
-        TodosCardView {
-            calendar: localCalendar
-        }
-    }
-
-    Component {
-        id: eventsCardView
-
-        EventsCardView {
-            calendar: localCalendar
-        }
     }
 
     Component {

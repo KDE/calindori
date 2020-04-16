@@ -21,8 +21,10 @@ import QtQuick 2.1
 import org.kde.kirigami 2.6 as Kirigami
 
 Kirigami.Page {
+    id: root
 
     property alias selectedDate: calendarMonthView.selectedDate
+    property var calendar
 
     title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
 
@@ -53,7 +55,7 @@ Kirigami.Page {
                 iconName: "view-calendar-tasks"
                 text: i18n("Tasks")
 
-                onTriggered: pageStack.push(todosView, { todoDt: calendarMonthView.selectedDate })
+                onTriggered: pageStack.push(todosCardView, { todoDt: calendarMonthView.selectedDate })
             },
 
             Kirigami.Action {
@@ -69,7 +71,7 @@ Kirigami.Page {
         id: calendarMonthView
 
         anchors.fill: parent
-        cal: localCalendar
+        cal: root.calendar
 
         anchors.centerIn: parent
         showHeader: true
@@ -80,6 +82,22 @@ Kirigami.Page {
             if (pageStack.depth > 1) {
                 pageStack.pop(null);
             }
+        }
+    }
+
+    Component {
+        id: todosCardView
+
+        TodosCardView {
+            calendar: localCalendar
+        }
+    }
+
+    Component {
+        id: eventsCardView
+
+        EventsCardView {
+            calendar: localCalendar
         }
     }
 }
