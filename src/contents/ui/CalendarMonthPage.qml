@@ -55,14 +55,14 @@ Kirigami.Page {
                 iconName: "view-calendar-tasks"
                 text: i18n("Tasks")
 
-                onTriggered: pageStack.push(todosCardView, { todoDt: calendarMonthView.selectedDate })
+                onTriggered: pageStack.push(todosCardView)
             },
 
             Kirigami.Action {
                 iconName: "tag-events"
                 text: i18n("Events")
 
-                onTriggered: pageStack.push(eventsCardView, { eventStartDt: calendarMonthView.selectedDate })
+                onTriggered: pageStack.push(eventsCardView)
             }
         ]
     }
@@ -79,7 +79,7 @@ Kirigami.Page {
         showYear: false
 
         onSelectedDateChanged: {
-            if (pageStack.depth > 1) {
+            if (Kirigami.Settings.isMobile && pageStack.depth > 1) {
                 pageStack.pop(null);
             }
         }
@@ -90,6 +90,7 @@ Kirigami.Page {
 
         TodosCardView {
             calendar: localCalendar
+            todoDt: root.selectedDate
         }
     }
 
@@ -98,6 +99,7 @@ Kirigami.Page {
 
         EventsCardView {
             calendar: localCalendar
+            eventStartDt: root.selectedDate
         }
     }
 }
