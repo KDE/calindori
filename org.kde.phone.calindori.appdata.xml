@@ -20,6 +20,7 @@
   <name xml:lang="pl">Calindori</name>
   <name xml:lang="pt">Calindori</name>
   <name xml:lang="pt-BR">Calindori</name>
+  <name xml:lang="sk">Calindori</name>
   <name xml:lang="sv">Calindori</name>
   <name xml:lang="uk">Calindori</name>
   <name xml:lang="x-test">xxCalindorixx</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="pl">Aplikacja kalendarza</summary>
   <summary xml:lang="pt">Aplicação de calendário</summary>
   <summary xml:lang="pt-BR">Aplicativo de calendário</summary>
+  <summary xml:lang="sk">Aplikácia Calendar</summary>
   <summary xml:lang="sv">Kalenderprogram</summary>
   <summary xml:lang="uk">Програма-календар</summary>
   <summary xml:lang="x-test">xxCalendar applicationxx</summary>
@@ -101,6 +103,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
+    <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
@@ -123,6 +126,7 @@
       <li xml:lang="pl">Rozkład zajęć</li>
       <li xml:lang="pt">Agenda</li>
       <li xml:lang="pt-BR">Agenda</li>
+      <li xml:lang="sk">Agenda</li>
       <li xml:lang="sv">Agenda</li>
       <li xml:lang="uk">Порядок денний</li>
       <li xml:lang="x-test">xxAgendaxx</li>
@@ -143,6 +147,7 @@
       <li xml:lang="pl">Wydarzenia</li>
       <li xml:lang="pt">Eventos</li>
       <li xml:lang="pt-BR">Eventos</li>
+      <li xml:lang="sk">Udalosti</li>
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="uk">Події</li>
       <li xml:lang="x-test">xxEventsxx</li>
@@ -164,6 +169,7 @@
       <li xml:lang="pl">Zadania-do-zrobienia</li>
       <li xml:lang="pt">Itens Por-Fazer</li>
       <li xml:lang="pt-BR">Tarefas</li>
+      <li xml:lang="sk">Úlohy</li>
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="uk">Завдання</li>
       <li xml:lang="x-test">xxTodosxx</li>
@@ -184,6 +190,7 @@
       <li xml:lang="pl">Wiele kalendarzy</li>
       <li xml:lang="pt">Vários calendários</li>
       <li xml:lang="pt-BR">Múltiplos calendários</li>
+      <li xml:lang="sk">Viac kalendárov</li>
       <li xml:lang="sv">Flera kalendrar</li>
       <li xml:lang="uk">Користування декількома календарями</li>
       <li xml:lang="x-test">xxMultiple calendarsxx</li>
@@ -205,6 +212,7 @@
       <li xml:lang="pl">Importowanie kalendarzy</li>
       <li xml:lang="pt">Importar o calendário</li>
       <li xml:lang="pt-BR">Importar calendário</li>
+      <li xml:lang="sk">Import kalendára</li>
       <li xml:lang="sv">Importera kalender</li>
       <li xml:lang="uk">Імпортування календарів</li>
       <li xml:lang="x-test">xxImport calendarxx</li>
