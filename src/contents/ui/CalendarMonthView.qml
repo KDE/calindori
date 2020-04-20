@@ -49,9 +49,21 @@ Controls2.SwipeView {
     signal previousMonth
     signal goToday
 
-    onNextMonth: mm.goNextMonth()
-    onPreviousMonth: mm.goPreviousMonth()
-    onGoToday: mm.goCurrentMonth()
+    onNextMonth: {
+        mm.goNextMonth();
+        root.selectedDate = new Date(mm.year, mm.month-1, 1);
+    }
+
+    onPreviousMonth: {
+        mm.goPreviousMonth();
+        root.selectedDate = new Date(mm.year, mm.month-1, 1);
+    }
+
+    onGoToday: {
+        mm.goCurrentMonth();
+        root.selectedDate = new Date();
+    }
+
     onCurrentItemChanged: manageIndex()
 
     Connections {
