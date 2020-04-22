@@ -27,7 +27,6 @@ ListView {
     id: root
 
     property date selectedDate: new Date()
-    property int selectedHour: 0
     property var cal
 
     signal nextDay
@@ -50,14 +49,15 @@ ListView {
 
     onGoToday: {
         selectedDate = new Date();
+        currentIndex = selectedDate.getHours();
     }
 
-    onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate, startHour: selectedHour % 12, endHour: selectedHour % 12, startPm: selectedHour > 12,  endPm: selectedHour > 12 } )
+    onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate, startHour: currentIndex % 12, endHour: currentIndex % 12, startPm: currentIndex > 12,  endPm: currentIndex > 12 } )
 
-    onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate, startHour: selectedHour % 12, startPm: selectedHour > 12 } )
+    onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate, startHour: currentIndex % 12, startPm: currentIndex > 12 } )
 
     model: 24
-    currentIndex: 7
+    currentIndex: selectedDate.getHours()
 
     delegate: Kirigami.AbstractListItem {
         id: hourListItem
@@ -95,9 +95,6 @@ ListView {
                 }
             }
         }
-
-        onClicked: selectedHour = model.index
-
     }
 
     Component {
