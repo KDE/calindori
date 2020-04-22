@@ -28,7 +28,7 @@ ListView {
 
     property date startDate
     property date selectedWeekDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + Qt.locale().firstDayOfWeek)
-    property date selectedDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + Qt.locale().firstDayOfWeek)
+    property date selectedDate: startDate
     property var cal
 
     signal nextWeek
@@ -58,9 +58,9 @@ ListView {
     }
 
     onGoCurrentWeek: {
-        selectedWeekDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + 1);
-        selectedDate = selectedWeekDate;
-        currentIndex = 0;
+        selectedWeekDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + Qt.locale().firstDayOfWeek);
+        selectedDate = startDate;
+        currentIndex = startDate.getDay() - Qt.locale().firstDayOfWeek;
     }
 
     onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate })
@@ -68,7 +68,7 @@ ListView {
     onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate })
 
     model: 7
-    currentIndex: 0
+    currentIndex: selectedDate.getDay() - Qt.locale().firstDayOfWeek
 
     delegate: Kirigami.AbstractListItem {
         id: dayListItem
