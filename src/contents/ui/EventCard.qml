@@ -66,7 +66,7 @@ Kirigami.Card {
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.Icon {
-                source: "find-location"
+                source: "gps"
                 width: Kirigami.Units.iconSizes.small
                 height: width
             }

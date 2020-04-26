@@ -51,6 +51,8 @@ if(ANDROID)
         view-choose
         find-location
         media-playlist-repeat
+        settings-configure
+        gps
     )
 endif()
 
