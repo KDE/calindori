@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Dimitris Kardarakos
+ * Copyright (C) 2019-2020 Dimitris Kardarakos
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -67,7 +67,7 @@ void CalindoriConfig::setActiveCalendar(const QString & calendar)
 {
     d->config.group("general").writeEntry("activeCalendar", calendar);
     d->config.sync();
-    emit activeCalendarChanged();
+    Q_EMIT activeCalendarChanged();
 }
 
 QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
@@ -129,7 +129,7 @@ QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
     d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
     d->config.sync();
 
-    emit calendarsChanged();
+    Q_EMIT calendarsChanged();
 
     return result;
 }
@@ -147,7 +147,7 @@ void CalindoriConfig::removeCalendar(const QString& calendar)
         d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
         d->config.sync();
 
-        emit calendarsChanged();
+        Q_EMIT calendarsChanged();
     }
 }
 
@@ -170,4 +170,17 @@ QString CalindoriConfig::filenameToPath(const QString& calendarName)
     baseFolder.mkpath(QStringLiteral("."));
 
     return basePath + "/calindori_" + calendarName + ".ics";
+}
+
+int CalindoriConfig::eventsDuration() const
+{
+   return d->config.group("events").readEntry("duration", 60);
+}
+
+void CalindoriConfig::setEventsDuration(int duration)
+{
+    d->config.group("events").writeEntry("duration", duration);
+    d->config.sync();
+
+    Q_EMIT eventsDurationChanged();
 }

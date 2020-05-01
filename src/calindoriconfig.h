@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Dimitris Kardarakos
+ * Copyright (C) 2019-2020 Dimitris Kardarakos
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -27,6 +27,8 @@ class CalindoriConfig : public QObject
     Q_OBJECT
     Q_PROPERTY(QString calendars READ calendars NOTIFY calendarsChanged)
     Q_PROPERTY(QString activeCalendar READ activeCalendar WRITE setActiveCalendar NOTIFY activeCalendarChanged)
+    Q_PROPERTY(int eventsDuration READ eventsDuration WRITE setEventsDuration NOTIFY eventsDurationChanged)
+
 public:
 
     explicit CalindoriConfig(QObject* parent = nullptr);
@@ -39,6 +41,10 @@ public:
     QString activeCalendar() const;
     void setActiveCalendar(const QString& calendar);
     Q_SIGNAL void activeCalendarChanged();
+
+    int eventsDuration() const;
+    void setEventsDuration(int duration);
+    Q_SIGNAL void eventsDurationChanged();
 
 public Q_SLOTS:
     QVariantMap canAddCalendar(const QString& calendar);

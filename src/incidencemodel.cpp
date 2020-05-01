@@ -289,7 +289,7 @@ Incidence::List IncidenceModel::hourEvents() const
         auto endHour =  e->allDay() ? 23 : e->dtEnd().time().hour();
 
         //If the event starts and ends in the same day, we just check the hours; that way recurring events are fetched as well
-        if( (e->dtStart().date() == e->dtEnd().date()) && (startHour <= m_filter_hour) && (endHour >= m_filter_hour) )
+        if( (e->dtStart().date() == e->dtEnd().date()) && (startHour <= m_filter_hour) && (endHour > m_filter_hour) )
         {
             incidences.append(e);
         }

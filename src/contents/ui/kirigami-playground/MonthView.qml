@@ -136,7 +136,7 @@ Item {
                     delegateWidth: root.dayRectWidth
                     selectedDate: root.selectedDate
 
-                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber)
+                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber, root.selectedDate.getHours(), root.selectedDate.getMinutes(), 0)
                 }
             }
         }

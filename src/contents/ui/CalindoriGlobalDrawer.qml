@@ -105,6 +105,13 @@ Kirigami.GlobalDrawer {
         },
 
         Kirigami.Action {
+            text: i18n("Settings")
+            iconName: "settings-configure"
+
+            onTriggered: pageStack.push(settingsPage)
+        },
+
+        Kirigami.Action {
             id: aboutAction
 
             iconName: "help-about-symbolic"
@@ -187,6 +194,12 @@ Kirigami.GlobalDrawer {
         IncidenceListView {
             calendar: root.calendar
         }
+    }
+
+    Component {
+        id: settingsPage
+
+        SettingsPage {}
     }
 
     Component {

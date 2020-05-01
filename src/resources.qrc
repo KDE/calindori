@@ -34,5 +34,6 @@
         <file alias="DayPage.qml">contents/ui/DayPage.qml</file>
         <file alias="WeekPage.qml">contents/ui/WeekPage.qml</file>
         <file alias="CalindoriGlobalDrawer.qml">contents/ui/CalindoriGlobalDrawer.qml</file>
+        <file alias="SettingsPage.qml">contents/ui/SettingsPage.qml</file>
     </qresource>
 </RCC>

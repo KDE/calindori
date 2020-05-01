@@ -51,12 +51,12 @@ Controls2.SwipeView {
 
     onNextMonth: {
         mm.goNextMonth();
-        root.selectedDate = new Date(mm.year, mm.month-1, 1);
+        root.selectedDate = new Date(mm.year, mm.month-1, 1, root.selectedDate.getHours(), root.selectedDate.getMinutes());
     }
 
     onPreviousMonth: {
         mm.goPreviousMonth();
-        root.selectedDate = new Date(mm.year, mm.month-1, 1);
+        root.selectedDate = new Date(mm.year, mm.month-1, 1, root.selectedDate.getHours(), root.selectedDate.getMinutes());
     }
 
     onGoToday: {

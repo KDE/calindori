@@ -52,9 +52,21 @@ ListView {
         currentIndex = selectedDate.getHours();
     }
 
-    onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate, startHour: currentIndex % 12, endHour: currentIndex % 12, startPm: currentIndex > 12,  endPm: currentIndex > 12 } )
+    onAddEvent: {
+        var eventDt = selectedDate;
+        eventDt.setHours(currentIndex);
+        eventDt.setMinutes(0);
+
+        pageStack.push(eventEditor, { startDt: eventDt });
+    }
 
     onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate, startHour: currentIndex % 12, startPm: currentIndex > 12 } )
+
+    onCurrentIndexChanged: {
+        if (pageStack.depth > 1) {
+            pageStack.pop(null);
+        }
+    }
 
     model: 24
     currentIndex: selectedDate.getHours()

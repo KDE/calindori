@@ -113,9 +113,9 @@ Kirigami.Page {
                     id: startTimeSelector
 
                     selectorDate: root.startDt
-                    selectorHour: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.incidenceData && root.incidenceData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() ) % 12
+                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
+                    selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
                     enabled: !allDaySelector.checked
                 }
             }
@@ -129,16 +129,16 @@ Kirigami.Page {
 
                     enabled: !allDaySelector.checked
 
-                    Component.onCompleted: selectorDate = root.incidenceData ? root.incidenceData.dtend : root.startDt // Do not bind, just initialize
+                    Component.onCompleted: selectorDate = root.incidenceData ? root.incidenceData.dtend : new Date(root.startDt.getTime() + _calindoriConfig.eventsDuration*60000);// Do not bind, just initialize
                 }
 
                 TimeSelectorButton {
                     id: endTimeSelector
 
                     selectorDate: root.endDt
-                    selectorHour: root.incidenceData ? root.incidenceData.dtend.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.incidenceData ? root.incidenceData.dtend.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.incidenceData && root.incidenceData.dtend.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
+                    selectorHour: root.endDt.getHours() % 12
+                    selectorMinutes: root.endDt.getMinutes()
+                    selectorPm: (root.endDt.getHours() >=12)
                     enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
                 }
             }

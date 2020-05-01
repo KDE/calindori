@@ -26,8 +26,9 @@ import org.kde.phone.calindori 0.1
 ListView {
     id: root
 
+    property int fstDayOfWeek: Qt.locale().firstDayOfWeek
     property date startDate
-    property date selectedWeekDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + Qt.locale().firstDayOfWeek)
+    property date selectedWeekDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + (startDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek-7), startDate.getHours(), 0)
     property date selectedDate: startDate
     property var cal
 
@@ -58,17 +59,23 @@ ListView {
     }
 
     onGoCurrentWeek: {
-        selectedWeekDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + Qt.locale().firstDayOfWeek);
+        selectedWeekDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + (startDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek - 7), startDate.getHours(), 0);
         selectedDate = startDate;
-        currentIndex = startDate.getDay() - Qt.locale().firstDayOfWeek;
+        currentIndex = selectedDate.getDay() >= fstDayOfWeek ? selectedDate.getDay() - fstDayOfWeek : 7 - (selectedDate.getDay() +  fstDayOfWeek)
     }
 
-    onAddEvent: pageStack.push(eventEditor, { startDt: selectedDate })
+    onAddEvent: pageStack.push(eventEditor, { startDt: new Date(root.selectedDate.getTime() - root.selectedDate.getMinutes()*60000 + 3600000) })
 
     onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate })
 
+    onCurrentIndexChanged: {
+        if (pageStack.depth > 1) {
+            pageStack.pop(null);
+        }
+    }
+
     model: 7
-    currentIndex: selectedDate.getDay() - Qt.locale().firstDayOfWeek
+    currentIndex: selectedDate.getDay() >= fstDayOfWeek ? selectedDate.getDay() - fstDayOfWeek : 7 - (selectedDate.getDay() +  fstDayOfWeek)
 
     delegate: Kirigami.AbstractListItem {
         id: dayListItem
@@ -80,7 +87,7 @@ ListView {
 
             Controls2.Label {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: Qt.locale().dayName(model.index + Qt.locale().firstDayOfWeek, Locale.NarrowFormat)
+                text: Qt.locale().dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 3
             }
 

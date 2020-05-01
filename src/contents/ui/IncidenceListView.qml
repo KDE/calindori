@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.10 as Kirigami
 import org.kde.phone.calindori 0.1 as Calindori
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     id: root
 
     property date incidenceStartDt
@@ -39,7 +39,8 @@ Kirigami.Page {
         icon.name: "resource-calendar-insert"
         text: i18n("Add")
         onTriggered: {
-            var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date() : incidenceStartDt;
+            var currentDt = new Date();
+            var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
             pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
     }
@@ -65,7 +66,7 @@ Kirigami.Page {
             property: "displayDate"
             criteria: ViewSection.FullString
             delegate: Kirigami.ListSectionHeader {
-                label: section
+                label: section || i18n("No start date")
             }
         }
 

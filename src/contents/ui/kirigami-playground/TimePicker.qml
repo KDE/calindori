@@ -96,15 +96,22 @@ ColumnLayout {
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
         }
 
-        Controls2.ToolButton {
-            id: pm
-
-            checked: root.pm
-            checkable: true
-            text: checked ? i18n("PM") : i18n("AM")
+        Controls2.TabBar {
+            id: pmTabBar
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
 
-            onClicked: root.pm = checked
+            Controls2.TabButton {
+                text: i18n("AM")
+                checked: !root.pm
+
+                onClicked: root.pm = !checked
+            }
+            Controls2.TabButton {
+                text: i18n("PM")
+                checked: root.pm
+
+                onClicked: root.pm = checked
+            }
         }
     }
 
