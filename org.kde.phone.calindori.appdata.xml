@@ -20,6 +20,7 @@
   <name xml:lang="pl">Calindori</name>
   <name xml:lang="pt">Calindori</name>
   <name xml:lang="pt-BR">Calindori</name>
+  <name xml:lang="ru">Calindori</name>
   <name xml:lang="sk">Calindori</name>
   <name xml:lang="sv">Calindori</name>
   <name xml:lang="uk">Calindori</name>
@@ -126,6 +127,7 @@
       <li xml:lang="pl">Rozkład zajęć</li>
       <li xml:lang="pt">Agenda</li>
       <li xml:lang="pt-BR">Agenda</li>
+      <li xml:lang="ru">Расписание</li>
       <li xml:lang="sk">Agenda</li>
       <li xml:lang="sv">Agenda</li>
       <li xml:lang="uk">Порядок денний</li>
@@ -147,6 +149,7 @@
       <li xml:lang="pl">Wydarzenia</li>
       <li xml:lang="pt">Eventos</li>
       <li xml:lang="pt-BR">Eventos</li>
+      <li xml:lang="ru">События</li>
       <li xml:lang="sk">Udalosti</li>
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="uk">Події</li>
@@ -169,6 +172,7 @@
       <li xml:lang="pl">Zadania-do-zrobienia</li>
       <li xml:lang="pt">Itens Por-Fazer</li>
       <li xml:lang="pt-BR">Tarefas</li>
+      <li xml:lang="ru">Задачи</li>
       <li xml:lang="sk">Úlohy</li>
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="uk">Завдання</li>
