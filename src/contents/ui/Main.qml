@@ -24,6 +24,8 @@ import org.kde.phone.calindori 0.1 as Calindori
 Kirigami.ApplicationWindow {
     id: root
 
+    signal switchToMonthPage(var sDate, var cActionIndex)
+
     globalDrawer: CalindoriGlobalDrawer {
         id: globalDrawer
 
@@ -60,6 +62,13 @@ Kirigami.ApplicationWindow {
 
         CalendarMonthPage {
             calendar: localCalendar
+
+            onPageEnd: switchToMonthPage(lastDate, lastActionIndex)
         }
+    }
+
+    onSwitchToMonthPage: {
+        pageStack.clear();
+        pageStack.push(calendarMonthPage, {selectedDate: sDate, triggerAction: cActionIndex});
     }
 }

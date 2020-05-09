@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ *   Copyright 2019-2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -39,15 +39,23 @@ Controls2.SwipeView {
     property alias showHeader: monthView.showHeader
     property alias showMonthName: monthView.showMonthName
     property alias showYear: monthView.showYear
-    property int backMonthPad: 720
-    property int fwdMonthPad: 480
     property int previousIndex
     property var cal
-    property var manageIndex: function () {}
+    /**
+     * @brief When set, we take over the handling of the container items indexes programmatically
+     *
+     */
+    property bool manualIndexing: false
 
     signal nextMonth
     signal previousMonth
     signal goToday
+    /**
+     * @brief It should be emitted when the SwipeView currentIndex is set to the first or the last one
+     *
+     * @param lastDate p_lastDate:...
+     */
+    signal viewEnd(var lastDate)
 
     onNextMonth: {
         mm.goNextMonth();
@@ -66,6 +74,22 @@ Controls2.SwipeView {
 
     onCurrentItemChanged: manageIndex()
 
+    function manageIndex ()
+    {
+        if(!manualIndexing)
+        {
+            return;
+        }
+
+        (currentIndex < previousIndex) ? previousMonth() : nextMonth();
+        previousIndex = currentIndex;
+
+        if(currentIndex != 1)
+        {
+            viewEnd(root.selectedDate) //Inform parents about the date to set as selected when re-pushing this page
+        }
+    }
+
     Connections {
         target: cal
 
@@ -74,16 +98,13 @@ Controls2.SwipeView {
     }
 
     Component.onCompleted: {
-        currentIndex = backMonthPad;
+        currentIndex = 1;
         previousIndex = currentIndex;
-        manageIndex = function() {
-            (currentIndex < previousIndex) ? mm.goPreviousMonth() : mm.goNextMonth();
-            previousIndex = currentIndex;
-            monthView.parent = currentItem;
-        };
+        manualIndexing = true;
+        orientation = Qt.Vertical //Change orientation after the object has been instantiated. Otherwise, we get a non-intuitive animation when swiping upwards
     }
 
-    orientation: Qt.Vertical
+    orientation: Qt.Horizontal
 
     DaysOfMonthIncidenceModel {
         id: mm
@@ -93,12 +114,7 @@ Controls2.SwipeView {
         calendar: cal
     }
 
-    Repeater {
-        id: backRepeater
-
-        model: backMonthPad
-        delegate: Item {}
-    }
+    Item {}
 
     Item {
         MonthView {
@@ -118,10 +134,5 @@ Controls2.SwipeView {
         }
     }
 
-    Repeater {
-        id: forwardRepeater
-
-        model: fwdMonthPad
-        delegate: Item {}
-    }
+    Item {}
 }

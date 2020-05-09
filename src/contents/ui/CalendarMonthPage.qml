@@ -24,7 +24,30 @@ Kirigami.Page {
     id: root
 
     property alias selectedDate: calendarMonthView.selectedDate
+
+    /**
+     * @brief The active calendar, which is the host of todos, events, etc.
+     *
+     */
     property var calendar
+
+    /**
+     *  @brief The index of the last contextual action triggered
+     *
+     */
+    property int latestContextualAction: -1
+
+    /**
+     *  @brief When set to a valid contextual action index, that contextual action is triggered
+     *
+     */
+    property int triggerAction: -1
+
+   /**
+    * @brief Emited when the hosted SwipeView index is set to the first or the last container item
+    *
+    */
+    signal pageEnd(var lastDate, var lastActionIndex)
 
     title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
 
@@ -55,18 +78,30 @@ Kirigami.Page {
                 iconName: "view-calendar-tasks"
                 text: i18n("Tasks")
 
-                onTriggered: pageStack.push(todosCardView)
+                onTriggered: {
+                    latestContextualAction = 0
+                    pageStack.push(todosCardView);
+                }
             },
 
             Kirigami.Action {
                 iconName: "tag-events"
                 text: i18n("Events")
 
-                onTriggered: pageStack.push(eventsCardView)
+                onTriggered: {
+                    latestContextualAction = 1
+                    pageStack.push(eventsCardView);
+                }
             }
         ]
     }
 
+    Component.onCompleted: {
+        if(triggerAction >= 0)
+        {
+            contextualActions[triggerAction].trigger();
+        }
+    }
     CalendarMonthView {
         id: calendarMonthView
 
@@ -83,6 +118,8 @@ Kirigami.Page {
                 pageStack.pop(null);
             }
         }
+
+        onViewEnd: pageEnd(lastDate, (pageStack.depth > 1) ? root.latestContextualAction : -1)
     }
 
     Component {
