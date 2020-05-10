@@ -11,6 +11,7 @@
   <name xml:lang="en-GB">Calindori</name>
   <name xml:lang="es">Calindori</name>
   <name xml:lang="et">Calindori</name>
+  <name xml:lang="eu">Calindori</name>
   <name xml:lang="fi">Calindori</name>
   <name xml:lang="fr">Calindori</name>
   <name xml:lang="gl">Calindori</name>
@@ -34,6 +35,7 @@
   <summary xml:lang="en-GB">Calendar application</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
   <summary xml:lang="et">Kalendrirakendus</summary>
+  <summary xml:lang="eu">Egutegiko aplikazioa</summary>
   <summary xml:lang="fi">Kalenterisovellus</summary>
   <summary xml:lang="fr">Application d'agenda</summary>
   <summary xml:lang="gl">Aplicación de calendario</summary>
@@ -56,6 +58,7 @@
     <p xml:lang="en-GB">Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
     <p xml:lang="es">Calindori es una aplicación de calendarios táctil. Ha sido diseñada para dispositivos móviles, aunque también se puede ejecutar en entornos de escritorio. Los usuarios de Calindori pueden comprobar fechas anteriores y futuras, así como gestionar tareas y eventos.</p>
     <p xml:lang="et">Calindori on puutetundlik kalendrirakendus. See loodi eelkõige mobiilseadmetele, aga seda saab kasutada ka töölauaarvutites. Calindori kasutajatel on võimalik uurida möödunud ja tulevasi kuupäevi ning korraldada oma ülesandeid ja sündmusi.</p>
+    <p xml:lang="eu">Calindori ukimena onartzen duen egutegiko aplikazio bat da. Gailu mugikorretarako diseinatu den arren, mahaigaineko inguruneetan ere ibili daiteke. Calindori-ren erabiltzaileek igarotako eta etorkizuneko datak arakatu eta eginkizunak eta gertakizunak kudeatu ditzakete.</p>
     <p xml:lang="fi">Calindori on kosketusnäytölle sopiva kalenterisovellus, joka on suunniteltu mobiililaitteille mutta toimii myös työpöytäympäristössä. Calindorin käyttäjät voivat tarkistaa menneitä ja tulevia päivämääriä sekä hallita tehtäviä ja tapahtumia.</p>
     <p xml:lang="fr">Calindori est une application d'agenda ergonomique pour les écrans tactiles. Elle a été conçue pour les appareils mobiles mais fonctionne également sur les environnements de bureau. Les utilisateurs de Calindori peuvent consulter les dates passées et futures et gérer les tâches et les évènements.</p>
     <p xml:lang="gl">Calindori é unha aplicación de calendario optimizada para uso táctil. Deseñouse para dispositivos móbiles pero tamén pode usarse en contornos de escritorio. Os usuarios de Calindori poden consultar datas pasadas e futuras e xestionar tarefas e eventos.</p>
@@ -75,6 +78,7 @@
     <p xml:lang="en-GB">When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
     <p xml:lang="es">Al ejecutar la aplicación por primera vez, se crea un nuevo archivo de calendario conforme al estándar ical. De forma alternativa, los usuarios pueden crear calendarios adicionales o importar otros existentes.</p>
     <p xml:lang="et">Rakenduse esmakäivitusel luuakse uus, iCali standardit järgiv kalender. Soovi korral võib kasutaja mõistagi luua lisakalendreid või importida juba olemasolevaid.</p>
+    <p xml:lang="eu">Aplikazioa aurreneko aldiz exekutatzean, egutegiko fitxategi berri bat sortzen da, «ical» estandarrari jarraitzen diona. Horrez gain, erabiltzaileek egutegi osagarriak sortu edo inportatu ditzakete.</p>
     <p xml:lang="fi">Käynnistettäessä ohjelma ensi kertaa luodaan uusi iCal-standardia noudattava kalenteritiedosto. Käyttäjä voi myös luoda lisää kalentereja tai tuoda olemassa olevia.</p>
     <p xml:lang="fr">Lors de sa première exécution, l'application crée un nouveau fichier agenda respectant la norme ical. Les utilisateurs peuvent également créer des agendas supplémentaires ou importer des agendas existants.</p>
     <p xml:lang="gl">Ao executar a aplicación por vez primeira, créase un novo ficheiro de calendario que segue o estándar de iCal. De maneira alternativa, os usuarios poden crear calendarios adicionais ou importar calendarios existentes.</p>
@@ -95,6 +99,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Ezaugarriak:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -118,6 +123,7 @@
       <li xml:lang="en-GB">Agenda</li>
       <li xml:lang="es">Agenda</li>
       <li xml:lang="et">Päevakava</li>
+      <li xml:lang="eu">Agenda</li>
       <li xml:lang="fi">Työsuunnitelma</li>
       <li xml:lang="fr">Agenda</li>
       <li xml:lang="gl">Axenda</li>
@@ -140,6 +146,7 @@
       <li xml:lang="en-GB">Events</li>
       <li xml:lang="es">Eventos</li>
       <li xml:lang="et">Sündmused</li>
+      <li xml:lang="eu">Gertakizunak</li>
       <li xml:lang="fi">Tapahtumat</li>
       <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
@@ -163,6 +170,7 @@
       <li xml:lang="en-GB">To-dos</li>
       <li xml:lang="es">Listas de tareas</li>
       <li xml:lang="et">Ülesanded</li>
+      <li xml:lang="eu">Zereginak</li>
       <li xml:lang="fi">Tehtävät</li>
       <li xml:lang="fr">Tâches</li>
       <li xml:lang="gl">Tarefas</li>
@@ -185,6 +193,7 @@
       <li xml:lang="en-GB">Multiple calendars</li>
       <li xml:lang="es">Múltiples calendarios</li>
       <li xml:lang="et">Mitme kalendri kasutamise võimalus</li>
+      <li xml:lang="eu">Egunkari anizkoitzak</li>
       <li xml:lang="fi">Useammat kalenterit</li>
       <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
@@ -207,6 +216,7 @@
       <li xml:lang="en-GB">Import calendar</li>
       <li xml:lang="es">Importar calendario</li>
       <li xml:lang="et">Kalendri importimine</li>
+      <li xml:lang="eu">Inportatu egutegia</li>
       <li xml:lang="fi">Kalenterin tuonti</li>
       <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
