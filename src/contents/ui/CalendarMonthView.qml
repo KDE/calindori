@@ -81,12 +81,22 @@ Controls2.SwipeView {
             return;
         }
 
-        (currentIndex < previousIndex) ? previousMonth() : nextMonth();
+        var returnDate = root.selectedDate;
+
+        if (currentIndex > previousIndex)
+        {
+            returnDate = (returnDate.getMonth() == 11) ? new Date(returnDate.getFullYear() + 1, 0, 1) : new Date(returnDate.getFullYear(), returnDate.getMonth() + 1, 1);
+        }
+        else
+        {
+            returnDate = (returnDate.getMonth() == 0) ? new Date(returnDate.getFullYear() - 1, 11, 1) : new Date(returnDate.getFullYear(), returnDate.getMonth() - 1, 1);
+        }
+
         previousIndex = currentIndex;
 
         if(currentIndex != 1)
         {
-            viewEnd(root.selectedDate) //Inform parents about the date to set as selected when re-pushing this page
+            viewEnd(returnDate) //Inform parents about the date to set as selected when re-pushing this page
         }
     }
 
