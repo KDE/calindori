@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+#
+# SPDX-License-Identifier: BSD-2-Clause
 
 if (NOT STATIC_LIBRARY)
     ecm_create_qm_loader(calindori_QM_LOADER calindori_qt)
@@ -57,5 +60,3 @@ if(ANDROID)
 endif()
 
 install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
-
-install(FILES contents/ui/calindori.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)

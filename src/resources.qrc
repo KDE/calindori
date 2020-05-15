@@ -1,3 +1,7 @@
+<!--
+ SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+ SPDX-License-Identifier: BSD-2-Clause
+-->
 <RCC>
     <qresource prefix="/">
         <file alias="MonthView.qml">contents/ui/kirigami-playground/MonthView.qml</file>

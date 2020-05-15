@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+ SPDX-License-Identifier: CC0-1.0
+-->
 <component type="desktop">
   <id>org.kde.phone.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>

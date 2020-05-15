@@ -1,3 +1,7 @@
+<!--
+    SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+    SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 # Changelog
 
 ## Version 1.1

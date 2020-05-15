@@ -134,5 +134,3 @@ Comment[x-test]=xxAlarm Notificationxx
 Comment[zh_TW]=鬧鐘通知
 Action=Popup
 Urgency=Critical
-
-

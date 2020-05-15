@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
 cmake_minimum_required(VERSION 3.0)
 
 project(calindori)
@@ -51,6 +55,7 @@ find_package(PkgConfig)
 #########################################################################
 
 add_subdirectory(src)
+add_subdirectory(icons)
 add_subdirectory(calindac)
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

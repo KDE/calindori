@@ -1,4 +1,8 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<!--
+ SPDX-FileCopyrightText: 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ SPDX-License-Identifier: BSD-2-Clause
+-->
 <node>
   <interface name="org.kde.calindac">
     <method name="quit">
