@@ -15,11 +15,11 @@ Kirigami.GlobalDrawer {
 
     property var monthView
     property var calendar
+    property bool wideScreen: false
 
     title: _calindoriConfig.activeCalendar
-    drawerOpen: !Kirigami.Settings.isMobile
-    handleVisible: Kirigami.Settings.isMobile
-    modal: Kirigami.Settings.isMobile
+    handleVisible: !root.wideScreen
+    modal: !root.wideScreen
 
     actions: [
         Kirigami.Action {
@@ -149,6 +149,21 @@ Kirigami.GlobalDrawer {
         id: actionSeparator
 
         separator: true
+    }
+
+    Item {
+        visible: false
+
+        states: [
+            State {
+                when: root.wideScreen
+                PropertyChanges { target: root; drawerOpen: true }
+            },
+            State {
+                when: !root.wideScreen
+                PropertyChanges { target: root; drawerOpen: false }
+            }
+        ]
     }
 
     Component {

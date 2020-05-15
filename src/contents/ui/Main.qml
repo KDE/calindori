@@ -16,6 +16,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: CalindoriGlobalDrawer {
         id: globalDrawer
 
+        wideScreen: root.wideScreen
         monthView: calendarMonthPage
         calendar: localCalendar
     }
