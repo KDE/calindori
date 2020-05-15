@@ -25,7 +25,7 @@ CalAlarmClient::CalAlarmClient(QObject* parent)
     dbus.registerObject("/calindac", this );
 
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    mCheckInterval = generalGroup.readEntry("CheckInterval", 15);
+    mCheckInterval = generalGroup.readEntry("CheckInterval", 45);
     mSuspendSeconds = generalGroup.readEntry("SuspendSeconds", 60);
     mLastChecked = generalGroup.readEntry("CalendarsLastChecked", QDateTime());
 
