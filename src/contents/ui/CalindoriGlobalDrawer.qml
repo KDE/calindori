@@ -171,10 +171,10 @@ Kirigami.GlobalDrawer {
 
         CalendarEditor {
             onCalendarAdded: {
-                root.pageStack.pop(calendarEditor);
-                root.pageStack.push(monthView);
+                pageStack.pop(calendarEditor);
+                pageStack.push(monthView);
             }
-            onCalendarAddCanceled: root.pageStack.pop(calendarEditor)
+            onCalendarAddCanceled: pageStack.pop(calendarEditor)
         }
     }
 

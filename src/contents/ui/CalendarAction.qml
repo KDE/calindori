@@ -14,8 +14,7 @@ Kirigami.Action {
 
     signal deleteCalendar
 
-    checked: (text == _calindoriConfig.activeCalendar)
-    visible: _calindoriConfig.activeCalendar != text
+    visible: _calindoriConfig != null ? (_calindoriConfig.activeCalendar != text) : false
 
     Kirigami.Action {
         text: "Activate calendar"

@@ -15,17 +15,17 @@ Kirigami.Card {
 
     property var dataModel
 
-    banner.title: dataModel.summary
+    banner.title: dataModel && dataModel.summary
     banner.titleLevel: 3
 
     contentItem: Column {
-        enabled: !dataModel.completed
+        enabled: dataModel && !dataModel.completed
         spacing: Kirigami.Units.largeSpacing
         topPadding: 0
         bottomPadding: Kirigami.Units.largeSpacing
 
         Row {
-            visible: dataModel.dtstart && !isNaN(dataModel.dtstart)
+            visible: dataModel && dataModel.dtstart && !isNaN(dataModel.dtstart)
             width: cardDelegate.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
@@ -37,12 +37,12 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: (dataModel.dtstart && !isNaN(dataModel.dtstart)) ? dataModel.dtstart.toLocaleString(Qt.locale(), dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : ""
+                text: dataModel && ((dataModel.dtstart && !isNaN(dataModel.dtstart)) ? dataModel.dtstart.toLocaleString(Qt.locale(), dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : "")
             }
         }
 
         Row {
-            visible: dataModel.location != ""
+            visible: dataModel && (dataModel.location != "")
             width: cardDelegate.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
@@ -54,14 +54,14 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel.location
+                text: dataModel && dataModel.location
             }
         }
 
         Controls2.Label {
             width: cardDelegate.availableWidth
             wrapMode: Text.WordWrap
-            text: dataModel.description
+            text: dataModel && dataModel.description
         }
     }
 }
