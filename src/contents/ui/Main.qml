@@ -6,7 +6,7 @@
 
 import QtQuick 2.1
 import org.kde.kirigami 2.6 as Kirigami
-import org.kde.phone.calindori 0.1 as Calindori
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
     id: root

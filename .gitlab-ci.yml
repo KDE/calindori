@@ -5,12 +5,12 @@ include:
   - https://invent.kde.org/sysadmin/ci-tooling/raw/master/invent/binary-flatpak.yml
 
 variables:
-  BUNDLE: org.kde.phone.calindori.flatpak
+  BUNDLE: org.kde.calindori.flatpak
 
 flatpak:
   extends: .flatpak
   variables:
-    MANIFEST_PATH: org.kde.phone.calindori.json
-    APP_ID: org.kde.phone.calindori
+    MANIFEST_PATH: org.kde.calindori.json
+    APP_ID: org.kde.calindori
     FLATPAK_MODULE: calindori
     CMAKE_ARGS: -DENABLE_TESTING=OFF

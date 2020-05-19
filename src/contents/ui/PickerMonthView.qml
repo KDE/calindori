@@ -6,7 +6,7 @@
 
 import QtQuick 2.0
 import QtQuick.Layouts 1.11
-import org.kde.phone.calindori 0.1
+import org.kde.calindori 0.1
 
 MonthView {
     id: root

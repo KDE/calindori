@@ -4,7 +4,7 @@
  SPDX-License-Identifier: CC0-1.0
 -->
 <component type="desktop">
-  <id>org.kde.phone.calindori.desktop</id>
+  <id>org.kde.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Calindori</name>

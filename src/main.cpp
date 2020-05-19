@@ -52,15 +52,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication::setOrganizationDomain(aboutData.organizationDomain());
     QApplication::setApplicationVersion(aboutData.version());
 
-    qmlRegisterType<CalindoriConfig>("org.kde.phone.calindori", 0, 1, "CalindoriConfig");
-    qmlRegisterType<LocalCalendar>("org.kde.phone.calindori", 0, 1, "LocalCalendar");
-    qmlRegisterType<EventController>("org.kde.phone.calindori",0,1,"EventController");
-    qmlRegisterType<TodoController>("org.kde.phone.calindori",0,1,"TodoController");
-    qmlRegisterType<IncidenceAlarmsModel>("org.kde.phone.calindori",0,1,"IncidenceAlarmsModel");
-    qmlRegisterType<DaysOfMonthModel>("org.kde.phone.calindori",0,1,"DaysOfMonthModel");
-    qmlRegisterType<ReccurencePeriodModel>("org.kde.phone.calindori",0,1,"ReccurencePeriodModel");
-    qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.phone.calindori",0,1,"DaysOfMonthIncidenceModel");
-    qmlRegisterType<IncidenceModel>("org.kde.phone.calindori",0,1,"IncidenceModel");
+    qmlRegisterType<CalindoriConfig>("org.kde.calindori", 0, 1, "CalindoriConfig");
+    qmlRegisterType<LocalCalendar>("org.kde.calindori", 0, 1, "LocalCalendar");
+    qmlRegisterType<EventController>("org.kde.calindori",0,1,"EventController");
+    qmlRegisterType<TodoController>("org.kde.calindori",0,1,"TodoController");
+    qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori",0,1,"IncidenceAlarmsModel");
+    qmlRegisterType<DaysOfMonthModel>("org.kde.calindori",0,1,"DaysOfMonthModel");
+    qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori",0,1,"ReccurencePeriodModel");
+    qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori",0,1,"DaysOfMonthIncidenceModel");
+    qmlRegisterType<IncidenceModel>("org.kde.calindori",0,1,"IncidenceModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

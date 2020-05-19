@@ -8,7 +8,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.4 as Kirigami
-import org.kde.phone.calindori 0.1 as Calindori
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Page {
     id: root

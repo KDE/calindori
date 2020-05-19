@@ -8,7 +8,7 @@ import QtQuick 2.7
 import org.kde.kirigami 2.4 as Kirigami
 import QtQuick.Controls 2.5 as Controls
 import QtQuick.Layouts 1.11
-import org.kde.phone.calindori 0.1 as Calindori
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.OverlaySheet {
     id: root

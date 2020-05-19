@@ -6,7 +6,7 @@
 
 import QtQuick 2.0
 import org.kde.kirigami 2.4 as Kirigami
-import org.kde.phone.calindori 0.1 as Calindori
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Action {
 
@@ -40,7 +40,7 @@ Kirigami.Action {
         message: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
 
         operation: function() {
-            var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.phone.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + calendarName + "\"}",deleteSheet);
+            var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + calendarName + "\"}",deleteSheet);
             toRemoveCalendarComponent.deleteCalendar();
             _calindoriConfig.removeCalendar(calendarName);
         }
