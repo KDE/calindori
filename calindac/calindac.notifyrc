@@ -1,5 +1,6 @@
 [Global]
-IconName=kalarm
+IconName=calindori
+DesktopEntry=org.kde.calindori
 Comment=Plasma Mobile Calendar
 Comment[ca]=Calendari del Plasma Mòbil
 Comment[ca@valencia]=Calendari del Plasma Mòbil
