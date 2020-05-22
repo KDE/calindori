@@ -63,7 +63,6 @@ void LocalCalendar::setName(QString calendarName)
     }
 }
 
-
 void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
 {
     if(m_calendar != memoryCalendar)

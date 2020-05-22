@@ -115,7 +115,7 @@ Kirigami.GlobalDrawer {
     ]
 
     Instantiator {
-        model: _calindoriConfig.calendars.split(_calindoriConfig.calendars.includes(";") ? ";" : null)
+        model: _calindoriConfig && _calindoriConfig.calendars.split(_calindoriConfig.calendars.includes(";") ? ";" : null)
 
         delegate: CalendarAction {
             text: modelData

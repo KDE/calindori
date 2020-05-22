@@ -42,7 +42,6 @@ Kirigami.ApplicationWindow {
         }
 
         name: _calindoriConfig.activeCalendar
-
     }
 
     Component {
