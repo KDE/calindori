@@ -13,11 +13,11 @@ Kirigami.Page {
     property var incidence
     property var calendar
 
-    title: incidence.summary
+    title: incidence && incidence.summary
 
     Loader {
         anchors.fill: parent
-        sourceComponent: incidence.type == 0 ? eventCard : todoCard
+        sourceComponent: (incidence && incidence.type == 0) ? eventCard : todoCard
     }
 
     Component {

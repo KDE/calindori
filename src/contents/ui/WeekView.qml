@@ -166,7 +166,7 @@ ListView {
 
         property var incidenceData
 
-        message: i18n("%1 will be deleted. Proceed?", incidenceData.summary || "");
+        message: i18n("%1 will be deleted. Proceed?", incidenceData && incidenceData.summary);
         operation: function() {
             if(incidenceData.type == 0)
             {
