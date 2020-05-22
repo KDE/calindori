@@ -25,6 +25,20 @@ ListView {
     signal addEvent
     signal addTodo
 
+    /**
+    * @brief Remove the editor page from the stack. If an incidence page exists in the page stack, remove it as well
+    *
+    */
+    function removeEditorPage(editor)
+    {
+        var incidencePageExists = pageStack.items[pageStack.depth-2] && pageStack.items[pageStack.depth - 2].hasOwnProperty("isIncidencePage");
+        pageStack.pop(eventEditor);
+        if(incidencePageExists)
+        {
+            pageStack.pop(incidencePage);
+        }
+    }
+
     function moveDate(startDt, offset)
     {
         var movedDt = startDt;
@@ -141,10 +155,7 @@ ListView {
         EventEditor {
             calendar: root.cal
 
-            onEditcompleted: {
-                pageStack.pop(eventEditor);
-                pageStack.flickBack ()
-            }
+            onEditcompleted: removeEditorPage(eventEditor)
         }
     }
 
@@ -154,10 +165,7 @@ ListView {
         TodoEditor {
             calendar: root.cal
 
-            onEditcompleted: {
-                pageStack.pop(todoEditor);
-                pageStack.flickBack ()
-            }
+            onEditcompleted: removeEditorPage(todoEditor)
         }
     }
 

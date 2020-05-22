@@ -12,6 +12,7 @@ Kirigami.Page {
 
     property var incidence
     property var calendar
+    property bool isIncidencePage: true
 
     title: incidence && incidence.summary
 

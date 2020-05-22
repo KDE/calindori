@@ -78,7 +78,7 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel && _repeatModel.repeatDescription(dataModel.repeatType, dataModel.repeatEvery, dataModel.repeatStopAfter)
+                text: dataModel && _repeatModel && _repeatModel.repeatDescription(dataModel.repeatType, dataModel.repeatEvery, dataModel.repeatStopAfter)
                 Layout.fillWidth: true
             }
         }

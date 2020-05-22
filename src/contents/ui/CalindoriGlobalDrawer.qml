@@ -17,7 +17,7 @@ Kirigami.GlobalDrawer {
     property var calendar
     property bool wideScreen: false
 
-    title: _calindoriConfig.activeCalendar
+    title: _calindoriConfig && _calindoriConfig.activeCalendar
     handleVisible: !root.wideScreen
     modal: !root.wideScreen
 
