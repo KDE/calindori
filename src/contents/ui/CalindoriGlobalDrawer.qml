@@ -95,7 +95,10 @@ Kirigami.GlobalDrawer {
             text: i18n("Settings")
             iconName: "settings-configure"
 
-            onTriggered: pageStack.push(settingsPage)
+            onTriggered: {
+                pageStack.clear();
+                pageStack.push(settingsPage)
+            }
         },
 
         Kirigami.Action {
@@ -104,7 +107,10 @@ Kirigami.GlobalDrawer {
             iconName: "help-about-symbolic"
             text: i18n("About")
 
-            onTriggered: pageStack.push(aboutInfoPage)
+            onTriggered: {
+                pageStack.clear();
+                pageStack.push(aboutInfoPage)
+            }
         }
     ]
 
