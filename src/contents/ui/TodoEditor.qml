@@ -78,6 +78,7 @@ Kirigami.Page {
                 TimeSelectorButton {
                     id: startTimeSelector
 
+                    selectorTitle: i18n("Start Time")
                     selectorDate: root.startDt
                     selectorHour: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
                     selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0

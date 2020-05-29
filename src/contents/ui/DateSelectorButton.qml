@@ -11,6 +11,7 @@ Controls2.ToolButton {
     id: root
 
     property date selectorDate
+    property string selectorTitle
 
     text: selectorDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
 
@@ -21,6 +22,8 @@ Controls2.ToolButton {
 
     DatePickerSheet {
         id: datePickerSheet
+
+        headerText: root.selectorTitle
 
         onDatePicked: root.selectorDate = selectedDate
     }

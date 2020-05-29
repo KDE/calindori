@@ -7,14 +7,21 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 Kirigami.OverlaySheet {
     id: datePickerSheet
 
     property alias selectedDate: calendarMonth.selectedDate
+    property string headerText
 
     signal datePicked
+
+
+    header: Kirigami.Heading {
+        level:1
+        text: datePickerSheet.headerText
+    }
 
     ColumnLayout {
         Layout.preferredWidth: childrenRect.width + datePickerSheet.rightPadding + datePickerSheet.leftPadding

@@ -17,6 +17,11 @@ Kirigami.OverlaySheet {
 
     property var operation
 
+    header: Kirigami.Heading {
+        level:1
+        text: i18n("Confirm")
+    }
+
     contentItem: Controls2.Label {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap

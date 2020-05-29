@@ -13,11 +13,17 @@ import org.kde.calindori 0.1 as Calindori
 Kirigami.OverlaySheet {
     id: timePickerSheet
 
+    property string headerText
     property alias hours: timePicker.hours
     property alias minutes: timePicker.minutes
     property alias pm: timePicker.pm
 
     signal datePicked
+
+    header: Kirigami.Heading {
+        level:1
+        text: timePickerSheet.headerText
+    }
 
     contentItem: TimePicker {
         id: timePicker

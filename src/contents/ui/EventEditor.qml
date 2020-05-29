@@ -101,11 +101,14 @@ Kirigami.Page {
 
                 DateSelectorButton {
                     id: startDateSelector
+
+                    selectorTitle: i18n("Start Date")
                 }
 
                 TimeSelectorButton {
                     id: startTimeSelector
 
+                    selectorTitle: i18n("Start Time")
                     selectorDate: root.startDt
                     selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() ) % 12
                     selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
@@ -122,6 +125,7 @@ Kirigami.Page {
                     id: endDateSelector
 
                     enabled: !allDaySelector.checked
+                    selectorTitle: i18n("End Date")
 
                     Component.onCompleted: selectorDate = root.incidenceData ? root.incidenceData.dtend : new Date(root.startDt.getTime() + _calindoriConfig.eventsDuration*60000);// Do not bind, just initialize
                 }
@@ -129,6 +133,7 @@ Kirigami.Page {
                 TimeSelectorButton {
                     id: endTimeSelector
 
+                    selectorTitle: i18n("End Time")
                     selectorDate: root.endDt
                     selectorHour: root.endDt.getHours() % 12
                     selectorMinutes: root.endDt.getMinutes()

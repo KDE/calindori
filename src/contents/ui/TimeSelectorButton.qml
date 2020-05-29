@@ -10,6 +10,7 @@ import QtQuick.Controls 2.4 as Controls2
 Controls2.ToolButton {
     id: root
 
+    property string selectorTitle
     property date selectorDate
     property int selectorHour
     property int selectorMinutes
@@ -26,6 +27,8 @@ Controls2.ToolButton {
 
     TimePickerSheet {
         id: timePickerSheet
+
+        headerText: root.selectorTitle
 
         onDatePicked: {
             root.selectorHour = timePickerSheet.hours;

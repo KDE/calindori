@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import QtQuick.Controls 2.5 as Controls
 import QtQuick.Layouts 1.11
 import org.kde.calindori 0.1 as Calindori
@@ -24,6 +24,11 @@ Kirigami.OverlaySheet {
         selectedRepeatEvery = eventRepeatEvery;
         selectedStopAfter = eventStopAfter;
         root.open();
+    }
+
+    header: Kirigami.Heading {
+        level:1
+        text: i18n("Repeat")
     }
 
     Kirigami.FormLayout {

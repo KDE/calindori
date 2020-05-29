@@ -7,7 +7,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
 import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.OverlaySheet {
@@ -22,17 +22,18 @@ Kirigami.OverlaySheet {
 
     signal offsetSelected
 
-    rightPadding: 0
-    leftPadding: 0
+    header: Kirigami.Heading {
+        level:1
+        text: i18n("New Reminder")
+    }
 
     contentItem: ColumnLayout {
-            Kirigami.Heading {
-                level:2
-                text: i18n("Time before start")
-                Layout.alignment : Qt.AlignHCenter
-            }
+        Kirigami.Heading {
+            level:2
+            text: i18n("Time before start")
+        }
 
-            Kirigami.FormLayout {
+        Kirigami.FormLayout {
             id: alarmOffsetPicker
 
             Controls2.SpinBox {
