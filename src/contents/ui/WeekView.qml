@@ -105,7 +105,7 @@ ListView {
                     Kirigami.BasicListItem  {
                         leftPadding:  Kirigami.Units.smallSpacing
                         reserveSpaceForIcon: false
-                        label: model.summary
+                        label: "%1 %2".arg(model.startEndTime).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

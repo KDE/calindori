@@ -99,7 +99,8 @@ QHash<int, QByteArray> IncidenceModel::roleNames() const
         { DisplayDate, "displayDate" },
         { DisplayTime, "displayTime" },
         { Completed, "completed" },
-        { IncidenceType, "type" }
+        { IncidenceType, "type" },
+        { DisplayStartEndTime, "startEndTime" }
     };
 }
 
@@ -153,6 +154,8 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
             return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->isCompleted() : false;
         case IncidenceType:
             return type;
+        case DisplayStartEndTime:
+            return displayStartEndTime(row);
         default:
             return QVariant();
     }
@@ -322,14 +325,14 @@ Incidence::List IncidenceModel::dayIncidences() const
 
 Incidence::List IncidenceModel::dayEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt);
+    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, {}, EventSortStartDate, SortDirectionAscending);
 
     return toIncidences(events);
 }
 
 Incidence::List IncidenceModel::dayTodos() const
 {
-    auto todos =  m_calendar->memorycalendar()->rawTodos(m_filter_dt,m_filter_dt);
+    auto todos =  m_calendar->memorycalendar()->rawTodos(m_filter_dt, m_filter_dt);
 
     return toIncidences(todos);
 }
@@ -379,3 +382,19 @@ Incidence::List IncidenceModel::toIncidences(const Todo::List& todoList) const
     return incidences;
 }
 
+QString IncidenceModel::displayStartEndTime(const int idx) const
+{
+    auto incidence = m_incidences.at(idx);
+
+    if(incidence->allDay())
+    {
+        return QString();
+    }
+
+    if(incidence->type() == IncidenceBase::TypeEvent)
+    {
+        return QString("%1 - %2").arg(incidence->dtStart().time().toString("hh:mm")).arg(incidence.dynamicCast<Event>()->dtEnd().time().toString("hh:mm"));
+    }
+
+    return incidence->dtStart().time().toString("hh:mm");
+}

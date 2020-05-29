@@ -62,7 +62,8 @@ public:
         DisplayDate,
         DisplayTime,
         Completed,
-        IncidenceType
+        IncidenceType,
+        DisplayStartEndTime
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -120,6 +121,8 @@ private:
     Incidence::List toIncidences(const Event::List & eventList) const;
     Incidence::List toIncidences(const Todo::List & todoList) const;
     Incidence::List toIncidences(const Event::List & eventList, const Todo::List & todoList) const;
+    QString displayStartEndTime(const int idx) const;
+
 
     int m_filter_mode;
     QDate m_filter_dt;
