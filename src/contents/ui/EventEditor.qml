@@ -56,6 +56,13 @@ Kirigami.Page {
         return result;
     }
 
+    Component.onCompleted: {
+        if(incidenceData == null && _calindoriConfig.alwaysRemind)
+        {
+            incidenceAlarmsModel.addAlarm(_calindoriConfig.preEventRemindTime * 60)
+        }
+    }
+
     title: uid == "" ? i18n("Add event") : i18n("Edit event")
 
     ColumnLayout {

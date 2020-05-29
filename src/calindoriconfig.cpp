@@ -171,3 +171,29 @@ void CalindoriConfig::setEventsDuration(int duration)
 
     Q_EMIT eventsDurationChanged();
 }
+
+int CalindoriConfig::preEventRemindTime() const
+{
+   return d->config.group("events").readEntry("preEventRemindTime", 15);
+}
+
+void CalindoriConfig::setPreEventRemindTime(int remindBefore)
+{
+    d->config.group("events").writeEntry("preEventRemindTime", remindBefore);
+    d->config.sync();
+
+    Q_EMIT preEventRemindTimeChanged();
+}
+
+bool CalindoriConfig::alwaysRemind() const
+{
+    return d->config.group("events").readEntry("alwaysRemind", true);
+}
+
+void CalindoriConfig::setAlwaysRemind(bool remind)
+{
+    d->config.group("events").writeEntry("alwaysRemind", remind);
+    d->config.sync();
+
+    Q_EMIT alwaysRemindChanged();
+}

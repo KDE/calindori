@@ -22,15 +22,31 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Events")
         }
 
-        RowLayout {
+
+        Controls.SpinBox {
             Kirigami.FormData.label: i18n("Initial duration (minutes)")
 
-            Controls.SpinBox {
-                from: 0
-                value: _calindoriConfig.eventsDuration
+            from: 0
+            value: _calindoriConfig.eventsDuration
 
-                onValueModified: _calindoriConfig.eventsDuration = value
-            }
+            onValueModified: _calindoriConfig.eventsDuration = value
+        }
+
+
+        Controls.SpinBox {
+            Kirigami.FormData.label: i18n("Remind before event (minutes)")
+
+            from: 0
+            value: _calindoriConfig.preEventRemindTime
+
+            onValueModified: _calindoriConfig.preEventRemindTime = value
+        }
+
+        Controls.SwitchDelegate {
+            Kirigami.FormData.label: i18n("Add reminder to new events")
+
+            checked: _calindoriConfig.alwaysRemind
+            onCheckedChanged: _calindoriConfig.alwaysRemind = checked
         }
     }
 }
