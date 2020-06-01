@@ -6,7 +6,6 @@
 
 #include "incidencemodel.h"
 #include <KLocalizedString>
-
 using namespace KCalendarCore;
 
 IncidenceModel::IncidenceModel(QObject* parent) :
@@ -270,17 +269,20 @@ Incidence::List IncidenceModel::hourIncidences() const
 Incidence::List IncidenceModel::hourEvents() const
 {
     Incidence::List incidences;
-    auto filterDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600);
+    auto filterStartDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600);
+    auto filterEndtDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600 + 3599);
     auto dayEventList = dayEvents();
 
     for(const auto & d : dayEventList)
     {
         auto e = d.dynamicCast<Event>();
-        auto startHour =  e->allDay() ? 0 : e->dtStart().time().hour();
-        auto endHour =  e->allDay() ? 23 : e->dtEnd().time().hour();
+
+        auto sameDayEvent = (e->dtStart().date() == e->dtEnd().date());
+        auto startWithinFilter = e->dtStart() >= filterStartDtTime && e->dtStart() <= filterEndtDtTime;
+        auto endWithinFilter = e->dtEnd() > filterStartDtTime && e->dtEnd() <= filterEndtDtTime;
 
         //If the event starts and ends in the same day, we just check the hours; that way recurring events are fetched as well
-        if( (e->dtStart().date() == e->dtEnd().date()) && (startHour <= m_filter_hour) && (m_filter_hour <= endHour) )
+        if(sameDayEvent && (startWithinFilter || endWithinFilter))
         {
             incidences.append(e);
         }
@@ -289,7 +291,7 @@ Incidence::List IncidenceModel::hourEvents() const
         auto startDtStripTime = QDateTime(e->dtStart().date());
         auto startDtTime =  e->allDay() ? startDtStripTime : startDtStripTime.addSecs(3600 * e->dtStart().time().hour());
 
-        if( (e->dtStart().date() != e->dtEnd().date()) && (startDtTime <= filterDtTime) && (e->dtEnd() >= filterDtTime))
+        if(!sameDayEvent && (startDtTime <= filterStartDtTime) && (e->dtEnd() >= filterStartDtTime))
         {
             incidences.append(e);
         }
