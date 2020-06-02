@@ -277,24 +277,15 @@ Incidence::List IncidenceModel::hourEvents() const
     {
         auto e = d.dynamicCast<Event>();
 
-        auto sameDayEvent = (e->dtStart().date() == e->dtEnd().date());
-        auto startWithinFilter = e->dtStart() >= filterStartDtTime && e->dtStart() <= filterEndtDtTime;
-        auto endWithinFilter = e->dtEnd() > filterStartDtTime && e->dtEnd() <= filterEndtDtTime;
+        auto eventStartWithinFilter = e->dtStart() >= filterStartDtTime && e->dtStart() <= filterEndtDtTime;
+        auto eventEndWithinFilter = e->dtEnd() > filterStartDtTime && e->dtEnd() <= filterEndtDtTime;
+        auto filterWithinEvent =  e->dtStart() < filterStartDtTime && filterEndtDtTime < e->dtEnd();
 
-        //If the event starts and ends in the same day, we just check the hours; that way recurring events are fetched as well
-        if(sameDayEvent && (startWithinFilter || endWithinFilter))
+        if((eventStartWithinFilter || eventEndWithinFilter || filterWithinEvent))
         {
             incidences.append(e);
         }
 
-        //For multi-day events we check that filter datetime is between start and end date
-        auto startDtStripTime = QDateTime(e->dtStart().date());
-        auto startDtTime =  e->allDay() ? startDtStripTime : startDtStripTime.addSecs(3600 * e->dtStart().time().hour());
-
-        if(!sameDayEvent && (startDtTime <= filterStartDtTime) && (e->dtEnd() >= filterStartDtTime))
-        {
-            incidences.append(e);
-        }
     }
 
     return incidences;
