@@ -6,6 +6,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.4 as Controls2
+import org.kde.kirigami 2.0 as Kirigami
 
 Controls2.ToolButton {
     id: root
@@ -14,6 +15,7 @@ Controls2.ToolButton {
     property string selectorTitle
 
     text: selectorDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat)
+    implicitWidth: Kirigami.Units.gridUnit * 5
 
     onClicked: {
         datePickerSheet.selectedDate = selectorDate;
