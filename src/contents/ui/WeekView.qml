@@ -82,6 +82,7 @@ ListView {
         id: dayListItem
 
         property var weekDay: model.index
+        property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
 
         contentItem: RowLayout {
             spacing: Kirigami.Units.largeSpacing * 3
@@ -102,9 +103,8 @@ ListView {
                         filterMode: 4
                     }
 
-                    Kirigami.BasicListItem  {
-                        leftPadding:  Kirigami.Units.smallSpacing
-                        reserveSpaceForIcon: false
+                    IncidenceItemDelegate {
+                        itemBackgroundColor: dayListItem.incidenceColor
                         label: "%1 %2".arg(model.startEndTime).arg(model.summary)
                         Layout.fillWidth: true
 

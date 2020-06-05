@@ -76,6 +76,7 @@ ListView {
         id: hourListItem
 
         property var hour: model.index
+        property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
 
         contentItem: RowLayout {
             spacing: Kirigami.Units.largeSpacing * 2
@@ -97,9 +98,8 @@ ListView {
                         filterMode: 1
                     }
 
-                    Kirigami.BasicListItem  {
-                        leftPadding:  Kirigami.Units.smallSpacing
-                        reserveSpaceForIcon: false
+                    IncidenceItemDelegate {
+                        itemBackgroundColor: hourListItem.incidenceColor
                         label: "%1 %2".arg(model.startEndTime).arg(model.summary)
                         Layout.fillWidth: true
 
