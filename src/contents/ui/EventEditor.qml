@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.4 as Controls2
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.7
+import QtQuick.Controls 2.0 as Controls2
+import QtQuick.Layouts 1.3
+import org.kde.kirigami 2.3 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Page {

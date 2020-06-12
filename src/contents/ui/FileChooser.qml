@@ -5,7 +5,7 @@
  */
 
 
-import QtQuick 2.6
+import QtQuick 2.7
 import org.kde.kirigami 2.0 as Kirigami
 
 Item {

@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.1
-import org.kde.kirigami 2.6 as Kirigami
+import QtQuick 2.7
+import org.kde.kirigami 2.0 as Kirigami
 
 Kirigami.Page {
     title: dayView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)

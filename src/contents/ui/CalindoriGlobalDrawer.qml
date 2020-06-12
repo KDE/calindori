@@ -5,9 +5,9 @@
  */
 
 import QtQuick 2.14
-import QtQuick.Controls 2.4 as Controls2
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.7 as Kirigami
+import QtQml.Models 2.14
+import QtQuick.Layouts 1.14
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.GlobalDrawer {

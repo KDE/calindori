@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.1
-import org.kde.kirigami 2.6 as Kirigami
+import QtQuick 2.7
+import org.kde.kirigami 2.0 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
