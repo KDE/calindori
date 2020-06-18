@@ -21,6 +21,7 @@ Comment[pt_BR]=Calendário do Plasma Mobile
 Comment[sl]=Plasma Mobile koledar
 Comment[sv]=Plasma mobilkalender
 Comment[uk]=Календар для мобільної Плазми
+Comment[x-test]=xxPlasma Mobile Calendarxx
 Comment[zh_TW]=Plasma 行動行事曆
 Name=Calindori
 Name[ca]=Calindori
@@ -45,6 +46,7 @@ Name[sk]=Calindori
 Name[sl]=Calindori
 Name[sv]=Calindori
 Name[uk]=Calindori
+Name[x-test]=xxCalindorixx
 Name[zh_TW]=Calindori
 
 [Context/uid]
@@ -66,6 +68,7 @@ Name[pt]=UID da incidência
 Name[pt_BR]=UID da incidência
 Name[sv]=Förekomstens användar-id
 Name[uk]=Ідентифікатор випадку
+Name[x-test]=xxIncidence uidxx
 Comment=The uid of the incidence of the alarm
 Comment[ca]=L'UID de la incidència de l'alarma
 Comment[ca@valencia]=L'UID de la incidència de l'alarma
@@ -84,6 +87,7 @@ Comment[pt]=O UID da incidência do alarme
 Comment[pt_BR]=A UID da incidência do alarme
 Comment[sv]=Användar-id för förekomsten av alarmet
 Comment[uk]=Ідентифікатор випадку нагадування
+Comment[x-test]=xxThe uid of the incidence of the alarmxx
 
 [Event/alarm]
 Name=Alarm
@@ -108,6 +112,7 @@ Name[sk]=Alarm
 Name[sl]=Alarm
 Name[sv]=Alarm
 Name[uk]=Нагадування
+Name[x-test]=xxAlarmxx
 Name[zh_TW]=鬧鐘
 Contexts=uid
 Comment=Alarm Notification
@@ -130,6 +135,7 @@ Comment[pt_BR]=Notificação de alarme
 Comment[sl]=Obvestilo o alarmu
 Comment[sv]=Alarmunderrättelse
 Comment[uk]=Сповіщення для нагадування
+Comment[x-test]=xxAlarm Notificationxx
 Comment[zh_TW]=鬧鐘通知
 Action=Popup
 Urgency=Critical
