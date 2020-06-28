@@ -35,7 +35,7 @@ Kirigami.Page {
     signal editcompleted(var vevent)
 
     /**
-     * Function taht checks that the user input is valid
+     * Function that checks that the user input is valid
      *
      * Returns an object with success status and reason
      */

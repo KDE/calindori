@@ -12,7 +12,7 @@ import org.kde.calindori 0.1
 
 /**
  * Calendar component that displays:
- *  - a header with currrent day's information
+ *  - a header with current day's information
  *  - a table (grid) with the days of the current month
  *  - a set of actions to navigate between months
  * It offers vertical swiping

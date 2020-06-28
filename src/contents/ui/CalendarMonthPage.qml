@@ -31,7 +31,7 @@ Kirigami.Page {
     property int triggerAction: -1
 
    /**
-    * @brief Emited when the hosted SwipeView index is set to the first or the last container item
+    * @brief Emitted when the hosted SwipeView index is set to the first or the last container item
     *
     */
     signal pageEnd(var lastDate, var lastActionIndex)
