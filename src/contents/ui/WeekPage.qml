@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import org.kde.kirigami 2.0 as Kirigami
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     property alias startDate: weekView.startDate
 
     title: weekView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
@@ -53,7 +53,6 @@ Kirigami.Page {
         id: weekView
 
         cal: localCalendar
-        anchors.fill: parent
 
         onSelectedWeekDateChanged: {
             if (pageStack.depth > 1) {

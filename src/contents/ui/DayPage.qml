@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import org.kde.kirigami 2.0 as Kirigami
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     title: dayView.selectedDate.toLocaleDateString(Qt.locale(), Locale.LongFormat)
 
     actions {
@@ -51,7 +51,6 @@ Kirigami.Page {
         id: dayView
 
         cal: localCalendar
-        anchors.fill: parent
 
         onSelectedDateChanged: {
             if (pageStack.depth > 1) {
