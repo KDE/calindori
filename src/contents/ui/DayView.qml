@@ -61,7 +61,13 @@ ListView {
         pageStack.push(eventEditor, { startDt: eventDt });
     }
 
-    onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate, startHour: currentIndex % 12, startPm: currentIndex > 12 } )
+    onAddTodo: {
+        var todoDt = selectedDate;
+        todoDt.setHours(currentIndex);
+        todoDt.setMinutes(0);
+
+        pageStack.push(todoEditor, { startDt: todoDt });
+    }
 
     onCurrentIndexChanged: {
         if (pageStack.depth > 1) {
@@ -100,7 +106,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: hourListItem.incidenceColor
-                        label: "%1 %2".arg(model.startEndTime).arg(model.summary)
+                        label: "%1 %2".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

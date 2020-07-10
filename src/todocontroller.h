@@ -21,7 +21,7 @@ public:
 
     Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap& todo);
     Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap& todo);
-
+    Q_INVOKABLE QVariantMap validate(const QVariantMap& todo) const;
 };
 #endif
 

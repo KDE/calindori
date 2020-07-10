@@ -259,7 +259,6 @@ Kirigami.Page {
                 var validation = validate();
 
                 if(validation.success) {
-                    console.log("Saving event, root.startDt:" + startDt);
                     var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startDt : root.endDt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
 
                     _eventController.addEdit(root.calendar, vevent);

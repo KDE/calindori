@@ -59,11 +59,17 @@ public:
         RepeatPeriodType,
         RepeatEvery,
         RepeatStopAfter,
-        DisplayDate,
-        DisplayTime,
+        DisplayStartDate,
         Completed,
         IncidenceType,
-        DisplayStartEndTime
+        DisplayStartEndTime,
+        DisplayDueDate,
+        DisplayDueTime,
+        DisplayStartTime,
+        Due,
+        ValidStartDt,
+        ValidEndDt,
+        ValidDueDt
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -122,7 +128,10 @@ private:
     Incidence::List toIncidences(const Todo::List & todoList) const;
     Incidence::List toIncidences(const Event::List & eventList, const Todo::List & todoList) const;
     QString displayStartEndTime(const int idx) const;
-
+    QString displayStartDate (const int idx) const;
+    QString displayDueDate (const int idx) const;
+    QString displayDueTime (const int idx) const;
+    QString displayStartTime (const int idx) const;
 
     int m_filter_mode;
     QDate m_filter_dt;

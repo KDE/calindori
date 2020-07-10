@@ -105,7 +105,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: dayListItem.incidenceColor
-                        label: "%1 %2".arg(model.startEndTime).arg(model.summary)
+                        label: "%1 %2".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

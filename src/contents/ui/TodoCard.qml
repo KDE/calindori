@@ -58,6 +58,23 @@ Kirigami.Card {
             }
         }
 
+        Row {
+            visible: dataModel && dataModel.due != undefined && !isNaN(dataModel.due)
+            width: cardDelegate.availableWidth
+            spacing: Kirigami.Units.smallSpacing
+
+            Kirigami.Icon {
+                source: "view-calendar-timeline"
+                width: Kirigami.Units.iconSizes.small
+                height: width
+            }
+
+            Controls2.Label {
+                wrapMode: Text.WordWrap
+                text: dataModel && (dataModel.due != undefined) && !isNaN(dataModel.due) && dataModel.due.toLocaleString(Qt.locale(), dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" )
+            }
+        }
+
         Controls2.Label {
             width: cardDelegate.availableWidth
             wrapMode: Text.WordWrap

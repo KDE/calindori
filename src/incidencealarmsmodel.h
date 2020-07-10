@@ -50,14 +50,22 @@ public:
     void setAlarmProperties(const QVariantMap & alarmProps);
 
 public Q_SLOTS:
+
     /**
      * @brief Removes an alarm from the model
      */
     void removeAlarm(const int row);
+
+    /**
+     * @brief Removes all alarms
+     */
+    void removeAll();
+
     /**
      * @brief Creates a model item and adds it to the model
      */
     void addAlarm(const int secondsFromStart);
+
     /**
      * @return A QVariantList of the items of the model. The members of the list are QHash<QString, QVariant> items that contain the following members: startOffsetValue, startOffsetType and actionType
      */

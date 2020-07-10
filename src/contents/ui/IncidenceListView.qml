@@ -50,10 +50,10 @@ Kirigami.ScrollablePage {
         model: incidenceModel
 
         section {
-            property: "displayDate"
+            property: incidenceType == 0 ? "displayStartDate" : "displayDueDate"
             criteria: ViewSection.FullString
             delegate: Kirigami.ListSectionHeader {
-                label: section || i18n("No start date")
+                label: section
             }
         }
 
@@ -61,7 +61,7 @@ Kirigami.ScrollablePage {
             id: itemDelegate
 
             reserveSpaceForIcon: false
-            label: "%1\t%2".arg(model.displayTime).arg(model.summary)
+            label: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartEndTime : model.displayDueTime) ).arg(model.summary)
 
             onClicked: pageStack.push(incidencePage, { incidence: model })
         }

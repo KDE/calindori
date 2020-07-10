@@ -51,11 +51,13 @@ if(ANDROID)
         view-calendar-day
         view-calendar-tasks
         view-calendar-upcoming-events
+        view-calendar-timeline
         view-choose
         find-location
         media-playlist-repeat
         settings-configure
         gps
+        edit-clear-all
     )
 endif()
 

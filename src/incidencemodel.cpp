@@ -36,7 +36,6 @@ void IncidenceModel::setFilterMode(const int mode)
     Q_EMIT filterModeChanged();
 }
 
-
 QDate IncidenceModel::filterDt() const
 {
     return m_filter_dt;
@@ -95,11 +94,17 @@ QHash<int, QByteArray> IncidenceModel::roleNames() const
         { RepeatEvery, "repeatEvery" },
         { RepeatStopAfter, "repeatStopAfter" },
         { IsRepeating, "isRepeating" },
-        { DisplayDate, "displayDate" },
-        { DisplayTime, "displayTime" },
+        { DisplayStartDate, "displayStartDate" },
+        { DisplayDueDate, "displayDueDate" },
+        { DisplayDueTime, "displayDueTime" },
+        { DisplayStartEndTime, "displayStartEndTime" },
+        { DisplayStartTime, "displayStartTime" },
         { Completed, "completed" },
         { IncidenceType, "type" },
-        { DisplayStartEndTime, "startEndTime" }
+        { Due, "due" },
+        { ValidStartDt, "validStartDt" },
+        { ValidEndDt, "validEndDt" },
+        { ValidDueDt, "validDueDt" }
     };
 }
 
@@ -145,16 +150,28 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
             return repeatStopAfter(row);
         case IsRepeating:
             return m_incidences.at(row)->recurs();
-        case DisplayDate:
-            return m_incidences.at(row)->dtStart().date().toString(Qt::SystemLocaleLongDate);
-        case DisplayTime:
-            return m_incidences.at(row)->allDay() ? i18n("All day") : m_incidences.at(row)->dtStart().time().toString("hh:mm");
+        case DisplayStartDate:
+            return displayStartDate(row);
+        case DisplayDueDate:
+            return displayDueDate(row);
+        case DisplayStartEndTime:
+            return displayStartEndTime(row);
+        case DisplayDueTime:
+            return displayDueTime(row);
+        case DisplayStartTime:
+            return displayStartTime(row);
         case Completed:
             return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->isCompleted() : false;
         case IncidenceType:
             return type;
-        case DisplayStartEndTime:
-            return displayStartEndTime(row);
+        case Due:
+            return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->dtDue() : QDateTime();
+        case ValidStartDt:
+            return m_incidences.at(row)->dtStart().isValid();
+        case ValidEndDt:
+            return ((type == IncidenceBase::TypeEvent) && m_incidences.at(row).dynamicCast<Event>()->hasEndDate());
+        case ValidDueDt:
+            return ((type == IncidenceBase::TypeTodo) && m_incidences.at(row).dynamicCast<Todo>()->hasDueDate());
         default:
             return QVariant();
     }
@@ -298,7 +315,8 @@ Incidence::List IncidenceModel::hourTodos() const
 
     for(const auto & t : dayTodoList)
     {
-        auto k = t->allDay() ? 0 : t->dtStart().time().hour();
+        auto todo =  t.dynamicCast<Todo>();
+        auto k = t->allDay() ? 0 : (todo->dtDue().isValid() ? todo->dtDue().time().hour() : todo->dtStart().time().hour());
         if(k == m_filter_hour || t->allDay())
         {
             incidences.append(t);
@@ -339,7 +357,7 @@ Incidence::List IncidenceModel::allIncidences() const
 
 Incidence::List IncidenceModel::allTodos() const
 {
-    auto todos =  m_calendar->memorycalendar()->rawTodos(TodoSortStartDate, SortDirectionDescending);
+    auto todos =  m_calendar->memorycalendar()->rawTodos(TodoSortDueDate, SortDirectionDescending);
 
     return toIncidences(todos);
 }
@@ -384,10 +402,66 @@ QString IncidenceModel::displayStartEndTime(const int idx) const
         return QString();
     }
 
-    if(incidence->type() == IncidenceBase::TypeEvent)
+    if(incidence->type() == IncidenceBase::TypeEvent && incidence.dynamicCast<Event>()->dtEnd().isValid() )
     {
         return QString("%1 - %2").arg(incidence->dtStart().time().toString("hh:mm")).arg(incidence.dynamicCast<Event>()->dtEnd().time().toString("hh:mm"));
     }
 
     return incidence->dtStart().time().toString("hh:mm");
+}
+
+QString IncidenceModel::displayStartDate ( const int idx ) const
+{
+    auto incidence = m_incidences.at(idx);
+
+    if(incidence->dtStart().isValid())
+        return incidence->dtStart().date().toString(Qt::SystemLocaleLongDate);
+
+    return QString();
+}
+
+QString IncidenceModel::displayDueDate ( const int idx ) const
+{
+    auto incidence = m_incidences.at(idx);
+
+    if((incidence->type() == IncidenceBase::TypeTodo) && (incidence.dynamicCast<Todo>()->dtDue().isValid()))
+        return incidence.dynamicCast<Todo>()->dtDue().date().toString(Qt::SystemLocaleLongDate);
+
+    return i18n("Unspecified due date");
+}
+
+QString IncidenceModel::displayDueTime(const int idx) const
+{
+    auto incidence = m_incidences.at(idx);
+
+    if(incidence->allDay())
+    {
+        return QString();
+    }
+
+    if(incidence->type() == IncidenceBase::TypeTodo)
+    {
+        auto todo = incidence.dynamicCast<Todo>();
+        return todo->dtDue().isValid() ? todo->dtDue().time().toString("hh:mm") : QString();
+    }
+
+    return QString();
+}
+
+QString IncidenceModel::displayStartTime ( const int idx ) const
+{
+    auto incidence = m_incidences.at(idx);
+
+    if(incidence->allDay())
+    {
+        return QString();
+    }
+
+    if(incidence->type() == IncidenceBase::TypeTodo)
+    {
+        auto todo = incidence.dynamicCast<Todo>();
+        return todo->dtStart().isValid() ? todo->dtStart().time().toString("hh:mm") : QString();
+    }
+
+    return QString();
 }

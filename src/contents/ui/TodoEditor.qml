@@ -13,13 +13,17 @@ import org.kde.calindori 0.1 as Calindori
 Kirigami.Page {
     id: root
 
-    property date startDt
+    property alias startDt: startDateSelector.selectorDate
     property string uid
     property alias summary: summary.text
     property alias description: description.text
     property alias startHour: startTimeSelector.selectorHour
     property alias startMinute: startTimeSelector.selectorMinutes
     property alias startPm: startTimeSelector.selectorPm
+    property alias dueDt: dueDateSelector.selectorDate
+    property alias dueHour: dueDtTimeSelector.selectorHour
+    property alias dueMinute: dueDtTimeSelector.selectorMinutes
+    property alias duePm: dueDtTimeSelector.selectorPm
     property alias allDay: allDaySelector.checked
     property alias location: location.text
     property alias completed: completed.checked
@@ -72,25 +76,91 @@ Kirigami.Page {
             }
 
             RowLayout {
-                Kirigami.FormData.label: i18n("Start time:")
-                enabled: root.startDt != undefined && !isNaN(root.startDt)
+                Kirigami.FormData.label: i18n("Start:")
+                spacing: 0
+
+                DateSelectorButton {
+                    id: startDateSelector
+
+                    selectorTitle: i18n("Start Date")
+                }
 
                 TimeSelectorButton {
                     id: startTimeSelector
 
+                    property bool validSelectedDt: startDateSelector.selectorDate != undefined && !isNaN(startDateSelector.selectorDate)
+
+                    selectorDate: startDateSelector.selectorDate
                     selectorTitle: i18n("Start Time")
-                    selectorDate: root.startDt
-                    selectorHour: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.toLocaleTimeString(Qt.locale(), "mm") : 0
-                    selectorPm: (root.incidenceData && root.incidenceData.dtstart.toLocaleTimeString(Qt.locale("en_US"), "AP")  == "PM") ? true : false
-                    enabled: !allDaySelector.checked
+                    selectorHour: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: (validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM")) ? true : false
+
+                    enabled: !allDaySelector.checked && validSelectedDt
                 }
+
+                Controls2.ToolButton {
+                    id: clearStartDt
+
+                    icon.name: "edit-clear-all"
+
+                    onClicked: {
+                        startDateSelector.selectorDate = new Date("invalid");
+                        incidenceAlarmsModel.removeAll();
+                    }
+                }
+            }
+
+            RowLayout {
+                Kirigami.FormData.label: i18n("Due:")
+                spacing: 0
+
+                DateSelectorButton {
+                    id: dueDateSelector
+
+                    selectorTitle: i18n("Due Date")
+
+                    Component.onCompleted: {
+                        // Do not bind, just initialize
+                        if (root.incidenceData && root.incidenceData.validDueDt)
+                            selectorDate = root.incidenceData.due
+                        else if (root.incidenceData == undefined && root.startDt != undefined && !isNaN(root.startDt))
+                           selectorDate = new Date(root.startDt.getFullYear(), root.startDt.getMonth(), root.startDt.getDate(), root.startHour + (startPm ? 12 : 0) , root.startMinute);
+                        else
+                            selectorDate = new Date("invalid");
+                    }
+                }
+
+                TimeSelectorButton {
+                    id: dueDtTimeSelector
+
+                    property bool validSelectedDt: dueDateSelector.selectorDate != undefined && !isNaN(dueDateSelector.selectorDate)
+
+                    selectorDate: dueDateSelector.selectorDate
+                    selectorTitle: i18n("Due Time")
+                    selectorHour: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
+                    selectorMinutes: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorPm: validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM") ? true : false
+
+                    enabled: !allDaySelector.checked && validSelectedDt
+                }
+
+                Controls2.ToolButton {
+                    id: clearDueDt
+
+                    icon.name: "edit-clear-all"
+
+                    onClicked: dueDateSelector.selectorDate = new Date("invalid")
+                }
+
+
             }
 
             Controls2.CheckBox {
                 id: allDaySelector
 
-                enabled: !isNaN(root.startDt)
+                enabled: !isNaN(root.startDt) || !isNaN(root.dueDt)
+
                 checked: incidenceData ? incidenceData.allday: false
                 text: i18n("All day")
             }
@@ -130,6 +200,51 @@ Kirigami.Page {
             Layout.fillWidth: true
         }
 
+        RowLayout {
+            enabled: root.startDt != undefined && !isNaN(root.startDt)
+
+            Controls2.Label {
+                id: remindersLabel
+
+                Layout.fillWidth: true
+                text: i18n("Reminders")
+            }
+
+            Controls2.ToolButton {
+                text: i18n("Add")
+
+                onClicked: reminderEditor.open()
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+
+        Repeater {
+            id: alarmsList
+
+            model: incidenceAlarmsModel
+
+            delegate: Kirigami.SwipeListItem {
+                contentItem: Controls2.Label {
+                    text: model.display
+                    wrapMode: Text.WordWrap
+                }
+
+                Layout.fillWidth: true
+
+                actions: [
+                     Kirigami.Action {
+                        id: deleteAlarm
+
+                        iconName: "delete"
+                        onTriggered: incidenceAlarmsModel.removeAlarm(model.index)
+                    }
+                ]
+            }
+        }
+
         Controls2.CheckBox {
             id: completed
 
@@ -157,11 +272,31 @@ Kirigami.Page {
             enabled: summary.text
 
             onTriggered: {
-                console.log("Saving task");
-                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description,"location":  root.location, "completed": root.completed };
-                _todoController.addEdit(root.calendar, vtodo);
-                editcompleted();
+                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description, "location": root.location, "completed": root.completed, "dueDate": root.dueDt, "dueHour": root.dueHour + (root.duePm ? 12 : 0), "dueMinute": root.dueMinute, "alarms": incidenceAlarmsModel.alarms() };
+
+                var validation = _todoController.validate(vtodo);
+
+                if(validation.success) {
+                    _todoController.addEdit(root.calendar, vtodo);
+                    editcompleted();
+                }
+                else {
+                    showPassiveNotification(validation.reason);
+                }
             }
         }
+    }
+
+    Calindori.IncidenceAlarmsModel {
+
+        id: incidenceAlarmsModel
+
+        alarmProperties: { "calendar" : root.calendar, "uid": root.uid }
+    }
+
+    ReminderEditor {
+        id: reminderEditor
+
+        onOffsetSelected: incidenceAlarmsModel.addAlarm(offset)
     }
 }

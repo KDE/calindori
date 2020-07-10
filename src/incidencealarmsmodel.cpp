@@ -36,6 +36,13 @@ void IncidenceAlarmsModel::removeAlarm(const int row)
     endRemoveRows();
 }
 
+void IncidenceAlarmsModel::removeAll()
+{
+    beginResetModel();
+    mAlarms.clear();
+    endResetModel();
+}
+
 void IncidenceAlarmsModel::addAlarm(const int secondsFromStart)
 {
     qDebug() << "\nAddAlarm:\tAdding alarm. Seconds before start: " << secondsFromStart;
