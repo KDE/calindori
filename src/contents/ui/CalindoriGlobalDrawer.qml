@@ -76,19 +76,35 @@ Kirigami.GlobalDrawer {
         },
 
         Kirigami.Action {
-            id: sectionSeparator
-
-            separator: true
-        },
-
-        Kirigami.Action {
             id: calendarManagement
 
             text: i18n("Calendar Management")
             iconName: "view-calendar"
 
-            children: [calendarCreateAction, calendarImportAction, actionSeparator]
+            Kirigami.Action {
+                id: availableCalendars
 
+                iconName: "view-calendar"
+                text: i18n("Available Calendars")
+                expandible: true
+            }
+
+            Kirigami.Action {
+                id: calendarCreateAction
+
+                text: i18n("New calendar")
+                iconName: "list-add"
+                onTriggered: pageStack.push(calendarEditor, {mode: "add"})
+            }
+
+            Kirigami.Action {
+                id: calendarImportAction
+
+                text: i18n("Import calendar")
+                iconName: "document-import"
+
+                onTriggered: pageStack.push(calendarEditor, {mode: "import"})
+            }
         },
 
         Kirigami.Action {
@@ -122,39 +138,13 @@ Kirigami.GlobalDrawer {
         }
 
         onObjectAdded: {
-            calendarManagement.children.push(object)
+            availableCalendars.children.push(object)
         }
 
         onObjectRemoved: {
             // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
-            calendarManagement.children = []
-            calendarManagement.children.push(calendarCreateAction)
-            calendarManagement.children.push(calendarImportAction)
-            calendarManagement.children.push(actionSeparator)
+            availableCalendars.children = []
         }
-    }
-
-    Kirigami.Action {
-        id: calendarCreateAction
-
-        text: i18n("New calendar")
-        iconName: "list-add"
-        onTriggered: pageStack.push(calendarEditor, {mode: "add"})
-    }
-
-    Kirigami.Action {
-        id: calendarImportAction
-
-        text: i18n("Import calendar")
-        iconName: "document-import"
-
-        onTriggered: pageStack.push(calendarEditor, {mode: "import"})
-    }
-
-    Kirigami.Action {
-        id: actionSeparator
-
-        separator: true
     }
 
     Item {
@@ -177,7 +167,7 @@ Kirigami.GlobalDrawer {
 
         CalendarEditor {
             onCalendarAdded: {
-                pageStack.pop(calendarEditor);
+                pageStack.clear()
                 pageStack.push(monthView);
             }
             onCalendarAddCanceled: pageStack.pop(calendarEditor)
