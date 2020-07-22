@@ -23,7 +23,7 @@ Kirigami.Page {
 
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
-        text: i18n("Add event")
+        text: i18n("New Event")
         onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : new Date() })
     }
 
@@ -88,5 +88,4 @@ Kirigami.Page {
         calendar: root.calendar
         filterMode: 5
     }
-
 }

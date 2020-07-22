@@ -63,7 +63,7 @@ Kirigami.Page {
         }
     }
 
-    title: uid == "" ? i18n("Add event") : i18n("Edit event")
+    title: uid == "" ? i18n("New event") : root.summary
 
     ColumnLayout {
 

@@ -20,7 +20,7 @@ Kirigami.Page {
 
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
-        text: i18n("Add task")
+        text: i18n("New Task")
         onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
     }
 
