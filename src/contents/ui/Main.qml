@@ -29,7 +29,7 @@ Kirigami.ApplicationWindow {
 
     pageStack {
         initialPage: [calendarMonthPage]
-        separatorVisible: false
+        defaultColumnWidth: root.wideScreen ? Kirigami.Units.gridUnit * 40 : Kirigami.gridUnit * 20
     }
 
     Calindori.LocalCalendar {

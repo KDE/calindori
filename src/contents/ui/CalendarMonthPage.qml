@@ -41,7 +41,7 @@ Kirigami.Page {
     actions {
         left: Kirigami.Action {
             iconName: "go-down"
-            text: i18n("Previous month")
+            text: i18n("Previous")
 
             onTriggered: calendarMonthView.previousMonth()
         }
@@ -55,7 +55,7 @@ Kirigami.Page {
 
         right: Kirigami.Action {
             iconName: "go-up"
-            text: i18n("Next month")
+            text: i18n("Next")
 
             onTriggered: calendarMonthView.nextMonth()
         }
