@@ -66,6 +66,7 @@ public:
         DisplayDueDate,
         DisplayDueTime,
         DisplayStartTime,
+        DisplayType,
         Due,
         ValidStartDt,
         ValidEndDt,

@@ -46,8 +46,8 @@ Kirigami.ScrollablePage {
         id: listView
 
         anchors.fill: parent
-
         model: incidenceModel
+        spacing: Kirigami.Units.largeSpacing
 
         section {
             property: incidenceType == 0 ? "displayStartDate" : "displayDueDate"
@@ -62,6 +62,8 @@ Kirigami.ScrollablePage {
 
             reserveSpaceForIcon: false
             label: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartEndTime : model.displayDueTime) ).arg(model.summary)
+            topPadding: Kirigami.Units.gridUnit
+            bottomPadding: Kirigami.Units.gridUnit
 
             onClicked: pageStack.push(incidencePage, { incidence: model })
         }

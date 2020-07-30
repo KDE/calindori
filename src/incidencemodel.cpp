@@ -99,6 +99,7 @@ QHash<int, QByteArray> IncidenceModel::roleNames() const
         { DisplayDueTime, "displayDueTime" },
         { DisplayStartEndTime, "displayStartEndTime" },
         { DisplayStartTime, "displayStartTime" },
+        { DisplayType, "displayType" },
         { Completed, "completed" },
         { IncidenceType, "type" },
         { Due, "due" },
@@ -160,6 +161,15 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
             return displayDueTime(row);
         case DisplayStartTime:
             return displayStartTime(row);
+        case DisplayType:
+        {
+            if (type == IncidenceBase::TypeEvent)
+                return i18n("Event");
+            else if (type == IncidenceBase::TypeTodo)
+                return i18n("Task");
+            else
+                return QString();
+        }
         case Completed:
             return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->isCompleted() : false;
         case IncidenceType:

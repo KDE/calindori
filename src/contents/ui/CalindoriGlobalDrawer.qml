@@ -177,13 +177,17 @@ Kirigami.GlobalDrawer {
     Component {
         id: dayView
 
-        DayPage {}
+        DayPage {
+            wideScreen: root.wideScreen
+        }
     }
 
     Component {
         id: weekView
 
-        WeekPage {}
+        WeekPage {
+            wideScreen: root.wideScreen
+        }
     }
 
     Component {

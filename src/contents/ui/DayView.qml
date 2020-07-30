@@ -15,6 +15,7 @@ ListView {
 
     property date selectedDate: new Date()
     property var cal
+    property bool wideScreen
 
     signal nextDay
     signal previousDay
@@ -91,10 +92,12 @@ ListView {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
                 text: model.index < 10 ? "0" + model.index : model.index
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
             }
 
-            ColumnLayout {
-                spacing: 0
+            GridLayout {
+                columns: root.wideScreen ? -1 : 1
+                rows: root.wideScreen ? 1 : -1
 
                 Repeater {
                     model: IncidenceModel {
@@ -106,7 +109,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: hourListItem.incidenceColor
-                        label: "%1 %2".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
+                        label: "%1\n%2: %3".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.displayType).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

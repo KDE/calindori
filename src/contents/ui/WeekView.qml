@@ -18,6 +18,7 @@ ListView {
     property date selectedWeekDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + (startDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek-7), startDate.getHours(), 0)
     property date selectedDate: startDate
     property var cal
+    property bool wideScreen
 
     signal nextWeek
     signal previousWeek
@@ -91,10 +92,12 @@ ListView {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
                 text: Qt.locale().dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 3
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
             }
 
-            ColumnLayout {
-                spacing: 0
+            GridLayout {
+                columns: wideScreen ? -1 : 1
+                rows: wideScreen ? 1 : -1
 
                 Repeater {
                     model: IncidenceModel {
@@ -105,7 +108,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: dayListItem.incidenceColor
-                        label: "%1 %2".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
+                        label: "%1\n%2: %3".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.displayType).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

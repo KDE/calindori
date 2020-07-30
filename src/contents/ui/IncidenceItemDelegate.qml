@@ -10,18 +10,11 @@ import org.kde.kirigami 2.0 as Kirigami
 Kirigami.BasicListItem  {
     property alias itemBackgroundColor: backgroundRectangle.color
 
-    leftPadding:  Kirigami.Units.smallSpacing
+    leftPadding: Kirigami.Units.smallSpacing
     reserveSpaceForIcon: false
+    clip: true
 
     background: Rectangle {
         id: backgroundRectangle
-
-        Kirigami.Separator {
-            anchors {
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-            }
-        }
     }
 }
