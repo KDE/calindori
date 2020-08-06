@@ -19,7 +19,6 @@ Kirigami.OverlaySheet {
     property alias pm: timePicker.pm
 
     signal datePicked
-
     header: Kirigami.Heading {
         level:1
         text: timePickerSheet.headerText
@@ -28,7 +27,8 @@ Kirigami.OverlaySheet {
     contentItem: TimePicker {
         id: timePicker
 
-        Layout.preferredWidth: childrenRect.width + timePickerSheet.rightPadding + timePickerSheet.leftPadding
+        height: Kirigami.Units.gridUnit * 25
+        width: childrenRect.width + timePickerSheet.rightPadding + timePickerSheet.leftPadding
     }
 
     footer: RowLayout {
