@@ -15,6 +15,8 @@
 
 using namespace KCalendarCore;
 
+class CalindoriConfig;
+
 class LocalCalendar : public QObject
 {
     Q_OBJECT
@@ -45,12 +47,13 @@ Q_SIGNALS:
 
 private:
     static QVariantMap canCreateFile(const QString& calendarName);
+    void loadCalendar(const QString &calendarName);
 
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
     QString m_name;
     QString m_fullpath;
-
+    CalindoriConfig *m_config;
 };
 
 #endif // LOCALCALENDAR_H

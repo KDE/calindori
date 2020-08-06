@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.10 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
@@ -32,14 +32,11 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Controls2.Label {
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+        width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: listView.count == 0
-        wrapMode: Text.WordWrap
         text: incidenceStartDt.toLocaleDateString() != "" ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("Nothing scheduled")
-        font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
     }
 
     ListView {

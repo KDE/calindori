@@ -25,10 +25,10 @@ Kirigami.Page {
     property int latestContextualAction: -1
 
     /**
-     *  @brief When set to a valid contextual action index, that contextual action is triggered
+     *  @brief When set to a valid contextual action index, as soon as the page is loaded the corresponding contextual action is also opened
      *
      */
-    property int triggerAction: -1
+    property int loadWithAction: -1
 
    /**
     * @brief Emitted when the hosted SwipeView index is set to the first or the last container item
@@ -66,7 +66,7 @@ Kirigami.Page {
                 text: i18n("Tasks")
 
                 onTriggered: {
-                    latestContextualAction = 0
+                    latestContextualAction = 0;
                     pageStack.push(todosCardView);
                 }
             },
@@ -76,7 +76,7 @@ Kirigami.Page {
                 text: i18n("Events")
 
                 onTriggered: {
-                    latestContextualAction = 1
+                    latestContextualAction = 1;
                     pageStack.push(eventsCardView);
                 }
             }
@@ -84,11 +84,12 @@ Kirigami.Page {
     }
 
     Component.onCompleted: {
-        if(triggerAction >= 0)
+        if(loadWithAction >= 0)
         {
-            contextualActions[triggerAction].trigger();
+            contextualActions[loadWithAction].trigger();
         }
     }
+
     CalendarMonthView {
         id: calendarMonthView
 

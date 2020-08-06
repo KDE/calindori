@@ -35,12 +35,6 @@ Kirigami.ApplicationWindow {
     Calindori.LocalCalendar {
         id: localCalendar
 
-        onNameChanged: {
-            if (root.pageStack.depth > 1) {
-                root.pageStack.pop(null);
-            }
-        }
-
         name: _calindoriConfig.activeCalendar
     }
 
@@ -49,6 +43,7 @@ Kirigami.ApplicationWindow {
 
         CalendarMonthPage {
             calendar: localCalendar
+            loadWithAction: Kirigami.Settings.isMobile ? -1 : 1
 
             onPageEnd: switchToMonthPage(lastDate, lastActionIndex)
         }
@@ -56,6 +51,6 @@ Kirigami.ApplicationWindow {
 
     onSwitchToMonthPage: {
         pageStack.clear();
-        pageStack.push(calendarMonthPage, {selectedDate: sDate, triggerAction: cActionIndex});
+        pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: Kirigami.Settings.isMobile ? -1 : cActionIndex});
     }
 }

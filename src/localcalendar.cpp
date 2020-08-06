@@ -15,9 +15,10 @@
 using namespace KCalendarCore;
 
 LocalCalendar::LocalCalendar(QObject* parent)
-: QObject(parent)
-{}
-
+: QObject(parent), m_config(new CalindoriConfig())
+{
+    loadCalendar(m_config->activeCalendar());
+}
 
 LocalCalendar::~LocalCalendar() = default;
 
@@ -33,33 +34,8 @@ QString LocalCalendar::name() const
 
 void LocalCalendar::setName(QString calendarName)
 {
-    if (m_name != calendarName)
-    {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
-        FileStorage::Ptr storage(new FileStorage(calendar));
-        CalindoriConfig* config = new CalindoriConfig();
-
-        m_fullpath = config->calendarFile(calendarName);
-
-        QFile calendarFile(m_fullpath);
-        storage->setFileName(m_fullpath);
-
-        if (!calendarFile.exists())
-        {
-            qDebug() << "Creating file" << storage->save();
-        }
-
-        if(storage->load())
-        {
-            m_name = calendarName;
-            m_calendar = calendar;
-            m_cal_storage = storage;
-        }
-
-        emit nameChanged();
-        emit memorycalendarChanged();
-        emit todosChanged();
-        emit eventsChanged();
+    if (m_name != calendarName) {
+        loadCalendar(calendarName);
     }
 }
 
@@ -92,7 +68,6 @@ void LocalCalendar::deleteCalendar()
             calendarFile.remove();
         }
 }
-
 
 int LocalCalendar::eventsCount(const QDate& date) const {
     if(m_calendar == nullptr)
@@ -169,4 +144,31 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QSt
     result["reason"] = QVariant(QString());
 
     return result;
+}
+
+void LocalCalendar::loadCalendar(const QString& calendarName)
+{
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
+    FileStorage::Ptr storage(new FileStorage(calendar));
+
+    m_fullpath = m_config->calendarFile(calendarName);
+
+    QFile calendarFile(m_fullpath);
+    storage->setFileName(m_fullpath);
+
+    if (!calendarFile.exists()) {
+        bool saved = storage->save();
+        qDebug() << "New calendar file created: " << saved;
+    }
+
+    if(storage->load()) {
+        m_name = calendarName;
+        m_calendar = calendar;
+        m_cal_storage = storage;
+    }
+
+    emit nameChanged();
+    emit memorycalendarChanged();
+    emit todosChanged();
+    emit eventsChanged();
 }

@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Page {
@@ -39,14 +39,11 @@ Kirigami.Page {
         }
     }
 
-    Controls2.Label {
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+        width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
-        wrapMode: Text.WordWrap
         text: eventStartDt.toLocaleDateString() != "" ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No events scheduled")
-        font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
     }
 
     Kirigami.CardsListView {
