@@ -93,22 +93,18 @@ Item {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
             }
 
-            Controls2.TabBar {
-                id: pmTabBar
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+            Controls2.RadioButton {
+                text: i18n("AM")
+                checked: !root.pm
 
-                Controls2.TabButton {
-                    text: i18n("AM")
-                    checked: !root.pm
+                onClicked: root.pm = !checked
+            }
 
-                    onClicked: root.pm = !checked
-                }
-                Controls2.TabButton {
-                    text: i18n("PM")
-                    checked: root.pm
+            Controls2.RadioButton {
+                text: i18n("PM")
+                checked: root.pm
 
-                    onClicked: root.pm = checked
-                }
+                onClicked: root.pm = checked
             }
         }
     }
