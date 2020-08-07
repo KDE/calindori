@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     id: root
 
     property date todoDt
@@ -45,8 +45,6 @@ Kirigami.Page {
 
     Kirigami.CardsListView {
         id: cardsListview
-
-        anchors.fill: parent
 
         model: todosModel
 
