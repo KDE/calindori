@@ -53,5 +53,4 @@ GenericName[x-test]=xxCalindori Reminder Daemon Clientxx
 GenericName[zh_TW]=Calindori 提醒守護用戶端
 Terminal=false
 X-KDE-autostart-phase=2
-X-KDE-autostart-condition=calindacrc:General:Autostart:true
 X-DBUS-StartupType=Unique
