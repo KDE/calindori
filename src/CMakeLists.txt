@@ -58,6 +58,7 @@ if(ANDROID)
         settings-configure
         gps
         edit-clear-all
+        window-close-symbolic
     )
 endif()
 
