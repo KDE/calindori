@@ -247,6 +247,16 @@
       <li xml:lang="zh-TW">匯入行事曆</li>
     </ul>
   </description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Calindori on Mobile</caption>
+      <image>https://cdn.kde.org/screenshots/calindori/mobile.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Calindori on Desktop</caption>
+      <image>https://cdn.kde.org/screenshots/calindori/desktop.png</image>
+    </screenshot>
+  </screenshots>
   <url type="bugtracker">https://invent.kde.org/kde/calindori/issues</url>
   <project_group>KDE</project_group>
   <provides>
