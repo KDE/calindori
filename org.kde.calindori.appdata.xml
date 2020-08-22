@@ -250,10 +250,22 @@
   <screenshots>
     <screenshot type="default">
       <caption>Calindori on Mobile</caption>
+      <caption xml:lang="ca">El Calindori al mòbil</caption>
+      <caption xml:lang="eu">Calindori mugikorrean</caption>
+      <caption xml:lang="nl">Calindori op mobiel</caption>
+      <caption xml:lang="sv">Calindori på mobil</caption>
+      <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
+      <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
       <image>https://cdn.kde.org/screenshots/calindori/mobile.png</image>
     </screenshot>
     <screenshot>
       <caption>Calindori on Desktop</caption>
+      <caption xml:lang="ca">El Calindori a l'escriptori</caption>
+      <caption xml:lang="eu">Calindori mahaigainean</caption>
+      <caption xml:lang="nl">Calindori op bureaublad</caption>
+      <caption xml:lang="sv">Calindori på skrivbord</caption>
+      <caption xml:lang="uk">Calindori на комп'ютері</caption>
+      <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
       <image>https://cdn.kde.org/screenshots/calindori/desktop.png</image>
     </screenshot>
   </screenshots>
