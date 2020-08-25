@@ -261,6 +261,7 @@
     <screenshot type="default">
       <caption>Calindori on Mobile</caption>
       <caption xml:lang="ca">El Calindori al mòbil</caption>
+      <caption xml:lang="ca-valencia">El Calindori al mòbil</caption>
       <caption xml:lang="da">Calindori på mobil</caption>
       <caption xml:lang="es">Calindori en el móvil</caption>
       <caption xml:lang="eu">Calindori mugikorrean</caption>
@@ -275,6 +276,7 @@
     <screenshot>
       <caption>Calindori on Desktop</caption>
       <caption xml:lang="ca">El Calindori a l'escriptori</caption>
+      <caption xml:lang="ca-valencia">El Calindori a l'escriptori</caption>
       <caption xml:lang="da">Calindori på desktop</caption>
       <caption xml:lang="es">Calindori en el escritorio</caption>
       <caption xml:lang="eu">Calindori mahaigainean</caption>
