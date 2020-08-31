@@ -122,6 +122,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
+    <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Možnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
@@ -224,6 +225,7 @@
       <li xml:lang="pl">Wiele kalendarzy</li>
       <li xml:lang="pt">Vários calendários</li>
       <li xml:lang="pt-BR">Múltiplos calendários</li>
+      <li xml:lang="ru">Несколько календарей</li>
       <li xml:lang="sk">Viac kalendárov</li>
       <li xml:lang="sl">Več koledarjev</li>
       <li xml:lang="sv">Flera kalendrar</li>
@@ -249,6 +251,7 @@
       <li xml:lang="pl">Importowanie kalendarzy</li>
       <li xml:lang="pt">Importar o calendário</li>
       <li xml:lang="pt-BR">Importar calendário</li>
+      <li xml:lang="ru">Импорт календарей</li>
       <li xml:lang="sk">Import kalendára</li>
       <li xml:lang="sl">Uvozi koledar</li>
       <li xml:lang="sv">Importera kalender</li>
@@ -269,6 +272,7 @@
       <caption xml:lang="nl">Calindori op mobiel</caption>
       <caption xml:lang="pt">Calindori no Telemóvel</caption>
       <caption xml:lang="pt-BR">Calindori no celular</caption>
+      <caption xml:lang="ru">Calindori на мобильном устройстве</caption>
       <caption xml:lang="sv">Calindori på mobil</caption>
       <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
       <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
@@ -285,6 +289,7 @@
       <caption xml:lang="nl">Calindori op bureaublad</caption>
       <caption xml:lang="pt">Calindori no PC</caption>
       <caption xml:lang="pt-BR">Calindori na área de trabalho</caption>
+      <caption xml:lang="ru">Calindori на компьютере</caption>
       <caption xml:lang="sv">Calindori på skrivbord</caption>
       <caption xml:lang="uk">Calindori на комп'ютері</caption>
       <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
