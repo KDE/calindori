@@ -20,6 +20,7 @@
   <name xml:lang="fi">Calindori</name>
   <name xml:lang="fr">Calindori</name>
   <name xml:lang="gl">Calindori</name>
+  <name xml:lang="ia">Calindori</name>
   <name xml:lang="id">Calindori</name>
   <name xml:lang="it">Calindori</name>
   <name xml:lang="nl">Calindori</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="fi">Kalenterisovellus</summary>
   <summary xml:lang="fr">Application d'agenda</summary>
   <summary xml:lang="gl">Aplicación de calendario</summary>
+  <summary xml:lang="ia">Application de calendario</summary>
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
@@ -116,6 +118,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -143,6 +146,7 @@
       <li xml:lang="fi">Työsuunnitelma</li>
       <li xml:lang="fr">Agenda</li>
       <li xml:lang="gl">Axenda</li>
+      <li xml:lang="ia">Agenda</li>
       <li xml:lang="id">Agenda</li>
       <li xml:lang="it">Agenda</li>
       <li xml:lang="nl">Agenda</li>
@@ -168,6 +172,7 @@
       <li xml:lang="fi">Tapahtumat</li>
       <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
+      <li xml:lang="ia">Eventos</li>
       <li xml:lang="id">Peristiwa</li>
       <li xml:lang="it">Eventi</li>
       <li xml:lang="nl">Afspraken</li>
@@ -194,6 +199,7 @@
       <li xml:lang="fi">Tehtävät</li>
       <li xml:lang="fr">Tâches</li>
       <li xml:lang="gl">Tarefas</li>
+      <li xml:lang="ia">Cosas de facer</li>
       <li xml:lang="id">Kegiatan</li>
       <li xml:lang="it">Cose da fare</li>
       <li xml:lang="nl">Taken</li>
@@ -219,6 +225,7 @@
       <li xml:lang="fi">Useammat kalenterit</li>
       <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
+      <li xml:lang="ia">Calendarios multiple</li>
       <li xml:lang="id">Multipel kalender</li>
       <li xml:lang="it">Calendari multipli</li>
       <li xml:lang="nl">Meerdere agenda's</li>
@@ -245,6 +252,7 @@
       <li xml:lang="fi">Kalenterin tuonti</li>
       <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
+      <li xml:lang="ia">Importa calendario</li>
       <li xml:lang="id">Impor kalender</li>
       <li xml:lang="it">Importa calendario</li>
       <li xml:lang="nl">Agenda importeren </li>
@@ -269,6 +277,7 @@
       <caption xml:lang="es">Calindori en el móvil</caption>
       <caption xml:lang="eu">Calindori mugikorrean</caption>
       <caption xml:lang="fr">Calindori sur plateforme mobile</caption>
+      <caption xml:lang="ia">Calindori sur Mobile</caption>
       <caption xml:lang="it">Calindori su mobile</caption>
       <caption xml:lang="nl">Calindori op mobiel</caption>
       <caption xml:lang="pt">Calindori no Telemóvel</caption>
@@ -287,6 +296,7 @@
       <caption xml:lang="es">Calindori en el escritorio</caption>
       <caption xml:lang="eu">Calindori mahaigainean</caption>
       <caption xml:lang="fr">Calindori sur ordinateur de bureau</caption>
+      <caption xml:lang="ia">Calindori sur scriptorio</caption>
       <caption xml:lang="it">Calindori su desktop</caption>
       <caption xml:lang="nl">Calindori op bureaublad</caption>
       <caption xml:lang="pt">Calindori no PC</caption>
