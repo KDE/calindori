@@ -13,6 +13,7 @@
   <name xml:lang="cs">Calindori</name>
   <name xml:lang="da">Calindori</name>
   <name xml:lang="de">Calindori</name>
+  <name xml:lang="el">Calindori</name>
   <name xml:lang="en-GB">Calindori</name>
   <name xml:lang="es">Calindori</name>
   <name xml:lang="et">Calindori</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="cs">Aplikace kalendáře</summary>
   <summary xml:lang="da">Kalenderprogram</summary>
   <summary xml:lang="de">Kalenderprogramm</summary>
+  <summary xml:lang="el">Εφαρμογή ημερολογίου</summary>
   <summary xml:lang="en-GB">Calendar application</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
   <summary xml:lang="et">Kalendrirakendus</summary>
@@ -66,6 +68,7 @@
     <p xml:lang="ca-valencia">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. L'usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
     <p xml:lang="da">Calindori er et touch-venligt kalenderprogram. Det er designet til mobile enheder, men det kan også køre i skrivebordsmiljøer. Brugere af Calindori kan tjekke tidligere og fremtidige datoer og håndtere opgaver og begivenheder.</p>
     <p xml:lang="de">Calindori ist eine Kalenderanwendung für Touch-Geräte. Sie wurde für mobile Geräte entwickelt, kann aber auch auf Desktop-Umgebungen ausgeführt werden. Benutzer von Calindori sind in der Lage, frühere und zukünftige Termine zu überprüfen und Aufgaben bzw. Ereignisse zu verwalten.</p>
+    <p xml:lang="el">Το Calindori είναι μια φιλική σε οθόνες αφής εφαρμογή ημερολογίου. Έχει σχεδιαστεί για κινητά αλλά εκτελείται και σε περιβάλλοντα υπολογιστών γραφείου. Οι χρήστες του Calindori μπορούν να ελέγχουν ημερομηνίες στο παρελθόν και στο μέλλον και να διαχειρίζονται εργασίες και γεγονότα.</p>
     <p xml:lang="en-GB">Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
     <p xml:lang="es">Calindori es una aplicación de calendarios táctil. Ha sido diseñada para dispositivos móviles, aunque también se puede ejecutar en entornos de escritorio. Los usuarios de Calindori pueden comprobar fechas anteriores y futuras, así como gestionar tareas y eventos.</p>
     <p xml:lang="et">Calindori on puutetundlik kalendrirakendus. See loodi eelkõige mobiilseadmetele, aga seda saab kasutada ka töölauaarvutites. Calindori kasutajatel on võimalik uurida möödunud ja tulevasi kuupäevi ning korraldada oma ülesandeid ja sündmusi.</p>
@@ -88,6 +91,7 @@
     <p xml:lang="ca-valencia">En executar l'aplicació per primera vegada, es crea un fitxer nou de calendari que segueix l'estàndard «ical». Alternativament, els usuaris poden crear calendaris addicionals o importar-ne d'existents.</p>
     <p xml:lang="da">Når programmet køres første gang oprettes en ny kalenderfil som følger ical-standarden. Alternativt kan brugere oprette yderligere kalendere eller importere eksisterende kalendere.</p>
     <p xml:lang="de">Beim ersten Start der Anwendung wird ein neuer Kalender nach dem ICal-Standard erstellt. Alternativ können zusätzliche Kalender erstellt oder vorhandene Kalender importiert werden.</p>
+    <p xml:lang="el">Όταν η εφαρμογή εκτελείται για πρώτη φορά, δημιουργείται ένα νέο αρχείο ημερολογίου το οποίο ακολουθεί το πρότυπο ical. Εναλλακτικά, οι χρήστες μπορούν να δημιουργούν νέα ημερολόγια ή να εισάγουν αυτά που υπάρχουν.</p>
     <p xml:lang="en-GB">When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
     <p xml:lang="es">Al ejecutar la aplicación por primera vez, se crea un nuevo archivo de calendario conforme al estándar ical. De forma alternativa, los usuarios pueden crear calendarios adicionales o importar otros existentes.</p>
     <p xml:lang="et">Rakenduse esmakäivitusel luuakse uus, iCali standardit järgiv kalender. Soovi korral võib kasutaja mõistagi luua lisakalendreid või importida juba olemasolevaid.</p>
@@ -111,6 +115,7 @@
     <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="da">Funktioner:</p>
     <p xml:lang="de">Funktionen:</p>
+    <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="et">Omadused:</p>
@@ -139,6 +144,7 @@
       <li xml:lang="cs">Agenda</li>
       <li xml:lang="da">Agenda</li>
       <li xml:lang="de">Agenda</li>
+      <li xml:lang="el">Ατζέντα</li>
       <li xml:lang="en-GB">Agenda</li>
       <li xml:lang="es">Agenda</li>
       <li xml:lang="et">Päevakava</li>
@@ -165,6 +171,7 @@
       <li xml:lang="cs">Události</li>
       <li xml:lang="da">Begivenheder</li>
       <li xml:lang="de">Ereignisse</li>
+      <li xml:lang="el">Γεγονότα</li>
       <li xml:lang="en-GB">Events</li>
       <li xml:lang="es">Eventos</li>
       <li xml:lang="et">Sündmused</li>
@@ -192,6 +199,7 @@
       <li xml:lang="cs">Úkoly</li>
       <li xml:lang="da">Gøremål</li>
       <li xml:lang="de">Aufgaben</li>
+      <li xml:lang="el">Εργασίες προς υλοποίηση</li>
       <li xml:lang="en-GB">To-dos</li>
       <li xml:lang="es">Listas de tareas</li>
       <li xml:lang="et">Ülesanded</li>
@@ -218,6 +226,7 @@
       <li xml:lang="ca-valencia">Calendaris múltiples</li>
       <li xml:lang="da">Flere kalendere</li>
       <li xml:lang="de">Mehrere Kalender</li>
+      <li xml:lang="el">Πολλαπλά ημερολόγια</li>
       <li xml:lang="en-GB">Multiple calendars</li>
       <li xml:lang="es">Múltiples calendarios</li>
       <li xml:lang="et">Mitme kalendri kasutamise võimalus</li>
@@ -245,6 +254,7 @@
       <li xml:lang="cs">Importovat kalendář</li>
       <li xml:lang="da">Importér kalender</li>
       <li xml:lang="de">Kalender importieren</li>
+      <li xml:lang="el">Εισαγωγή ημερολογίου</li>
       <li xml:lang="en-GB">Import calendar</li>
       <li xml:lang="es">Importar calendario</li>
       <li xml:lang="et">Kalendri importimine</li>
@@ -273,7 +283,9 @@
       <caption>Calindori on Mobile</caption>
       <caption xml:lang="ca">El Calindori al mòbil</caption>
       <caption xml:lang="ca-valencia">El Calindori al mòbil</caption>
+      <caption xml:lang="cs">Calindori na mobilní zařízení</caption>
       <caption xml:lang="da">Calindori på mobil</caption>
+      <caption xml:lang="el">Calindori σε κινητό</caption>
       <caption xml:lang="es">Calindori en el móvil</caption>
       <caption xml:lang="eu">Calindori mugikorrean</caption>
       <caption xml:lang="fr">Calindori sur plateforme mobile</caption>
@@ -292,7 +304,9 @@
       <caption>Calindori on Desktop</caption>
       <caption xml:lang="ca">El Calindori a l'escriptori</caption>
       <caption xml:lang="ca-valencia">El Calindori a l'escriptori</caption>
+      <caption xml:lang="cs">Calindori na počítač</caption>
       <caption xml:lang="da">Calindori på desktop</caption>
+      <caption xml:lang="el">Calindori σε υπολογιστή γραφείου</caption>
       <caption xml:lang="es">Calindori en el escritorio</caption>
       <caption xml:lang="eu">Calindori mahaigainean</caption>
       <caption xml:lang="fr">Calindori sur ordinateur de bureau</caption>
