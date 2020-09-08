@@ -38,7 +38,7 @@ public Q_SLOTS:
     void deleteCalendar();
     int eventsCount(const QDate& date) const;
     bool save();
-    static QVariantMap importCalendar(const QString& calendarName, const QString& sourcePath);
+    static QVariantMap importCalendar(const QString& calendarName, const QUrl& sourcePath);
 Q_SIGNALS:
     void memorycalendarChanged();
     void nameChanged();

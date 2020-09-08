@@ -142,7 +142,7 @@ Kirigami.Page {
     FileChooser {
         id: fileChooser
 
-        onAccepted: root.fileToImport = fileUrl.toString().replace('qrc:','')
+        onAccepted: root.fileToImport = fileUrl
     }
 
     Calindori.LocalCalendar {

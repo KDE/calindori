@@ -106,7 +106,7 @@ QVariantMap LocalCalendar::canCreateFile(const QString& calendarName)
     return result;
 }
 
-QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QString& sourcePath)
+QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUrl& sourcePath)
 {
     QVariantMap result;
     result["success"] = QVariant(false);
@@ -122,7 +122,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QSt
         return result;
     }
 
-    storage->setFileName(sourcePath);
+    storage->setFileName(sourcePath.toString(QUrl::RemoveScheme));
 
     if(!(storage->load()))
     {

@@ -13,7 +13,7 @@ Item {
 
 	property string filter: "*"
 	property string filterName: "All files"
-	property string fileUrl
+	property url fileUrl
 	property bool selectFolder: false
 	property string title: i18n("Select a file")
 	signal accepted

@@ -94,7 +94,10 @@ Kirigami.GlobalDrawer {
 
                 text: i18n("New calendar")
                 iconName: "list-add"
-                onTriggered: pageStack.push(calendarEditor, {mode: "add"})
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(calendarEditor, {mode: "add"});
+                }
             }
 
             Kirigami.Action {
@@ -103,7 +106,10 @@ Kirigami.GlobalDrawer {
                 text: i18n("Import calendar")
                 iconName: "document-import"
 
-                onTriggered: pageStack.push(calendarEditor, {mode: "import"})
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(calendarEditor, {mode: "import"})
+                }
             }
         },
 
