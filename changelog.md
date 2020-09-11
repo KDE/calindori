@@ -4,6 +4,13 @@
 -->
 # Changelog
 
+## Version 1.2
+- Calendar import functionality on desktop has been fixed
+- Mobile-desktop convergence improvements
+- Start date, due and alarm functionality added to tasks
+- When creating a new event, a reminder is automatically added
+- Week and day views have been created
+
 ## Version 1.1
 - Event alarms functionality added
 - Plasma calendar backend replaced with a new monthmodel
@@ -16,5 +23,4 @@
 - Rework how new incidences update the view
 
 ## Version 1.0
-
 Initial release
