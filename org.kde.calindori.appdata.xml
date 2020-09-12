@@ -324,18 +324,18 @@
   </screenshots>
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
   <releases>
-      <release version="1.2" date="2020-09-11">
-          <description>
-              <p>Several fixes and new features</p>
-              <ul>
-                  <li>Calendar import issue on desktop has been fixed</li>
-                  <li>Mobile-desktop convergence improvements</li>
-                  <li>Start date, due and alarm functionality added to tasks</li>
-                  <li>When creating a new event, a reminder is automatically added</li>
-                  <li>Week and day views have been created</li>
-              </ul>
-          </description>
-      </release>
+    <release version="1.2" date="2020-09-11">
+      <description>
+        <p>Several fixes and new features</p>
+        <ul>
+          <li>Calendar import issue on desktop has been fixed</li>
+          <li>Mobile-desktop convergence improvements</li>
+          <li>Start date, due and alarm functionality added to tasks</li>
+          <li>When creating a new event, a reminder is automatically added</li>
+          <li>Week and day views have been created</li>
+        </ul>
+      </description>
+    </release>
   </releases>
   <project_group>KDE</project_group>
   <provides>
