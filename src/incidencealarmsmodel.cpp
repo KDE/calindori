@@ -50,14 +50,11 @@ void IncidenceAlarmsModel::addAlarm(const int secondsFromStart)
     beginInsertRows(QModelIndex(), mAlarms.count(), mAlarms.count());
 
     QHash<QString, QVariant> alarmMap;
-    if(secondsFromStart%86400 == 0)
-    {
-        alarmMap["startOffsetValue"] = -1*secondsFromStart/86400;
+    if (secondsFromStart % 86400 == 0) {
+        alarmMap["startOffsetValue"] = -1 * secondsFromStart / 86400;
         alarmMap["startOffsetType"] = Duration::Days;
-    }
-    else
-    {
-        alarmMap["startOffsetValue"] = -1*secondsFromStart;
+    } else {
+        alarmMap["startOffsetValue"] = -1 * secondsFromStart;
         alarmMap["startOffsetType"] = Duration::Seconds;
     }
     alarmMap["actionType"] = Alarm::Type::Display;
@@ -80,21 +77,19 @@ void IncidenceAlarmsModel::setAlarmProperties(const QVariantMap& alarmProps)
 
 QVariant IncidenceAlarmsModel::data(const QModelIndex& index, int role) const
 {
-    if(!index.isValid())
-    {
+    if (!index.isValid()) {
         return QVariant();
     }
 
-    switch(role)
-    {
-        case Qt::DisplayRole:
-            return displayText(index.row());
-        case StartOffsetType:
-            return alarmStartOffsetType(index.row());
-        case StartOffsetValue:
-            return alarmStartOffsetValue(index.row());
-        case ActionType:
-            return alarmActionType(index.row());
+    switch (role) {
+    case Qt::DisplayRole:
+        return displayText(index.row());
+    case StartOffsetType:
+        return alarmStartOffsetType(index.row());
+    case StartOffsetValue:
+        return alarmStartOffsetValue(index.row());
+    case ActionType:
+        return alarmActionType(index.row());
     }
 
     return QVariant();
@@ -102,8 +97,7 @@ QVariant IncidenceAlarmsModel::data(const QModelIndex& index, int role) const
 
 int IncidenceAlarmsModel::rowCount(const QModelIndex& parent) const
 {
-    if(parent.isValid())
-    {
+    if (parent.isValid()) {
         return 0;
     }
 
@@ -123,21 +117,18 @@ void IncidenceAlarmsModel::loadPersistentAlarms()
 
     qDebug() << "\nloadPersistentAlarms: uid" << uid;
 
-    if(localCalendar != nullptr)
-    {
+    if (localCalendar != nullptr) {
         memCalendar = localCalendar->memorycalendar();
         alarmIncidence = memCalendar->incidence(uid);
     }
 
-    if(alarmIncidence != nullptr)
-    {
+    if (alarmIncidence != nullptr) {
         persistentAlarms = alarmIncidence->alarms();
     }
 
     Alarm::List::const_iterator alarmItr = persistentAlarms.constBegin();
 
-    while(alarmItr != persistentAlarms.constEnd())
-    {
+    while (alarmItr != persistentAlarms.constEnd()) {
         QHash<QString, QVariant> alarmMap;
         alarmMap["startOffsetValue"] = (*alarmItr)->startOffset().value();
         alarmMap["startOffsetType"] = (*alarmItr)->startOffset().type();
@@ -162,20 +153,16 @@ QString IncidenceAlarmsModel::alarmStartOffsetType(const int idx) const
 
     int durationType = alarm["startOffsetType"].value<int>();
 
-    switch(durationType)
-    {
-        case Duration::Type::Days:
-        {
-            return QString(i18n("days before start"));
-        }
-        case Duration::Type::Seconds:
-        {
-            return QString(i18n("seconds before start"));
-        }
-        default:
-        {
-            return QString();
-        }
+    switch (durationType) {
+    case Duration::Type::Days: {
+        return QString(i18n("days before start"));
+    }
+    case Duration::Type::Seconds: {
+        return QString(i18n("seconds before start"));
+    }
+    default: {
+        return QString();
+    }
     }
 }
 
@@ -212,25 +199,23 @@ QString IncidenceAlarmsModel::displayText(const int idx) const
     QHash<QString, QVariant> alarm = mAlarms.at(idx).value<QHash<QString, QVariant>>();
 
     int durationType = alarm["startOffsetType"].value<int>();
-    int durationValue = -1*alarm["startOffsetValue"].value<int>();
+    int durationValue = -1 * alarm["startOffsetValue"].value<int>();
 
-    if(durationValue == 0)
-    {
+    if (durationValue == 0) {
         return i18n("At start time");
     }
-    if(durationType == Duration::Type::Days)
-    {
+    if (durationType == Duration::Type::Days) {
         return i18np("1 day before start", "%1 days before start", durationValue);
     }
 
     QString alarmText;
-    int durDays = durationValue/86400;
+    int durDays = durationValue / 86400;
     alarmText = (durDays != 0) ? i18np("1 day", "%1 days", durDays) : QString();
-    int durHours = (durationValue - durDays*86400)/3600;
-    alarmText = (durHours != 0) ? QString("%1 %2").arg(alarmText, i18np("1 hour", "%1 hours" ,durHours)) : alarmText;
-    int durMins = (durationValue - durHours*3600 - durDays*86400)/60 ;
+    int durHours = (durationValue - durDays * 86400) / 3600;
+    alarmText = (durHours != 0) ? QString("%1 %2").arg(alarmText, i18np("1 hour", "%1 hours", durHours)) : alarmText;
+    int durMins = (durationValue - durHours * 3600 - durDays * 86400) / 60 ;
     alarmText = (durMins != 0) ? QString("%1 %2").arg(alarmText, i18np("1 minute", "%1 minutes", durMins)) : alarmText;
-    int durSeconds = durationValue - durMins*60- durHours*3600 - durDays*86400;
+    int durSeconds = durationValue - durMins * 60 - durHours * 3600 - durDays * 86400;
     alarmText = (durSeconds != 0) ? QString("%1 %2").arg(alarmText, i18np("1 second", "%1 seconds", durSeconds)) : alarmText;
 
     return QString("%1 %2").arg(alarmText, i18n("before start"));

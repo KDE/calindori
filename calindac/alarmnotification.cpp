@@ -12,12 +12,16 @@
 AlarmNotification::AlarmNotification(NotificationHandler* handler, const QString & uid) : mUid(uid), mRemindAt(QDateTime()), mNotificationHandler(handler)
 {
     mNotification = new KNotification("alarm");
-    mNotification->setActions({i18n("Suspend"),i18n("Dismiss")});
+    mNotification->setActions({i18n("Suspend"), i18n("Dismiss")});
 
     connect(mNotification, &KNotification::action1Activated, this, &AlarmNotification::suspend);
     connect(mNotification, &KNotification::action2Activated, this, &AlarmNotification::dismiss);
-    connect(this, &AlarmNotification::suspend, mNotificationHandler, [=](){ mNotificationHandler->suspend(this);});
-    connect(this, &AlarmNotification::dismiss, mNotificationHandler, [=](){ mNotificationHandler->dismiss(this);});
+    connect(this, &AlarmNotification::suspend, mNotificationHandler, [ = ]() {
+        mNotificationHandler->suspend(this);
+    });
+    connect(this, &AlarmNotification::dismiss, mNotificationHandler, [ = ]() {
+        mNotificationHandler->dismiss(this);
+    });
 }
 
 AlarmNotification::~AlarmNotification()

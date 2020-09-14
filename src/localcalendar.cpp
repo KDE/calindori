@@ -15,7 +15,7 @@
 using namespace KCalendarCore;
 
 LocalCalendar::LocalCalendar(QObject* parent)
-: QObject(parent), m_config(new CalindoriConfig())
+    : QObject(parent), m_config(new CalindoriConfig())
 {
     loadCalendar(m_config->activeCalendar());
 }
@@ -41,37 +41,35 @@ void LocalCalendar::setName(QString calendarName)
 
 void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
 {
-    if(m_calendar != memoryCalendar)
-    {
+    if (m_calendar != memoryCalendar) {
         m_calendar = memoryCalendar;
         qDebug() << "Calendar successfully set";
     }
 }
 
-int LocalCalendar::todosCount(const QDate &date) const {
-    if(m_calendar == nullptr)
-    {
+int LocalCalendar::todosCount(const QDate &date) const
+{
+    if (m_calendar == nullptr) {
         return 0;
     }
-    Todo::List todoList = m_calendar->rawTodos(date,date);
+    Todo::List todoList = m_calendar->rawTodos(date, date);
 
     return todoList.size();
 }
 
 void LocalCalendar::deleteCalendar()
 {
-        qDebug() << "Deleting calendar at " << m_fullpath;
-        QFile calendarFile(m_fullpath);
+    qDebug() << "Deleting calendar at " << m_fullpath;
+    QFile calendarFile(m_fullpath);
 
-        if (calendarFile.exists())
-        {
-            calendarFile.remove();
-        }
+    if (calendarFile.exists()) {
+        calendarFile.remove();
+    }
 }
 
-int LocalCalendar::eventsCount(const QDate& date) const {
-    if(m_calendar == nullptr)
-    {
+int LocalCalendar::eventsCount(const QDate& date) const
+{
+    if (m_calendar == nullptr) {
         return 0;
     }
     Event::List eventList = m_calendar->rawEventsForDate(date);
@@ -93,8 +91,7 @@ QVariantMap LocalCalendar::canCreateFile(const QString& calendarName)
     QString targetPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/calindori_" + calendarName + ".ics" ;
     QFile calendarFile(targetPath);
 
-    if(calendarFile.exists())
-    {
+    if (calendarFile.exists()) {
         result["success"] = QVariant(false);
         result["reason"] = QVariant(QString(i18n("A calendar with the same name already exists")));
 
@@ -115,8 +112,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUr
     FileStorage::Ptr storage(new FileStorage(calendar));
 
     QVariantMap canCreateCheck = canCreateFile(calendarName);
-    if(!(canCreateCheck["success"].toBool()))
-    {
+    if (!(canCreateCheck["success"].toBool())) {
         result["reason"] = QVariant(canCreateCheck["reason"].toString());
 
         return result;
@@ -124,8 +120,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUr
 
     storage->setFileName(sourcePath.toString(QUrl::RemoveScheme));
 
-    if(!(storage->load()))
-    {
+    if (!(storage->load())) {
         result["reason"] = QVariant(QString(i18n("The calendar file is not valid")));
 
         return result;
@@ -133,8 +128,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUr
 
     storage->setFileName(canCreateCheck["targetPath"].toString());
 
-    if(!(storage->save()))
-    {
+    if (!(storage->save())) {
         result["reason"] = QVariant(QString(i18n("The calendar file cannot be saved")));
 
         return result;
@@ -161,7 +155,7 @@ void LocalCalendar::loadCalendar(const QString& calendarName)
         qDebug() << "New calendar file created: " << saved;
     }
 
-    if(storage->load()) {
+    if (storage->load()) {
         m_name = calendarName;
         m_calendar = calendar;
         m_cal_storage = storage;

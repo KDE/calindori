@@ -14,13 +14,13 @@ QVariant DaysOfMonthIncidenceModel::data(const QModelIndex& index, int role) con
     }
 
     switch (role) {
-        case IncidenceCount: {
-            QDate date(DaysOfMonthModel::data(index, YearNumberRole).toInt(), DaysOfMonthModel::data(index, MonthNumberRole).toInt(), DaysOfMonthModel::data(index, DayNumberRole).toInt());
+    case IncidenceCount: {
+        QDate date(DaysOfMonthModel::data(index, YearNumberRole).toInt(), DaysOfMonthModel::data(index, MonthNumberRole).toInt(), DaysOfMonthModel::data(index, DayNumberRole).toInt());
 
-            return m_calendar->todosCount(date) + m_calendar->eventsCount(date);
-        }
-        default:
-            return DaysOfMonthModel::data(index, role);
+        return m_calendar->todosCount(date) + m_calendar->eventsCount(date);
+    }
+    default:
+        return DaysOfMonthModel::data(index, role);
     }
 }
 
@@ -43,10 +43,10 @@ void DaysOfMonthIncidenceModel::setCalendar(LocalCalendar* calendar)
         m_calendar = calendar;
         Q_EMIT calendarChanged();
         connect(m_calendar, &LocalCalendar::todosChanged, this, [this] {
-            Q_EMIT dataChanged(index(0,0), index(rowCount(QModelIndex()) - 1));
+            Q_EMIT dataChanged(index(0, 0), index(rowCount(QModelIndex()) - 1));
         });
         connect(m_calendar, &LocalCalendar::eventsChanged, this, [this] {
-            Q_EMIT dataChanged(index(0,0), index(rowCount(QModelIndex()) - 1));
+            Q_EMIT dataChanged(index(0, 0), index(rowCount(QModelIndex()) - 1));
         });
     }
 }

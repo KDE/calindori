@@ -27,24 +27,20 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     QDate startDate = todo["startDate"].toDate();
     int startHour = todo["startHour"].value<int>();
     int startMinute = todo["startMinute"].value<int>();
-    bool allDayFlg= todo["allDay"].toBool();
+    bool allDayFlg = todo["allDay"].toBool();
 
-    if(uid == "")
-    {
+    if (uid == "") {
         vtodo = Todo::Ptr(new Todo());
         vtodo->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
-    }
-    else
-    {
+    } else {
         vtodo = memoryCalendar->todo(uid);
         vtodo->setUid(uid);
     }
 
     QDateTime startDateTime;
-    if(allDayFlg) {
+    if (allDayFlg) {
         startDateTime = QDateTime(startDate);
-    }
-    else {
+    } else {
         startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
     }
 
@@ -59,23 +55,22 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     int dueMinute = todo["dueMinute"].toInt(&validDueMinutes);
 
     QDateTime dueDateTime = QDateTime();
-    if(dueDate.isValid() && validDueHour && validDueMinutes && !allDayFlg)
+    if (dueDate.isValid() && validDueHour && validDueMinutes && !allDayFlg)
         dueDateTime = QDateTime(dueDate, QTime(dueHour, dueMinute, 0, 0), QTimeZone::systemTimeZone());
-    else if(dueDate.isValid() && allDayFlg)
+    else if (dueDate.isValid() && allDayFlg)
         dueDateTime = QDateTime(dueDate);
 
     vtodo->setDtDue(dueDateTime);
     vtodo->setDescription(todo["description"].toString());
     vtodo->setSummary(summary);
-    vtodo->setAllDay((startDate.isValid() || dueDate.isValid()) ? allDayFlg: false);
+    vtodo->setAllDay((startDate.isValid() || dueDate.isValid()) ? allDayFlg : false);
     vtodo->setLocation(todo["location"].toString());
     vtodo->setCompleted(todo["completed"].toBool());
 
     vtodo->clearAlarms();
     QVariantList newAlarms = todo["alarms"].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
-    while(itr != newAlarms.constEnd())
-    {
+    while (itr != newAlarms.constEnd()) {
         Alarm::Ptr newAlarm = vtodo->newAlarm();
         QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
         int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
@@ -112,7 +107,7 @@ void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
     qDebug() << "Todo deleted: " << removed;
 }
 
-QVariantMap TodoController::validate ( const QVariantMap& todo ) const
+QVariantMap TodoController::validate(const QVariantMap& todo) const
 {
     QVariantMap result {};
 
@@ -126,20 +121,17 @@ QVariantMap TodoController::validate ( const QVariantMap& todo ) const
     int dueHour = todo["dueHour"].toInt(&validDueHour);
     bool validDueMinutes {false};
     int dueMinute = todo["dueMinute"].toInt(&validDueMinutes);
-    bool allDayFlg= todo["allDay"].toBool();
+    bool allDayFlg = todo["allDay"].toBool();
 
-    if(startDate.isValid() && validStartHour && validStartMinutes && dueDate.isValid() && validDueHour && validDueMinutes)
-    {
-        if(allDayFlg && (dueDate != startDate))
-        {
+    if (startDate.isValid() && validStartHour && validStartMinutes && dueDate.isValid() && validDueHour && validDueMinutes) {
+        if (allDayFlg && (dueDate != startDate)) {
             result["success"] = false;
             result["reason"] = i18n("In case of all day tasks, start date and due date should be equal");
 
             return result;
         }
 
-        if(!allDayFlg && (QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()) >  QDateTime(dueDate, QTime(dueHour, dueMinute, 0, 0), QTimeZone::systemTimeZone())))
-        {
+        if (!allDayFlg && (QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()) >  QDateTime(dueDate, QTime(dueHour, dueMinute, 0, 0), QTimeZone::systemTimeZone()))) {
             result["success"] = false;
             result["reason"] = i18n("Due date time should be equal to or greater than the start date time");
             return result;

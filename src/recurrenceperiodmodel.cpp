@@ -34,8 +34,7 @@ void ReccurencePeriodModel::initialize()
 
 QHash<int, QByteArray> ReccurencePeriodModel::roleNames() const
 {
-    return
-    {
+    return {
         {RepeatDescriptionRole, "repeatDescription"},
         {RepeatCodeRole, "repeatCode"}
     };
@@ -43,28 +42,25 @@ QHash<int, QByteArray> ReccurencePeriodModel::roleNames() const
 
 QVariant ReccurencePeriodModel::data(const QModelIndex& index, int role) const
 {
-    if(!index.isValid())
-    {
+    if (!index.isValid()) {
         return "Invalid index";
     }
 
-    switch(role)
-    {
-        case Qt::DisplayRole:
-            return m_periodtypes.at(index.row()).periodTypeDesc;
-        case RepeatDescriptionRole:
-            return m_periodtypes.at(index.row()).periodTypeDesc;
-        case RepeatCodeRole:
-            return m_periodtypes.at(index.row()).periodType;
-        default:
-            return QStringLiteral();
+    switch (role) {
+    case Qt::DisplayRole:
+        return m_periodtypes.at(index.row()).periodTypeDesc;
+    case RepeatDescriptionRole:
+        return m_periodtypes.at(index.row()).periodTypeDesc;
+    case RepeatCodeRole:
+        return m_periodtypes.at(index.row()).periodType;
+    default:
+        return QStringLiteral();
     }
 }
 
 int ReccurencePeriodModel::rowCount(const QModelIndex& parent) const
 {
-    if (parent.isValid())
-    {
+    if (parent.isValid()) {
         return 0;
     }
 
@@ -113,30 +109,29 @@ ushort ReccurencePeriodModel::repeatDaily() const
 
 QString ReccurencePeriodModel::periodDecription(const int periodType) const
 {
-    switch(periodType)
-    {
-        case Recurrence::rNone:
-            return i18n("Do not repeat");
-        case Recurrence::rYearlyDay:
-        case Recurrence::rYearlyMonth:
-        case Recurrence::rYearlyPos:
-            return i18n("Yearly");
-        case Recurrence::rMonthlyDay:
-        case Recurrence::rMonthlyPos:
-            return i18n("Monthly");
-        case Recurrence::rWeekly:
-            return i18n("Weekly");
-        case Recurrence::rDaily:
-            return i18n("Daily");
-        default:
-            return QString();
+    switch (periodType) {
+    case Recurrence::rNone:
+        return i18n("Do not repeat");
+    case Recurrence::rYearlyDay:
+    case Recurrence::rYearlyMonth:
+    case Recurrence::rYearlyPos:
+        return i18n("Yearly");
+    case Recurrence::rMonthlyDay:
+    case Recurrence::rMonthlyPos:
+        return i18n("Monthly");
+    case Recurrence::rWeekly:
+        return i18n("Weekly");
+    case Recurrence::rDaily:
+        return i18n("Daily");
+    default:
+        return QString();
     }
 }
 
 QString ReccurencePeriodModel::repeatDescription(const int repeatType, const int repeatEvery, const int stopAfter) const
 {
     return QString("%1%2").arg((repeatType == Recurrence::rYearlyMonth || repeatType == Recurrence::rYearlyDay || repeatType == Recurrence::rYearlyPos) ? i18np("Every year", "Every %1 years", repeatEvery) :
-        (repeatType == Recurrence::rMonthlyPos || repeatType == Recurrence::rMonthlyDay) ? i18np("Every month", "Every %1 months",repeatEvery) :
-            (repeatType == Recurrence::rWeekly) ? i18np("Every week", "Every %1 weeks", repeatEvery) :
-                (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never")).arg((repeatType == Recurrence::rNone) || (stopAfter < 1) ? "" : i18np("; once", "; %1 times", stopAfter));
+                               (repeatType == Recurrence::rMonthlyPos || repeatType == Recurrence::rMonthlyDay) ? i18np("Every month", "Every %1 months", repeatEvery) :
+                               (repeatType == Recurrence::rWeekly) ? i18np("Every week", "Every %1 weeks", repeatEvery) :
+                               (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never")).arg((repeatType == Recurrence::rNone) || (stopAfter < 1) ? "" : i18np("; once", "; %1 times", stopAfter));
 }

@@ -29,9 +29,8 @@ public:
     explicit IncidenceAlarmsModel(QObject* parent = nullptr);
     ~IncidenceAlarmsModel() override;
 
-    enum RoleNames
-    {
-        StartOffsetValue = Qt::UserRole+1,
+    enum RoleNames {
+        StartOffsetValue = Qt::UserRole + 1,
         StartOffsetType,
         ActionType
     };

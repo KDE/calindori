@@ -12,8 +12,7 @@
 #include <QDate>
 #include <QLocale>
 
-struct DayData
-{
+struct DayData {
     bool isCurrent;
     int dayNumber;
     int monthNumber;

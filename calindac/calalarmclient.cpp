@@ -18,11 +18,11 @@
 using namespace KCalendarCore;
 
 CalAlarmClient::CalAlarmClient(QObject* parent)
-: QObject(parent), mAlarmsModel(new AlarmsModel()), mNotificationHandler(new NotificationHandler())
+    : QObject(parent), mAlarmsModel(new AlarmsModel()), mNotificationHandler(new NotificationHandler())
 {
     new CalindacAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerObject("/calindac", this );
+    dbus.registerObject("/calindac", this);
 
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
     mCheckInterval = generalGroup.readEntry("CheckInterval", 45);
@@ -46,15 +46,13 @@ QStringList CalAlarmClient::calendarFileList() const
 {
     QStringList filesList = QStringList();
     KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig("calindorirc"), "general");
-    QString calendars = calindoriCfgGeneral.readEntry("calendars",QString());
+    QString calendars = calindoriCfgGeneral.readEntry("calendars", QString());
     QStringList calendarList = calendars.split(";");
 
-    for(const auto& c: calendarList)
-    {
+    for (const auto& c : calendarList) {
         QString fileName = KSharedConfig::openConfig("calindorirc")->group(c).readEntry("file");
 
-        if(!(fileName.isNull()))
-        {
+        if (!(fileName.isNull())) {
             filesList.append(fileName);
         }
     }
@@ -87,8 +85,7 @@ void CalAlarmClient::checkAlarms()
 
     qDebug() << "checkAlarms:\tModel Alarms:" << mAlarmsModel->rowCount();
 
-    for(int i=0; i<mAlarmsModel->rowCount(); ++i)
-    {
+    for (int i = 0; i < mAlarmsModel->rowCount(); ++i) {
         QModelIndex index = mAlarmsModel->index(i, 0, QModelIndex());
         mNotificationHandler->addActiveNotification(mAlarmsModel->data(index, AlarmsModel::Roles::Uid).toString(), QString("%1\n%2").arg(mAlarmsModel->data(index, AlarmsModel::Roles::IncidenceStartDt).toDateTime().toString("hh:mm"), mAlarmsModel->data(index, AlarmsModel::Roles::Text).toString()));
     }
@@ -161,8 +158,7 @@ QStringList CalAlarmClient::dumpAlarms() const
 
     QStringList lst = QStringList();
 
-    for(int i=0; i<model->rowCount(); ++i)
-    {
+    for (int i = 0; i < model->rowCount(); ++i) {
         QModelIndex index = model->index(i, 0, QModelIndex());
         lst << QStringLiteral("%1: \"%2\"").arg(model->data(index, AlarmsModel::Roles::Time).toString(), model->data(index, AlarmsModel::Roles::Uid).toString());
     }
@@ -176,16 +172,14 @@ void CalAlarmClient::restoreSuspendedFromConfig()
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
     QStringList suspendedAlarms = suspendedGroup.groupList();
 
-    for(const auto& s : suspendedAlarms)
-    {
+    for (const auto& s : suspendedAlarms) {
         KConfigGroup suspendedAlarm(&suspendedGroup, s);
         QString uid = suspendedAlarm.readEntry("UID");
         QString txt = alarmText(uid);
         QDateTime remindAt = QDateTime::fromString(suspendedAlarm.readEntry("RemindAt"), "yyyy,M,d,HH,m,s");
         qDebug() << "restoreSuspendedFromConfig:\tRestoring alarm" << uid << "," << txt << "," << remindAt.toString();
 
-        if(!(uid.isEmpty() && remindAt.isValid() && !(txt.isEmpty())))
-        {
+        if (!(uid.isEmpty() && remindAt.isValid() && !(txt.isEmpty()))) {
             mNotificationHandler->addSuspendedNotification(uid, txt, remindAt);
         }
     }
@@ -202,11 +196,9 @@ QString CalAlarmClient::alarmText(const QString& uid) const
     modelProperties["period"] = checkPeriod;
     model->setParams(modelProperties);
 
-    for(int i=0; i < model->rowCount(); ++i)
-    {
+    for (int i = 0; i < model->rowCount(); ++i) {
         QModelIndex index = model->index(i, 0, QModelIndex());
-        if(model->data(index, AlarmsModel::Roles::Uid).toString() == uid)
-        {
+        if (model->data(index, AlarmsModel::Roles::Uid).toString() == uid) {
             qDebug() << "alarmText: text of" << model->data(index, AlarmsModel::Roles::Uid).toString() << " is" << model->data(index, AlarmsModel::Roles::Text).toString();
             return model->data(index, AlarmsModel::Roles::Text).toString();
         }
@@ -223,16 +215,14 @@ void CalAlarmClient::flushSuspendedToConfig()
 
     QHash<QString, AlarmNotification*> suspendedNotifications = mNotificationHandler->suspendedNotifications();
 
-    if(suspendedNotifications.isEmpty())
-    {
+    if (suspendedNotifications.isEmpty()) {
         qDebug() << "flushSuspendedToConfig:\tNo suspended notification exists, nothing to write to config";
         KSharedConfig::openConfig()->sync();
 
         return;
     }
 
-    for(const auto& s : suspendedNotifications)
-    {
+    for (const auto& s : suspendedNotifications) {
         qDebug() << "flushSuspendedToConfig:\tFlushing suspended alarm" << s->uid() << " to config";
         KConfigGroup notificationGroup(&suspendedGroup, s->uid());
         notificationGroup.writeEntry("UID", s->uid());

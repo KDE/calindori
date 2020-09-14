@@ -73,18 +73,18 @@ QVariant DaysOfMonthModel::data(const QModelIndex& index, int role) const
     int row = index.row();
 
     switch (role) {
-        case CurrentMonthRole:
-            return m_dayList[row].isCurrent;
-        case DayNumberRole:
-            return m_dayList[row].dayNumber;
-        case MonthNumberRole:
-            return m_dayList[row].monthNumber;
-        case YearNumberRole:
-            return m_dayList[row].yearNumber;
-        case TodayRole:
-            return m_dayList[row].isToday;
-        default:
-            return QStringLiteral("Deadbeef");
+    case CurrentMonthRole:
+        return m_dayList[row].isCurrent;
+    case DayNumberRole:
+        return m_dayList[row].dayNumber;
+    case MonthNumberRole:
+        return m_dayList[row].monthNumber;
+    case YearNumberRole:
+        return m_dayList[row].yearNumber;
+    case TodayRole:
+        return m_dayList[row].isToday;
+    default:
+        return QStringLiteral("Deadbeef");
     }
 }
 

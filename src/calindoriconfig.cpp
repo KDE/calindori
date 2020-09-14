@@ -26,7 +26,7 @@ CalindoriConfig::CalindoriConfig(QObject* parent)
     , d(new Private)
 {
     QString calendars = d->config.group("general").readEntry("calendars", QString());
-    if(calendars.isEmpty()) {
+    if (calendars.isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
         addCalendar("personal");
         setActiveCalendar("personal");
@@ -41,7 +41,7 @@ CalindoriConfig::~CalindoriConfig()
 
 QString CalindoriConfig::calendars() const
 {
-   return d->config.group("general").readEntry("calendars", QString());
+    return d->config.group("general").readEntry("calendars", QString());
 }
 
 QString CalindoriConfig::activeCalendar() const
@@ -64,22 +64,19 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
     result["reason"] = QVariant(QString());
 
     QRegExp invalidChars("[\\;\\\\/<>:\\?\\*|\"\']");
-    if(calendar.contains(invalidChars))
-    {
+    if (calendar.contains(invalidChars)) {
         result["success"] = QVariant(false);
         result["reason"] = QVariant(i18n("Calendar name contains invalid characters"));
         return result;
     }
 
-    if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
-    {
+    if (d->config.group("general").readEntry("calendars", QString()).isEmpty()) {
         return result;
     }
 
     QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
 
-    if(calendarsList.contains(calendar))
-    {
+    if (calendarsList.contains(calendar)) {
         result["success"] = QVariant(false);
         result["reason"] = QVariant(i18n("Calendar already exists"));
         return result;
@@ -96,15 +93,13 @@ QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
 
     QVariantMap canAddResult = canAddCalendar(calendar);
 
-    if(!(canAddResult["success"].toBool()))
-    {
+    if (!(canAddResult["success"].toBool())) {
         result["success"] = QVariant(false);
         result["reason"] = QVariant(canAddResult["reason"].toString());
         return result;
     }
 
-    if(d->config.group("general").readEntry("calendars", QString()).isEmpty())
-    {
+    if (d->config.group("general").readEntry("calendars", QString()).isEmpty()) {
         d->config.group("general").writeEntry("calendars", calendar);
         d->config.sync();
 
@@ -125,8 +120,7 @@ void CalindoriConfig::removeCalendar(const QString& calendar)
 {
     d->config.reparseConfiguration();
     QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
-    if(calendarsList.contains(calendar))
-    {
+    if (calendarsList.contains(calendar)) {
         qDebug() << "Removing calendar " << calendar;
         calendarsList.removeAll(calendar);
 
@@ -140,8 +134,7 @@ void CalindoriConfig::removeCalendar(const QString& calendar)
 
 QString CalindoriConfig::calendarFile(const QString& calendarName)
 {
-    if(d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("file"))
-    {
+    if (d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("file")) {
         return  d->config.group(calendarName).readEntry("file");
     }
     d->config.group(calendarName).writeEntry("file", filenameToPath(calendarName));
@@ -161,7 +154,7 @@ QString CalindoriConfig::filenameToPath(const QString& calendarName)
 
 int CalindoriConfig::eventsDuration() const
 {
-   return d->config.group("events").readEntry("duration", 60);
+    return d->config.group("events").readEntry("duration", 60);
 }
 
 void CalindoriConfig::setEventsDuration(int duration)
@@ -174,7 +167,7 @@ void CalindoriConfig::setEventsDuration(int duration)
 
 int CalindoriConfig::preEventRemindTime() const
 {
-   return d->config.group("events").readEntry("preEventRemindTime", 15);
+    return d->config.group("events").readEntry("preEventRemindTime", 15);
 }
 
 void CalindoriConfig::setPreEventRemindTime(int remindBefore)

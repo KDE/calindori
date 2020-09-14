@@ -25,9 +25,8 @@ class AlarmsModel : public QAbstractListModel
 
     Q_PROPERTY(QHash<QString, QVariant> params READ params WRITE setParams NOTIFY paramsChanged);
 public:
-    enum Roles
-    {
-        Uid = Qt::UserRole+1,
+    enum Roles {
+        Uid = Qt::UserRole + 1,
         Time,
         Text,
         IncidenceStartDt

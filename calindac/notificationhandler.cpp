@@ -38,25 +38,20 @@ void NotificationHandler::addSuspendedNotification(const QString& uid, const QSt
 void NotificationHandler::sendSuspendedNotifications()
 {
     auto suspItr = mSuspendedNotifications.begin();
-    while(suspItr != mSuspendedNotifications.end())
-    {
-        if(suspItr.value()->remindAt() < mPeriod["to"].toDateTime())
-        {
+    while (suspItr != mSuspendedNotifications.end()) {
+        if (suspItr.value()->remindAt() < mPeriod["to"].toDateTime()) {
             qDebug() << "sendNotifications:\tSending notification for suspended alarm" <<  suspItr.value()->uid() << ", text is" << suspItr.value()->text();
             suspItr.value()->send();
             suspItr = mSuspendedNotifications.erase(suspItr);
-       }
-       else
-       {
-           suspItr++;
-       }
+        } else {
+            suspItr++;
+        }
     }
 }
 
 void NotificationHandler::sendActiveNotifications()
 {
-    for(const auto& n: mActiveNotifications)
-    {
+    for (const auto& n : mActiveNotifications) {
         qDebug() << "sendNotifications:\tSending notification for alarm" <<  n->uid();
         n->send();
     }

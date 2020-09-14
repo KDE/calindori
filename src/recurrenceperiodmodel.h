@@ -29,7 +29,7 @@ class ReccurencePeriodModel : public QAbstractListModel
 
 public:
     enum RoleNames {
-        RepeatDescriptionRole = Qt::UserRole +1,
+        RepeatDescriptionRole = Qt::UserRole + 1,
         RepeatCodeRole
     };
 

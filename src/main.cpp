@@ -29,7 +29,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("calindori");
 
-    KAboutData aboutData(QStringLiteral("calindori"), i18n("Calindori"), QStringLiteral("1.2"), i18nc("@title", "Calendar application"), KAboutLicense::GPL_V3, i18nc("@info:credit", "(c) 2018-2020 The Calindori Team"));
+    KAboutData aboutData(QStringLiteral("calindori"), i18n("Calindori"), QStringLiteral("1.2.90"), i18nc("@title", "Calendar application"), KAboutLicense::GPL_V3, i18nc("@info:credit", "(c) 2018-2020 The Calindori Team"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
     aboutData.setProductName(QByteArray("calindori"));
@@ -54,13 +54,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<CalindoriConfig>("org.kde.calindori", 0, 1, "CalindoriConfig");
     qmlRegisterType<LocalCalendar>("org.kde.calindori", 0, 1, "LocalCalendar");
-    qmlRegisterType<EventController>("org.kde.calindori",0,1,"EventController");
-    qmlRegisterType<TodoController>("org.kde.calindori",0,1,"TodoController");
-    qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori",0,1,"IncidenceAlarmsModel");
-    qmlRegisterType<DaysOfMonthModel>("org.kde.calindori",0,1,"DaysOfMonthModel");
-    qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori",0,1,"ReccurencePeriodModel");
-    qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori",0,1,"DaysOfMonthIncidenceModel");
-    qmlRegisterType<IncidenceModel>("org.kde.calindori",0,1,"IncidenceModel");
+    qmlRegisterType<EventController>("org.kde.calindori", 0, 1, "EventController");
+    qmlRegisterType<TodoController>("org.kde.calindori", 0, 1, "TodoController");
+    qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori", 0, 1, "IncidenceAlarmsModel");
+    qmlRegisterType<DaysOfMonthModel>("org.kde.calindori", 0, 1, "DaysOfMonthModel");
+    qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori", 0, 1, "ReccurencePeriodModel");
+    qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori", 0, 1, "DaysOfMonthIncidenceModel");
+    qmlRegisterType<IncidenceModel>("org.kde.calindori", 0, 1, "IncidenceModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

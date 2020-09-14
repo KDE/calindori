@@ -41,9 +41,8 @@ public:
         AllTodos
     };
 
-    enum Roles
-    {
-        Uid = Qt::UserRole+1,
+    enum Roles {
+        Uid = Qt::UserRole + 1,
         LastModified,
         DtStart,
         AllDay,
@@ -129,10 +128,10 @@ private:
     Incidence::List toIncidences(const Todo::List & todoList) const;
     Incidence::List toIncidences(const Event::List & eventList, const Todo::List & todoList) const;
     QString displayStartEndTime(const int idx) const;
-    QString displayStartDate (const int idx) const;
-    QString displayDueDate (const int idx) const;
-    QString displayDueTime (const int idx) const;
-    QString displayStartTime (const int idx) const;
+    QString displayStartDate(const int idx) const;
+    QString displayDueDate(const int idx) const;
+    QString displayDueTime(const int idx) const;
+    QString displayStartTime(const int idx) const;
 
     int m_filter_mode;
     QDate m_filter_dt;
