@@ -121,7 +121,7 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
     case Uid:
         return m_incidences.at(row)->uid();
     case DtStart:
-        return m_incidences.at(row)->dtStart();
+        return m_incidences.at(row)->dtStart().toTimeZone(QTimeZone::systemTimeZone());
     case AllDay:
         return m_incidences.at(row)->allDay();
     case Description:
@@ -141,7 +141,7 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
     case Secrecy:
         return m_incidences.at(row)->secrecy();
     case EndDate:
-        return (type == IncidenceBase::TypeEvent) ? m_incidences.at(row).dynamicCast<Event>()->dtEnd() : QDateTime();
+        return (type == IncidenceBase::TypeEvent) ? m_incidences.at(row).dynamicCast<Event>()->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) : QDateTime();
     case RepeatPeriodType:
         return repeatPeriodType(row);
     case RepeatEvery:
@@ -173,9 +173,9 @@ QVariant IncidenceModel::data(const QModelIndex& index, int role) const
     case IncidenceType:
         return type;
     case Due:
-        return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->dtDue() : QDateTime();
+        return (type == IncidenceBase::TypeTodo) ? m_incidences.at(row).dynamicCast<Todo>()->dtDue().toTimeZone(QTimeZone::systemTimeZone()) : QDateTime();
     case ValidStartDt:
-        return m_incidences.at(row)->dtStart().isValid();
+        return m_incidences.at(row)->dtStart().toTimeZone(QTimeZone::systemTimeZone()).isValid();
     case ValidEndDt:
         return ((type == IncidenceBase::TypeEvent) && m_incidences.at(row).dynamicCast<Event>()->hasEndDate());
     case ValidDueDt:
@@ -291,9 +291,9 @@ Incidence::List IncidenceModel::hourEvents() const
     for (const auto & d : dayEventList) {
         auto e = d.dynamicCast<Event>();
 
-        auto eventStartWithinFilter = e->dtStart() >= filterStartDtTime && e->dtStart() <= filterEndtDtTime;
-        auto eventEndWithinFilter = e->dtEnd() > filterStartDtTime && e->dtEnd() <= filterEndtDtTime;
-        auto filterWithinEvent =  e->dtStart() < filterStartDtTime && filterEndtDtTime < e->dtEnd();
+        auto eventStartWithinFilter = e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStartDtTime && e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterEndtDtTime;
+        auto eventEndWithinFilter = e->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) > filterStartDtTime && e->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) <= filterEndtDtTime;
+        auto filterWithinEvent =  e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) < filterStartDtTime && filterEndtDtTime < e->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
 
         if ((eventStartWithinFilter || eventEndWithinFilter || filterWithinEvent)) {
             incidences.append(e);
@@ -311,7 +311,7 @@ Incidence::List IncidenceModel::hourTodos() const
 
     for (const auto & t : dayTodoList) {
         auto todo =  t.dynamicCast<Todo>();
-        auto k = t->allDay() ? 0 : (todo->dtDue().isValid() ? todo->dtDue().time().hour() : todo->dtStart().time().hour());
+        auto k = t->allDay() ? 0 : (todo->dtDue().isValid() ? todo->dtDue().toTimeZone(QTimeZone::systemTimeZone()).time().hour() : todo->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().hour());
         if (k == m_filter_hour || t->allDay()) {
             incidences.append(t);
         }
@@ -394,10 +394,10 @@ QString IncidenceModel::displayStartEndTime(const int idx) const
     }
 
     if (incidence->type() == IncidenceBase::TypeEvent && incidence.dynamicCast<Event>()->dtEnd().isValid()) {
-        return QString("%1 - %2").arg(incidence->dtStart().time().toString("hh:mm")).arg(incidence.dynamicCast<Event>()->dtEnd().time().toString("hh:mm"));
+        return QString("%1 - %2").arg(incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm")).arg(incidence.dynamicCast<Event>()->dtEnd().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm"));
     }
 
-    return incidence->dtStart().time().toString("hh:mm");
+    return incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm");
 }
 
 QString IncidenceModel::displayStartDate(const int idx) const
@@ -405,7 +405,7 @@ QString IncidenceModel::displayStartDate(const int idx) const
     auto incidence = m_incidences.at(idx);
 
     if (incidence->dtStart().isValid())
-        return incidence->dtStart().date().toString(Qt::SystemLocaleLongDate);
+        return incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).date().toString(Qt::SystemLocaleLongDate);
 
     return QString();
 }
@@ -415,7 +415,7 @@ QString IncidenceModel::displayDueDate(const int idx) const
     auto incidence = m_incidences.at(idx);
 
     if ((incidence->type() == IncidenceBase::TypeTodo) && (incidence.dynamicCast<Todo>()->dtDue().isValid()))
-        return incidence.dynamicCast<Todo>()->dtDue().date().toString(Qt::SystemLocaleLongDate);
+        return incidence.dynamicCast<Todo>()->dtDue().toTimeZone(QTimeZone::systemTimeZone()).date().toString(Qt::SystemLocaleLongDate);
 
     return i18n("Unspecified due date");
 }
@@ -430,7 +430,7 @@ QString IncidenceModel::displayDueTime(const int idx) const
 
     if (incidence->type() == IncidenceBase::TypeTodo) {
         auto todo = incidence.dynamicCast<Todo>();
-        return todo->dtDue().isValid() ? todo->dtDue().time().toString("hh:mm") : QString();
+        return todo->dtDue().isValid() ? todo->dtDue().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm") : QString();
     }
 
     return QString();
@@ -446,7 +446,7 @@ QString IncidenceModel::displayStartTime(const int idx) const
 
     if (incidence->type() == IncidenceBase::TypeTodo) {
         auto todo = incidence.dynamicCast<Todo>();
-        return todo->dtStart().isValid() ? todo->dtStart().time().toString("hh:mm") : QString();
+        return todo->dtStart().toTimeZone(QTimeZone::systemTimeZone()).isValid() ? todo->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm") : QString();
     }
 
     return QString();
