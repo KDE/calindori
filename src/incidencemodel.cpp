@@ -284,8 +284,8 @@ Incidence::List IncidenceModel::hourIncidences() const
 Incidence::List IncidenceModel::hourEvents() const
 {
     Incidence::List incidences;
-    auto filterStartDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600);
-    auto filterEndtDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600 + 3599);
+    auto filterStartDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600).toTimeZone(QTimeZone::systemTimeZone());
+    auto filterEndtDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600 + 3599).toTimeZone(QTimeZone::systemTimeZone());
     auto dayEventList = dayEvents();
 
     for (const auto & d : dayEventList) {
@@ -330,16 +330,15 @@ Incidence::List IncidenceModel::dayIncidences() const
 
 Incidence::List IncidenceModel::dayEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, {}, EventSortStartDate, SortDirectionAscending);
-
-    return toIncidences(events);
+    auto events = m_calendar->memorycalendar()->rawEvents(m_filter_dt, m_filter_dt, QTimeZone::systemTimeZone());
+    return toIncidences(Calendar::sortEvents(events, EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::dayTodos() const
 {
     auto todos =  m_calendar->memorycalendar()->rawTodos(m_filter_dt, m_filter_dt);
 
-    return toIncidences(todos);
+    return toIncidences(Calendar::sortTodos(todos, TodoSortField::TodoSortDueDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::allIncidences() const
