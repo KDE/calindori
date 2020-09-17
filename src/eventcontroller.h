@@ -26,9 +26,16 @@ public:
     Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap &event);
     /**
      * @brief Returns the current datetime in the local time zone
-     * 
+     *
      * @return QDateTime
      */
     Q_INVOKABLE QDateTime localSystemDateTime() const;
+    /**
+     * @brief Validate an event before saving
+     *
+     * @return A QVariantMap response to be handled by the caller
+     */
+    Q_INVOKABLE QVariantMap validate(const QVariantMap& eventMap) const;
+
 };
 #endif

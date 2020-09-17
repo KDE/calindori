@@ -34,28 +34,6 @@ Kirigami.Page {
 
     signal editcompleted(var vevent)
 
-    /**
-     * Function that checks that the user input is valid
-     *
-     * Returns an object with success status and reason
-     */
-    function validate()
-    {
-        var result = { success: false, reason: "" };
-
-        var endDtTime = new Date(root.endDt.getFullYear(), root.endDt.getMonth(), root.endDt.getDate(), root.endHour + (root.endPm ? 12 : 0), root.endMinute);
-
-        var startDtTime = new Date(root.startDt.getFullYear(), root.startDt.getMonth(), root.startDt.getDate(), root.startHour + (root.startPm ? 12 : 0), root.startMinute);
-
-        if(!(root.allDay) && (endDtTime < startDtTime)) {
-            result.reason = "End date time should be after start date time";
-            return result;
-        }
-
-        result.success = true;
-        return result;
-    }
-
     Component.onCompleted: {
         if(incidenceData == null && _calindoriConfig.alwaysRemind)
         {
@@ -269,11 +247,11 @@ Kirigami.Page {
             enabled: summary.text
 
             onTriggered: {
-                var validation = validate();
+                var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.endDt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
+
+                var validation = _eventController.validate(vevent);
 
                 if(validation.success) {
-                    var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": (root.allDay ? root.startDt : root.endDt), "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
-
                     _eventController.addEdit(root.calendar, vevent);
                     editcompleted(vevent);
                 }

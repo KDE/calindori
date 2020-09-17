@@ -8,6 +8,7 @@
 #include "localcalendar.h"
 #include <KCalendarCore/Event>
 #include <KCalendarCore/MemoryCalendar>
+#include <KLocalizedString>
 #include <QDebug>
 
 EventController::EventController(QObject* parent) : QObject(parent) {}
@@ -62,12 +63,12 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
         startDateTime = QDateTime(startDate);
         endDateTime = QDateTime(endDate);
     } else {
-        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
-        endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());
+        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()).toTimeZone(QTimeZone::utc());
+        endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone()).toTimeZone(QTimeZone::utc());
     }
 
-    event->setDtStart(startDateTime.toTimeZone(QTimeZone::utc()));
-    event->setDtEnd(endDateTime.toTimeZone(QTimeZone::utc()));
+    event->setDtStart(startDateTime);
+    event->setDtEnd(endDateTime);
     event->setDescription(eventData["description"].toString());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);
@@ -138,4 +139,42 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
 QDateTime EventController::localSystemDateTime() const
 {
     return QDateTime::currentDateTime();
+}
+
+QVariantMap EventController::validate(const QVariantMap& eventMap) const
+{
+    QVariantMap result {};
+
+    QDate startDate = eventMap["startDate"].toDate();
+    bool validStartHour {false};
+    int startHour = eventMap["startHour"].toInt(&validStartHour);
+    bool validStartMinutes {false};
+    int startMinute = eventMap["startMinute"].toInt(&validStartMinutes);
+    QDate endDate = eventMap["endDate"].toDate();
+    bool validEndHour {false};
+    int endHour = eventMap["endHour"].toInt(&validEndHour);
+    bool validEndMinutes {false};
+    int endMinutes = eventMap["endMinute"].toInt(&validEndMinutes);
+    bool allDayFlg = eventMap["allDay"].toBool();
+
+    if (startDate.isValid() && validStartHour && validStartMinutes && endDate.isValid() && validEndHour && validEndMinutes) {
+        if (allDayFlg && (endDate != startDate)) {
+            result["success"] = false;
+            result["reason"] = i18n("In case of all day events, start date and end date should be equal");
+
+            return result;
+        }
+
+        if (!allDayFlg && (QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()) >  QDateTime(endDate, QTime(endHour, endMinutes, 0, 0), QTimeZone::systemTimeZone()))) {
+            result["success"] = false;
+            result["reason"] = i18n("End date time should be equal to or greater than the start date time");
+            return result;
+        }
+    }
+
+    result["success"] = true;
+    result["reason"] = QString();
+
+    return result;
+
 }
