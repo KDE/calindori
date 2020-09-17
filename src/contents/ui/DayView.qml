@@ -13,7 +13,7 @@ import org.kde.calindori 0.1
 ListView {
     id: root
 
-    property date selectedDate: new Date()
+    property date selectedDate: _eventController.localSystemDateTime()
     property var cal
     property bool wideScreen
 
@@ -50,7 +50,7 @@ ListView {
     }
 
     onGoToday: {
-        selectedDate = new Date();
+        selectedDate = _eventController.localSystemDateTime();
         currentIndex = selectedDate.getHours();
     }
 
@@ -58,6 +58,7 @@ ListView {
         var eventDt = selectedDate;
         eventDt.setHours(currentIndex);
         eventDt.setMinutes(0);
+        eventDt.setSeconds(0);
 
         pageStack.push(eventEditor, { startDt: eventDt });
     }
@@ -66,6 +67,7 @@ ListView {
         var todoDt = selectedDate;
         todoDt.setHours(currentIndex);
         todoDt.setMinutes(0);
+        todoDt.setSeconds(0);
 
         pageStack.push(todoEditor, { startDt: todoDt });
     }
@@ -101,6 +103,7 @@ ListView {
 
                 Repeater {
                     model: IncidenceModel {
+                        appLocale: _appLocale
                         calendar: root.cal
                         filterDt: root.selectedDate
                         filterHour: hourListItem.hour
@@ -109,7 +112,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: hourListItem.incidenceColor
-                        label: "%1\n%2: %3".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.displayType).arg(model.summary)
+                        label: "%1\n%2".arg(model.displayType).arg(model.summary)
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

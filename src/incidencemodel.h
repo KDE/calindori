@@ -23,6 +23,7 @@ class IncidenceModel : public QAbstractListModel
     Q_PROPERTY(QDate filterDt READ filterDt WRITE setFilterDt NOTIFY filterDtChanged)
     Q_PROPERTY(int filterHour READ filterHour WRITE setFilterHour NOTIFY filterHourChanged)
     Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(QLocale appLocale READ appLocale WRITE setAppLocale NOTIFY appLocaleChanged)
 
 public:
     explicit IncidenceModel(QObject* parent = nullptr);
@@ -88,12 +89,16 @@ public:
     LocalCalendar *calendar() const;
     void setCalendar(LocalCalendar *calendarPtr);
 
+    QLocale appLocale() const;
+    void setAppLocale(const QLocale &qmlLocale);
+
 
 Q_SIGNALS:
     void filterDtChanged();
     void filterHourChanged();
     void calendarChanged();
     void filterModeChanged();
+    void appLocaleChanged();
 
 private:
     /**
@@ -128,6 +133,7 @@ private:
     Incidence::List toIncidences(const Todo::List & todoList) const;
     Incidence::List toIncidences(const Event::List & eventList, const Todo::List & todoList) const;
     QString displayStartEndTime(const int idx) const;
+    QString eventDisplayStartEndTime(const Event::Ptr event) const;
     QString displayStartDate(const int idx) const;
     QString displayDueDate(const int idx) const;
     QString displayDueTime(const int idx) const;
@@ -138,6 +144,7 @@ private:
     int m_filter_hour;
     LocalCalendar *m_calendar;
     Incidence::List m_incidences;
+    QLocale m_locale;
 };
 
 #endif //INCIDENCE_MODEL_H

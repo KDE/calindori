@@ -134,3 +134,8 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
 
     qDebug() << "addEdit:\tEvent added/updated: " << merged;
 }
+
+QDateTime EventController::localSystemDateTime() const
+{
+    return QDateTime::currentDateTime();
+}

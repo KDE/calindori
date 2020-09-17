@@ -43,7 +43,7 @@ Kirigami.Page {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: incidenceData && !isNaN(incidenceData.dtstart) ? incidenceData.dtstart.toLocaleDateString(Qt.locale()) : (!isNaN(root.startDt) ? root.startDt.toLocaleDateString(Qt.locale()) : "")
+            text: incidenceData && !incidenceData.validStartDt ? incidenceData.displayStartDate : (!isNaN(root.startDt) ? root.startDt.toLocaleDateString(_appLocale) : "")
         }
 
         Kirigami.FormLayout {
@@ -92,8 +92,8 @@ Kirigami.Page {
 
                     selectorDate: startDateSelector.selectorDate
                     selectorTitle: i18n("Start Time")
-                    selectorHour: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
+                    selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: (validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM")) ? true : false
 
                     enabled: !allDaySelector.checked && validSelectedDt
@@ -122,12 +122,19 @@ Kirigami.Page {
 
                     Component.onCompleted: {
                         // Do not bind, just initialize
-                        if (root.incidenceData && root.incidenceData.validDueDt)
-                            selectorDate = root.incidenceData.due
-                        else if (root.incidenceData == undefined && root.startDt != undefined && !isNaN(root.startDt))
-                           selectorDate = new Date(root.startDt.getFullYear(), root.startDt.getMonth(), root.startDt.getDate(), root.startHour + (startPm ? 12 : 0) , root.startMinute);
-                        else
+                        if (root.incidenceData && root.incidenceData.validDueDt) {
+                            selectorDate = root.incidenceData.due;
+                        }
+                        else if (root.incidenceData == undefined && (root.startDt != undefined) && !isNaN(root.startDt)) {
+                            var t = root.startDt;
+                            t.setHours(root.startHour + (startPm ? 12 : 0));
+                            t.setMinutes(root.startMinute);
+                            t.setSeconds(0);
+                            selectorDate = t;
+                        }
+                        else {
                             selectorDate = new Date("invalid");
+                        }
                     }
                 }
 
@@ -138,8 +145,8 @@ Kirigami.Page {
 
                     selectorDate: dueDateSelector.selectorDate
                     selectorTitle: i18n("Due Time")
-                    selectorHour: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "hh") % 12 : 0
-                    selectorMinutes: validSelectedDt ? selectorDate.toLocaleTimeString(Qt.locale(), "mm") : 0
+                    selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
+                    selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM") ? true : false
 
                     enabled: !allDaySelector.checked && validSelectedDt

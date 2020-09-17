@@ -17,8 +17,11 @@ MonthView {
     showHeader: false
     showMonthName: true
     displayedYear: mm.year
-    displayedMonthName: Qt.locale().standaloneMonthName(mm.month-1)
+    displayedMonthName: _appLocale.standaloneMonthName(mm.month-1)
     daysModel: mm
+    applicationLocale: _appLocale
+    selectedDate: _eventController.localSystemDateTime()
+    currentDate: _eventController.localSystemDateTime()
 
     Layout.preferredHeight: childrenRect.height
     Layout.preferredWidth: childrenRect.width

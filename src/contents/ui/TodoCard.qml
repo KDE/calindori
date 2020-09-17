@@ -25,7 +25,7 @@ Kirigami.Card {
         bottomPadding: Kirigami.Units.largeSpacing
 
         Row {
-            visible: dataModel && dataModel.dtstart && !isNaN(dataModel.dtstart)
+            visible: dataModel && dataModel.validStartDt
             width: cardDelegate.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
@@ -37,7 +37,7 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel && ((dataModel.dtstart && !isNaN(dataModel.dtstart)) ? dataModel.dtstart.toLocaleString(Qt.locale(), dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" ) : "")
+                text: "%1 %2".arg(dataModel.displayStartDate).arg(dataModel.displayStartTime)
             }
         }
 
@@ -59,7 +59,7 @@ Kirigami.Card {
         }
 
         Row {
-            visible: dataModel && dataModel.due != undefined && !isNaN(dataModel.due)
+            visible: dataModel && dataModel.validDueDt
             width: cardDelegate.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
@@ -71,7 +71,7 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel && (dataModel.due != undefined) && !isNaN(dataModel.due) && dataModel.due.toLocaleString(Qt.locale(), dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm" )
+                text: "%1 %2".arg(dataModel.displayDueDate).arg(dataModel.displayDueTime)
             }
         }
 

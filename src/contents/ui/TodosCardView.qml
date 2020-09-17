@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
-        text: todoDt.toLocaleDateString() != "" ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No tasks scheduled")
+        text: !isNaN(todoDt) ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No tasks scheduled")
     }
 
     Kirigami.CardsListView {
@@ -77,6 +77,7 @@ Kirigami.ScrollablePage {
     Calindori.IncidenceModel {
         id: todosModel
 
+        appLocale: _appLocale
         filterDt: root.todoDt
         calendar: root.calendar
         filterMode: 6

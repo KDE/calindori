@@ -127,7 +127,20 @@ Kirigami.Page {
                     enabled: !allDaySelector.checked
                     selectorTitle: i18n("End Date")
 
-                    Component.onCompleted: selectorDate = root.incidenceData ? root.incidenceData.dtend : new Date(root.startDt.getTime() + _calindoriConfig.eventsDuration*60000);// Do not bind, just initialize
+                    Component.onCompleted: {
+                        var newDt;
+
+                        if(root.incidenceData) {
+                            newDt = root.incidenceData.dtend;
+                        }
+                        else {
+                            newDt= root.startDt;
+                            newDt.setMinutes(newDt.getMinutes() + _calindoriConfig.eventsDuration);
+                            newDt.setSeconds(0);
+                        }
+
+                        selectorDate = newDt;
+                    }
                 }
 
                 TimeSelectorButton {

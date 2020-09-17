@@ -13,9 +13,9 @@ import org.kde.calindori 0.1
 ListView {
     id: root
 
-    property int fstDayOfWeek: Qt.locale().firstDayOfWeek
+    property int fstDayOfWeek: _appLocale.firstDayOfWeek
     property date startDate
-    property date selectedWeekDate: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + (startDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek-7), startDate.getHours(), 0)
+    property date selectedWeekDate: firstDateOfWeek(startDate)
     property date selectedDate: startDate
     property var cal
     property bool wideScreen
@@ -25,6 +25,22 @@ ListView {
     signal goCurrentWeek
     signal addEvent
     signal addTodo
+
+    /**
+    * @brief Get the date of the first day of a week, given a date in the week
+    *
+    */
+
+    function firstDateOfWeek(inputDate)
+    {
+        var t = inputDate;
+        t.setDate(inputDate.getDate() - inputDate.getDay() + (inputDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek-7));
+        t.setHours(inputDate.getHours())
+        t.setMinutes(0);
+        t.setSeconds(0);
+
+        return t;
+    }
 
     /**
     * @brief Remove the editor page from the stack. If an incidence page exists in the page stack, remove it as well
@@ -61,12 +77,19 @@ ListView {
     }
 
     onGoCurrentWeek: {
-        selectedWeekDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - startDate.getDay() + (startDate.getDay() >= fstDayOfWeek ? fstDayOfWeek : fstDayOfWeek - 7), startDate.getHours(), 0);
+        selectedWeekDate = firstDateOfWeek(startDate);
         selectedDate = startDate;
         currentIndex = selectedDate.getDay() >= fstDayOfWeek ? selectedDate.getDay() - fstDayOfWeek : 7 - (selectedDate.getDay() +  fstDayOfWeek)
     }
 
-    onAddEvent: pageStack.push(eventEditor, { startDt: new Date(root.selectedDate.getTime() - root.selectedDate.getMinutes()*60000 + 3600000) })
+    onAddEvent: {
+        var newEventStartDt = root.selectedDate;
+        newEventStartDt.setHours(newEventStartDt.getHours() + 1);
+        newEventStartDt.setMinutes(0);
+        newEventStartDt.setSeconds(0);
+
+        pageStack.push(eventEditor, { startDt: newEventStartDt })
+    }
 
     onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate })
 
@@ -90,7 +113,7 @@ ListView {
 
             Controls2.Label {
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: Qt.locale().dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
+                text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 3
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 3
             }
@@ -101,6 +124,7 @@ ListView {
 
                 Repeater {
                     model: IncidenceModel {
+                        appLocale: _appLocale
                         calendar: root.cal
                         filterDt: moveDate(root.selectedWeekDate, dayListItem.weekDay)
                         filterMode: 4
@@ -108,7 +132,8 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: dayListItem.incidenceColor
-                        label: "%1\n%2: %3".arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.displayType).arg(model.summary)
+                        label: "%1\n%2\n%3".arg(model.displayType).arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
+
                         Layout.fillWidth: true
 
                         onClicked: pageStack.push(incidencePage, { incidence: model })

@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: i18n("New Event")
-        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : new Date() })
+        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : _eventController.localSystemDateTime()})
     }
 
     Component {
@@ -43,7 +43,7 @@ Kirigami.ScrollablePage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
-        text: eventStartDt.toLocaleDateString() != "" ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("No events scheduled")
+        text: !isNaN(eventStartDt) ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No events scheduled")
     }
 
     Kirigami.CardsListView {
@@ -80,6 +80,7 @@ Kirigami.ScrollablePage {
     Calindori.IncidenceModel {
         id: eventsModel
 
+        appLocale: _appLocale
         filterDt: root.eventStartDt
         calendar: root.calendar
         filterMode: 5

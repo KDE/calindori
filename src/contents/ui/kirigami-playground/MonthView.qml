@@ -30,6 +30,7 @@ Item {
     property string displayedMonthName
     property int displayedYear
     property var reloadSelectedDate: function() {}
+    property var applicationLocale: Qt.locale()
 
     /**
      * A model that provides:
@@ -60,6 +61,7 @@ Item {
             id: calendarHeader
 
             Layout.bottomMargin: Kirigami.Units.gridUnit / 2
+            applicationLocale: root.applicationLocale
             headerDate: root.selectedDate
             headerTodosCount: root.selectedDayTodosCount
             headerEventsCount: root.selectedDayEventsCount
@@ -102,7 +104,7 @@ Item {
                         Controls2.Label {
                             anchors.centerIn: parent
                             color: Kirigami.Theme.textColor
-                            text: Qt.locale().dayName(((model.index + Qt.locale().firstDayOfWeek) % root.days), Locale.ShortFormat)
+                            text: root.applicationLocale.dayName(((model.index + root.applicationLocale.firstDayOfWeek) % root.days), Locale.ShortFormat)
                         }
                 }
             }

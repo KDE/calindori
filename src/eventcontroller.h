@@ -24,5 +24,11 @@ public:
 
     Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap &event);
     Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap &event);
+    /**
+     * @brief Returns the current datetime in the local time zone
+     * 
+     * @return QDateTime
+     */
+    Q_INVOKABLE QDateTime localSystemDateTime() const;
 };
 #endif

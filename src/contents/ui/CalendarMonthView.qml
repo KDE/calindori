@@ -56,7 +56,7 @@ Controls2.SwipeView {
 
     onGoToday: {
         mm.goCurrentMonth();
-        root.selectedDate = new Date();
+        root.selectedDate = _eventController.localSystemDateTime();
     }
 
     onCurrentItemChanged: manageIndex()
@@ -118,11 +118,15 @@ Controls2.SwipeView {
             id: monthView
 
             anchors.centerIn: parent
+
+            applicationLocale: _appLocale
             displayedYear: mm.year
-            displayedMonthName: Qt.locale().standaloneMonthName(mm.month-1)
+            displayedMonthName: _appLocale.standaloneMonthName(mm.month-1)
             selectedDayTodosCount: cal.todosCount(selectedDate)
             selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
+            selectedDate: _eventController.localSystemDateTime()
+            currentDate: _eventController.localSystemDateTime()
 
             reloadSelectedDate: function() {
                 selectedDayTodosCount = cal.todosCount(root.selectedDate)

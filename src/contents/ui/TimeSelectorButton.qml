@@ -16,7 +16,19 @@ Controls2.ToolButton {
     property int selectorMinutes
     property bool selectorPm
 
-    text: !isNaN(selectorDate) ? (new Date(root.selectorDate.getFullYear(), root.selectorDate.getMonth() , root.selectorDate.getDate(), selectorHour + (selectorPm ? 12 : 0), selectorMinutes)).toLocaleTimeString(Qt.locale(), "HH:mm") : "00:00"
+    text: {
+        if(!isNaN(selectorDate)) {
+            var textDt = selectorDate;
+            textDt.setHours(selectorHour + (selectorPm ? 12 : 0));
+            textDt.setMinutes(selectorMinutes);
+            textDt.setSeconds(0);
+
+            return textDt.toLocaleTimeString(_appLocale, "HH:mm");
+        }
+        else {
+            return "00.00";
+        }
+    }
 
     onClicked: {
         timePickerSheet.hours = selectorHour;

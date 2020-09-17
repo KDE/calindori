@@ -15,6 +15,7 @@ ColumnLayout {
     property date headerDate
     property int headerTodosCount
     property int headerEventsCount
+    property var applicationLocale: Qt.locale()
 
     RowLayout {
         id: selectedDayHeading
@@ -31,12 +32,12 @@ ColumnLayout {
             spacing:  Kirigami.Units.smallSpacing
 
             Controls2.Label {
-                text: root.headerDate.toLocaleDateString(Qt.locale(), "dddd")
+                text: root.headerDate.toLocaleDateString(applicationLocale, "dddd")
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
             }
 
             Controls2.Label {
-                text: root.headerDate.toLocaleDateString(Qt.locale(), "MMMM") + " " + root.headerDate.getFullYear()
+                text: root.headerDate.toLocaleDateString(applicationLocale, "MMMM") + " " + root.headerDate.getFullYear()
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize
             }
         }

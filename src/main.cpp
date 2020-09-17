@@ -78,6 +78,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty(QStringLiteral("_calindoriConfig"), &calindoriConfig);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(aboutData));
+    engine.rootContext()->setContextProperty(QStringLiteral("_appLocale"), QLocale::system());
 
     engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));
 

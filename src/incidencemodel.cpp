@@ -6,6 +6,7 @@
 
 #include "incidencemodel.h"
 #include <KLocalizedString>
+
 using namespace KCalendarCore;
 
 IncidenceModel::IncidenceModel(QObject* parent) :
@@ -14,7 +15,8 @@ IncidenceModel::IncidenceModel(QObject* parent) :
     m_filter_dt(QDate()),
     m_filter_hour(-1),
     m_calendar(nullptr),
-    m_incidences(Incidence::List())
+    m_incidences(Incidence::List()),
+    m_locale(QLocale::system())
 {
     connect(this, &IncidenceModel::filterModeChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::filterDtChanged, this, &IncidenceModel::loadIncidences);
@@ -388,23 +390,38 @@ QString IncidenceModel::displayStartEndTime(const int idx) const
 {
     auto incidence = m_incidences.at(idx);
 
-    if (incidence->allDay()) {
-        return QString();
+    if (incidence->type() == IncidenceBase::TypeEvent) {
+        return eventDisplayStartEndTime(incidence.dynamicCast<Event>());
     }
 
-    if (incidence->type() == IncidenceBase::TypeEvent && incidence.dynamicCast<Event>()->dtEnd().isValid()) {
-        return QString("%1 - %2").arg(incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm")).arg(incidence.dynamicCast<Event>()->dtEnd().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm"));
-    }
-
-    return incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm");
+    return QString();
 }
+
+QString IncidenceModel::eventDisplayStartEndTime(const Event::Ptr event) const
+{
+    auto startDateTime = event->dtStart().toTimeZone(QTimeZone::systemTimeZone());
+    auto endDateTime = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
+
+    if (event->allDay()) {
+        return QString("%1 %2").arg(m_locale.toString(startDateTime, "MMM d")).arg(i18n("(all day)"));
+    }
+
+    if (startDateTime.date() != endDateTime.date()) {
+        return QString("%1 %2 - %3 %4").arg(m_locale.toString(startDateTime, "MMM d")).arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "MMM d")).arg(m_locale.toString(endDateTime, "hh:mm"));
+    } else {
+        return QString("%1 %2 - %3").arg(m_locale.toString(startDateTime, "MMM d")).arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "hh:mm"));
+    }
+
+    return QString();
+}
+
 
 QString IncidenceModel::displayStartDate(const int idx) const
 {
     auto incidence = m_incidences.at(idx);
 
     if (incidence->dtStart().isValid())
-        return incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).date().toString(Qt::SystemLocaleLongDate);
+        return m_locale.toString(incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone()).date(), "MMM d");
 
     return QString();
 }
@@ -414,7 +431,7 @@ QString IncidenceModel::displayDueDate(const int idx) const
     auto incidence = m_incidences.at(idx);
 
     if ((incidence->type() == IncidenceBase::TypeTodo) && (incidence.dynamicCast<Todo>()->dtDue().isValid()))
-        return incidence.dynamicCast<Todo>()->dtDue().toTimeZone(QTimeZone::systemTimeZone()).date().toString(Qt::SystemLocaleLongDate);
+        return m_locale.toString(incidence.dynamicCast<Todo>()->dtDue().toTimeZone(QTimeZone::systemTimeZone()).date(), "MMM d");
 
     return i18n("Unspecified due date");
 }
@@ -429,7 +446,7 @@ QString IncidenceModel::displayDueTime(const int idx) const
 
     if (incidence->type() == IncidenceBase::TypeTodo) {
         auto todo = incidence.dynamicCast<Todo>();
-        return todo->dtDue().isValid() ? todo->dtDue().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm") : QString();
+        return todo->dtDue().isValid() ? m_locale.toString(todo->dtDue().toTimeZone(QTimeZone::systemTimeZone()).time(), "hh:mm") : QString();
     }
 
     return QString();
@@ -438,15 +455,23 @@ QString IncidenceModel::displayDueTime(const int idx) const
 QString IncidenceModel::displayStartTime(const int idx) const
 {
     auto incidence = m_incidences.at(idx);
+    auto startDt = incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone());
 
     if (incidence->allDay()) {
         return QString();
     }
 
-    if (incidence->type() == IncidenceBase::TypeTodo) {
-        auto todo = incidence.dynamicCast<Todo>();
-        return todo->dtStart().toTimeZone(QTimeZone::systemTimeZone()).isValid() ? todo->dtStart().toTimeZone(QTimeZone::systemTimeZone()).time().toString("hh:mm") : QString();
-    }
+    return startDt.isValid() ? m_locale.toString(startDt.time(), "hh:mm") : QString();
+}
 
-    return QString();
+void IncidenceModel::setAppLocale(const QLocale& qmlLocale)
+{
+    m_locale = qmlLocale;
+
+    Q_EMIT appLocaleChanged();
+}
+
+QLocale IncidenceModel::appLocale() const
+{
+    return m_locale;
 }

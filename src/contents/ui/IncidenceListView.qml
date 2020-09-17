@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
         icon.name: "resource-calendar-insert"
         text: i18n("Add")
         onTriggered: {
-            var currentDt = new Date();
+            var currentDt = _eventController.localSystemDateTime();
             var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
             pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: listView.count == 0
-        text: incidenceStartDt.toLocaleDateString() != "" ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(Qt.locale(), Locale.ShortFormat)) : i18n("Nothing scheduled")
+        text: !isNaN(incidenceStartDt) ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("Nothing scheduled")
     }
 
     ListView {
@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
             id: itemDelegate
 
             reserveSpaceForIcon: false
-            label: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartEndTime : model.displayDueTime) ).arg(model.summary)
+            label: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartTime : model.displayDueTime)).arg(model.summary)
             topPadding: Kirigami.Units.gridUnit
             bottomPadding: Kirigami.Units.gridUnit
 
@@ -71,6 +71,7 @@ Kirigami.ScrollablePage {
 
         calendar: root.calendar
         filterMode: root.filterMode
+        appLocale: _appLocale
     }
 
     Component {

@@ -34,15 +34,9 @@ Kirigami.Card {
             }
 
             Controls2.Label {
-                property bool sameEndStart: dataModel && dataModel.dtstart && !isNaN(dataModel.dtstart) && dataModel.dtend && !isNaN(dataModel.dtend) && dataModel.dtstart.toLocaleString(Qt.locale(), "dd.MM.yyyy") == dataModel.dtend.toLocaleString(Qt.locale(), "dd.MM.yyyy")
-                property string timeFormat: dataModel && (dataModel.allday ? "" : "hh:mm")
-                property string dateFormat: dataModel && (dataModel.allday ? "ddd d MMM yyyy" : "ddd d MMM yyyy hh:mm")
-                property string separator: dataModel && (dataModel.allday ? "" : " - ")
-
                 wrapMode: Text.WordWrap
-                text: ((dataModel && dataModel.dtstart && !isNaN(dataModel.dtstart)) ? dataModel.dtstart.toLocaleString(Qt.locale(), dateFormat ) : "") +
-                    (dataModel && dataModel.dtend && !isNaN(dataModel.dtend) ? separator +
-                        dataModel.dtend.toLocaleString(Qt.locale(), sameEndStart ? timeFormat : dateFormat ) : "")
+                text: dataModel.displayStartEndTime
+
                 Layout.fillWidth: true
             }
         }

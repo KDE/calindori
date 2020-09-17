@@ -14,11 +14,11 @@ Controls2.ToolButton {
     property date selectorDate
     property string selectorTitle
 
-    text: (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate.toLocaleDateString(Qt.locale(),Locale.NarrowFormat) : "-"
+    text: (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate.toLocaleDateString(_appLocale, Locale.NarrowFormat) : "-"
     implicitWidth: Kirigami.Units.gridUnit * 5
 
     onClicked: {
-        datePickerSheet.selectedDate = (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate: new Date()
+        datePickerSheet.selectedDate = (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate: _eventController.localSystemDateTime()
         datePickerSheet.open();
     }
 
