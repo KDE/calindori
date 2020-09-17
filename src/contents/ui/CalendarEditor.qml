@@ -107,17 +107,6 @@ Kirigami.Page {
         }
 
         main: Kirigami.Action {
-            id: info
-
-            text: (mode == "import") ? qsTr("Import") : qsTr("Info")
-            icon.name : (mode == "import") ? "list-add" : "documentinfo"
-
-            onTriggered: {
-                onClicked: (mode == "import") ? fileChooser.open() : showPassiveNotification("Please save or cancel the creation of the new calendar")
-            }
-        }
-
-        right: Kirigami.Action {
             id: saveAction
 
             text: qsTr("Save")
