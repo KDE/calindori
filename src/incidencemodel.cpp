@@ -332,7 +332,8 @@ Incidence::List IncidenceModel::dayIncidences() const
 
 Incidence::List IncidenceModel::dayEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEvents(m_filter_dt, m_filter_dt, QTimeZone::systemTimeZone());
+    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, {}, EventSortStartDate, SortDirectionAscending);
+
     return toIncidences(Calendar::sortEvents(events, EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
 }
 
