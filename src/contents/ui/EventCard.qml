@@ -35,7 +35,7 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel.displayStartEndTime
+                text: dataModel && dataModel.displayStartEndTime
 
                 Layout.fillWidth: true
             }

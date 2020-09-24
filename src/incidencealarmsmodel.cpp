@@ -30,7 +30,6 @@ void IncidenceAlarmsModel::removeAlarm(const int row)
 {
     beginRemoveRows(QModelIndex(), row, row);
 
-    qDebug() << "\nremoveRow:\tRemoving index: " << row;
     mAlarms.removeAt(row);
 
     endRemoveRows();

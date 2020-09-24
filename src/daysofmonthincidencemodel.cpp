@@ -38,7 +38,6 @@ LocalCalendar * DaysOfMonthIncidenceModel::calendar() const
 
 void DaysOfMonthIncidenceModel::setCalendar(LocalCalendar* calendar)
 {
-    qDebug() << this << "set cal" << calendar;
     if (m_calendar != calendar) {
         m_calendar = calendar;
         Q_EMIT calendarChanged();

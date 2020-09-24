@@ -43,7 +43,6 @@ void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
 {
     if (m_calendar != memoryCalendar) {
         m_calendar = memoryCalendar;
-        qDebug() << "Calendar successfully set";
     }
 }
 

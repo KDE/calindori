@@ -6,6 +6,7 @@
 
 #include "incidencemodel.h"
 #include <KLocalizedString>
+#include <QDebug>
 
 using namespace KCalendarCore;
 
@@ -286,24 +287,83 @@ Incidence::List IncidenceModel::hourIncidences() const
 Incidence::List IncidenceModel::hourEvents() const
 {
     Incidence::List incidences;
-    auto filterStartDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600).toTimeZone(QTimeZone::systemTimeZone());
-    auto filterEndtDtTime = QDateTime(m_filter_dt).addSecs(m_filter_hour * 3600 + 3599).toTimeZone(QTimeZone::systemTimeZone());
     auto dayEventList = dayEvents();
 
     for (const auto & d : dayEventList) {
         auto e = d.dynamicCast<Event>();
-
-        auto eventStartWithinFilter = e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStartDtTime && e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterEndtDtTime;
-        auto eventEndWithinFilter = e->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) > filterStartDtTime && e->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) <= filterEndtDtTime;
-        auto filterWithinEvent =  e->dtStart().toTimeZone(QTimeZone::systemTimeZone()) < filterStartDtTime && filterEndtDtTime < e->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
-
-        if ((eventStartWithinFilter || eventEndWithinFilter || filterWithinEvent)) {
+        if (isHourEvent(e)) {
             incidences.append(e);
         }
 
     }
 
     return incidences;
+}
+
+bool IncidenceModel::isHourEvent(const Event::Ptr event) const
+{
+    auto startDate = event->dtStart().toTimeZone(QTimeZone::systemTimeZone()).date();
+    auto endDate = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()).date();
+    auto allDay = event->allDay();
+    auto eventDuration = event->dtStart().secsTo(event->dtEnd());
+
+    if (allDay) {
+        return true;
+    }
+
+    if (!event->recurs()) { // Non-repeating event
+        if ((m_filter_dt != startDate) && (m_filter_dt != endDate)) {
+            // - The filter date is a date that the event does occur (because it has been included in the dayEventList)
+            // - The filter date is not the first or the last - so it is in the middle
+            // -> We include it whatever the filter hour
+            return true;
+        } else {
+            if (withinFilter(event, m_filter_dt, m_filter_hour)) {
+                return true;
+            }
+        }
+    } else { //Repeating event
+
+        if (event->recursOn(m_filter_dt, QTimeZone::systemTimeZone())) {
+            // filter date == event recurrence start date
+            // in case of two day events that repeat daily, we check both start and end date
+
+            if ((event->recurrence()->recurrenceType() == Recurrence::rDaily) && event->isMultiDay() && eventDuration < 86400 && (m_filter_dt != startDate)) {
+                return withinFilter(event, startDate, m_filter_hour) ||  withinFilter(event, endDate, m_filter_hour);
+            } else {
+                return withinFilter(event, startDate, m_filter_hour);
+            }
+        } else { // We know that the event does occur on m_filter_dt. We know that m_filter_dt is not the first day of the event. Let's find the start date of the recurrence we are interested in
+            auto d { QDateTime(m_filter_dt)};
+            d.setTime(event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()).time());
+            d = d.addSecs(-1 * eventDuration);
+            if (event->recursOn(d.date(), QTimeZone::systemTimeZone())) {
+                if (withinFilter(event, endDate, m_filter_hour)) {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool IncidenceModel::withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate, const int filterHour) const
+{
+    auto filterStart = QDateTime(filterDate).addSecs(m_filter_hour * 3600).toTimeZone(QTimeZone::systemTimeZone());
+    auto filterEnd = QDateTime(filterDate).addSecs(m_filter_hour * 3600 + 3599).toTimeZone(QTimeZone::systemTimeZone());
+
+    auto eventStartWithinFilter = event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStart && event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterStart;
+    auto eventEndWithinFilter = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) > filterStart && event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) <= filterEnd;
+    auto filterWithinEvent =  event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) < filterStart && filterEnd < event->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
+
+    if (eventStartWithinFilter || eventEndWithinFilter || filterWithinEvent) {
+        return true;
+    }
+
+    return false;
 }
 
 Incidence::List IncidenceModel::hourTodos() const
@@ -332,8 +392,7 @@ Incidence::List IncidenceModel::dayIncidences() const
 
 Incidence::List IncidenceModel::dayEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, {}, EventSortStartDate, SortDirectionAscending);
-
+    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, QTimeZone::systemTimeZone(), EventSortStartDate, SortDirectionAscending);
     return toIncidences(Calendar::sortEvents(events, EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
 }
 
@@ -404,13 +463,13 @@ QString IncidenceModel::eventDisplayStartEndTime(const Event::Ptr event) const
     auto endDateTime = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
 
     if (event->allDay()) {
-        return QString("%1 %2").arg(m_locale.toString(startDateTime, "MMM d")).arg(i18n("(all day)"));
+        return QString("%1 %2").arg(m_locale.toString(startDateTime, "MMM d")).arg(i18n("all-day"));
     }
 
     if (startDateTime.date() != endDateTime.date()) {
         return QString("%1 %2 - %3 %4").arg(m_locale.toString(startDateTime, "MMM d")).arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "MMM d")).arg(m_locale.toString(endDateTime, "hh:mm"));
     } else {
-        return QString("%1 %2 - %3").arg(m_locale.toString(startDateTime, "MMM d")).arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "hh:mm"));
+        return QString("%1 - %2").arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "hh:mm"));
     }
 
     return QString();
@@ -442,7 +501,7 @@ QString IncidenceModel::displayDueTime(const int idx) const
     auto incidence = m_incidences.at(idx);
 
     if (incidence->allDay()) {
-        return QString();
+        return i18n("all-day");
     }
 
     if (incidence->type() == IncidenceBase::TypeTodo) {
@@ -459,7 +518,7 @@ QString IncidenceModel::displayStartTime(const int idx) const
     auto startDt = incidence->dtStart().toTimeZone(QTimeZone::systemTimeZone());
 
     if (incidence->allDay()) {
-        return QString();
+        return i18n("all-day");
     }
 
     return startDt.isValid() ? m_locale.toString(startDt.time(), "hh:mm") : QString();

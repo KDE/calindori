@@ -63,8 +63,8 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
         startDateTime = QDateTime(startDate);
         endDateTime = QDateTime(endDate);
     } else {
-        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()).toTimeZone(QTimeZone::utc());
-        endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone()).toTimeZone(QTimeZone::utc());
+        startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
+        endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());
     }
 
     event->setDtStart(startDateTime);
@@ -165,9 +165,24 @@ QVariantMap EventController::validate(const QVariantMap& eventMap) const
             return result;
         }
 
-        if (!allDayFlg && (QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()) >  QDateTime(endDate, QTime(endHour, endMinutes, 0, 0), QTimeZone::systemTimeZone()))) {
+        auto startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
+        auto endDateTime = QDateTime(endDate, QTime(endHour, endMinutes, 0, 0), QTimeZone::systemTimeZone());
+
+        if (!allDayFlg && (startDateTime > endDateTime)) {
             result["success"] = false;
             result["reason"] = i18n("End date time should be equal to or greater than the start date time");
+            return result;
+        }
+
+        auto validPeriodType {false};
+        auto periodType = static_cast<ushort>(eventMap["periodType"].toInt(&validPeriodType));
+        auto eventDuration = startDateTime.secsTo(endDateTime);
+        auto validRepeatEvery {false};
+        auto repeatEvery = static_cast<ushort>(eventMap["repeatEvery"].toInt(&validRepeatEvery));
+
+        if (validPeriodType && (periodType == Recurrence::rDaily) && validRepeatEvery && (repeatEvery == 1) && eventDuration > 86400) {
+            result["success"] = false;
+            result["reason"] = i18n("Daily events should not span multiple days");
             return result;
         }
     }
