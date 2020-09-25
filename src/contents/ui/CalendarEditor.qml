@@ -16,15 +16,15 @@ Kirigami.Page {
     property alias calendarName: nameInput.text
     property alias activeCalendar: isactive.checked
     property string mode: "add"
-    property alias fileToImport: importFilePath.text
+    property url fileToImport
 
     signal calendarAdded
     signal calendarAddCanceled
 
-    title: qsTr("New calendar")
+    title: i18n("New calendar")
 
     function importCalendar() {
-        if(root.fileToImport.text == "") {
+        if(root.fileToImport == "") {
             showPassiveNotification(i18n("Please import a calendar file"));
             return;
         }
@@ -76,20 +76,21 @@ Kirigami.Page {
         Controls2.TextField {
             id: nameInput
 
-            Kirigami.FormData.label: qsTr("Name:")
+            Kirigami.FormData.label: i18n("Name:")
         }
 
         Controls2.CheckBox {
             id: isactive
 
-            Kirigami.FormData.label: qsTr("Active:")
+            Kirigami.FormData.label: i18n("Active:")
         }
 
-        Controls2.TextField {
-            id: importFilePath
+        Controls2.Label {
+            id: fileName
 
-            visible: (mode == "import")
-            Kirigami.FormData.label: qsTr("File:")
+            visible: root.mode == "import" && root.fileToImport != ""
+            Kirigami.FormData.label: i18n("File:")
+            text: (root.mode == "import" && root.fileToImport != "") ? calendarController.fileNameFromUrl(root.fileToImport) : ""
         }
     }
 
@@ -98,7 +99,7 @@ Kirigami.Page {
         left: Kirigami.Action {
             id: cancelAction
 
-            text: qsTr("Cancel")
+            text: i18n("Cancel")
             icon.name : "dialog-cancel"
 
             onTriggered: {
@@ -109,7 +110,7 @@ Kirigami.Page {
         main: Kirigami.Action {
             id: saveAction
 
-            text: qsTr("Save")
+            text: i18n("Save")
             icon.name : "dialog-ok"
 
             onTriggered: {
@@ -126,6 +127,17 @@ Kirigami.Page {
                 }
             }
         }
+
+        right: Kirigami.Action {
+            id: addFile
+
+            visible: root.mode == "import"
+            text: i18n("Import")
+            icon.name: "list-add"
+
+            onTriggered: fileChooser.open()
+        }
+
     }
 
     FileChooser {

@@ -165,3 +165,8 @@ void LocalCalendar::loadCalendar(const QString &calendarName)
     emit todosChanged();
     emit eventsChanged();
 }
+
+QString LocalCalendar::fileNameFromUrl(const QUrl &sourcePath)
+{
+    return sourcePath.fileName();
+}
