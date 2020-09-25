@@ -13,14 +13,14 @@
 class DaysOfMonthIncidenceModel : public DaysOfMonthModel
 {
     Q_OBJECT
-    Q_PROPERTY(LocalCalendar* calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(LocalCalendar *calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 public:
     enum ExtraRoles {
         IncidenceCount = TodayRole + 1
     };
 
     QHash<int, QByteArray> roleNames() const override;
-    QVariant data(const QModelIndex & index, int role) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 
     LocalCalendar *calendar() const;
     void setCalendar(LocalCalendar *calendar);

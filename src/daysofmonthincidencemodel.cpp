@@ -7,7 +7,7 @@
 #include "daysofmonthincidencemodel.h"
 #include <QDebug>
 
-QVariant DaysOfMonthIncidenceModel::data(const QModelIndex& index, int role) const
+QVariant DaysOfMonthIncidenceModel::data(const QModelIndex &index, int role) const
 {
     if (!m_calendar) {
         return DaysOfMonthModel::data(index, role);;
@@ -31,12 +31,12 @@ QHash<int, QByteArray> DaysOfMonthIncidenceModel::roleNames() const
     return parentRoles;
 }
 
-LocalCalendar * DaysOfMonthIncidenceModel::calendar() const
+LocalCalendar *DaysOfMonthIncidenceModel::calendar() const
 {
     return m_calendar;
 }
 
-void DaysOfMonthIncidenceModel::setCalendar(LocalCalendar* calendar)
+void DaysOfMonthIncidenceModel::setCalendar(LocalCalendar *calendar)
 {
     if (m_calendar != calendar) {
         m_calendar = calendar;

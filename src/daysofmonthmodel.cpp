@@ -68,7 +68,7 @@ void DaysOfMonthModel::update()
     endResetModel();
 }
 
-QVariant DaysOfMonthModel::data(const QModelIndex& index, int role) const
+QVariant DaysOfMonthModel::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
 
@@ -178,7 +178,7 @@ void DaysOfMonthModel::setDaysPerWeek(int daysPerWeek)
     }
 }
 
-int DaysOfMonthModel::rowCount(const QModelIndex& parent) const
+int DaysOfMonthModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return m_weeks * m_daysPerWeek;

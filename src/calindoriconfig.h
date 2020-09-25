@@ -21,15 +21,15 @@ class CalindoriConfig : public QObject
 
 public:
 
-    explicit CalindoriConfig(QObject* parent = nullptr);
+    explicit CalindoriConfig(QObject *parent = nullptr);
     ~CalindoriConfig() override;
 
     QString calendars() const;
-    QString calendarFile(const QString & calendarName);
+    QString calendarFile(const QString &calendarName);
     Q_SIGNAL void calendarsChanged();
 
     QString activeCalendar() const;
-    void setActiveCalendar(const QString& calendar);
+    void setActiveCalendar(const QString &calendar);
     Q_SIGNAL void activeCalendarChanged();
 
     int eventsDuration() const;
@@ -40,21 +40,20 @@ public:
     void setPreEventRemindTime(int remindBefore);
     Q_SIGNAL void preEventRemindTimeChanged();
 
-
     bool alwaysRemind() const;
     void setAlwaysRemind(bool remind);
     Q_SIGNAL void alwaysRemindChanged();
 
 public Q_SLOTS:
-    QVariantMap canAddCalendar(const QString& calendar);
-    QVariantMap addCalendar(const QString& calendar);
-    void removeCalendar(const QString& calendar);
+    QVariantMap canAddCalendar(const QString &calendar);
+    QVariantMap addCalendar(const QString &calendar);
+    void removeCalendar(const QString &calendar);
 
 private:
-    static QString filenameToPath(const QString & calendarName);
+    static QString filenameToPath(const QString &calendarName);
 
     class Private;
-    Private* d;
+    Private *d;
 };
 
 #endif

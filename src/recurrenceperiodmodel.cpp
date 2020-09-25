@@ -10,7 +10,7 @@
 
 using namespace KCalendarCore;
 
-ReccurencePeriodModel::ReccurencePeriodModel(QObject* parent): QAbstractListModel(parent)
+ReccurencePeriodModel::ReccurencePeriodModel(QObject *parent): QAbstractListModel(parent)
 {
     initialize();
 }
@@ -40,7 +40,7 @@ QHash<int, QByteArray> ReccurencePeriodModel::roleNames() const
     };
 }
 
-QVariant ReccurencePeriodModel::data(const QModelIndex& index, int role) const
+QVariant ReccurencePeriodModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return "Invalid index";
@@ -58,7 +58,7 @@ QVariant ReccurencePeriodModel::data(const QModelIndex& index, int role) const
     }
 }
 
-int ReccurencePeriodModel::rowCount(const QModelIndex& parent) const
+int ReccurencePeriodModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
         return 0;

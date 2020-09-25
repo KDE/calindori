@@ -21,7 +21,7 @@ public:
     KConfig config;
 };
 
-CalindoriConfig::CalindoriConfig(QObject* parent)
+CalindoriConfig::CalindoriConfig(QObject *parent)
     : QObject(parent)
     , d(new Private)
 {
@@ -49,15 +49,14 @@ QString CalindoriConfig::activeCalendar() const
     return d->config.group("general").readEntry("activeCalendar", QString());
 }
 
-
-void CalindoriConfig::setActiveCalendar(const QString & calendar)
+void CalindoriConfig::setActiveCalendar(const QString &calendar)
 {
     d->config.group("general").writeEntry("activeCalendar", calendar);
     d->config.sync();
     Q_EMIT activeCalendarChanged();
 }
 
-QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
+QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
 {
     QVariantMap result;
     result["success"] = QVariant(true);
@@ -85,7 +84,7 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString& calendar)
     return result;
 }
 
-QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
+QVariantMap CalindoriConfig::addCalendar(const QString &calendar)
 {
     QVariantMap result;
     result["success"] = QVariant(true);
@@ -116,7 +115,7 @@ QVariantMap CalindoriConfig::addCalendar(const QString & calendar)
     return result;
 }
 
-void CalindoriConfig::removeCalendar(const QString& calendar)
+void CalindoriConfig::removeCalendar(const QString &calendar)
 {
     d->config.reparseConfiguration();
     QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
@@ -132,7 +131,7 @@ void CalindoriConfig::removeCalendar(const QString& calendar)
     }
 }
 
-QString CalindoriConfig::calendarFile(const QString& calendarName)
+QString CalindoriConfig::calendarFile(const QString &calendarName)
 {
     if (d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("file")) {
         return  d->config.group(calendarName).readEntry("file");
@@ -143,7 +142,7 @@ QString CalindoriConfig::calendarFile(const QString& calendarName)
     return filenameToPath(calendarName);
 }
 
-QString CalindoriConfig::filenameToPath(const QString& calendarName)
+QString CalindoriConfig::filenameToPath(const QString &calendarName)
 {
     QString basePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir baseFolder(basePath);

@@ -14,7 +14,7 @@
 
 using namespace KCalendarCore;
 
-LocalCalendar::LocalCalendar(QObject* parent)
+LocalCalendar::LocalCalendar(QObject *parent)
     : QObject(parent), m_config(new CalindoriConfig())
 {
     loadCalendar(m_config->activeCalendar());
@@ -66,7 +66,7 @@ void LocalCalendar::deleteCalendar()
     }
 }
 
-int LocalCalendar::eventsCount(const QDate& date) const
+int LocalCalendar::eventsCount(const QDate &date) const
 {
     if (m_calendar == nullptr) {
         return 0;
@@ -81,7 +81,7 @@ bool LocalCalendar::save()
     return m_cal_storage->save();
 }
 
-QVariantMap LocalCalendar::canCreateFile(const QString& calendarName)
+QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
 {
     QVariantMap result;
     result["success"] = QVariant(true);
@@ -102,7 +102,7 @@ QVariantMap LocalCalendar::canCreateFile(const QString& calendarName)
     return result;
 }
 
-QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUrl& sourcePath)
+QVariantMap LocalCalendar::importCalendar(const QString &calendarName, const QUrl &sourcePath)
 {
     QVariantMap result;
     result["success"] = QVariant(false);
@@ -139,7 +139,7 @@ QVariantMap LocalCalendar::importCalendar(const QString& calendarName, const QUr
     return result;
 }
 
-void LocalCalendar::loadCalendar(const QString& calendarName)
+void LocalCalendar::loadCalendar(const QString &calendarName)
 {
     MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
     FileStorage::Ptr storage(new FileStorage(calendar));

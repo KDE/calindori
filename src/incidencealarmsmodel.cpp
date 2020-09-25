@@ -10,7 +10,7 @@
 #include <KLocalizedString>
 #include <QDebug>
 
-IncidenceAlarmsModel::IncidenceAlarmsModel(QObject* parent) : QAbstractListModel(parent), mAlarms(QVariantList())
+IncidenceAlarmsModel::IncidenceAlarmsModel(QObject *parent) : QAbstractListModel(parent), mAlarms(QVariantList())
 {
     connect(this, &IncidenceAlarmsModel::alarmPropertiesChanged, this, &IncidenceAlarmsModel::loadPersistentAlarms);
 }
@@ -67,14 +67,14 @@ QVariantMap IncidenceAlarmsModel::alarmProperties() const
     return mAlarmProperties;
 }
 
-void IncidenceAlarmsModel::setAlarmProperties(const QVariantMap& alarmProps)
+void IncidenceAlarmsModel::setAlarmProperties(const QVariantMap &alarmProps)
 {
     mAlarmProperties = alarmProps;
 
     emit alarmPropertiesChanged();
 }
 
-QVariant IncidenceAlarmsModel::data(const QModelIndex& index, int role) const
+QVariant IncidenceAlarmsModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
@@ -94,7 +94,7 @@ QVariant IncidenceAlarmsModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-int IncidenceAlarmsModel::rowCount(const QModelIndex& parent) const
+int IncidenceAlarmsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
         return 0;
@@ -108,7 +108,7 @@ void IncidenceAlarmsModel::loadPersistentAlarms()
 
     beginResetModel();
 
-    LocalCalendar* localCalendar = mAlarmProperties["calendar"].value<LocalCalendar*>();
+    LocalCalendar *localCalendar = mAlarmProperties["calendar"].value<LocalCalendar *>();
     QString uid = mAlarmProperties["uid"].toString();
     MemoryCalendar::Ptr memCalendar;
     Incidence::Ptr alarmIncidence;
@@ -172,7 +172,6 @@ int IncidenceAlarmsModel::alarmStartOffsetValue(const int idx) const
     return alarm["startOffsetValue"].value<int>();
 }
 
-
 QString IncidenceAlarmsModel::alarmUid(const int idx) const
 {
     QHash<QString, QVariant> alarm = mAlarms.at(idx).value<QHash<QString, QVariant>>();
@@ -186,7 +185,6 @@ int IncidenceAlarmsModel::alarmActionType(const int idx) const
 
     return alarm["actionType"].value<int>();
 }
-
 
 QVariantList IncidenceAlarmsModel::alarms() const
 {

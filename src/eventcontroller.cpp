@@ -11,7 +11,7 @@
 #include <KLocalizedString>
 #include <QDebug>
 
-EventController::EventController(QObject* parent) : QObject(parent) {}
+EventController::EventController(QObject *parent) : QObject(parent) {}
 
 EventController::~EventController() = default;
 
@@ -97,7 +97,9 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
     //Bother with recurrences only if a recurrence has been found, either existing or new
     if ((event->recurrenceType() != Recurrence::rNone) || (newPeriod != Recurrence::rNone)) {
         //WORKAROUND: When changing an event from non-recurring to recurring, duplicate events are displayed
-        if (uid != "") memoryCalendar->deleteEvent(event);
+        if (uid != "") {
+            memoryCalendar->deleteEvent(event);
+        }
 
         switch (newPeriod) {
         case Recurrence::rYearlyDay:
@@ -125,10 +127,14 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
             event->recurrence()->setAllDay(allDayFlg);
         }
 
-        if (uid != "") memoryCalendar->addEvent(event);
+        if (uid != "") {
+            memoryCalendar->addEvent(event);
+        }
     }
 
-    if (uid == "") memoryCalendar->addEvent(event);
+    if (uid == "") {
+        memoryCalendar->addEvent(event);
+    }
 
     bool merged = calendar->save();
     Q_EMIT calendar->eventsChanged();
@@ -141,7 +147,7 @@ QDateTime EventController::localSystemDateTime() const
     return QDateTime::currentDateTime();
 }
 
-QVariantMap EventController::validate(const QVariantMap& eventMap) const
+QVariantMap EventController::validate(const QVariantMap &eventMap) const
 {
     QVariantMap result {};
 

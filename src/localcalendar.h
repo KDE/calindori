@@ -24,7 +24,7 @@ class LocalCalendar : public QObject
     Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
 
 public:
-    explicit LocalCalendar(QObject* parent = nullptr);
+    explicit LocalCalendar(QObject *parent = nullptr);
     ~LocalCalendar() override;
 
     MemoryCalendar::Ptr memorycalendar() const;
@@ -36,9 +36,9 @@ public:
 public Q_SLOTS:
     int todosCount(const QDate &date) const;
     void deleteCalendar();
-    int eventsCount(const QDate& date) const;
+    int eventsCount(const QDate &date) const;
     bool save();
-    static QVariantMap importCalendar(const QString& calendarName, const QUrl& sourcePath);
+    static QVariantMap importCalendar(const QString &calendarName, const QUrl &sourcePath);
 Q_SIGNALS:
     void memorycalendarChanged();
     void nameChanged();
@@ -46,7 +46,7 @@ Q_SIGNALS:
     void eventsChanged();
 
 private:
-    static QVariantMap canCreateFile(const QString& calendarName);
+    static QVariantMap canCreateFile(const QString &calendarName);
     void loadCalendar(const QString &calendarName);
 
     MemoryCalendar::Ptr m_calendar;

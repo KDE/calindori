@@ -11,11 +11,11 @@
 #include <KLocalizedString>
 #include <QDebug>
 
-TodoController::TodoController(QObject* parent) : QObject(parent) {}
+TodoController::TodoController(QObject *parent) : QObject(parent) {}
 
 TodoController::~TodoController() = default;
 
-void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
+void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
 {
     qDebug() << "Adding/updating todo";
 
@@ -93,7 +93,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap& todo)
     qDebug() << "Todo added/updated: " << merged;
 }
 
-void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
+void TodoController::remove(LocalCalendar *calendar, const QVariantMap &todo)
 {
     qDebug() << "Deleting todo";
 
@@ -108,7 +108,7 @@ void TodoController::remove(LocalCalendar *calendar, const QVariantMap& todo)
     qDebug() << "Todo deleted: " << removed;
 }
 
-QVariantMap TodoController::validate(const QVariantMap& todo) const
+QVariantMap TodoController::validate(const QVariantMap &todo) const
 {
     QVariantMap result {};
 

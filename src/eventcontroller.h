@@ -19,7 +19,7 @@ class EventController : public QObject
     Q_OBJECT
 
 public:
-    explicit EventController(QObject* parent = nullptr);
+    explicit EventController(QObject *parent = nullptr);
     ~EventController() override;
 
     Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap &event);
@@ -35,7 +35,7 @@ public:
      *
      * @return A QVariantMap response to be handled by the caller
      */
-    Q_INVOKABLE QVariantMap validate(const QVariantMap& eventMap) const;
+    Q_INVOKABLE QVariantMap validate(const QVariantMap &eventMap) const;
 
 };
 #endif

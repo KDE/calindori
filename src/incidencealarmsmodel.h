@@ -26,7 +26,7 @@ class IncidenceAlarmsModel : public QAbstractListModel
     Q_PROPERTY(QVariantMap alarmProperties READ alarmProperties WRITE setAlarmProperties NOTIFY alarmPropertiesChanged)
 
 public:
-    explicit IncidenceAlarmsModel(QObject* parent = nullptr);
+    explicit IncidenceAlarmsModel(QObject *parent = nullptr);
     ~IncidenceAlarmsModel() override;
 
     enum RoleNames {
@@ -35,8 +35,8 @@ public:
         ActionType
     };
 
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QHash<int, QByteArray> roleNames() const override;
 
     /**
@@ -46,7 +46,7 @@ public:
     /**
      * @brief Sets the input properties of the model. \p alarmProps should be a QVariantMap with the following members: 1) uid: the uid of the Incidence 2) calendar: the LocalCalendar* that the Incidence belongs to
      */
-    void setAlarmProperties(const QVariantMap & alarmProps);
+    void setAlarmProperties(const QVariantMap &alarmProps);
 
 public Q_SLOTS:
 

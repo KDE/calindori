@@ -33,7 +33,7 @@ public:
         RepeatCodeRole
     };
 
-    explicit ReccurencePeriodModel(QObject* parent = nullptr);
+    explicit ReccurencePeriodModel(QObject *parent = nullptr);
     ~ReccurencePeriodModel() override;
 
     QHash<int, QByteArray> roleNames() const override;

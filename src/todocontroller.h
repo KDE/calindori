@@ -16,12 +16,12 @@ class TodoController : public QObject
     Q_OBJECT
 
 public:
-    explicit TodoController(QObject* parent = nullptr);
+    explicit TodoController(QObject *parent = nullptr);
     ~TodoController() override;
 
-    Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap& todo);
-    Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap& todo);
-    Q_INVOKABLE QVariantMap validate(const QVariantMap& todo) const;
+    Q_INVOKABLE void remove(LocalCalendar *calendar, const QVariantMap &todo);
+    Q_INVOKABLE void addEdit(LocalCalendar *calendar, const QVariantMap &todo);
+    Q_INVOKABLE QVariantMap validate(const QVariantMap &todo) const;
 };
 #endif
 
