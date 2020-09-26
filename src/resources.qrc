@@ -20,8 +20,6 @@
         <file alias="EventEditor.qml">contents/ui/EventEditor.qml</file>
         <file alias="TimePickerSheet.qml">contents/ui/TimePickerSheet.qml</file>
         <file alias="DatePickerSheet.qml">contents/ui/DatePickerSheet.qml</file>
-        <file alias="FileChooserMobile.qml">contents/ui/FileChooserMobile.qml</file>
-        <file alias="FileChooserDesktop.qml">contents/ui/FileChooserDesktop.qml</file>
         <file alias="FileChooser.qml">contents/ui/FileChooser.qml</file>
         <file alias="ReminderEditor.qml">contents/ui/ReminderEditor.qml</file>
         <file alias="PickerMonthView.qml">contents/ui/PickerMonthView.qml</file>
