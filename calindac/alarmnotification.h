@@ -20,7 +20,7 @@ class AlarmNotification : public QObject
 {
     Q_OBJECT
 public:
-    explicit AlarmNotification(NotificationHandler* handler, const QString& uid);
+    explicit AlarmNotification(NotificationHandler *handler, const QString &uid);
     ~AlarmNotification() override;
 
     /**
@@ -38,7 +38,7 @@ public:
     /**
      * @brief Sets the to-be-displayed text of the notification
      */
-    void setText(const QString& alarmText);
+    void setText(const QString &alarmText);
     /**
      * @return In case of a suspended notification, the time that the notification should be displayed. Otherwise, it is empty.
      */
@@ -46,7 +46,7 @@ public:
     /**
      * @brief Sets the time that should be displayed a suspended notification
      */
-    void setRemindAt(const QDateTime & remindAtDt);
+    void setRemindAt(const QDateTime &remindAtDt);
 
 Q_SIGNALS:
     /**
@@ -61,9 +61,9 @@ Q_SIGNALS:
     void suspend();
 
 private:
-    KNotification* mNotification;
+    KNotification *mNotification;
     QString mUid;
     QDateTime mRemindAt;
-    NotificationHandler* mNotificationHandler;
+    NotificationHandler *mNotificationHandler;
 };
 #endif

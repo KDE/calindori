@@ -10,7 +10,7 @@
 #include <QFile>
 #include <QDebug>
 
-AlarmsModel::AlarmsModel(QObject* parent) : QAbstractListModel(parent), mMemoryCalendars(QVector<MemoryCalendar::Ptr>()), mFileStorages(QVector<FileStorage::Ptr>()), mAlarms(Alarm::List()), mCalendarFiles(QStringList()), mParams(QHash<QString, QVariant>())
+AlarmsModel::AlarmsModel(QObject *parent) : QAbstractListModel(parent), mMemoryCalendars(QVector<MemoryCalendar::Ptr>()), mFileStorages(QVector<FileStorage::Ptr>()), mAlarms(Alarm::List()), mCalendarFiles(QStringList()), mParams(QHash<QString, QVariant>())
 {
     connect(this, &AlarmsModel::paramsChanged, this, &AlarmsModel::loadAlarms);
 }
@@ -27,7 +27,7 @@ QHash<int, QByteArray> AlarmsModel::roleNames() const
     };
 }
 
-QVariant AlarmsModel::data(const QModelIndex& index, int role) const
+QVariant AlarmsModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
@@ -49,7 +49,7 @@ QVariant AlarmsModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-int AlarmsModel::rowCount(const QModelIndex& parent) const
+int AlarmsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
         return 0;
@@ -66,7 +66,7 @@ void AlarmsModel::loadAlarms()
 
     int cnt = 0;
 
-    for (const auto& m : mMemoryCalendars) {
+    for (const auto &m : qAsConst(mMemoryCalendars)) {
         QDateTime from = mPeriod["from"].toDateTime();
         QDateTime to = mPeriod["to"].toDateTime();
         qDebug() << "loadAlarms:\tLooking for alarms in calendar #" << cnt << ", from" << from.toString("dd.MM.yyyy hh:mm:ss") << "to" << to.toString("dd.MM.yyyy hh:mm:ss");
@@ -96,7 +96,7 @@ void AlarmsModel::setCalendars()
     mFileStorages.clear();
     mMemoryCalendars.clear();
 
-    for (const auto& cf : mCalendarFiles) {
+    for (const auto &cf : qAsConst(mCalendarFiles)) {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
         storage->setFileName(cf);
@@ -108,13 +108,12 @@ void AlarmsModel::setCalendars()
     }
 }
 
-
 QHash<QString, QVariant> AlarmsModel::params() const
 {
     return mParams;
 }
 
-void AlarmsModel::setParams(const QHash<QString, QVariant>& parameters)
+void AlarmsModel::setParams(const QHash<QString, QVariant> &parameters)
 {
     mParams = parameters;
 
@@ -130,7 +129,7 @@ void AlarmsModel::setParams(const QHash<QString, QVariant>& parameters)
 
 void AlarmsModel::openLoadStorages()
 {
-    for (const auto& fs : mFileStorages) {
+    for (const auto &fs : qAsConst(mFileStorages)) {
         auto opened = fs->open();
         qDebug() << "openLoadStorages:\t" << fs->fileName() << "opened: " << opened;
         auto loaded = fs->load();
@@ -140,7 +139,7 @@ void AlarmsModel::openLoadStorages()
 
 void AlarmsModel::closeStorages()
 {
-    for (const auto& fs : mFileStorages) {
+    for (const auto &fs : qAsConst(mFileStorages)) {
         auto closed = fs->close();
         qDebug() << "closeStorages:\t" << fs->fileName() << "closed: " << closed;
     }

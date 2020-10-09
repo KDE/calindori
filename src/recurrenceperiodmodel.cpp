@@ -54,7 +54,7 @@ QVariant ReccurencePeriodModel::data(const QModelIndex &index, int role) const
     case RepeatCodeRole:
         return m_periodtypes.at(index.row()).periodType;
     default:
-        return QStringLiteral();
+        return QLatin1String();
     }
 }
 
@@ -133,5 +133,5 @@ QString ReccurencePeriodModel::repeatDescription(const int repeatType, const int
     return QString("%1%2").arg((repeatType == Recurrence::rYearlyMonth || repeatType == Recurrence::rYearlyDay || repeatType == Recurrence::rYearlyPos) ? i18np("Every year", "Every %1 years", repeatEvery) :
                                (repeatType == Recurrence::rMonthlyPos || repeatType == Recurrence::rMonthlyDay) ? i18np("Every month", "Every %1 months", repeatEvery) :
                                (repeatType == Recurrence::rWeekly) ? i18np("Every week", "Every %1 weeks", repeatEvery) :
-                               (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never")).arg((repeatType == Recurrence::rNone) || (stopAfter < 1) ? "" : i18np("; once", "; %1 times", stopAfter));
+                               (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never"), (repeatType == Recurrence::rNone) || (stopAfter < 1) ? "" : i18np("; once", "; %1 times", stopAfter));
 }

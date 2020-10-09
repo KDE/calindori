@@ -138,7 +138,7 @@ private:
     QString displayDueTime(const int idx) const;
     QString displayStartTime(const int idx) const;
     bool isHourEvent(const Event::Ptr event) const;
-    bool withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate, const int filterHour) const;
+    bool withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate) const;
 
     int m_filter_mode;
     QDate m_filter_dt;

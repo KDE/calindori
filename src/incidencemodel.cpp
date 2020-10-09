@@ -204,9 +204,6 @@ void IncidenceModel::loadIncidences()
     beginResetModel();
     m_incidences.clear();
 
-    Event::List events;
-    Todo::List todos;
-
     auto hourModelReady = (m_calendar != nullptr && m_filter_dt.isValid() && m_filter_hour >= 0);
     auto dayModelReady = (m_calendar != nullptr && m_filter_dt.isValid());
     auto allModelReady = (m_calendar != nullptr);
@@ -300,7 +297,7 @@ Incidence::List IncidenceModel::hourIncidences() const
 Incidence::List IncidenceModel::hourEvents() const
 {
     Incidence::List incidences;
-    auto dayEventList = dayEvents();
+    const auto dayEventList = dayEvents();
 
     for (const auto &d : dayEventList) {
         auto e = d.dynamicCast<Event>();
@@ -331,7 +328,7 @@ bool IncidenceModel::isHourEvent(const Event::Ptr event) const
             // -> We include it whatever the filter hour
             return true;
         } else {
-            if (withinFilter(event, m_filter_dt, m_filter_hour)) {
+            if (withinFilter(event, m_filter_dt)) {
                 return true;
             }
         }
@@ -342,16 +339,16 @@ bool IncidenceModel::isHourEvent(const Event::Ptr event) const
             // in case of two day events that repeat daily, we check both start and end date
 
             if ((event->recurrence()->recurrenceType() == Recurrence::rDaily) && event->isMultiDay() && eventDuration < 86400 && (m_filter_dt != startDate)) {
-                return withinFilter(event, startDate, m_filter_hour) ||  withinFilter(event, endDate, m_filter_hour);
+                return withinFilter(event, startDate) ||  withinFilter(event, endDate);
             } else {
-                return withinFilter(event, startDate, m_filter_hour);
+                return withinFilter(event, startDate);
             }
         } else { // We know that the event does occur on m_filter_dt. We know that m_filter_dt is not the first day of the event. Let's find the start date of the recurrence we are interested in
-            auto d { QDateTime(m_filter_dt)};
+            auto d { m_filter_dt.startOfDay() };
             d.setTime(event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()).time());
             d = d.addSecs(-1 * eventDuration);
             if (event->recursOn(d.date(), QTimeZone::systemTimeZone())) {
-                if (withinFilter(event, endDate, m_filter_hour)) {
+                if (withinFilter(event, endDate)) {
                     return true;
                 }
             } else {
@@ -363,10 +360,10 @@ bool IncidenceModel::isHourEvent(const Event::Ptr event) const
     return false;
 }
 
-bool IncidenceModel::withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate, const int filterHour) const
+bool IncidenceModel::withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate) const
 {
-    auto filterStart = QDateTime(filterDate).addSecs(m_filter_hour * 3600).toTimeZone(QTimeZone::systemTimeZone());
-    auto filterEnd = QDateTime(filterDate).addSecs(m_filter_hour * 3600 + 3599).toTimeZone(QTimeZone::systemTimeZone());
+    auto filterStart = filterDate.startOfDay().addSecs(m_filter_hour * 3600).toTimeZone(QTimeZone::systemTimeZone());
+    auto filterEnd = filterDate.startOfDay().addSecs(m_filter_hour * 3600 + 3599).toTimeZone(QTimeZone::systemTimeZone());
 
     auto eventStartWithinFilter = event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStart && event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterStart;
     auto eventEndWithinFilter = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) > filterStart && event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) <= filterEnd;
@@ -382,7 +379,7 @@ bool IncidenceModel::withinFilter(const KCalendarCore::Event::Ptr event, const Q
 Incidence::List IncidenceModel::hourTodos() const
 {
     Incidence::List incidences;
-    auto dayTodoList = dayTodos();
+    const auto dayTodoList = dayTodos();
 
     for (const auto &t : dayTodoList) {
         auto todo =  t.dynamicCast<Todo>();
@@ -476,13 +473,13 @@ QString IncidenceModel::eventDisplayStartEndTime(const Event::Ptr event) const
     auto endDateTime = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
 
     if (event->allDay()) {
-        return QString("%1 %2").arg(m_locale.toString(startDateTime, "MMM d")).arg(i18n("all-day"));
+        return QString("%1 %2").arg(m_locale.toString(startDateTime, "MMM d"), i18n("all-day"));
     }
 
     if (startDateTime.date() != endDateTime.date()) {
-        return QString("%1 %2 - %3 %4").arg(m_locale.toString(startDateTime, "MMM d")).arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "MMM d")).arg(m_locale.toString(endDateTime, "hh:mm"));
+        return QString("%1 %2 - %3 %4").arg(m_locale.toString(startDateTime, "MMM d"), m_locale.toString(startDateTime, "hh:mm"), m_locale.toString(endDateTime, "MMM d"), m_locale.toString(endDateTime, "hh:mm"));
     } else {
-        return QString("%1 - %2").arg(m_locale.toString(startDateTime, "hh:mm")).arg(m_locale.toString(endDateTime, "hh:mm"));
+        return QString("%1 - %2").arg(m_locale.toString(startDateTime, "hh:mm"), m_locale.toString(endDateTime, "hh:mm"));
     }
 
     return QString();

@@ -61,8 +61,8 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
     bool allDayFlg = eventData["allDay"].toBool();
 
     if (allDayFlg) {
-        startDateTime = QDateTime(startDate);
-        endDateTime = QDateTime(endDate);
+        startDateTime = startDate.startOfDay();
+        endDateTime = endDate.startOfDay();
     } else {
         startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
         endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());

@@ -17,7 +17,7 @@
 
 using namespace KCalendarCore;
 
-CalAlarmClient::CalAlarmClient(QObject* parent)
+CalAlarmClient::CalAlarmClient(QObject *parent)
     : QObject(parent), mAlarmsModel(new AlarmsModel()), mNotificationHandler(new NotificationHandler())
 {
     new CalindacAdaptor(this);
@@ -46,10 +46,10 @@ QStringList CalAlarmClient::calendarFileList() const
 {
     QStringList filesList = QStringList();
     KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig("calindorirc"), "general");
-    QString calendars = calindoriCfgGeneral.readEntry("calendars", QString());
-    QStringList calendarList = calendars.split(";");
+    auto calendars = calindoriCfgGeneral.readEntry("calendars", QString());
+    const auto calendarList = calendars.split(";");
 
-    for (const auto& c : calendarList) {
+    for (const auto &c : calendarList) {
         QString fileName = KSharedConfig::openConfig("calindorirc")->group(c).readEntry("file");
 
         if (!(fileName.isNull())) {
@@ -66,7 +66,9 @@ void CalAlarmClient::checkAlarms()
 {
     KConfigGroup cfg(KSharedConfig::openConfig(), "General");
 
-    if (!cfg.readEntry("Enabled", true)) return;
+    if (!cfg.readEntry("Enabled", true)) {
+        return;
+    }
 
     QDateTime from = mLastChecked.addSecs(1);
     mLastChecked = QDateTime::currentDateTime();
@@ -149,7 +151,7 @@ QStringList CalAlarmClient::dumpAlarms() const
     checkPeriod["from"] = start;
     checkPeriod["to"] = end;
 
-    AlarmsModel* model = new AlarmsModel();
+    AlarmsModel *model = new AlarmsModel();
 
     QHash<QString, QVariant> modelProperties;
     modelProperties["calendarFiles"] = calendarFileList();
@@ -170,9 +172,9 @@ void CalAlarmClient::restoreSuspendedFromConfig()
 {
     qDebug() << "\nrestoreSuspendedFromConfig:\tRestore suspended alarms from config";
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
-    QStringList suspendedAlarms = suspendedGroup.groupList();
+    const auto suspendedAlarms = suspendedGroup.groupList();
 
-    for (const auto& s : suspendedAlarms) {
+    for (const auto &s : suspendedAlarms) {
         KConfigGroup suspendedAlarm(&suspendedGroup, s);
         QString uid = suspendedAlarm.readEntry("UID");
         QString txt = alarmText(uid);
@@ -185,12 +187,12 @@ void CalAlarmClient::restoreSuspendedFromConfig()
     }
 }
 
-QString CalAlarmClient::alarmText(const QString& uid) const
+QString CalAlarmClient::alarmText(const QString &uid) const
 {
     QVariantMap checkPeriod;
     checkPeriod["to"] = QDateTime::currentDateTime();
 
-    AlarmsModel* model = new AlarmsModel();
+    AlarmsModel *model = new AlarmsModel();
     QHash<QString, QVariant> modelProperties;
     modelProperties["calendarFiles"] = calendarFileList();
     modelProperties["period"] = checkPeriod;
@@ -213,7 +215,7 @@ void CalAlarmClient::flushSuspendedToConfig()
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
     suspendedGroup.deleteGroup();
 
-    QHash<QString, AlarmNotification*> suspendedNotifications = mNotificationHandler->suspendedNotifications();
+    const auto suspendedNotifications = mNotificationHandler->suspendedNotifications();
 
     if (suspendedNotifications.isEmpty()) {
         qDebug() << "flushSuspendedToConfig:\tNo suspended notification exists, nothing to write to config";
@@ -222,7 +224,7 @@ void CalAlarmClient::flushSuspendedToConfig()
         return;
     }
 
-    for (const auto& s : suspendedNotifications) {
+    for (const auto &s : suspendedNotifications) {
         qDebug() << "flushSuspendedToConfig:\tFlushing suspended alarm" << s->uid() << " to config";
         KConfigGroup notificationGroup(&suspendedGroup, s->uid());
         notificationGroup.writeEntry("UID", s->uid());

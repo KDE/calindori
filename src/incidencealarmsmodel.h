@@ -48,6 +48,11 @@ public:
      */
     void setAlarmProperties(const QVariantMap &alarmProps);
 
+    /**
+     * @return A QVariantList of the items of the model. The members of the list are QHash<QString, QVariant> items that contain the following members: startOffsetValue, startOffsetType and actionType
+     */
+    Q_INVOKABLE QVariantList alarms() const;
+
 public Q_SLOTS:
 
     /**
@@ -64,11 +69,6 @@ public Q_SLOTS:
      * @brief Creates a model item and adds it to the model
      */
     void addAlarm(const int secondsFromStart);
-
-    /**
-     * @return A QVariantList of the items of the model. The members of the list are QHash<QString, QVariant> items that contain the following members: startOffsetValue, startOffsetType and actionType
-     */
-    QVariantList alarms() const;
 
 Q_SIGNALS:
     void alarmPropertiesChanged();

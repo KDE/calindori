@@ -39,7 +39,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
 
     QDateTime startDateTime;
     if (allDayFlg) {
-        startDateTime = QDateTime(startDate);
+        startDateTime = startDate.startOfDay();
     } else {
         startDateTime = QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone());
     }
@@ -58,7 +58,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
     if (dueDate.isValid() && validDueHour && validDueMinutes && !allDayFlg) {
         dueDateTime = QDateTime(dueDate, QTime(dueHour, dueMinute, 0, 0), QTimeZone::systemTimeZone());
     } else if (dueDate.isValid() && allDayFlg) {
-        dueDateTime = QDateTime(dueDate);
+        dueDateTime = dueDate.startOfDay();
     }
 
     vtodo->setDtDue(dueDateTime);

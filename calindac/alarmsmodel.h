@@ -36,8 +36,8 @@ public:
     ~AlarmsModel() override;
 
     QHash<int, QByteArray> roleNames() const override;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * @return A QHash< QString, QVariant > of the input parameters of the model
@@ -48,8 +48,7 @@ public:
      *
      * @param parameters A QHash< QString, QVariant > that should contain two members: 1) calendarFiles: a QStringList of the calendar files 2) period: a QVariantMap that represents the time period. This QVariantMap expects two QDateTimes (from, to)
      */
-    void setParams(const QHash<QString, QVariant> & parameters);
-
+    void setParams(const QHash<QString, QVariant> &parameters);
 
 Q_SIGNALS:
     void periodChanged();
