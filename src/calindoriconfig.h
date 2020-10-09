@@ -13,7 +13,8 @@
 class CalindoriConfig : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString calendars READ calendars NOTIFY calendarsChanged)
+    Q_PROPERTY(QStringList internalCalendars READ internalCalendars NOTIFY internalCalendarsChanged)
+    Q_PROPERTY(QStringList externalCalendars READ externalCalendars NOTIFY externalCalendarsChanged)
     Q_PROPERTY(QString activeCalendar READ activeCalendar WRITE setActiveCalendar NOTIFY activeCalendarChanged)
     Q_PROPERTY(int eventsDuration READ eventsDuration WRITE setEventsDuration NOTIFY eventsDurationChanged)
     Q_PROPERTY(int preEventRemindTime READ preEventRemindTime WRITE setPreEventRemindTime NOTIFY preEventRemindTimeChanged)
@@ -24,9 +25,11 @@ public:
     explicit CalindoriConfig(QObject *parent = nullptr);
     ~CalindoriConfig() override;
 
-    QString calendars() const;
-    QString calendarFile(const QString &calendarName);
-    Q_SIGNAL void calendarsChanged();
+    QStringList internalCalendars() const;
+    Q_SIGNAL void internalCalendarsChanged();
+
+    QStringList externalCalendars() const;
+    Q_SIGNAL void externalCalendarsChanged();
 
     QString activeCalendar() const;
     void setActiveCalendar(const QString &calendar);
@@ -44,9 +47,14 @@ public:
     void setAlwaysRemind(bool remind);
     Q_SIGNAL void alwaysRemindChanged();
 
+    QString calendarFile(const QString &calendarName);
+
+    Q_INVOKABLE bool isExternal(const QString &calendarName);
+
 public Q_SLOTS:
     QVariantMap canAddCalendar(const QString &calendar);
-    QVariantMap addCalendar(const QString &calendar);
+    QVariantMap addInternalCalendar(const QString &calendar);
+    QVariantMap addExternalCalendar(const QString &calendar, const QUrl &calendarPathUrl);
     void removeCalendar(const QString &calendar);
 
 private:

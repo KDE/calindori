@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <KCalendarCore/Todo>
 #include <QFile>
+#include <QFileInfo>
 #include <QStandardPaths>
 #include <KLocalizedString>
 
@@ -78,7 +79,13 @@ int LocalCalendar::eventsCount(const QDate &date) const
 
 bool LocalCalendar::save()
 {
-    return m_cal_storage->save();
+    if (m_cal_storage->save()) {
+        qDebug() << "Saving to file";
+        m_fs_sync_dt = QDateTime::currentDateTime();
+        return true;
+    }
+
+    return false;
 }
 
 QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
@@ -141,13 +148,52 @@ QVariantMap LocalCalendar::importCalendar(const QString &calendarName, const QUr
 
 void LocalCalendar::loadCalendar(const QString &calendarName)
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
-    FileStorage::Ptr storage(new FileStorage(calendar));
-
     m_fullpath = m_config->calendarFile(calendarName);
 
-    QFile calendarFile(m_fullpath);
+    if (loadStorage()) {
+        m_name = calendarName;
+        Q_EMIT nameChanged();
+        Q_EMIT todosChanged();
+        Q_EMIT eventsChanged();
+    }
+}
+
+QString LocalCalendar::fileNameFromUrl(const QUrl &sourcePath)
+{
+    return sourcePath.fileName();
+}
+
+void LocalCalendar::reloadStorage()
+{
+    if (m_fullpath.isEmpty()) {
+        qDebug() << "Not ready for reload, file path not set";
+        return;
+    }
+
+    QFileInfo storageFileInfo { m_fullpath };
+
+    qDebug() << "Last memory-fs sync: " << m_fs_sync_dt;
+    qDebug() << "Filed modified: " << storageFileInfo.lastModified();
+
+    if (storageFileInfo.lastModified() <= m_fs_sync_dt) {
+        qDebug() << "Reload not needed, the calendar file has not been updated";
+    } else {
+        loadStorage();
+    }
+}
+
+bool LocalCalendar::loadStorage()
+{
+    if (m_fullpath.isEmpty()) {
+        qDebug() << "Not ready for load, file path not set";
+        return false;
+    }
+
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
+    FileStorage::Ptr storage(new FileStorage(calendar));
     storage->setFileName(m_fullpath);
+
+    QFile calendarFile(m_fullpath);
 
     if (!calendarFile.exists()) {
         bool saved = storage->save();
@@ -155,18 +201,13 @@ void LocalCalendar::loadCalendar(const QString &calendarName)
     }
 
     if (storage->load()) {
-        m_name = calendarName;
-        m_calendar = calendar;
+        qDebug() << "Storage file loaded";
         m_cal_storage = storage;
+        m_calendar = calendar;
+        m_fs_sync_dt = QDateTime::currentDateTime();
+        Q_EMIT memorycalendarChanged();
+        return true;
     }
 
-    emit nameChanged();
-    emit memorycalendarChanged();
-    emit todosChanged();
-    emit eventsChanged();
-}
-
-QString LocalCalendar::fileNameFromUrl(const QUrl &sourcePath)
-{
-    return sourcePath.fileName();
+    return false;
 }

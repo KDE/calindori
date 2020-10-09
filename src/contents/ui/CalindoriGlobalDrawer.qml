@@ -81,35 +81,26 @@ Kirigami.GlobalDrawer {
             text: i18n("Calendar Management")
             iconName: "view-calendar"
 
+            // Internal Calendars
             Kirigami.Action {
-                id: availableCalendars
+                id: localCalendars
 
                 iconName: "view-calendar"
-                text: i18n("Available Calendars")
+                text: i18n("Local")
                 expandible: true
+                children: [calendarCreateAction, calendarImportAction]
+
             }
 
+            // External Calendars
             Kirigami.Action {
-                id: calendarCreateAction
+                id: externalCalendars
 
-                text: i18n("New calendar")
-                iconName: "list-add"
-                onTriggered: {
-                    pageStack.clear();
-                    pageStack.push(calendarEditor, {mode: "add"});
-                }
-            }
-
-            Kirigami.Action {
-                id: calendarImportAction
-
-                text: i18n("Import calendar")
-                iconName: "document-import"
-
-                onTriggered: {
-                    pageStack.clear();
-                    pageStack.push(calendarEditor, {mode: "import"})
-                }
+                visible: true
+                iconName: "view-calendar"
+                text: i18n("External")
+                expandible: true
+                children: [calendarAddExistingAction]
             }
         },
 
@@ -137,19 +128,35 @@ Kirigami.GlobalDrawer {
     ]
 
     Instantiator {
-        model: _calindoriConfig && _calindoriConfig.calendars.split(_calindoriConfig.calendars.includes(";") ? ";" : null)
+        model: _calindoriConfig && _calindoriConfig.internalCalendars
 
         delegate: CalendarAction {
             text: modelData
         }
 
-        onObjectAdded: {
-            availableCalendars.children.push(object)
-        }
+        onObjectAdded: localCalendars.children.push(object)
 
         onObjectRemoved: {
             // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
-            availableCalendars.children = []
+            localCalendars.children = [];
+            localCalendars.children.push(calendarCreateAction);
+            localCalendars.children.push(calendarImportAction);
+        }
+    }
+
+    Instantiator {
+        model: _calindoriConfig && _calindoriConfig.externalCalendars
+
+        delegate: CalendarAction {
+            text: modelData
+        }
+
+        onObjectAdded: externalCalendars.children.push(object)
+
+        onObjectRemoved: {
+            // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
+            externalCalendars.children = [];
+            externalCalendars.children.push(calendarAddExistingAction);
         }
     }
 
@@ -166,6 +173,42 @@ Kirigami.GlobalDrawer {
                 PropertyChanges { target: root; drawerOpen: false }
             }
         ]
+    }
+
+    Kirigami.Action {
+        id: calendarCreateAction
+
+        text: i18n("Create")
+        iconName: "resource-calendar-insert"
+
+        onTriggered: {
+            pageStack.clear();
+            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.Create});
+        }
+    }
+
+    Kirigami.Action {
+        id: calendarImportAction
+
+        text: i18n("Import")
+        iconName: "document-import"
+
+        onTriggered: {
+            pageStack.clear();
+            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.Import})
+        }
+    }
+
+    Kirigami.Action {
+        id: calendarAddExistingAction
+
+        text: i18n("Add")
+        iconName: "resource-calendar-child-insert"
+
+        onTriggered: {
+            pageStack.clear();
+            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.AddExisting});
+        }
     }
 
     Component {

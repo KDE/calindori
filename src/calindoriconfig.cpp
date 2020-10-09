@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QRegExp>
 #include <QDir>
+#include <QUrl>
 
 class CalindoriConfig::Private
 {
@@ -28,7 +29,7 @@ CalindoriConfig::CalindoriConfig(QObject *parent)
     QString calendars = d->config.group("general").readEntry("calendars", QString());
     if (calendars.isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
-        addCalendar("personal");
+        addInternalCalendar("personal");
         setActiveCalendar("personal");
         d->config.sync();
     }
@@ -39,9 +40,18 @@ CalindoriConfig::~CalindoriConfig()
     delete d;
 }
 
-QString CalindoriConfig::calendars() const
+QStringList CalindoriConfig::internalCalendars() const
 {
-    return d->config.group("general").readEntry("calendars", QString());
+    auto cals = d->config.group("general").readEntry("calendars", QString());
+
+    return cals.isEmpty() ? QStringList() : cals.split(";");
+}
+
+QStringList CalindoriConfig::externalCalendars() const
+{
+    auto cals = d->config.group("general").readEntry("externalCalendars", QString());
+
+    return cals.isEmpty() ? QStringList() : cals.split(";");
 }
 
 QString CalindoriConfig::activeCalendar() const
@@ -58,83 +68,133 @@ void CalindoriConfig::setActiveCalendar(const QString &calendar)
 
 QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
 {
-    QVariantMap result;
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
-
     QRegExp invalidChars("[\\;\\\\/<>:\\?\\*|\"\']");
     if (calendar.contains(invalidChars)) {
-        result["success"] = QVariant(false);
-        result["reason"] = QVariant(i18n("Calendar name contains invalid characters"));
-        return result;
+        return QVariantMap({
+            {"success", false},
+            {"reason", i18n("Calendar name contains invalid characters")}
+        });
     }
 
-    if (d->config.group("general").readEntry("calendars", QString()).isEmpty()) {
-        return result;
+    auto internalCalendars = d->config.group("general").readEntry("calendars", QString());
+    auto externalCalendars = d->config.group("general").readEntry("externalCalendars", QString());
+
+    if (internalCalendars.isEmpty() && externalCalendars.isEmpty()) {
+        return QVariantMap({
+            {"success", true},
+            {"reason", QString()}
+        });
     }
 
-    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
+    auto calendarsList = internalCalendars.isEmpty() ? QStringList() : internalCalendars.split(";");
+    if (!(externalCalendars.isEmpty())) {
+        calendarsList.append(externalCalendars.split(";"));
+    }
 
     if (calendarsList.contains(calendar)) {
-        result["success"] = QVariant(false);
-        result["reason"] = QVariant(i18n("Calendar already exists"));
-        return result;
+        return QVariantMap({
+            {"success", false},
+            {"reason", i18n("Calendar already exists")}
+        });
     }
 
-    return result;
+    return QVariantMap({
+        {"success", true},
+        {"reason", QString()}
+    });
 }
 
-QVariantMap CalindoriConfig::addCalendar(const QString &calendar)
+QVariantMap CalindoriConfig::addInternalCalendar(const QString &calendar)
 {
-    QVariantMap result;
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
-
     QVariantMap canAddResult = canAddCalendar(calendar);
 
     if (!(canAddResult["success"].toBool())) {
-        result["success"] = QVariant(false);
-        result["reason"] = QVariant(canAddResult["reason"].toString());
-        return result;
+        return QVariantMap({
+            {"success", false}, {"reason ", canAddResult["reason"].toString()}
+        });
     }
 
-    if (d->config.group("general").readEntry("calendars", QString()).isEmpty()) {
+    auto calsStr = d->config.group("general").readEntry("calendars", QString());
+    if (calsStr.isEmpty()) {
         d->config.group("general").writeEntry("calendars", calendar);
-        d->config.sync();
+    } else {
+        QStringList calendarsList = calsStr.split(";");
+        calendarsList.append(calendar);
+        d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
+    }
+    d->config.sync();
+    Q_EMIT internalCalendarsChanged();
 
-        return result;
+    return QVariantMap({
+        {"success", true}, {"reason ", QString()}
+    });
+}
+
+QVariantMap CalindoriConfig::addExternalCalendar(const QString &calendar, const QUrl &calendarPathUrl)
+{
+    QVariantMap canAddResult = canAddCalendar(calendar);
+
+    if (!(canAddResult["success"].toBool())) {
+        return QVariantMap({
+            {"success", false}, {"reason ", canAddResult["reason"].toString()}
+        });
     }
 
-    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
-    calendarsList.append(calendar);
-    d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
+    auto eCals = d->config.group("general").readEntry("externalCalendars", QString());
+    if (eCals.isEmpty()) {
+        d->config.group("general").writeEntry("externalCalendars", calendar);
+    } else {
+        QStringList calendarsList = eCals.split(";");
+        calendarsList.append(calendar);
+        d->config.group("general").writeEntry("externalCalendars", calendarsList.join(";"));
+    }
+    d->config.group(calendar).writeEntry("file", calendarPathUrl.toString(QUrl::RemoveScheme));
+    d->config.group(calendar).writeEntry("external", true);
     d->config.sync();
+    Q_EMIT externalCalendarsChanged();
 
-    Q_EMIT calendarsChanged();
-
-    return result;
+    return QVariantMap({
+        {"success", true}, {"reason ", QString()}
+    });
 }
 
 void CalindoriConfig::removeCalendar(const QString &calendar)
 {
     d->config.reparseConfiguration();
-    QStringList calendarsList = d->config.group("general").readEntry("calendars", QString()).split(";");
-    if (calendarsList.contains(calendar)) {
-        qDebug() << "Removing calendar " << calendar;
-        calendarsList.removeAll(calendar);
 
-        d->config.deleteGroup(calendar);
-        d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
-        d->config.sync();
+    auto iCalendarsStr = d->config.group("general").readEntry("calendars", QString());
+    auto iCalendarsList = iCalendarsStr.isEmpty() ? QStringList() : iCalendarsStr.split(";");
+    auto eCalendarsStr = d->config.group("general").readEntry("externalCalendars", QString());
+    auto eCalendarsList = eCalendarsStr.isEmpty() ? QStringList() : eCalendarsStr.split(";");
 
-        Q_EMIT calendarsChanged();
+    if (iCalendarsList.contains(calendar)) {
+        iCalendarsList.removeAll(calendar);
+        d->config.group("general").writeEntry("calendars", iCalendarsList.join(";"));
+
+        Q_EMIT internalCalendarsChanged();
     }
+
+    if (eCalendarsList.contains(calendar)) {
+        eCalendarsList.removeAll(calendar);
+        d->config.group("general").writeEntry("externalCalendars", eCalendarsList.join(";"));
+
+        Q_EMIT externalCalendarsChanged();
+    }
+
+    d->config.deleteGroup(calendar);
+    d->config.sync();
 }
 
 QString CalindoriConfig::calendarFile(const QString &calendarName)
 {
+    d->config.reparseConfiguration();
+
+    qDebug() <<  "---- calendarName: " << calendarName << " ---------";
+    qDebug() << "d->config.hasGroup(calendarName)" << d->config.hasGroup(calendarName);
+    qDebug() << "d->config.group(calendarName).hasKey('file')" << d->config.group(calendarName).hasKey("file");
+
     if (d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("file")) {
-        return  d->config.group(calendarName).readEntry("file");
+        return d->config.group(calendarName).readEntry("file");
     }
     d->config.group(calendarName).writeEntry("file", filenameToPath(calendarName));
     d->config.sync();
@@ -188,4 +248,13 @@ void CalindoriConfig::setAlwaysRemind(bool remind)
     d->config.sync();
 
     Q_EMIT alwaysRemindChanged();
+}
+
+bool CalindoriConfig::isExternal(const QString &calendarName)
+{
+    if (d->config.hasGroup(calendarName) && d->config.group(calendarName).hasKey("external")) {
+        return d->config.group(calendarName).readEntry("external", false);
+    }
+
+    return false;
 }

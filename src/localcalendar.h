@@ -34,7 +34,7 @@ public:
     void setName(QString calendarName);
     Q_INVOKABLE static QVariantMap importCalendar(const QString &calendarName, const QUrl &sourcePath);
     Q_INVOKABLE static QString fileNameFromUrl(const QUrl &sourcePath);
-
+    void reloadStorage();
 public Q_SLOTS:
     int todosCount(const QDate &date) const;
     void deleteCalendar();
@@ -49,12 +49,14 @@ Q_SIGNALS:
 private:
     static QVariantMap canCreateFile(const QString &calendarName);
     void loadCalendar(const QString &calendarName);
+    bool loadStorage();
 
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
     QString m_name;
     QString m_fullpath;
     CalindoriConfig *m_config;
+    QDateTime m_fs_sync_dt;
 };
 
 #endif // LOCALCALENDAR_H

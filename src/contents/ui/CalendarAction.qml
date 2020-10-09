@@ -17,20 +17,29 @@ Kirigami.Action {
     enabled: _calindoriConfig != null ? (_calindoriConfig.activeCalendar != text) : false
 
     Kirigami.Action {
-        text: "Activate calendar"
+        text: i18n("Activate")
         iconName: "dialog-ok"
 
         onTriggered: _calindoriConfig.activeCalendar = parent.text
     }
 
     Kirigami.Action {
-        text: "Delete calendar"
+        text: i18n("Delete")
         iconName: "delete"
+        visible: !_calindoriConfig.isExternal(parent.text)
 
         onTriggered: {
             deleteSheet.calendarName = parent.text;
             deleteSheet.open();
         }
+    }
+
+    Kirigami.Action {
+        text: i18n("Remove")
+        iconName: "remove"
+        visible: _calindoriConfig.isExternal(parent.text)
+
+        onTriggered: _calindoriConfig.removeCalendar(parent.text);
     }
 
     ConfirmationSheet {
@@ -45,4 +54,5 @@ Kirigami.Action {
             _calindoriConfig.removeCalendar(calendarName);
         }
     }
+
 }

@@ -59,6 +59,7 @@ if(ANDROID)
         gps
         edit-clear-all
         window-close-symbolic
+        resource-calendar-child-insert
     )
 endif()
 
