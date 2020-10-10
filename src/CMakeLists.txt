@@ -60,6 +60,8 @@ if(ANDROID)
         edit-clear-all
         window-close-symbolic
         resource-calendar-child-insert
+        show_table_row
+        hide_table_row
     )
 endif()
 

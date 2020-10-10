@@ -15,14 +15,18 @@ IncidenceModel::IncidenceModel(QObject *parent) :
     m_filter_mode(FilterModes::Invalid),
     m_filter_dt(QDate()),
     m_filter_hour(-1),
+    m_filter_hide_completed(false),
     m_calendar(nullptr),
     m_incidences(Incidence::List()),
-    m_locale(QLocale::system())
+    m_locale(QLocale::system()),
+    m_cal_filter(new CalFilter())
+
 {
     connect(this, &IncidenceModel::filterModeChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::filterDtChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::filterHourChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::calendarChanged, this, &IncidenceModel::loadIncidences);
+    connect(this, &IncidenceModel::calendarFilterChanged, this, &IncidenceModel::loadIncidences);
 }
 
 IncidenceModel::~IncidenceModel() = default;
@@ -71,6 +75,7 @@ LocalCalendar *IncidenceModel::calendar() const
 void IncidenceModel::setCalendar(LocalCalendar *calendarPtr)
 {
     m_calendar = calendarPtr;
+    setCalendarFilter();
 
     connect(m_calendar, &LocalCalendar::eventsChanged, this, &IncidenceModel::loadIncidences);
     connect(m_calendar, &LocalCalendar::todosChanged, this, &IncidenceModel::loadIncidences);
@@ -422,7 +427,7 @@ Incidence::List IncidenceModel::allIncidences() const
 
 Incidence::List IncidenceModel::allTodos() const
 {
-    auto todos =  m_calendar->memorycalendar()->rawTodos(TodoSortDueDate, SortDirectionDescending);
+    auto todos =  m_calendar->memorycalendar()->todos(TodoSortDueDate, SortDirectionDescending);
 
     return toIncidences(todos);
 }
@@ -504,7 +509,7 @@ QString IncidenceModel::displayDueDate(const int idx) const
         return m_locale.toString(incidence.dynamicCast<Todo>()->dtDue().toTimeZone(QTimeZone::systemTimeZone()).date(), "MMM d");
     }
 
-    return i18n("Unspecified due date");
+    return i18n("No Due Date");
 }
 
 QString IncidenceModel::displayDueTime(const int idx) const
@@ -545,4 +550,33 @@ void IncidenceModel::setAppLocale(const QLocale &qmlLocale)
 QLocale IncidenceModel::appLocale() const
 {
     return m_locale;
+}
+
+bool IncidenceModel::filterHideCompleted() const
+{
+    return m_filter_hide_completed;
+}
+
+void IncidenceModel::setFilterHideCompleted(const bool hideCompleted)
+{
+    m_filter_hide_completed = hideCompleted;
+
+    if (m_filter_hide_completed) {
+        m_cal_filter->setCriteria(CalFilter::HideCompletedTodos);
+    } else {
+        m_cal_filter->setCriteria(0);
+    }
+
+    setCalendarFilter();
+
+    Q_EMIT filterHideCompletedChanged();
+}
+
+void IncidenceModel::setCalendarFilter()
+{
+    if (m_calendar != nullptr) {
+        m_calendar->memorycalendar()->setFilter(m_cal_filter);
+    }
+
+    Q_EMIT calendarFilterChanged();
 }

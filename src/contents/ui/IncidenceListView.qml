@@ -32,6 +32,16 @@ Kirigami.ScrollablePage {
         }
     }
 
+    contextualActions: [
+        Kirigami.Action {
+            property alias hide: incidenceModel.filterHideCompleted
+            icon.name: hide ? "show_table_row" : "hide_table_row"
+            enabled: incidenceType == 1
+            text: hide ? i18n("Show Completed") : i18n("Hide Completed")
+            onTriggered: hide = !(hide)
+        }
+    ]
+
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -71,6 +81,7 @@ Kirigami.ScrollablePage {
 
         calendar: root.calendar
         filterMode: root.filterMode
+        filterHideCompleted: true
         appLocale: _appLocale
     }
 

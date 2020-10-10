@@ -11,6 +11,7 @@
 #include <KCalendarCore/Incidence>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Todo>
+#include <KCalendarCore/CalFilter>
 #include "localcalendar.h"
 
 using namespace KCalendarCore;
@@ -22,6 +23,7 @@ class IncidenceModel : public QAbstractListModel
     Q_PROPERTY(int filterMode READ filterMode WRITE setFilterMode NOTIFY filterModeChanged)
     Q_PROPERTY(QDate filterDt READ filterDt WRITE setFilterDt NOTIFY filterDtChanged)
     Q_PROPERTY(int filterHour READ filterHour WRITE setFilterHour NOTIFY filterHourChanged)
+    Q_PROPERTY(bool filterHideCompleted READ filterHideCompleted WRITE setFilterHideCompleted NOTIFY filterHideCompletedChanged)
     Q_PROPERTY(LocalCalendar *calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
     Q_PROPERTY(QLocale appLocale READ appLocale WRITE setAppLocale NOTIFY appLocaleChanged)
 
@@ -86,6 +88,9 @@ public:
     int filterMode() const;
     void setFilterMode(const int mode);
 
+    bool filterHideCompleted() const;
+    void setFilterHideCompleted(const bool hideCompleted);
+
     LocalCalendar *calendar() const;
     void setCalendar(LocalCalendar *calendarPtr);
 
@@ -95,6 +100,8 @@ public:
 Q_SIGNALS:
     void filterDtChanged();
     void filterHourChanged();
+    void filterHideCompletedChanged();
+    void calendarFilterChanged();
     void calendarChanged();
     void filterModeChanged();
     void appLocaleChanged();
@@ -139,13 +146,16 @@ private:
     QString displayStartTime(const int idx) const;
     bool isHourEvent(const Event::Ptr event) const;
     bool withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate) const;
+    void setCalendarFilter();
 
     int m_filter_mode;
     QDate m_filter_dt;
     int m_filter_hour;
+    bool m_filter_hide_completed;
     LocalCalendar *m_calendar;
     Incidence::List m_incidences;
     QLocale m_locale;
+    CalFilter *m_cal_filter;
 };
 
 #endif //INCIDENCE_MODEL_H
