@@ -561,12 +561,10 @@ void IncidenceModel::setFilterHideCompleted(const bool hideCompleted)
 {
     m_filter_hide_completed = hideCompleted;
 
+    m_cal_filter = new CalFilter;
     if (m_filter_hide_completed) {
         m_cal_filter->setCriteria(CalFilter::HideCompletedTodos);
-    } else {
-        m_cal_filter->setCriteria(0);
     }
-
     setCalendarFilter();
 
     Q_EMIT filterHideCompletedChanged();
