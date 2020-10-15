@@ -114,6 +114,22 @@ Kirigami.ScrollablePage {
 
                 onTriggered: pageStack.push(incidence.type == 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
             }
+
+            ConfirmationSheet {
+                id: deleteSheet
+
+                property var incidenceData
+                message: i18n("%1 will be deleted. Proceed?", incidenceData && incidenceData.summary);
+
+                operation: function() {
+                    if(incidenceType == 0) {
+                        _eventController.remove(root.calendar, incidenceData);
+                    } else {
+                        _todoController.remove(root.calendar, incidenceData);
+                    }
+                    pageStack.pop(incidencePage);
+                }
+            }
         }
     }
 
@@ -143,25 +159,5 @@ Kirigami.ScrollablePage {
             }
         }
     }
-
-    ConfirmationSheet {
-        id: deleteSheet
-
-        property var incidenceData
-        message: i18n("%1 will be deleted. Proceed?", incidenceData && incidenceData.summary);
-
-        operation: function() {
-            if(incidenceType == 0)
-            {
-                _eventController.remove(root.calendar, incidenceData);
-            }
-            else
-            {
-                _todoController.remove(root.calendar, incidenceData);
-            }
-            pageStack.pop(incidencePage);
-        }
-    }
-
 }
 
