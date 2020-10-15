@@ -17,6 +17,7 @@ Kirigami.Card {
 
     banner.title: dataModel && dataModel.summary
     banner.titleLevel: 3
+    clip: true
 
     contentItem: Column {
         enabled: dataModel && !dataModel.completed
