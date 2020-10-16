@@ -18,7 +18,6 @@ TodoController::~TodoController() = default;
 void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
 {
     qDebug() << "Adding/updating todo";
-    calendar->reloadStorage();
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
@@ -96,7 +95,6 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
 void TodoController::remove(LocalCalendar *calendar, const QVariantMap &todo)
 {
     qDebug() << "Deleting todo";
-    calendar->reloadStorage();
     MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
     QString uid = todo["uid"].toString();
     Todo::Ptr vtodo = memoryCalendar->todo(uid);

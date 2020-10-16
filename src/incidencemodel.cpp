@@ -213,10 +213,6 @@ void IncidenceModel::loadIncidences()
     auto dayModelReady = (m_calendar != nullptr && m_filter_dt.isValid());
     auto allModelReady = (m_calendar != nullptr);
 
-    if (m_calendar != nullptr) {
-        m_calendar->reloadStorage();
-    }
-
     switch (m_filter_mode) {
     case FilterModes::HourIncidences: {
         m_incidences = (hourModelReady) ? hourIncidences() : m_incidences;

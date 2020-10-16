@@ -23,8 +23,9 @@ LocalCalendar::LocalCalendar(QObject *parent)
 
 LocalCalendar::~LocalCalendar() = default;
 
-MemoryCalendar::Ptr LocalCalendar::memorycalendar() const
+MemoryCalendar::Ptr LocalCalendar::memorycalendar()
 {
+    reloadStorage();
     return m_calendar;
 }
 
@@ -45,6 +46,8 @@ void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
     if (m_calendar != memoryCalendar) {
         m_calendar = memoryCalendar;
     }
+
+    Q_EMIT memorycalendarChanged();
 }
 
 int LocalCalendar::todosCount(const QDate &date) const

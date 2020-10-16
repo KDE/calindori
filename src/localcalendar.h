@@ -27,7 +27,7 @@ public:
     explicit LocalCalendar(QObject *parent = nullptr);
     ~LocalCalendar() override;
 
-    MemoryCalendar::Ptr memorycalendar() const;
+    MemoryCalendar::Ptr memorycalendar();
     QString name() const;
 
     void setMemorycalendar(MemoryCalendar::Ptr memoryCalendar);
@@ -36,7 +36,6 @@ public:
     Q_INVOKABLE static QString fileNameFromUrl(const QUrl &sourcePath);
     Q_INVOKABLE int todosCount(const QDate &date) const;
     Q_INVOKABLE int eventsCount(const QDate &date) const;
-    void reloadStorage();
 public Q_SLOTS:
     void deleteCalendar();
     bool save();
@@ -50,6 +49,7 @@ private:
     static QVariantMap canCreateFile(const QString &calendarName);
     void loadCalendar(const QString &calendarName);
     bool loadStorage();
+    void reloadStorage();
 
     MemoryCalendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
