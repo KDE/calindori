@@ -6,6 +6,7 @@
 
 #include "localcalendar.h"
 #include "calindoriconfig.h"
+#include "alarmchecker.h"
 #include <QDebug>
 #include <KCalendarCore/Todo>
 #include <QFile>
@@ -16,7 +17,7 @@
 using namespace KCalendarCore;
 
 LocalCalendar::LocalCalendar(QObject *parent)
-    : QObject(parent), m_config(new CalindoriConfig())
+    : QObject(parent), m_config {new CalindoriConfig(this)}, m_alarm_checker {new AlarmChecker(this)}
 {
     loadCalendar(m_config->activeCalendar());
 }
@@ -85,6 +86,7 @@ bool LocalCalendar::save()
     if (m_cal_storage->save()) {
         qDebug() << "Saving to file";
         m_fs_sync_dt = QDateTime::currentDateTime();
+        m_alarm_checker->scheduleAlarmCheck();
         return true;
     }
 
@@ -208,6 +210,7 @@ bool LocalCalendar::loadStorage()
         m_cal_storage = storage;
         m_calendar = calendar;
         m_fs_sync_dt = QDateTime::currentDateTime();
+        m_alarm_checker->scheduleAlarmCheck();
         Q_EMIT memorycalendarChanged();
         return true;
     }

@@ -10,8 +10,10 @@
 #include <QTimer>
 #include <QDateTime>
 
+class WakeupBackend;
 class AlarmsModel;
 class NotificationHandler;
+class WakeupManager;
 /**
  * @brief Client that orchestrates the parsing of calendars and the display of notifications for event alarms. It exposes a D-Bus Interface containing a set of callable methods.
  *
@@ -25,29 +27,38 @@ public:
     explicit CalAlarmClient(QObject *parent = nullptr);
     ~CalAlarmClient() override;
 
-public Q_SLOTS:
     // DBUS interface
     /**
-     * @brief Quits the application. It is included in the DBUS interface methods.
+     * @brief Quits the application
      *
      */
-    void quit();
+    Q_SCRIPTABLE void quit();
 
     /**
-     * @brief Checks the calendars for event alarms. It is included in the DBUS interface methods.
+     * @brief Checks the calendars for event alarms
      *
      */
-    void forceAlarmCheck();
+    Q_SCRIPTABLE void forceAlarmCheck();
 
     /**
-     * @return The date time of the last check done for event alarms. It is included in the DBUS interface methods.
+     * @return The date time of the last check done for event alarms
      */
-    QString dumpLastCheck() const;
+    Q_SCRIPTABLE QString dumpLastCheck() const;
 
     /**
      * @return The list of today's event alarms
      */
-    QStringList dumpAlarms() const;
+    Q_SCRIPTABLE QStringList dumpAlarms() const;
+
+    /**
+     * @return Schedule alarm check
+     */
+    Q_SCRIPTABLE void scheduleAlarmCheck();
+
+    /**
+     * @return The method that should be triggered by the wakeup backend
+     */
+    void wakeupCallback();
 
 private:
     QString alarmText(const QString &uid) const;
@@ -59,11 +70,12 @@ private:
     void flushSuspendedToConfig();
     QStringList calendarFileList() const;
 
-    AlarmsModel *mAlarmsModel;
-    QDateTime mLastChecked;
-    QTimer mCheckTimer;
-    NotificationHandler *mNotificationHandler;
-    int mCheckInterval;
-    int mSuspendSeconds;
+    AlarmsModel *m_alarms_model;
+    QDateTime m_last_check;
+    QTimer m_check_timer;
+    NotificationHandler *m_notification_handler;
+    int m_check_interval;
+    int m_suspend_seconds;
+    WakeupManager *m_wakeup_manager;
 };
 #endif

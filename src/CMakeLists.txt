@@ -17,12 +17,13 @@ set(calindori_SRCS
     recurrenceperiodmodel.cpp
     daysofmonthincidencemodel.cpp
     incidencemodel.cpp
+    alarmchecker.cpp
     )
 
 qt5_add_resources(RESOURCES resources.qrc)
 
 add_executable(calindori ${calindori_SRCS} ${RESOURCES})
-target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons)
+target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg Qt5::DBus KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons)
 
 
 if(ANDROID)

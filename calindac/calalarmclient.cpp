@@ -9,55 +9,69 @@
 #include "alarmsmodel.h"
 #include "notificationhandler.h"
 #include "calindacadaptor.h"
+#include "solidwakeupbackend.h"
+#include "wakeupmanager.h"
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QDebug>
 #include <QVariantMap>
+#include <QDateTime>
 #include <KLocalizedString>
 
 using namespace KCalendarCore;
 
 CalAlarmClient::CalAlarmClient(QObject *parent)
-    : QObject(parent), mAlarmsModel(new AlarmsModel()), mNotificationHandler(new NotificationHandler())
+    : QObject(parent), m_alarms_model {new AlarmsModel(this)}, m_notification_handler {new NotificationHandler(this)}, m_wakeup_manager {new WakeupManager(this)}
 {
     new CalindacAdaptor(this);
-    QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerObject("/calindac", this);
+
+    QDBusConnection::sessionBus().registerObject("/calindac", this);
 
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    mCheckInterval = generalGroup.readEntry("CheckInterval", 45);
-    mSuspendSeconds = generalGroup.readEntry("SuspendSeconds", 60);
-    mLastChecked = generalGroup.readEntry("CalendarsLastChecked", QDateTime());
+    m_check_interval = generalGroup.readEntry("CheckInterval", 45);
+    m_suspend_seconds = generalGroup.readEntry("SuspendSeconds", 60);
+    m_last_check = generalGroup.readEntry("CalendarsLastChecked", QDateTime());
 
-    qDebug() << "\nCalAlarmClient:\tcheck interval:" << mCheckInterval << "seconds.";
-    qDebug() << "CalAlarmClient:\tLastChecked:" << mLastChecked;
+    qDebug() << "CalAlarmClient:lastChecked:" << m_last_check.toString("dd.MM.yyyy hh:mm:ss");
 
     restoreSuspendedFromConfig();
     saveCheckInterval();
     saveSuspendSeconds();
-    connect(&mCheckTimer, &QTimer::timeout, this, &CalAlarmClient::checkAlarms);
     checkAlarms();
-    mCheckTimer.start(1000 * mCheckInterval);
+
+    if ((m_wakeup_manager != nullptr) && (m_wakeup_manager->active())) {
+        qDebug() << "CalAlarmClient: wake up manager offers an active backend with wakeup features";
+        connect(m_wakeup_manager, &WakeupManager::wakeupAlarmClient, this, &CalAlarmClient::wakeupCallback);
+        connect(m_notification_handler, &NotificationHandler::scheduleAlarmCheck, this, &CalAlarmClient::scheduleAlarmCheck);
+        scheduleAlarmCheck();
+    } else {
+        qDebug() << "CalAlarmClient: No wakeup backend active, alarms will be checked with a timer";
+        connect(&m_check_timer, &QTimer::timeout, this, &CalAlarmClient::checkAlarms);
+        m_check_timer.start(1000 * m_check_interval);
+    }
 }
 
 CalAlarmClient::~CalAlarmClient() = default;
 
 QStringList CalAlarmClient::calendarFileList() const
 {
-    QStringList filesList = QStringList();
+    auto filesList { QStringList() };
     KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig("calindorirc"), "general");
-    auto calendars = calindoriCfgGeneral.readEntry("calendars", QString());
-    const auto calendarList = calendars.split(";");
+    auto iCalendars = calindoriCfgGeneral.readEntry("calendars", QString());
+    auto eCalendars = calindoriCfgGeneral.readEntry("externalCalendars", QString());
 
-    for (const auto &c : calendarList) {
+    auto calendarsList = iCalendars.isEmpty() ? QStringList() : iCalendars.split(";");
+    if (!(eCalendars.isEmpty())) {
+        calendarsList.append(eCalendars.split(";"));
+    }
+
+    for (const auto &c : qAsConst(calendarsList)) {
         QString fileName = KSharedConfig::openConfig("calindorirc")->group(c).readEntry("file");
 
         if (!(fileName.isNull())) {
             filesList.append(fileName);
         }
     }
-
-    qDebug() << "\ncalendarFileList:\tCalindori calendars:" << filesList.join(",");
 
     return filesList;
 }
@@ -70,53 +84,45 @@ void CalAlarmClient::checkAlarms()
         return;
     }
 
-    QDateTime from = mLastChecked.addSecs(1);
-    mLastChecked = QDateTime::currentDateTime();
+    auto checkFrom = m_last_check.addSecs(1);
+    m_last_check = QDateTime::currentDateTime();
 
-    qDebug() << "\ncheckAlarms:\tCheck:" << from.toString() << " -" << mLastChecked.toString();
+    qDebug() << "\ncheckAlarms:Check:" << checkFrom.toString() << " -" << m_last_check.toString();
 
-    QVariantMap checkPeriod;
-    checkPeriod["from"] = from;
-    checkPeriod["to"] = mLastChecked;
+    FilterPeriod fPeriod { .from =  checkFrom, .to = m_last_check };
+    m_alarms_model->setCalendarFiles(calendarFileList());
+    m_alarms_model->setPeriod(fPeriod);
+    m_notification_handler->setPeriod(fPeriod);
 
-    QHash<QString, QVariant> modelProperties;
-    modelProperties["calendarFiles"] = calendarFileList();
-    modelProperties["period"] = checkPeriod;
-    mAlarmsModel->setParams(modelProperties);
-    mNotificationHandler->setPeriod(checkPeriod);
+    auto alarms = m_alarms_model->alarms();
+    qDebug() << "checkAlarms:Alarms Found: " << alarms.count();
 
-    qDebug() << "checkAlarms:\tModel Alarms:" << mAlarmsModel->rowCount();
-
-    for (int i = 0; i < mAlarmsModel->rowCount(); ++i) {
-        QModelIndex index = mAlarmsModel->index(i, 0, QModelIndex());
-        mNotificationHandler->addActiveNotification(mAlarmsModel->data(index, AlarmsModel::Roles::Uid).toString(), QString("%1\n%2").arg(mAlarmsModel->data(index, AlarmsModel::Roles::IncidenceStartDt).toDateTime().toString("hh:mm"), mAlarmsModel->data(index, AlarmsModel::Roles::Text).toString()));
+    for (const auto &alarm : qAsConst(alarms)) {
+        m_notification_handler->addActiveNotification(alarm->parentUid(), QString("%1\n%2").arg(alarm->time().toString("hh:mm"), alarm->text()));
     }
-
-    mNotificationHandler->sendNotifications();
+    m_notification_handler->sendNotifications();
     saveLastCheckTime();
     flushSuspendedToConfig();
-
-    qDebug() << "\ncheckAlarms:\tWaiting for" << mCheckInterval << " seconds";
 }
 
 void CalAlarmClient::saveLastCheckTime()
 {
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    generalGroup.writeEntry("CalendarsLastChecked", mLastChecked);
+    generalGroup.writeEntry("CalendarsLastChecked", m_last_check);
     KSharedConfig::openConfig()->sync();
 }
 
 void CalAlarmClient::saveCheckInterval()
 {
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    generalGroup.writeEntry("CheckInterval", mCheckInterval);
+    generalGroup.writeEntry("CheckInterval", m_check_interval);
     KSharedConfig::openConfig()->sync();
 }
 
 void CalAlarmClient::saveSuspendSeconds()
 {
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    generalGroup.writeEntry("SuspendSeconds", mSuspendSeconds);
+    generalGroup.writeEntry("SuspendSeconds", m_suspend_seconds);
     KSharedConfig::openConfig()->sync();
 }
 
@@ -144,25 +150,18 @@ QString CalAlarmClient::dumpLastCheck() const
 
 QStringList CalAlarmClient::dumpAlarms() const
 {
-    const QDateTime start = QDateTime(QDate::currentDate(), QTime(0, 0), Qt::LocalTime);
-    const QDateTime end = start.addDays(1).addSecs(-1);
+    const auto start = QDateTime(QDate::currentDate(), QTime(0, 0), Qt::LocalTime);
+    const auto end = start.addDays(1).addSecs(-1);
 
-    QVariantMap checkPeriod;
-    checkPeriod["from"] = start;
-    checkPeriod["to"] = end;
+    AlarmsModel model {};
+    model.setCalendarFiles(calendarFileList());
+    model.setPeriod({ .from =  start, .to = end});
 
-    AlarmsModel *model = new AlarmsModel();
+    auto lst = QStringList();
+    const auto alarms = model.alarms();
 
-    QHash<QString, QVariant> modelProperties;
-    modelProperties["calendarFiles"] = calendarFileList();
-    modelProperties["period"] = checkPeriod;
-    model->setParams(modelProperties);
-
-    QStringList lst = QStringList();
-
-    for (int i = 0; i < model->rowCount(); ++i) {
-        QModelIndex index = model->index(i, 0, QModelIndex());
-        lst << QStringLiteral("%1: \"%2\"").arg(model->data(index, AlarmsModel::Roles::Time).toString(), model->data(index, AlarmsModel::Roles::Uid).toString());
+    for (const auto &alarm : qAsConst(alarms)) {
+        lst << QStringLiteral("%1: \"%2\"").arg(alarm->time().toString("hh:mm"), alarm->parentUid());
     }
 
     return lst;
@@ -170,7 +169,7 @@ QStringList CalAlarmClient::dumpAlarms() const
 
 void CalAlarmClient::restoreSuspendedFromConfig()
 {
-    qDebug() << "\nrestoreSuspendedFromConfig:\tRestore suspended alarms from config";
+    qDebug() << "\nrestoreSuspendedFromConfig:Restore suspended alarms from config";
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
     const auto suspendedAlarms = suspendedGroup.groupList();
 
@@ -179,30 +178,24 @@ void CalAlarmClient::restoreSuspendedFromConfig()
         QString uid = suspendedAlarm.readEntry("UID");
         QString txt = alarmText(uid);
         QDateTime remindAt = QDateTime::fromString(suspendedAlarm.readEntry("RemindAt"), "yyyy,M,d,HH,m,s");
-        qDebug() << "restoreSuspendedFromConfig:\tRestoring alarm" << uid << "," << txt << "," << remindAt.toString();
+        qDebug() << "restoreSuspendedFromConfig:Restoring alarm" << uid << "," << txt << "," << remindAt.toString();
 
         if (!(uid.isEmpty() && remindAt.isValid() && !(txt.isEmpty()))) {
-            mNotificationHandler->addSuspendedNotification(uid, txt, remindAt);
+            m_notification_handler->addSuspendedNotification(uid, txt, remindAt);
         }
     }
 }
 
 QString CalAlarmClient::alarmText(const QString &uid) const
 {
-    QVariantMap checkPeriod;
-    checkPeriod["to"] = QDateTime::currentDateTime();
+    AlarmsModel model {};
+    model.setCalendarFiles(calendarFileList());
+    model.setPeriod({.from = QDateTime(), .to = QDateTime::currentDateTime()});
+    const auto alarms = model.alarms();
 
-    AlarmsModel *model = new AlarmsModel();
-    QHash<QString, QVariant> modelProperties;
-    modelProperties["calendarFiles"] = calendarFileList();
-    modelProperties["period"] = checkPeriod;
-    model->setParams(modelProperties);
-
-    for (int i = 0; i < model->rowCount(); ++i) {
-        QModelIndex index = model->index(i, 0, QModelIndex());
-        if (model->data(index, AlarmsModel::Roles::Uid).toString() == uid) {
-            qDebug() << "alarmText: text of" << model->data(index, AlarmsModel::Roles::Uid).toString() << " is" << model->data(index, AlarmsModel::Roles::Text).toString();
-            return model->data(index, AlarmsModel::Roles::Text).toString();
+    for (const auto &alarm : qAsConst(alarms)) {
+        if (alarm->parentUid() == uid) {
+            return alarm->text();
         }
     }
 
@@ -211,24 +204,54 @@ QString CalAlarmClient::alarmText(const QString &uid) const
 
 void CalAlarmClient::flushSuspendedToConfig()
 {
-    qDebug("\nflushSuspendedToConfig");
     KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
     suspendedGroup.deleteGroup();
 
-    const auto suspendedNotifications = mNotificationHandler->suspendedNotifications();
+    const auto suspendedNotifications = m_notification_handler->suspendedNotifications();
 
     if (suspendedNotifications.isEmpty()) {
-        qDebug() << "flushSuspendedToConfig:\tNo suspended notification exists, nothing to write to config";
+        qDebug() << "flushSuspendedToConfig:No suspended notification exists, nothing to write to config";
         KSharedConfig::openConfig()->sync();
 
         return;
     }
 
     for (const auto &s : suspendedNotifications) {
-        qDebug() << "flushSuspendedToConfig:\tFlushing suspended alarm" << s->uid() << " to config";
+        qDebug() << "flushSuspendedToConfig:Flushing suspended alarm" << s->uid() << " to config";
         KConfigGroup notificationGroup(&suspendedGroup, s->uid());
         notificationGroup.writeEntry("UID", s->uid());
         notificationGroup.writeEntry("RemindAt", s->remindAt());
     }
     KSharedConfig::openConfig()->sync();
+}
+
+void CalAlarmClient::scheduleAlarmCheck()
+{
+    if ((m_wakeup_manager == nullptr) || !(m_wakeup_manager->active())) {
+        qDebug() << "Wakeup manager is not active, alarms are handled by a timer";
+        return;
+    }
+
+    AlarmsModel model {};
+    model.setCalendarFiles(calendarFileList());
+    model.setPeriod({ .from =  m_last_check.addSecs(1), .to = m_last_check.addDays(1) });
+
+    auto wakeupAt = model.firstAlarmTime();
+    auto suspendedWakeupAt = m_notification_handler->firstSuspendedBefore(wakeupAt);
+
+    if (suspendedWakeupAt.isValid() && suspendedWakeupAt < wakeupAt) {
+        wakeupAt = suspendedWakeupAt;
+    }
+
+    qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << wakeupAt.toString("dd.MM.yyyy hh:mm:ss");
+
+    m_wakeup_manager->scheduleWakeup(wakeupAt.addSecs(1));
+}
+
+void CalAlarmClient::wakeupCallback()
+{
+    qDebug() << "CalAlarmClient wakeupCallback";
+
+    checkAlarms();
+    scheduleAlarmCheck();
 }

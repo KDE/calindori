@@ -9,52 +9,52 @@
 #include <KLocalizedString>
 #include <QDebug>
 
-AlarmNotification::AlarmNotification(NotificationHandler *handler, const QString &uid) : mUid(uid), mRemindAt(QDateTime()), mNotificationHandler(handler)
+AlarmNotification::AlarmNotification(NotificationHandler *handler, const QString &uid) : m_uid {uid}, m_remind_at {QDateTime()}, m_notification_handler {handler}
 {
-    mNotification = new KNotification("alarm");
-    mNotification->setActions({i18n("Suspend"), i18n("Dismiss")});
+    m_notification = new KNotification("alarm");
+    m_notification->setActions({i18n("Suspend"), i18n("Dismiss")});
 
-    connect(mNotification, &KNotification::action1Activated, this, &AlarmNotification::suspend);
-    connect(mNotification, &KNotification::action2Activated, this, &AlarmNotification::dismiss);
-    connect(this, &AlarmNotification::suspend, mNotificationHandler, [ = ]() {
-        mNotificationHandler->suspend(this);
+    connect(m_notification, &KNotification::action1Activated, this, &AlarmNotification::suspend);
+    connect(m_notification, &KNotification::action2Activated, this, &AlarmNotification::dismiss);
+    connect(this, &AlarmNotification::suspend, m_notification_handler, [ = ]() {
+        m_notification_handler->suspend(this);
     });
-    connect(this, &AlarmNotification::dismiss, mNotificationHandler, [ = ]() {
-        mNotificationHandler->dismiss(this);
+    connect(this, &AlarmNotification::dismiss, m_notification_handler, [ = ]() {
+        m_notification_handler->dismiss(this);
     });
 }
 
 AlarmNotification::~AlarmNotification()
 {
-    delete mNotification;
+    delete m_notification;
 }
 
 void AlarmNotification::send() const
 {
-    mNotification->sendEvent();
+    m_notification->sendEvent();
 }
 
 QString AlarmNotification::uid() const
 {
-    return mUid;
+    return m_uid;
 }
 
 QString AlarmNotification::text() const
 {
-    return mNotification->text();
+    return m_notification->text();
 }
 
 void AlarmNotification::setText(const QString &alarmText)
 {
-    mNotification->setText(alarmText);
+    m_notification->setText(alarmText);
 }
 
 QDateTime AlarmNotification::remindAt() const
 {
-    return mRemindAt;
+    return m_remind_at;
 }
 
 void AlarmNotification::setRemindAt(const QDateTime &remindAtDt)
 {
-    mRemindAt = remindAtDt;
+    m_remind_at = remindAtDt;
 }

@@ -16,6 +16,7 @@
 using namespace KCalendarCore;
 
 class CalindoriConfig;
+class AlarmChecker;
 
 class LocalCalendar : public QObject
 {
@@ -57,6 +58,7 @@ private:
     QString m_fullpath;
     CalindoriConfig *m_config;
     QDateTime m_fs_sync_dt;
+    AlarmChecker *m_alarm_checker;
 };
 
 #endif // LOCALCALENDAR_H

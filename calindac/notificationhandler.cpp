@@ -11,10 +11,10 @@
 #include <KConfigGroup>
 #include <QDebug>
 
-NotificationHandler::NotificationHandler() : mActiveNotifications(QHash<QString, AlarmNotification*>()), mSuspendedNotifications(QHash<QString, AlarmNotification*>())
+NotificationHandler::NotificationHandler(QObject *parent) : QObject(parent), m_active_notifications {QHash<QString, AlarmNotification*>()}, m_suspended_notifications {QHash<QString, AlarmNotification*>()}
 {
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
-    mSuspendSeconds = generalGroup.readEntry("SuspendSeconds", 60);
+    m_suspend_seconds = generalGroup.readEntry("SuspendSeconds", 60);
 }
 
 NotificationHandler::~NotificationHandler() = default;
@@ -23,7 +23,7 @@ void NotificationHandler::addActiveNotification(const QString &uid, const QStrin
 {
     AlarmNotification *notification = new AlarmNotification(this, uid);
     notification->setText(text);
-    mActiveNotifications[notification->uid()] = notification;
+    m_active_notifications[notification->uid()] = notification;
 }
 
 void NotificationHandler::addSuspendedNotification(const QString &uid, const QString &txt, const QDateTime &remindTime)
@@ -32,17 +32,17 @@ void NotificationHandler::addSuspendedNotification(const QString &uid, const QSt
     AlarmNotification *notification = new AlarmNotification(this, uid);
     notification->setText(txt);
     notification->setRemindAt(remindTime);
-    mSuspendedNotifications[notification->uid()] = notification;
+    m_suspended_notifications[notification->uid()] = notification;
 }
 
 void NotificationHandler::sendSuspendedNotifications()
 {
-    auto suspItr = mSuspendedNotifications.begin();
-    while (suspItr != mSuspendedNotifications.end()) {
-        if (suspItr.value()->remindAt() < mPeriod["to"].toDateTime()) {
+    auto suspItr = m_suspended_notifications.begin();
+    while (suspItr != m_suspended_notifications.end()) {
+        if (suspItr.value()->remindAt() < m_period.to) {
             qDebug() << "sendNotifications:\tSending notification for suspended alarm" <<  suspItr.value()->uid() << ", text is" << suspItr.value()->text();
             suspItr.value()->send();
-            suspItr = mSuspendedNotifications.erase(suspItr);
+            suspItr = m_suspended_notifications.erase(suspItr);
         } else {
             suspItr++;
         }
@@ -51,7 +51,7 @@ void NotificationHandler::sendSuspendedNotifications()
 
 void NotificationHandler::sendActiveNotifications()
 {
-    for (const auto &n : qAsConst(mActiveNotifications)) {
+    for (const auto &n : qAsConst(m_active_notifications)) {
         qDebug() << "sendNotifications:\tSending notification for alarm" <<  n->uid();
         n->send();
     }
@@ -59,7 +59,7 @@ void NotificationHandler::sendActiveNotifications()
 
 void NotificationHandler::sendNotifications()
 {
-    qDebug() << "\nsendNotifications:\tLooking for notifications, total Active:" << mActiveNotifications.count() << ", total Suspended:" << mSuspendedNotifications.count();
+    qDebug() << "\nsendNotifications:\tLooking for notifications, total Active:" << m_active_notifications.count() << ", total Suspended:" << m_suspended_notifications.count();
 
     sendSuspendedNotifications();
     sendActiveNotifications();
@@ -67,39 +67,56 @@ void NotificationHandler::sendNotifications()
 
 void NotificationHandler::dismiss(AlarmNotification *const notification)
 {
-    mActiveNotifications.remove(notification->uid());
+    m_active_notifications.remove(notification->uid());
 
     qDebug() << "\ndismiss:\tAlarm" << notification->uid() << "dismissed";
+    Q_EMIT scheduleAlarmCheck();
 }
 
 void NotificationHandler::suspend(AlarmNotification *const notification)
 {
     AlarmNotification *suspendedNotification = new AlarmNotification(this, notification->uid());
     suspendedNotification->setText(notification->text());
-    suspendedNotification->setRemindAt(QDateTime(QDateTime::currentDateTime()).addSecs(mSuspendSeconds));
+    suspendedNotification->setRemindAt(QDateTime(QDateTime::currentDateTime()).addSecs(m_suspend_seconds));
 
-    mSuspendedNotifications[notification->uid()] = suspendedNotification;
-    mActiveNotifications.remove(notification->uid());
+    m_suspended_notifications[notification->uid()] = suspendedNotification;
+    m_active_notifications.remove(notification->uid());
 
     qDebug() << "\nsuspend\t:Alarm " << notification->uid() << "suspended";
+
+    Q_EMIT scheduleAlarmCheck();
 }
 
-QVariantMap NotificationHandler::period() const
+FilterPeriod NotificationHandler::period() const
 {
-    return mPeriod;
+    return m_period;
 }
 
-void NotificationHandler::setPeriod(const QVariantMap &checkPeriod)
+void NotificationHandler::setPeriod(const FilterPeriod &checkPeriod)
 {
-    mPeriod = checkPeriod;
+    m_period = checkPeriod;
 }
 
 QHash<QString, AlarmNotification *> NotificationHandler::activeNotifications() const
 {
-    return mActiveNotifications;
+    return m_active_notifications;
 }
 
 QHash<QString, AlarmNotification *> NotificationHandler::suspendedNotifications() const
 {
-    return mSuspendedNotifications;
+    return m_suspended_notifications;
+}
+
+QDateTime NotificationHandler::firstSuspendedBefore(const QDateTime &before) const
+{
+    auto firstAlarmTime = QDateTime(before);
+
+    for (const auto &s : qAsConst(m_suspended_notifications)) {
+        auto alarmTime = s->remindAt();
+        if (alarmTime < before) {
+            firstAlarmTime = alarmTime;
+        }
+    }
+
+    return firstAlarmTime;
 }

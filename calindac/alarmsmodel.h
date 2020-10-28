@@ -11,50 +11,61 @@
 #include <KCalendarCore/Alarm>
 #include <KCalendarCore/MemoryCalendar>
 #include <KCalendarCore/FileStorage>
-#include <QVariantMap>
+#include <QDateTime>
 
 using namespace KCalendarCore;
 
+struct FilterPeriod {
+    QDateTime from;
+    QDateTime to;
+};
+
 /**
- * @brief Model that serves the alarms found in a set of calendar files for a specific time period, as set in the model input parameters
+ * @brief Model that serves the alarms found in a set of calendar files for a specific time period
  *
  */
-class AlarmsModel : public QAbstractListModel
+class AlarmsModel : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QHash<QString, QVariant> params READ params WRITE setParams NOTIFY paramsChanged);
 public:
-    enum Roles {
-        Uid = Qt::UserRole + 1,
-        Time,
-        Text,
-        IncidenceStartDt
-    };
-
     explicit AlarmsModel(QObject *parent = nullptr);
     ~AlarmsModel() override;
 
-    QHash<int, QByteArray> roleNames() const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    /**
+     * @return The start/end date time to use to look for alarms
+     */
+    FilterPeriod period() const;
 
     /**
-     * @return A QHash< QString, QVariant > of the input parameters of the model
+     * @brief Set the start date /end time to look for alarms
      */
-    QHash<QString, QVariant> params() const;
+    void setPeriod(const FilterPeriod &filterPeriod);
+
     /**
-     * @brief Sets the input parameters for the model to be populated
-     *
-     * @param parameters A QHash< QString, QVariant > that should contain two members: 1) calendarFiles: a QStringList of the calendar files 2) period: a QVariantMap that represents the time period. This QVariantMap expects two QDateTimes (from, to)
+     * @brief The list of calendar files to look for alarms into
      */
-    void setParams(const QHash<QString, QVariant> &parameters);
+    QStringList calendarFiles() const;
+
+    /**
+     * @brief Set the list of calendar files to look for alarms into
+     */
+    void setCalendarFiles(const QStringList &fileList);
+
+    /**
+     * @brief List of alarms scheduled into the interval specified
+     */
+    Alarm::List alarms() const;
+
+    /**
+     * @brief The date time of the first alarm scheduled into the interval specified
+     */
+    QDateTime firstAlarmTime() const;
 
 Q_SIGNALS:
-    void periodChanged();
-    void calendarFilesChanged();
     void uidsChanged();
-    void paramsChanged();
+    void calendarsChanged();
+    void periodChanged();
 
 private:
     void loadAlarms();
@@ -63,11 +74,10 @@ private:
     void closeStorages();
     QDateTime parentStartDt(const int idx) const;
 
-    QVariantMap mPeriod;
-    QVector<MemoryCalendar::Ptr> mMemoryCalendars;
-    QVector<FileStorage::Ptr> mFileStorages;
-    Alarm::List mAlarms;
-    QStringList mCalendarFiles;
-    QHash<QString, QVariant> mParams;
+    QVector<MemoryCalendar::Ptr> m_memory_calendars;
+    QVector<FileStorage::Ptr> m_file_storages;
+    Alarm::List m_alarms;
+    QStringList m_calendar_files;
+    FilterPeriod m_period;
 };
 #endif

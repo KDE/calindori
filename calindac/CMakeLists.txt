@@ -10,9 +10,12 @@ set(calindac_SRCS
     alarmsmodel.cpp
     alarmnotification.cpp
     notificationhandler.cpp
+    solidwakeupbackend.cpp
+    wakeupmanager.cpp
     )
 
 qt5_add_dbus_adaptor(calindac_SRCS org.kde.calindac.xml calalarmclient.h CalAlarmClient)
+qt5_add_dbus_adaptor(calindac_SRCS org.kde.wakeupmanager.PowerManagement.xml wakeupmanager.h WakeupManager)
 
 add_executable(calindac ${calindac_SRCS} ${RESOURCES})
 
@@ -36,6 +39,7 @@ install(FILES
 
 install(FILES
     org.kde.calindac.xml
+    org.kde.wakeupmanager.PowerManagement.xml
     DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
     )
 
