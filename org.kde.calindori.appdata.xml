@@ -329,7 +329,22 @@
     </screenshot>
   </screenshots>
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
+  <url type="bugtracker">https://bugs.kde.org/describecomponents.cgi?product=calindori</url>
   <releases>
+    <release version="1.2.90" date="2020-10-30">
+      <description>
+        <p>New features, improvements and fixes</p>
+        <ul>
+          <li>When running on Plasma, use the Solid wake-up features</li>
+          <li>Fix the positioning of the delete confirmation dialog</li>
+          <li>Conditionally hide completed tasks in the All Tasks view</li>
+          <li>Support external calendar files that can be updated by another application</li>
+          <li>Fix display of repeating events on day and month views</li>
+          <li>On the calendar month view, show all-day tasks into the day that they are part of</li>
+          <li>Show multi day events properly on day and week views</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2" date="2020-09-11">
       <description>
         <p>Several fixes and new features</p>
