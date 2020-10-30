@@ -139,13 +139,9 @@ Kirigami.ScrollablePage {
         EventEditor {
             calendar: localCalendar
 
-            onEditcompleted: {
-                pageStack.pop(eventEditor);
-                pageStack.flickBack();
-            }
+            onEditcompleted: pageStack.pop(root)
         }
     }
-
 
     Component {
         id: todoEditor
@@ -153,10 +149,7 @@ Kirigami.ScrollablePage {
         TodoEditor {
             calendar: localCalendar
 
-            onEditcompleted: {
-                pageStack.pop(todoEditor)
-                pageStack.flickBack();
-            }
+            onEditcompleted: pageStack.pop(root)
         }
     }
 }
