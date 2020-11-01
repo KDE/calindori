@@ -67,6 +67,7 @@ Kirigami.Page {
 
                 onTriggered: {
                     latestContextualAction = 0;
+                    pageStack.pop(root);
                     pageStack.push(todosCardView);
                 }
             },
@@ -77,6 +78,7 @@ Kirigami.Page {
 
                 onTriggered: {
                     latestContextualAction = 1;
+                    pageStack.pop(root);
                     pageStack.push(eventsCardView);
                 }
             }
