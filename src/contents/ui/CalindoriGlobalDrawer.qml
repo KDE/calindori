@@ -167,6 +167,7 @@ Kirigami.GlobalDrawer {
             State {
                 when: root.wideScreen
                 PropertyChanges { target: root; drawerOpen: true }
+                PropertyChanges { target: root; width: Kirigami.Units.gridUnit * 14 }
             },
             State {
                 when: !root.wideScreen
