@@ -43,7 +43,7 @@ Kirigami.ApplicationWindow {
 
         CalendarMonthPage {
             calendar: localCalendar
-            dayRectangleWidth: pageStack.defaultColumnWidth / 9
+            dayRectangleWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 2.5 : Kirigami.Units.gridUnit * 3.5
             loadWithAction: Kirigami.Settings.isMobile ? -1 : 1
 
             onPageEnd: switchToMonthPage(lastDate, lastActionIndex)

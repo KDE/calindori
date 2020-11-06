@@ -23,7 +23,7 @@ Item {
     property int days: 7
     property int weeks: 6
     property date currentDate: new Date()
-    property int dayRectWidth: Kirigami.Units.gridUnit*2.5
+    property int dayRectWidth: Kirigami.Units.gridUnit * 2.5
     property date selectedDate: new Date()
     property int selectedDayTodosCount: 0
     property int selectedDayEventsCount: 0
