@@ -10,6 +10,8 @@ import org.kde.kirigami 2.0 as Kirigami
 Kirigami.Page {
     id: root
 
+    property alias dayRectangleWidth: calendarMonthView.dayRectangleWidth
+
     property alias selectedDate: calendarMonthView.selectedDate
 
     /**

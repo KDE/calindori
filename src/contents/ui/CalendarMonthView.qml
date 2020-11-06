@@ -26,6 +26,7 @@ Controls2.SwipeView {
     property alias showHeader: monthView.showHeader
     property alias showMonthName: monthView.showMonthName
     property alias showYear: monthView.showYear
+    property alias dayRectangleWidth: monthView.dayRectWidth
     property int previousIndex
     property var cal
     /**

@@ -29,7 +29,7 @@ Kirigami.ApplicationWindow {
 
     pageStack {
         initialPage: [calendarMonthPage]
-        defaultColumnWidth: Kirigami.Units.gridUnit * 40
+        defaultColumnWidth: Kirigami.Units.gridUnit * 35
     }
 
     Calindori.LocalCalendar {
@@ -43,6 +43,7 @@ Kirigami.ApplicationWindow {
 
         CalendarMonthPage {
             calendar: localCalendar
+            dayRectangleWidth: pageStack.defaultColumnWidth / 9
             loadWithAction: Kirigami.Settings.isMobile ? -1 : 1
 
             onPageEnd: switchToMonthPage(lastDate, lastActionIndex)
