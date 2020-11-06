@@ -115,7 +115,13 @@ ListView {
                         label: "%1\n%2".arg(model.displayType).arg(model.summary)
                         Layout.fillWidth: true
 
-                        onClicked: pageStack.push(incidencePage, { incidence: model })
+                        onClicked: {
+                            if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
+                                pageStack.pop(incidencePage);
+                            }
+
+                            pageStack.push(incidencePage, { incidence: model });
+                        }
                     }
                 }
             }

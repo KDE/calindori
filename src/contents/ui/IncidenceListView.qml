@@ -72,7 +72,13 @@ Kirigami.ScrollablePage {
             topPadding: Kirigami.Units.gridUnit
             bottomPadding: Kirigami.Units.gridUnit
 
-            onClicked: pageStack.push(incidencePage, { incidence: model })
+            onClicked: {
+                if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
+                    pageStack.pop(incidencePage);
+                }
+
+                pageStack.push(incidencePage, { incidence: model })
+            }
         }
     }
 
