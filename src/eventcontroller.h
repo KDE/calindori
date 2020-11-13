@@ -1,10 +1,8 @@
 /*
- * SPDX-FileCopyrightText: 2019 Dimitris Kardarakos <dimkard@posteo.net>
+ * SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-
-#include <QObject>
 
 #ifndef EVENTCONTROLLER_H
 #define EVENTCONTROLLER_H
@@ -36,6 +34,5 @@ public:
      * @return A QVariantMap response to be handled by the caller
      */
     Q_INVOKABLE QVariantMap validate(const QVariantMap &eventMap) const;
-
 };
 #endif
