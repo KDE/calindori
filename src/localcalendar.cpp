@@ -9,6 +9,7 @@
 #include "alarmchecker.h"
 #include <QDebug>
 #include <KCalendarCore/Todo>
+#include <KCalendarCore/MemoryCalendar>
 #include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
@@ -24,7 +25,7 @@ LocalCalendar::LocalCalendar(QObject *parent)
 
 LocalCalendar::~LocalCalendar() = default;
 
-MemoryCalendar::Ptr LocalCalendar::memorycalendar()
+Calendar::Ptr LocalCalendar::calendar()
 {
     reloadStorage();
     return m_calendar;
@@ -42,13 +43,13 @@ void LocalCalendar::setName(QString calendarName)
     }
 }
 
-void LocalCalendar::setMemorycalendar(MemoryCalendar::Ptr memoryCalendar)
+void LocalCalendar::setCalendar(Calendar::Ptr calendar)
 {
-    if (m_calendar != memoryCalendar) {
-        m_calendar = memoryCalendar;
+    if (m_calendar != calendar) {
+        m_calendar = calendar;
     }
 
-    Q_EMIT memorycalendarChanged();
+    Q_EMIT calendarChanged();
 }
 
 int LocalCalendar::todosCount(const QDate &date) const
@@ -119,7 +120,7 @@ QVariantMap LocalCalendar::importCalendar(const QString &calendarName, const QUr
     QVariantMap result;
     result["success"] = QVariant(false);
 
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
+    Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
     FileStorage::Ptr storage(new FileStorage(calendar));
 
     QVariantMap canCreateCheck = canCreateFile(calendarName);
@@ -194,7 +195,7 @@ bool LocalCalendar::loadStorage()
         return false;
     }
 
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
+    Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
     FileStorage::Ptr storage(new FileStorage(calendar));
     storage->setFileName(m_fullpath);
 
@@ -211,7 +212,7 @@ bool LocalCalendar::loadStorage()
         m_calendar = calendar;
         m_fs_sync_dt = QDateTime::currentDateTime();
         m_alarm_checker->scheduleAlarmCheck();
-        Q_EMIT memorycalendarChanged();
+        Q_EMIT calendarChanged();
         return true;
     }
 

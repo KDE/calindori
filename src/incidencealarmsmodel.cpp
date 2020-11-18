@@ -110,14 +110,14 @@ void IncidenceAlarmsModel::loadPersistentAlarms()
 
     LocalCalendar *localCalendar = mAlarmProperties["calendar"].value<LocalCalendar *>();
     QString uid = mAlarmProperties["uid"].toString();
-    MemoryCalendar::Ptr memCalendar;
+    Calendar::Ptr memCalendar;
     Incidence::Ptr alarmIncidence;
     Alarm::List persistentAlarms = Alarm::List();
 
     qDebug() << "\nloadPersistentAlarms: uid" << uid;
 
     if (localCalendar != nullptr) {
-        memCalendar = localCalendar->memorycalendar();
+        memCalendar = localCalendar->calendar();
         alarmIncidence = memCalendar->incidence(uid);
     }
 

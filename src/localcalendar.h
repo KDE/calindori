@@ -8,7 +8,7 @@
 #define LOCALCALENDAR_H
 
 #include <QSharedPointer>
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 #include <KCalendarCore/FileStorage>
 #include <KCalendarCore/Event>
 #include <QVariantMap>
@@ -22,16 +22,16 @@ class LocalCalendar : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QSharedPointer<MemoryCalendar> memorycalendar READ memorycalendar WRITE setMemorycalendar NOTIFY memorycalendarChanged)
+    Q_PROPERTY(QSharedPointer<Calendar> calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 
 public:
     explicit LocalCalendar(QObject *parent = nullptr);
     ~LocalCalendar() override;
 
-    MemoryCalendar::Ptr memorycalendar();
+    Calendar::Ptr calendar();
     QString name() const;
 
-    void setMemorycalendar(MemoryCalendar::Ptr memoryCalendar);
+    void setCalendar(Calendar::Ptr calendar);
     void setName(QString calendarName);
     Q_INVOKABLE static QVariantMap importCalendar(const QString &calendarName, const QUrl &sourcePath);
     Q_INVOKABLE static QString fileNameFromUrl(const QUrl &sourcePath);
@@ -41,7 +41,7 @@ public Q_SLOTS:
     void deleteCalendar();
     bool save();
 Q_SIGNALS:
-    void memorycalendarChanged();
+    void calendarChanged();
     void nameChanged();
     void todosChanged();
     void eventsChanged();
@@ -52,7 +52,7 @@ private:
     bool loadStorage();
     void reloadStorage();
 
-    MemoryCalendar::Ptr m_calendar;
+    Calendar::Ptr m_calendar;
     FileStorage::Ptr m_cal_storage;
     QString m_name;
     QString m_fullpath;

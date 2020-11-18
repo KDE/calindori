@@ -403,34 +403,34 @@ Incidence::List IncidenceModel::dayIncidences() const
 
 Incidence::List IncidenceModel::dayEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEventsForDate(m_filter_dt, QTimeZone::systemTimeZone(), EventSortStartDate, SortDirectionAscending);
+    auto events = m_calendar->calendar()->rawEventsForDate(m_filter_dt, QTimeZone::systemTimeZone(), EventSortStartDate, SortDirectionAscending);
     return toIncidences(Calendar::sortEvents(events, EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::dayTodos() const
 {
-    auto todos =  m_calendar->memorycalendar()->rawTodos(m_filter_dt, m_filter_dt);
+    auto todos =  m_calendar->calendar()->rawTodos(m_filter_dt, m_filter_dt);
 
     return toIncidences(Calendar::sortTodos(todos, TodoSortField::TodoSortDueDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::allIncidences() const
 {
-    auto incidences = m_calendar->memorycalendar()->rawIncidences();
+    auto incidences = m_calendar->calendar()->rawIncidences();
 
     return incidences;
 }
 
 Incidence::List IncidenceModel::allTodos() const
 {
-    auto todos =  m_calendar->memorycalendar()->todos(TodoSortDueDate, SortDirectionDescending);
+    auto todos =  m_calendar->calendar()->todos(TodoSortDueDate, SortDirectionDescending);
 
     return toIncidences(todos);
 }
 
 Incidence::List IncidenceModel::allEvents() const
 {
-    auto events = m_calendar->memorycalendar()->rawEvents(EventSortStartDate, SortDirectionDescending);
+    auto events = m_calendar->calendar()->rawEvents(EventSortStartDate, SortDirectionDescending);
 
     return toIncidences(events);
 }
@@ -569,7 +569,7 @@ void IncidenceModel::setFilterHideCompleted(const bool hideCompleted)
 void IncidenceModel::setCalendarFilter()
 {
     if (m_calendar != nullptr) {
-        m_calendar->memorycalendar()->setFilter(m_cal_filter);
+        m_calendar->calendar()->setFilter(m_cal_filter);
     }
 
     Q_EMIT calendarFilterChanged();

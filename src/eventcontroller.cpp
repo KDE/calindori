@@ -7,7 +7,7 @@
 #include "eventcontroller.h"
 #include "localcalendar.h"
 #include <KCalendarCore/Event>
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 #include <KLocalizedString>
 #include <QDebug>
 
@@ -15,24 +15,24 @@ EventController::EventController(QObject *parent) : QObject(parent) {}
 
 EventController::~EventController() = default;
 
-void EventController::remove(LocalCalendar *calendar, const QVariantMap &eventData)
+void EventController::remove(LocalCalendar *localCalendar, const QVariantMap &eventData)
 {
     qDebug() << "Deleting event";
-    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    Calendar::Ptr calendar = localCalendar->calendar();
     QString uid = eventData["uid"].toString();
-    Event::Ptr event = memoryCalendar->event(uid);
-    memoryCalendar->deleteEvent(event);
-    bool deleted = calendar->save();
-    Q_EMIT calendar->eventsChanged();
+    Event::Ptr event = calendar->event(uid);
+    calendar->deleteEvent(event);
+    bool deleted = localCalendar->save();
+    Q_EMIT localCalendar->eventsChanged();
 
     qDebug() << "Event deleted: " << deleted;
 }
 
-void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventData)
+void EventController::addEdit(LocalCalendar *localCalendar, const QVariantMap &eventData)
 {
     qDebug() << "\naddEdit:\tCreating event";
 
-    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    Calendar::Ptr calendar = localCalendar->calendar();
     QDateTime now = QDateTime::currentDateTime();
     QString uid = eventData["uid"].toString();
     QString summary = eventData["summary"].toString();
@@ -42,7 +42,7 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
         event = Event::Ptr(new Event());
         event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     } else {
-        event = memoryCalendar->event(uid);
+        event = calendar->event(uid);
         event->setUid(uid);
     }
 
@@ -97,7 +97,7 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
     if ((event->recurrenceType() != Recurrence::rNone) || (newPeriod != Recurrence::rNone)) {
         //WORKAROUND: When changing an event from non-recurring to recurring, duplicate events are displayed
         if (uid != "") {
-            memoryCalendar->deleteEvent(event);
+            calendar->deleteEvent(event);
         }
 
         switch (newPeriod) {
@@ -127,16 +127,16 @@ void EventController::addEdit(LocalCalendar *calendar, const QVariantMap &eventD
         }
 
         if (uid != "") {
-            memoryCalendar->addEvent(event);
+            calendar->addEvent(event);
         }
     }
 
     if (uid == "") {
-        memoryCalendar->addEvent(event);
+        calendar->addEvent(event);
     }
 
-    bool merged = calendar->save();
-    Q_EMIT calendar->eventsChanged();
+    bool merged = localCalendar->save();
+    Q_EMIT localCalendar->eventsChanged();
 
     qDebug() << "addEdit:\tEvent added/updated: " << merged;
 }

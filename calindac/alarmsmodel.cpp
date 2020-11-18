@@ -5,12 +5,13 @@
  */
 
 #include "alarmsmodel.h"
+#include <KCalendarCore/MemoryCalendar>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QFile>
 #include <QDebug>
 
-AlarmsModel::AlarmsModel(QObject *parent) : QObject(parent), m_memory_calendars {QVector<MemoryCalendar::Ptr>()}, m_file_storages {QVector<FileStorage::Ptr>()}, m_alarms {Alarm::List()}, m_calendar_files {QStringList()}
+AlarmsModel::AlarmsModel(QObject *parent) : QObject(parent), m_calendars {QVector<Calendar::Ptr>()}, m_file_storages {QVector<FileStorage::Ptr>()}, m_alarms {Alarm::List()}, m_calendar_files {QStringList()}
 {
     connect(this, &AlarmsModel::periodChanged, this, &AlarmsModel::loadAlarms);
     connect(this, &AlarmsModel::calendarsChanged, this, &AlarmsModel::loadAlarms);
@@ -28,7 +29,7 @@ void AlarmsModel::loadAlarms()
 
     openLoadStorages();
 
-    for (const auto &m : qAsConst(m_memory_calendars)) {
+    for (const auto &m : qAsConst(m_calendars)) {
 
         Alarm::List calendarAlarms;
 
@@ -50,17 +51,17 @@ void AlarmsModel::loadAlarms()
 void AlarmsModel::setCalendars()
 {
     m_file_storages.clear();
-    m_memory_calendars.clear();
+    m_calendars.clear();
 
     qDebug() << "setCalendars:" << "Appending calendars" << m_calendar_files.join(",");
 
     for (const auto &cf : qAsConst(m_calendar_files)) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
+        Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
         storage->setFileName(cf);
         if (!(storage->fileName().isNull())) {
             m_file_storages.append(storage);
-            m_memory_calendars.append(calendar);
+            m_calendars.append(calendar);
         }
     }
 

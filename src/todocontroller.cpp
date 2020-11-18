@@ -7,7 +7,7 @@
 #include "todocontroller.h"
 #include "localcalendar.h"
 #include <KCalendarCore/Todo>
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 #include <KLocalizedString>
 #include <QDebug>
 
@@ -15,10 +15,10 @@ TodoController::TodoController(QObject *parent) : QObject(parent) {}
 
 TodoController::~TodoController() = default;
 
-void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
+void TodoController::addEdit(LocalCalendar *localCalendar, const QVariantMap &todo)
 {
     qDebug() << "Adding/updating todo";
-    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    Calendar::Ptr calendar = localCalendar->calendar();
     Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
     QString uid = todo["uid"].toString();
@@ -32,7 +32,7 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
         vtodo = Todo::Ptr(new Todo());
         vtodo->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     } else {
-        vtodo = memoryCalendar->todo(uid);
+        vtodo = calendar->todo(uid);
         vtodo->setUid(uid);
     }
 
@@ -84,25 +84,25 @@ void TodoController::addEdit(LocalCalendar *calendar, const QVariantMap &todo)
         ++itr;
     }
 
-    memoryCalendar->addTodo(vtodo);
-    bool merged = calendar->save();
+    calendar->addTodo(vtodo);
+    bool merged = localCalendar->save();
 
-    Q_EMIT calendar->todosChanged();
+    Q_EMIT localCalendar->todosChanged();
 
     qDebug() << "Todo added/updated: " << merged;
 }
 
-void TodoController::remove(LocalCalendar *calendar, const QVariantMap &todo)
+void TodoController::remove(LocalCalendar *localCalendar, const QVariantMap &todo)
 {
     qDebug() << "Deleting todo";
-    MemoryCalendar::Ptr memoryCalendar = calendar->memorycalendar();
+    Calendar::Ptr calendar = localCalendar->calendar();
     QString uid = todo["uid"].toString();
-    Todo::Ptr vtodo = memoryCalendar->todo(uid);
+    Todo::Ptr vtodo = calendar->todo(uid);
 
-    memoryCalendar->deleteTodo(vtodo);
-    bool removed = calendar->save();
+    calendar->deleteTodo(vtodo);
+    bool removed = localCalendar->save();
 
-    Q_EMIT calendar->todosChanged();
+    Q_EMIT localCalendar->todosChanged();
     qDebug() << "Todo deleted: " << removed;
 }
 
