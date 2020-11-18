@@ -6,7 +6,7 @@ if (NOT STATIC_LIBRARY)
     ecm_create_qm_loader(calindori_QM_LOADER calindori_qt)
 endif()
 
-set(calindori_SRCS
+add_executable(calindori
     main.cpp
     calindoriconfig.cpp
     localcalendar.cpp
@@ -18,13 +18,10 @@ set(calindori_SRCS
     daysofmonthincidencemodel.cpp
     incidencemodel.cpp
     alarmchecker.cpp
-    )
+    resources.qrc
+)
 
-qt5_add_resources(RESOURCES resources.qrc)
-
-add_executable(calindori ${calindori_SRCS} ${RESOURCES})
 target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg Qt5::DBus KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons)
-
 
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS
