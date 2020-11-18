@@ -26,7 +26,7 @@ CalindoriConfig::CalindoriConfig(QObject *parent)
     : QObject(parent)
     , d(new Private)
 {
-    if ((d->config.group("general").readEntry("calendars", QString())).isEmpty() && (d->config.group("general").readEntry("externalCalendars", QString())).isEmpty()) {
+    if (internalCalendars().isEmpty() && (d->config.group("general").readEntry("externalCalendars", QString())).isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
         addInternalCalendar("personal");
         setActiveCalendar("personal");
@@ -75,17 +75,16 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
         });
     }
 
-    auto internalCalendars = d->config.group("general").readEntry("calendars", QString());
     auto externalCalendars = d->config.group("general").readEntry("externalCalendars", QString());
 
-    if (internalCalendars.isEmpty() && externalCalendars.isEmpty()) {
+    if (internalCalendars().isEmpty() && externalCalendars.isEmpty()) {
         return QVariantMap({
             {"success", true},
             {"reason", QString()}
         });
     }
 
-    auto calendarsList = internalCalendars.isEmpty() ? QStringList() : internalCalendars.split(";");
+    auto calendarsList = internalCalendars();
     if (!(externalCalendars.isEmpty())) {
         calendarsList.append(externalCalendars.split(";"));
     }
@@ -113,14 +112,10 @@ QVariantMap CalindoriConfig::addInternalCalendar(const QString &calendar)
         });
     }
 
-    auto calsStr = d->config.group("general").readEntry("calendars", QString());
-    if (calsStr.isEmpty()) {
-        d->config.group("general").writeEntry("calendars", calendar);
-    } else {
-        QStringList calendarsList = calsStr.split(";");
-        calendarsList.append(calendar);
-        d->config.group("general").writeEntry("calendars", calendarsList.join(";"));
-    }
+    QStringList calendars = internalCalendars();
+    calendars.append(calendar);
+    d->config.group("general").writeEntry("calendars", calendars.join(";"));
+
     d->config.sync();
     Q_EMIT internalCalendarsChanged();
 
@@ -161,8 +156,7 @@ void CalindoriConfig::removeCalendar(const QString &calendar)
 {
     d->config.reparseConfiguration();
 
-    auto iCalendarsStr = d->config.group("general").readEntry("calendars", QString());
-    auto iCalendarsList = iCalendarsStr.isEmpty() ? QStringList() : iCalendarsStr.split(";");
+    QStringList iCalendarsList = internalCalendars();
     auto eCalendarsStr = d->config.group("general").readEntry("externalCalendars", QString());
     auto eCalendarsList = eCalendarsStr.isEmpty() ? QStringList() : eCalendarsStr.split(";");
 
