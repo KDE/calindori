@@ -93,64 +93,6 @@ bool LocalCalendar::save()
     return false;
 }
 
-QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
-{
-    QVariantMap result;
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
-
-    QString targetPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/calindori_" + calendarName + ".ics" ;
-    QFile calendarFile(targetPath);
-
-    if (calendarFile.exists()) {
-        result["success"] = QVariant(false);
-        result["reason"] = QVariant(QString(i18n("A calendar with the same name already exists")));
-
-        return result;
-    }
-
-    result["targetPath"] = QVariant(QString(targetPath));
-
-    return result;
-}
-
-QVariantMap LocalCalendar::importCalendar(const QString &calendarName, const QUrl &sourcePath)
-{
-    QVariantMap result;
-    result["success"] = QVariant(false);
-
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
-    FileStorage::Ptr storage(new FileStorage(calendar));
-
-    QVariantMap canCreateCheck = canCreateFile(calendarName);
-    if (!(canCreateCheck["success"].toBool())) {
-        result["reason"] = QVariant(canCreateCheck["reason"].toString());
-
-        return result;
-    }
-
-    storage->setFileName(sourcePath.toString(QUrl::RemoveScheme));
-
-    if (!(storage->load())) {
-        result["reason"] = QVariant(QString(i18n("The calendar file is not valid")));
-
-        return result;
-    }
-
-    storage->setFileName(canCreateCheck["targetPath"].toString());
-
-    if (!(storage->save())) {
-        result["reason"] = QVariant(QString(i18n("The calendar file cannot be saved")));
-
-        return result;
-    }
-
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
-
-    return result;
-}
-
 void LocalCalendar::loadCalendar(const QString &calendarName)
 {
     m_fullpath = m_config->calendarFile(calendarName);

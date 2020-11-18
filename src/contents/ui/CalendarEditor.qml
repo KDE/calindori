@@ -15,8 +15,7 @@ Kirigami.Page {
 
     enum Mode {
         Create,
-        AddExisting,
-        Import
+        AddExisting
     }
     property alias calendarName: nameInput.text
     property alias activeCalendar: isactive.checked
@@ -27,17 +26,6 @@ Kirigami.Page {
     signal calendarAddCanceled
 
     title: i18n("New calendar")
-
-    function importCalendar() {
-        var importResult = calendarController.importCalendar(root.calendarName, root.calendarFile);
-
-        if(!(importResult.success)) {
-            showPassiveNotification(i18n("Calendar not imported. %1",importResult.reason));
-            return;
-        }
-
-        addLocalCalendarCfgEntry();
-    }
 
     function addLocalCalendarCfgEntry() {
         var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName);
@@ -127,9 +115,6 @@ Kirigami.Page {
                 }
 
                 switch(mode) {
-                    case CalendarEditor.Mode.Import:
-                        importCalendar();
-                        break;
                     case CalendarEditor.Mode.AddExisting:
                         addSharedCalendarCfgEntry();
                         break;
