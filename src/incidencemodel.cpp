@@ -366,7 +366,7 @@ bool IncidenceModel::withinFilter(const KCalendarCore::Event::Ptr event, const Q
     auto filterStart = filterDate.startOfDay(QTimeZone::systemTimeZone()).addSecs(m_filter_hour * 3600);
     auto filterEnd = filterDate.startOfDay(QTimeZone::systemTimeZone()).addSecs(m_filter_hour * 3600 + 3599);
 
-    auto eventStartWithinFilter = event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStart && event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterStart;
+    auto eventStartWithinFilter = event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) >= filterStart && event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) <= filterEnd;
     auto eventEndWithinFilter = event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) > filterStart && event->dtEnd().toTimeZone(QTimeZone::systemTimeZone()) <= filterEnd;
     auto filterWithinEvent =  event->dtStart().toTimeZone(QTimeZone::systemTimeZone()) < filterStart && filterEnd < event->dtEnd().toTimeZone(QTimeZone::systemTimeZone());
 
