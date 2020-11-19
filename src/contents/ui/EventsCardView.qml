@@ -27,18 +27,6 @@ Kirigami.ScrollablePage {
         onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : _eventController.localSystemDateTime()})
     }
 
-    Component {
-        id: eventEditor
-
-        EventEditor {
-            calendar: localCalendar
-
-            onEditcompleted: {
-                pageStack.pop(eventEditor);
-            }
-        }
-    }
-
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -85,4 +73,15 @@ Kirigami.ScrollablePage {
         calendar: root.calendar
         filterMode: 5
     }
+
+    Component {
+        id: eventEditor
+
+        EventEditor {
+            calendar: localCalendar
+
+            onEditcompleted: pageStack.pop(root)
+        }
+    }
+
 }

@@ -27,15 +27,6 @@ Kirigami.ScrollablePage {
     leftPadding: 0
     rightPadding: 0
 
-    Component {
-        id: todoEditor
-        TodoEditor {
-            calendar: localCalendar
-
-            onEditcompleted: pageStack.pop(todoEditor)
-        }
-    }
-
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -82,4 +73,14 @@ Kirigami.ScrollablePage {
         calendar: root.calendar
         filterMode: 6
     }
+
+    Component {
+        id: todoEditor
+        TodoEditor {
+            calendar: localCalendar
+
+            onEditcompleted: pageStack.pop(root)
+        }
+    }
+
 }

@@ -13,6 +13,16 @@ Kirigami.ApplicationWindow {
 
     signal switchToMonthPage(var sDate, var cActionIndex)
 
+    /**
+     * Starting from the last page in the stack, remove every page of the stack
+     */
+    function popAll()
+    {
+        while (pageStack.depth > 0) {
+            pageStack.pop();
+        }
+    }
+
     globalDrawer: CalindoriGlobalDrawer {
         id: globalDrawer
 
@@ -51,7 +61,7 @@ Kirigami.ApplicationWindow {
     }
 
     onSwitchToMonthPage: {
-        pageStack.clear();
+        popAll();
         pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: Kirigami.Settings.isMobile ? -1 : cActionIndex});
     }
 }
