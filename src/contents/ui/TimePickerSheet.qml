@@ -26,9 +26,8 @@ Kirigami.OverlaySheet {
 
     contentItem: TimePicker {
         id: timePicker
-
         height: Kirigami.Units.gridUnit * 25
-        width: childrenRect.width + timePickerSheet.rightPadding + timePickerSheet.leftPadding
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 25
     }
 
     footer: RowLayout {
