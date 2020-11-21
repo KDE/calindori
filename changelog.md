@@ -4,6 +4,15 @@
 -->
 # Changelog
 
+## Version 1.3
+- When running on Plasma, use the Solid wake-up features
+- Fix the positioning of the delete confirmation dialog
+- Conditionally hide completed tasks in the All Tasks view
+- Support external calendar files that can be updated by another application
+- Fix display of repeating events on day and month views
+- On the calendar month view, show all-day tasks into the day that they are part of
+- Show multi day events properly on day and week views
+
 ## Version 1.2
 - Calendar import functionality on desktop has been fixed
 - Mobile-desktop convergence improvements
