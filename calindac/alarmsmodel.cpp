@@ -36,7 +36,7 @@ void AlarmsModel::loadAlarms()
         if (m_period.from.isValid() && m_period.to.isValid()) {
             calendarAlarms = m->alarms(m_period.from, m_period.to, true);
         } else if (!(m_period.from.isValid()) && m_period.to.isValid()) {
-            calendarAlarms = m->alarmsTo(m_period.to);
+            calendarAlarms = m->alarms(QDateTime(QDate(1900, 1, 1), QTime(0, 0, 0)), m_period.to);
         }
 
         if (!(calendarAlarms.empty())) {
