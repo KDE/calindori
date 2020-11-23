@@ -91,8 +91,8 @@ Controls2.SwipeView {
     Connections {
         target: cal
 
-        onTodosChanged: monthView.reloadSelectedDate()
-        onEventsChanged: monthView.reloadSelectedDate()
+        function onTodosChanged () { monthView.reloadSelectedDate(); }
+        function onEventsChanged () { monthView.reloadSelectedDate(); }
     }
 
     Component.onCompleted: {
