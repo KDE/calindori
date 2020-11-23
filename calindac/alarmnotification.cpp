@@ -16,10 +16,10 @@ AlarmNotification::AlarmNotification(NotificationHandler *handler, const QString
 
     connect(m_notification, &KNotification::action1Activated, this, &AlarmNotification::suspend);
     connect(m_notification, &KNotification::action2Activated, this, &AlarmNotification::dismiss);
-    connect(this, &AlarmNotification::suspend, m_notification_handler, [ = ]() {
+    connect(this, &AlarmNotification::suspend, m_notification_handler, [this]() {
         m_notification_handler->suspend(this);
     });
-    connect(this, &AlarmNotification::dismiss, m_notification_handler, [ = ]() {
+    connect(this, &AlarmNotification::dismiss, m_notification_handler, [this]() {
         m_notification_handler->dismiss(this);
     });
 }
