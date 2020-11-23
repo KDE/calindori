@@ -18,14 +18,14 @@ class ReccurencePeriodModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(ushort noRepeat READ noRepeat CONSTANT);
-    Q_PROPERTY(ushort repeatYearlyDay READ repeatYearlyDay CONSTANT);
-    Q_PROPERTY(ushort repeatYearlyMonth READ repeatYearlyMonth CONSTANT);
-    Q_PROPERTY(ushort repeatYearlyPos READ repeatYearlyPos CONSTANT);
-    Q_PROPERTY(ushort repeatMonthlyDay READ repeatMonthlyDay CONSTANT);
-    Q_PROPERTY(ushort repeatMonthlyPos READ repeatMonthlyPos CONSTANT);
-    Q_PROPERTY(ushort repeatWeekly READ repeatWeekly CONSTANT);
-    Q_PROPERTY(ushort repeatDaily READ repeatDaily CONSTANT);
+    Q_PROPERTY(ushort noRepeat READ noRepeat CONSTANT)
+    Q_PROPERTY(ushort repeatYearlyDay READ repeatYearlyDay CONSTANT)
+    Q_PROPERTY(ushort repeatYearlyMonth READ repeatYearlyMonth CONSTANT)
+    Q_PROPERTY(ushort repeatYearlyPos READ repeatYearlyPos CONSTANT)
+    Q_PROPERTY(ushort repeatMonthlyDay READ repeatMonthlyDay CONSTANT)
+    Q_PROPERTY(ushort repeatMonthlyPos READ repeatMonthlyPos CONSTANT)
+    Q_PROPERTY(ushort repeatWeekly READ repeatWeekly CONSTANT)
+    Q_PROPERTY(ushort repeatDaily READ repeatDaily CONSTANT)
 
 public:
     enum RoleNames {
