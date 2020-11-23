@@ -100,7 +100,6 @@ Kirigami.Page {
         anchors.fill: parent
         cal: root.calendar
 
-        anchors.centerIn: parent
         showHeader: true
         showMonthName: false
         showYear: false
