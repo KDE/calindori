@@ -31,6 +31,7 @@ Item {
     property int displayedYear
     property var reloadSelectedDate: function() {}
     property var applicationLocale: Qt.locale()
+    property bool loadAsync: false
 
     /**
      * A model that provides:
@@ -47,85 +48,109 @@ Item {
 
     onSelectedDateChanged: reloadSelectedDate()
 
-    ColumnLayout {
+    Loader {
+        id: monthViewLoader
+
         anchors.centerIn: parent
 
-        spacing:  Kirigami.Units.gridUnit / 4
+        visible: status == Loader.Ready
+        sourceComponent: viewLayoutComponent
+        asynchronous: root.loadAsync
+    }
 
-        /**
-         * Optional header on top of the table
-         * that displays the current date and
-         * the amount of the day's tasks
-         */
-        CalendarHeader {
-            id: calendarHeader
+    Controls2.BusyIndicator {
+        anchors.centerIn: parent
 
-            Layout.bottomMargin: Kirigami.Units.gridUnit / 2
-            applicationLocale: root.applicationLocale
-            headerDate: root.selectedDate
-            headerTodosCount: root.selectedDayTodosCount
-            headerEventsCount: root.selectedDayEventsCount
-            visible: root.showHeader
-        }
+        running: !monthViewLoader.visible
+        implicitWidth: Kirigami.Units.iconSizes.enormous
+        implicitHeight: width
+    }
 
+    Component {
+        id: viewLayoutComponent
 
-        RowLayout {
+        ColumnLayout {
+            id: viewLayout
 
-            Controls2.Label {
-                visible: showMonthName
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: displayedMonthName
+            anchors.centerIn: parent
+
+            spacing: Kirigami.Units.gridUnit / 4
+
+            /**
+            * Optional header on top of the table
+            * that displays the current date and
+            * the amount of the day's tasks
+            */
+            CalendarHeader {
+                id: calendarHeader
+
+                Layout.bottomMargin: Kirigami.Units.gridUnit / 2
+                applicationLocale: root.applicationLocale
+                headerDate: root.selectedDate
+                headerTodosCount: root.selectedDayTodosCount
+                headerEventsCount: root.selectedDayEventsCount
+                visible: root.showHeader
             }
 
-            Controls2.Label {
-                visible: showYear
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: displayedYear
-            }
-        }
 
-        /**
-         * Styled week day names of the days' calendar grid
-         * E.g.
-         * Mon Tue Wed ...
-         */
-        RowLayout {
-            spacing: 0
+            RowLayout {
 
-            Repeater {
-                model: root.days
-                delegate:
-                    Rectangle {
-                        width: root.dayRectWidth
-                        height: width
-                        color: Kirigami.Theme.disabledTextColor
-                        opacity: 0.8
+                Controls2.Label {
+                    visible: showMonthName
+                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                    text: displayedMonthName
+                }
 
-                        Controls2.Label {
-                            anchors.centerIn: parent
-                            color: Kirigami.Theme.textColor
-                            text: root.applicationLocale.dayName(((model.index + root.applicationLocale.firstDayOfWeek) % root.days), Locale.ShortFormat)
-                        }
+                Controls2.Label {
+                    visible: showYear
+                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                    text: displayedYear
                 }
             }
-        }
 
-        /**
-         * Grid that displays the days of a month (normally 6x7)
-         */
-        Grid {
-            Layout.fillWidth: true
-            columns: root.days
-            rows: root.weeks
+            /**
+            * Styled week day names of the days' calendar grid
+            * E.g.
+            * Mon Tue Wed ...
+            */
+            RowLayout {
+                spacing: 0
 
-            Repeater {
-                model: root.daysModel
-                delegate: DayDelegate {
-                    currentDate: root.currentDate
-                    delegateWidth: root.dayRectWidth
-                    selectedDate: root.selectedDate
+                Repeater {
+                    model: root.days
+                    delegate:
+                        Rectangle {
+                            width: root.dayRectWidth
+                            height: width
+                            color: Kirigami.Theme.disabledTextColor
+                            opacity: 0.8
 
-                    onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber, root.selectedDate.getHours(), root.selectedDate.getMinutes(), 0)
+                            Controls2.Label {
+                                anchors.centerIn: parent
+                                color: Kirigami.Theme.textColor
+                                text: root.applicationLocale.dayName(((model.index + root.applicationLocale.firstDayOfWeek) % root.days), Locale.ShortFormat)
+                            }
+                    }
+                }
+            }
+
+            /**
+            * Grid that displays the days of a month (normally 6x7)
+            */
+            Grid {
+                Layout.fillWidth: true
+                columns: root.days
+                rows: root.weeks
+
+                Repeater {
+                    model: root.daysModel
+                    delegate: DayDelegate {
+                        currentDate: root.currentDate
+                        delegateWidth: root.dayRectWidth
+                        selectedDate: root.selectedDate
+
+                        onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber, root.selectedDate.getHours(), root.selectedDate.getMinutes(), 0)
+                    }
                 }
             }
         }

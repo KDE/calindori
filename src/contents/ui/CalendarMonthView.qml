@@ -128,6 +128,7 @@ Controls2.SwipeView {
             daysModel: mm
             selectedDate: _eventController.localSystemDateTime()
             currentDate: _eventController.localSystemDateTime()
+            loadAsync: true
 
             reloadSelectedDate: function() {
                 selectedDayTodosCount = cal.todosCount(root.selectedDate)
