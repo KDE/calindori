@@ -6,7 +6,6 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
-import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
 
 /*
@@ -54,7 +53,7 @@ Item {
         anchors.centerIn: parent
 
         visible: status == Loader.Ready
-        sourceComponent: viewLayoutComponent
+        sourceComponent: mainViewComponent
         asynchronous: root.loadAsync
     }
 
@@ -64,17 +63,18 @@ Item {
         running: !monthViewLoader.visible
         implicitWidth: Kirigami.Units.iconSizes.enormous
         implicitHeight: width
+
     }
 
     Component {
-        id: viewLayoutComponent
+        id: mainViewComponent
 
-        ColumnLayout {
-            id: viewLayout
+        Column {
+            id: mainView
 
             anchors.centerIn: parent
 
-            spacing: Kirigami.Units.gridUnit / 4
+            spacing: Kirigami.Units.smallSpacing
 
             /**
             * Optional header on top of the table
@@ -84,7 +84,6 @@ Item {
             CalendarHeader {
                 id: calendarHeader
 
-                Layout.bottomMargin: Kirigami.Units.gridUnit / 2
                 applicationLocale: root.applicationLocale
                 headerDate: root.selectedDate
                 headerTodosCount: root.selectedDayTodosCount
@@ -93,7 +92,7 @@ Item {
             }
 
 
-            RowLayout {
+            Row {
 
                 Controls2.Label {
                     visible: showMonthName
@@ -113,7 +112,7 @@ Item {
             * E.g.
             * Mon Tue Wed ...
             */
-            RowLayout {
+            Row {
                 spacing: 0
 
                 Repeater {
@@ -138,7 +137,6 @@ Item {
             * Grid that displays the days of a month (normally 6x7)
             */
             Grid {
-                Layout.fillWidth: true
                 columns: root.days
                 rows: root.weeks
 

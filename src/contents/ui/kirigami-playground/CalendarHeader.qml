@@ -20,7 +20,7 @@ ColumnLayout {
     RowLayout {
         id: selectedDayHeading
 
-        spacing:  Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.largeSpacing
 
         Controls2.Label {
             font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 4
@@ -29,7 +29,7 @@ ColumnLayout {
         }
 
         ColumnLayout {
-            spacing:  Kirigami.Units.smallSpacing
+            spacing: Kirigami.Units.smallSpacing
 
             Controls2.Label {
                 text: root.headerDate.toLocaleDateString(applicationLocale, "dddd")
@@ -44,6 +44,7 @@ ColumnLayout {
     }
 
     Controls2.Label {
+        Layout.bottomMargin: Kirigami.Units.largeSpacing
         text: ((root.headerTodosCount > 0) ? i18np("%1 task", "%1 tasks",root.headerTodosCount) : "") +
                 ((root.headerTodosCount > 0 && root.headerEventsCount > 0) ? " and " : "") +
                     ((root.headerEventsCount > 0) ? i18np("%1 event", "%1 events",root.headerEventsCount) : "")

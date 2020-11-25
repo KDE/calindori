@@ -60,16 +60,16 @@ Rectangle {
             visible: incidenceCount > 0
         }
 
-        Controls2.ToolButton {
-            id: dayButton
+        Controls2.Label {
+            anchors.centerIn: parent
+            enabled: isCurrentMonth
+            text: model.dayNumber
+        }
 
+        MouseArea {
             anchors.fill: parent
             enabled: isCurrentMonth
-
-            text: model.dayNumber
-
             onClicked: dayDelegate.dayClicked()
         }
     }
-
 }
