@@ -30,8 +30,8 @@
                 {
                     "type": "git",
                     "url": "https://anongit.kde.org/kcalendarcore.git",
-                    "tag": "v5.74.0",
-                    "commit": "87f453f42af271182c4d74f09f8e3b2040f9595c"
+                    "tag": "v5.76.0",
+                    "commit": "0d1c3cf8cb32d94e0cd85fc555f0ef5da81bf81d"
                 }
             ],
             "modules": [
