@@ -59,7 +59,8 @@ public:
      * @return The method that should be triggered by the wakeup backend
      */
     void wakeupCallback();
-
+private Q_SLOTS:
+    void setupShceduler(const bool wakeupManagerActive);
 private:
     QString alarmText(const QString &uid) const;
     void checkAlarms();

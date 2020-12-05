@@ -10,9 +10,11 @@
 #include "wakeupbackend.h"
 
 class QDBusInterface;
+class QDBusServiceWatcher;
 
 class SolidWakeupBackend : public WakeupBackend
 {
+    Q_OBJECT
 public:
     explicit SolidWakeupBackend(QObject *parent = nullptr);
     virtual ~SolidWakeupBackend() = default;
@@ -35,8 +37,26 @@ public:
      */
     virtual void clearWakeup(const QVariant &scheduledWakeup) override;
 
+    /**
+     * @return True if the interface and the service of the backend exist
+     */
+    virtual bool isValid() override;
+
+    /**
+     * @return True if the backend offers wakeup features
+     */
+    virtual bool isWakeupBackend() override;
+
+Q_SIGNALS:
+    /**
+     * @brief Emit when the backend has changed
+     *
+     */
+    void backendChanged(const bool isActive);
+
 private:
     QDBusInterface *m_interface;
+    QDBusServiceWatcher *m_watcher;
 };
 
 #endif // SOLIDWAKEUPBACKEND_H

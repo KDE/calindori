@@ -11,8 +11,7 @@
 #include <QDateTime>
 #include <QVariantMap>
 
-class WakeupBackend;
-
+class SolidWakeupBackend;
 class WakeupManager : public QObject
 {
     Q_OBJECT
@@ -28,9 +27,14 @@ public:
     void scheduleWakeup(const QDateTime wakeupAt);
 
     /**
-     * @return True if there is a backend that offers wake-up features
+     * @return True if there is a backend that is up and running
      */
     bool active() const;
+
+    /**
+     * @return True if there is a backend that offers scheduling features
+     */
+    bool hasWakeupFeatures();
 
 Q_SIGNALS:
     /**
@@ -43,7 +47,7 @@ Q_SIGNALS:
      * @brief To be emited when wake-up manager status (active/not active) is changed
      *
      */
-    void activeChanged();
+    void activeChanged(const bool activeBackend);
 
 public Q_SLOTS:
 
@@ -57,11 +61,10 @@ public Q_SLOTS:
      */
     void removeWakeup(int cookie);
 
-private:
-    void checkBackend();
+private Q_SLOTS:
     void setActive(const bool activeBackend);
-
-    WakeupBackend *m_wakeup_backend;
+private:
+    SolidWakeupBackend *m_wakeup_backend;
     int m_cookie;
     QVariantMap m_callback_info;
     int m_active;

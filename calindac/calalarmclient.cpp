@@ -39,16 +39,11 @@ CalAlarmClient::CalAlarmClient(QObject *parent)
     saveSuspendSeconds();
     checkAlarms();
 
-    if ((m_wakeup_manager != nullptr) && (m_wakeup_manager->active())) {
-        qDebug() << "CalAlarmClient: wake up manager offers an active backend with wakeup features";
-        connect(m_wakeup_manager, &WakeupManager::wakeupAlarmClient, this, &CalAlarmClient::wakeupCallback);
-        connect(m_notification_handler, &NotificationHandler::scheduleAlarmCheck, this, &CalAlarmClient::scheduleAlarmCheck);
-        scheduleAlarmCheck();
-    } else {
-        qDebug() << "CalAlarmClient: No wakeup backend active, alarms will be checked with a timer";
-        connect(&m_check_timer, &QTimer::timeout, this, &CalAlarmClient::checkAlarms);
-        m_check_timer.start(1000 * m_check_interval);
-    }
+    connect(m_notification_handler, &NotificationHandler::scheduleAlarmCheck, this, &CalAlarmClient::scheduleAlarmCheck);
+    connect(&m_check_timer, &QTimer::timeout, this, &CalAlarmClient::checkAlarms);
+    connect(m_wakeup_manager, &WakeupManager::wakeupAlarmClient, this, &CalAlarmClient::wakeupCallback);
+    connect(m_wakeup_manager, &WakeupManager::activeChanged, this, &CalAlarmClient::setupShceduler);
+    setupShceduler((m_wakeup_manager != nullptr) && (m_wakeup_manager->active()));
 }
 
 CalAlarmClient::~CalAlarmClient() = default;
@@ -254,4 +249,20 @@ void CalAlarmClient::wakeupCallback()
 
     checkAlarms();
     scheduleAlarmCheck();
+}
+
+void CalAlarmClient::setupShceduler(const bool wakeupManagerActive)
+{
+    if (wakeupManagerActive && m_wakeup_manager->hasWakeupFeatures()) {
+        qDebug() << "setupShceduler: wake up manager offers an active backend with wakeup features";
+        if (m_check_timer.isActive()) {
+            m_check_timer.stop();
+        }
+        scheduleAlarmCheck();
+    } else {
+        qDebug() << "setupShceduler: No wakeup backend, alarms will be checked by a timer";
+        if (!m_check_timer.isActive()) {
+            m_check_timer.start(1000 * m_check_interval);
+        }
+    }
 }
