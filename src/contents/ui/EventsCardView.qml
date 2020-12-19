@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         icon.name: "resource-calendar-insert"
         text: i18n("New Event")
-        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : _eventController.localSystemDateTime()})
+        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : Calindori.CalendarController.localSystemDateTime()})
     }
 
     Kirigami.PlaceholderMessage {
@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
 
                     onTriggered: {
                         var vevent = { uid: model.uid } ;
-                        _eventController.remove(root.calendar, vevent);
+                        Calindori.CalendarController.removeEvent(root.calendar, vevent);
                     }
                 },
 

@@ -7,6 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.calindori 0.1 as Calindori
 
 Controls2.ToolButton {
     id: root
@@ -18,7 +19,7 @@ Controls2.ToolButton {
     implicitWidth: Kirigami.Units.gridUnit * 5
 
     onClicked: {
-        datePickerSheet.selectedDate = (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate: _eventController.localSystemDateTime()
+        datePickerSheet.selectedDate = (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate: Calindori.CalendarController.localSystemDateTime()
         datePickerSheet.open();
     }
 

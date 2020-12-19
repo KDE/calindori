@@ -31,6 +31,23 @@ public:
     void importCalendarData(const QByteArray &data);
     Q_INVOKABLE void importFromBuffer(LocalCalendar *localCalendar);
     Q_INVOKABLE void abortImporting();
+    Q_INVOKABLE void removeEvent(LocalCalendar *localCalendar, const QVariantMap &event);
+    Q_INVOKABLE void upsertEvent(LocalCalendar *localCalendar, const QVariantMap &event);
+    /**
+     * @brief Returns the current datetime in the local time zone
+     *
+     * @return QDateTime
+     */
+    Q_INVOKABLE QDateTime localSystemDateTime() const;
+    /**
+     * @brief Validate an event before saving
+     *
+     * @return A QVariantMap response to be handled by the caller
+     */
+    Q_INVOKABLE QVariantMap validateEvent(const QVariantMap &eventMap) const;
+    Q_INVOKABLE void removeTodo(LocalCalendar *localCalendar, const QVariantMap &todo);
+    Q_INVOKABLE void upsertTodo(LocalCalendar *localCalendar, const QVariantMap &todo);
+    Q_INVOKABLE QVariantMap validateTodo(const QVariantMap &todo) const;
 
 Q_SIGNALS:
     void statusMessageChanged(const QString &statusMessage, const int messageType);

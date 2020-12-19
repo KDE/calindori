@@ -10,8 +10,6 @@ add_executable(calindori
     main.cpp
     calindoriconfig.cpp
     localcalendar.cpp
-    eventcontroller.cpp
-    todocontroller.cpp
     incidencealarmsmodel.cpp
     daysofmonthmodel.cpp
     recurrenceperiodmodel.cpp

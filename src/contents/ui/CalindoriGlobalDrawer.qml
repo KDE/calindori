@@ -52,7 +52,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popAll();
-                    pageStack.push(weekView, { startDate: _eventController.localSystemDateTime() } );
+                    pageStack.push(weekView, { startDate: Calindori.CalendarController.localSystemDateTime() } );
                 }
             }
 

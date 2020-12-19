@@ -59,7 +59,7 @@ void DataHandler::importFromUrl(const QUrl &url)
         QNetworkRequest req {reqUrl};
         req.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
         m_network_manager->get(req);
-        connect(m_network_manager, &QNetworkAccessManager::finished, [this](QNetworkReply *reply) {
+        connect(m_network_manager, &QNetworkAccessManager::finished, [this](QNetworkReply * reply) {
             if (reply->error() != QNetworkReply::NoError) {
                 qDebug() << reply->url() << reply->errorString();
                 return;

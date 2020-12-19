@@ -249,10 +249,10 @@ Kirigami.Page {
             onTriggered: {
                 var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.endDt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter};
 
-                var validation = _eventController.validate(vevent);
+                var validation = Calindori.CalendarController.validateEvent(vevent);
 
                 if(validation.success) {
-                    _eventController.addEdit(root.calendar, vevent);
+                    Calindori.CalendarController.upsertEvent(root.calendar, vevent);
                     editcompleted(vevent);
                 }
                 else {

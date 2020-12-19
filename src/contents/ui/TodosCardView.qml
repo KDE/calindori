@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
 
                     onTriggered: {
                         var vtodo = { "uid" : model.uid };
-                        _todoController.remove(root.calendar, vtodo);
+                        Calindori.CalendarController.removeTodo(root.calendar, vtodo);
                     }
                 },
 

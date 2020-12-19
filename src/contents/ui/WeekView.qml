@@ -8,7 +8,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
-import org.kde.calindori 0.1
+import org.kde.calindori 0.1 as Calindori
 
 ListView {
     id: root
@@ -123,7 +123,7 @@ ListView {
                 rows: wideScreen ? 1 : -1
 
                 Repeater {
-                    model: IncidenceModel {
+                    model: Calindori.IncidenceModel {
                         appLocale: _appLocale
                         calendar: root.cal
                         filterDt: moveDate(root.selectedWeekDate, dayListItem.weekDay)
@@ -212,11 +212,11 @@ ListView {
         operation: function() {
             if(incidenceData.type == 0)
             {
-                _eventController.remove(root.cal, incidenceData);
+                Calindori.CalendarController.removeEvent(root.cal, incidenceData);
             }
             else
             {
-                _todoController.remove(root.cal, incidenceData);
+                Calindori.CalendarController.removeTodo(root.cal, incidenceData);
             }
             pageStack.pop(incidencePage);
         }

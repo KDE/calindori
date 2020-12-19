@@ -281,10 +281,10 @@ Kirigami.Page {
             onTriggered: {
                 var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description, "location": root.location, "completed": root.completed, "dueDate": root.dueDt, "dueHour": root.dueHour + (root.duePm ? 12 : 0), "dueMinute": root.dueMinute, "alarms": incidenceAlarmsModel.alarms() };
 
-                var validation = _todoController.validate(vtodo);
+                var validation = Calindori.CalendarController.validateTodo(vtodo);
 
                 if(validation.success) {
-                    _todoController.addEdit(root.calendar, vtodo);
+                    Calindori.CalendarController.upsertTodo(root.calendar, vtodo);
                     editcompleted();
                 }
                 else {

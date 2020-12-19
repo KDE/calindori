@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
         icon.name: "resource-calendar-insert"
         text: i18n("Add")
         onTriggered: {
-            var currentDt = _eventController.localSystemDateTime();
+            var currentDt = Calindori.CalendarController.localSystemDateTime();
             var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
             pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
@@ -129,9 +129,9 @@ Kirigami.ScrollablePage {
 
                 operation: function() {
                     if(incidenceType == 0) {
-                        _eventController.remove(root.calendar, incidenceData);
+                        Calindori.CalendarController.removeEvent(root.calendar, incidenceData);
                     } else {
-                        _todoController.remove(root.calendar, incidenceData);
+                        Calindori.CalendarController.removeTodo(root.calendar, incidenceData);
                     }
                     pageStack.pop(incidencePage);
                 }

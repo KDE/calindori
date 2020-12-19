@@ -6,7 +6,7 @@
 
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
-import org.kde.calindori 0.1
+import org.kde.calindori 0.1 as Calindori
 
 MonthView {
     id: root
@@ -20,8 +20,8 @@ MonthView {
     displayedMonthName: _appLocale.standaloneMonthName(mm.month-1)
     daysModel: mm
     applicationLocale: _appLocale
-    selectedDate: _eventController.localSystemDateTime()
-    currentDate: _eventController.localSystemDateTime()
+    selectedDate: Calindori.CalendarController.localSystemDateTime()
+    currentDate: Calindori.CalendarController.localSystemDateTime()
 
     Layout.preferredHeight: childrenRect.height
     Layout.preferredWidth: childrenRect.width
@@ -29,7 +29,7 @@ MonthView {
     onNextMonth: mm.goNextMonth()
     onPreviousMonth: mm.goPreviousMonth()
 
-    DaysOfMonthModel {
+    Calindori.DaysOfMonthModel {
         id: mm
         year: selectedDate.getFullYear()
         month: selectedDate.getMonth() + 1

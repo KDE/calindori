@@ -21,8 +21,6 @@
 #endif
 #include "calindoriconfig.h"
 #include "localcalendar.h"
-#include "eventcontroller.h"
-#include "todocontroller.h"
 #include "incidencealarmsmodel.h"
 #include "daysofmonthmodel.h"
 #include "recurrenceperiodmodel.h"
@@ -79,8 +77,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<CalindoriConfig>("org.kde.calindori", 0, 1, "CalindoriConfig");
     qmlRegisterType<LocalCalendar>("org.kde.calindori", 0, 1, "LocalCalendar");
-    qmlRegisterType<EventController>("org.kde.calindori", 0, 1, "EventController");
-    qmlRegisterType<TodoController>("org.kde.calindori", 0, 1, "TodoController");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori", 0, 1, "IncidenceAlarmsModel");
     qmlRegisterType<DaysOfMonthModel>("org.kde.calindori", 0, 1, "DaysOfMonthModel");
     qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori", 0, 1, "ReccurencePeriodModel");
@@ -123,12 +119,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-
-    TodoController todoController;
-    engine.rootContext()->setContextProperty(QStringLiteral("_todoController"), &todoController);
-
-    EventController eventController;
-    engine.rootContext()->setContextProperty(QStringLiteral("_eventController"), &eventController);
 
     ReccurencePeriodModel repeatModel;
     engine.rootContext()->setContextProperty(QStringLiteral("_repeatModel"), &repeatModel);

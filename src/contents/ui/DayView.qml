@@ -8,12 +8,12 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
-import org.kde.calindori 0.1
+import org.kde.calindori 0.1 as Calindori
 
 ListView {
     id: root
 
-    property date selectedDate: _eventController.localSystemDateTime()
+    property date selectedDate: Calindori.CalendarController.localSystemDateTime()
     property var cal
     property bool wideScreen
 
@@ -50,7 +50,7 @@ ListView {
     }
 
     onGoToday: {
-        selectedDate = _eventController.localSystemDateTime();
+        selectedDate = Calindori.CalendarController.localSystemDateTime();
         currentIndex = selectedDate.getHours();
     }
 
@@ -102,7 +102,7 @@ ListView {
                 rows: root.wideScreen ? 1 : -1
 
                 Repeater {
-                    model: IncidenceModel {
+                    model: Calindori.IncidenceModel {
                         appLocale: _appLocale
                         calendar: root.cal
                         filterDt: root.selectedDate
@@ -190,11 +190,11 @@ ListView {
         operation: function() {
             if(incidenceData.type == 0)
             {
-                _eventController.remove(root.cal, incidenceData);
+                Calindori.CalendarController.removeEvent(root.cal, incidenceData);
             }
             else
             {
-                _todoController.remove(root.cal, incidenceData);
+                Calindori.CalendarController.removeTodo(root.cal, incidenceData);
             }
             pageStack.pop(incidencePage);
         }

@@ -8,7 +8,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.0 as Kirigami
-import org.kde.calindori 0.1
+import org.kde.calindori 0.1 as Calindori
 
 /**
  * Calendar component that displays:
@@ -57,7 +57,7 @@ Controls2.SwipeView {
 
     onGoToday: {
         mm.goCurrentMonth();
-        root.selectedDate = _eventController.localSystemDateTime();
+        root.selectedDate = Calindori.CalendarController.localSystemDateTime();
     }
 
     onCurrentItemChanged: manageIndex()
@@ -104,7 +104,7 @@ Controls2.SwipeView {
 
     orientation: Qt.Horizontal
 
-    DaysOfMonthIncidenceModel {
+    Calindori.DaysOfMonthIncidenceModel {
         id: mm
 
         year: monthView.selectedDate.getFullYear()
@@ -126,8 +126,8 @@ Controls2.SwipeView {
             selectedDayTodosCount: cal.todosCount(selectedDate)
             selectedDayEventsCount: cal.eventsCount(selectedDate)
             daysModel: mm
-            selectedDate: _eventController.localSystemDateTime()
-            currentDate: _eventController.localSystemDateTime()
+            selectedDate: Calindori.CalendarController.localSystemDateTime()
+            currentDate: Calindori.CalendarController.localSystemDateTime()
             loadAsync: true
 
             reloadSelectedDate: function() {
