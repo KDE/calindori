@@ -65,7 +65,7 @@ Kirigami.ApplicationWindow {
 
         property bool showActions: false
 
-        visible: true
+        visible: false
         showCloseButton: showActions === false
 
         actions: [
