@@ -63,3 +63,4 @@ Icon=calindori
 Type=Application
 Terminal=false
 Categories=Qt;KDE;Office;
+MimeType=text/calendar

@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
@@ -57,6 +57,49 @@ Kirigami.ApplicationWindow {
             loadWithAction: Kirigami.Settings.isMobile ? -1 : 1
 
             onPageEnd: switchToMonthPage(lastDate, lastActionIndex)
+        }
+    }
+
+    Kirigami.InlineMessage {
+        id: importMessage
+
+        property bool showActions: false
+
+        visible: true
+        showCloseButton: showActions === false
+
+        actions: [
+            Kirigami.Action {
+                visible: importMessage.showActions
+                icon.name: "dialog-ok"
+                text: i18n("Proceed")
+
+                onTriggered: {
+                   importMessage.visible = false;
+                   Calindori.CalendarController.importFromBuffer(localCalendar);
+                }
+            },
+            Kirigami.Action {
+                icon.name: "dialog-cancel"
+                text: i18n("Cancel")
+                visible: importMessage.showActions
+
+                onTriggered: {
+                    importMessage.visible = false;
+                    Calindori.CalendarController.abortImporting(localCalendar);
+                }
+            }
+        ]
+
+        Connections {
+            target: Calindori.CalendarController
+            onStatusMessageChanged: {
+                importMessage.text = statusMessage;
+                importMessage.visible = true;
+                importMessage.type = (messageType === 0) ? Kirigami.MessageType.Information : (messageType === 1 ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning);
+                importMessage.showActions = (messageType === 0);
+                pageStack.firstVisibleItem.footer = importMessage;
+            }
         }
     }
 

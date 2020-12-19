@@ -18,10 +18,12 @@ add_executable(calindori
     daysofmonthincidencemodel.cpp
     incidencemodel.cpp
     alarmchecker.cpp
+    datahandler.cpp
+    calendarcontroller.cpp
     resources.qrc
 )
 
-target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg Qt5::DBus KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons)
+target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Test Qt5::Svg Qt5::DBus Qt5::Network KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons KF5::DBusAddons)
 
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS

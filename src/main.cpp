@@ -5,14 +5,20 @@
  */
 
 #include <QApplication>
+#include <QGuiApplication>
+#include <QDir>
+#include <QDebug>
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include <QUrl>
 #include <QVariant>
+#include <QWindow>
 #include <KAboutData>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-
+#ifndef Q_OS_ANDROID
+#include <KDBusService>
+#endif
 #include "calindoriconfig.h"
 #include "localcalendar.h"
 #include "eventcontroller.h"
@@ -22,6 +28,21 @@
 #include "recurrenceperiodmodel.h"
 #include "daysofmonthincidencemodel.h"
 #include "incidencemodel.h"
+#include "datahandler.h"
+#include "calendarcontroller.h"
+
+void handleArgument(DataHandler *dataHandler, const QStringList &args)
+{
+    if (!args.isEmpty()) {
+        const auto file = args.constFirst();
+        const auto localUrl = QUrl::fromLocalFile(file);
+        if (QFile::exists(localUrl.toLocalFile())) {
+            dataHandler->importFromUrl(localUrl);
+        } else {
+            dataHandler->importFromUrl(QUrl::fromUserInput(file));
+        }
+    }
+}
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -47,6 +68,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+#ifndef Q_OS_ANDROID
+    KDBusService service(KDBusService::Unique);
+#endif
+
     QApplication::setApplicationName(aboutData.componentName());
     QApplication::setApplicationDisplayName(aboutData.displayName());
     QApplication::setOrganizationDomain(aboutData.organizationDomain());
@@ -61,6 +86,40 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori", 0, 1, "ReccurencePeriodModel");
     qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori", 0, 1, "DaysOfMonthIncidenceModel");
     qmlRegisterType<IncidenceModel>("org.kde.calindori", 0, 1, "IncidenceModel");
+
+    qmlRegisterSingletonType<DataHandler>("org.kde.calindori", 0, 1, "DataHandler", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
+        auto instance = DataHandler::instance();
+        engine->setObjectOwnership(instance, QQmlEngine::CppOwnership);
+
+        return instance;
+    });
+
+    static CalendarController *s_calendar_controller = nullptr;
+    qmlRegisterSingletonType<CalendarController>("org.kde.calindori", 0, 1, "CalendarController", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
+        engine->setObjectOwnership(s_calendar_controller, QQmlEngine::CppOwnership);
+
+        return s_calendar_controller;
+    });
+
+    CalendarController calendarController;
+    s_calendar_controller = &calendarController;
+
+    DataHandler dataHandler;
+    dataHandler.setCalendarController(&calendarController);
+
+#ifndef Q_OS_ANDROID
+    QObject::connect(&service, &KDBusService::activateRequested, [&parser, &dataHandler](const QStringList & args, const QString & workingDir) {
+        qDebug() << "remote activation" << args << workingDir;
+        if (!args.isEmpty()) {
+            QDir::setCurrent(workingDir);
+            parser.parse(args);
+            handleArgument(&dataHandler, parser.positionalArguments());
+        }
+        if (!QGuiApplication::allWindows().isEmpty()) {
+            QGuiApplication::allWindows().at(0)->requestActivate();
+        }
+    });
+#endif
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
@@ -85,6 +144,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
+
+    handleArgument(&dataHandler, parser.positionalArguments());
 
     int ret = app.exec();
     return ret;
