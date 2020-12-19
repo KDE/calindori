@@ -60,7 +60,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Kirigami.InlineMessage {
+    footer: Kirigami.InlineMessage {
         id: importMessage
 
         property bool showActions: false
@@ -98,7 +98,6 @@ Kirigami.ApplicationWindow {
                 importMessage.visible = true;
                 importMessage.type = (messageType === 0) ? Kirigami.MessageType.Information : (messageType === 1 ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning);
                 importMessage.showActions = (messageType === 0);
-                pageStack.firstVisibleItem.footer = importMessage;
             }
         }
     }
