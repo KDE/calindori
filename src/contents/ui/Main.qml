@@ -67,6 +67,7 @@ Kirigami.ApplicationWindow {
 
         visible: false
         showCloseButton: showActions === false
+        leftPadding: (globalDrawer.drawerOpen ? globalDrawer.width : 0) + Kirigami.Units.smallSpacing
 
         actions: [
             Kirigami.Action {
