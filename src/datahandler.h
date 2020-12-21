@@ -21,7 +21,7 @@ public:
     ~DataHandler();
 
     void setCalendarController(CalendarController *calendarController);
-    void importFromUrl(const QUrl &url);
+    Q_INVOKABLE void importFromUrl(const QUrl &url);
     void importData(const QByteArray &data);
 
     static DataHandler *instance();

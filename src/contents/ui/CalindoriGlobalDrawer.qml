@@ -190,13 +190,10 @@ Kirigami.GlobalDrawer {
     Kirigami.Action {
         id: calendarImportAction
 
-        text: i18n("Import")
+        text: i18n("Import data")
         iconName: "document-import"
 
-        onTriggered: {
-            popAll();
-            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.Import})
-        }
+        onTriggered: fileChooser.open()
     }
 
     Kirigami.Action {
@@ -260,5 +257,11 @@ Kirigami.GlobalDrawer {
         {
             aboutData: _aboutData
         }
+    }
+
+    FileChooser {
+        id: fileChooser
+
+        onAccepted: Calindori.DataHandler.importFromUrl(fileUrl)
     }
 }

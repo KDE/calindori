@@ -115,43 +115,6 @@ QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
     return result;
 }
 
-QVariantMap LocalCalendar::importCalendar(const QString &calendarName, const QUrl &sourcePath)
-{
-    QVariantMap result;
-    result["success"] = QVariant(false);
-
-    Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
-    FileStorage::Ptr storage(new FileStorage(calendar));
-
-    QVariantMap canCreateCheck = canCreateFile(calendarName);
-    if (!(canCreateCheck["success"].toBool())) {
-        result["reason"] = QVariant(canCreateCheck["reason"].toString());
-
-        return result;
-    }
-
-    storage->setFileName(sourcePath.toString(QUrl::RemoveScheme));
-
-    if (!(storage->load())) {
-        result["reason"] = QVariant(QString(i18n("The calendar file is not valid")));
-
-        return result;
-    }
-
-    storage->setFileName(canCreateCheck["targetPath"].toString());
-
-    if (!(storage->save())) {
-        result["reason"] = QVariant(QString(i18n("The calendar file cannot be saved")));
-
-        return result;
-    }
-
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
-
-    return result;
-}
-
 void LocalCalendar::loadCalendar(const QString &calendarName)
 {
     m_fullpath = m_config->calendarFile(calendarName);
@@ -162,11 +125,6 @@ void LocalCalendar::loadCalendar(const QString &calendarName)
         Q_EMIT todosChanged();
         Q_EMIT eventsChanged();
     }
-}
-
-QString LocalCalendar::fileNameFromUrl(const QUrl &sourcePath)
-{
-    return sourcePath.fileName();
 }
 
 void LocalCalendar::reloadStorage()

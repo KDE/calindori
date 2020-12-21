@@ -48,6 +48,7 @@ public:
     Q_INVOKABLE void removeTodo(LocalCalendar *localCalendar, const QVariantMap &todo);
     Q_INVOKABLE void upsertTodo(LocalCalendar *localCalendar, const QVariantMap &todo);
     Q_INVOKABLE QVariantMap validateTodo(const QVariantMap &todo) const;
+    Q_INVOKABLE QString fileNameFromUrl(const QUrl &sourcePath);
 
 Q_SIGNALS:
     void statusMessageChanged(const QString &statusMessage, const int messageType);

@@ -33,8 +33,6 @@ public:
 
     void setCalendar(Calendar::Ptr calendar);
     void setName(QString calendarName);
-    Q_INVOKABLE static QVariantMap importCalendar(const QString &calendarName, const QUrl &sourcePath);
-    Q_INVOKABLE static QString fileNameFromUrl(const QUrl &sourcePath);
     Q_INVOKABLE int todosCount(const QDate &date) const;
     Q_INVOKABLE int eventsCount(const QDate &date) const;
 public Q_SLOTS:

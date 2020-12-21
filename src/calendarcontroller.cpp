@@ -399,3 +399,8 @@ QVariantMap CalendarController::validateTodo(const QVariantMap &todo) const
 
     return result;
 }
+
+QString CalendarController::fileNameFromUrl(const QUrl &sourcePath)
+{
+    return sourcePath.fileName();
+}

@@ -15,8 +15,7 @@ Kirigami.Page {
 
     enum Mode {
         Create,
-        AddExisting,
-        Import
+        AddExisting
     }
     property alias calendarName: nameInput.text
     property alias activeCalendar: isactive.checked
@@ -27,17 +26,6 @@ Kirigami.Page {
     signal calendarAddCanceled
 
     title: i18n("New calendar")
-
-    function importCalendar() {
-        var importResult = calendarController.importCalendar(root.calendarName, root.calendarFile);
-
-        if(!(importResult.success)) {
-            showPassiveNotification(i18n("Calendar not imported. %1",importResult.reason));
-            return;
-        }
-
-        addLocalCalendarCfgEntry();
-    }
 
     function addLocalCalendarCfgEntry() {
         var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName);
@@ -89,11 +77,11 @@ Kirigami.Page {
         Controls2.Label {
             id: fileName
 
-            property bool showFileName: ( (root.mode == CalendarEditor.Mode.Import) || (root.mode == CalendarEditor.Mode.AddExisting)) && (root.calendarFile != "")
+            property bool showFileName: (root.mode == CalendarEditor.Mode.AddExisting) && (root.calendarFile != "")
 
             visible: showFileName
             Kirigami.FormData.label: i18n("File:")
-            text: showFileName ? calendarController.fileNameFromUrl(root.calendarFile) : ""
+            text: showFileName ? Calindori.CalendarController.fileNameFromUrl(root.calendarFile) : ""
         }
     }
 
@@ -114,7 +102,7 @@ Kirigami.Page {
             id: saveAction
 
             text: i18n("Save")
-            enabled: ((mode == CalendarEditor.Mode.AddExisting) || (mode == CalendarEditor.Mode.Import)) ? (root.calendarName != "" && root.calendarFile != "") : (root.calendarName != "")
+            enabled: (mode == CalendarEditor.Mode.AddExisting) ? (root.calendarName != "" && root.calendarFile != "") : (root.calendarName != "")
 
             icon.name : "dialog-ok"
 
@@ -127,9 +115,6 @@ Kirigami.Page {
                 }
 
                 switch(mode) {
-                    case CalendarEditor.Mode.Import:
-                        importCalendar();
-                        break;
                     case CalendarEditor.Mode.AddExisting:
                         addSharedCalendarCfgEntry();
                         break;
@@ -145,8 +130,8 @@ Kirigami.Page {
         right: Kirigami.Action {
             id: addFile
 
-            visible: (root.mode == CalendarEditor.Mode.Import) || (root.mode == CalendarEditor.Mode.AddExisting)
-            text: (root.mode == CalendarEditor.Mode.Import) ? i18n("Import") : i18n("Add")
+            visible: root.mode == CalendarEditor.Mode.AddExisting
+            text: i18n("Add")
             icon.name: "list-add"
 
             onTriggered: fileChooser.open()
@@ -158,10 +143,6 @@ Kirigami.Page {
         id: fileChooser
 
         onAccepted: root.calendarFile = fileUrl
-    }
-
-    Calindori.LocalCalendar {
-        id: calendarController
     }
 
 }
