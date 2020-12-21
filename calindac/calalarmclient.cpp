@@ -84,7 +84,7 @@ void CalAlarmClient::checkAlarms()
 
     qDebug() << "\ncheckAlarms:Check:" << checkFrom.toString() << " -" << m_last_check.toString();
 
-    FilterPeriod fPeriod { .from =  checkFrom, .to = m_last_check };
+    FilterPeriod fPeriod { .from = checkFrom, .to = m_last_check };
     m_alarms_model->setCalendarFiles(calendarFileList());
     m_alarms_model->setPeriod(fPeriod);
     m_notification_handler->setPeriod(fPeriod);
@@ -146,11 +146,11 @@ QString CalAlarmClient::dumpLastCheck() const
 QStringList CalAlarmClient::dumpAlarms() const
 {
     const auto start = QDateTime(QDate::currentDate(), QTime(0, 0), Qt::LocalTime);
-    const auto end = start.addDays(1).addSecs(-1);
+    const auto end = start.date().endOfDay();
 
     AlarmsModel model {};
     model.setCalendarFiles(calendarFileList());
-    model.setPeriod({ .from =  start, .to = end});
+    model.setPeriod({.from =  start, .to = end});
 
     auto lst = QStringList();
     const auto alarms = model.alarms();
@@ -229,9 +229,16 @@ void CalAlarmClient::scheduleAlarmCheck()
 
     AlarmsModel model {};
     model.setCalendarFiles(calendarFileList());
-    model.setPeriod({ .from =  m_last_check.addSecs(1), .to = m_last_check.addDays(1) });
+
+    model.setPeriod({.from = m_last_check.addSecs(1), .to = (m_last_check.addDays(1)).date().startOfDay()});
 
     auto wakeupAt = model.firstAlarmTime();
+
+    //Recurring events return the date of their first instance; shift them to the present
+    if (wakeupAt.date() < m_last_check.date()) {
+        wakeupAt.setDate(m_last_check.date());
+    }
+
     auto suspendedWakeupAt = m_notification_handler->firstSuspendedBefore(wakeupAt);
 
     if (suspendedWakeupAt.isValid() && suspendedWakeupAt < wakeupAt) {
@@ -240,7 +247,7 @@ void CalAlarmClient::scheduleAlarmCheck()
 
     qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << wakeupAt.toString("dd.MM.yyyy hh:mm:ss");
 
-    m_wakeup_manager->scheduleWakeup(wakeupAt.addSecs(1));
+    m_wakeup_manager->scheduleWakeup(wakeupAt);
 }
 
 void CalAlarmClient::wakeupCallback()
