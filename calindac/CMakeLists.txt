@@ -39,3 +39,6 @@ install(FILES
 
 install(FILES calindac.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
+set(SERV_EXEC ${KDE_INSTALL_FULL_BINDIR}/calindac)
+configure_file(org.kde.calindac.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.calindac.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.calindac.service DESTINATION ${KDE_INSTALL_FULL_DBUSSERVICEDIR})
