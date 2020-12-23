@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 ListView {
@@ -156,30 +156,6 @@ ListView {
 
         IncidencePage {
             calendar: root.cal
-
-            actions.left: Kirigami.Action {
-                text: i18n("Delete")
-                icon.name: "delete"
-
-                onTriggered: {
-                    deleteSheet.incidenceData = { uid: incidence.uid, summary: incidence.summary, type: incidence.type };
-                    deleteSheet.open();
-                }
-            }
-
-            actions.main: Kirigami.Action {
-                text: i18n("Close")
-                icon.name: "window-close-symbolic"
-
-                onTriggered: pageStack.pop(null)
-            }
-
-            actions.right: Kirigami.Action {
-                text: i18n("Edit")
-                icon.name: "document-edit-symbolic"
-
-                onTriggered: pageStack.push(incidence.type == 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
-            }
         }
     }
 
@@ -200,25 +176,6 @@ ListView {
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(todoEditor)
-        }
-    }
-
-    ConfirmationSheet {
-        id: deleteSheet
-
-        property var incidenceData
-
-        message: i18n("%1 will be deleted. Proceed?", incidenceData && incidenceData.summary);
-        operation: function() {
-            if(incidenceData.type == 0)
-            {
-                Calindori.CalendarController.removeEvent(root.cal, incidenceData);
-            }
-            else
-            {
-                Calindori.CalendarController.removeTodo(root.cal, incidenceData);
-            }
-            pageStack.pop(incidencePage);
         }
     }
 }

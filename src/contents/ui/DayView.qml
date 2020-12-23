@@ -133,30 +133,6 @@ ListView {
 
         IncidencePage {
             calendar: root.cal
-
-            actions.left: Kirigami.Action {
-                text: i18n("Delete")
-                icon.name: "delete"
-
-                onTriggered: {
-                    deleteSheet.incidenceData = { uid: incidence.uid, summary: incidence.summary, type: incidence.type };
-                    deleteSheet.open();
-                }
-            }
-
-            actions.main: Kirigami.Action {
-                text: i18n("Close")
-                icon.name: "window-close-symbolic"
-
-                onTriggered: pageStack.pop(null)
-            }
-
-            actions.right: Kirigami.Action {
-                text: i18n("Edit")
-                icon.name: "document-edit-symbolic"
-
-                onTriggered: pageStack.push(incidence.type == 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
-            }
         }
     }
 
@@ -164,7 +140,6 @@ ListView {
         id: eventEditor
 
         EventEditorPage {
-
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(eventEditor)
@@ -178,25 +153,6 @@ ListView {
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(todoEditor)
-        }
-    }
-
-    ConfirmationSheet {
-        id: deleteSheet
-
-        property var incidenceData
-
-        message: i18n("%1 will be deleted. Proceed?", incidenceData && incidenceData.summary);
-        operation: function() {
-            if(incidenceData.type == 0)
-            {
-                Calindori.CalendarController.removeEvent(root.cal, incidenceData);
-            }
-            else
-            {
-                Calindori.CalendarController.removeTodo(root.cal, incidenceData);
-            }
-            pageStack.pop(incidencePage);
         }
     }
 }
