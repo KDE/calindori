@@ -163,7 +163,7 @@ ListView {
     Component {
         id: eventEditor
 
-        EventEditor {
+        EventEditorPage {
 
             calendar: root.cal
 
@@ -174,7 +174,7 @@ ListView {
     Component {
         id: todoEditor
 
-        TodoEditor {
+        TodoEditorPage {
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(todoEditor)

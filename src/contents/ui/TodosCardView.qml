@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
 
     Component {
         id: todoEditor
-        TodoEditor {
+        TodoEditorPage {
             calendar: localCalendar
 
             onEditcompleted: pageStack.pop(root)

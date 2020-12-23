@@ -16,7 +16,7 @@ Kirigami.Page {
     property alias startDt: startDateSelector.selectorDate
     property string uid
     property alias summary: summary.text
-    property alias description: description.text
+    property alias description: incidenceEditor.description
     property alias startHour: startTimeSelector.selectorHour
     property alias startMinute: startTimeSelector.selectorMinutes
     property alias startPm: startTimeSelector.selectorPm
@@ -38,22 +38,8 @@ Kirigami.Page {
 
         anchors.centerIn: parent
 
-        Controls2.Label {
-            visible: root.startDt != undefined && !isNaN(root.startDt)
-            Layout.fillWidth: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.2
-            text: incidenceData && !incidenceData.validStartDt ? incidenceData.displayStartDate : (!isNaN(root.startDt) ? root.startDt.toLocaleDateString(_appLocale) : "")
-        }
-
         Kirigami.FormLayout {
             id: todoCard
-
-            enabled: !root.completed
-
-            Kirigami.Separator {
-                Kirigami.FormData.isSection: true
-            }
 
             Controls2.Label {
                 id: calendarName
@@ -70,6 +56,7 @@ Kirigami.Page {
             Controls2.TextField {
                 id: summary
 
+                enabled: !root.completed
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Summary:")
                 text: incidenceData ? incidenceData.summary : ""
@@ -78,6 +65,7 @@ Kirigami.Page {
             RowLayout {
                 Kirigami.FormData.label: i18n("Start:")
                 spacing: 0
+                enabled: !root.completed
 
                 DateSelectorButton {
                     id: startDateSelector
@@ -114,6 +102,7 @@ Kirigami.Page {
             RowLayout {
                 Kirigami.FormData.label: i18n("Due:")
                 spacing: 0
+                enabled: !root.completed
 
                 DateSelectorButton {
                     id: dueDateSelector
@@ -166,7 +155,7 @@ Kirigami.Page {
             Controls2.CheckBox {
                 id: allDaySelector
 
-                enabled: !isNaN(root.startDt) || !isNaN(root.dueDt)
+                enabled: (!isNaN(root.startDt) || !isNaN(root.dueDt)) && !root.completed
 
                 checked: incidenceData ? incidenceData.allday: false
                 text: i18n("All day")
@@ -182,74 +171,21 @@ Kirigami.Page {
                 Layout.fillWidth: true
                 Kirigami.FormData.label: i18n("Location:")
                 text: incidenceData ? incidenceData.location : ""
+                enabled: !root.completed
             }
-
         }
 
         Kirigami.Separator {
             Layout.fillWidth: true
         }
 
-        Controls2.TextArea {
-            id: description
+        IncidenceEditor {
+            id: incidenceEditor
 
             enabled: !root.completed
-            Layout.fillWidth: true
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 4
-            Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-            Layout.maximumWidth: todoCard.width
-            wrapMode: Text.WrapAnywhere
-            text: incidenceData ? incidenceData.description : ""
-            placeholderText: i18n("Description")
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
-        RowLayout {
-            enabled: root.startDt != undefined && !isNaN(root.startDt)
-
-            Controls2.Label {
-                id: remindersLabel
-
-                Layout.fillWidth: true
-                text: i18n("Reminders")
-            }
-
-            Controls2.ToolButton {
-                text: i18n("Add")
-
-                onClicked: reminderEditor.open()
-            }
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
-        Repeater {
-            id: alarmsList
-
-            model: incidenceAlarmsModel
-
-            delegate: Kirigami.SwipeListItem {
-                contentItem: Controls2.Label {
-                    text: model.display
-                    wrapMode: Text.WordWrap
-                }
-
-                Layout.fillWidth: true
-
-                actions: [
-                     Kirigami.Action {
-                        id: deleteAlarm
-
-                        iconName: "delete"
-                        onTriggered: incidenceAlarmsModel.removeAlarm(model.index)
-                    }
-                ]
-            }
+            incidenceData: root.incidenceData
+            alarmsModel: incidenceAlarmsModel
+            startDt: root.startDt
         }
 
         Controls2.CheckBox {

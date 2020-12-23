@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
     Component {
         id: eventEditor
 
-        EventEditor {
+        EventEditorPage {
             calendar: localCalendar
 
             onEditcompleted: pageStack.pop(root)

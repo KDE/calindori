@@ -60,7 +60,7 @@ Kirigami.OverlaySheet {
                                 (selectedRepeatType == repeatTypesList.model.repeatDaily) ? i18np("%1 day", "%1 days",repeatEverySpin.value) : "";
             }
 
-            enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+            enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType != repeatTypesList.model.noRepeat
             from: 1
 
             Kirigami.FormData.label: i18n("Every:")
@@ -73,7 +73,7 @@ Kirigami.OverlaySheet {
                 return stopAfterSpin.value > 0 ? i18np("%1 repeat", "%1 repeats", stopAfterSpin.value) : i18n("Never stop")
             }
 
-            enabled: selectedRepeatType != repeatTypesList.model.noRepeat
+            enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType != repeatTypesList.model.noRepeat
             from: 0
 
             Kirigami.FormData.label: i18n("Stop After:")

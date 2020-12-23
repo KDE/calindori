@@ -15,7 +15,7 @@ Kirigami.Page {
 
     property string uid
     property alias summary: summary.text
-    property alias description: description.text
+    property alias description: incidenceEditor.description
     property alias startDt: startDateSelector.selectorDate
     property alias startHour: startTimeSelector.selectorHour
     property alias startMinute: startTimeSelector.selectorMinutes
@@ -158,10 +158,10 @@ Kirigami.Page {
 
                 property int repeatType: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatType : _repeatModel.noRepeat
                 property int repeatEvery: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatEvery : 1
-                property string repeatDescription: _repeatModel.periodDecription(repeatType)
+                property string repeatDescription: _repeatModel && _repeatModel.periodDecription(repeatType)
                 property int stopAfter: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatStopAfter: -1
 
-                text: _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
+                text: _repeatModel && _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
                 Kirigami.FormData.label: i18n("Repeat:")
 
                 onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter )
@@ -172,61 +172,13 @@ Kirigami.Page {
             Layout.fillWidth: true
         }
 
-        Controls2.TextArea {
-            id: description
+        IncidenceEditor {
+            id: incidenceEditor
 
-            Layout.fillWidth: true
-            Layout.minimumWidth: Kirigami.Units.gridUnit * 4
-            Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-            Layout.maximumWidth: eventCard.width
-            wrapMode: Text.WrapAnywhere
-            text: incidenceData ? incidenceData.description : ""
-            placeholderText: i18n("Description")
+            incidenceData: root.incidenceData
+            alarmsModel: incidenceAlarmsModel
+            startDt: root.startDt
         }
-
-        RowLayout {
-            Controls2.Label {
-                id: remindersLabel
-
-                Layout.fillWidth: true
-                text: i18n("Reminders")
-            }
-
-            Controls2.ToolButton {
-                text: i18n("Add")
-
-                onClicked: reminderEditor.open()
-            }
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
-        Repeater {
-            id: alarmsList
-
-            model: incidenceAlarmsModel
-
-            delegate: Kirigami.SwipeListItem {
-                contentItem: Controls2.Label {
-                    text: model.display
-                    wrapMode: Text.WordWrap
-                }
-
-                Layout.fillWidth: true
-
-                actions: [
-                     Kirigami.Action {
-                        id: deleteAlarm
-
-                        iconName: "delete"
-                        onTriggered: incidenceAlarmsModel.removeAlarm(model.index)
-                    }
-                ]
-            }
-        }
-
     }
 
     actions {
@@ -277,11 +229,5 @@ Kirigami.Page {
             repeatSelector.repeatEvery = recurPickerSheet.selectedRepeatEvery
             repeatSelector.stopAfter = recurPickerSheet.selectedStopAfter;
         }
-    }
-
-    ReminderEditor {
-        id: reminderEditor
-
-        onOffsetSelected: incidenceAlarmsModel.addAlarm(offset)
     }
 }

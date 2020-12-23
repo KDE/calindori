@@ -186,7 +186,7 @@ ListView {
     Component {
         id: eventEditor
 
-        EventEditor {
+        EventEditorPage {
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(eventEditor)
@@ -196,7 +196,7 @@ ListView {
     Component {
         id: todoEditor
 
-        TodoEditor {
+        TodoEditorPage {
             calendar: root.cal
 
             onEditcompleted: removeEditorPage(todoEditor)
