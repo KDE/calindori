@@ -11,7 +11,7 @@ import org.kde.kirigami 2.4 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Card {
-    id: cardDelegate
+    id: root
 
     property var dataModel
 
@@ -25,7 +25,7 @@ Kirigami.Card {
         bottomPadding: Kirigami.Units.largeSpacing
 
         RowLayout {
-            width: cardDelegate.availableWidth
+            width: root.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.Icon {
@@ -43,26 +43,8 @@ Kirigami.Card {
         }
 
         RowLayout {
-            visible: dataModel && (dataModel.location != "")
-            width: cardDelegate.availableWidth
-            spacing: Kirigami.Units.smallSpacing
-
-            Kirigami.Icon {
-                source: "gps"
-                width: Kirigami.Units.iconSizes.small
-                height: width
-            }
-
-            Controls2.Label {
-                wrapMode: Text.WordWrap
-                text: dataModel && dataModel.location
-                Layout.fillWidth: true
-            }
-        }
-
-        RowLayout {
             visible: dataModel && dataModel.isRepeating
-            width: cardDelegate.availableWidth
+            width: root.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.Icon {
@@ -78,11 +60,8 @@ Kirigami.Card {
             }
         }
 
-        Controls2.Label {
-            visible: dataModel && (dataModel.description != "")
-            width: cardDelegate.availableWidth
-            wrapMode: Text.WordWrap
-            text: dataModel && dataModel.description
+        IncidenceCardData {
+            dataModel: root.dataModel
         }
     }
 }

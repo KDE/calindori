@@ -39,5 +39,6 @@
         <file alias="SettingsPage.qml">contents/ui/SettingsPage.qml</file>
         <file alias="IncidenceItemDelegate.qml">contents/ui/IncidenceItemDelegate.qml</file>
         <file alias="IncidenceEditor.qml">contents/ui/IncidenceEditor.qml</file>
+        <file alias="IncidenceCardData.qml">contents/ui/IncidenceCardData.qml</file>
     </qresource>
 </RCC>
