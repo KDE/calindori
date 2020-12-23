@@ -89,7 +89,10 @@ Item {
             Layout.alignment: Qt.AlignHCenter
 
             Controls2.Label {
-                text: ((root.hours < 10) ? "0" : "" ) + root.hours + ":" + ( (root.minutes < 10) ? "0" : "") + root.minutes
+                text: {
+                    var hour = (root.hours !== 0) ? root.hours : 12;
+                    return ((hour < 10) ? "0" : "" ) + hour + ":" + ( (root.minutes < 10) ? "0" : "") + root.minutes;
+                    }
                 font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
             }
 
