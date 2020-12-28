@@ -10,8 +10,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-
-Column {
+ColumnLayout {
     id: root
 
     property var dataModel
@@ -19,8 +18,8 @@ Column {
 
     RowLayout {
         visible: dataModel && (dataModel.location != "")
-        width: cardDelegate.availableWidth
         spacing: Kirigami.Units.smallSpacing
+        Layout.fillWidth: true
 
         Kirigami.Icon {
             source: "gps"
@@ -37,8 +36,8 @@ Column {
 
     Controls2.Label {
         visible: dataModel && (dataModel.description != "")
-        width: cardDelegate.availableWidth
         wrapMode: Text.WordWrap
         text: dataModel && dataModel.description
+        Layout.fillWidth: true
     }
 }

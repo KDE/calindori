@@ -62,6 +62,7 @@ Kirigami.Card {
 
         IncidenceCardData {
             dataModel: root.dataModel
+            width: root.availableWidth
         }
     }
 }
