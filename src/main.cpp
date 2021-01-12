@@ -16,6 +16,7 @@
 #include <KAboutData>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KCalendarCore/Incidence>
 #ifndef Q_OS_ANDROID
 #include <KDBusService>
 #endif
@@ -28,6 +29,7 @@
 #include "incidencemodel.h"
 #include "datahandler.h"
 #include "calendarcontroller.h"
+#include "attendeesmodel.h"
 
 void handleArgument(DataHandler *dataHandler, const QStringList &args)
 {
@@ -82,6 +84,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<ReccurencePeriodModel>("org.kde.calindori", 0, 1, "ReccurencePeriodModel");
     qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori", 0, 1, "DaysOfMonthIncidenceModel");
     qmlRegisterType<IncidenceModel>("org.kde.calindori", 0, 1, "IncidenceModel");
+    qmlRegisterType<AttendeesModel>("org.kde.calindori", 0, 1, "AttendeesModel");
+    qmlRegisterUncreatableType<KCalendarCore::Incidence>("org.kde.calindori", 0, 1, "CalendarIncidence", "Use Enums");
 
     qmlRegisterSingletonType<DataHandler>("org.kde.calindori", 0, 1, "DataHandler", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
         auto instance = DataHandler::instance();

@@ -22,6 +22,9 @@ class LocalCalendar : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString ownerName READ ownerName WRITE setOwnerName NOTIFY ownerNameChanged)
+    Q_PROPERTY(QString ownerEmail READ ownerEmail WRITE setOwnerEmail NOTIFY ownerEmailChanged)
+    Q_PROPERTY(bool isExternal READ isExternal NOTIFY isExternalChanged)
     Q_PROPERTY(QSharedPointer<Calendar> calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 
 public:
@@ -30,19 +33,30 @@ public:
 
     Calendar::Ptr calendar();
     QString name() const;
+    QString ownerName() const;
+    QString ownerEmail() const;
+    bool isExternal() const;
 
     void setCalendar(Calendar::Ptr calendar);
-    void setName(QString calendarName);
+    void setName(QString &calendarName);
+    void setOwnerName(QString &ownerName);
+    void setOwnerEmail(QString &ownerEmail);
+
     Q_INVOKABLE int todosCount(const QDate &date) const;
     Q_INVOKABLE int eventsCount(const QDate &date) const;
+
 public Q_SLOTS:
     void deleteCalendar();
     bool save();
+
 Q_SIGNALS:
     void calendarChanged();
     void nameChanged();
     void todosChanged();
     void eventsChanged();
+    void ownerNameChanged();
+    void ownerEmailChanged();
+    void isExternalChanged();
 
 private:
     static QVariantMap canCreateFile(const QString &calendarName);
@@ -60,4 +74,3 @@ private:
 };
 
 #endif // LOCALCALENDAR_H
-

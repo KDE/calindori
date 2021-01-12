@@ -78,7 +78,7 @@ Kirigami.GlobalDrawer {
         Kirigami.Action {
             id: calendarManagement
 
-            text: i18n("Calendar Management")
+            text: i18n("Calendars")
             iconName: "view-calendar"
 
             // Internal Calendars
@@ -131,6 +131,7 @@ Kirigami.GlobalDrawer {
         model: _calindoriConfig && _calindoriConfig.internalCalendars
 
         delegate: CalendarAction {
+            loadedCalendar: root.calendar
             text: modelData
         }
 
@@ -148,6 +149,7 @@ Kirigami.GlobalDrawer {
         model: _calindoriConfig && _calindoriConfig.externalCalendars
 
         delegate: CalendarAction {
+            loadedCalendar: root.calendar
             text: modelData
         }
 
@@ -212,11 +214,15 @@ Kirigami.GlobalDrawer {
         id: calendarEditor
 
         CalendarEditor {
-            onCalendarAdded: {
+
+            loadedCalendar: root.calendar
+
+            onCalendarEditorSaved: {
                 pageStack.clear()
                 pageStack.push(monthView);
             }
-            onCalendarAddCanceled: pageStack.pop(calendarEditor)
+
+            onCalendarEditorCancelled: pageStack.pop(calendarEditor)
         }
     }
 

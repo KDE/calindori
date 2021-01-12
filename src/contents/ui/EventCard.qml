@@ -60,6 +60,24 @@ Kirigami.Card {
             }
         }
 
+        RowLayout {
+            visible: dataModel && dataModel.displayAttendeeEmails
+            width: root.availableWidth
+            spacing: Kirigami.Units.smallSpacing
+
+            Kirigami.Icon {
+                source: "meeting-attending"
+                width: Kirigami.Units.iconSizes.small
+                height: width
+            }
+
+            Controls2.Label {
+                wrapMode: Text.WordWrap
+                text: dataModel && dataModel.displayAttendeeEmails
+                Layout.fillWidth: true
+            }
+        }
+
         IncidenceCardData {
             dataModel: root.dataModel
             width: root.availableWidth

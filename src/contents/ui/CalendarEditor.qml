@@ -15,46 +15,54 @@ Kirigami.Page {
 
     enum Mode {
         Create,
-        AddExisting
+        AddExisting,
+        Edit
     }
+
+    property var loadedCalendar
     property alias calendarName: nameInput.text
-    property alias activeCalendar: isactive.checked
+    property alias isActive: activeFlag.checked
+    property alias ownerName: ownerNameInput.text
+    property alias ownerEmail: ownerEmail.text
     property int mode: CalendarEditor.Mode.Create
     property url calendarFile
 
-    signal calendarAdded
-    signal calendarAddCanceled
+    signal calendarEditorSaved
+    signal calendarEditorCancelled
 
-    title: i18n("New calendar")
+    title: mode === CalendarEditor.Mode.Edit ? calendarName : i18n("New calendar")
 
     function addLocalCalendarCfgEntry() {
-        var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName);
+        var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName, root.ownerName, root.ownerEmail);
 
         if(!(insertResult.success)) {
             showPassiveNotification(insertResult.reason);
             return;
         }
 
-        if(root.activeCalendar) {
-            _calindoriConfig.activeCalendar = root.calendarName;
+
+        if(root.isActive) {
+            _calindoriConfig.isActive = root.calendarName;
         }
 
-        calendarAdded();
+        calendarEditorSaved();
     }
 
     function addSharedCalendarCfgEntry() {
-        var addSharedResult = _calindoriConfig.addExternalCalendar(root.calendarName, calendarFile);
+        var addSharedResult = _calindoriConfig.addExternalCalendar(root.calendarName, root.ownerName, root.ownerEmail,  root.calendarFile);
 
         if(!(addSharedResult.success)) {
             showPassiveNotification(addSharedResult.reason);
             return;
         }
 
-        if(root.activeCalendar) {
-            _calindoriConfig.activeCalendar = root.calendarName;
+        _calindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
+
+        if(root.isActive) {
+            _calindoriConfig.isActive = root.calendarName;
         }
 
-        calendarAdded();
+        calendarEditorSaved();
     }
 
     Kirigami.FormLayout {
@@ -65,12 +73,14 @@ Kirigami.Page {
         Controls2.TextField {
             id: nameInput
 
-            Kirigami.FormData.label: i18n("Name:")
+            visible: root.mode !== CalendarEditor.Mode.Edit
+            Kirigami.FormData.label: i18n("Calendar:")
         }
 
         Controls2.CheckBox {
-            id: isactive
+            id: activeFlag
 
+            visible: root.mode !== CalendarEditor.Mode.Edit
             Kirigami.FormData.label: i18n("Active:")
         }
 
@@ -83,6 +93,24 @@ Kirigami.Page {
             Kirigami.FormData.label: i18n("File:")
             text: showFileName ? Calindori.CalendarController.fileNameFromUrl(root.calendarFile) : ""
         }
+
+        Kirigami.Separator {
+            Kirigami.FormData.label: i18n("Owner")
+            Kirigami.FormData.isSection: true
+        }
+
+        Controls2.TextField {
+            id: ownerNameInput
+
+            Kirigami.FormData.label: i18n("Name:")
+        }
+
+        Controls2.TextField {
+            id: ownerEmail
+
+            Kirigami.FormData.label: i18n("Email:")
+        }
+
     }
 
     actions {
@@ -94,7 +122,7 @@ Kirigami.Page {
             icon.name : "dialog-cancel"
 
             onTriggered: {
-                calendarAddCanceled();
+                calendarEditorCancelled();
             }
         }
 
@@ -107,11 +135,13 @@ Kirigami.Page {
             icon.name : "dialog-ok"
 
             onTriggered: {
-                var canAddResult = _calindoriConfig.canAddCalendar(root.calendarName);
+                if ((mode === CalendarEditor.Mode.AddExisting) || (mode === CalendarEditor.Mode.Create))  {
+                    var canAddResult = _calindoriConfig.canAddCalendar(root.calendarName);
 
-                if(canAddResult && !(canAddResult.success)) {
-                    showPassiveNotification(canAddResult.reason);
-                    return;
+                    if(canAddResult && !(canAddResult.success)) {
+                        showPassiveNotification(canAddResult.reason);
+                        return;
+                    }
                 }
 
                 switch(mode) {
@@ -120,6 +150,10 @@ Kirigami.Page {
                         break;
                     case CalendarEditor.Mode.Create:
                         addLocalCalendarCfgEntry();
+                        break;
+                    case CalendarEditor.Mode.Edit:
+                        _calindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
+                        calendarEditorSaved();
                         break;
                     default:
                         return;

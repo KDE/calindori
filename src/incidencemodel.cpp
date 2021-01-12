@@ -113,7 +113,10 @@ QHash<int, QByteArray> IncidenceModel::roleNames() const
         { Due, "due" },
         { ValidStartDt, "validStartDt" },
         { ValidEndDt, "validEndDt" },
-        { ValidDueDt, "validDueDt" }
+        { ValidDueDt, "validDueDt" },
+        { AttendeeEmails, "attendeeEmails" },
+        { DisplayAttendeeEmails, "displayAttendeeEmails" },
+        { IncidenceStatus, "status" }
     };
 }
 
@@ -190,6 +193,12 @@ QVariant IncidenceModel::data(const QModelIndex &index, int role) const
         return ((type == IncidenceBase::TypeEvent) && m_incidences.at(row).dynamicCast<Event>()->hasEndDate());
     case ValidDueDt:
         return ((type == IncidenceBase::TypeTodo) && m_incidences.at(row).dynamicCast<Todo>()->hasDueDate());
+    case AttendeeEmails:
+        return attendeeEmails(row);
+    case DisplayAttendeeEmails:
+        return attendeeEmails(row).join(QString {", "});
+    case IncidenceStatus:
+        return m_incidences.at(row)->status();
     default:
         return QVariant();
     }
@@ -573,4 +582,14 @@ void IncidenceModel::setCalendarFilter()
     }
 
     Q_EMIT calendarFilterChanged();
+}
+
+QStringList IncidenceModel::attendeeEmails(const int idx) const
+{
+    auto attendees = m_incidences.at(idx)->attendees();
+    QStringList emails {};
+    for (const auto &a : attendees) {
+        emails.append(a.email());
+    }
+    return emails;
 }

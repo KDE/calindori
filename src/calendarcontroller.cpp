@@ -11,6 +11,9 @@
 #include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/Calendar>
 #include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Attendee>
+#include <KCalendarCore/Person>
+#include "attendeesmodel.h"
 
 CalendarController::CalendarController(QObject *parent) : QObject {parent}, m_events {}, m_todos {}
 {
@@ -103,7 +106,7 @@ void CalendarController::removeEvent(LocalCalendar *localCalendar, const QVarian
     qDebug() << "Event " << uid << " deleted: " << deleted;
 }
 
-void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVariantMap &eventData)
+void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVariantMap &eventData, const QVariantList &attendeesList)
 {
     qDebug() << "\naddEdit:\tCreating event";
 
@@ -111,15 +114,7 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
     QDateTime now = QDateTime::currentDateTime();
     QString uid = eventData["uid"].toString();
     QString summary = eventData["summary"].toString();
-
-    Event::Ptr event;
-    if (uid == "") {
-        event = Event::Ptr(new Event());
-        event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
-    } else {
-        event = calendar->event(uid);
-        event->setUid(uid);
-    }
+    bool clearPartStatus {false};
 
     QDate startDate = eventData["startDate"].toDate();
     int startHour = eventData["startHour"].value<int>();
@@ -141,12 +136,37 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
         endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());
     }
 
+    Event::Ptr event;
+    if (uid == "") {
+        event = Event::Ptr(new Event());
+        event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
+    } else {
+        event = calendar->event(uid);
+        event->setUid(uid);
+        clearPartStatus = (event->dtStart() != startDateTime) || (event->dtEnd() != endDateTime) || (event->allDay() != allDayFlg);
+    }
+
     event->setDtStart(startDateTime);
     event->setDtEnd(endDateTime);
     event->setDescription(eventData["description"].toString());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);
     event->setLocation(eventData["location"].toString());
+
+    event->clearAttendees();
+    for (auto &a : qAsConst(attendeesList)) {
+        auto attendee = a.value<KCalendarCore::Attendee>();
+        if (clearPartStatus) {
+            qDebug() << "Participants need to be informed";
+            attendee.setRSVP(true);
+            attendee.setStatus(KCalendarCore::Attendee::PartStat::NeedsAction);
+        }
+        event->addAttendee(attendee);
+    }
+
+    if (!attendeesList.isEmpty()) {
+        event->setOrganizer(KCalendarCore::Person { localCalendar->ownerName(), localCalendar->ownerEmail()});
+    }
 
     event->clearAlarms();
     QVariantList newAlarms = eventData["alarms"].value<QVariantList>();
@@ -205,6 +225,8 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
             calendar->addEvent(event);
         }
     }
+
+    event->setStatus(eventData["status"].value<KCalendarCore::Incidence::Status>());
 
     if (uid == "") {
         calendar->addEvent(event);

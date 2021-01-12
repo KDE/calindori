@@ -72,7 +72,10 @@ public:
         Due,
         ValidStartDt,
         ValidEndDt,
-        ValidDueDt
+        ValidDueDt,
+        AttendeeEmails,
+        DisplayAttendeeEmails,
+        IncidenceStatus
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -147,6 +150,7 @@ private:
     bool isHourEvent(const Event::Ptr event) const;
     bool withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate) const;
     void setCalendarFilter();
+    QStringList attendeeEmails(const int idx) const;
 
     int m_filter_mode;
     QDate m_filter_dt;

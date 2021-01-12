@@ -36,7 +36,7 @@ Kirigami.Page {
 
     ColumnLayout {
 
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
 
         Kirigami.FormLayout {
             id: todoCard

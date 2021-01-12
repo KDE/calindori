@@ -12,6 +12,7 @@
 #include <QSharedDataPointer>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Todo>
+#include "attendeesmodel.h"
 
 class LocalCalendar;
 
@@ -32,7 +33,7 @@ public:
     Q_INVOKABLE void importFromBuffer(LocalCalendar *localCalendar);
     Q_INVOKABLE void abortImporting();
     Q_INVOKABLE void removeEvent(LocalCalendar *localCalendar, const QVariantMap &event);
-    Q_INVOKABLE void upsertEvent(LocalCalendar *localCalendar, const QVariantMap &event);
+    Q_INVOKABLE void upsertEvent(LocalCalendar *localCalendar, const QVariantMap &event, const QVariantList &attendeesList);
     /**
      * @brief Returns the current datetime in the local time zone
      *

@@ -36,7 +36,7 @@ QString LocalCalendar::name() const
     return m_name;
 }
 
-void LocalCalendar::setName(QString calendarName)
+void LocalCalendar::setName(QString &calendarName)
 {
     if (m_name != calendarName) {
         loadCalendar(calendarName);
@@ -175,4 +175,33 @@ bool LocalCalendar::loadStorage()
     }
 
     return false;
+}
+
+QString LocalCalendar::ownerName() const
+{
+    return m_config->ownerName(m_name);
+}
+
+QString LocalCalendar::ownerEmail() const
+{
+    return m_config->ownerEmail(m_name);
+}
+
+bool LocalCalendar::isExternal() const
+{
+    return m_config->isExternal(m_name);
+}
+
+void LocalCalendar::setOwnerName(QString &ownerName)
+{
+    m_config->setOwnerName(m_name, ownerName);
+
+    Q_EMIT ownerNameChanged();
+}
+
+void LocalCalendar::setOwnerEmail(QString &ownerEmail)
+{
+    m_config->setOwnerEmail(m_name, ownerEmail);
+
+    Q_EMIT ownerEmailChanged();
 }

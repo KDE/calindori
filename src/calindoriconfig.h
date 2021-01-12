@@ -48,13 +48,18 @@ public:
     Q_SIGNAL void alwaysRemindChanged();
 
     QString calendarFile(const QString &calendarName);
+    void setOwnerName(const QString &calendar, const QString &ownerName);
+    void setOwnerEmail(const QString &calendar, const QString &ownerEmail);
 
     Q_INVOKABLE bool isExternal(const QString &calendarName);
+    Q_INVOKABLE void setOwnerInfo(const QString &calendar, const QString &ownerName, const QString &ownerEmail);
+    Q_INVOKABLE QString ownerName(const QString &calendarName);
+    Q_INVOKABLE QString ownerEmail(const QString &calendarName);
 
 public Q_SLOTS:
     QVariantMap canAddCalendar(const QString &calendar);
-    QVariantMap addInternalCalendar(const QString &calendar);
-    QVariantMap addExternalCalendar(const QString &calendar, const QUrl &calendarPathUrl);
+    QVariantMap addInternalCalendar(const QString &calendar, const QString &ownerName = QString(), const QString &ownerEmail = QString());
+    QVariantMap addExternalCalendar(const QString &calendar, const QString &ownerName, const QString &ownerEmail, const QUrl &calendarPathUrl);
     void removeCalendar(const QString &calendar);
 
 private:
