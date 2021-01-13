@@ -55,6 +55,18 @@
             ]
         },
         {
+            "name": "kpeople",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                "type": "git",
+                "url": "https://invent.kde.org/frameworks/kpeople.git",
+                "tag": "v5.76.0",
+                "commit": "782a9316014563a79aaed32d6ac6f3cdb7329868"
+                }
+            ]
+        },
+        {
             "name": "calindori",
             "buildsystem": "cmake-ninja",
             "builddir": true,
