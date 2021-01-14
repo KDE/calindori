@@ -13,72 +13,70 @@ import org.kde.calindori 0.1 as Calindori
 ColumnLayout {
     id: root
 
-    property date startDt
-    property var alarmsModel
     property var incidenceData
+    property var calendar
+    property int incidenceType
     property alias description: description.text
+    property alias location: location.text
+    property alias incidenceStatus: statusCombo.currentValue
+    property alias completed: completed.checked
+    readonly property string canceledStatus: i18n("Canceled")
+    readonly property string confirmedStatus: i18n("Confirmed")
+    readonly property string tentativeStatus: i18n("Tentative")
 
-    Controls2.TextArea {
-        id: description
-
+    Kirigami.FormLayout {
         Layout.fillWidth: true
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 4
-        Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-        Layout.maximumWidth: root.width
-        wrapMode: Text.WrapAnywhere
-        text: incidenceData ? incidenceData.description : ""
-        placeholderText: i18n("Description")
-    }
-
-    RowLayout {
-        enabled: root.startDt != undefined && !isNaN(root.startDt)
 
         Controls2.Label {
-            id: remindersLabel
+            id: calendarName
 
-            Layout.fillWidth: true
-            text: i18n("Reminders")
+            text: root.calendar.name
+            Kirigami.FormData.label: i18n("Calendar:")
         }
 
-        Controls2.ToolButton {
-            text: i18n("Add")
+        Controls2.ComboBox {
+            id: statusCombo
 
-            onClicked: reminderEditor.open()
-        }
-    }
-
-    Kirigami.Separator {
-        Layout.fillWidth: true
-    }
-
-    Repeater {
-        id: alarmsList
-
-        model: alarmsModel
-
-        delegate: Kirigami.SwipeListItem {
-            contentItem: Controls2.Label {
-                text: model.display
-                wrapMode: Text.WordWrap
-            }
-
-            Layout.fillWidth: true
-
-            actions: [
-                    Kirigami.Action {
-                    id: deleteAlarm
-
-                    iconName: "delete"
-                    onTriggered: alarmsModel.removeAlarm(model.index)
-                }
+            visible: incidenceType === 0
+            model: [
+                {"name": canceledStatus, "code": Calindori.CalendarIncidence.StatusCanceled},
+                {"name": confirmedStatus, "code": Calindori.CalendarIncidence.StatusConfirmed},
+                {"name": tentativeStatus, "code": Calindori.CalendarIncidence.StatusTentative}
             ]
+            textRole: "name"
+            valueRole: "code"
+            Kirigami.FormData.label: i18n("Status:")
+
+            Component.onCompleted: {
+                currentIndex = root.incidenceData ? indexOfValue(root.incidenceData.status) : indexOfValue(Calindori.CalendarIncidence.StatusConfirmed);
+            }
+        }
+
+        Controls2.TextField {
+            id: location
+
+            enabled: (incidenceType === 1 && root.completed) ? false : true
+            text: root.incidenceData ? root.incidenceData.location : ""
+            wrapMode: Text.WrapAnywhere
+            Kirigami.FormData.label: i18n("Location:")
+        }
+
+        Controls2.TextField {
+            id: description
+
+            enabled: (incidenceType === 1 && root.completed) ? false : true
+            wrapMode: Text.WrapAnywhere
+            text: root.incidenceData ? root.incidenceData.description : ""
+            Kirigami.FormData.label: i18n("Description:")
+        }
+        Controls2.CheckBox {
+            id: completed
+
+            visible: incidenceType === 1
+            checked: root.incidenceData ? root.incidenceData.completed: false
+            Kirigami.FormData.label: i18n("Completed:")
         }
     }
 
-    ReminderEditor {
-        id: reminderEditor
-
-        onOffsetSelected: alarmsModel.addAlarm(offset)
-    }
 }
 

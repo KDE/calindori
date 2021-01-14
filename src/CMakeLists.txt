@@ -61,6 +61,7 @@ if(ANDROID)
         resource-calendar-child-insert
         show_table_row
         hide_table_row
+        contact-new-symbolic
     )
 endif()
 

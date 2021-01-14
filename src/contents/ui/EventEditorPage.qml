@@ -21,7 +21,7 @@ Kirigami.Page {
     property alias startMinute: startTimeSelector.selectorMinutes
     property alias startPm: startTimeSelector.selectorPm
     property alias allDay: allDaySelector.checked
-    property alias location: location.text
+    property alias location: incidenceEditor.location
     property var calendar
     property var incidenceData
     property alias endDt: endDateSelector.selectorDate
@@ -31,10 +31,7 @@ Kirigami.Page {
     property alias repeatType: repeatSelector.repeatType
     property alias repeatEvery: repeatSelector.repeatEvery
     property alias repeatStopAfter: repeatSelector.stopAfter
-    property string canceledStatus: i18n("Canceled")
-    property string confirmedStatus: i18n("Confirmed")
-    property string tentativeStatus: i18n("Tentative")
-    property alias incidenceStatus: statusCombo.currentValue
+    property alias incidenceStatus: incidenceEditor.incidenceStatus
 
     signal editcompleted(var vevent)
 
@@ -48,60 +45,117 @@ Kirigami.Page {
     title: uid == "" ? i18n("New event") : root.summary
 
     ColumnLayout {
-
         anchors.horizontalCenter: parent.horizontalCenter
+        spacing: Kirigami.Units.smallSpacing
 
         Kirigami.FormLayout {
             id: basicInfo
 
-            Controls2.Label {
-                id: calendarName
-
-                Kirigami.FormData.label: i18n("Calendar:")
-                Layout.fillWidth: true
-                text: root.calendar.name
-            }
+            Layout.fillWidth: true
 
             Controls2.TextField {
                 id: summary
 
-                Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Summary:")
                 text: incidenceData ? incidenceData.summary : ""
-
+                Kirigami.FormData.label: i18n("Summary:")
             }
 
-            Controls2.ComboBox {
-                id: statusCombo
+            RowLayout {
+                spacing: 0
+                Kirigami.FormData.label: i18n("Start:")
 
-                Kirigami.FormData.label: i18n("Status:")
-                model: [
-                    {"name": canceledStatus, "code": Calindori.CalendarIncidence.StatusCanceled},
-                    {"name": confirmedStatus, "code": Calindori.CalendarIncidence.StatusConfirmed},
-                    {"name": tentativeStatus, "code": Calindori.CalendarIncidence.StatusTentative}
-                ]
+                DateSelectorButton {
+                    id: startDateSelector
 
-                textRole: "name"
-                valueRole: "code"
-
-                Component.onCompleted: {
-                    currentIndex = incidenceData ? indexOfValue(incidenceData.status) : indexOfValue(Calindori.CalendarIncidence.StatusConfirmed);
+                    selectorTitle: i18n("Start Date")
                 }
+
+                TimeSelectorButton {
+                    id: startTimeSelector
+
+                    selectorTitle: i18n("Start Time")
+                    selectorDate: root.startDt
+                    selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() ) % 12
+                    selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
+                    selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
+                    enabled: !allDaySelector.checked
+                }
+            }
+
+            RowLayout {
+                spacing: 0
+                Kirigami.FormData.label: i18n("End:")
+
+                DateSelectorButton {
+                    id: endDateSelector
+
+                    enabled: !allDaySelector.checked
+                    selectorTitle: i18n("End Date")
+
+                    Component.onCompleted: {
+                        var newDt;
+
+                        if(root.incidenceData) {
+                            newDt = root.incidenceData.dtend;
+                        }
+                        else {
+                            newDt= root.startDt;
+                            newDt.setMinutes(newDt.getMinutes() + _calindoriConfig.eventsDuration);
+                            newDt.setSeconds(0);
+                        }
+
+                        selectorDate = newDt;
+                    }
+                }
+
+                TimeSelectorButton {
+                    id: endTimeSelector
+
+                    selectorTitle: i18n("End Time")
+                    selectorDate: root.endDt
+                    selectorHour: root.endDt.getHours() % 12
+                    selectorMinutes: root.endDt.getMinutes()
+                    selectorPm: (root.endDt.getHours() >=12)
+                    enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
+                }
+            }
+
+            Controls2.CheckBox {
+                id: allDaySelector
+
+                enabled: !isNaN(root.startDt)
+                checked: incidenceData ? incidenceData.allday: false
+                text: i18n("All day")
+            }
+
+            Controls2.ToolButton {
+                id: repeatSelector
+
+                property int repeatType: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatType : _repeatModel.noRepeat
+                property int repeatEvery: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatEvery : 1
+                property string repeatDescription: _repeatModel && _repeatModel.periodDecription(repeatType)
+                property int stopAfter: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatStopAfter: -1
+
+                text: _repeatModel && _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
+                Kirigami.FormData.label: i18n("Repeat:")
+
+                onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter )
             }
         }
 
         Item {
             height: Kirigami.Units.largeSpacing
-            Layout.fillWidth: true
         }
 
         Controls2.TabBar {
             id: bar
 
-            Layout.fillWidth: true
-
             Controls2.TabButton {
                 text: i18n("Details")
+            }
+
+            Controls2.TabButton {
+                text: i18n("Reminders")
             }
 
             Controls2.TabButton {
@@ -112,109 +166,17 @@ Kirigami.Page {
         StackLayout {
             currentIndex: bar.currentIndex
 
-            ColumnLayout {
-                Kirigami.FormLayout {
-                    id: details
+            IncidenceEditor {
+                id: incidenceEditor
 
-                    RowLayout {
-                        Kirigami.FormData.label: i18n("Start:")
-                        spacing: 0
+                calendar: root.calendar
+                incidenceData: root.incidenceData
+                incidenceType: 0
+            }
 
-                        DateSelectorButton {
-                            id: startDateSelector
-
-                            selectorTitle: i18n("Start Date")
-                        }
-
-                        TimeSelectorButton {
-                            id: startTimeSelector
-
-                            selectorTitle: i18n("Start Time")
-                            selectorDate: root.startDt
-                            selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() ) % 12
-                            selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
-                            selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
-                            enabled: !allDaySelector.checked
-                        }
-                    }
-
-                    RowLayout {
-                        Kirigami.FormData.label: i18n("End:")
-                        spacing: 0
-
-                        DateSelectorButton {
-                            id: endDateSelector
-
-                            enabled: !allDaySelector.checked
-                            selectorTitle: i18n("End Date")
-
-                            Component.onCompleted: {
-                                var newDt;
-
-                                if(root.incidenceData) {
-                                    newDt = root.incidenceData.dtend;
-                                }
-                                else {
-                                    newDt= root.startDt;
-                                    newDt.setMinutes(newDt.getMinutes() + _calindoriConfig.eventsDuration);
-                                    newDt.setSeconds(0);
-                                }
-
-                                selectorDate = newDt;
-                            }
-                        }
-
-                        TimeSelectorButton {
-                            id: endTimeSelector
-
-                            selectorTitle: i18n("End Time")
-                            selectorDate: root.endDt
-                            selectorHour: root.endDt.getHours() % 12
-                            selectorMinutes: root.endDt.getMinutes()
-                            selectorPm: (root.endDt.getHours() >=12)
-                            enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
-                        }
-                    }
-
-                    Controls2.CheckBox {
-                        id: allDaySelector
-
-                        enabled: !isNaN(root.startDt)
-                        checked: incidenceData ? incidenceData.allday: false
-                        Kirigami.FormData.label: i18n("All day:")
-                    }
-
-                    Controls2.ToolButton {
-                        id: repeatSelector
-
-                        property int repeatType: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatType : _repeatModel.noRepeat
-                        property int repeatEvery: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatEvery : 1
-                        property string repeatDescription: _repeatModel && _repeatModel.periodDecription(repeatType)
-                        property int stopAfter: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatStopAfter: -1
-
-                        text: _repeatModel && _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
-                        Kirigami.FormData.label: i18n("Repeat:")
-
-                        onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter )
-                    }
-
-                    Controls2.TextField {
-                        id: location
-
-                        Layout.fillWidth: true
-                        Kirigami.FormData.label: i18n("Location:")
-                        text: incidenceData ? incidenceData.location : ""
-                    }
-
-                }
-
-                IncidenceEditor {
-                    id: incidenceEditor
-
-                    incidenceData: root.incidenceData
-                    alarmsModel: incidenceAlarmsModel
-                    startDt: root.startDt
-                }
+            Reminders {
+                enabled: (root.startDt !== undefined) && !isNaN(root.startDt)
+                alarmsModel: incidenceAlarmsModel
             }
 
             Attendees {
@@ -222,6 +184,7 @@ Kirigami.Page {
                 incidenceData: root.incidenceData
                 calendar: root.calendar
             }
+
         }
     }
 
