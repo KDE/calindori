@@ -62,7 +62,7 @@ Kirigami.Page {
     footer: Kirigami.InlineMessage {
         id: deleteMsg
 
-        text: i18n("%1 will be deleted", incidence && incidence.summary);
+        text: i18n("%1 will be deleted", incidence && incidence.summary)
 
         actions: [
             Kirigami.Action {

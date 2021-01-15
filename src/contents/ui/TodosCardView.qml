@@ -50,8 +50,9 @@ Kirigami.ScrollablePage {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var vtodo = { "uid" : model.uid };
-                        Calindori.CalendarController.removeTodo(root.calendar, vtodo);
+                        deleteMsg.taskUid = model.uid;
+                        deleteMsg.taskSummary = model.summary;
+                        deleteMsg.visible = true;
                     }
                 },
 
@@ -63,6 +64,33 @@ Kirigami.ScrollablePage {
                 }
             ]
         }
+    }
+
+    footer: Kirigami.InlineMessage {
+        id: deleteMsg
+
+        property string taskUid
+        property string taskSummary
+
+        text: i18n("Task %1 will be deleted", taskSummary)
+        visible: false
+
+        actions: [
+            Kirigami.Action {
+                text: i18n("Delete")
+
+                onTriggered: {
+                    Calindori.CalendarController.removeTodo(root.calendar, {"uid": deleteMsg.taskUid});
+                    deleteMsg.visible = false;
+                }
+            },
+
+            Kirigami.Action {
+                text: i18n("Cancel")
+
+                onTriggered: deleteMsg.visible = false
+            }
+        ]
     }
 
     Calindori.IncidenceModel {

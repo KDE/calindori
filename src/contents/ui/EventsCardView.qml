@@ -50,8 +50,9 @@ Kirigami.ScrollablePage {
                     icon.name: "delete"
 
                     onTriggered: {
-                        var vevent = { uid: model.uid } ;
-                        Calindori.CalendarController.removeEvent(root.calendar, vevent);
+                        deleteMsg.eventUid = model.uid;
+                        deleteMsg.eventSummary = model.summary;
+                        deleteMsg.visible = true;
                     }
                 },
 
@@ -64,6 +65,34 @@ Kirigami.ScrollablePage {
             ]
         }
     }
+
+    footer: Kirigami.InlineMessage {
+        id: deleteMsg
+
+        property string eventUid
+        property string eventSummary
+
+        text: i18n("Event %1 will be deleted", eventSummary)
+        visible: false
+
+        actions: [
+            Kirigami.Action {
+                text: i18n("Delete")
+
+                onTriggered: {
+                    Calindori.CalendarController.removeEvent(root.calendar, {"uid": deleteMsg.eventUid});
+                    deleteMsg.visible = false;
+                }
+            },
+
+            Kirigami.Action {
+                text: i18n("Cancel")
+
+                onTriggered: deleteMsg.visible = false
+            }
+        ]
+    }
+
 
     Calindori.IncidenceModel {
         id: eventsModel
@@ -83,5 +112,4 @@ Kirigami.ScrollablePage {
             onEditcompleted: pageStack.pop(root)
         }
     }
-
 }
