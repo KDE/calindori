@@ -17,9 +17,21 @@ Kirigami.GlobalDrawer {
     property var calendar
     property bool wideScreen: false
 
-    title: _calindoriConfig && _calindoriConfig.activeCalendar
     handleVisible: !root.wideScreen
     modal: !root.wideScreen
+
+    header: Kirigami.AbstractApplicationHeader {
+        topPadding: Kirigami.Units.smallSpacing
+        bottomPadding: Kirigami.Units.largeSpacing
+        leftPadding: Kirigami.Units.largeSpacing
+        rightPadding: Kirigami.Units.smallSpacing
+        implicitHeight: Kirigami.Units.gridUnit * 2
+        Kirigami.Heading {
+            level: 1
+            text: _calindoriConfig && _calindoriConfig.activeCalendar
+            Layout.fillWidth: true
+        }
+    }
 
     actions: [
         Kirigami.Action {
