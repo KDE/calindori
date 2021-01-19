@@ -61,7 +61,7 @@ Kirigami.Card {
         }
 
         RowLayout {
-            visible: dataModel && dataModel.displayAttendeeEmails
+            visible: dataModel && dataModel.displayAttendeeNames
             width: root.availableWidth
             spacing: Kirigami.Units.smallSpacing
 
@@ -73,7 +73,7 @@ Kirigami.Card {
 
             Controls2.Label {
                 wrapMode: Text.WordWrap
-                text: dataModel && dataModel.displayAttendeeEmails
+                text: dataModel && dataModel.displayAttendeeNames
                 Layout.fillWidth: true
             }
         }

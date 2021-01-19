@@ -155,6 +155,8 @@ Kirigami.Page {
         Controls2.TabBar {
             id: bar
 
+            Layout.fillWidth: true
+
             Controls2.TabButton {
                 text: i18n("Details")
             }

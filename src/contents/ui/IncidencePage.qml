@@ -54,7 +54,7 @@ Kirigami.Page {
 
     actions.right: Kirigami.Action {
         text: i18n("Edit")
-        icon.name: "document-edit-symbolic"
+        icon.name: "document-edit"
 
         onTriggered: pageStack.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
     }

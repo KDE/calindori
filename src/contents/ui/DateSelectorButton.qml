@@ -15,7 +15,7 @@ Controls2.ToolButton {
     property date selectorDate
     property string selectorTitle
 
-    text: (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate.toLocaleDateString(_appLocale, Locale.NarrowFormat) : "-"
+    text: selectorDate.toLocaleDateString(_appLocale, Locale.NarrowFormat)
     implicitWidth: Kirigami.Units.gridUnit * 5
 
     onClicked: {

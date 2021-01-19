@@ -29,7 +29,7 @@ if(ANDROID)
         delete
         dialog-cancel
         dialog-close
-        document-edit-symbolic
+        document-edit
         documentinfo
         dialog-ok
         document-import

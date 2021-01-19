@@ -46,15 +46,39 @@ ColumnLayout {
         Layout.fillWidth: true
     }
 
+    RowLayout {
+        visible: attendeesList.count !== 0
+        Kirigami.Icon {
+            source: "meeting-organizer"
+        }
+
+        Controls2.Label {
+            text: incidenceData.organizerName
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+        }
+    }
+
+    Kirigami.Separator {
+        visible: attendeesList.count !== 0
+        Layout.fillWidth: true
+    }
+
     Repeater {
         id: attendeesList
 
         model: attendeesModel
 
         delegate: Kirigami.SwipeListItem {
-            contentItem: Controls2.Label {
-                text: model.name
-                wrapMode: Text.WordWrap
+            contentItem: RowLayout {
+                Kirigami.Icon {
+                    source: model.statusIcon
+                }
+
+                Controls2.Label {
+                    text: model.name
+                    wrapMode: Text.WordWrap
+                }
             }
 
             Layout.fillWidth: true
@@ -67,6 +91,18 @@ ColumnLayout {
                     enabled: calendar.isExternal && calendar.ownerName && calendar.ownerEmail
 
                     onTriggered: attendeesModel.removeItem(model.index)
+                },
+
+                Kirigami.Action {
+                    id: editAttendee
+
+                    iconName: "document-edit"
+                    enabled: calendar.isExternal && calendar.ownerName && calendar.ownerEmail
+
+                    onTriggered: {
+                        infoEditor.attendeeModelRow = model;
+                        infoEditor.open();
+                    }
                 }
             ]
         }
@@ -79,7 +115,7 @@ ColumnLayout {
         text: i18n("No attendees yet")
     }
 
-    AttendeeEditor {
+    AttendeePicker {
         id: attendeeEditor
 
         onEditorCompleted: attendeesModel.addPersons(selectedUris)
@@ -92,5 +128,31 @@ ColumnLayout {
         visible: false
         Layout.fillWidth: true
     }
-}
 
+    Kirigami.OverlaySheet {
+        id: infoEditor
+
+        property var attendeeModelRow
+
+        header: Kirigami.Heading {
+            level: 1
+            text: infoEditor.attendeeModelRow && infoEditor.attendeeModelRow.name ? infoEditor.attendeeModelRow.name : ""
+        }
+
+        contentItem: AttendeeRoleEditor {
+            attendeeModelRow: infoEditor.attendeeModelRow
+        }
+
+        footer: RowLayout {
+            Item {
+                Layout.fillWidth: true
+            }
+
+            Controls2.ToolButton {
+                text: i18n("Close")
+
+                onClicked: infoEditor.close()
+            }
+        }
+    }
+}

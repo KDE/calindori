@@ -40,8 +40,9 @@
         <file alias="IncidenceItemDelegate.qml">contents/ui/IncidenceItemDelegate.qml</file>
         <file alias="IncidenceEditor.qml">contents/ui/IncidenceEditor.qml</file>
         <file alias="IncidenceCardData.qml">contents/ui/IncidenceCardData.qml</file>
-        <file alias="AttendeeEditor.qml">contents/ui/AttendeeEditor.qml</file>
+        <file alias="AttendeePicker.qml">contents/ui/AttendeePicker.qml</file>
         <file alias="Attendees.qml">contents/ui/Attendees.qml</file>
         <file alias="Reminders.qml">contents/ui/Reminders.qml</file>
+        <file alias="AttendeeRoleEditor.qml">contents/ui/AttendeeRoleEditor.qml</file>
     </qresource>
 </RCC>

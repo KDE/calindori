@@ -22,6 +22,8 @@ QHash<int, QByteArray> AttendeesModel::roleNames() const
         {FullName, "fullName"},
         {Name, "name"},
         {ParticipationStatus, "status"},
+        {ParticipationStatusIcon, "statusIcon"},
+        {ParticipationStatusDisplay, "displayStatus"},
         {AttendeeRole, "attendeeRole"}
     };
 }
@@ -73,6 +75,10 @@ QVariant AttendeesModel::data(const QModelIndex &index, int role) const
         return m_attendees.at(row).status();
     case AttendeeRole:
         return m_attendees.at(row).role();
+    case ParticipationStatusIcon:
+        return statusIcon(row);
+    case ParticipationStatusDisplay:
+        return displayStatus(row);
     default:
         return QVariant {};
     }
@@ -149,4 +155,57 @@ QVariantList AttendeesModel::attendees() const
     }
 
     return l;
+}
+
+bool AttendeesModel::setData(const QModelIndex &idx, const QVariant &value, int role)
+{
+    if (role == AttendeeRole) {
+        m_attendees[idx.row()].setRole(value.value<Attendee::Role>());
+        auto m = idx.model();
+
+        Q_EMIT dataChanged(m->index(0, 0), m->index(m->rowCount() - 1, 0), {AttendeeRole});
+
+        return true;
+    }
+
+    return false;
+}
+
+QString AttendeesModel::statusIcon(const int row) const
+{
+    switch (m_attendees.at(row).status()) {
+    case KCalendarCore::Attendee::PartStat::Accepted: {
+        return "meeting-attending";
+    }
+    case KCalendarCore::Attendee::PartStat::Tentative: {
+        return "meeting-attending-tentative";
+    }
+    case KCalendarCore::Attendee::PartStat::Declined: {
+        return "meeting-participant-no-response";
+    }
+    default: {
+        return "meeting-participant-request-response";
+    }
+    }
+}
+
+QString AttendeesModel::displayStatus(const int row) const
+{
+    switch (m_attendees.at(row).status()) {
+    case KCalendarCore::Attendee::PartStat::Accepted: {
+        return i18n("Accepted");
+    }
+    case KCalendarCore::Attendee::PartStat::Tentative: {
+        return i18n("Tentative");
+    }
+    case KCalendarCore::Attendee::PartStat::Declined: {
+        return i18n("Declined");
+    }
+    case KCalendarCore::Attendee::PartStat::Delegated: {
+        return i18n("Delegated");
+    }
+    default: {
+        return i18n("Not responded yet");
+    }
+    }
 }

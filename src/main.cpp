@@ -17,6 +17,7 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KCalendarCore/Incidence>
+#include <KCalendarCore/Attendee>
 #ifndef Q_OS_ANDROID
 #include <KDBusService>
 #endif
@@ -86,6 +87,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<IncidenceModel>("org.kde.calindori", 0, 1, "IncidenceModel");
     qmlRegisterType<AttendeesModel>("org.kde.calindori", 0, 1, "AttendeesModel");
     qmlRegisterUncreatableType<KCalendarCore::Incidence>("org.kde.calindori", 0, 1, "CalendarIncidence", "Use Enums");
+    qmlRegisterUncreatableType<KCalendarCore::Attendee>("org.kde.calindori", 0, 1, "CalendarAttendee", "Use Enums");
 
     qmlRegisterSingletonType<DataHandler>("org.kde.calindori", 0, 1, "DataHandler", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
         auto instance = DataHandler::instance();

@@ -116,7 +116,9 @@ QHash<int, QByteArray> IncidenceModel::roleNames() const
         { ValidDueDt, "validDueDt" },
         { AttendeeEmails, "attendeeEmails" },
         { DisplayAttendeeEmails, "displayAttendeeEmails" },
-        { IncidenceStatus, "status" }
+        { IncidenceStatus, "status" },
+        { OrganizerName, "organizerName" },
+        { DisplaytAttendeeNames, "displayAttendeeNames" }
     };
 }
 
@@ -199,6 +201,15 @@ QVariant IncidenceModel::data(const QModelIndex &index, int role) const
         return attendeeEmails(row).join(QString {", "});
     case IncidenceStatus:
         return m_incidences.at(row)->status();
+    case OrganizerName: {
+        auto person = m_incidences.at(row)->organizer();
+        if (!(person.isEmpty()) && !(person.name().isEmpty())) {
+            return person.name();
+        }
+        return QString {};
+    }
+    case DisplaytAttendeeNames:
+        return attendeeNames(row).join(QString {", "});
     default:
         return QVariant();
     }
@@ -592,4 +603,14 @@ QStringList IncidenceModel::attendeeEmails(const int idx) const
         emails.append(a.email());
     }
     return emails;
+}
+
+QStringList IncidenceModel::attendeeNames(const int idx) const
+{
+    auto attendees = m_incidences.at(idx)->attendees();
+    QStringList names {};
+    for (const auto &a : attendees) {
+        names.append(a.name());
+    }
+    return names;
 }

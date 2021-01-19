@@ -31,10 +31,13 @@ public:
         FullName,
         Name,
         ParticipationStatus,
+        ParticipationStatusIcon,
+        ParticipationStatusDisplay,
         AttendeeRole
     };
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QHash<int, QByteArray> roleNames() const override;
 
@@ -60,5 +63,8 @@ private:
     QString m_uid;
     LocalCalendar *m_calendar;
     KCalendarCore::Attendee::List m_attendees;
+
+    QString statusIcon(const int row) const;
+    QString displayStatus(const int row) const;
 };
 #endif

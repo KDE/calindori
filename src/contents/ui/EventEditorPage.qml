@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.3 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     id: root
 
     property string uid
@@ -149,6 +149,9 @@ Kirigami.Page {
 
         Controls2.TabBar {
             id: bar
+
+            Layout.fillWidth: Kirigami.Settings.isMobile
+            Layout.alignment: Qt.AlignHCenter
 
             Controls2.TabButton {
                 text: i18n("Details")

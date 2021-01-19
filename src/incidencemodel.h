@@ -41,7 +41,8 @@ public:
         DayTodos,
         AllIncidences,
         AllEvents,
-        AllTodos
+        AllTodos,
+        OrganizerName
     };
 
     enum Roles {
@@ -75,6 +76,7 @@ public:
         ValidDueDt,
         AttendeeEmails,
         DisplayAttendeeEmails,
+        DisplaytAttendeeNames,
         IncidenceStatus
     };
 
@@ -151,6 +153,7 @@ private:
     bool withinFilter(const KCalendarCore::Event::Ptr event, const QDate &filterDate) const;
     void setCalendarFilter();
     QStringList attendeeEmails(const int idx) const;
+    QStringList attendeeNames(const int idx) const;
 
     int m_filter_mode;
     QDate m_filter_dt;

@@ -45,6 +45,7 @@ ColumnLayout {
             ]
             textRole: "name"
             valueRole: "code"
+            Layout.fillWidth: true
             Kirigami.FormData.label: i18n("Status:")
 
             Component.onCompleted: {
