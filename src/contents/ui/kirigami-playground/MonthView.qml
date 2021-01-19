@@ -103,7 +103,7 @@ Item {
                 Controls2.Label {
                     visible: showYear
                     font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                    text: displayedYear
+                    text: (showMonthName ? " " : "" ) + displayedYear
                 }
             }
 

@@ -24,12 +24,12 @@ Kirigami.OverlaySheet {
     }
 
     ColumnLayout {
-        Layout.preferredWidth: childrenRect.width + datePickerSheet.rightPadding + datePickerSheet.leftPadding
+        Layout.preferredWidth: calendarMonth.dayRectWidth * 8
 
         PickerMonthView {
             id: calendarMonth
 
-            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
         }
 
         RowLayout {
