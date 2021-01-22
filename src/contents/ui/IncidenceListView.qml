@@ -44,6 +44,7 @@ Kirigami.ScrollablePage {
 
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
+        icon.name: incidenceType == 0 ? "tag-events" : "view-calendar-tasks"
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: listView.count == 0
         text: !isNaN(incidenceStartDt) ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("Nothing scheduled")

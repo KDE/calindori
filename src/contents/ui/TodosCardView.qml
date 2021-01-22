@@ -29,6 +29,7 @@ Kirigami.ScrollablePage {
 
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
+        icon.name: "view-calendar-tasks"
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
         text: !isNaN(todoDt) ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No tasks scheduled")

@@ -29,6 +29,7 @@ Kirigami.ScrollablePage {
 
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
+        icon.name: "tag-events"
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
         text: !isNaN(eventStartDt) ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No events scheduled")
