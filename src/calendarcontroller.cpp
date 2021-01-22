@@ -40,18 +40,15 @@ void CalendarController::importCalendarData(const QByteArray &data)
         return;
     }
 
-    auto eventMsg = !m_events.isEmpty() ? i18np("1 event", "%1 events", m_events.count()) : QString {};
-    auto tasksMsg = !m_todos.isEmpty() ? i18np("1 task", "%1 tasks", m_todos.count()) : QString {};
-
-    auto proceedMsg = i18n("will be added");
     QString confirmMsg {};
 
     if (!m_events.isEmpty() && m_todos.isEmpty()) {
-        confirmMsg = QString {"%1 %2"}.arg(eventMsg, proceedMsg);
+        confirmMsg = i18np("1 event will be added", "%1 events will be added", m_events.count());
     } else if (m_events.isEmpty() && !m_todos.isEmpty()) {
-        confirmMsg = QString {"%1 %2"}.arg(tasksMsg, proceedMsg);
+        confirmMsg = i18np("1 task will be added", "%1 tasks will be added", m_todos.count());
     } else {
-        confirmMsg = QString {"%1 %2 %3 %4"}.arg(eventMsg, i18n("and"), tasksMsg, proceedMsg);
+        auto incidenceCount = m_events.count() + m_todos.count();
+        confirmMsg = i18n("%1 incidences will be added", incidenceCount);
     }
 
     Q_EMIT statusMessageChanged(confirmMsg, MessageType::Question);

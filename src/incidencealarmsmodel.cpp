@@ -201,20 +201,25 @@ QString IncidenceAlarmsModel::displayText(const int idx) const
     if (durationValue == 0) {
         return i18n("At start time");
     }
+
+    // Duration in days
     if (durationType == Duration::Type::Days) {
         return i18np("1 day before start", "%1 days before start", durationValue);
     }
 
-    QString alarmText;
-    int durDays = durationValue / 86400;
-    alarmText = (durDays != 0) ? i18np("1 day", "%1 days", durDays) : QString();
-    int durHours = (durationValue - durDays * 86400) / 3600;
-    alarmText = (durHours != 0) ? QString("%1 %2").arg(alarmText, i18np("1 hour", "%1 hours", durHours)) : alarmText;
-    int durMins = (durationValue - durHours * 3600 - durDays * 86400) / 60 ;
-    alarmText = (durMins != 0) ? QString("%1 %2").arg(alarmText, i18np("1 minute", "%1 minutes", durMins)) : alarmText;
-    int durSeconds = durationValue - durMins * 60 - durHours * 3600 - durDays * 86400;
-    alarmText = (durSeconds != 0) ? QString("%1 %2").arg(alarmText, i18np("1 second", "%1 seconds", durSeconds)) : alarmText;
+    // Duration in seconds
+    if ((durationValue % 86400) == 0) {
+        return i18np("1 day before start", "%1 days before start", durationValue / 86400);
+    }
 
-    return QString("%1 %2").arg(alarmText, i18n("before start"));
+    if ((durationValue % 3600) == 0) {
+        return i18np("1 hour before start", "%1 hours before start", durationValue / 3600);
+    }
+
+    if ((durationValue % 60) == 0) {
+        return i18np("1 minute before start", "%1 minutes before start", durationValue / 60);
+    }
+
+    return i18np("1 second before start", "%1 seconds before start", durationValue);
 }
 
