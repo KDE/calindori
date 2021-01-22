@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
@@ -214,14 +214,24 @@ Kirigami.ScrollablePage {
                 var validation = Calindori.CalendarController.validateEvent(vevent);
 
                 if(validation.success) {
+                    validationFooter.visible = false;
                     Calindori.CalendarController.upsertEvent(root.calendar, vevent, incidenceAttendeesModel.attendees());
                     editcompleted(vevent);
                 }
                 else {
-                    showPassiveNotification(validation.reason);
+                    validationFooter.text = validation.reason;
+                    validationFooter.visible = true;
                 }
             }
         }
+    }
+
+    footer: Kirigami.InlineMessage {
+        id: validationFooter
+
+        showCloseButton: true
+        type: Kirigami.MessageType.Warning
+        visible: false
     }
 
     Calindori.IncidenceAlarmsModel {

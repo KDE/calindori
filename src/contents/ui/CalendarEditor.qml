@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Page {
@@ -36,7 +36,8 @@ Kirigami.Page {
         var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName, root.ownerName, root.ownerEmail);
 
         if(!(insertResult.success)) {
-            showPassiveNotification(insertResult.reason);
+            validationFooter.text = insertResult.reason;
+            validationFooter.visible = true;
             return;
         }
 
@@ -45,6 +46,7 @@ Kirigami.Page {
             _calindoriConfig.isActive = root.calendarName;
         }
 
+        validationFooter.visible = false;
         calendarEditorSaved();
     }
 
@@ -52,7 +54,8 @@ Kirigami.Page {
         var addSharedResult = _calindoriConfig.addExternalCalendar(root.calendarName, root.ownerName, root.ownerEmail,  root.calendarFile);
 
         if(!(addSharedResult.success)) {
-            showPassiveNotification(addSharedResult.reason);
+            validationFooter.text = addSharedResult.reason;
+            validationFooter.visible = true;
             return;
         }
 
@@ -62,6 +65,7 @@ Kirigami.Page {
             _calindoriConfig.isActive = root.calendarName;
         }
 
+        validationFooter.visible = false;
         calendarEditorSaved();
     }
 
@@ -139,7 +143,8 @@ Kirigami.Page {
                     var canAddResult = _calindoriConfig.canAddCalendar(root.calendarName);
 
                     if(canAddResult && !(canAddResult.success)) {
-                        showPassiveNotification(canAddResult.reason);
+                        validationFooter.text = canAddResult.reason;
+                        validationFooter.visible = true;
                         return;
                     }
                 }
@@ -171,6 +176,14 @@ Kirigami.Page {
             onTriggered: fileChooser.open()
         }
 
+    }
+
+    footer: Kirigami.InlineMessage {
+        id: validationFooter
+
+        showCloseButton: true
+        type: Kirigami.MessageType.Warning
+        visible: false
     }
 
     FileChooser {
