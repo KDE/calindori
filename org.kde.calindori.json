@@ -14,6 +14,7 @@
         "--device=dri",
         "--filesystem=home",
         "--talk-name=org.freedesktop.Notifications",
+        "--talk-name=org.kde.Solid.PowerManagement",
         "--own-name=org.kde.calindac"
     ],
     "separate-locales": false,
