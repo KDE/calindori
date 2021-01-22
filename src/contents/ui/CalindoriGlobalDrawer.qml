@@ -45,6 +45,7 @@ Kirigami.GlobalDrawer {
                 text: i18n("Month")
 
                 onTriggered: {
+                    popExtraLayers();
                     popAll();
                     pageStack.push(monthView);
                 }
@@ -54,6 +55,7 @@ Kirigami.GlobalDrawer {
                 text: i18n("Day")
 
                 onTriggered: {
+                    popExtraLayers();
                     popAll();
                     pageStack.push(dayView);
                 }
@@ -63,6 +65,7 @@ Kirigami.GlobalDrawer {
                 text: i18n("Week")
 
                 onTriggered: {
+                    popExtraLayers();
                     popAll();
                     pageStack.push(weekView, { startDate: Calindori.CalendarController.localSystemDateTime() } );
                 }
@@ -72,6 +75,7 @@ Kirigami.GlobalDrawer {
                 text: i18n("All Tasks")
 
                 onTriggered: {
+                    popExtraLayers();
                     popAll();
                     pageStack.push(incidenceView, { incidenceType: 1, filterMode: 9 });
                 }
@@ -81,6 +85,7 @@ Kirigami.GlobalDrawer {
                 text: i18n("All Events")
 
                 onTriggered: {
+                    popExtraLayers();
                     popAll();
                     pageStack.push(incidenceView, { incidenceType: 0, filterMode: 8 });
                 }
@@ -121,8 +126,8 @@ Kirigami.GlobalDrawer {
             iconName: "settings-configure"
 
             onTriggered: {
-                popAll();
-                pageStack.push(settingsPage)
+                popExtraLayers();
+                pageStack.layers.push(settingsPage);
             }
         },
 
@@ -133,8 +138,8 @@ Kirigami.GlobalDrawer {
             text: i18n("About")
 
             onTriggered: {
-                popAll();
-                pageStack.push(aboutInfoPage)
+                popExtraLayers();
+                pageStack.layers.push(aboutInfoPage);
             }
         }
     ]
@@ -196,8 +201,7 @@ Kirigami.GlobalDrawer {
         iconName: "resource-calendar-insert"
 
         onTriggered: {
-            popAll();
-            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.Create});
+            pageStack.layers.push(calendarEditor, {mode: CalendarEditor.Mode.Create});
         }
     }
 
@@ -217,8 +221,8 @@ Kirigami.GlobalDrawer {
         iconName: "resource-calendar-child-insert"
 
         onTriggered: {
-            popAll();
-            pageStack.push(calendarEditor, {mode: CalendarEditor.Mode.AddExisting});
+
+            pageStack.layers.push(calendarEditor, {mode: CalendarEditor.Mode.AddExisting});
         }
     }
 
@@ -229,12 +233,10 @@ Kirigami.GlobalDrawer {
 
             loadedCalendar: root.calendar
 
-            onCalendarEditorSaved: {
-                pageStack.clear()
-                pageStack.push(monthView);
-            }
+            onCalendarEditorSaved: pageStack.layers.pop()
 
-            onCalendarEditorCancelled: pageStack.pop(calendarEditor)
+            onCalendarEditorCancelled: pageStack.layers.pop()
+
         }
     }
 

@@ -23,6 +23,16 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    /**
+     * Starting from the last layer in the stack, remove every layer keeping only the first one
+     */
+    function popExtraLayers()
+    {
+        while (pageStack.layers.depth > 1) {
+            pageStack.layers.pop();
+        }
+    }
+
     globalDrawer: CalindoriGlobalDrawer {
         id: globalDrawer
 
