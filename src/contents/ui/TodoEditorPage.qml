@@ -35,7 +35,7 @@ Kirigami.Page {
     title: uid == "" ? i18n("New task") : root.summary
 
     ColumnLayout {
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
         spacing: Kirigami.Units.smallSpacing
 
         Kirigami.FormLayout {
