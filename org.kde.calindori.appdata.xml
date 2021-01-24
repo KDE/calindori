@@ -26,6 +26,7 @@
   <name xml:lang="it">Calindori</name>
   <name xml:lang="nl">Calindori</name>
   <name xml:lang="nn">Calindori</name>
+  <name xml:lang="pa">ਕੈਲਿੰਡੋਰੀ</name>
   <name xml:lang="pl">Calindori</name>
   <name xml:lang="pt">Calindori</name>
   <name xml:lang="pt-BR">Calindori</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="it">Applicazione calendario</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="nn">Kalenderprogram</summary>
+  <summary xml:lang="pa">ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ</summary>
   <summary xml:lang="pl">Aplikacja kalendarza</summary>
   <summary xml:lang="pt">Aplicação de calendário</summary>
   <summary xml:lang="pt-BR">Aplicativo de calendário</summary>
@@ -132,6 +134,7 @@
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
+    <p xml:lang="pa">ਫੀਚਰ:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
@@ -162,6 +165,7 @@
       <li xml:lang="it">Agenda</li>
       <li xml:lang="nl">Agenda</li>
       <li xml:lang="nn">Timeplan</li>
+      <li xml:lang="pa">ਏਜੰਡਾ</li>
       <li xml:lang="pl">Rozkład zajęć</li>
       <li xml:lang="pt">Agenda</li>
       <li xml:lang="pt-BR">Agenda</li>
@@ -190,6 +194,7 @@
       <li xml:lang="it">Eventi</li>
       <li xml:lang="nl">Afspraken</li>
       <li xml:lang="nn">Hendingar</li>
+      <li xml:lang="pa">ਸਮਾਗਮ</li>
       <li xml:lang="pl">Wydarzenia</li>
       <li xml:lang="pt">Eventos</li>
       <li xml:lang="pt-BR">Eventos</li>
@@ -219,6 +224,7 @@
       <li xml:lang="it">Cose da fare</li>
       <li xml:lang="nl">Taken</li>
       <li xml:lang="nn">Gjeremål</li>
+      <li xml:lang="pa">ਕੰਮ-ਕਾਰ</li>
       <li xml:lang="pl">Zadania-do-zrobienia</li>
       <li xml:lang="pt">Itens Por-Fazer</li>
       <li xml:lang="pt-BR">Tarefas</li>
@@ -247,6 +253,7 @@
       <li xml:lang="it">Calendari multipli</li>
       <li xml:lang="nl">Meerdere agenda's</li>
       <li xml:lang="nn">Fleire kalendrar</li>
+      <li xml:lang="pa">ਕਈ ਕੈਲੰਡਰ</li>
       <li xml:lang="pl">Wiele kalendarzy</li>
       <li xml:lang="pt">Vários calendários</li>
       <li xml:lang="pt-BR">Múltiplos calendários</li>
@@ -276,6 +283,7 @@
       <li xml:lang="it">Importa calendario</li>
       <li xml:lang="nl">Agenda importeren </li>
       <li xml:lang="nn">Kalender­importering</li>
+      <li xml:lang="pa">ਕੈਲੰਡਰ ਇੰਪੋਰਟ ਕਰੋ</li>
       <li xml:lang="pl">Importowanie kalendarzy</li>
       <li xml:lang="pt">Importar o calendário</li>
       <li xml:lang="pt-BR">Importar calendário</li>
@@ -307,6 +315,7 @@
       <caption xml:lang="it">Calindori su mobile</caption>
       <caption xml:lang="nl">Calindori op mobiel</caption>
       <caption xml:lang="nn">Calindori på mobil</caption>
+      <caption xml:lang="pa">ਮੋਬਾਈਲ ਉੱਤੇ ਕੈਲਿੰਡੋਰੀ</caption>
       <caption xml:lang="pt">Calindori no Telemóvel</caption>
       <caption xml:lang="pt-BR">Calindori no celular</caption>
       <caption xml:lang="ru">Calindori на мобильном устройстве</caption>
@@ -334,6 +343,7 @@
       <caption xml:lang="it">Calindori su desktop</caption>
       <caption xml:lang="nl">Calindori op bureaublad</caption>
       <caption xml:lang="nn">Calindori på PC</caption>
+      <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕੈਲਿੰਡੋਰੀ</caption>
       <caption xml:lang="pt">Calindori no PC</caption>
       <caption xml:lang="pt-BR">Calindori na área de trabalho</caption>
       <caption xml:lang="ru">Calindori на компьютере</caption>
