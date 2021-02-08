@@ -29,43 +29,46 @@ endif()
 
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS
-        delete
-        dialog-cancel
-        dialog-close
-        document-edit
-        documentinfo
-        dialog-ok
-        document-import
-        documentinfo
-        editor
-        emblem-ok-symbolic
-        go-down
-        go-next
-        go-parent-folder
-        go-previous
-        go-up
-        help-about-symbolic
-        list-add
-        resource-calendar-insert
-        tag-events
-        text-x-plain
-        view-calendar
-        view-calendar-day
-        view-calendar-tasks
-        view-calendar-upcoming-events
-        view-calendar-timeline
-        view-choose
-        find-location
-        media-playlist-repeat
-        settings-configure
-        gps
-        edit-clear-all
-        window-close-symbolic
-        resource-calendar-child-insert
-        show_table_row
-        hide_table_row
-        contact-new-symbolic
-    )
+    appointment-reminder
+    calindori
+    contact-new-symbolic
+    delete
+    dialog-cancel
+    dialog-ok
+    document-edit
+    document-import
+    edit-clear-all
+    edit-entry
+    editor
+    go-down
+    go-next
+    go-previous
+    go-up
+    gps
+    help-about-symbolic
+    hide_table_row
+    list-add
+    media-playlist-repeat
+    meeting-attending
+    meeting-attending-tentative
+    meeting-participant-no-response
+    meeting-participant-request-response
+    meeting-organizer
+    object-select-symbolic
+    remove
+    resource-calendar-child-insert
+    resource-calendar-insert
+    settings-configure
+    show_table_row
+    tag-events
+    user
+    view-calendar
+    view-calendar-day
+    view-calendar-tasks
+    view-calendar-timeline
+    view-choose
+    window-close-symbolic
+)
 endif()
 
 install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
