@@ -115,6 +115,6 @@ Kirigami.ApplicationWindow {
 
     onSwitchToMonthPage: {
         popAll();
-        pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: Kirigami.Settings.isMobile ? -1 : cActionIndex});
+        pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: (!Kirigami.Settings.isMobile && root.wideScreen) ? cActionIndex : -1});
     }
 }
