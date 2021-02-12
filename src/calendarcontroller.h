@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QVector>
 #include <QSharedDataPointer>
+#include <QVariantMap>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Todo>
 #include "attendeesmodel.h"
@@ -50,6 +51,7 @@ public:
     Q_INVOKABLE void upsertTodo(LocalCalendar *localCalendar, const QVariantMap &todo);
     Q_INVOKABLE QVariantMap validateTodo(const QVariantMap &todo) const;
     Q_INVOKABLE QString fileNameFromUrl(const QUrl &sourcePath);
+    Q_INVOKABLE QVariantMap exportData(const QString &calendarName);
 
 Q_SIGNALS:
     void statusMessageChanged(const QString &statusMessage, const int messageType);

@@ -39,6 +39,7 @@ Kirigami.ApplicationWindow {
         wideScreen: root.wideScreen
         monthView: calendarMonthPage
         calendar: localCalendar
+        applicationFooter: messageFooter
     }
 
     contextDrawer: Kirigami.ContextDrawer {
@@ -70,45 +71,16 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    footer: Kirigami.InlineMessage {
-        id: importMessage
+    footer: MessageBoard {
+        id: messageFooter
 
-        property bool showActions: false
-
-        visible: false
-        showCloseButton: showActions === false
         leftPadding: (globalDrawer.drawerOpen ? globalDrawer.width : 0) + Kirigami.Units.smallSpacing
-
-        actions: [
-            Kirigami.Action {
-                visible: importMessage.showActions
-                icon.name: "dialog-ok"
-                text: i18n("Proceed")
-
-                onTriggered: {
-                   importMessage.visible = false;
-                   Calindori.CalendarController.importFromBuffer(localCalendar);
-                }
-            },
-            Kirigami.Action {
-                icon.name: "dialog-cancel"
-                text: i18n("Cancel")
-                visible: importMessage.showActions
-
-                onTriggered: {
-                    importMessage.visible = false;
-                    Calindori.CalendarController.abortImporting(localCalendar);
-                }
-            }
-        ]
 
         Connections {
             target: Calindori.CalendarController
             onStatusMessageChanged: {
-                importMessage.text = statusMessage;
-                importMessage.visible = true;
-                importMessage.type = (messageType === 0) ? Kirigami.MessageType.Information : (messageType === 1 ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning);
-                importMessage.showActions = (messageType === 0);
+                messageFooter.text = statusMessage;
+                messageFooter.footerMode = (messageType === 0) ? MessageBoard.FooterMode.StartImport : (messageType === 1 ? MessageBoard.FooterMode.EndImportSuccess : MessageBoard.FooterMode.EndImportFailure);
             }
         }
     }
@@ -117,4 +89,5 @@ Kirigami.ApplicationWindow {
         popAll();
         pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: (!Kirigami.Settings.isMobile && root.wideScreen) ? cActionIndex : -1});
     }
+
 }

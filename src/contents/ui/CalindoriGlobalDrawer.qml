@@ -16,6 +16,7 @@ Kirigami.GlobalDrawer {
     property var monthView
     property var calendar
     property bool wideScreen: false
+    property var applicationFooter
 
     handleVisible: !root.wideScreen
     modal: !root.wideScreen
@@ -150,6 +151,7 @@ Kirigami.GlobalDrawer {
         delegate: CalendarAction {
             loadedCalendar: root.calendar
             text: modelData
+            messageFooter: root.applicationFooter
         }
 
         onObjectAdded: localCalendars.children.push(object)
@@ -168,6 +170,7 @@ Kirigami.GlobalDrawer {
         delegate: CalendarAction {
             loadedCalendar: root.calendar
             text: modelData
+            messageFooter: root.applicationFooter
         }
 
         onObjectAdded: externalCalendars.children.push(object)

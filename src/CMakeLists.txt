@@ -37,6 +37,7 @@ if(ANDROID)
     dialog-ok
     document-edit
     document-import
+    document-export
     edit-clear-all
     edit-entry
     editor

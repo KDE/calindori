@@ -15,6 +15,7 @@ Kirigami.Action {
     property alias calendarName: root.text
     property var loadedCalendar
     property bool activeCalendar: _calindoriConfig !== null ? (_calindoriConfig.activeCalendar === root.calendarName) : false
+    property var messageFooter
 
     iconName: activeCalendar ? "object-select-symbolic" : ""
 
@@ -56,6 +57,25 @@ Kirigami.Action {
         onTriggered: pageStack.layers.push(editor)
     }
 
+
+    Kirigami.Action {
+        text: i18n("Export")
+        iconName: "document-export"
+
+        onTriggered: {
+            var exportResult = Calindori.CalendarController.exportData(root.calendarName);
+            messageFooter.text = exportResult.reason;
+
+            if (!(exportResult.success)) {
+                messageFooter.footerMode = MessageBoard.FooterMode.EndExportFailure;
+                return;
+            }
+
+            messageFooter.targetFolder = exportResult.targetFolder;
+            messageFooter.footerMode = MessageBoard.FooterMode.EndExportSuccess;
+        }
+    }
+
     ConfirmationSheet {
         id: deleteSheet
 
@@ -90,4 +110,5 @@ Kirigami.Action {
             }
         }
     }
+
 }

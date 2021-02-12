@@ -44,5 +44,6 @@
         <file alias="Attendees.qml">contents/ui/Attendees.qml</file>
         <file alias="Reminders.qml">contents/ui/Reminders.qml</file>
         <file alias="AttendeeRoleEditor.qml">contents/ui/AttendeeRoleEditor.qml</file>
+        <file alias="MessageBoard.qml">contents/ui/MessageBoard.qml</file>
     </qresource>
 </RCC>

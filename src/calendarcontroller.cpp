@@ -6,7 +6,10 @@
 
 #include "calendarcontroller.h"
 #include "localcalendar.h"
+#include <QStandardPaths>
 #include <QDebug>
+#include <QFile>
+#include <QStringLiteral>
 #include <KLocalizedString>
 #include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/Calendar>
@@ -14,6 +17,7 @@
 #include <KCalendarCore/Attendee>
 #include <KCalendarCore/Person>
 #include "attendeesmodel.h"
+#include "calindoriconfig.h"
 
 CalendarController::CalendarController(QObject *parent) : QObject {parent}, m_events {}, m_todos {}
 {
@@ -422,4 +426,48 @@ QVariantMap CalendarController::validateTodo(const QVariantMap &todo) const
 QString CalendarController::fileNameFromUrl(const QUrl &sourcePath)
 {
     return sourcePath.fileName();
+}
+
+QVariantMap CalendarController::exportData(const QString &calendarName)
+{
+    auto filePath = CalindoriConfig {}.calendarFile(calendarName);
+    QFile calendarFile {filePath};
+    if (!calendarFile.exists()) {
+        return {
+            { "success", false },
+            { "reason", i18n("Cannot read calendar. Export failed.") }
+        };
+    }
+
+    Calendar::Ptr calendar {new MemoryCalendar(QTimeZone::systemTimeZoneId())};
+    FileStorage::Ptr storage {new FileStorage {calendar}};
+    storage->setFileName(filePath);
+    if (!storage->load()) {
+        return {
+            { "success", false },
+            { "reason", i18n("Cannot load calendar. Export failed.") }
+        };
+    }
+
+    auto dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    QFile targetFile {dirPath + "/calindori_" + calendarName + ".ics"};
+    auto fileSuffix {1};
+    while (targetFile.exists()) {
+        targetFile.setFileName(dirPath + "/calindori_" + calendarName + "(" + QString::number(fileSuffix++) + ").ics");
+    }
+
+    storage->setFileName(targetFile.fileName());
+    if (!(storage->save())) {
+        return {
+            { "success", false },
+            { "reason", i18n("Cannot save calendar file. Export failed.") }
+        };
+
+    }
+
+    return {
+        { "success", true },
+        { "reason", i18n("Export completed successfully") },
+        { "targetFolder", QUrl {QStringLiteral("file://") + dirPath} }
+    };
 }
