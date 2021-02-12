@@ -75,6 +75,7 @@ Kirigami.ApplicationWindow {
         id: messageFooter
 
         leftPadding: (globalDrawer.drawerOpen ? globalDrawer.width : 0) + Kirigami.Units.smallSpacing
+        activeCalendar: localCalendar
 
         Connections {
             target: Calindori.CalendarController

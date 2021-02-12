@@ -31,6 +31,7 @@ public:
     explicit CalendarController(QObject *parent = nullptr);
 
     void importCalendarData(const QByteArray &data);
+    Q_INVOKABLE void importFromBuffer(const QString &targetCalendar);
     Q_INVOKABLE void importFromBuffer(LocalCalendar *localCalendar);
     Q_INVOKABLE void abortImporting();
     Q_INVOKABLE void removeEvent(LocalCalendar *localCalendar, const QVariantMap &event);
@@ -57,6 +58,7 @@ Q_SIGNALS:
     void statusMessageChanged(const QString &statusMessage, const int messageType);
 
 private:
+    void sendMessage(const bool positive);
     QVector<QSharedPointer<KCalendarCore::Event>> m_events;
     QVector<QSharedPointer<KCalendarCore::Todo>> m_todos;
 };

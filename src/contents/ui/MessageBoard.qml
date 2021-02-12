@@ -11,6 +11,8 @@ import org.kde.calindori 0.1 as Calindori
 Kirigami.InlineMessage {
     id: root
 
+    property var activeCalendar
+    property string targetCalendarName
     property var targetFolder
     property int footerMode: MessageBoard.FooterMode.NoDisplay
 
@@ -31,7 +33,12 @@ Kirigami.InlineMessage {
 
             onTriggered: {
                 root.footerMode = MessageBoard.FooterMode.NoDisplay;
-                Calindori.CalendarController.importFromBuffer(localCalendar);
+                if( (targetCalendarName === "") || (activeCalendar && (activeCalendar.name === root.targetCalendarName)) ) {
+                    Calindori.CalendarController.importFromBuffer(activeCalendar);
+                }
+                else {
+                    Calindori.CalendarController.importFromBuffer(targetCalendarName);
+                }
             }
         },
 
@@ -42,7 +49,7 @@ Kirigami.InlineMessage {
 
             onTriggered: {
                 root.footerMode = MessageBoard.FooterMode.NoDisplay;
-                Calindori.CalendarController.abortImporting(localCalendar);
+                Calindori.CalendarController.abortImporting();
             }
         },
 

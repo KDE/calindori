@@ -82,7 +82,40 @@ void CalendarController::importFromBuffer(LocalCalendar *localCalendar)
         m_todos.clear();
     }
 
-    if (result) {
+    sendMessage(result);
+}
+
+void CalendarController::importFromBuffer(const QString &targetCalendar)
+{
+    auto filePath = CalindoriConfig {}.calendarFile(targetCalendar);
+    QFile calendarFile {filePath};
+    if (!calendarFile.exists()) {
+        sendMessage(false);
+        return;
+    }
+
+    Calendar::Ptr calendar {new MemoryCalendar(QTimeZone::systemTimeZoneId())};
+    FileStorage::Ptr storage {new FileStorage {calendar}};
+    storage->setFileName(filePath);
+    if (!storage->load()) {
+        sendMessage(false);
+        return;
+    }
+
+    for (const auto &event : qAsConst(m_events)) {
+        calendar->addEvent(event);
+    }
+
+    for (const auto &todo : qAsConst(m_todos)) {
+        calendar->addTodo(todo);
+    }
+
+    sendMessage(storage->save());
+}
+
+void CalendarController::sendMessage(const bool positive)
+{
+    if (positive) {
         Q_EMIT statusMessageChanged(i18n("Import completed successfully"), MessageType::PositiveAnswer);
     } else {
         Q_EMIT statusMessageChanged(i18n("An error has occurred during import"), MessageType::NegativeAnswer);

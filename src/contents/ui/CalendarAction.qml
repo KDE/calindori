@@ -57,6 +57,17 @@ Kirigami.Action {
         onTriggered: pageStack.layers.push(editor)
     }
 
+    Kirigami.Action {
+        id: calendarImportAction
+
+        text: i18n("Import")
+        iconName: "document-import"
+
+        onTriggered: {
+            messageFooter.targetCalendarName = root.calendarName;
+            fileChooser.open();
+        }
+    }
 
     Kirigami.Action {
         text: i18n("Export")
@@ -111,4 +122,9 @@ Kirigami.Action {
         }
     }
 
+    FileChooser {
+        id: fileChooser
+
+        onAccepted: Calindori.DataHandler.importFromUrl(fileUrl)
+    }
 }

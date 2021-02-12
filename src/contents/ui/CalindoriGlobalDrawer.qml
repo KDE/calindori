@@ -106,7 +106,7 @@ Kirigami.GlobalDrawer {
                 iconName: "view-calendar"
                 text: i18n("Local")
                 expandible: true
-                children: [calendarCreateAction, calendarImportAction]
+                children: [calendarCreateAction]
 
             }
 
@@ -160,7 +160,6 @@ Kirigami.GlobalDrawer {
             // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
             localCalendars.children = [];
             localCalendars.children.push(calendarCreateAction);
-            localCalendars.children.push(calendarImportAction);
         }
     }
 
@@ -206,15 +205,6 @@ Kirigami.GlobalDrawer {
         onTriggered: {
             pageStack.layers.push(calendarEditor, {mode: CalendarEditor.Mode.Create});
         }
-    }
-
-    Kirigami.Action {
-        id: calendarImportAction
-
-        text: i18n("Import data")
-        iconName: "document-import"
-
-        onTriggered: fileChooser.open()
     }
 
     Kirigami.Action {
@@ -280,11 +270,5 @@ Kirigami.GlobalDrawer {
         {
             aboutData: _aboutData
         }
-    }
-
-    FileChooser {
-        id: fileChooser
-
-        onAccepted: Calindori.DataHandler.importFromUrl(fileUrl)
     }
 }
