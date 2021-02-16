@@ -46,7 +46,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popExtraLayers();
-                    popAll();
+                    pageStack.clear();
                     pageStack.push(monthView);
                 }
             }
@@ -56,7 +56,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popExtraLayers();
-                    popAll();
+                    pageStack.clear();
                     pageStack.push(dayView);
                 }
             }
@@ -66,7 +66,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popExtraLayers();
-                    popAll();
+                    pageStack.clear();
                     pageStack.push(weekView, { startDate: Calindori.CalendarController.localSystemDateTime() } );
                 }
             }
@@ -76,7 +76,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popExtraLayers();
-                    popAll();
+                    pageStack.clear();
                     pageStack.push(incidenceView, { incidenceType: 1, filterMode: 9 });
                 }
             }
@@ -86,7 +86,7 @@ Kirigami.GlobalDrawer {
 
                 onTriggered: {
                     popExtraLayers();
-                    popAll();
+                    pageStack.clear();
                     pageStack.push(incidenceView, { incidenceType: 0, filterMode: 8 });
                 }
             }
