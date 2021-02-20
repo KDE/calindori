@@ -37,19 +37,6 @@ Kirigami.ScrollablePage {
             onTriggered: weekView.nextWeek()
         }
 
-        contextualActions: [
-            Kirigami.Action {
-                icon.name: "tag-events"
-                text: i18n("Add Event")
-                onTriggered: weekView.addEvent()
-            },
-
-            Kirigami.Action {
-                icon.name: "view-calendar-tasks"
-                text: i18n("Add Task")
-                onTriggered: weekView.addTodo()
-            }
-        ]
     }
 
     WeekView {

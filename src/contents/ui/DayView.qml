@@ -54,24 +54,6 @@ ListView {
         currentIndex = selectedDate.getHours();
     }
 
-    onAddEvent: {
-        var eventDt = selectedDate;
-        eventDt.setHours(currentIndex);
-        eventDt.setMinutes(0);
-        eventDt.setSeconds(0);
-
-        pageStack.push(eventEditor, { startDt: eventDt });
-    }
-
-    onAddTodo: {
-        var todoDt = selectedDate;
-        todoDt.setHours(currentIndex);
-        todoDt.setMinutes(0);
-        todoDt.setSeconds(0);
-
-        pageStack.push(todoEditor, { startDt: todoDt });
-    }
-
     onCurrentIndexChanged: {
         if (pageStack.depth > 1) {
             pageStack.pop(null);
@@ -81,13 +63,15 @@ ListView {
     model: 24
     currentIndex: selectedDate.getHours()
 
-    delegate: Kirigami.AbstractListItem {
+    delegate: Kirigami.SwipeListItem {
         id: hourListItem
 
         property var hour: model.index
         property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
 
-        contentItem: RowLayout {
+        alwaysVisibleActions: false
+
+        RowLayout {
             spacing: Kirigami.Units.largeSpacing * 2
 
             Controls2.Label {
@@ -126,6 +110,36 @@ ListView {
                 }
             }
         }
+
+        actions: [
+            Kirigami.Action {
+                iconName: "resource-calendar-insert"
+                text: i18n("New event")
+
+                onTriggered: {
+                    var eventDt = selectedDate;
+                    eventDt.setHours(index);
+                    eventDt.setMinutes(0);
+                    eventDt.setSeconds(0);
+
+                    pageStack.push(eventEditor, { startDt: eventDt });
+                }
+            },
+
+            Kirigami.Action {
+                iconName: "task-new"
+                text: i18n("New task")
+
+                onTriggered: {
+                    var todoDt = selectedDate;
+                    todoDt.setHours(index);
+                    todoDt.setMinutes(0);
+                    todoDt.setSeconds(0);
+
+                    pageStack.push(todoEditor, { startDt: todoDt });
+                }
+            }
+        ]
     }
 
     Component {

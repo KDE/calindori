@@ -82,17 +82,6 @@ ListView {
         currentIndex = selectedDate.getDay() >= fstDayOfWeek ? selectedDate.getDay() - fstDayOfWeek : 7 - (selectedDate.getDay() +  fstDayOfWeek)
     }
 
-    onAddEvent: {
-        var newEventStartDt = root.selectedDate;
-        newEventStartDt.setHours(newEventStartDt.getHours() + 1);
-        newEventStartDt.setMinutes(0);
-        newEventStartDt.setSeconds(0);
-
-        pageStack.push(eventEditor, { startDt: newEventStartDt })
-    }
-
-    onAddTodo: pageStack.push(todoEditor, { startDt: selectedDate })
-
     onCurrentIndexChanged: {
         if (pageStack.depth > 1) {
             pageStack.pop(null);
@@ -102,11 +91,13 @@ ListView {
     model: 7
     currentIndex: selectedDate.getDay() >= fstDayOfWeek ? selectedDate.getDay() - fstDayOfWeek : 7 - (selectedDate.getDay() +  fstDayOfWeek)
 
-    delegate: Kirigami.AbstractListItem {
+    delegate: Kirigami.SwipeListItem {
         id: dayListItem
 
         property var weekDay: model.index
         property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
+
+        alwaysVisibleActions: false
 
         contentItem: RowLayout {
             spacing: Kirigami.Units.largeSpacing * 3
@@ -148,7 +139,36 @@ ListView {
             }
         }
 
+        actions: [
+            Kirigami.Action {
+                iconName: "resource-calendar-insert"
+                text: i18n("New event")
+
+                onTriggered: {
+                    var eventDt = root.selectedWeekDate;
+                    eventDt.setDate(eventDt.getDate() + index);
+                    eventDt.setHours(eventDt.getHours() + 1);
+                    eventDt.setMinutes(0);
+                    eventDt.setSeconds(0);
+
+                    pageStack.push(eventEditor, { startDt: eventDt })
+                }
+            },
+
+            Kirigami.Action {
+                iconName: "task-new"
+                text: i18n("New task")
+
+                onTriggered: {
+                    var tododDt = root.selectedWeekDate;
+                    tododDt.setDate(tododDt.getDate() + index);
+                    pageStack.push(todoEditor, { startDt: tododDt })
+                }
+            }
+        ]
+
         onClicked: { root.selectedDate = moveDate(root.selectedWeekDate, model.index) }
+
     }
 
     Component {

@@ -35,20 +35,6 @@ Kirigami.ScrollablePage {
 
             onTriggered: dayView.nextDay()
         }
-
-        contextualActions: [
-            Kirigami.Action {
-                icon.name: "tag-events"
-                text: i18n("Add Event")
-                onTriggered: dayView.addEvent()
-            },
-
-            Kirigami.Action {
-                icon.name: "view-calendar-tasks"
-                text: i18n("Add Task")
-                onTriggered: dayView.addTodo()
-            }
-        ]
     }
 
     DayView {
