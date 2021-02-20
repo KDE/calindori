@@ -75,10 +75,8 @@ ListView {
             spacing: Kirigami.Units.largeSpacing * 2
 
             Controls2.Label {
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: model.index < 10 ? "0" + model.index : model.index
+                text: model.index < 10 ? "0" + model.index + ":00" : model.index + ":00"
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
             }
 
             GridLayout {

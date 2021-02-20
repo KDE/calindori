@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 ListView {
@@ -96,17 +96,35 @@ ListView {
 
         property var weekDay: model.index
         property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
+        property var itemDate: {
+                    var dt = root.selectedWeekDate;
+                    dt.setDate(dt.getDate() + index);
+                    dt.setHours(dt.getHours() + 1);
+                    dt.setMinutes(0);
+                    dt.setSeconds(0);
+                    dt.setMilliseconds(0);
+
+                    return dt;
+        }
 
         alwaysVisibleActions: false
 
-        contentItem: RowLayout {
-            spacing: Kirigami.Units.largeSpacing * 3
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing * 2
 
-            Controls2.Label {
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
-                text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 3
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
+            ColumnLayout  {
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 2
+
+                Controls2.Label {
+                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize + 2
+                    text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                Controls2.Label {
+                    text: itemDate.toLocaleDateString(_appLocale, "d MMM")
+                    Layout.alignment: Qt.AlignHCenter
+                }
             }
 
             GridLayout {
@@ -144,27 +162,14 @@ ListView {
                 iconName: "resource-calendar-insert"
                 text: i18n("New event")
 
-                onTriggered: {
-                    var eventDt = root.selectedWeekDate;
-                    eventDt.setDate(eventDt.getDate() + index);
-                    eventDt.setHours(eventDt.getHours() + 1);
-                    eventDt.setMinutes(0);
-                    eventDt.setSeconds(0);
-
-                    pageStack.push(eventEditor, { startDt: eventDt })
-                }
+                onTriggered: pageStack.push(eventEditor, { startDt: itemDate })
             },
 
             Kirigami.Action {
                 iconName: "task-new"
                 text: i18n("New task")
 
-                onTriggered: {
-                    var tododDt = root.selectedWeekDate;
-                    tododDt.setDate(tododDt.getDate() + index);
-                    pageStack.push(todoEditor, { startDt: tododDt })
-                }
-            }
+                onTriggered: pageStack.push(todoEditor, { startDt: itemDate })}
         ]
 
         onClicked: { root.selectedDate = moveDate(root.selectedWeekDate, model.index) }
