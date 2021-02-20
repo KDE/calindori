@@ -40,9 +40,10 @@ Kirigami.OverlaySheet {
             filterCaseSensitivity: Qt.CaseInsensitive
             requiredProperties: ["email"]
 
-            sourceModel: KPeople.PersonsModel {}
-
-            Component.onCompleted: sort(0)
+            Component.onCompleted: {
+                filterModel.sourceModel = personsModel;
+                sort(0);
+            }
         }
 
         Kirigami.PlaceholderMessage {
@@ -94,6 +95,9 @@ Kirigami.OverlaySheet {
                 subtitle: itemEmail
             }
         }
+
+        KPeople.PersonsModel {}
+
     }
 
     footer: RowLayout {

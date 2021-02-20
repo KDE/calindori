@@ -53,7 +53,7 @@ ColumnLayout {
         }
 
         Controls2.Label {
-            text: incidenceData.organizerName
+            text: incidenceData ? incidenceData.organizerName : calendar.ownerName
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
