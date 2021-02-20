@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QDebug>
 
+
 using namespace KCalendarCore;
 
 IncidenceModel::IncidenceModel(QObject *parent) :
@@ -228,10 +229,9 @@ void IncidenceModel::loadIncidences()
 {
     beginResetModel();
     m_incidences.clear();
-
-    auto hourModelReady = (m_calendar != nullptr && m_filter_dt.isValid() && m_filter_hour >= 0);
-    auto dayModelReady = (m_calendar != nullptr && m_filter_dt.isValid());
-    auto allModelReady = (m_calendar != nullptr);
+    auto calendarReady = (m_calendar != nullptr) && (m_calendar->calendar() != nullptr);
+    auto dayModelReady = calendarReady && m_filter_dt.isValid();
+    auto hourModelReady = dayModelReady && (m_filter_hour >= 0);
 
     switch (m_filter_mode) {
     case FilterModes::HourIncidences: {
@@ -259,15 +259,15 @@ void IncidenceModel::loadIncidences()
         break;
     }
     case FilterModes::AllIncidences: {
-        m_incidences = (allModelReady) ? allIncidences() : m_incidences;
+        m_incidences = (calendarReady) ? allIncidences() : m_incidences;
         break;
     }
     case FilterModes::AllEvents: {
-        m_incidences = (allModelReady) ? allEvents() : m_incidences;
+        m_incidences = (calendarReady) ? allEvents() : m_incidences;
         break;
     }
     case FilterModes::AllTodos: {
-        m_incidences = (allModelReady) ? allTodos() : m_incidences;
+        m_incidences = (calendarReady) ? allTodos() : m_incidences;
         break;
     }
     case Invalid:
@@ -588,11 +588,10 @@ void IncidenceModel::setFilterHideCompleted(const bool hideCompleted)
 
 void IncidenceModel::setCalendarFilter()
 {
-    if (m_calendar != nullptr) {
+    if ((m_calendar != nullptr) && (m_calendar->calendar() != nullptr)) {
         m_calendar->calendar()->setFilter(m_cal_filter);
+        Q_EMIT calendarFilterChanged();
     }
-
-    Q_EMIT calendarFilterChanged();
 }
 
 QStringList IncidenceModel::attendeeEmails(const int idx) const
