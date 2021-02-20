@@ -21,7 +21,6 @@ Kirigami.Page {
 
     property var loadedCalendar
     property alias calendarName: nameInput.text
-    property alias isActive: activeFlag.checked
     property alias ownerName: ownerNameInput.text
     property alias ownerEmail: ownerEmail.text
     property int mode: CalendarEditor.Mode.Create
@@ -41,11 +40,6 @@ Kirigami.Page {
             return;
         }
 
-
-        if(root.isActive) {
-            _calindoriConfig.isActive = root.calendarName;
-        }
-
         validationFooter.visible = false;
         calendarEditorSaved();
     }
@@ -61,10 +55,6 @@ Kirigami.Page {
 
         _calindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
 
-        if(root.isActive) {
-            _calindoriConfig.isActive = root.calendarName;
-        }
-
         validationFooter.visible = false;
         calendarEditorSaved();
     }
@@ -79,13 +69,6 @@ Kirigami.Page {
 
             visible: root.mode !== CalendarEditor.Mode.Edit
             Kirigami.FormData.label: i18n("Calendar:")
-        }
-
-        Controls2.CheckBox {
-            id: activeFlag
-
-            visible: root.mode !== CalendarEditor.Mode.Edit
-            Kirigami.FormData.label: i18n("Active:")
         }
 
         Controls2.Label {

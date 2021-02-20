@@ -107,7 +107,6 @@ Kirigami.Action {
             mode: CalendarEditor.Mode.Edit
             calendarName: root.calendarName
             loadedCalendar: root.loadedCalendar
-            isActive: root.activeCalendar
             ownerName: _calindoriConfig.ownerName(root.calendarName)
             ownerEmail: _calindoriConfig.ownerEmail(root.calendarName)
 
