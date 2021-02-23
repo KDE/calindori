@@ -7,7 +7,7 @@
 #include "incidencemodel.h"
 #include <KLocalizedString>
 #include <QDebug>
-
+#include <KCalendarCore/Sorting>
 
 using namespace KCalendarCore;
 
@@ -311,6 +311,7 @@ Incidence::List IncidenceModel::hourIncidences() const
 {
     auto incidences = hourEvents();
     incidences.append(hourTodos());
+    std::sort(incidences.begin(), incidences.end(), Incidences::dateLessThan);
 
     return incidences;
 }
@@ -417,6 +418,7 @@ Incidence::List IncidenceModel::dayIncidences() const
 {
     auto incidences = dayEvents();
     incidences.append(dayTodos());
+    std::sort(incidences.begin(), incidences.end(), Incidences::dateLessThan);
 
     return incidences;
 }

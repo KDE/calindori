@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 ListView {
@@ -67,7 +67,6 @@ ListView {
         id: hourListItem
 
         property var hour: model.index
-        property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
 
         alwaysVisibleActions: false
 
@@ -79,10 +78,7 @@ ListView {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
             }
 
-            GridLayout {
-                columns: root.wideScreen ? -1 : 1
-                rows: root.wideScreen ? 1 : -1
-
+            ColumnLayout {
                 Repeater {
                     model: Calindori.IncidenceModel {
                         appLocale: _appLocale
@@ -93,8 +89,9 @@ ListView {
                     }
 
                     IncidenceItemDelegate {
-                        itemBackgroundColor: hourListItem.incidenceColor
-                        label: "%1\n%2".arg(model.displayType).arg(model.summary)
+                        itemBackgroundColor: model.type === 0 ? Kirigami.Theme.buttonBackgroundColor : Qt.darker(Kirigami.Theme.buttonBackgroundColor, 1.1)
+                        label: model.summary
+                        subtitle: (model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime))
                         Layout.fillWidth: true
 
                         onClicked: {

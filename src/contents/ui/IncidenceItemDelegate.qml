@@ -5,16 +5,21 @@
 */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 Kirigami.BasicListItem  {
     property alias itemBackgroundColor: backgroundRectangle.color
 
     leftPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
+    topPadding: Kirigami.Units.smallSpacing
     reserveSpaceForIcon: false
     clip: true
 
-    background: Rectangle {
+    background: Kirigami.ShadowedRectangle {
         id: backgroundRectangle
+
+        radius: Kirigami.Units.gridUnit / 2
+
     }
 }

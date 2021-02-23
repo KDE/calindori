@@ -116,20 +116,18 @@ ListView {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
 
                 Controls2.Label {
-                    font.pointSize: Kirigami.Units.fontMetrics.font.pointSize + 2
                     text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
                     Layout.alignment: Qt.AlignHCenter
                 }
 
                 Controls2.Label {
+                    font: Kirigami.Theme.smallFont
                     text: itemDate.toLocaleDateString(_appLocale, "d MMM")
                     Layout.alignment: Qt.AlignHCenter
                 }
             }
 
-            GridLayout {
-                columns: wideScreen ? -1 : 1
-                rows: wideScreen ? 1 : -1
+            ColumnLayout {
 
                 Repeater {
                     model: Calindori.IncidenceModel {
@@ -140,9 +138,9 @@ ListView {
                     }
 
                     IncidenceItemDelegate {
-                        itemBackgroundColor: dayListItem.incidenceColor
-                        label: "%1\n%2\n%3".arg(model.displayType).arg(model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime)).arg(model.summary)
-
+                        itemBackgroundColor: model.type === 0 ? Kirigami.Theme.buttonBackgroundColor : Qt.darker(Kirigami.Theme.buttonBackgroundColor, 1.1)
+                        label: model.summary
+                        subtitle: (model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime))
                         Layout.fillWidth: true
 
                         onClicked: {
