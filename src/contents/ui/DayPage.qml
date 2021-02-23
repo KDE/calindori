@@ -12,7 +12,7 @@ Kirigami.ScrollablePage {
 
     property bool wideScreen
 
-    title: dayView.selectedDate.toLocaleDateString(_appLocale, Locale.LongFormat)
+    title: dayView.selectedDate.toLocaleDateString(_appLocale, Locale.NarrowFormat)
 
     actions {
         left: Kirigami.Action {

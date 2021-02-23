@@ -38,7 +38,7 @@ Kirigami.Page {
     */
     signal pageEnd(var lastDate, var lastActionIndex)
 
-    title: calendarMonthView.displayedMonthName + " " + calendarMonthView.displayedYear
+    title: calendarMonthView.selectedDate.toLocaleDateString(_appLocale, Locale.NarrowFormat)
 
     actions {
         left: Kirigami.Action {
