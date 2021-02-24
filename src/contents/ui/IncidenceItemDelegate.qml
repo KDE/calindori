@@ -9,6 +9,8 @@ import org.kde.kirigami 2.12 as Kirigami
 
 Kirigami.BasicListItem  {
     property alias itemBackgroundColor: backgroundRectangle.color
+    Kirigami.Theme.colorSet: Kirigami.Theme.Button
+    Kirigami.Theme.inherit: false
 
     leftPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing

@@ -138,7 +138,7 @@ ListView {
                     }
 
                     IncidenceItemDelegate {
-                        itemBackgroundColor: model.type === 0 ? Kirigami.Theme.buttonBackgroundColor : Qt.darker(Kirigami.Theme.buttonBackgroundColor, 1.1)
+                        itemBackgroundColor: model.type === 0 ? Kirigami.Theme.backgroundColor : Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
                         label: model.summary
                         subtitle: (model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime))
                         Layout.fillWidth: true
