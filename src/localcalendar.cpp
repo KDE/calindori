@@ -136,12 +136,10 @@ void LocalCalendar::reloadStorage()
 
     QFileInfo storageFileInfo { m_fullpath };
 
-    qDebug() << "Last memory-fs sync: " << m_fs_sync_dt;
-    qDebug() << "Filed modified: " << storageFileInfo.lastModified();
-
-    if (storageFileInfo.lastModified() <= m_fs_sync_dt) {
-        qDebug() << "Reload not needed, the calendar file has not been updated";
-    } else {
+    if (storageFileInfo.lastModified() > m_fs_sync_dt) {
+        qDebug() << "Last memory-fs sync: " << m_fs_sync_dt;
+        qDebug() << "Filed modified: " << storageFileInfo.lastModified();
+        qDebug() << "Reload storage";
         loadStorage();
     }
 }
