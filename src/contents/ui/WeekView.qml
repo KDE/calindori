@@ -116,7 +116,7 @@ ListView {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
 
                 Controls2.Label {
-                    text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.NarrowFormat)
+                    text: _appLocale.dayName(model.index + fstDayOfWeek, Locale.ShortFormat)
                     Layout.alignment: Qt.AlignHCenter
                 }
 
