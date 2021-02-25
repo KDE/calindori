@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.2 as Kirigami
 
 /**
  * Month Day Delegate
@@ -33,7 +33,7 @@ Rectangle {
     width: childrenRect.width
     height: childrenRect.height
     opacity:(isToday || highlight )  ? 0.4 : 1
-    color: isToday ? Kirigami.Theme.textColor : ( highlight ? Kirigami.Theme.selectionBackgroundColor : Kirigami.Theme.backgroundColor )
+    color: isToday ? Kirigami.Theme.textColor : ( highlight ? Kirigami.Theme.hoverColor : Kirigami.Theme.backgroundColor )
     border.color: Kirigami.Theme.disabledTextColor
 
     Item {
@@ -56,7 +56,7 @@ Rectangle {
             width: parent.width/10
             height: width
             radius: 50
-            color: Kirigami.Theme.selectionFocusColor
+            color: Kirigami.Theme.highlightColor
             visible: incidenceCount > 0
         }
 
