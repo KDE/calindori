@@ -79,7 +79,7 @@ Kirigami.ApplicationWindow {
 
         Connections {
             target: Calindori.CalendarController
-            onStatusMessageChanged: {
+            function onStatusMessageChanged (statusMessage, messageType) {
                 messageFooter.text = statusMessage;
                 messageFooter.footerMode = (messageType === 0) ? MessageBoard.FooterMode.StartImport : (messageType === 1 ? MessageBoard.FooterMode.EndImportSuccess : MessageBoard.FooterMode.EndImportFailure);
             }
