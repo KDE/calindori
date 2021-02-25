@@ -95,7 +95,6 @@ ListView {
         id: dayListItem
 
         property var weekDay: model.index
-        property color incidenceColor: ListView.isCurrentItem ? Qt.darker(Kirigami.Theme.highlightColor, 1.1) : Kirigami.Theme.backgroundColor
         property var itemDate: {
                     var dt = root.selectedWeekDate;
                     dt.setDate(dt.getDate() + index);
