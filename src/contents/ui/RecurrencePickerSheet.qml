@@ -42,7 +42,7 @@ Kirigami.OverlaySheet {
             delegate: Controls.RadioButton {
 
                 text: model.repeatDescription
-                checked: model.repeatCode == selectedRepeatType
+                checked: model.repeatCode === selectedRepeatType
 
                 onClicked: {selectedRepeatType = model.repeatCode}
             }
@@ -50,33 +50,37 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
         }
 
-        Controls.SpinBox {
-            id: repeatEverySpin
+        RowLayout {
+            Kirigami.FormData.label: i18n("Every:")
 
-            textFromValue: function(value, locale) {
-                return (selectedRepeatType == repeatTypesList.model.repeatYearlyMonth || selectedRepeatType == repeatTypesList.model.repeatYearlyDay || selectedRepeatType == repeatTypesList.model.repeatYearlyPos) ? i18np("%1 year", "%1 years", repeatEverySpin.value) :
-                        (selectedRepeatType == repeatTypesList.model.repeatMonthlyDay || selectedRepeatType == repeatTypesList.model.repeatMonthlyPos) ? i18np("%1 month", "%1 months",repeatEverySpin.value) :
-                            (selectedRepeatType == repeatTypesList.model.repeatWeekly) ? i18np("%1 week", "%1 weeks",repeatEverySpin.value) :
-                                (selectedRepeatType == repeatTypesList.model.repeatDaily) ? i18np("%1 day", "%1 days",repeatEverySpin.value) : "";
+            Controls.SpinBox {
+                id: repeatEverySpin
+
+                enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType !== repeatTypesList.model.noRepeat
+                from: 1
             }
 
-            enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType != repeatTypesList.model.noRepeat
-            from: 1
-
-            Kirigami.FormData.label: i18n("Every:")
+            Controls.Label {
+                text: (selectedRepeatType === repeatTypesList.model.repeatYearlyMonth || selectedRepeatType === repeatTypesList.model.repeatYearlyDay || selectedRepeatType === repeatTypesList.model.repeatYearlyPos) ? i18np("year", "years", repeatEverySpin.value) :
+                            (selectedRepeatType === repeatTypesList.model.repeatMonthlyDay || selectedRepeatType === repeatTypesList.model.repeatMonthlyPos) ? i18np("month", "months",repeatEverySpin.value) :
+                                (selectedRepeatType === repeatTypesList.model.repeatWeekly) ? i18np("week", "weeks",repeatEverySpin.value) :
+                                    (selectedRepeatType === repeatTypesList.model.repeatDaily) ? i18np("day", "days",repeatEverySpin.value) : ""
+            }
         }
 
-        Controls.SpinBox {
-            id: stopAfterSpin
+        RowLayout {
+            Kirigami.FormData.label: i18n("Stop After:")
 
-            textFromValue: function(value, locale) {
-                return stopAfterSpin.value > 0 ? i18np("%1 repeat", "%1 repeats", stopAfterSpin.value) : i18n("Never stop")
+            Controls.SpinBox {
+                id: stopAfterSpin
+
+                enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType !== repeatTypesList.model.noRepeat
+                from: 0
             }
 
-            enabled: repeatTypesList && repeatTypesList.model && selectedRepeatType != repeatTypesList.model.noRepeat
-            from: 0
-
-            Kirigami.FormData.label: i18n("Stop After:")
+            Controls.Label {
+                text: stopAfterSpin.value > 0 ? i18np("repeat", "repeats", stopAfterSpin.value) : i18n("Never stop")
+            }
         }
     }
 
