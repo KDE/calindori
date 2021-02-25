@@ -55,7 +55,6 @@ Kirigami.OverlaySheet {
         }
 
         delegate: Kirigami.DelegateRecycler {
-            width: parent ? parent.width : 0
             sourceComponent: contactListDelegate
         }
 
