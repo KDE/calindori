@@ -14,9 +14,9 @@ Controls2.ToolButton {
 
     property date selectorDate
     property string selectorTitle
+    property string invalidDateStr
 
-    text: selectorDate.toLocaleDateString(_appLocale, Locale.NarrowFormat)
-    implicitWidth: Kirigami.Units.gridUnit * 5
+    text: (selectorDate === undefined || isNaN(root.selectorDate)) ? invalidDateStr : selectorDate.toLocaleDateString(_appLocale, Locale.NarrowFormat)
 
     onClicked: {
         datePickerSheet.selectedDate = (selectorDate != undefined && !isNaN(root.selectorDate)) ? selectorDate: Calindori.CalendarController.localSystemDateTime()

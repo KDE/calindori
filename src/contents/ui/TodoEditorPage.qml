@@ -56,10 +56,14 @@ Kirigami.Page {
                 spacing: 0
                 enabled: !root.completed
 
+                Layout.fillWidth: true
+
                 DateSelectorButton {
                     id: startDateSelector
 
                     selectorTitle: i18n("Start Date")
+                    invalidDateStr: i18n("No Start Date")
+                    Layout.fillWidth: true
                 }
 
                 TimeSelectorButton {
@@ -72,14 +76,16 @@ Kirigami.Page {
                     selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: (validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM")) ? true : false
-
                     enabled: !allDaySelector.checked && validSelectedDt
+                    Layout.fillWidth: true
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
                 }
 
                 Controls2.ToolButton {
                     id: clearStartDt
 
                     icon.name: "edit-clear-all"
+                    Layout.fillWidth: true
 
                     onClicked: {
                         startDateSelector.selectorDate = new Date("invalid");
@@ -92,11 +98,14 @@ Kirigami.Page {
                 Kirigami.FormData.label: i18n("Due:")
                 spacing: 0
                 enabled: !root.completed
+                Layout.fillWidth: true
 
                 DateSelectorButton {
                     id: dueDateSelector
 
                     selectorTitle: i18n("Due Date")
+                    invalidDateStr: i18n("No Due Date")
+                    Layout.fillWidth: true
 
                     Component.onCompleted: {
                         // Do not bind, just initialize
@@ -126,14 +135,16 @@ Kirigami.Page {
                     selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM") ? true : false
-
                     enabled: !allDaySelector.checked && validSelectedDt
+                    Layout.fillWidth: true
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
                 }
 
                 Controls2.ToolButton {
                     id: clearDueDt
 
                     icon.name: "edit-clear-all"
+                    Layout.fillWidth: true
 
                     onClicked: dueDateSelector.selectorDate = new Date("invalid")
                 }

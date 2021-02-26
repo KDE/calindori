@@ -26,7 +26,7 @@ Controls2.ToolButton {
             return textDt.toLocaleTimeString(_appLocale, "HH:mm");
         }
         else {
-            return "00.00";
+            return "";
         }
     }
 

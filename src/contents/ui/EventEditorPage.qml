@@ -61,13 +61,16 @@ Kirigami.ScrollablePage {
             }
 
             RowLayout {
-                spacing: 0
+                spacing: Kirigami.Units.smallSpacing
                 Kirigami.FormData.label: i18n("Start:")
+                Layout.fillWidth: true
 
                 DateSelectorButton {
                     id: startDateSelector
 
                     selectorTitle: i18n("Start Date")
+                    invalidDateStr: i18n("No Start Date")
+                    Layout.fillWidth: true
                 }
 
                 TimeSelectorButton {
@@ -79,18 +82,22 @@ Kirigami.ScrollablePage {
                     selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
                     selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
                     enabled: !allDaySelector.checked
+                    Layout.fillWidth: true
                 }
             }
 
             RowLayout {
                 spacing: 0
                 Kirigami.FormData.label: i18n("End:")
+                Layout.fillWidth: true
 
                 DateSelectorButton {
                     id: endDateSelector
 
                     enabled: !allDaySelector.checked
                     selectorTitle: i18n("End Date")
+                    invalidDateStr: i18n("No End Date")
+                    Layout.fillWidth: true
 
                     Component.onCompleted: {
                         var newDt;
@@ -117,6 +124,7 @@ Kirigami.ScrollablePage {
                     selectorMinutes: root.endDt.getMinutes()
                     selectorPm: (root.endDt.getHours() >=12)
                     enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
+                    Layout.fillWidth: true
                 }
             }
 
