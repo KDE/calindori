@@ -61,7 +61,7 @@ Kirigami.ScrollablePage {
             }
 
             RowLayout {
-                spacing: Kirigami.Units.smallSpacing
+                spacing: 0
                 Kirigami.FormData.label: i18n("Start:")
                 Layout.fillWidth: true
 
@@ -69,7 +69,7 @@ Kirigami.ScrollablePage {
                     id: startDateSelector
 
                     selectorTitle: i18n("Start Date")
-                    invalidDateStr: i18n("No Start Date")
+                    invalidDateStr: "-"
                     Layout.fillWidth: true
                 }
 
@@ -82,7 +82,8 @@ Kirigami.ScrollablePage {
                     selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
                     selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
                     enabled: !allDaySelector.checked
-                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                 }
             }
 
@@ -96,7 +97,7 @@ Kirigami.ScrollablePage {
 
                     enabled: !allDaySelector.checked
                     selectorTitle: i18n("End Date")
-                    invalidDateStr: i18n("No End Date")
+                    invalidDateStr: "-"
                     Layout.fillWidth: true
 
                     Component.onCompleted: {
@@ -124,7 +125,8 @@ Kirigami.ScrollablePage {
                     selectorMinutes: root.endDt.getMinutes()
                     selectorPm: (root.endDt.getHours() >=12)
                     enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
-                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
                 }
             }
 
@@ -144,11 +146,18 @@ Kirigami.ScrollablePage {
                 property string repeatDescription: _repeatModel && _repeatModel.periodDecription(repeatType)
                 property int stopAfter: incidenceData != null && incidenceData.isRepeating ? incidenceData.repeatStopAfter: -1
 
-                text: _repeatModel && _repeatModel.repeatDescription(repeatType, repeatEvery, stopAfter)
-                Kirigami.FormData.label: i18n("Repeat:")
+                contentItem: Controls2.Label {
+                    leftPadding: Kirigami.Units.largeSpacing
+                    rightPadding: Kirigami.Units.largeSpacing
+                    text: _repeatModel && _repeatModel.repeatDescription(parent.repeatType, parent.repeatEvery, parent.stopAfter)
+                }
 
-                onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter )
+                Kirigami.FormData.label: i18n("Repeat:")
+                Layout.fillWidth: true
+
+                onClicked: recurPickerSheet.init(repeatType, repeatEvery, stopAfter)
             }
+
         }
 
         Item {

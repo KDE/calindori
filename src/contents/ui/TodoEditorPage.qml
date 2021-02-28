@@ -62,7 +62,7 @@ Kirigami.Page {
                     id: startDateSelector
 
                     selectorTitle: i18n("Start Date")
-                    invalidDateStr: i18n("No Start Date")
+                    invalidDateStr: "-"
                     Layout.fillWidth: true
                 }
 
@@ -77,15 +77,16 @@ Kirigami.Page {
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: (validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM")) ? true : false
                     enabled: !allDaySelector.checked && validSelectedDt
-                    Layout.fillWidth: true
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 3
                 }
 
                 Controls2.ToolButton {
                     id: clearStartDt
 
                     icon.name: "edit-clear-all"
-                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
 
                     onClicked: {
                         startDateSelector.selectorDate = new Date("invalid");
@@ -104,7 +105,7 @@ Kirigami.Page {
                     id: dueDateSelector
 
                     selectorTitle: i18n("Due Date")
-                    invalidDateStr: i18n("No Due Date")
+                    invalidDateStr: "-"
                     Layout.fillWidth: true
 
                     Component.onCompleted: {
@@ -136,15 +137,16 @@ Kirigami.Page {
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
                     selectorPm: validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM") ? true : false
                     enabled: !allDaySelector.checked && validSelectedDt
-                    Layout.fillWidth: true
-                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 3
                 }
 
                 Controls2.ToolButton {
                     id: clearDueDt
 
                     icon.name: "edit-clear-all"
-                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 2
 
                     onClicked: dueDateSelector.selectorDate = new Date("invalid")
                 }
