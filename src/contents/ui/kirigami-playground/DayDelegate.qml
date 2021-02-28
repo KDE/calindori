@@ -36,6 +36,7 @@ Rectangle {
     color: isToday ? Kirigami.Theme.textColor : ( highlight ? Kirigami.Theme.hoverColor : Kirigami.Theme.backgroundColor )
     border.color: Kirigami.Theme.disabledTextColor
 
+
     Item {
         width: dayDelegate.delegateWidth
         height: width
@@ -62,7 +63,7 @@ Rectangle {
 
         Controls2.Label {
             anchors.centerIn: parent
-            enabled: isCurrentMonth
+            color: isCurrentMonth ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
             text: model.dayNumber
         }
 
