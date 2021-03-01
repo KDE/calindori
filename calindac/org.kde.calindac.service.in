@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 Dimitris Kardarakos <dimkard@posteo.net>
+#
+# SPDX-License-Identifier: BSD-2-Clause
 [D-BUS Service]
 Name=org.kde.calindac
 Exec=@SERV_EXEC@
