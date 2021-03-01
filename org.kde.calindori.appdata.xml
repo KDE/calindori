@@ -361,7 +361,30 @@
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
   <url type="bugtracker">https://bugs.kde.org/describecomponents.cgi?product=calindori</url>
   <releases>
-    <release version="1.3.0" date="2020-11-21">
+    <release version="1.4.0" date="2021-03-01">
+      <description>
+        <p>New features, improvements and fixes</p>
+        <ul>
+            <li>Show progress of month swipes</li>
+            <li>Improve calendar month performance</li>
+            <li>Directly open calendar files</li>
+            <li>Show import notifications in the app footer</li>
+            <li>Fix inline message display on desktop</li>
+            <li>Introduce the import-calendar-data action</li>
+            <li>Fix scheduling of repeating events</li>
+            <li>Fix time picker display</li>
+            <li>Add attendees support to events</li>
+            <li>Refactor event and task editor pages</li>
+            <li>Prevent accidental task or event deletion</li>
+            <li>Offer attendee role editing</li>
+            <li>Solve string puzzles</li>
+            <li>Add a proper generic name for the application</li>
+            <li>Offer export functionality</li>
+            <li>Offer import on specific calendars</li>
+        </ul>
+      </description>
+    </release>
+      <release version="1.3.0" date="2020-11-21">
       <description>
         <p>New features, improvements and fixes</p>
         <ul>
