@@ -54,7 +54,7 @@ add_subdirectory(icons)
 add_subdirectory(calindac)
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ecm_install_po_files_as_qm(po)
+    ki18n_install(po)
 endif()
 
 install(FILES org.kde.calindori.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
