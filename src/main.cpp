@@ -51,7 +51,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("calindori");
 
-    KAboutData aboutData(QStringLiteral("calindori"), i18n("Calindori"), QStringLiteral("1.4.0"), i18nc("@title", "Calendar application"), KAboutLicense::GPL_V3, i18nc("@info:credit", "(c) 2018-2021 The Calindori Team"));
+    KAboutData aboutData(QStringLiteral("calindori"), i18n("Calindori"), QStringLiteral("1.4.90"), i18nc("@title", "Calendar application"), KAboutLicense::GPL_V3, i18nc("@info:credit", "(c) 2018-2021 The Calindori Team"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
     aboutData.setProductName(QByteArray("calindori"));
