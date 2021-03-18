@@ -2,10 +2,6 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-if (NOT STATIC_LIBRARY)
-    ecm_create_qm_loader(calindori_QM_LOADER calindori_qt)
-endif()
-
 add_executable(calindori
     main.cpp
     calindoriconfig.cpp
