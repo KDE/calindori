@@ -23,8 +23,10 @@ Kirigami.ScrollablePage {
     rightPadding: 0
 
     actions.main: Kirigami.Action {
+        id: mainAction
+
         icon.name: "resource-calendar-insert"
-        text: i18n("Add")
+        text: (incidenceType === 0) ? i18n("Create Event") : i18n("Create Task")
         onTriggered: {
             var currentDt = Calindori.CalendarController.localSystemDateTime();
             var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
@@ -48,6 +50,7 @@ Kirigami.ScrollablePage {
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: listView.count == 0
         text: !isNaN(incidenceStartDt) ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("Nothing scheduled")
+        helpfulAction: mainAction
     }
 
     ListView {
@@ -55,6 +58,7 @@ Kirigami.ScrollablePage {
 
         anchors.fill: parent
         model: incidenceModel
+        enabled: count > 0
         spacing: Kirigami.Units.largeSpacing
 
         section {

@@ -19,8 +19,10 @@ Kirigami.ScrollablePage {
     title: i18n("Tasks")
 
     actions.main: Kirigami.Action {
+        id: mainAction
+
         icon.name: "resource-calendar-insert"
-        text: i18n("New Task")
+        text: i18n("Create Task")
         onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
     }
 
@@ -33,12 +35,14 @@ Kirigami.ScrollablePage {
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
         text: !isNaN(todoDt) ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No tasks scheduled")
+        helpfulAction: mainAction
     }
 
     Kirigami.CardsListView {
         id: cardsListview
 
         model: todosModel
+        enabled: count > 0
 
         delegate: TodoCard {
             id: cardDelegate

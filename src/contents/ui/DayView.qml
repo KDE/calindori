@@ -109,7 +109,7 @@ ListView {
         actions: [
             Kirigami.Action {
                 iconName: "resource-calendar-insert"
-                text: i18n("New event")
+                text: i18n("Create Event")
 
                 onTriggered: {
                     var eventDt = selectedDate;
@@ -123,7 +123,7 @@ ListView {
 
             Kirigami.Action {
                 iconName: "task-new"
-                text: i18n("New task")
+                text: i18n("Create Task")
 
                 onTriggered: {
                     var todoDt = selectedDate;

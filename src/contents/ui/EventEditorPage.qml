@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    title: uid == "" ? i18n("New event") : root.summary
+    title: uid === "" ? i18n("Create Event") : root.summary
 
     ColumnLayout {
         anchors.centerIn: parent

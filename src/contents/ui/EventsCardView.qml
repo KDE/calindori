@@ -22,8 +22,10 @@ Kirigami.ScrollablePage {
     rightPadding: 0
 
     actions.main: Kirigami.Action {
+        id: mainAction
+
         icon.name: "resource-calendar-insert"
-        text: i18n("New Event")
+        text: i18n("Create Event")
         onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : Calindori.CalendarController.localSystemDateTime()})
     }
 
@@ -33,12 +35,14 @@ Kirigami.ScrollablePage {
         width: parent.width - (Kirigami.Units.largeSpacing * 4)
         visible: cardsListview.count == 0
         text: !isNaN(eventStartDt) ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No events scheduled")
+        helpfulAction: mainAction
     }
 
     Kirigami.CardsListView {
         id: cardsListview
 
         model: eventsModel
+        enabled: count > 0
 
         delegate: EventCard {
             id: cardDelegate

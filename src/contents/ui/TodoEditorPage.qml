@@ -32,7 +32,7 @@ Kirigami.Page {
 
     signal editcompleted
 
-    title: uid == "" ? i18n("New task") : root.summary
+    title: uid === "" ? i18n("Create Task") : root.summary
 
     ColumnLayout {
         anchors.centerIn: parent

@@ -157,14 +157,14 @@ ListView {
         actions: [
             Kirigami.Action {
                 iconName: "resource-calendar-insert"
-                text: i18n("New event")
+                text: i18n("Create Event")
 
                 onTriggered: pageStack.push(eventEditor, { startDt: itemDate })
             },
 
             Kirigami.Action {
                 iconName: "task-new"
-                text: i18n("New task")
+                text: i18n("Create Task")
 
                 onTriggered: pageStack.push(todoEditor, { startDt: itemDate })}
         ]
