@@ -5,13 +5,14 @@
  */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 Kirigami.Page {
     id: root
 
+    property var appContextDrawer
+    property string contextIconName: "view-calendar-tasks"
     property alias dayRectangleWidth: calendarMonthView.dayRectangleWidth
-
     property alias selectedDate: calendarMonthView.selectedDate
 
     /**
@@ -108,6 +109,24 @@ Kirigami.Page {
             if (Kirigami.Settings.isMobile && pageStack.depth > 1) {
                 pageStack.pop(null);
             }
+        }
+
+        onDayPressed: {
+            if (dayOfPress.toLocaleDateString() === selectedDate.toLocaleDateString()) {
+                appContextDrawer.handleOpenIcon.color = Kirigami.Theme.highlightColor;
+                appContextDrawer.handleClosedIcon.color = Kirigami.Theme.highlightColor;
+            }
+        }
+
+        onDayLongPressed: {
+            if ((dayOfLongPress.toLocaleDateString() === selectedDate.toLocaleDateString()) && Kirigami.Settings.isMobile) {
+                appContextDrawer.open();
+            }
+        }
+
+        onDayReleased: {
+            appContextDrawer.handleOpenIcon.color = '';
+            appContextDrawer.handleClosedIcon.color = '';
         }
 
         onViewEnd: pageEnd(lastDate, (pageStack.depth > 1) ? root.latestContextualAction : -1)

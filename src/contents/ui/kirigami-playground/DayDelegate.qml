@@ -29,6 +29,9 @@ Rectangle {
     property bool highlight: (model.yearNumber == selectedDate.getFullYear())  &&  (model.monthNumber == selectedDate.getMonth() + 1) &&  (model.dayNumber == root.selectedDate.getDate())
 
     signal dayClicked
+    signal dayPressed
+    signal dayLongPressed
+    signal dayReleased
 
     width: childrenRect.width
     height: childrenRect.height
@@ -71,6 +74,9 @@ Rectangle {
             anchors.fill: parent
             enabled: isCurrentMonth
             onClicked: dayDelegate.dayClicked()
+            onPressed: dayDelegate.dayPressed()
+            onPressAndHold: dayDelegate.dayLongPressed()
+            onReleased: dayDelegate.dayReleased()
         }
     }
 }

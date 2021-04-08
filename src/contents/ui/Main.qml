@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ApplicationWindow {
@@ -45,6 +45,10 @@ Kirigami.ApplicationWindow {
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
 
+        property var contextIconName: (pageStack && pageStack.currentItem && pageStack.currentItem.hasOwnProperty('contextIconName')) ?  pageStack.currentItem.contextIconName : null
+        handleOpenIcon.source: contextIconName
+        handleClosedIcon.source: contextIconName
+
         title: (pageStack.currentItem && pageStack.currentItem.hasOwnProperty("selectedDate") && !isNaN(pageStack.currentItem.selectedDate)) ? pageStack.currentItem.selectedDate.toLocaleDateString(_appLocale, Locale.ShortFormat) : ""
     }
 
@@ -63,6 +67,7 @@ Kirigami.ApplicationWindow {
         id: calendarMonthPage
 
         CalendarMonthPage {
+            appContextDrawer: contextDrawer
             calendar: localCalendar
             dayRectangleWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 2.5 : Kirigami.Units.gridUnit * 3.5
             loadWithAction: Kirigami.Settings.isMobile ? -1 : 1

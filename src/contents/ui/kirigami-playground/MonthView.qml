@@ -45,6 +45,10 @@ Item {
     property bool showMonthName: true
     property bool showYear: true
 
+    signal datePressed(date dateOfPress)
+    signal dateLongPressed(date dateOfLongPress)
+    signal dateReleased(date dateOfRelease)
+
     onSelectedDateChanged: reloadSelectedDate()
 
     Loader {
@@ -143,11 +147,16 @@ Item {
                 Repeater {
                     model: root.daysModel
                     delegate: DayDelegate {
+                        property date modelDate: new Date(model.yearNumber, model.monthNumber -1, model.dayNumber, root.selectedDate.getHours(), root.selectedDate.getMinutes(), 0)
                         currentDate: root.currentDate
                         delegateWidth: root.dayRectWidth
                         selectedDate: root.selectedDate
 
-                        onDayClicked: root.selectedDate = new Date(model.yearNumber, model.monthNumber -1, model.dayNumber, root.selectedDate.getHours(), root.selectedDate.getMinutes(), 0)
+                        onDayClicked: root.selectedDate = modelDate
+                        onDayPressed: root.datePressed(modelDate)
+                        onDayLongPressed: root.dateLongPressed(modelDate)
+                        onDayReleased: root.dateReleased(modelDate)
+
                     }
                 }
             }

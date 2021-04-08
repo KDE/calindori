@@ -45,6 +45,10 @@ Controls2.SwipeView {
      */
     signal viewEnd(var lastDate)
 
+    signal dayPressed(date dayOfPress)
+    signal dayLongPressed(date dayOfLongPress)
+    signal dayReleased(date dayOfRelease)
+
     onNextMonth: {
         mm.goNextMonth();
         root.selectedDate = new Date(mm.year, mm.month-1, 1, root.selectedDate.getHours(), root.selectedDate.getMinutes());
@@ -134,6 +138,10 @@ Controls2.SwipeView {
                 selectedDayTodosCount = cal.todosCount(root.selectedDate)
                 selectedDayEventsCount = cal.eventsCount(root.selectedDate)
             }
+
+            onDatePressed: root.dayPressed(dateOfPress)
+            onDateLongPressed: root.dayLongPressed(dateOfLongPress)
+            onDateReleased: root.dayReleased(dateOfRelease)
         }
     }
 
