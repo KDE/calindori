@@ -4,7 +4,8 @@
 
 cmake_minimum_required(VERSION 3.0)
 
-project(calindori VERSION "1.4.90")
+project(calindori)
+set(PROJECT_VERSION "21.05")
 
 set(KF5_MIN_VERSION "5.62.0")
 set(QT_MIN_VERSION "5.14.0")
@@ -22,6 +23,12 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMPoQmTools)
+include(ECMSetupVersion)
+
+ecm_setup_version(${PROJECT_VERSION}
+    VARIABLE_PREFIX CALINDORI
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/version.h
+)
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core

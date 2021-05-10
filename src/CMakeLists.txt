@@ -23,6 +23,8 @@ if (BUILD_TESTING)
     target_link_libraries(calindori Qt5::Test)
 endif()
 
+target_include_directories(calindori PRIVATE ${CMAKE_BINARY_DIR})
+
 if(ANDROID)
     kirigami_package_breeze_icons(ICONS
     appointment-reminder
