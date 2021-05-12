@@ -36,7 +36,6 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Qml
     Quick
     QuickControls2
-    DBus
     Svg
     Network
 )
@@ -50,10 +49,14 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     I18n
     CoreAddons
     CalendarCore
-    DBusAddons
     Notifications
     People
 )
+
+if(NOT ANDROID)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus)
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DBusAddons)
+endif()
 
 add_subdirectory(src)
 add_subdirectory(icons)

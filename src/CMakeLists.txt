@@ -18,7 +18,7 @@ add_executable(calindori
     resources.qrc
 )
 
-target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Svg Qt5::DBus Qt5::Network KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons KF5::DBusAddons KF5::People)
+target_link_libraries(calindori Qt5::Core Qt5::Qml Qt5::Quick Qt5::Svg Qt5::Network KF5::ConfigCore KF5::I18n KF5::CalendarCore KF5::CoreAddons KF5::People)
 if (BUILD_TESTING)
     target_link_libraries(calindori Qt5::Test)
 endif()
@@ -68,6 +68,8 @@ if(ANDROID)
     view-choose
     window-close-symbolic
 )
+else()
+    target_link_libraries(calindori Qt5::DBus KF5::DBusAddons)
 endif()
 
 install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
