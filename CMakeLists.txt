@@ -57,7 +57,10 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 add_subdirectory(src)
 add_subdirectory(icons)
-add_subdirectory(calindac)
+
+if(NOT ANDROID)
+    add_subdirectory(calindac)
+endif()
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
