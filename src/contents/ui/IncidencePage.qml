@@ -16,6 +16,7 @@ Kirigami.Page {
     property bool isIncidencePage: true
 
     title: incidence && incidence.summary
+    visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
     Loader {
         anchors.fill: parent

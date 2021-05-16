@@ -29,6 +29,7 @@ Kirigami.Page {
     property alias completed: incidenceEditor.completed
     property var calendar
     property var incidenceData
+    property bool isEditorPage: true
 
     signal editcompleted
 

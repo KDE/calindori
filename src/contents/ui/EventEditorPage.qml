@@ -32,6 +32,7 @@ Kirigami.ScrollablePage {
     property alias repeatEvery: repeatSelector.repeatEvery
     property alias repeatStopAfter: repeatSelector.stopAfter
     property alias incidenceStatus: incidenceEditor.incidenceStatus
+    property bool isEditorPage: true
 
     signal editcompleted(var vevent)
 

@@ -20,6 +20,7 @@ Kirigami.ScrollablePage {
 
     leftPadding: 0
     rightPadding: 0
+    visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
     actions.main: Kirigami.Action {
         id: mainAction
