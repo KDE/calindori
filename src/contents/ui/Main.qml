@@ -70,7 +70,7 @@ Kirigami.ApplicationWindow {
             appContextDrawer: contextDrawer
             calendar: localCalendar
             dayRectangleWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 2.5 : Kirigami.Units.gridUnit * 3.5
-            loadWithAction: Kirigami.Settings.isMobile ? -1 : 1
+            loadWithAction: !Kirigami.Settings.isMobile && root.wideScreen ? 1 : -1
 
             onPageEnd: switchToMonthPage(lastDate, lastActionIndex)
         }
