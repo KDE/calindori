@@ -43,7 +43,8 @@ Kirigami.ScrollablePage {
         id: cardsListview
 
         model: todosModel
-        enabled: count > 0
+        enabled: count > 0 && (root.state !== "deleting")
+        clip: true
 
         delegate: TodoCard {
             id: cardDelegate
@@ -58,7 +59,7 @@ Kirigami.ScrollablePage {
                     onTriggered: {
                         deleteMsg.taskUid = model.uid;
                         deleteMsg.taskSummary = model.summary;
-                        deleteMsg.visible = true;
+                        root.state = "deleting";
                     }
                 },
 
@@ -87,14 +88,14 @@ Kirigami.ScrollablePage {
 
                 onTriggered: {
                     Calindori.CalendarController.removeTodo(root.calendar, {"uid": deleteMsg.taskUid});
-                    deleteMsg.visible = false;
+                    root.state = "";
                 }
             },
 
             Kirigami.Action {
                 text: i18n("Cancel")
 
-                onTriggered: deleteMsg.visible = false
+                onTriggered: root.state = ""
             }
         ]
     }
@@ -117,4 +118,14 @@ Kirigami.ScrollablePage {
         }
     }
 
+    states: [
+        State {
+            name: ""
+            PropertyChanges { target: deleteMsg; visible: false }
+        },
+        State {
+            name: "deleting"
+            PropertyChanges { target: deleteMsg; visible: true }
+        }
+    ]
 }

@@ -41,13 +41,15 @@ Kirigami.Page {
 
     actions.left: Kirigami.Action {
         text: i18n("Delete")
+        enabled: root.state !== "deleting"
         icon.name: "delete"
 
-        onTriggered: footer.visible = true
+        onTriggered: root.state = "deleting"
     }
 
     actions.main: Kirigami.Action {
         text: i18n("Close")
+        enabled: root.state !== "deleting"
         icon.name: "window-close-symbolic"
 
         onTriggered: pageStack.pop(null)
@@ -55,6 +57,7 @@ Kirigami.Page {
 
     actions.right: Kirigami.Action {
         text: i18n("Edit")
+        enabled: root.state !== "deleting"
         icon.name: "document-edit"
 
         onTriggered: pageStack.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
@@ -78,6 +81,7 @@ Kirigami.Page {
                     else {
                         Calindori.CalendarController.removeTodo(root.calendar, incidenceData);
                     }
+                    root.state = ""
                     pageStack.pop(incidencePage);
                 }
             },
@@ -85,8 +89,19 @@ Kirigami.Page {
             Kirigami.Action {
                 text: i18n("Cancel")
 
-                onTriggered: deleteMsg.visible = false
+                onTriggered: root.state = ""
             }
         ]
     }
+
+    states: [
+        State {
+            name: ""
+            PropertyChanges { target: deleteMsg; visible: false }
+        },
+        State {
+            name: "deleting"
+            PropertyChanges { target: deleteMsg; visible: true }
+        }
+    ]
 }

@@ -43,7 +43,8 @@ Kirigami.ScrollablePage {
         id: cardsListview
 
         model: eventsModel
-        enabled: count > 0
+        enabled: count > 0 && (root.state !== "deleting")
+        clip: true
 
         delegate: EventCard {
             id: cardDelegate
@@ -58,7 +59,7 @@ Kirigami.ScrollablePage {
                     onTriggered: {
                         deleteMsg.eventUid = model.uid;
                         deleteMsg.eventSummary = model.summary;
-                        deleteMsg.visible = true;
+                        root.state = "deleting";
                     }
                 },
 
@@ -87,14 +88,14 @@ Kirigami.ScrollablePage {
 
                 onTriggered: {
                     Calindori.CalendarController.removeEvent(root.calendar, {"uid": deleteMsg.eventUid});
-                    deleteMsg.visible = false;
+                    root.state = "";
                 }
             },
 
             Kirigami.Action {
                 text: i18n("Cancel")
 
-                onTriggered: deleteMsg.visible = false
+                onTriggered: root.state = ""
             }
         ]
     }
@@ -118,4 +119,15 @@ Kirigami.ScrollablePage {
             onEditcompleted: pageStack.pop(root)
         }
     }
+
+    states: [
+        State {
+            name: ""
+            PropertyChanges { target: deleteMsg; visible: false }
+        },
+        State {
+            name: "deleting"
+            PropertyChanges { target: deleteMsg; visible: true }
+        }
+    ]
 }
