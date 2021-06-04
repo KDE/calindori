@@ -378,6 +378,7 @@
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
   <url type="bugtracker">https://bugs.kde.org/describecomponents.cgi?product=calindori</url>
   <releases>
+    <release version="21.06" date="2021-06-10"/>
     <release version="1.4.0" date="2021-03-01">
       <description>
         <p>New features, improvements and fixes</p>
