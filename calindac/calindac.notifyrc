@@ -85,6 +85,7 @@ Name[pt_BR]=UID da incidência
 Name[sv]=Förekomstens användar-id
 Name[uk]=Ідентифікатор випадку
 Name[x-test]=xxIncidence uidxx
+Name[zh_CN]=事件 UID
 Comment=The uid of the incidence of the alarm
 Comment[ca]=L'UID de la incidència de l'alarma
 Comment[ca@valencia]=L'UID de la incidència de l'alarma
@@ -109,6 +110,7 @@ Comment[pt_BR]=A UID da incidência do alarme
 Comment[sv]=Användar-id för förekomsten av alarmet
 Comment[uk]=Ідентифікатор випадку нагадування
 Comment[x-test]=xxThe uid of the incidence of the alarmxx
+Comment[zh_CN]=提醒事件的 UID
 
 [Event/alarm]
 Name=Alarm
