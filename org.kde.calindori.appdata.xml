@@ -378,7 +378,17 @@
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
   <url type="bugtracker">https://bugs.kde.org/describecomponents.cgi?product=calindori</url>
   <releases>
-    <release version="21.06" date="2021-06-10"/>
+    <release version="21.06" date="2021-06-10">
+      <description>
+        <p>Improvements and fixes</p>
+        <ul>
+          <li>Ensure that the footer inline message is displayed on top of the content</li>
+          <li>Show events by default only on wide screens</li>
+          <li>On desktop, ensure that no more than two page columns are visible at the same time</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.4.0" date="2021-03-01">
       <description>
         <p>New features, improvements and fixes</p>
