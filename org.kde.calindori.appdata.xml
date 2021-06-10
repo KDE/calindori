@@ -7,7 +7,7 @@
   <id>org.kde.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <content_rating type="oars-1.1"/>
+  <content_rating type="oars-1.1" />
   <name>Calindori</name>
   <name xml:lang="ca">Calindori</name>
   <name xml:lang="ca-valencia">Calindori</name>
@@ -388,7 +388,9 @@
           <li>Update translations</li>
         </ul>
       </description>
+      <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
     </release>
+    <release version="21.05" date="2021-05-10" />
     <release version="1.4.0" date="2021-03-01">
       <description>
         <p>New features, improvements and fixes</p>
