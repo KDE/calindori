@@ -34,6 +34,11 @@ ColumnLayout {
         }
     }
 
+    Kirigami.Separator {
+        visible: dataModel && (dataModel.description != "")
+        Layout.fillWidth: true
+    }
+
     Controls2.Label {
         visible: dataModel && (dataModel.description != "")
         wrapMode: Text.WordWrap
