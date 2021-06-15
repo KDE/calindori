@@ -227,27 +227,29 @@ void CalAlarmClient::scheduleAlarmCheck()
         return;
     }
 
+    // Look for alarms over the next days
     AlarmsModel model {};
     model.setCalendarFiles(calendarFileList());
+    model.setPeriod({.from = m_last_check.addSecs(1), .to = (m_last_check.addDays(15)).date().startOfDay()});
 
-    model.setPeriod({.from = m_last_check.addSecs(1), .to = (m_last_check.addDays(1)).date().startOfDay()});
+    // Next schedule time: the trigger time of the first alarm or scheduled notification
+    QDateTime scheduleWakeupAt {};
+    auto firstAlarmTime = model.firstAlarmTime();
+    auto firstSuspendedTime = m_notification_handler->firstSuspended();
 
-    auto wakeupAt = model.firstAlarmTime();
-
-    //Recurring events return the date of their first instance; shift them to the present
-    if (wakeupAt.date() < m_last_check.date()) {
-        wakeupAt.setDate(m_last_check.date());
+    if (firstAlarmTime.isValid() && firstSuspendedTime.isValid()) {
+        scheduleWakeupAt = (firstAlarmTime < firstSuspendedTime) ? firstAlarmTime : firstSuspendedTime;
+    } else {
+        scheduleWakeupAt = firstAlarmTime.isValid() ? firstAlarmTime : firstSuspendedTime;
     }
 
-    auto suspendedWakeupAt = m_notification_handler->firstSuspendedBefore(wakeupAt);
-
-    if (suspendedWakeupAt.isValid() && suspendedWakeupAt < wakeupAt) {
-        wakeupAt = suspendedWakeupAt;
+    if (scheduleWakeupAt.isValid()) {
+        qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << scheduleWakeupAt.addSecs(1).toString("dd.MM.yyyy hh:mm:ss");
+        m_wakeup_manager->scheduleWakeup(scheduleWakeupAt.addSecs(1));
+    } else { // If no alarms/suspended notifications exist, do not schedule anything and remove any scheduled wakeup call.
+        qDebug() << "scheduleAlarmCheck:" << "Cancel scheduled wake up";
+        m_wakeup_manager->removeWakeup();
     }
-
-    qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << wakeupAt.toString("dd.MM.yyyy hh:mm:ss");
-
-    m_wakeup_manager->scheduleWakeup(wakeupAt);
 }
 
 void CalAlarmClient::wakeupCallback()

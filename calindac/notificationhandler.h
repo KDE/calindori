@@ -58,9 +58,9 @@ public:
     QHash<QString, AlarmNotification *> suspendedNotifications() const;
 
     /**
-     * @brief The date time of the first suspended alarm scheduled into the interval specified
+     * @brief The date time of the first suspended alarm scheduled. If no suspended notifications exist, an invalid datetime is returned.
      */
-    QDateTime firstSuspendedBefore(const QDateTime &before) const;
+    QDateTime firstSuspended() const;
 
     Q_SIGNAL void scheduleAlarmCheck();
 

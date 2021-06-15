@@ -107,13 +107,17 @@ QHash<QString, AlarmNotification *> NotificationHandler::suspendedNotifications(
     return m_suspended_notifications;
 }
 
-QDateTime NotificationHandler::firstSuspendedBefore(const QDateTime &before) const
+QDateTime NotificationHandler::firstSuspended() const
 {
-    auto firstAlarmTime = QDateTime(before);
+    if (m_suspended_notifications.isEmpty()) {
+        return QDateTime {};
+    }
+
+    auto firstAlarmTime = m_suspended_notifications.values().first()->remindAt();
 
     for (const auto &s : qAsConst(m_suspended_notifications)) {
         auto alarmTime = s->remindAt();
-        if (alarmTime < before) {
+        if (alarmTime < firstAlarmTime) {
             firstAlarmTime = alarmTime;
         }
     }

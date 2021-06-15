@@ -67,6 +67,13 @@ void WakeupManager::removeWakeup(int cookie)
     m_cookie = -1;
 }
 
+void WakeupManager::removeWakeup()
+{
+    if (m_cookie > 0) {
+        removeWakeup(m_cookie);
+    }
+}
+
 bool WakeupManager::hasWakeupFeatures()
 {
     if (m_wakeup_backend->isWakeupBackend()) {

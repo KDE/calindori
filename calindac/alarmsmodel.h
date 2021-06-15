@@ -57,7 +57,7 @@ public:
     Alarm::List alarms() const;
 
     /**
-     * @brief The date time of the first alarm scheduled into the interval specified
+     * @brief Returns the date time of the first alarm to be triggered after a specific date. If no alarm exists, it returns an invalid date time.
      */
     QDateTime firstAlarmTime() const;
 

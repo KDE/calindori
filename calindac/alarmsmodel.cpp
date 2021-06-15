@@ -43,6 +43,7 @@ void AlarmsModel::loadAlarms()
             m_alarms.append(calendarAlarms);
         }
     }
+
     qDebug() << "loadAlarms:" << m_period.from.toString("dd.MM.yyyy hh:mm:ss") << "to" << m_period.to.toString("dd.MM.yyyy hh:mm:ss") << m_alarms.count() << "alarms found";
 
     closeStorages();
@@ -137,10 +138,14 @@ void AlarmsModel::setCalendarFiles(const QStringList &fileList)
 
 QDateTime AlarmsModel::firstAlarmTime() const
 {
-    auto firstAlarmTime = m_period.to;
+    if (m_alarms.isEmpty()) {
+        return QDateTime {};
+    }
+
+    auto firstAlarmTime = m_alarms.first()->nextTime(m_period.from);
 
     for (const auto &alarm : m_alarms) {
-        auto alarmTime = alarm->time();
+        auto alarmTime = alarm->nextTime(m_period.from);
         if (alarmTime < firstAlarmTime) {
             firstAlarmTime = alarmTime;
         }

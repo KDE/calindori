@@ -61,6 +61,11 @@ public Q_SLOTS:
      */
     void removeWakeup(int cookie);
 
+    /**
+     * @return Clear last scheduled wakeup
+     */
+    void removeWakeup();
+
 private Q_SLOTS:
     void setActive(const bool activeBackend);
 private:
