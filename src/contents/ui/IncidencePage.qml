@@ -60,7 +60,7 @@ Kirigami.Page {
         enabled: root.state !== "deleting"
         icon.name: "document-edit"
 
-        onTriggered: pageStack.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
+        onTriggered: pageStack.layers.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
     }
 
     footer: Kirigami.InlineMessage {

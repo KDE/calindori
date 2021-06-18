@@ -14,16 +14,6 @@ Kirigami.ApplicationWindow {
     signal switchToMonthPage(var sDate, var cActionIndex)
 
     /**
-     * Starting from the last page in the stack, remove every page of the stack
-     */
-    function popAll()
-    {
-        while (pageStack.depth > 0) {
-            pageStack.pop();
-        }
-    }
-
-    /**
      * Starting from the last layer in the stack, remove every layer keeping only the first one
      */
     function popExtraLayers()
@@ -92,7 +82,7 @@ Kirigami.ApplicationWindow {
     }
 
     onSwitchToMonthPage: {
-        popAll();
+        pageStack.clear();
         pageStack.push(calendarMonthPage, {selectedDate: sDate, loadWithAction: (!Kirigami.Settings.isMobile && root.wideScreen) ? cActionIndex : -1});
     }
 

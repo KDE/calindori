@@ -17,18 +17,17 @@ Kirigami.ScrollablePage {
     property var calendar
 
     title: i18n("Tasks")
+    leftPadding: 0
+    rightPadding: 0
+    visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
     actions.main: Kirigami.Action {
         id: mainAction
 
         icon.name: "resource-calendar-insert"
         text: i18n("Create Task")
-        onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
+        onTriggered: pageStack.layers.push(todoEditor, {startDt: todoDt})
     }
-
-    leftPadding: 0
-    rightPadding: 0
-    visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
@@ -67,7 +66,7 @@ Kirigami.ScrollablePage {
                     text: i18n("Edit")
                     icon.name: "editor"
 
-                    onTriggered: pageStack.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
+                    onTriggered: pageStack.layers.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
         }
@@ -114,7 +113,7 @@ Kirigami.ScrollablePage {
         TodoEditorPage {
             calendar: localCalendar
 
-            onEditcompleted: pageStack.pop(root)
+            onEditcompleted: pageStack.layers.pop()
         }
     }
 

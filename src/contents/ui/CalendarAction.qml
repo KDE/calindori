@@ -28,6 +28,7 @@ Kirigami.Action {
 
         onTriggered: {
             _calindoriConfig.activeCalendar = root.calendarName;
+            popExtraLayers();
             showPassiveNotification(i18n("Calendar %1 has been activated", root.calendarName));
         }
     }

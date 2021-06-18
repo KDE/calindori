@@ -18,6 +18,17 @@ Kirigami.ScrollablePage {
     property int incidenceType : -1
     property int filterMode: 0
 
+    /**
+    * @brief Remove the editor page from the stack. If an incidence page exists in the page stack, remove it as well
+    *
+    */
+    function removeEditorPage() {
+        pageStack.layers.pop();
+        if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
+            pageStack.pop(incidencePage);
+        }
+    }
+
     title: incidenceType == 0 ? i18n("Events") : i18n("Tasks")
     leftPadding: 0
     rightPadding: 0
@@ -30,7 +41,7 @@ Kirigami.ScrollablePage {
         onTriggered: {
             var currentDt = Calindori.CalendarController.localSystemDateTime();
             var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
-            pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
+            pageStack.layers.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
     }
 
@@ -110,7 +121,7 @@ Kirigami.ScrollablePage {
         EventEditorPage {
             calendar: localCalendar
 
-            onEditcompleted: pageStack.pop(root)
+            onEditcompleted: removeEditorPage()
         }
     }
 
@@ -120,7 +131,7 @@ Kirigami.ScrollablePage {
         TodoEditorPage {
             calendar: localCalendar
 
-            onEditcompleted: pageStack.pop(root)
+            onEditcompleted: removeEditorPage()
         }
     }
 }

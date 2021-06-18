@@ -27,12 +27,9 @@ ListView {
     * @brief Remove the editor page from the stack. If an incidence page exists in the page stack, remove it as well
     *
     */
-    function removeEditorPage(editor)
-    {
-        var incidencePageExists = pageStack.items[pageStack.depth-2] && pageStack.items[pageStack.depth - 2].hasOwnProperty("isIncidencePage");
-        pageStack.pop(eventEditor);
-        if(incidencePageExists)
-        {
+    function removeEditorPage() {
+        pageStack.layers.pop();
+        if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
             pageStack.pop(incidencePage);
         }
     }
@@ -117,7 +114,7 @@ ListView {
                     eventDt.setMinutes(0);
                     eventDt.setSeconds(0);
 
-                    pageStack.push(eventEditor, { startDt: eventDt });
+                    pageStack.layers.push(eventEditor, { startDt: eventDt });
                 }
             },
 
@@ -131,7 +128,7 @@ ListView {
                     todoDt.setMinutes(0);
                     todoDt.setSeconds(0);
 
-                    pageStack.push(todoEditor, { startDt: todoDt });
+                    pageStack.layers.push(todoEditor, { startDt: todoDt });
                 }
             }
         ]
@@ -151,7 +148,7 @@ ListView {
         EventEditorPage {
             calendar: root.cal
 
-            onEditcompleted: removeEditorPage(eventEditor)
+            onEditcompleted: removeEditorPage()
         }
     }
 
@@ -161,7 +158,7 @@ ListView {
         TodoEditorPage {
             calendar: root.cal
 
-            onEditcompleted: removeEditorPage(todoEditor)
+            onEditcompleted: removeEditorPage()
         }
     }
 }

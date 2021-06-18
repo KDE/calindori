@@ -46,12 +46,9 @@ ListView {
     * @brief Remove the editor page from the stack. If an incidence page exists in the page stack, remove it as well
     *
     */
-    function removeEditorPage(editor)
-    {
-        var incidencePageExists = pageStack.items[pageStack.depth-2] && pageStack.items[pageStack.depth - 2].hasOwnProperty("isIncidencePage");
-        pageStack.pop(eventEditor);
-        if(incidencePageExists)
-        {
+    function removeEditorPage() {
+        pageStack.layers.pop();
+        if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
             pageStack.pop(incidencePage);
         }
     }
@@ -159,14 +156,14 @@ ListView {
                 iconName: "resource-calendar-insert"
                 text: i18n("Create Event")
 
-                onTriggered: pageStack.push(eventEditor, { startDt: itemDate })
+                onTriggered: pageStack.layers.push(eventEditor, { startDt: itemDate })
             },
 
             Kirigami.Action {
                 iconName: "task-new"
                 text: i18n("Create Task")
 
-                onTriggered: pageStack.push(todoEditor, { startDt: itemDate })}
+                onTriggered: pageStack.layers.push(todoEditor, { startDt: itemDate })}
         ]
 
         onClicked: { root.selectedDate = moveDate(root.selectedWeekDate, model.index) }
@@ -187,7 +184,7 @@ ListView {
         EventEditorPage {
             calendar: root.cal
 
-            onEditcompleted: removeEditorPage(eventEditor)
+            onEditcompleted: removeEditorPage()
         }
     }
 
@@ -197,7 +194,7 @@ ListView {
         TodoEditorPage {
             calendar: root.cal
 
-            onEditcompleted: removeEditorPage(todoEditor)
+            onEditcompleted: removeEditorPage()
         }
     }
 }
