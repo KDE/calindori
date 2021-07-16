@@ -128,7 +128,6 @@ ListView {
                 Repeater {
                     model: Calindori.IncidenceModel {
                         appLocale: _appLocale
-                        calendar: root.cal
                         filterDt: moveDate(root.selectedWeekDate, dayListItem.weekDay)
                         filterMode: 4
                     }
@@ -192,8 +191,6 @@ ListView {
         id: todoEditor
 
         TodoEditorPage {
-            calendar: root.cal
-
             onEditcompleted: removeEditorPage()
         }
     }

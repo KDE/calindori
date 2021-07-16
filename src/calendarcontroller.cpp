@@ -153,11 +153,11 @@ void CalendarController::removeEvent(LocalCalendar *localCalendar, const QVarian
     qDebug() << "Event " << uid << " deleted: " << deleted;
 }
 
-void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVariantMap &eventData, const QVariantList &attendeesList)
+void CalendarController::upsertEvent(const QVariantMap &eventData, const QVariantList &attendeesList)
 {
     qDebug() << "\naddEdit:\tCreating event";
 
-    KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
+    KCalendarCore::Calendar::Ptr calendar = CalendarController::instance().activeCalendar()->calendar();
     QDateTime now = QDateTime::currentDateTime();
     QString uid = eventData["uid"].toString();
     QString summary = eventData["summary"].toString();
@@ -212,7 +212,7 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
     }
 
     if (!attendeesList.isEmpty()) {
-        event->setOrganizer(KCalendarCore::Person { localCalendar->ownerName(), localCalendar->ownerEmail()});
+        event->setOrganizer(KCalendarCore::Person { CalendarController::instance().activeCalendar()->ownerName(), CalendarController::instance().activeCalendar()->ownerEmail()});
     }
 
     event->clearAlarms();
@@ -279,8 +279,8 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
         calendar->addEvent(event);
     }
 
-    bool merged = localCalendar->save();
-    Q_EMIT localCalendar->eventsChanged();
+    bool merged = CalendarController::instance().activeCalendar()->save();
+    Q_EMIT CalendarController::instance().activeCalendar()->eventsChanged();
 
     qDebug() << "Event upsert: " << merged;
 }

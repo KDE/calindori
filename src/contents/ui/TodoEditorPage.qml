@@ -27,7 +27,6 @@ Kirigami.Page {
     property alias allDay: allDaySelector.checked
     property alias location: incidenceEditor.location
     property alias completed: incidenceEditor.completed
-    property var calendar
     property var incidenceData
     property bool isEditorPage: true
 
@@ -186,7 +185,7 @@ Kirigami.Page {
             IncidenceEditor {
                 id: incidenceEditor
 
-                calendar: root.calendar
+                calendar: Calindori.CalendarController.activeCalendar
                 incidenceData: root.incidenceData
                 incidenceType: 1
             }
@@ -224,7 +223,7 @@ Kirigami.Page {
 
                 if(validation.success) {
                     validationFooter.visible = false;
-                    Calindori.CalendarController.upsertTodo(root.calendar, vtodo);
+                    Calindori.CalendarController.upsertTodo(Calindori.CalendarController.activeCalendar, vtodo);
                     editcompleted();
                 }
                 else {
@@ -247,7 +246,7 @@ Kirigami.Page {
 
         id: incidenceAlarmsModel
 
-        alarmProperties: { "calendar" : root.calendar, "uid": root.uid }
+        alarmProperties: { "calendar" : Calindori.CalendarController.activeCalendar, "uid": root.uid }
     }
 
 }

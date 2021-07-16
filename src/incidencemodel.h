@@ -24,7 +24,6 @@ class IncidenceModel : public QAbstractListModel
     Q_PROPERTY(QDate filterDt READ filterDt WRITE setFilterDt NOTIFY filterDtChanged)
     Q_PROPERTY(int filterHour READ filterHour WRITE setFilterHour NOTIFY filterHourChanged)
     Q_PROPERTY(bool filterHideCompleted READ filterHideCompleted WRITE setFilterHideCompleted NOTIFY filterHideCompletedChanged)
-    Q_PROPERTY(LocalCalendar *calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
     Q_PROPERTY(QLocale appLocale READ appLocale WRITE setAppLocale NOTIFY appLocaleChanged)
 
 public:
@@ -95,9 +94,6 @@ public:
 
     bool filterHideCompleted() const;
     void setFilterHideCompleted(const bool hideCompleted);
-
-    LocalCalendar *calendar() const;
-    void setCalendar(LocalCalendar *calendarPtr);
 
     QLocale appLocale() const;
     void setAppLocale(const QLocale &qmlLocale);

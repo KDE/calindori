@@ -106,7 +106,6 @@ Kirigami.ScrollablePage {
 
         appLocale: _appLocale
         filterDt: root.eventStartDt
-        calendar: root.calendar
         filterMode: 5
     }
 
@@ -114,7 +113,7 @@ Kirigami.ScrollablePage {
         id: eventEditor
 
         EventEditorPage {
-            calendar: localCalendar
+            calendar: Calindori.CalendarController.activeCalendar
 
             onEditcompleted: pageStack.layers.pop()
         }

@@ -6,6 +6,7 @@
 
 import QtQuick 2.7
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
     id: root
@@ -42,7 +43,7 @@ Kirigami.ScrollablePage {
     WeekView {
         id: weekView
 
-        cal: localCalendar
+        cal: Calindori.CalendarController.activeCalendar
         wideScreen: root.wideScreen
 
         onSelectedWeekDateChanged: {

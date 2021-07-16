@@ -203,7 +203,6 @@ Kirigami.ScrollablePage {
             Attendees {
                 attendeesModel: incidenceAttendeesModel
                 incidenceData: root.incidenceData
-                calendar: root.calendar
             }
 
         }
@@ -233,7 +232,7 @@ Kirigami.ScrollablePage {
 
                 if(validation.success) {
                     validationFooter.visible = false;
-                    Calindori.CalendarController.upsertEvent(root.calendar, vevent, incidenceAttendeesModel.attendees());
+                    Calindori.CalendarController.upsertEvent(vevent, incidenceAttendeesModel.attendees());
                     editcompleted(vevent);
                 }
                 else {
@@ -261,7 +260,6 @@ Kirigami.ScrollablePage {
     Calindori.AttendeesModel {
         id: incidenceAttendeesModel
 
-        calendar: root.calendar
         uid: root.uid
     }
 

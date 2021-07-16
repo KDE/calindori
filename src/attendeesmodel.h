@@ -22,7 +22,6 @@ class AttendeesModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY(QString uid READ uid WRITE setUid NOTIFY uidChanged)
-    Q_PROPERTY(LocalCalendar *calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 public:
     explicit AttendeesModel(QObject *parent = nullptr);
 
@@ -44,9 +43,6 @@ public:
     QString uid() const;
     void setUid(const QString &uid);
 
-    LocalCalendar *calendar() const;
-    void setCalendar(LocalCalendar *calendarPtr);
-
     Q_INVOKABLE void removeItem(const int row);
     Q_INVOKABLE void addPersons(const QStringList uris);
     Q_INVOKABLE QStringList emails() const;
@@ -54,14 +50,12 @@ public:
 
 Q_SIGNALS:
     void uidChanged();
-    void calendarChanged();
 
 public Q_SLOTS:
     void loadPersistentData();
 
 private:
     QString m_uid;
-    LocalCalendar *m_calendar;
     KCalendarCore::Attendee::List m_attendees;
 
     QString statusIcon(const int row) const;

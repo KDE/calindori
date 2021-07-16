@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <KCalendarCore/Sorting>
 
+#include "calendarcontroller.h"
+
 using namespace KCalendarCore;
 
 IncidenceModel::IncidenceModel(QObject *parent) :
@@ -17,7 +19,6 @@ IncidenceModel::IncidenceModel(QObject *parent) :
     m_filter_dt(QDate()),
     m_filter_hour(-1),
     m_filter_hide_completed(false),
-    m_calendar(nullptr),
     m_incidences(Incidence::List()),
     m_locale(QLocale::system()),
     m_cal_filter(new CalFilter())
@@ -28,6 +29,14 @@ IncidenceModel::IncidenceModel(QObject *parent) :
     connect(this, &IncidenceModel::filterHourChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::calendarChanged, this, &IncidenceModel::loadIncidences);
     connect(this, &IncidenceModel::calendarFilterChanged, this, &IncidenceModel::loadIncidences);
+
+    m_calendar = CalendarController::instance().activeCalendar();
+
+    connect(m_calendar, &LocalCalendar::calendarChanged, this, &IncidenceModel::loadIncidences);
+    connect(m_calendar, &LocalCalendar::eventsChanged, this, &IncidenceModel::loadIncidences);
+    connect(m_calendar, &LocalCalendar::todosChanged, this, &IncidenceModel::loadIncidences);
+
+    setCalendarFilter();
 }
 
 IncidenceModel::~IncidenceModel() = default;
@@ -66,22 +75,6 @@ void IncidenceModel::setFilterHour(const int hour)
     m_filter_hour = hour;
 
     Q_EMIT filterHourChanged();
-}
-
-LocalCalendar *IncidenceModel::calendar() const
-{
-    return m_calendar;
-}
-
-void IncidenceModel::setCalendar(LocalCalendar *calendarPtr)
-{
-    m_calendar = calendarPtr;
-    setCalendarFilter();
-
-    connect(m_calendar, &LocalCalendar::eventsChanged, this, &IncidenceModel::loadIncidences);
-    connect(m_calendar, &LocalCalendar::todosChanged, this, &IncidenceModel::loadIncidences);
-
-    Q_EMIT calendarChanged();
 }
 
 QHash<int, QByteArray> IncidenceModel::roleNames() const

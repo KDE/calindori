@@ -28,7 +28,7 @@ Kirigami.ApplicationWindow {
 
         wideScreen: root.wideScreen
         monthView: calendarMonthPage
-        calendar: localCalendar
+        calendar: Calindori.CalendarController.activeCalendar
         applicationFooter: messageFooter
     }
 
@@ -47,18 +47,12 @@ Kirigami.ApplicationWindow {
         defaultColumnWidth: Kirigami.Units.gridUnit * 35
     }
 
-    Calindori.LocalCalendar {
-        id: localCalendar
-
-        name: Calindori.CalindoriConfig.activeCalendar
-    }
-
     Component {
         id: calendarMonthPage
 
         CalendarMonthPage {
             appContextDrawer: contextDrawer
-            calendar: localCalendar
+            calendar: Calindori.CalendarController.activeCalendar
             dayRectangleWidth: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 2.5 : Kirigami.Units.gridUnit * 3.5
             loadWithAction: !Kirigami.Settings.isMobile && root.wideScreen ? 1 : -1
 
@@ -70,7 +64,7 @@ Kirigami.ApplicationWindow {
         id: messageFooter
 
         leftPadding: (globalDrawer.drawerOpen ? globalDrawer.width : 0) + Kirigami.Units.smallSpacing
-        activeCalendar: localCalendar
+        activeCalendar: Calindori.CalendarController.activeCalendar
 
         Connections {
             target: Calindori.CalendarController

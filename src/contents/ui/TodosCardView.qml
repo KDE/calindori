@@ -104,15 +104,12 @@ Kirigami.ScrollablePage {
 
         appLocale: _appLocale
         filterDt: root.todoDt
-        calendar: root.calendar
         filterMode: 6
     }
 
     Component {
         id: todoEditor
         TodoEditorPage {
-            calendar: localCalendar
-
             onEditcompleted: pageStack.layers.pop()
         }
     }

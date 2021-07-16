@@ -6,6 +6,7 @@
 
 import QtQuick 2.7
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.Page {
     id: root
@@ -136,7 +137,7 @@ Kirigami.Page {
         id: todosCardView
 
         TodosCardView {
-            calendar: localCalendar
+            calendar: Calindori.CalendarController.activeCalendar
             todoDt: root.selectedDate
         }
     }
@@ -145,7 +146,7 @@ Kirigami.Page {
         id: eventsCardView
 
         EventsCardView {
-            calendar: localCalendar
+            calendar: Calindori.CalendarController.activeCalendar
             eventStartDt: root.selectedDate
         }
     }

@@ -9,10 +9,11 @@
 #include <KLocalizedString>
 #include <KPeople/PersonData>
 
+#include "calendarcontroller.h"
+
 AttendeesModel::AttendeesModel(QObject *parent) : QAbstractListModel {parent}, m_attendees {KCalendarCore::Attendee::List {}}
 {
     connect(this, &AttendeesModel::uidChanged, this, &AttendeesModel::loadPersistentData);
-    connect(this, &AttendeesModel::calendarChanged, this, &AttendeesModel::loadPersistentData);
 }
 
 QHash<int, QByteArray> AttendeesModel::roleNames() const
@@ -39,20 +40,6 @@ void AttendeesModel::setUid(const QString &uid)
         m_uid = uid;
 
         Q_EMIT uidChanged();
-    }
-}
-
-LocalCalendar *AttendeesModel::calendar() const
-{
-    return m_calendar;
-}
-
-void AttendeesModel::setCalendar(LocalCalendar *calendarPtr)
-{
-    if (m_calendar != calendarPtr) {
-        m_calendar = calendarPtr;
-
-        Q_EMIT calendarChanged();
     }
 }
 
@@ -101,8 +88,8 @@ void AttendeesModel::loadPersistentData()
     KCalendarCore::Calendar::Ptr calendar;
 
     m_attendees.clear();
-    if (m_calendar != nullptr && !m_uid.isEmpty()) {
-        incidence = m_calendar->calendar()->incidence(m_uid);
+    if (!m_uid.isEmpty()) {
+        incidence = CalendarController::instance().activeCalendar()->calendar()->incidence(m_uid);
         if (incidence != nullptr) {
             m_attendees = incidence->attendees();
         }

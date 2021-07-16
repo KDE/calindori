@@ -79,7 +79,6 @@ ListView {
                 Repeater {
                     model: Calindori.IncidenceModel {
                         appLocale: _appLocale
-                        calendar: root.cal
                         filterDt: root.selectedDate
                         filterHour: hourListItem.hour
                         filterMode: 1
@@ -156,8 +155,6 @@ ListView {
         id: todoEditor
 
         TodoEditorPage {
-            calendar: root.cal
-
             onEditcompleted: removeEditorPage()
         }
     }

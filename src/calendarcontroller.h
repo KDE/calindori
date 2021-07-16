@@ -37,7 +37,7 @@ public:
     Q_INVOKABLE void importFromBuffer(LocalCalendar *localCalendar);
     Q_INVOKABLE void abortImporting();
     Q_INVOKABLE void removeEvent(LocalCalendar *localCalendar, const QVariantMap &event);
-    Q_INVOKABLE void upsertEvent(LocalCalendar *localCalendar, const QVariantMap &event, const QVariantList &attendeesList);
+    Q_INVOKABLE void upsertEvent(const QVariantMap &event, const QVariantList &attendeesList);
     /**
      * @brief Returns the current datetime in the local time zone
      *

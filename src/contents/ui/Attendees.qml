@@ -15,20 +15,19 @@ ColumnLayout {
 
     property var attendeesModel
     property var incidenceData
-    property var calendar
 
     Controls2.ToolButton {
         text: i18n("Add")
         icon.name: 'contact-new-symbolic'
 
         onClicked: {
-            if (!calendar.isExternal) {
+            if (!Calindori.CalendarController.activeCalendar.isExternal) {
                 msg.text = i18n("Attendee management is available only in external calendars that are synchronized online");
                 msg.visible = true;
                 return;
             }
 
-            if (!calendar.ownerName || !calendar.ownerEmail) {
+            if (!Calindori.CalendarController.activeCalendar.ownerName || !Calindori.CalendarController.activeCalendar.ownerEmail) {
                 msg.text = i18n("Please set the calendar owner details in the application settings");
                 msg.visible = true;
                 return;
@@ -53,7 +52,7 @@ ColumnLayout {
         }
 
         Controls2.Label {
-            text: incidenceData ? incidenceData.organizerName : calendar.ownerName
+            text: incidenceData ? incidenceData.organizerName : Calindori.CalendarController.activeCalendar.ownerName
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
@@ -88,7 +87,7 @@ ColumnLayout {
                     id: removeAttendee
 
                     iconName: "delete"
-                    enabled: calendar.isExternal && calendar.ownerName && calendar.ownerEmail
+                    enabled: Calindori.CalendarController.activeCalendar.isExternal && Calindori.CalendarController.activeCalendar.ownerName && Calindori.CalendarController.activeCalendar.ownerEmail
 
                     onTriggered: attendeesModel.removeItem(model.index)
                 },
@@ -97,7 +96,7 @@ ColumnLayout {
                     id: editAttendee
 
                     iconName: "document-edit"
-                    enabled: calendar.isExternal && calendar.ownerName && calendar.ownerEmail
+                    enabled: Calindori.CalendarController.activeCalendar.isExternal && Calindori.CalendarController.activeCalendar.ownerName && Calindori.CalendarController.activeCalendar.ownerEmail
 
                     onTriggered: {
                         infoEditor.attendeeModelRow = model;

@@ -101,7 +101,6 @@ Kirigami.ScrollablePage {
     Calindori.IncidenceModel {
         id: incidenceModel
 
-        calendar: root.calendar
         filterMode: root.filterMode
         filterHideCompleted: true
         appLocale: _appLocale
@@ -119,7 +118,7 @@ Kirigami.ScrollablePage {
         id: eventEditor
 
         EventEditorPage {
-            calendar: localCalendar
+            calendar: Calindori.CalendarController.activeCalendar
 
             onEditcompleted: removeEditorPage()
         }
@@ -129,8 +128,6 @@ Kirigami.ScrollablePage {
         id: todoEditor
 
         TodoEditorPage {
-            calendar: localCalendar
-
             onEditcompleted: removeEditorPage()
         }
     }
