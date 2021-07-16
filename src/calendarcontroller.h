@@ -11,15 +11,17 @@
 #include <QVector>
 #include <QSharedDataPointer>
 #include <QVariantMap>
+
+#include <KCalendarCore/Calendar>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Todo>
 #include "attendeesmodel.h"
-
-class LocalCalendar;
+#include "localcalendar.h"
 
 class CalendarController : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(LocalCalendar * activeCalendar READ activeCalendar NOTIFY activeCalendarChanged)
 
 public:
     enum MessageType {
@@ -54,8 +56,11 @@ public:
     Q_INVOKABLE QString fileNameFromUrl(const QUrl &sourcePath);
     Q_INVOKABLE QVariantMap exportData(const QString &calendarName);
 
+    LocalCalendar *activeCalendar() const;
+
 Q_SIGNALS:
     void statusMessageChanged(const QString &statusMessage, const int messageType);
+    void activeCalendarChanged();
 
 private:
     explicit CalendarController(QObject *parent = nullptr);
@@ -63,5 +68,7 @@ private:
     void sendMessage(const bool positive);
     QVector<QSharedPointer<KCalendarCore::Event>> m_events;
     QVector<QSharedPointer<KCalendarCore::Todo>> m_todos;
+
+    std::unique_ptr<LocalCalendar> m_calendar;
 };
 #endif

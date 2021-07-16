@@ -27,6 +27,13 @@ CalendarController &CalendarController::instance()
 
 CalendarController::CalendarController(QObject *parent) : QObject {parent}, m_events {}, m_todos {}
 {
+    m_calendar = std::make_unique<LocalCalendar>();
+    m_calendar->setName(CalindoriConfig::instance().activeCalendar());
+
+    connect(&CalindoriConfig::instance(), &CalindoriConfig::activeCalendarChanged, this, [this]{
+        m_calendar->setName(CalindoriConfig::instance().activeCalendar());
+        Q_EMIT activeCalendarChanged();
+    });
 }
 
 void CalendarController::importCalendarData(const QByteArray &data)
@@ -509,4 +516,9 @@ QVariantMap CalendarController::exportData(const QString &calendarName)
         { "reason", i18n("Export completed successfully") },
         { "targetFolder", QUrl {QStringLiteral("file://") + dirPath} }
     };
+}
+
+LocalCalendar *CalendarController::activeCalendar() const
+{
+    return m_calendar.get();
 }
