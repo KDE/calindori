@@ -34,10 +34,7 @@ CalindoriConfig::CalindoriConfig(QObject *parent)
     }
 }
 
-CalindoriConfig::~CalindoriConfig()
-{
-    delete d;
-}
+CalindoriConfig::~CalindoriConfig() = default;
 
 QStringList CalindoriConfig::internalCalendars() const
 {

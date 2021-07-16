@@ -10,6 +10,8 @@
 #include <QObject>
 #include <QVariantMap>
 
+#include <memory>
+
 class CalindoriConfig : public QObject
 {
     Q_OBJECT
@@ -66,7 +68,7 @@ private:
     static QString filenameToPath(const QString &calendarName);
 
     class Private;
-    Private *d;
+    std::unique_ptr<Private> d;
 };
 
 #endif
