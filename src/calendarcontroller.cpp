@@ -94,8 +94,8 @@ void CalendarController::importFromBuffer(const QString &targetCalendar)
         return;
     }
 
-    Calendar::Ptr calendar {new MemoryCalendar(QTimeZone::systemTimeZoneId())};
-    FileStorage::Ptr storage {new FileStorage {calendar}};
+    KCalendarCore::Calendar::Ptr calendar {new KCalendarCore::MemoryCalendar(QTimeZone::systemTimeZoneId())};
+    KCalendarCore::FileStorage::Ptr storage {new KCalendarCore::FileStorage {calendar}};
     storage->setFileName(filePath);
     if (!storage->load()) {
         sendMessage(false);
@@ -130,9 +130,9 @@ void CalendarController::abortImporting()
 
 void CalendarController::removeEvent(LocalCalendar *localCalendar, const QVariantMap &eventData)
 {
-    Calendar::Ptr calendar = localCalendar->calendar();
+    KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
     QString uid = eventData["uid"].toString();
-    Event::Ptr event = calendar->event(uid);
+    KCalendarCore::Event::Ptr event = calendar->event(uid);
     calendar->deleteEvent(event);
     bool deleted = localCalendar->save();
     Q_EMIT localCalendar->eventsChanged();
@@ -144,7 +144,7 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
 {
     qDebug() << "\naddEdit:\tCreating event";
 
-    Calendar::Ptr calendar = localCalendar->calendar();
+    KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
     QDateTime now = QDateTime::currentDateTime();
     QString uid = eventData["uid"].toString();
     QString summary = eventData["summary"].toString();
@@ -170,9 +170,9 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
         endDateTime = QDateTime(endDate, QTime(endHour, endMinute, 0, 0), QTimeZone::systemTimeZone());
     }
 
-    Event::Ptr event;
+    KCalendarCore::Event::Ptr event;
     if (uid == "") {
-        event = Event::Ptr(new Event());
+        event = KCalendarCore::Event::Ptr(new KCalendarCore::Event());
         event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     } else {
         event = calendar->event(uid);
@@ -206,15 +206,15 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
     QVariantList newAlarms = eventData["alarms"].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
     while (itr != newAlarms.constEnd()) {
-        Alarm::Ptr newAlarm = event->newAlarm();
+        KCalendarCore::Alarm::Ptr newAlarm = event->newAlarm();
         QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
         int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
         int startOffsetType = newAlarmHashMap["startOffsetType"].value<int>();
         int actionType = newAlarmHashMap["actionType"].value<int>();
 
         qDebug() << "addEdit:\tAdding alarm with start offset value " << startOffsetValue;
-        newAlarm->setStartOffset(Duration(startOffsetValue, static_cast<Duration::Type>(startOffsetType)));
-        newAlarm->setType(static_cast<Alarm::Type>(actionType));
+        newAlarm->setStartOffset(KCalendarCore::Duration(startOffsetValue, static_cast<KCalendarCore::Duration::Type>(startOffsetType)));
+        newAlarm->setType(static_cast<KCalendarCore::Alarm::Type>(actionType));
         newAlarm->setEnabled(true);
         newAlarm->setText((event->summary()).isEmpty() ?  event->description() : event->summary());
         ++itr;
@@ -223,33 +223,33 @@ void CalendarController::upsertEvent(LocalCalendar *localCalendar, const QVarian
     ushort newPeriod = static_cast<ushort>(eventData["periodType"].toInt());
 
     //Bother with recurrences only if a recurrence has been found, either existing or new
-    if ((event->recurrenceType() != Recurrence::rNone) || (newPeriod != Recurrence::rNone)) {
+    if ((event->recurrenceType() != KCalendarCore::Recurrence::rNone) || (newPeriod != KCalendarCore::Recurrence::rNone)) {
         //WORKAROUND: When changing an event from non-recurring to recurring, duplicate events are displayed
         if (uid != "") {
             calendar->deleteEvent(event);
         }
 
         switch (newPeriod) {
-        case Recurrence::rYearlyDay:
-        case Recurrence::rYearlyMonth:
-        case Recurrence::rYearlyPos:
+        case KCalendarCore::Recurrence::rYearlyDay:
+        case KCalendarCore::Recurrence::rYearlyMonth:
+        case KCalendarCore::Recurrence::rYearlyPos:
             event->recurrence()->setYearly(eventData["repeatEvery"].toInt());
             break;
-        case Recurrence::rMonthlyDay:
-        case Recurrence::rMonthlyPos:
+        case KCalendarCore::Recurrence::rMonthlyDay:
+        case KCalendarCore::Recurrence::rMonthlyPos:
             event->recurrence()->setMonthly(eventData["repeatEvery"].toInt());
             break;
-        case Recurrence::rWeekly:
+        case KCalendarCore::Recurrence::rWeekly:
             event->recurrence()->setWeekly(eventData["repeatEvery"].toInt());
             break;
-        case Recurrence::rDaily:
+        case KCalendarCore::Recurrence::rDaily:
             event->recurrence()->setDaily(eventData["repeatEvery"].toInt());
             break;
         default:
             event->recurrence()->clear();
         }
 
-        if (newPeriod != Recurrence::rNone) {
+        if (newPeriod != KCalendarCore::Recurrence::rNone) {
             int stopAfter = eventData["stopAfter"].toInt() > 0 ? eventData["stopAfter"].toInt() : -1;
             event->recurrence()->setDuration(stopAfter);
             event->recurrence()->setAllDay(allDayFlg);
@@ -316,7 +316,7 @@ QVariantMap CalendarController::validateEvent(const QVariantMap &eventMap) const
         auto validRepeatEvery {false};
         auto repeatEvery = static_cast<ushort>(eventMap["repeatEvery"].toInt(&validRepeatEvery));
 
-        if (validPeriodType && (periodType == Recurrence::rDaily) && validRepeatEvery && (repeatEvery == 1) && eventDuration > 86400) {
+        if (validPeriodType && (periodType == KCalendarCore::Recurrence::rDaily) && validRepeatEvery && (repeatEvery == 1) && eventDuration > 86400) {
             result["success"] = false;
             result["reason"] = i18n("Daily events should not span multiple days");
             return result;
@@ -332,8 +332,8 @@ QVariantMap CalendarController::validateEvent(const QVariantMap &eventMap) const
 
 void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariantMap &todo)
 {
-    Calendar::Ptr calendar = localCalendar->calendar();
-    Todo::Ptr vtodo;
+    KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
+    KCalendarCore::Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
     QString uid = todo["uid"].toString();
     QString summary = todo["summary"].toString();
@@ -343,7 +343,7 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
     bool allDayFlg = todo["allDay"].toBool();
 
     if (uid == "") {
-        vtodo = Todo::Ptr(new Todo());
+        vtodo = KCalendarCore::Todo::Ptr(new KCalendarCore::Todo());
         vtodo->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
     } else {
         vtodo = calendar->todo(uid);
@@ -385,14 +385,14 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
     QVariantList newAlarms = todo["alarms"].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
     while (itr != newAlarms.constEnd()) {
-        Alarm::Ptr newAlarm = vtodo->newAlarm();
+        KCalendarCore::Alarm::Ptr newAlarm = vtodo->newAlarm();
         QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
         int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
         int startOffsetType = newAlarmHashMap["startOffsetType"].value<int>();
         int actionType = newAlarmHashMap["actionType"].value<int>();
 
-        newAlarm->setStartOffset(Duration(startOffsetValue, static_cast<Duration::Type>(startOffsetType)));
-        newAlarm->setType(static_cast<Alarm::Type>(actionType));
+        newAlarm->setStartOffset(KCalendarCore::Duration(startOffsetValue, static_cast<KCalendarCore::Duration::Type>(startOffsetType)));
+        newAlarm->setType(static_cast<KCalendarCore::Alarm::Type>(actionType));
         newAlarm->setEnabled(true);
         newAlarm->setText((vtodo->summary()).isEmpty() ?  vtodo->description() : vtodo->summary());
         ++itr;
@@ -408,9 +408,9 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
 
 void CalendarController::removeTodo(LocalCalendar *localCalendar, const QVariantMap &todo)
 {
-    Calendar::Ptr calendar = localCalendar->calendar();
+    KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
     QString uid = todo["uid"].toString();
-    Todo::Ptr vtodo = calendar->todo(uid);
+    KCalendarCore::Todo::Ptr vtodo = calendar->todo(uid);
 
     calendar->deleteTodo(vtodo);
     bool removed = localCalendar->save();
@@ -472,8 +472,8 @@ QVariantMap CalendarController::exportData(const QString &calendarName)
         };
     }
 
-    Calendar::Ptr calendar {new MemoryCalendar(QTimeZone::systemTimeZoneId())};
-    FileStorage::Ptr storage {new FileStorage {calendar}};
+    KCalendarCore::Calendar::Ptr calendar {new KCalendarCore::MemoryCalendar(QTimeZone::systemTimeZoneId())};
+    KCalendarCore::FileStorage::Ptr storage {new KCalendarCore::FileStorage {calendar}};
     storage->setFileName(filePath);
     if (!storage->load()) {
         return {

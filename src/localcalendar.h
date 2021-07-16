@@ -13,8 +13,6 @@
 #include <KCalendarCore/Event>
 #include <QVariantMap>
 
-using namespace KCalendarCore;
-
 class CalindoriConfig;
 class AlarmChecker;
 
@@ -25,19 +23,19 @@ class LocalCalendar : public QObject
     Q_PROPERTY(QString ownerName READ ownerName WRITE setOwnerName NOTIFY ownerNameChanged)
     Q_PROPERTY(QString ownerEmail READ ownerEmail WRITE setOwnerEmail NOTIFY ownerEmailChanged)
     Q_PROPERTY(bool isExternal READ isExternal NOTIFY isExternalChanged)
-    Q_PROPERTY(QSharedPointer<Calendar> calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(QSharedPointer<KCalendarCore::Calendar> calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
 
 public:
     explicit LocalCalendar(QObject *parent = nullptr);
     ~LocalCalendar() override;
 
-    Calendar::Ptr calendar();
+    KCalendarCore::Calendar::Ptr calendar();
     QString name() const;
     QString ownerName() const;
     QString ownerEmail() const;
     bool isExternal() const;
 
-    void setCalendar(Calendar::Ptr calendar);
+    void setCalendar(KCalendarCore::Calendar::Ptr calendar);
     void setName(const QString &calendarName);
     void setOwnerName(const QString &ownerName);
     void setOwnerEmail(const QString &ownerEmail);
@@ -64,8 +62,8 @@ private:
     bool loadStorage();
     void reloadStorage();
 
-    Calendar::Ptr m_calendar;
-    FileStorage::Ptr m_cal_storage;
+    KCalendarCore::Calendar::Ptr m_calendar;
+    KCalendarCore::FileStorage::Ptr m_cal_storage;
     QString m_name;
     QString m_fullpath;
     CalindoriConfig *m_config;

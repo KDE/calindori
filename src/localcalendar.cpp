@@ -15,8 +15,6 @@
 #include <QStandardPaths>
 #include <KLocalizedString>
 
-using namespace KCalendarCore;
-
 LocalCalendar::LocalCalendar(QObject *parent)
     : QObject(parent), m_config {new CalindoriConfig(this)}, m_alarm_checker {new AlarmChecker(this)}
 {
@@ -25,7 +23,7 @@ LocalCalendar::LocalCalendar(QObject *parent)
 
 LocalCalendar::~LocalCalendar() = default;
 
-Calendar::Ptr LocalCalendar::calendar()
+KCalendarCore::Calendar::Ptr LocalCalendar::calendar()
 {
     reloadStorage();
     return m_calendar;
@@ -43,7 +41,7 @@ void LocalCalendar::setName(const QString &calendarName)
     }
 }
 
-void LocalCalendar::setCalendar(Calendar::Ptr calendar)
+void LocalCalendar::setCalendar(KCalendarCore::Calendar::Ptr calendar)
 {
     if (m_calendar != calendar) {
         m_calendar = calendar;
@@ -57,7 +55,7 @@ int LocalCalendar::todosCount(const QDate &date) const
     if (m_calendar == nullptr) {
         return 0;
     }
-    Todo::List todoList = m_calendar->rawTodos(date, date);
+    KCalendarCore::Todo::List todoList = m_calendar->rawTodos(date, date);
 
     return todoList.size();
 }
@@ -77,7 +75,7 @@ int LocalCalendar::eventsCount(const QDate &date) const
     if (m_calendar == nullptr) {
         return 0;
     }
-    Event::List eventList = m_calendar->rawEventsForDate(date);
+    KCalendarCore::Event::List eventList = m_calendar->rawEventsForDate(date);
 
     return eventList.count();
 }
@@ -151,8 +149,8 @@ bool LocalCalendar::loadStorage()
         return false;
     }
 
-    Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
-    FileStorage::Ptr storage(new FileStorage(calendar));
+    KCalendarCore::Calendar::Ptr calendar(new KCalendarCore::MemoryCalendar(QTimeZone::systemTimeZoneId()));
+    KCalendarCore::FileStorage::Ptr storage(new KCalendarCore::FileStorage(calendar));
     storage->setFileName(m_fullpath);
 
     QFile calendarFile(m_fullpath);

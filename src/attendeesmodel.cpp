@@ -97,8 +97,8 @@ void AttendeesModel::loadPersistentData()
 {
     beginResetModel();
 
-    Incidence::Ptr incidence;
-    Calendar::Ptr calendar;
+    KCalendarCore::Incidence::Ptr incidence;
+    KCalendarCore::Calendar::Ptr calendar;
 
     m_attendees.clear();
     if (m_calendar != nullptr && !m_uid.isEmpty()) {
@@ -160,7 +160,7 @@ QVariantList AttendeesModel::attendees() const
 bool AttendeesModel::setData(const QModelIndex &idx, const QVariant &value, int role)
 {
     if (role == AttendeeRole) {
-        m_attendees[idx.row()].setRole(value.value<Attendee::Role>());
+        m_attendees[idx.row()].setRole(value.value<KCalendarCore::Attendee::Role>());
         auto m = idx.model();
 
         Q_EMIT dataChanged(m->index(0, 0), m->index(m->rowCount() - 1, 0), {AttendeeRole});
