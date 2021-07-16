@@ -29,7 +29,7 @@ Kirigami.GlobalDrawer {
         implicitHeight: Kirigami.Units.gridUnit * 2
         Kirigami.Heading {
             level: 1
-            text: _calindoriConfig && _calindoriConfig.activeCalendar
+            text: Calindori.CalindoriConfig && Calindori.CalindoriConfig.activeCalendar
             Layout.fillWidth: true
         }
     }
@@ -146,7 +146,7 @@ Kirigami.GlobalDrawer {
     ]
 
     Instantiator {
-        model: _calindoriConfig && _calindoriConfig.internalCalendars
+        model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.internalCalendars
 
         delegate: CalendarAction {
             loadedCalendar: root.calendar
@@ -164,7 +164,7 @@ Kirigami.GlobalDrawer {
     }
 
     Instantiator {
-        model: _calindoriConfig && _calindoriConfig.externalCalendars
+        model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.externalCalendars
 
         delegate: CalendarAction {
             loadedCalendar: root.calendar

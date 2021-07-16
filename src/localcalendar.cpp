@@ -16,9 +16,9 @@
 #include <KLocalizedString>
 
 LocalCalendar::LocalCalendar(QObject *parent)
-    : QObject(parent), m_config {new CalindoriConfig(this)}, m_alarm_checker {new AlarmChecker(this)}
+    : QObject(parent), m_alarm_checker {new AlarmChecker(this)}
 {
-    loadCalendar(m_config->activeCalendar());
+    loadCalendar(CalindoriConfig::instance().activeCalendar());
 }
 
 LocalCalendar::~LocalCalendar() = default;
@@ -115,7 +115,7 @@ QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
 
 void LocalCalendar::loadCalendar(const QString &calendarName)
 {
-    m_fullpath = m_config->calendarFile(calendarName);
+    m_fullpath = CalindoriConfig::instance().calendarFile(calendarName);
 
     if (loadStorage()) {
         m_name = calendarName;
@@ -175,29 +175,29 @@ bool LocalCalendar::loadStorage()
 
 QString LocalCalendar::ownerName() const
 {
-    return m_config->ownerName(m_name);
+    return CalindoriConfig::instance().ownerName(m_name);
 }
 
 QString LocalCalendar::ownerEmail() const
 {
-    return m_config->ownerEmail(m_name);
+    return CalindoriConfig::instance().ownerEmail(m_name);
 }
 
 bool LocalCalendar::isExternal() const
 {
-    return m_config->isExternal(m_name);
+    return CalindoriConfig::instance().isExternal(m_name);
 }
 
 void LocalCalendar::setOwnerName(const QString &ownerName)
 {
-    m_config->setOwnerName(m_name, ownerName);
+    CalindoriConfig::instance().setOwnerName(m_name, ownerName);
 
     Q_EMIT ownerNameChanged();
 }
 
 void LocalCalendar::setOwnerEmail(const QString &ownerEmail)
 {
-    m_config->setOwnerEmail(m_name, ownerEmail);
+    CalindoriConfig::instance().setOwnerEmail(m_name, ownerEmail);
 
     Q_EMIT ownerEmailChanged();
 }

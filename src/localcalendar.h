@@ -13,7 +13,6 @@
 #include <KCalendarCore/Event>
 #include <QVariantMap>
 
-class CalindoriConfig;
 class AlarmChecker;
 
 class LocalCalendar : public QObject
@@ -66,7 +65,6 @@ private:
     KCalendarCore::FileStorage::Ptr m_cal_storage;
     QString m_name;
     QString m_fullpath;
-    CalindoriConfig *m_config;
     QDateTime m_fs_sync_dt;
     AlarmChecker *m_alarm_checker;
 };

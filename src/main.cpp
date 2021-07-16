@@ -88,7 +88,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication::setOrganizationDomain(aboutData.organizationDomain());
     QGuiApplication::setApplicationVersion(aboutData.version());
 
-    qmlRegisterType<CalindoriConfig>("org.kde.calindori", 0, 1, "CalindoriConfig");
     qmlRegisterType<LocalCalendar>("org.kde.calindori", 0, 1, "LocalCalendar");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori", 0, 1, "IncidenceAlarmsModel");
     qmlRegisterType<DaysOfMonthModel>("org.kde.calindori", 0, 1, "DaysOfMonthModel");
@@ -112,6 +111,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
         return s_calendar_controller;
     });
+
+    qmlRegisterSingletonInstance("org.kde.calindori", 0, 1, "CalindoriConfig", &CalindoriConfig::instance());
 
     CalendarController calendarController;
     s_calendar_controller = &calendarController;
@@ -138,9 +139,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     ReccurencePeriodModel repeatModel;
     engine.rootContext()->setContextProperty(QStringLiteral("_repeatModel"), &repeatModel);
-
-    CalindoriConfig calindoriConfig;
-    engine.rootContext()->setContextProperty(QStringLiteral("_calindoriConfig"), &calindoriConfig);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(aboutData));
     engine.rootContext()->setContextProperty(QStringLiteral("_appLocale"), QLocale::system());

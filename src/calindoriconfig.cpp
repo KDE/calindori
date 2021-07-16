@@ -13,6 +13,13 @@
 #include <QDir>
 #include <QUrl>
 
+CalindoriConfig & CalindoriConfig::instance()
+{
+    static CalindoriConfig i;
+    return i;
+}
+
+
 class CalindoriConfig::Private
 {
 public:

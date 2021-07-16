@@ -50,7 +50,7 @@ Kirigami.ApplicationWindow {
     Calindori.LocalCalendar {
         id: localCalendar
 
-        name: _calindoriConfig.activeCalendar
+        name: Calindori.CalindoriConfig.activeCalendar
     }
 
     Component {

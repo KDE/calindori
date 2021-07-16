@@ -37,9 +37,9 @@ Kirigami.ScrollablePage {
     signal editcompleted(var vevent)
 
     Component.onCompleted: {
-        if(incidenceData == null && _calindoriConfig.alwaysRemind)
+        if(incidenceData == null && Calindori.CalindoriConfig.alwaysRemind)
         {
-            incidenceAlarmsModel.addAlarm(_calindoriConfig.preEventRemindTime * 60)
+            incidenceAlarmsModel.addAlarm(Calindori.CalindoriConfig.preEventRemindTime * 60)
         }
     }
 
@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
                         }
                         else {
                             newDt= root.startDt;
-                            newDt.setMinutes(newDt.getMinutes() + _calindoriConfig.eventsDuration);
+                            newDt.setMinutes(newDt.getMinutes() + Calindori.CalindoriConfig.eventsDuration);
                             newDt.setSeconds(0);
                         }
 

@@ -8,6 +8,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0 as Controls
 import org.kde.kirigami 2.3 as Kirigami
+import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
     id: root
@@ -27,9 +28,9 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Initial duration (minutes)")
 
             from: 0
-            value: _calindoriConfig.eventsDuration
+            value: Calindori.CalindoriConfig.eventsDuration
 
-            onValueModified: _calindoriConfig.eventsDuration = value
+            onValueModified: Calindori.CalindoriConfig.eventsDuration = value
         }
 
 
@@ -37,16 +38,16 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Remind before event (minutes)")
 
             from: 0
-            value: _calindoriConfig.preEventRemindTime
+            value: Calindori.CalindoriConfig.preEventRemindTime
 
-            onValueModified: _calindoriConfig.preEventRemindTime = value
+            onValueModified: Calindori.CalindoriConfig.preEventRemindTime = value
         }
 
         Controls.SwitchDelegate {
             Kirigami.FormData.label: i18n("Add reminder to new events")
 
-            checked: _calindoriConfig.alwaysRemind
-            onCheckedChanged: _calindoriConfig.alwaysRemind = checked
+            checked: Calindori.CalindoriConfig.alwaysRemind
+            onCheckedChanged: Calindori.CalindoriConfig.alwaysRemind = checked
         }
     }
 }

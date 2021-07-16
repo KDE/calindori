@@ -14,7 +14,7 @@ Kirigami.Action {
     property bool isCalendar: true
     property alias calendarName: root.text
     property var loadedCalendar
-    property bool activeCalendar: _calindoriConfig !== null ? (_calindoriConfig.activeCalendar === root.calendarName) : false
+    property bool activeCalendar: Calindori.CalindoriConfig !== null ? (Calindori.CalindoriConfig.activeCalendar === root.calendarName) : false
     property var messageFooter
 
     iconName: activeCalendar ? "object-select-symbolic" : ""
@@ -27,7 +27,7 @@ Kirigami.Action {
         visible: !root.activeCalendar
 
         onTriggered: {
-            _calindoriConfig.activeCalendar = root.calendarName;
+            Calindori.CalindoriConfig.activeCalendar = root.calendarName;
             popExtraLayers();
             showPassiveNotification(i18n("Calendar %1 has been activated", root.calendarName));
         }
@@ -36,7 +36,7 @@ Kirigami.Action {
     Kirigami.Action {
         text: i18n("Delete")
         iconName: "delete"
-        visible: !_calindoriConfig.isExternal(root.calendarName) && !root.activeCalendar
+        visible: !Calindori.CalindoriConfig.isExternal(root.calendarName) && !root.activeCalendar
         onTriggered: {
             deleteSheet.calendarName = root.calendarName;
             deleteSheet.open();
@@ -46,9 +46,9 @@ Kirigami.Action {
     Kirigami.Action {
         text: i18n("Remove")
         iconName: "remove"
-        visible: _calindoriConfig.isExternal(root.calendarName) && !root.activeCalendar
+        visible: Calindori.CalindoriConfig.isExternal(root.calendarName) && !root.activeCalendar
 
-        onTriggered: _calindoriConfig.removeCalendar(root.calendarName);
+        onTriggered: Calindori.CalindoriConfig.removeCalendar(root.calendarName);
     }
 
     Kirigami.Action {
@@ -97,7 +97,7 @@ Kirigami.Action {
         operation: function() {
             var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + calendarName + "\"}",deleteSheet);
             toRemoveCalendarComponent.deleteCalendar();
-            _calindoriConfig.removeCalendar(calendarName);
+            Calindori.CalindoriConfig.removeCalendar(calendarName);
         }
     }
 
@@ -108,8 +108,8 @@ Kirigami.Action {
             mode: CalendarEditor.Mode.Edit
             calendarName: root.calendarName
             loadedCalendar: root.loadedCalendar
-            ownerName: _calindoriConfig.ownerName(root.calendarName)
-            ownerEmail: _calindoriConfig.ownerEmail(root.calendarName)
+            ownerName: Calindori.CalindoriConfig.ownerName(root.calendarName)
+            ownerEmail: Calindori.CalindoriConfig.ownerEmail(root.calendarName)
 
             onCalendarEditorCancelled: pageStack.layers.pop()
             onCalendarEditorSaved: {

@@ -87,7 +87,7 @@ void CalendarController::importFromBuffer(LocalCalendar *localCalendar)
 
 void CalendarController::importFromBuffer(const QString &targetCalendar)
 {
-    auto filePath = CalindoriConfig {}.calendarFile(targetCalendar);
+    auto filePath = CalindoriConfig::instance().calendarFile(targetCalendar);
     QFile calendarFile {filePath};
     if (!calendarFile.exists()) {
         sendMessage(false);
@@ -463,7 +463,7 @@ QString CalendarController::fileNameFromUrl(const QUrl &sourcePath)
 
 QVariantMap CalendarController::exportData(const QString &calendarName)
 {
-    auto filePath = CalindoriConfig {}.calendarFile(calendarName);
+    auto filePath = CalindoriConfig::instance().calendarFile(calendarName);
     QFile calendarFile {filePath};
     if (!calendarFile.exists()) {
         return {

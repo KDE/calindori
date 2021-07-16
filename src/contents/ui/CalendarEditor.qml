@@ -32,7 +32,7 @@ Kirigami.Page {
     title: mode === CalendarEditor.Mode.Edit ? calendarName : i18n("New calendar")
 
     function addLocalCalendarCfgEntry() {
-        var insertResult = _calindoriConfig.addInternalCalendar(root.calendarName, root.ownerName, root.ownerEmail);
+        var insertResult = Calindori.CalindoriConfig.addInternalCalendar(root.calendarName, root.ownerName, root.ownerEmail);
 
         if(!(insertResult.success)) {
             validationFooter.text = insertResult.reason;
@@ -45,7 +45,7 @@ Kirigami.Page {
     }
 
     function addSharedCalendarCfgEntry() {
-        var addSharedResult = _calindoriConfig.addExternalCalendar(root.calendarName, root.ownerName, root.ownerEmail,  root.calendarFile);
+        var addSharedResult = Calindori.CalindoriConfig.addExternalCalendar(root.calendarName, root.ownerName, root.ownerEmail,  root.calendarFile);
 
         if(!(addSharedResult.success)) {
             validationFooter.text = addSharedResult.reason;
@@ -53,7 +53,7 @@ Kirigami.Page {
             return;
         }
 
-        _calindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
+        Calindori.CalindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
 
         validationFooter.visible = false;
         calendarEditorSaved();
@@ -123,7 +123,7 @@ Kirigami.Page {
 
             onTriggered: {
                 if ((mode === CalendarEditor.Mode.AddExisting) || (mode === CalendarEditor.Mode.Create))  {
-                    var canAddResult = _calindoriConfig.canAddCalendar(root.calendarName);
+                    var canAddResult = Calindori.CalindoriConfig.canAddCalendar(root.calendarName);
 
                     if(canAddResult && !(canAddResult.success)) {
                         validationFooter.text = canAddResult.reason;
@@ -140,7 +140,7 @@ Kirigami.Page {
                         addLocalCalendarCfgEntry();
                         break;
                     case CalendarEditor.Mode.Edit:
-                        _calindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
+                        Calindori.CalindoriConfig.setOwnerInfo(root.calendarName, root.ownerName, root.ownerEmail);
                         calendarEditorSaved();
                         break;
                     default:

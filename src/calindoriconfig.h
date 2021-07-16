@@ -24,8 +24,7 @@ class CalindoriConfig : public QObject
 
 public:
 
-    explicit CalindoriConfig(QObject *parent = nullptr);
-    ~CalindoriConfig() override;
+    static CalindoriConfig &instance();
 
     QStringList internalCalendars() const;
     Q_SIGNAL void internalCalendarsChanged();
@@ -65,6 +64,8 @@ public Q_SLOTS:
     void removeCalendar(const QString &calendar);
 
 private:
+    explicit CalindoriConfig(QObject *parent = nullptr);
+    ~CalindoriConfig() override;
     static QString filenameToPath(const QString &calendarName);
 
     class Private;
