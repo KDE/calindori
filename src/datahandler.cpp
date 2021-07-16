@@ -18,7 +18,7 @@
 
 DataHandler *DataHandler::s_instance {nullptr};
 
-DataHandler::DataHandler(QObject *parent) : QObject {parent}, m_network_manager {nullptr}, m_calendar_controller {nullptr}
+DataHandler::DataHandler(QObject *parent) : QObject {parent}, m_network_manager {nullptr}
 {
     s_instance = this;
 }
@@ -31,11 +31,6 @@ DataHandler::~DataHandler()
 DataHandler *DataHandler::instance()
 {
     return s_instance;
-}
-
-void DataHandler::setCalendarController(CalendarController *calendarController)
-{
-    m_calendar_controller = calendarController;
 }
 
 void DataHandler::importFromUrl(const QUrl &url)
@@ -110,7 +105,5 @@ void DataHandler::importData(const QByteArray &data)
         return;
     }
 
-    if (m_calendar_controller != nullptr) {
-        m_calendar_controller->importCalendarData(data);
-    }
+    CalendarController::instance().importCalendarData(data);
 }

@@ -10,7 +10,6 @@
 #include <QObject>
 
 class QNetworkAccessManager;
-class CalendarController;
 
 class DataHandler : public QObject
 {
@@ -20,7 +19,6 @@ public:
     explicit DataHandler(QObject *parent = nullptr);
     ~DataHandler();
 
-    void setCalendarController(CalendarController *calendarController);
     Q_INVOKABLE void importFromUrl(const QUrl &url);
     void importData(const QByteArray &data);
 
@@ -32,7 +30,6 @@ private:
     static DataHandler *s_instance;
 
     QNetworkAccessManager *m_network_manager;
-    CalendarController *m_calendar_controller;
 };
 #endif // DATAHANDLER_H
 

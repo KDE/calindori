@@ -105,20 +105,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         return instance;
     });
 
-    static CalendarController *s_calendar_controller = nullptr;
-    qmlRegisterSingletonType<CalendarController>("org.kde.calindori", 0, 1, "CalendarController", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
-        engine->setObjectOwnership(s_calendar_controller, QQmlEngine::CppOwnership);
-
-        return s_calendar_controller;
-    });
-
     qmlRegisterSingletonInstance("org.kde.calindori", 0, 1, "CalindoriConfig", &CalindoriConfig::instance());
-
-    CalendarController calendarController;
-    s_calendar_controller = &calendarController;
+    qmlRegisterSingletonInstance("org.kde.calindori", 0, 1, "CalendarController", &CalendarController::instance());
 
     DataHandler dataHandler;
-    dataHandler.setCalendarController(&calendarController);
 
 #ifndef Q_OS_ANDROID
     QObject::connect(&service, &KDBusService::activateRequested, [&parser, &dataHandler](const QStringList & args, const QString & workingDir) {

@@ -19,6 +19,12 @@
 #include "attendeesmodel.h"
 #include "calindoriconfig.h"
 
+CalendarController &CalendarController::instance()
+{
+    static CalendarController instance;
+    return instance;
+}
+
 CalendarController::CalendarController(QObject *parent) : QObject {parent}, m_events {}, m_todos {}
 {
 }
