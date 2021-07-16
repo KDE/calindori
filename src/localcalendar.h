@@ -38,9 +38,9 @@ public:
     bool isExternal() const;
 
     void setCalendar(Calendar::Ptr calendar);
-    void setName(QString &calendarName);
-    void setOwnerName(QString &ownerName);
-    void setOwnerEmail(QString &ownerEmail);
+    void setName(const QString &calendarName);
+    void setOwnerName(const QString &ownerName);
+    void setOwnerEmail(const QString &ownerEmail);
 
     Q_INVOKABLE int todosCount(const QDate &date) const;
     Q_INVOKABLE int eventsCount(const QDate &date) const;
