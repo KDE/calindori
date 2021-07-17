@@ -41,15 +41,6 @@ void LocalCalendar::setName(const QString &calendarName)
     }
 }
 
-void LocalCalendar::setCalendar(KCalendarCore::Calendar::Ptr calendar)
-{
-    if (m_calendar != calendar) {
-        m_calendar = calendar;
-    }
-
-    Q_EMIT calendarChanged();
-}
-
 int LocalCalendar::todosCount(const QDate &date) const
 {
     if (m_calendar == nullptr) {
@@ -200,4 +191,9 @@ void LocalCalendar::setOwnerEmail(const QString &ownerEmail)
     CalindoriConfig::instance().setOwnerEmail(m_name, ownerEmail);
 
     Q_EMIT ownerEmailChanged();
+}
+
+KCalendarCore::Calendar *LocalCalendar::calendarRaw() const
+{
+    return m_calendar.data();
 }

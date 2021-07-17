@@ -22,19 +22,19 @@ class LocalCalendar : public QObject
     Q_PROPERTY(QString ownerName READ ownerName WRITE setOwnerName NOTIFY ownerNameChanged)
     Q_PROPERTY(QString ownerEmail READ ownerEmail WRITE setOwnerEmail NOTIFY ownerEmailChanged)
     Q_PROPERTY(bool isExternal READ isExternal NOTIFY isExternalChanged)
-    Q_PROPERTY(QSharedPointer<KCalendarCore::Calendar> calendar READ calendar WRITE setCalendar NOTIFY calendarChanged)
+    Q_PROPERTY(KCalendarCore::Calendar *calendar READ calendarRaw NOTIFY calendarChanged)
 
 public:
     explicit LocalCalendar(QObject *parent = nullptr);
     ~LocalCalendar() override;
 
     KCalendarCore::Calendar::Ptr calendar();
+    KCalendarCore::Calendar *calendarRaw() const;
     QString name() const;
     QString ownerName() const;
     QString ownerEmail() const;
     bool isExternal() const;
 
-    void setCalendar(KCalendarCore::Calendar::Ptr calendar);
     void setName(const QString &calendarName);
     void setOwnerName(const QString &ownerName);
     void setOwnerEmail(const QString &ownerEmail);
