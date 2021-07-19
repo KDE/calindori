@@ -378,6 +378,7 @@
   <url type="homepage">https://invent.kde.org/plasma-mobile/calindori</url>
   <url type="bugtracker">https://bugs.kde.org/describecomponents.cgi?product=calindori</url>
   <releases>
+    <release version="21.07" date="2021-07-20"/>
     <release version="21.06" date="2021-06-10">
       <description>
         <p>Improvements and fixes</p>
@@ -411,32 +412,6 @@
           <li>Add a proper generic name for the application</li>
           <li>Offer export functionality</li>
           <li>Offer import on specific calendars</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.3.0" date="2020-11-21">
-      <description>
-        <p>New features, improvements and fixes</p>
-        <ul>
-          <li>When running on Plasma, use the Solid wake-up features</li>
-          <li>Fix the positioning of the delete confirmation dialog</li>
-          <li>Conditionally hide completed tasks in the All Tasks view</li>
-          <li>Support external calendar files that can be updated by another application</li>
-          <li>Fix display of repeating events on day and month views</li>
-          <li>On the calendar month view, show all-day tasks into the day that they are part of</li>
-          <li>Show multi day events properly on day and week views</li>
-        </ul>
-      </description>
-    </release>
-    <release version="1.2" date="2020-09-11">
-      <description>
-        <p>Several fixes and new features</p>
-        <ul>
-          <li>Calendar import issue on desktop has been fixed</li>
-          <li>Mobile-desktop convergence improvements</li>
-          <li>Start date, due and alarm functionality added to tasks</li>
-          <li>When creating a new event, a reminder is automatically added</li>
-          <li>Week and day views have been created</li>
         </ul>
       </description>
     </release>
