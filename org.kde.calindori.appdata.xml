@@ -24,6 +24,7 @@
   <name xml:lang="ia">Calindori</name>
   <name xml:lang="id">Calindori</name>
   <name xml:lang="it">Calindori</name>
+  <name xml:lang="ko">Calindori</name>
   <name xml:lang="nl">Calindori</name>
   <name xml:lang="nn">Calindori</name>
   <name xml:lang="pa">ਕੈਲਿੰਡੋਰੀ</name>
@@ -55,6 +56,7 @@
   <summary xml:lang="ia">Application de calendario</summary>
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
+  <summary xml:lang="ko">캘린더 프로그램</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="nn">Kalenderprogram</summary>
   <summary xml:lang="pa">ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ</summary>
@@ -85,6 +87,7 @@
     <p xml:lang="ia">Calindori es un application de calendatio amicale de tocco. Illo ha essite designate per dispositivos mobile ma anque pote executar sur ambientes de scriptorio. Usators de Calindori es capace de verificar datas previe e future e gerer cargas e eventos.</p>
     <p xml:lang="id">Calindori adalah sebuah aplikasi kalender sentuhan yang akrab. Ini sudah dirancang untuk perangkat genggam tetapi juga bisa berjalan pada lingkungan desktop. Penggunaan Calindori bisa untuk memeriksa sebelumnya dan  keakanan tanggal dan mengelola tugas dan peristiwa.</p>
     <p xml:lang="it">Calindori è un'applicazione calendario amichevole. È stato progettato per i dispositivi mobili, ma può anche funzionare in ambienti desktop. Gli utenti di Calindori sono in grado di controllare date precedenti e future, e di gestire attività ed eventi.</p>
+    <p xml:lang="ko">Calindort는 터치 친화적 캘린더 프로그램입니다. 모바일 장치뿐만 아니라 데스크톱 환경에서도 실행할 수 있습니다. Calindori를 사용하면 과거와 미래 날짜를 보고 작업과 이벤트를 관리할 수 있습니다.</p>
     <p xml:lang="nl">Calindori is een agendatoepassing vriendelijk voor aanraken. Het is ontworpen voor mobiele apparaten maar het kan ook in een bureaubladomgeving werken. Gebruikers van Calindori kunnen eerdere en toekomstige datums controleren en taken en afspraken beheren.</p>
     <p xml:lang="nn">Calindori er eit kalender­program eigna for trykk­skjermar. Det er laga for mobil­telefonar, men kan òg brukast på vanlege datamaskiner. Du kan bruka det som ein kalender og til å halda oversikt over gjeremål og hendingar.</p>
     <p xml:lang="pa">ਕੈਲਿੰਡੋਰੀ ਟੱਚ ਲਈ ਢੁੱਕਵੀਂ ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਨੂੰ ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਪਰ ਇਹ ਡੈਸਕਟਾਪ ਮਾਹੌਲ ਵਿੱਚ ਵੀ ਚੱਲ ਸਕਦੀ ਹੈ। ਕੈਲਿੰਡੋਰੀ ਦੇ ਵਰਤੋਂਕਾਰ ਪਿਛਲੀਆਂ ਤੇ ਭਵਿੱਖ ਦੀਆਂ ਤਾਰੀਖਾਂ ਵੇਖ ਅਤੇ ਕੰਮ ਤੇ ਸਮਾਗਮਾਂ ਦਾ ਇੰਤਾਜ਼ਮ ਕਰ ਸਕਦੇ ਹਨ।</p>
@@ -112,6 +115,7 @@
     <p xml:lang="ia">Quando executa le application per le prime vice, un nove file de calendario es create que seque le standard ical. Alternativemente, usatores pote crear calendarios additional o importar los que existe.</p>
     <p xml:lang="id">Ketika pengeksekusian aplikasi saat pertama kali, sebuah file kalender baru telah diciptakan yang mengikuti standar ical. Selain itu, pengguna bisa menciptakan kalender tambahan atau mengimpor yang sudah ada.</p>
     <p xml:lang="it">Quando si esegue l'applicazione per la prima volta viene creato un nuovo file di calendario che segue lo standard ical. In alternativa, gli utenti possono creare dei calendari aggiuntivi, oppure importare quelli esistenti.</p>
+    <p xml:lang="ko">프로그램을 처음으로 실행하면 iCal 표준을 따르는 캘린더 파일을 생성합니다. 추가 캘린더를 만들거나 기존 캘린더를 가져올 수 있습니다.</p>
     <p xml:lang="nl">Bij het de eeerste keer uitvoeren van de toepassing, wordt een nieuw agendabestand aangemaakt die de ical-standaard gebruikt. Alternatief kunnen gebruikers extra agenda's aanmaken of bestaande importeren.</p>
     <p xml:lang="nn">Når du startar programmet første gong, vert det automatisk laga ei ny kalenderfil som følgjer iCalendar-standarden. Men du kan òg oppretta fleire kalendrar eller importera nokon du har frå før.</p>
     <p xml:lang="pa">ਜਦੋਂ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਪਹਿਲੀ ਵਾਰ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ical ਮਿਆਰ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਨਵੀਂ ਕੈਲੰਡਰ ਫਾਇਲ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਬਦਲਵੇਂ ਰੂਪ ਵਿੱਚ ਵਰਤੋਂਕਾਰ ਵਧੀਕ ਕੈਲੰਡਰ ਬਣਾ ਜਾਂ ਮੌਜੂਦਾ ਕੈਲੰਡਰ ਦਰਾਮਦ ਕਰ ਸਕਦੇ ਹਨ।</p>
@@ -140,6 +144,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pa">ਫੀਚਰ:</p>
@@ -172,6 +177,7 @@
       <li xml:lang="ia">Agenda</li>
       <li xml:lang="id">Agenda</li>
       <li xml:lang="it">Agenda</li>
+      <li xml:lang="ko">일정</li>
       <li xml:lang="nl">Agenda</li>
       <li xml:lang="nn">Timeplan</li>
       <li xml:lang="pa">ਏਜੰਡਾ</li>
@@ -202,6 +208,7 @@
       <li xml:lang="ia">Eventos</li>
       <li xml:lang="id">Peristiwa</li>
       <li xml:lang="it">Eventi</li>
+      <li xml:lang="ko">이벤트</li>
       <li xml:lang="nl">Afspraken</li>
       <li xml:lang="nn">Hendingar</li>
       <li xml:lang="pa">ਸਮਾਗਮ</li>
@@ -233,6 +240,7 @@
       <li xml:lang="ia">Cosas de facer</li>
       <li xml:lang="id">Kegiatan</li>
       <li xml:lang="it">Cose da fare</li>
+      <li xml:lang="ko">할 일</li>
       <li xml:lang="nl">Taken</li>
       <li xml:lang="nn">Gjeremål</li>
       <li xml:lang="pa">ਕੰਮ-ਕਾਰ</li>
@@ -263,6 +271,7 @@
       <li xml:lang="ia">Calendarios multiple</li>
       <li xml:lang="id">Multipel kalender</li>
       <li xml:lang="it">Calendari multipli</li>
+      <li xml:lang="ko">다중 캘린더</li>
       <li xml:lang="nl">Meerdere agenda's</li>
       <li xml:lang="nn">Fleire kalendrar</li>
       <li xml:lang="pa">ਕਈ ਕੈਲੰਡਰ</li>
@@ -294,6 +303,7 @@
       <li xml:lang="ia">Importa calendario</li>
       <li xml:lang="id">Impor kalender</li>
       <li xml:lang="it">Importa calendario</li>
+      <li xml:lang="ko">캘린더 가져오기</li>
       <li xml:lang="nl">Agenda importeren </li>
       <li xml:lang="nn">Kalender­importering</li>
       <li xml:lang="pa">ਕੈਲੰਡਰ ਇੰਪੋਰਟ ਕਰੋ</li>
@@ -328,6 +338,7 @@
       <caption xml:lang="ia">Calindori sur Mobile</caption>
       <caption xml:lang="id">Calindori di Ponsel</caption>
       <caption xml:lang="it">Calindori su mobile</caption>
+      <caption xml:lang="ko">모바일 환경에서의 Calindori</caption>
       <caption xml:lang="nl">Calindori op mobiel</caption>
       <caption xml:lang="nn">Calindori på mobil</caption>
       <caption xml:lang="pa">ਮੋਬਾਈਲ ਉੱਤੇ ਕੈਲਿੰਡੋਰੀ</caption>
@@ -359,6 +370,7 @@
       <caption xml:lang="ia">Calindori sur scriptorio</caption>
       <caption xml:lang="id">Calindori di Desktop</caption>
       <caption xml:lang="it">Calindori su desktop</caption>
+      <caption xml:lang="ko">데스크톱 환경에서의 Calindori</caption>
       <caption xml:lang="nl">Calindori op bureaublad</caption>
       <caption xml:lang="nn">Calindori på PC</caption>
       <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕੈਲਿੰਡੋਰੀ</caption>
