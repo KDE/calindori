@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 project(calindori)
-set(PROJECT_VERSION "21.07")
+set(PROJECT_VERSION "21.08")
 
 set(KF5_MIN_VERSION "5.62.0")
 set(QT_MIN_VERSION "5.14.0")
