@@ -127,7 +127,7 @@
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
-    <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其它日历，或者导入已有日历。</p>
+    <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其他日历，或者导入已有日历。</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
