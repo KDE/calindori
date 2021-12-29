@@ -63,6 +63,7 @@
   <summary xml:lang="pl">Aplikacja kalendarza</summary>
   <summary xml:lang="pt">Aplicação de calendário</summary>
   <summary xml:lang="pt-BR">Aplicativo de calendário</summary>
+  <summary xml:lang="ru">Программа с функциями календаря</summary>
   <summary xml:lang="sk">Aplikácia Calendar</summary>
   <summary xml:lang="sl">Aplikacija koledar</summary>
   <summary xml:lang="sv">Kalenderprogram</summary>
@@ -94,6 +95,7 @@
     <p xml:lang="pl">Calindori jest aplikacją kalendarza przystosowaną do dotyku. Została stworzona dla urządzeń przenośnych, lecz można ją także uruchomić na komputerach stacjonarnych. Użytkownicy Calindori mogą  sprawdzać poprzednie i przyszłe daty oraz zarządzać zadaniami i wydarzeniami.</p>
     <p xml:lang="pt">O Calindori é uma aplicação de calendário amigável para dispositivos tácteis. Foi desenhada para dispositivos móveis, mas também pode ser executada em computadores. Os utilizadores do Calindori poderão ver as datas anteriores e futuras, assim como gerir as tarefas e eventos.</p>
     <p xml:lang="pt-BR">O Calindori é um aplicativo de calendário amigável ao toque. Ele foi desenhado para dispositivos móveis mas também pode ser executado em ambientes de trabalho. Os usuários do Calindori podem verificar as datas anteriores e futuras e gerenciar tarefas e eventos.</p>
+    <p xml:lang="ru">Calindori — программа-календарь для сенсорных интерфейсов. Она разработана для мобильных устройств, но ей можно пользоваться и на обычных рабочих станциях. Пользователи Calindori могут проверять записи для прошедших и будущих дат и управлять соответствующими задачами и событиями.</p>
     <p xml:lang="sl">Calindori je dotikom prijazna aplikacija za koledar. Zasnovana je za mobilne naprave, vendar lahko deluje tudi v namiznih okoljih. UporabnikiCalindore lahko preverjajo prejšnje in prihodnje datume ter upravljajo z nalogami in dogodki.</p>
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
@@ -122,6 +124,7 @@
     <p xml:lang="pl">Przy wykonywaniu aplikacji po raz pierwszy, tworzony jest plik nowego kalendarza, który przestrzega standardu ical. Alternatywnie, użytkownicy mogą stworzyć dodatkowe kalendarz lub zaimportować już istniejące.</p>
     <p xml:lang="pt">Ao executar a aplicação pela primeira vez, será criado um ficheiro de calendário novo que segue a norma iCal. Em alternativa, os utilizadores poderão criar calendários adicionais ou importar existentes.</p>
     <p xml:lang="pt-BR">Ao executar o aplicativo pela primeira vez, um novo arquivo de calendário que segue o padrão ical é criado. Alternativamente, os usuários podem criar calendários adicionais ou importar os existentes.</p>
+    <p xml:lang="ru">При первом запуске программа создаёт файл календаря в формате ical. Кроме того, пользователь может создавать дополнительные календари или импортировать уже имеющиеся.</p>
     <p xml:lang="sl">Ko poženete program prvič, se ustvari nova koledarska datoteka, po standardu ical. Sicer uporabniki lahko ustvarjajododatne koledarje ali uvozijo obstoječe.</p>
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
