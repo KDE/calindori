@@ -47,14 +47,6 @@ Kirigami.Page {
         onTriggered: root.state = "deleting"
     }
 
-    actions.main: Kirigami.Action {
-        text: i18n("Close")
-        enabled: root.state !== "deleting"
-        icon.name: "window-close-symbolic"
-
-        onTriggered: pageStack.pop(null)
-    }
-
     actions.right: Kirigami.Action {
         text: i18n("Edit")
         enabled: root.state !== "deleting"

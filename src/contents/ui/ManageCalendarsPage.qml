@@ -87,7 +87,7 @@ Kirigami.ScrollablePage {
                             showPassiveNotification(i18n("Calendar must not be active when being deleted."));
                         } else {
                             deleteSheet.calendarName = modifyDialog.calendarName;
-                            deleteSheet.open();
+                            deleteSheet.timer.restart();
                         }
                     }
                 },
@@ -145,17 +145,25 @@ Kirigami.ScrollablePage {
             ]
         }
         
-        // confirmation dialog for deletion
-        ConfirmationSheet {
+        // confirmation dialog for deletion        
+        Kirigami.PromptDialog {
             id: deleteSheet
 
-            property string calendarName
-            message: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
+            title: i18n("Confirm")
+            subtitle: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
 
-            operation: function() {
+            standardButtons: Kirigami.Dialog.Yes | Kirigami.Dialog.No
+            onAccepted: {
                 var toRemoveCalendarComponent = Qt.createQmlObject("import org.kde.calindori 0.1 as Calindori; Calindori.LocalCalendar { name: \"" + calendarName + "\"}",deleteSheet);
                 toRemoveCalendarComponent.deleteCalendar();
                 Calindori.CalindoriConfig.removeCalendar(calendarName);
+            }
+            
+            // workaround for dialog closing immediately
+            property var timer: Timer {
+                interval: 50
+                running: false
+                onTriggered: deleteSheet.open();
             }
         }
         

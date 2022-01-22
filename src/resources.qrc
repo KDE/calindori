@@ -15,8 +15,6 @@
         <file alias="TimePicker.qml">contents/ui/kirigami-playground/TimePicker.qml</file>
         <file alias="ClockElement.qml">contents/ui/kirigami-playground/ClockElement.qml</file>
         <file alias="CalendarEditor.qml">contents/ui/CalendarEditor.qml</file>
-        <file alias="CalendarAction.qml">contents/ui/CalendarAction.qml</file>
-        <file alias="ConfirmationSheet.qml">contents/ui/ConfirmationSheet.qml</file>
         <file alias="EventsCardView.qml">contents/ui/EventsCardView.qml</file>
         <file alias="EventEditorPage.qml">contents/ui/EventEditorPage.qml</file>
         <file alias="TimePickerSheet.qml">contents/ui/TimePickerSheet.qml</file>
