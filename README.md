@@ -1,10 +1,17 @@
 <!--
     SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+    SPDX-FileCopyrightText: 2022 Devin Lin <devin@kde.org>
     SPDX-License-Identifier: CC-BY-SA-4.0
 -->
-# Calindori
+# Calindori <img src="logo.png" width="40"/> 
 
-Calendar application for Plasma Mobile
+Calendar application for Plasma Mobile.
+
+## Links
+
+* Project page: https://invent.kde.org/plasma-mobile/calindori
+* File an issue: https://invent.kde.org/plasma-mobile/calindori/-/issues
+* Development channel: https://matrix.to/#/#plasmamobile:matrix.org
 
 ## Features
 
@@ -19,20 +26,6 @@ Calindori is a touch friendly calendar application. It has been designed for mob
 ![](screenshots/calindori_screenshot.png)
 
 The calendars that the application handles follow the [ical](https://tools.ietf.org/html/rfc5545) standard.
-
-## Installation
-
-### KDE Neon 
-
-On mobile devices that run KDE Neon, run:
-
-```
-sudo apt install calindori
-```
-
-### Android
-
-The nightly build of Calindori for Android can be found in the F-Droid instance of KDE. You can add the repository following these [instructions](https://community.kde.org/Android/FDroid) and install  Calindori.
 
 
 ## Build
@@ -59,7 +52,7 @@ bin/calindori
 *To simulate Plasma Mobile user experience:*
 
 ```
-QT_QUICK_CONTROLS_MOBILE=true QT_QUICK_CONTROLS_STYLE=Plasma bin/calindori
+QT_QUICK_CONTROLS_MOBILE=true bin/calindori
 ```
 
 #### Install
@@ -68,3 +61,6 @@ QT_QUICK_CONTROLS_MOBILE=true QT_QUICK_CONTROLS_STYLE=Plasma bin/calindori
 sudo make install
 ```
 
+### Android
+
+The nightly build of Calindori for Android can be found in the F-Droid instance of KDE. You can add the repository following these [instructions](https://community.kde.org/Android/FDroid) and install Calindori.
