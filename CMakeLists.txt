@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 
 project(calindori)
 set(PROJECT_VERSION "21.12")
@@ -19,11 +19,14 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(CTest)
 include(FeatureSummary)
+include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEClangFormat)
+include(KDEGitCommitHooks)
 include(ECMPoQmTools)
-include(ECMSetupVersion)
+include(ECMConfiguredInstall)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX CALINDORI
