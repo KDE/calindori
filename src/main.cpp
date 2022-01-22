@@ -69,6 +69,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     aboutData.addAuthor(i18nc("@info:credit", "Dimitris Kardarakos"), i18nc("@info:credit", "Developer"), QStringLiteral("dimkard@posteo.net"));
 
     aboutData.addAuthor(i18nc("@info:credit", "Nicolas Fella"), i18nc("@info:credit", "Developer"), QStringLiteral("nicolas.fella@gmx.de"));
+    
+    aboutData.addAuthor(i18nc("@info:credit", "Devin Lin"), i18nc("@info:credit", "Developer"), QStringLiteral("devin@kde.org"));
 
     aboutData.setHomepage(QStringLiteral("https://invent.kde.org/kde/calindori"));
 

@@ -1,241 +1,270 @@
 /*
  * SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+ * SPDX-FileCopyrightText: 2022 Devin Lin <devin@kde.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQml.Models 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.GlobalDrawer {
-    id: root
-
+Kirigami.OverlayDrawer {
+    id: drawer
+    
     property var monthView
     property var calendar
     property bool wideScreen: false
     property var applicationFooter
-
-    handleVisible: !root.wideScreen
-    modal: !root.wideScreen
-
-    header: Kirigami.AbstractApplicationHeader {
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.largeSpacing
-        leftPadding: Kirigami.Units.largeSpacing
-        rightPadding: Kirigami.Units.smallSpacing
-        implicitHeight: Kirigami.Units.gridUnit * 2
-        Kirigami.Heading {
-            level: 1
-            text: Calindori.CalindoriConfig && Calindori.CalindoriConfig.activeCalendar
+    
+    modal: !wideScreen
+    width: 200
+    height: applicationWindow().height
+    
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
+    
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
+    
+    handleClosedIcon.source: modal ? null : "sidebar-expand-left"
+    handleOpenIcon.source: modal ? null : "sidebar-collapse-left"
+    handleVisible: applicationWindow().pageStack.depth <= 1 && applicationWindow().pageStack.layers.depth <= 1
+    
+    property var checkedSidebarItem: monthViewButton
+    
+    contentItem: ColumnLayout {
+        spacing: 0
+        
+        // sidebar header
+        ToolBar {
+            visible: !drawer.modal
             Layout.fillWidth: true
+            implicitHeight: applicationWindow().pageStack.globalToolBar.preferredHeight
+
+            Item {
+                anchors.fill: parent
+                Kirigami.Heading {
+                    level: 1
+                    text: i18n("Calendar")
+                    anchors.left: parent.left
+                    anchors.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
         }
-    }
-
-    actions: [
-        Kirigami.Action {
-            id: show
-
-            text: i18n("View")
-            iconName: "view-choose"
-            expandible: true
-
-            Kirigami.Action {
-                text: i18n("Month")
-
-                onTriggered: {
+        
+        Kirigami.Heading {
+            visible: drawer.modal
+            text: i18n("Calendar")
+            type: Kirigami.Heading.Secondary
+            Layout.margins: Kirigami.Units.gridUnit
+        }
+        
+        // sidebar content
+        ColumnLayout {
+            id: column
+            spacing: 0
+            Layout.margins: Kirigami.Units.smallSpacing
+            
+            SidebarButton {
+                id: monthViewButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                
+                text: i18n("Month View")
+                icon.name: "view-calendar-month"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === monthViewButton
+                
+                onClicked: {
                     popExtraLayers();
                     pageStack.clear();
                     pageStack.push(monthView);
+                    
+                    checkedSidebarItem = monthViewButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
                 }
             }
-
-            Kirigami.Action {
-                text: i18n("Day")
-
-                onTriggered: {
-                    popExtraLayers();
-                    pageStack.clear();
-                    pageStack.push(dayView);
-                }
-            }
-
-            Kirigami.Action {
-                text: i18n("Week")
-
-                onTriggered: {
+            
+            SidebarButton {
+                id: weekViewButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                
+                text: i18n("Week View")
+                icon.name: "view-calendar-week"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === weekViewButton
+                
+                onClicked: {
                     popExtraLayers();
                     pageStack.clear();
                     pageStack.push(weekView, { startDate: Calindori.CalendarController.localSystemDateTime() } );
+                    
+                    checkedSidebarItem = weekViewButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
                 }
             }
-
-            Kirigami.Action {
-                text: i18n("All Tasks")
-
-                onTriggered: {
+            
+            SidebarButton {
+                id: dayViewButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                
+                text: i18n("Day View")
+                icon.name: "view-calendar-day"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === dayViewButton
+                
+                onClicked: {
+                    popExtraLayers();
+                    pageStack.clear();
+                    pageStack.push(dayView);
+                    
+                    checkedSidebarItem = dayViewButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
+                }
+            }
+            
+            SidebarButton {
+                id: tasksListButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                
+                text: i18n("Tasks List")
+                icon.name: "view-calendar-list"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === tasksListButton
+                
+                onClicked: {
                     popExtraLayers();
                     pageStack.clear();
                     pageStack.push(incidenceView, { incidenceType: 1, filterMode: 9 });
+                    
+                    checkedSidebarItem = tasksListButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
                 }
             }
-
-            Kirigami.Action {
-                text: i18n("All Events")
-
-                onTriggered: {
+            
+            SidebarButton {
+                id: eventsListButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                
+                text: i18n("Events List")
+                icon.name: "view-calendar-agenda"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === eventsListButton
+                
+                onClicked: {
                     popExtraLayers();
                     pageStack.clear();
                     pageStack.push(incidenceView, { incidenceType: 0, filterMode: 8 });
+                    
+                    checkedSidebarItem = eventsListButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
                 }
             }
-        },
-
-        Kirigami.Action {
-            id: calendarManagement
-
-            text: i18n("Calendars")
-            iconName: "view-calendar"
-
-            // Internal Calendars
-            Kirigami.Action {
-                id: localCalendars
-
-                iconName: "view-calendar"
-                text: i18n("Local")
-                expandible: true
-                children: [calendarCreateAction]
-
+            
+            Kirigami.Separator { 
+                Layout.fillWidth: true 
+                Layout.margins: Kirigami.Units.smallSpacing
             }
-
-            // External Calendars
-            Kirigami.Action {
-                id: externalCalendars
-
-                visible: true
-                iconName: "view-calendar"
-                text: i18n("External")
-                expandible: true
-                children: [calendarAddExistingAction]
+            
+            Kirigami.Heading {
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                text: i18n("Calendars")
+                level: 3
+                type: Kirigami.Heading.Secondary
             }
-        },
-
-        Kirigami.Action {
-            text: i18n("Settings")
-            iconName: "settings-configure"
-
-            onTriggered: {
-                popExtraLayers();
-                pageStack.layers.push(settingsPage);
+            
+            // calendar selection
+            Repeater {
+                model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.internalCalendars
+                delegate: calendarButton
             }
-        },
-
-        Kirigami.Action {
-            id: aboutAction
-
-            iconName: "help-about-symbolic"
-            text: i18n("About")
-
-            onTriggered: {
-                popExtraLayers();
-                pageStack.layers.push(aboutInfoPage);
+            Repeater {
+                model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.externalCalendars
+                delegate: calendarButton
+            }
+            
+            Component {
+                id: calendarButton
+                SidebarButton {
+                    Layout.fillWidth: true
+                    Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                    property string calendarName: modelData
+                    property bool calendarActive: Calindori.CalindoriConfig !== null ? (Calindori.CalindoriConfig.activeCalendar === calendarName) : false
+                    
+                    text: calendarName
+                    icon.name: calendarActive ? "checkmark" : "view-calendar"
+                    checked: false
+                    
+                    onClicked: {
+                        if (!checked) {
+                            Calindori.CalindoriConfig.activeCalendar = calendarName;
+                            popExtraLayers();
+                            showPassiveNotification(i18n("Calendar %1 has been activated", calendarName));
+                            checked = false;
+                        }
+                    }
+                }
+            }
+            
+            Item { Layout.fillHeight: true }
+            Kirigami.Separator { 
+                Layout.fillWidth: true 
+                Layout.margins: Kirigami.Units.smallSpacing
+            }
+            
+            SidebarButton {
+                id: settingsButton
+                Layout.fillWidth: true
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                
+                text: i18n("Settings")
+                icon.name: "settings-configure"
+                checked: pageActive
+                property bool pageActive: checkedSidebarItem === settingsButton
+                
+                onClicked: {
+                    popExtraLayers();
+                    pageStack.clear();
+                    pageStack.push(settingsPage);
+                    
+                    checkedSidebarItem = settingsButton;
+                    checked = Qt.binding(() => pageActive);
+                    
+                    if (drawer.modal) drawer.close();
+                }
             }
         }
-    ]
-
-    Instantiator {
-        model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.internalCalendars
-
-        delegate: CalendarAction {
-            loadedCalendar: root.calendar
-            text: modelData
-            messageFooter: root.applicationFooter
-        }
-
-        onObjectAdded: localCalendars.children.push(object)
-
-        onObjectRemoved: {
-            // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
-            localCalendars.children = [];
-            localCalendars.children.push(calendarCreateAction);
-        }
     }
-
-    Instantiator {
-        model: Calindori.CalindoriConfig && Calindori.CalindoriConfig.externalCalendars
-
-        delegate: CalendarAction {
-            loadedCalendar: root.calendar
-            text: modelData
-            messageFooter: root.applicationFooter
-        }
-
-        onObjectAdded: externalCalendars.children.push(object)
-
-        onObjectRemoved: {
-            // HACK this is not pretty because onObjectRemoved is called for each calendar, but we cannot remove a single child
-            externalCalendars.children = [];
-            externalCalendars.children.push(calendarAddExistingAction);
-        }
-    }
-
-    Item {
-        visible: false
-
-        states: [
-            State {
-                when: root.wideScreen
-                PropertyChanges { target: root; drawerOpen: true }
-            },
-            State {
-                when: !root.wideScreen
-                PropertyChanges { target: root; drawerOpen: false }
-            }
-        ]
-    }
-
-    Kirigami.Action {
-        id: calendarCreateAction
-
-        text: i18n("Create")
-        iconName: "resource-calendar-insert"
-
-        onTriggered: {
-            pageStack.layers.push(calendarEditor, {mode: CalendarEditor.Mode.Create});
-        }
-    }
-
-    Kirigami.Action {
-        id: calendarAddExistingAction
-
-        text: i18n("Add")
-        iconName: "resource-calendar-child-insert"
-
-        onTriggered: {
-
-            pageStack.layers.push(calendarEditor, {mode: CalendarEditor.Mode.AddExisting});
-        }
-    }
-
-    Component {
-        id: calendarEditor
-
-        CalendarEditor {
-
-            loadedCalendar: root.calendar
-
-            onCalendarEditorSaved: pageStack.layers.pop()
-
-            onCalendarEditorCancelled: pageStack.layers.pop()
-
-        }
-    }
-
+    
     Component {
         id: dayView
-
         DayPage {
             wideScreen: root.wideScreen
         }
@@ -243,7 +272,6 @@ Kirigami.GlobalDrawer {
 
     Component {
         id: weekView
-
         WeekPage {
             wideScreen: root.wideScreen
         }
@@ -251,7 +279,6 @@ Kirigami.GlobalDrawer {
 
     Component {
         id: incidenceView
-
         IncidenceListView {
             calendar: root.calendar
         }
@@ -259,16 +286,8 @@ Kirigami.GlobalDrawer {
 
     Component {
         id: settingsPage
-
-        SettingsPage {}
-    }
-
-    Component {
-        id: aboutInfoPage
-
-        Kirigami.AboutPage
-        {
-            aboutData: _aboutData
+        SettingsPage {
+            applicationFooter: drawer.applicationFooter
         }
     }
 }

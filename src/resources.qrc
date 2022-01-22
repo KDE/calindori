@@ -6,6 +6,7 @@
     <qresource prefix="/">
         <file alias="MonthView.qml">contents/ui/kirigami-playground/MonthView.qml</file>
         <file alias="DayDelegate.qml">contents/ui/kirigami-playground/DayDelegate.qml</file>
+        <file alias="SidebarButton.qml">contents/ui/kirigami-playground/SidebarButton.qml</file>
         <file alias="Main.qml">contents/ui/Main.qml</file>
         <file alias="TodosCardView.qml">contents/ui/TodosCardView.qml</file>
         <file alias="TodoEditorPage.qml">contents/ui/TodoEditorPage.qml</file>
@@ -45,5 +46,6 @@
         <file alias="Reminders.qml">contents/ui/Reminders.qml</file>
         <file alias="AttendeeRoleEditor.qml">contents/ui/AttendeeRoleEditor.qml</file>
         <file alias="MessageBoard.qml">contents/ui/MessageBoard.qml</file>
+        <file alias="ManageCalendarsPage.qml">contents/ui/ManageCalendarsPage.qml</file>
     </qresource>
 </RCC>

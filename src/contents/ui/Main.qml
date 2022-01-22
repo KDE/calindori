@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
+ * SPDX-FileCopyrightText: 2022 Devin Lin <devin@kde.org>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -16,8 +17,7 @@ Kirigami.ApplicationWindow {
     /**
      * Starting from the last layer in the stack, remove every layer keeping only the first one
      */
-    function popExtraLayers()
-    {
+    function popExtraLayers() {
         while (pageStack.layers.depth > 1) {
             pageStack.layers.pop();
         }
@@ -45,6 +45,29 @@ Kirigami.ApplicationWindow {
     pageStack {
         initialPage: [calendarMonthPage]
         defaultColumnWidth: Kirigami.Units.gridUnit * 35
+            
+        globalToolBar.canContainHandles: true
+        globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
+        globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
+    }
+    
+    // pop pages when not in use
+    Connections {
+        target: applicationWindow().pageStack
+        function onCurrentIndexChanged() {
+            // wait for animation to finish before popping pages
+            timer.restart();
+        }
+    }
+    Timer {
+        id: timer
+        interval: 300
+        onTriggered: {
+            let currentIndex = applicationWindow().pageStack.currentIndex;
+            while (applicationWindow().pageStack.depth > (currentIndex + 1) && currentIndex >= 0) {
+                applicationWindow().pageStack.pop();
+            }
+        }
     }
 
     Component {
