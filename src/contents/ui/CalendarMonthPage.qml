@@ -43,28 +43,28 @@ Kirigami.Page {
     title: calendarMonthView.selectedDate.toLocaleDateString(_appLocale, Locale.ShortFormat)
 
     actions {
-        left: Kirigami.Action {
-            iconName: "go-down"
-            text: i18n("Previous")
-
-            onTriggered: calendarMonthView.previousMonth()
-        }
-
         main: Kirigami.Action {
             iconName: "view-calendar-day"
             text: i18n("Today")
-
+            
             onTriggered: calendarMonthView.goToday()
         }
 
-        right: Kirigami.Action {
-            iconName: "go-up"
-            text: i18n("Next")
-
-            onTriggered: calendarMonthView.nextMonth()
-        }
-
         contextualActions: [
+            Kirigami.Action {
+                iconName: "arrow-left"
+                text: i18n("Previous")
+                displayHint: Kirigami.Action.IconOnly
+                onTriggered: calendarMonthView.previousMonth()
+            },
+            
+            Kirigami.Action {
+                iconName: "arrow-right"
+                text: i18n("Next")
+                displayHint: Kirigami.Action.IconOnly
+                onTriggered: calendarMonthView.nextMonth()
+            },
+        
             Kirigami.Action {
                 iconName: "view-calendar-tasks"
                 text: i18n("Tasks")

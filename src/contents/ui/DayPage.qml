@@ -17,9 +17,9 @@ Kirigami.ScrollablePage {
 
     actions {
         left: Kirigami.Action {
-            iconName: "go-down"
+            iconName: "arrow-left"
             text: i18n("Previous day")
-
+            displayHint: Kirigami.Action.IconOnly
             onTriggered: dayView.previousDay()
         }
 
@@ -31,9 +31,9 @@ Kirigami.ScrollablePage {
         }
 
         right: Kirigami.Action {
-            iconName: "go-up"
+            iconName: "arrow-right"
             text: i18n("Next day")
-
+            displayHint: Kirigami.Action.IconOnly
             onTriggered: dayView.nextDay()
         }
     }
