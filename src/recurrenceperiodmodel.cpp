@@ -43,7 +43,7 @@ QHash<int, QByteArray> ReccurencePeriodModel::roleNames() const
 QVariant ReccurencePeriodModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
-        return "Invalid index";
+        return QStringLiteral("Invalid index");
     }
 
     switch (role) {
@@ -130,8 +130,8 @@ QString ReccurencePeriodModel::periodDecription(const int periodType) const
 
 QString ReccurencePeriodModel::repeatDescription(const int repeatType, const int repeatEvery, const int stopAfter) const
 {
-    return QString("%1%2").arg((repeatType == Recurrence::rYearlyMonth || repeatType == Recurrence::rYearlyDay || repeatType == Recurrence::rYearlyPos) ? i18np("Every year", "Every %1 years", repeatEvery) :
+    return QStringLiteral("%1%2").arg((repeatType == Recurrence::rYearlyMonth || repeatType == Recurrence::rYearlyDay || repeatType == Recurrence::rYearlyPos) ? i18np("Every year", "Every %1 years", repeatEvery) :
                                (repeatType == Recurrence::rMonthlyPos || repeatType == Recurrence::rMonthlyDay) ? i18np("Every month", "Every %1 months", repeatEvery) :
                                (repeatType == Recurrence::rWeekly) ? i18np("Every week", "Every %1 weeks", repeatEvery) :
-                               (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never"), (repeatType == Recurrence::rNone) || (stopAfter < 1) ? "" : i18np("; once", "; %1 times", stopAfter));
+                               (repeatType == Recurrence::rDaily) ? i18np("Every day", "Every %1 days", repeatEvery) : i18n("Never"), (repeatType == Recurrence::rNone) || (stopAfter < 1) ? QString() : i18np("; once", "; %1 times", stopAfter));
 }

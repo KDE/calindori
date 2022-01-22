@@ -144,7 +144,7 @@ void CalendarController::abortImporting()
 void CalendarController::removeEvent(LocalCalendar *localCalendar, const QVariantMap &eventData)
 {
     KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
-    QString uid = eventData["uid"].toString();
+    QString uid = eventData[QStringLiteral("uid")].toString();
     KCalendarCore::Event::Ptr event = calendar->event(uid);
     calendar->deleteEvent(event);
     bool deleted = localCalendar->save();
@@ -159,21 +159,21 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
 
     KCalendarCore::Calendar::Ptr calendar = CalendarController::instance().activeCalendar()->calendar();
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = eventData["uid"].toString();
-    QString summary = eventData["summary"].toString();
+    QString uid = eventData[QStringLiteral("uid")].toString();
+    QString summary = eventData[QStringLiteral("summary")].toString();
     bool clearPartStatus {false};
 
-    QDate startDate = eventData["startDate"].toDate();
-    int startHour = eventData["startHour"].value<int>();
-    int startMinute = eventData["startMinute"].value<int>();
+    QDate startDate = eventData[QStringLiteral("startDate")].toDate();
+    int startHour = eventData[QStringLiteral("startHour")].value<int>();
+    int startMinute = eventData[QStringLiteral("startMinute")].value<int>();
 
-    QDate endDate = eventData["endDate"].toDate();
-    int endHour = eventData["endHour"].value<int>();
-    int endMinute = eventData["endMinute"].value<int>();
+    QDate endDate = eventData[QStringLiteral("endDate")].toDate();
+    int endHour = eventData[QStringLiteral("endHour")].value<int>();
+    int endMinute = eventData[QStringLiteral("endMinute")].value<int>();
 
     QDateTime startDateTime;
     QDateTime endDateTime;
-    bool allDayFlg = eventData["allDay"].toBool();
+    bool allDayFlg = eventData[QStringLiteral("allDay")].toBool();
 
     if (allDayFlg) {
         startDateTime = startDate.startOfDay();
@@ -184,9 +184,9 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
     }
 
     KCalendarCore::Event::Ptr event;
-    if (uid == "") {
+    if (uid.isEmpty()) {
         event = KCalendarCore::Event::Ptr(new KCalendarCore::Event());
-        event->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
+        event->setUid(summary.at(0) + now.toString(QStringLiteral("yyyyMMddhhmmsszzz")));
     } else {
         event = calendar->event(uid);
         event->setUid(uid);
@@ -195,10 +195,10 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
 
     event->setDtStart(startDateTime);
     event->setDtEnd(endDateTime);
-    event->setDescription(eventData["description"].toString());
+    event->setDescription(eventData[QStringLiteral("description")].toString());
     event->setSummary(summary);
     event->setAllDay(allDayFlg);
-    event->setLocation(eventData["location"].toString());
+    event->setLocation(eventData[QStringLiteral("location")].toString());
 
     event->clearAttendees();
     for (auto &a : qAsConst(attendeesList)) {
@@ -216,14 +216,14 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
     }
 
     event->clearAlarms();
-    QVariantList newAlarms = eventData["alarms"].value<QVariantList>();
+    QVariantList newAlarms = eventData[QStringLiteral("alarms")].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
     while (itr != newAlarms.constEnd()) {
         KCalendarCore::Alarm::Ptr newAlarm = event->newAlarm();
         QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
-        int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
-        int startOffsetType = newAlarmHashMap["startOffsetType"].value<int>();
-        int actionType = newAlarmHashMap["actionType"].value<int>();
+        int startOffsetValue = newAlarmHashMap[QStringLiteral("startOffsetValue")].value<int>();
+        int startOffsetType = newAlarmHashMap[QStringLiteral("startOffsetType")].value<int>();
+        int actionType = newAlarmHashMap[QStringLiteral("actionType")].value<int>();
 
         qDebug() << "addEdit:\tAdding alarm with start offset value " << startOffsetValue;
         newAlarm->setStartOffset(KCalendarCore::Duration(startOffsetValue, static_cast<KCalendarCore::Duration::Type>(startOffsetType)));
@@ -233,12 +233,12 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
         ++itr;
     }
 
-    ushort newPeriod = static_cast<ushort>(eventData["periodType"].toInt());
+    ushort newPeriod = static_cast<ushort>(eventData[QStringLiteral("periodType")].toInt());
 
     //Bother with recurrences only if a recurrence has been found, either existing or new
     if ((event->recurrenceType() != KCalendarCore::Recurrence::rNone) || (newPeriod != KCalendarCore::Recurrence::rNone)) {
         //WORKAROUND: When changing an event from non-recurring to recurring, duplicate events are displayed
-        if (uid != "") {
+        if (!uid.isEmpty()) {
             calendar->deleteEvent(event);
         }
 
@@ -246,36 +246,36 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
         case KCalendarCore::Recurrence::rYearlyDay:
         case KCalendarCore::Recurrence::rYearlyMonth:
         case KCalendarCore::Recurrence::rYearlyPos:
-            event->recurrence()->setYearly(eventData["repeatEvery"].toInt());
+            event->recurrence()->setYearly(eventData[QStringLiteral("repeatEvery")].toInt());
             break;
         case KCalendarCore::Recurrence::rMonthlyDay:
         case KCalendarCore::Recurrence::rMonthlyPos:
-            event->recurrence()->setMonthly(eventData["repeatEvery"].toInt());
+            event->recurrence()->setMonthly(eventData[QStringLiteral("repeatEvery")].toInt());
             break;
         case KCalendarCore::Recurrence::rWeekly:
-            event->recurrence()->setWeekly(eventData["repeatEvery"].toInt());
+            event->recurrence()->setWeekly(eventData[QStringLiteral("repeatEvery")].toInt());
             break;
         case KCalendarCore::Recurrence::rDaily:
-            event->recurrence()->setDaily(eventData["repeatEvery"].toInt());
+            event->recurrence()->setDaily(eventData[QStringLiteral("repeatEvery")].toInt());
             break;
         default:
             event->recurrence()->clear();
         }
 
         if (newPeriod != KCalendarCore::Recurrence::rNone) {
-            int stopAfter = eventData["stopAfter"].toInt() > 0 ? eventData["stopAfter"].toInt() : -1;
+            int stopAfter = eventData[QStringLiteral("stopAfter")].toInt() > 0 ? eventData[QStringLiteral("stopAfter")].toInt() : -1;
             event->recurrence()->setDuration(stopAfter);
             event->recurrence()->setAllDay(allDayFlg);
         }
 
-        if (uid != "") {
+        if (!uid.isEmpty()) {
             calendar->addEvent(event);
         }
     }
 
-    event->setStatus(eventData["status"].value<KCalendarCore::Incidence::Status>());
+    event->setStatus(eventData[QStringLiteral("status")].value<KCalendarCore::Incidence::Status>());
 
-    if (uid == "") {
+    if (uid.isEmpty()) {
         calendar->addEvent(event);
     }
 
@@ -294,22 +294,22 @@ QVariantMap CalendarController::validateEvent(const QVariantMap &eventMap) const
 {
     QVariantMap result {};
 
-    QDate startDate = eventMap["startDate"].toDate();
+    QDate startDate = eventMap[QStringLiteral("startDate")].toDate();
     bool validStartHour {false};
-    int startHour = eventMap["startHour"].toInt(&validStartHour);
+    int startHour = eventMap[QStringLiteral("startHour")].toInt(&validStartHour);
     bool validStartMinutes {false};
-    int startMinute = eventMap["startMinute"].toInt(&validStartMinutes);
-    QDate endDate = eventMap["endDate"].toDate();
+    int startMinute = eventMap[QStringLiteral("startMinute")].toInt(&validStartMinutes);
+    QDate endDate = eventMap[QStringLiteral("endDate")].toDate();
     bool validEndHour {false};
-    int endHour = eventMap["endHour"].toInt(&validEndHour);
+    int endHour = eventMap[QStringLiteral("endHour")].toInt(&validEndHour);
     bool validEndMinutes {false};
-    int endMinutes = eventMap["endMinute"].toInt(&validEndMinutes);
-    bool allDayFlg = eventMap["allDay"].toBool();
+    int endMinutes = eventMap[QStringLiteral("endMinute")].toInt(&validEndMinutes);
+    bool allDayFlg = eventMap[QStringLiteral("allDay")].toBool();
 
     if (startDate.isValid() && validStartHour && validStartMinutes && endDate.isValid() && validEndHour && validEndMinutes) {
         if (allDayFlg && (endDate != startDate)) {
-            result["success"] = false;
-            result["reason"] = i18n("In case of all day events, start date and end date should be equal");
+            result[QStringLiteral("success")] = false;
+            result[QStringLiteral("reason")] = i18n("In case of all day events, start date and end date should be equal");
 
             return result;
         }
@@ -318,26 +318,26 @@ QVariantMap CalendarController::validateEvent(const QVariantMap &eventMap) const
         auto endDateTime = QDateTime(endDate, QTime(endHour, endMinutes, 0, 0), QTimeZone::systemTimeZone());
 
         if (!allDayFlg && (startDateTime > endDateTime)) {
-            result["success"] = false;
-            result["reason"] = i18n("End date time should be equal to or greater than the start date time");
+            result[QStringLiteral("success")] = false;
+            result[QStringLiteral("reason")] = i18n("End date time should be equal to or greater than the start date time");
             return result;
         }
 
         auto validPeriodType {false};
-        auto periodType = static_cast<ushort>(eventMap["periodType"].toInt(&validPeriodType));
+        auto periodType = static_cast<ushort>(eventMap[QStringLiteral("periodType")].toInt(&validPeriodType));
         auto eventDuration = startDateTime.secsTo(endDateTime);
         auto validRepeatEvery {false};
-        auto repeatEvery = static_cast<ushort>(eventMap["repeatEvery"].toInt(&validRepeatEvery));
+        auto repeatEvery = static_cast<ushort>(eventMap[QStringLiteral("repeatEvery")].toInt(&validRepeatEvery));
 
         if (validPeriodType && (periodType == KCalendarCore::Recurrence::rDaily) && validRepeatEvery && (repeatEvery == 1) && eventDuration > 86400) {
-            result["success"] = false;
-            result["reason"] = i18n("Daily events should not span multiple days");
+            result[QStringLiteral("success")] = false;
+            result[QStringLiteral("reason")] = i18n("Daily events should not span multiple days");
             return result;
         }
     }
 
-    result["success"] = true;
-    result["reason"] = QString();
+    result[QStringLiteral("success")] = true;
+    result[QStringLiteral("reason")] = QString();
 
     return result;
 
@@ -348,16 +348,16 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
     KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
     KCalendarCore::Todo::Ptr vtodo;
     QDateTime now = QDateTime::currentDateTime();
-    QString uid = todo["uid"].toString();
-    QString summary = todo["summary"].toString();
-    QDate startDate = todo["startDate"].toDate();
-    int startHour = todo["startHour"].value<int>();
-    int startMinute = todo["startMinute"].value<int>();
-    bool allDayFlg = todo["allDay"].toBool();
+    QString uid = todo[QStringLiteral("uid")].toString();
+    QString summary = todo[QStringLiteral("summary")].toString();
+    QDate startDate = todo[QStringLiteral("startDate")].toDate();
+    int startHour = todo[QStringLiteral("startHour")].value<int>();
+    int startMinute = todo[QStringLiteral("startMinute")].value<int>();
+    bool allDayFlg = todo[QStringLiteral("allDay")].toBool();
 
-    if (uid == "") {
+    if (uid.isEmpty()) {
         vtodo = KCalendarCore::Todo::Ptr(new KCalendarCore::Todo());
-        vtodo->setUid(summary.at(0) + now.toString("yyyyMMddhhmmsszzz"));
+        vtodo->setUid(summary.at(0) + now.toString(QStringLiteral("yyyyMMddhhmmsszzz")));
     } else {
         vtodo = calendar->todo(uid);
         vtodo->setUid(uid);
@@ -372,13 +372,13 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
 
     vtodo->setDtStart(startDateTime);
 
-    QDate dueDate = todo["dueDate"].toDate();
+    QDate dueDate = todo[QStringLiteral("dueDate")].toDate();
 
     bool validDueHour {false};
-    int dueHour = todo["dueHour"].toInt(&validDueHour);
+    int dueHour = todo[QStringLiteral("dueHour")].toInt(&validDueHour);
 
     bool validDueMinutes {false};
-    int dueMinute = todo["dueMinute"].toInt(&validDueMinutes);
+    int dueMinute = todo[QStringLiteral("dueMinute")].toInt(&validDueMinutes);
 
     QDateTime dueDateTime = QDateTime();
     if (dueDate.isValid() && validDueHour && validDueMinutes && !allDayFlg) {
@@ -388,21 +388,21 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
     }
 
     vtodo->setDtDue(dueDateTime);
-    vtodo->setDescription(todo["description"].toString());
+    vtodo->setDescription(todo[QStringLiteral("description")].toString());
     vtodo->setSummary(summary);
     vtodo->setAllDay((startDate.isValid() || dueDate.isValid()) ? allDayFlg : false);
-    vtodo->setLocation(todo["location"].toString());
-    vtodo->setCompleted(todo["completed"].toBool());
+    vtodo->setLocation(todo[QStringLiteral("location")].toString());
+    vtodo->setCompleted(todo[QStringLiteral("completed")].toBool());
 
     vtodo->clearAlarms();
-    QVariantList newAlarms = todo["alarms"].value<QVariantList>();
+    QVariantList newAlarms = todo[QStringLiteral("alarms")].value<QVariantList>();
     QVariantList::const_iterator itr = newAlarms.constBegin();
     while (itr != newAlarms.constEnd()) {
         KCalendarCore::Alarm::Ptr newAlarm = vtodo->newAlarm();
         QHash<QString, QVariant> newAlarmHashMap = (*itr).value<QHash<QString, QVariant>>();
-        int startOffsetValue = newAlarmHashMap["startOffsetValue"].value<int>();
-        int startOffsetType = newAlarmHashMap["startOffsetType"].value<int>();
-        int actionType = newAlarmHashMap["actionType"].value<int>();
+        int startOffsetValue = newAlarmHashMap[QStringLiteral("startOffsetValue")].value<int>();
+        int startOffsetType = newAlarmHashMap[QStringLiteral("startOffsetType")].value<int>();
+        int actionType = newAlarmHashMap[QStringLiteral("actionType")].value<int>();
 
         newAlarm->setStartOffset(KCalendarCore::Duration(startOffsetValue, static_cast<KCalendarCore::Duration::Type>(startOffsetType)));
         newAlarm->setType(static_cast<KCalendarCore::Alarm::Type>(actionType));
@@ -422,7 +422,7 @@ void CalendarController::upsertTodo(LocalCalendar *localCalendar, const QVariant
 void CalendarController::removeTodo(LocalCalendar *localCalendar, const QVariantMap &todo)
 {
     KCalendarCore::Calendar::Ptr calendar = localCalendar->calendar();
-    QString uid = todo["uid"].toString();
+    QString uid = todo[QStringLiteral("uid")].toString();
     KCalendarCore::Todo::Ptr vtodo = calendar->todo(uid);
 
     calendar->deleteTodo(vtodo);
@@ -436,35 +436,35 @@ QVariantMap CalendarController::validateTodo(const QVariantMap &todo) const
 {
     QVariantMap result {};
 
-    QDate startDate = todo["startDate"].toDate();
+    QDate startDate = todo[QStringLiteral("startDate")].toDate();
     bool validStartHour {false};
-    int startHour = todo["startHour"].toInt(&validStartHour);
+    int startHour = todo[QStringLiteral("startHour")].toInt(&validStartHour);
     bool validStartMinutes {false};
-    int startMinute = todo["startMinute"].toInt(&validStartMinutes);
-    QDate dueDate = todo["dueDate"].toDate();
+    int startMinute = todo[QStringLiteral("startMinute")].toInt(&validStartMinutes);
+    QDate dueDate = todo[QStringLiteral("dueDate")].toDate();
     bool validDueHour {false};
-    int dueHour = todo["dueHour"].toInt(&validDueHour);
+    int dueHour = todo[QStringLiteral("dueHour")].toInt(&validDueHour);
     bool validDueMinutes {false};
-    int dueMinute = todo["dueMinute"].toInt(&validDueMinutes);
-    bool allDayFlg = todo["allDay"].toBool();
+    int dueMinute = todo[QStringLiteral("dueMinute")].toInt(&validDueMinutes);
+    bool allDayFlg = todo[QStringLiteral("allDay")].toBool();
 
     if (startDate.isValid() && validStartHour && validStartMinutes && dueDate.isValid() && validDueHour && validDueMinutes) {
         if (allDayFlg && (dueDate != startDate)) {
-            result["success"] = false;
-            result["reason"] = i18n("In case of all day tasks, start date and due date should be equal");
+            result[QStringLiteral("success")] = false;
+            result[QStringLiteral("reason")] = i18n("In case of all day tasks, start date and due date should be equal");
 
             return result;
         }
 
         if (!allDayFlg && (QDateTime(startDate, QTime(startHour, startMinute, 0, 0), QTimeZone::systemTimeZone()) >  QDateTime(dueDate, QTime(dueHour, dueMinute, 0, 0), QTimeZone::systemTimeZone()))) {
-            result["success"] = false;
-            result["reason"] = i18n("Due date time should be equal to or greater than the start date time");
+            result[QStringLiteral("success")] = false;
+            result[QStringLiteral("reason")] = i18n("Due date time should be equal to or greater than the start date time");
             return result;
         }
     }
 
-    result["success"] = true;
-    result["reason"] = QString();
+    result[QStringLiteral("success")] = true;
+    result[QStringLiteral("reason")] = QString();
 
     return result;
 }
@@ -480,8 +480,8 @@ QVariantMap CalendarController::exportData(const QString &calendarName)
     QFile calendarFile {filePath};
     if (!calendarFile.exists()) {
         return {
-            { "success", false },
-            { "reason", i18n("Cannot read calendar. Export failed.") }
+            { QStringLiteral("success"), false },
+            { QStringLiteral("reason"), i18n("Cannot read calendar. Export failed.") }
         };
     }
 
@@ -490,31 +490,31 @@ QVariantMap CalendarController::exportData(const QString &calendarName)
     storage->setFileName(filePath);
     if (!storage->load()) {
         return {
-            { "success", false },
-            { "reason", i18n("Cannot load calendar. Export failed.") }
+            { QStringLiteral("success"), false },
+            { QStringLiteral("reason"), i18n("Cannot load calendar. Export failed.") }
         };
     }
 
     auto dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QFile targetFile {dirPath + "/calindori_" + calendarName + ".ics"};
+    QFile targetFile {dirPath + QStringLiteral("/calindori_") + calendarName + QStringLiteral(".ics")};
     auto fileSuffix {1};
     while (targetFile.exists()) {
-        targetFile.setFileName(dirPath + "/calindori_" + calendarName + "(" + QString::number(fileSuffix++) + ").ics");
+        targetFile.setFileName(dirPath + QStringLiteral("/calindori_") + calendarName + QStringLiteral("(") + QString::number(fileSuffix++) + QStringLiteral(").ics"));
     }
 
     storage->setFileName(targetFile.fileName());
     if (!(storage->save())) {
         return {
-            { "success", false },
-            { "reason", i18n("Cannot save calendar file. Export failed.") }
+            { QStringLiteral("success"), false },
+            { QStringLiteral("reason"), i18n("Cannot save calendar file. Export failed.") }
         };
 
     }
 
     return {
-        { "success", true },
-        { "reason", i18n("Export completed successfully") },
-        { "targetFolder", QUrl {QStringLiteral("file://") + dirPath} }
+        { QStringLiteral("success"), true },
+        { QStringLiteral("reason"), i18n("Export completed successfully") },
+        { QStringLiteral("targetFolder"), QUrl {QStringLiteral("file://") + dirPath} }
     };
 }
 

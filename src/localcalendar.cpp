@@ -86,20 +86,20 @@ bool LocalCalendar::save()
 QVariantMap LocalCalendar::canCreateFile(const QString &calendarName)
 {
     QVariantMap result;
-    result["success"] = QVariant(true);
-    result["reason"] = QVariant(QString());
+    result[QStringLiteral("success")] = QVariant(true);
+    result[QStringLiteral("reason")] = QVariant(QString());
 
-    QString targetPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/calindori_" + calendarName + ".ics" ;
+    QString targetPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/calindori_") + calendarName + QStringLiteral(".ics");
     QFile calendarFile(targetPath);
 
     if (calendarFile.exists()) {
-        result["success"] = QVariant(false);
-        result["reason"] = QVariant(QString(i18n("A calendar with the same name already exists")));
+        result[QStringLiteral("success")] = QVariant(false);
+        result[QStringLiteral("reason")] = QVariant(QString(i18n("A calendar with the same name already exists")));
 
         return result;
     }
 
-    result["targetPath"] = QVariant(QString(targetPath));
+    result[QStringLiteral("targetPath")] = QVariant(QString(targetPath));
 
     return result;
 }

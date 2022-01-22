@@ -44,7 +44,7 @@ void AlarmsModel::loadAlarms()
         }
     }
 
-    qDebug() << "loadAlarms:" << m_period.from.toString("dd.MM.yyyy hh:mm:ss") << "to" << m_period.to.toString("dd.MM.yyyy hh:mm:ss") << m_alarms.count() << "alarms found";
+    qDebug() << "loadAlarms:" << m_period.from.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << "to" << m_period.to.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << m_alarms.count() << "alarms found";
 
     closeStorages();
 }
@@ -54,7 +54,7 @@ void AlarmsModel::setCalendars()
     m_file_storages.clear();
     m_calendars.clear();
 
-    qDebug() << "setCalendars:" << "Appending calendars" << m_calendar_files.join(",");
+    qDebug() << "setCalendars:" << "Appending calendars" << m_calendar_files.join(QStringLiteral(","));
 
     for (const auto &cf : qAsConst(m_calendar_files)) {
         Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));

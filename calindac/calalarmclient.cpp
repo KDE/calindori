@@ -25,14 +25,14 @@ CalAlarmClient::CalAlarmClient(QObject *parent)
 {
     new CalindacAdaptor(this);
 
-    QDBusConnection::sessionBus().registerObject("/calindac", this);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/calindac"), this);
 
     KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
     m_check_interval = generalGroup.readEntry("CheckInterval", 45);
     m_suspend_seconds = generalGroup.readEntry("SuspendSeconds", 60);
     m_last_check = generalGroup.readEntry("CalendarsLastChecked", QDateTime());
 
-    qDebug() << "CalAlarmClient:lastChecked:" << m_last_check.toString("dd.MM.yyyy hh:mm:ss");
+    qDebug() << "CalAlarmClient:lastChecked:" << m_last_check.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
 
     restoreSuspendedFromConfig();
     saveCheckInterval();
@@ -51,17 +51,17 @@ CalAlarmClient::~CalAlarmClient() = default;
 QStringList CalAlarmClient::calendarFileList() const
 {
     auto filesList { QStringList() };
-    KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig("calindorirc"), "general");
+    KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig(QStringLiteral("calindorirc")), "general");
     auto iCalendars = calindoriCfgGeneral.readEntry("calendars", QString());
     auto eCalendars = calindoriCfgGeneral.readEntry("externalCalendars", QString());
 
-    auto calendarsList = iCalendars.isEmpty() ? QStringList() : iCalendars.split(";");
+    auto calendarsList = iCalendars.isEmpty() ? QStringList() : iCalendars.split(QStringLiteral(";"));
     if (!(eCalendars.isEmpty())) {
-        calendarsList.append(eCalendars.split(";"));
+        calendarsList.append(eCalendars.split(QStringLiteral(";")));
     }
 
     for (const auto &c : qAsConst(calendarsList)) {
-        QString fileName = KSharedConfig::openConfig("calindorirc")->group(c).readEntry("file");
+        QString fileName = KSharedConfig::openConfig(QStringLiteral("calindorirc"))->group(c).readEntry("file");
 
         if (!(fileName.isNull())) {
             filesList.append(fileName);
@@ -93,7 +93,7 @@ void CalAlarmClient::checkAlarms()
     qDebug() << "checkAlarms:Alarms Found: " << alarms.count();
 
     for (const auto &alarm : qAsConst(alarms)) {
-        m_notification_handler->addActiveNotification(alarm->parentUid(), QString("%1\n%2").arg(alarm->time().toString("hh:mm"), alarm->text()));
+        m_notification_handler->addActiveNotification(alarm->parentUid(), QStringLiteral("%1\n%2").arg(alarm->time().toString(QStringLiteral("hh:mm")), alarm->text()));
     }
     m_notification_handler->sendNotifications();
     saveLastCheckTime();
@@ -156,7 +156,7 @@ QStringList CalAlarmClient::dumpAlarms() const
     const auto alarms = model.alarms();
 
     for (const auto &alarm : qAsConst(alarms)) {
-        lst << QStringLiteral("%1: \"%2\"").arg(alarm->time().toString("hh:mm"), alarm->parentUid());
+        lst << QStringLiteral("%1: \"%2\"").arg(alarm->time().toString(QStringLiteral("hh:mm")), alarm->parentUid());
     }
 
     return lst;
@@ -172,7 +172,7 @@ void CalAlarmClient::restoreSuspendedFromConfig()
         KConfigGroup suspendedAlarm(&suspendedGroup, s);
         QString uid = suspendedAlarm.readEntry("UID");
         QString txt = alarmText(uid);
-        QDateTime remindAt = QDateTime::fromString(suspendedAlarm.readEntry("RemindAt"), "yyyy,M,d,HH,m,s");
+        QDateTime remindAt = QDateTime::fromString(suspendedAlarm.readEntry("RemindAt"), QStringLiteral("yyyy,M,d,HH,m,s"));
         qDebug() << "restoreSuspendedFromConfig:Restoring alarm" << uid << "," << txt << "," << remindAt.toString();
 
         if (!(uid.isEmpty() && remindAt.isValid() && !(txt.isEmpty()))) {
@@ -244,7 +244,7 @@ void CalAlarmClient::scheduleAlarmCheck()
     }
 
     if (scheduleWakeupAt.isValid()) {
-        qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << scheduleWakeupAt.addSecs(1).toString("dd.MM.yyyy hh:mm:ss");
+        qDebug() << "scheduleAlarmCheck:" << "Shecdule next alarm check at" << scheduleWakeupAt.addSecs(1).toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
         m_wakeup_manager->scheduleWakeup(scheduleWakeupAt.addSecs(1));
     } else { // If no alarms/suspended notifications exist, do not schedule anything and remove any scheduled wakeup call.
         qDebug() << "scheduleAlarmCheck:" << "Cancel scheduled wake up";

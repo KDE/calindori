@@ -162,16 +162,16 @@ QString AttendeesModel::statusIcon(const int row) const
 {
     switch (m_attendees.at(row).status()) {
     case KCalendarCore::Attendee::PartStat::Accepted: {
-        return "meeting-attending";
+        return QStringLiteral("meeting-attending");
     }
     case KCalendarCore::Attendee::PartStat::Tentative: {
-        return "meeting-attending-tentative";
+        return QStringLiteral("meeting-attending-tentative");
     }
     case KCalendarCore::Attendee::PartStat::Declined: {
-        return "meeting-participant-no-response";
+        return QStringLiteral("meeting-participant-no-response");
     }
     default: {
-        return "meeting-participant-request-response";
+        return QStringLiteral("meeting-participant-request-response");
     }
     }
 }

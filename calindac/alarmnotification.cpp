@@ -11,7 +11,7 @@
 
 AlarmNotification::AlarmNotification(NotificationHandler *handler, const QString &uid) : m_uid {uid}, m_remind_at {QDateTime()}, m_notification_handler {handler}
 {
-    m_notification = new KNotification("alarm");
+    m_notification = new KNotification(QStringLiteral("alarm"));
     m_notification->setActions({i18n("Suspend"), i18n("Dismiss")});
 
     connect(m_notification, &KNotification::action1Activated, this, &AlarmNotification::suspend);

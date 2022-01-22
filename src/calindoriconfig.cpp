@@ -24,7 +24,7 @@ class CalindoriConfig::Private
 {
 public:
     Private()
-        : config("calindorirc")
+        : config(QStringLiteral("calindorirc"))
     {};
     KConfig config;
 };
@@ -35,8 +35,8 @@ CalindoriConfig::CalindoriConfig(QObject *parent)
 {
     if (internalCalendars().isEmpty() && (d->config.group("general").readEntry("externalCalendars", QString())).isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
-        addInternalCalendar("personal");
-        setActiveCalendar("personal");
+        addInternalCalendar(QStringLiteral("personal"));
+        setActiveCalendar(QStringLiteral("personal"));
         d->config.sync();
     }
 }
@@ -47,14 +47,14 @@ QStringList CalindoriConfig::internalCalendars() const
 {
     auto cals = d->config.group("general").readEntry("calendars", QString());
 
-    return cals.isEmpty() ? QStringList() : cals.split(";");
+    return cals.isEmpty() ? QStringList() : cals.split(QStringLiteral(";"));
 }
 
 QStringList CalindoriConfig::externalCalendars() const
 {
     auto cals = d->config.group("general").readEntry("externalCalendars", QString());
 
-    return cals.isEmpty() ? QStringList() : cals.split(";");
+    return cals.isEmpty() ? QStringList() : cals.split(QStringLiteral(";"));
 }
 
 QString CalindoriConfig::activeCalendar() const
@@ -71,11 +71,11 @@ void CalindoriConfig::setActiveCalendar(const QString &calendar)
 
 QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
 {
-    QRegExp invalidChars("[\\;\\\\/<>:\\?\\*|\"\']");
+    QRegExp invalidChars(QStringLiteral("[\\;\\\\/<>:\\?\\*|\"\']"));
     if (calendar.contains(invalidChars)) {
         return QVariantMap({
-            {"success", false},
-            {"reason", i18n("Calendar name contains invalid characters")}
+            {QStringLiteral("success"), false},
+            {QStringLiteral("reason"), i18n("Calendar name contains invalid characters")}
         });
     }
 
@@ -83,26 +83,26 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
 
     if (internalCalendars().isEmpty() && externalCalendars.isEmpty()) {
         return QVariantMap({
-            {"success", true},
-            {"reason", QString()}
+            {QStringLiteral("success"), true},
+            {QStringLiteral("reason"), QString()}
         });
     }
 
     auto calendarsList = internalCalendars();
     if (!(externalCalendars.isEmpty())) {
-        calendarsList.append(externalCalendars.split(";"));
+        calendarsList.append(externalCalendars.split(QStringLiteral(";")));
     }
 
     if (calendarsList.contains(calendar)) {
         return QVariantMap({
-            {"success", false},
-            {"reason", i18n("Calendar already exists")}
+            {QStringLiteral("success"), false},
+            {QStringLiteral("reason"), i18n("Calendar already exists")}
         });
     }
 
     return QVariantMap({
-        {"success", true},
-        {"reason", QString()}
+        {QStringLiteral("success"), true},
+        {QStringLiteral("reason"), QString()}
     });
 }
 
@@ -110,15 +110,16 @@ QVariantMap CalindoriConfig::addInternalCalendar(const QString &calendar, const 
 {
     QVariantMap canAddResult = canAddCalendar(calendar);
 
-    if (!(canAddResult["success"].toBool())) {
+    if (!(canAddResult[QStringLiteral("success")].toBool())) {
         return QVariantMap({
-            {"success", false}, {"reason ", canAddResult["reason"].toString()}
+            {QStringLiteral("success"), false}, 
+            {QStringLiteral("reason "), canAddResult[QStringLiteral("reason")].toString()}
         });
     }
 
     QStringList calendars = internalCalendars();
     calendars.append(calendar);
-    d->config.group("general").writeEntry("calendars", calendars.join(";"));
+    d->config.group("general").writeEntry("calendars", calendars.join(QStringLiteral(";")));
 
     d->config.sync();
     setOwnerInfo(calendar, ownerName, ownerEmail);
@@ -126,7 +127,8 @@ QVariantMap CalindoriConfig::addInternalCalendar(const QString &calendar, const 
     Q_EMIT internalCalendarsChanged();
 
     return QVariantMap({
-        {"success", true}, {"reason ", QString()}
+        {QStringLiteral("success"), true}, 
+        {QStringLiteral("reason "), QString()}
     });
 }
 
@@ -134,9 +136,10 @@ QVariantMap CalindoriConfig::addExternalCalendar(const QString &calendar, const 
 {
     QVariantMap canAddResult = canAddCalendar(calendar);
 
-    if (!(canAddResult["success"].toBool())) {
+    if (!(canAddResult[QStringLiteral("success")].toBool())) {
         return QVariantMap({
-            {"success", false}, {"reason ", canAddResult["reason"].toString()}
+            {QStringLiteral("success"), false}, 
+            {QStringLiteral("reason "), canAddResult[QStringLiteral("reason")].toString()}
         });
     }
 
@@ -144,9 +147,9 @@ QVariantMap CalindoriConfig::addExternalCalendar(const QString &calendar, const 
     if (eCals.isEmpty()) {
         d->config.group("general").writeEntry("externalCalendars", calendar);
     } else {
-        QStringList calendarsList = eCals.split(";");
+        QStringList calendarsList = eCals.split(QStringLiteral(";"));
         calendarsList.append(calendar);
-        d->config.group("general").writeEntry("externalCalendars", calendarsList.join(";"));
+        d->config.group("general").writeEntry("externalCalendars", calendarsList.join(QStringLiteral(";")));
     }
     d->config.group(calendar).writeEntry("file", calendarPathUrl.toString(QUrl::RemoveScheme));
     d->config.group(calendar).writeEntry("external", true);
@@ -156,7 +159,8 @@ QVariantMap CalindoriConfig::addExternalCalendar(const QString &calendar, const 
     Q_EMIT externalCalendarsChanged();
 
     return QVariantMap({
-        {"success", true}, {"reason ", QString()}
+        {QStringLiteral("success"), true}, 
+        {QStringLiteral("reason "), QString()}
     });
 }
 
@@ -166,18 +170,18 @@ void CalindoriConfig::removeCalendar(const QString &calendar)
 
     QStringList iCalendarsList = internalCalendars();
     auto eCalendarsStr = d->config.group("general").readEntry("externalCalendars", QString());
-    auto eCalendarsList = eCalendarsStr.isEmpty() ? QStringList() : eCalendarsStr.split(";");
+    auto eCalendarsList = eCalendarsStr.isEmpty() ? QStringList() : eCalendarsStr.split(QStringLiteral(";"));
 
     if (iCalendarsList.contains(calendar)) {
         iCalendarsList.removeAll(calendar);
-        d->config.group("general").writeEntry("calendars", iCalendarsList.join(";"));
+        d->config.group("general").writeEntry("calendars", iCalendarsList.join(QStringLiteral(";")));
 
         Q_EMIT internalCalendarsChanged();
     }
 
     if (eCalendarsList.contains(calendar)) {
         eCalendarsList.removeAll(calendar);
-        d->config.group("general").writeEntry("externalCalendars", eCalendarsList.join(";"));
+        d->config.group("general").writeEntry("externalCalendars", eCalendarsList.join(QStringLiteral(";")));
 
         Q_EMIT externalCalendarsChanged();
     }
@@ -207,7 +211,7 @@ QString CalindoriConfig::filenameToPath(const QString &calendarName)
     QDir baseFolder(basePath);
     baseFolder.mkpath(QStringLiteral("."));
 
-    return basePath + "/calindori_" + calendarName + ".ics";
+    return basePath + QStringLiteral("/calindori_") + calendarName + QStringLiteral(".ics");
 }
 
 int CalindoriConfig::eventsDuration() const

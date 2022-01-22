@@ -15,14 +15,14 @@
 WakeupManager::WakeupManager(QObject *parent) : QObject(parent), m_wakeup_backend {new SolidWakeupBackend {this}}, m_cookie {-1}, m_active {m_wakeup_backend->isValid()}
 {
     m_callback_info = QVariantMap({
-        {"dbus-service", QString { "org.kde.calindac"} },
-        {"dbus-path", QString {"/wakeupmanager"} }
+        {QStringLiteral("dbus-service"), QStringLiteral("org.kde.calindac")},
+        {QStringLiteral("dbus-path"), QStringLiteral("/wakeupmanager")}
     });
 
     new PowerManagementAdaptor(this);
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    dbus.registerObject(m_callback_info["dbus-path"].toString(), this);
+    dbus.registerObject(m_callback_info[QStringLiteral("dbus-path")].toString(), this);
 
     connect(m_wakeup_backend, &SolidWakeupBackend::backendChanged, this, &WakeupManager::setActive);
 }
@@ -30,14 +30,14 @@ WakeupManager::WakeupManager(QObject *parent) : QObject(parent), m_wakeup_backen
 void WakeupManager::scheduleWakeup(const QDateTime wakeupAt)
 {
     if (wakeupAt <= QDateTime::currentDateTime()) {
-        qDebug() << "WakeupManager:" << "Requested to schedule wake up at" << wakeupAt.toString("dd.MM.yyyy hh:mm:ss") << "Can't chedule a wakeup in the past";
+        qDebug() << "WakeupManager:" << "Requested to schedule wake up at" << wakeupAt.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << "Can't chedule a wakeup in the past";
         return;
     }
 
     auto scheduledCookie = m_wakeup_backend->scheduleWakeup(m_callback_info, wakeupAt.toSecsSinceEpoch()).toInt();
 
     if (scheduledCookie > 0) {
-        qDebug() << "WakeupManager: wake up has been scheduled, wakeup time:" << wakeupAt.toString("dd.MM.yyyy hh:mm:ss") << "Received cookie" << scheduledCookie;
+        qDebug() << "WakeupManager: wake up has been scheduled, wakeup time:" << wakeupAt.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << "Received cookie" << scheduledCookie;
 
         if (m_cookie > 0 && m_cookie != scheduledCookie) {
             removeWakeup(m_cookie);
