@@ -27,6 +27,7 @@ Calindori is a touch friendly calendar application. It has been designed for mob
 
 The calendars that the application handles follow the [ical](https://tools.ietf.org/html/rfc5545) standard.
 
+It is a lighter alternative to [Kalendar](https://invent.kde.org/pim/kalendar), as it does not have a dependence on Akonadi.
 
 ## Build
 

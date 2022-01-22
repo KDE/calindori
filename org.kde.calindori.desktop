@@ -88,3 +88,4 @@ Type=Application
 Terminal=false
 Categories=Qt;KDE;Office;
 MimeType=text/calendar
+X-KDE-FormFactor=desktop;tablet;handset;

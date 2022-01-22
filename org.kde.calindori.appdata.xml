@@ -321,6 +321,19 @@
       <li xml:lang="zh-TW">匯入行事曆</li>
     </ul>
   </description>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <categories>
+    <category>Utility</category>
+    <category>Calendar</category>
+    <category>KDE</category>
+  </categories>
   <screenshots>
     <screenshot type="default">
       <caption>Calindori on Mobile</caption>
