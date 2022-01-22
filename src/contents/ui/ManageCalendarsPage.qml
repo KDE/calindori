@@ -51,8 +51,8 @@ Kirigami.ScrollablePage {
 
             CalendarEditor {
                 loadedCalendar: root.calendar
-                onCalendarEditorSaved: pageStack.layers.pop()
-                onCalendarEditorCancelled: pageStack.layers.pop()
+                onCalendarEditorSaved: pageStack.pop()
+                onCalendarEditorCancelled: pageStack.pop()
             }
         }
         

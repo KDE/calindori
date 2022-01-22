@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
     *
     */
     function removeEditorPage() {
-        pageStack.layers.pop();
+        pageStack.pop();
         if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
             pageStack.pop(incidencePage);
         }
@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
         onTriggered: {
             var currentDt = Calindori.CalendarController.localSystemDateTime();
             var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
-            pageStack.layers.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
+            pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
         }
     }
 

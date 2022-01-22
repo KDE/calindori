@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
 
         icon.name: "resource-calendar-insert"
         text: i18n("Create Task")
-        onTriggered: pageStack.layers.push(todoEditor, {startDt: todoDt})
+        onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
     }
 
     Kirigami.PlaceholderMessage {
@@ -66,7 +66,7 @@ Kirigami.ScrollablePage {
                     text: i18n("Edit")
                     icon.name: "editor"
 
-                    onTriggered: pageStack.layers.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
+                    onTriggered: pageStack.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
         }
@@ -110,7 +110,7 @@ Kirigami.ScrollablePage {
     Component {
         id: todoEditor
         TodoEditorPage {
-            onEditcompleted: pageStack.layers.pop()
+            onEditcompleted: pageStack.pop()
         }
     }
 

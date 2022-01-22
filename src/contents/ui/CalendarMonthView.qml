@@ -103,10 +103,10 @@ Controls2.SwipeView {
         currentIndex = 1;
         previousIndex = currentIndex;
         manualIndexing = true;
-        orientation = Qt.Vertical //Change orientation after the object has been instantiated. Otherwise, we get a non-intuitive animation when swiping upwards
+        orientation = Qt.Horizontal //Change orientation after the object has been instantiated. Otherwise, we get a non-intuitive animation when swiping upwards
     }
 
-    orientation: Qt.Horizontal
+    orientation: Qt.Vertical
 
     Calindori.DaysOfMonthIncidenceModel {
         id: mm

@@ -47,7 +47,7 @@ ListView {
     *
     */
     function removeEditorPage() {
-        pageStack.layers.pop();
+        pageStack.pop();
         if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
             pageStack.pop(incidencePage);
         }
@@ -155,14 +155,14 @@ ListView {
                 iconName: "resource-calendar-insert"
                 text: i18n("Create Event")
 
-                onTriggered: pageStack.layers.push(eventEditor, { startDt: itemDate })
+                onTriggered: pageStack.push(eventEditor, { startDt: itemDate })
             },
 
             Kirigami.Action {
                 iconName: "task-new"
                 text: i18n("Create Task")
 
-                onTriggered: pageStack.layers.push(todoEditor, { startDt: itemDate })}
+                onTriggered: pageStack.push(todoEditor, { startDt: itemDate })}
         ]
 
         onClicked: { root.selectedDate = moveDate(root.selectedWeekDate, model.index) }

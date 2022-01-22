@@ -28,7 +28,7 @@ ListView {
     *
     */
     function removeEditorPage() {
-        pageStack.layers.pop();
+        pageStack.pop();
         if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
             pageStack.pop(incidencePage);
         }
@@ -113,7 +113,7 @@ ListView {
                     eventDt.setMinutes(0);
                     eventDt.setSeconds(0);
 
-                    pageStack.layers.push(eventEditor, { startDt: eventDt });
+                    pageStack.push(eventEditor, { startDt: eventDt });
                 }
             },
 
@@ -127,7 +127,7 @@ ListView {
                     todoDt.setMinutes(0);
                     todoDt.setSeconds(0);
 
-                    pageStack.layers.push(todoEditor, { startDt: todoDt });
+                    pageStack.push(todoEditor, { startDt: todoDt });
                 }
             }
         ]
