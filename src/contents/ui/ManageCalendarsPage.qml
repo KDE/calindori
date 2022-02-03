@@ -111,7 +111,7 @@ Kirigami.ScrollablePage {
                     iconName: "edit-entry"
                     onTriggered: {
                         modifyDialog.close();
-                        applicationWindow().pageStack.push(editor);
+                        applicationWindow().pageStack.push(editor, { calendarName: modifyDialog.calendarName });
                     }
                 },
                 
@@ -148,6 +148,7 @@ Kirigami.ScrollablePage {
         // confirmation dialog for deletion        
         Kirigami.PromptDialog {
             id: deleteSheet
+            property string calendarName
 
             title: i18n("Confirm")
             subtitle: i18n("All data included in this calendar will be deleted. Proceed with deletion?")
@@ -172,18 +173,17 @@ Kirigami.ScrollablePage {
             id: editor
 
             CalendarEditor {
+                id: editor
                 mode: CalendarEditor.Mode.Edit
-                calendarName: root.calendarName
-                loadedCalendar: root.loadedCalendar
-                ownerName: Calindori.CalindoriConfig.ownerName(root.calendarName)
-                ownerEmail: Calindori.CalindoriConfig.ownerEmail(root.calendarName)
+                ownerName: Calindori.CalindoriConfig.ownerName(editor.calendarName)
+                ownerEmail: Calindori.CalindoriConfig.ownerEmail(editor.calendarName)
 
                 onCalendarEditorCancelled: applicationWindow().pageStack.pop()
                 onCalendarEditorSaved: {
                     applicationWindow().pageStack.pop();
-                    if(root.loadedCalendar && (root.loadedCalendar.name === root.calendarName)) {
-                        root.loadedCalendar.ownerName = ownerName;
-                        root.loadedCalendar.ownerEmail = ownerEmail;
+                    if (Calindori.CalindoriConfig.activeCalendar && (Calindori.CalindoriConfig.activeCalendar.name === editor.calendarName)) {
+                        Calindori.CalindoriConfig.activeCalendar.ownerName = ownerName;
+                        Calindori.CalindoriConfig.activeCalendar.ownerEmail = ownerEmail;
                     }
                 }
             }
