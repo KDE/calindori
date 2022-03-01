@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
 
         main: Kirigami.Action {
             iconName: "view-calendar-day"
-            text: i18n("Current week")
+            text: i18n("Current Week")
 
             onTriggered: weekView.goCurrentWeek()
         }
