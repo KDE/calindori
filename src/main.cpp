@@ -11,6 +11,7 @@
 #include <QUrl>
 #include <QVariant>
 #include <QWindow>
+#include <QQuickStyle>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -57,6 +58,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
 #else
+    // set default style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
+    // if using org.kde.desktop, ensure we use kde style if possible
+    if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORMTHEME")) {
+        qputenv("QT_QPA_PLATFORMTHEME", "kde");
+    }
+
     QApplication app(argc, argv);
 #endif
     KLocalizedString::setApplicationDomain("calindori");
