@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
+qtquick_compiler_add_resources(RESOURCES resources.qrc)
 add_executable(calindori
     main.cpp
     calindoriconfig.cpp
@@ -15,7 +16,7 @@ add_executable(calindori
     datahandler.cpp
     calendarcontroller.cpp
     attendeesmodel.cpp
-    resources.qrc
+    ${RESOURCES}
 )
 
 target_link_libraries(calindori 

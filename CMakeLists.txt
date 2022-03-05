@@ -41,6 +41,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     QuickControls2
     Svg
     Network
+    QuickCompiler
 )
 if (BUILD_TESTING)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Test)
