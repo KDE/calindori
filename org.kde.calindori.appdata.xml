@@ -74,7 +74,7 @@
   <description>
     <p>Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
     <p xml:lang="ca">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. Els usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
-    <p xml:lang="ca-valencia">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. Els usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
+    <p xml:lang="ca-valencia">Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. Els usuaris de Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
     <p xml:lang="da">Calindori er et touch-venligt kalenderprogram. Det er designet til mobile enheder, men det kan også køre i skrivebordsmiljøer. Brugere af Calindori kan tjekke tidligere og fremtidige datoer og håndtere opgaver og begivenheder.</p>
     <p xml:lang="de">Calindori ist eine Kalenderanwendung für Touch-Geräte. Sie wurde für mobile Geräte entwickelt, kann aber auch auf Desktop-Umgebungen ausgeführt werden. Benutzer von Calindori sind in der Lage, frühere und zukünftige Termine zu überprüfen und Aufgaben bzw. Ereignisse zu verwalten.</p>
     <p xml:lang="el">Το Calindori είναι μια φιλική σε οθόνες αφής εφαρμογή ημερολογίου. Έχει σχεδιαστεί για κινητά αλλά εκτελείται και σε περιβάλλοντα υπολογιστών γραφείου. Οι χρήστες του Calindori μπορούν να ελέγχουν ημερομηνίες στο παρελθόν και στο μέλλον και να διαχειρίζονται εργασίες και γεγονότα.</p>
@@ -327,7 +327,7 @@
     <screenshot type="default">
       <caption>Calindori on Mobile</caption>
       <caption xml:lang="ca">El Calindori al mòbil</caption>
-      <caption xml:lang="ca-valencia">El Calindori al mòbil</caption>
+      <caption xml:lang="ca-valencia">Calindori al mòbil</caption>
       <caption xml:lang="cs">Calindori na mobilní zařízení</caption>
       <caption xml:lang="da">Calindori på mobil</caption>
       <caption xml:lang="de">Calindori auf einem Mobilgerät</caption>
@@ -359,7 +359,7 @@
     <screenshot>
       <caption>Calindori on Desktop</caption>
       <caption xml:lang="ca">El Calindori a l'escriptori</caption>
-      <caption xml:lang="ca-valencia">El Calindori a l'escriptori</caption>
+      <caption xml:lang="ca-valencia">Calindori a l'escriptori</caption>
       <caption xml:lang="cs">Calindori na počítač</caption>
       <caption xml:lang="da">Calindori på desktop</caption>
       <caption xml:lang="de">Calindori auf einer Arbeitsfläche</caption>
