@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the calindori package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: calindac\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"PO-Revision-Date: 2020-06-27 03:50+0000\n"
+"Last-Translator: transxx.py program <null@kde.org>\n"
+"Language-Team: KDE Test Language <kde-i18n-doc@kde.org>\n"
+"Language: x-test\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "xxYour namesxx"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xxYour emailsxx"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Suspend"
+msgstr "xxSuspendxx"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Dismiss"
+msgstr "xxDismissxx"
+
+#: calindacmain.cpp:20 calindacmain.cpp:21
+#, kde-format
+msgid "Calindori Alarm Check Daemon"
+msgstr "xxCalindori Alarm Check Daemonxx"
+
+#: calindacmain.cpp:23
+#, kde-format
+msgid "(c) 2019 Dimitris Kardarakos"
+msgstr "xx(c) 2019 Dimitris Kardarakosxx"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Dimitris Kardarakos"
+msgstr "xxDimitris Kardarakosxx"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Maintainer"
+msgstr "xxMaintainerxx"

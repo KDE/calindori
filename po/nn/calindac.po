@@ -1,0 +1,60 @@
+# Translation of calindac to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"PO-Revision-Date: 2020-10-31 10:30+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.2\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Karl Ove Hufthammer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karl@huftis.org"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Suspend"
+msgstr "Utset"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Dismiss"
+msgstr "Lukk"
+
+#: calindacmain.cpp:20 calindacmain.cpp:21
+#, kde-format
+msgid "Calindori Alarm Check Daemon"
+msgstr "Calindori alarmur-teneste"
+
+#: calindacmain.cpp:23
+#, kde-format
+msgid "(c) 2019 Dimitris Kardarakos"
+msgstr "© 2019 Dimitris Kardarakos"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Maintainer"
+msgstr "Vedlikehaldar"

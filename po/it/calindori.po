@@ -1,0 +1,1165 @@
+# Paolo Zamponi <zapaolo@email.it>, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"PO-Revision-Date: 2022-03-05 08:28+0100\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.2\n"
+"X-Qt-Contexts: true\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Paolo Zamponi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zapaolo@email.it"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "Accettato"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "Provvisorio"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "Rifiutato"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "Delegato"
+
+#: attendeesmodel.cpp:195
+#, kde-format
+msgid "Not responded yet"
+msgstr "Non ancora risposto"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr "L'URL o il file fornito non contengono dati calendario validi"
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr "L'URL o il file fornito non contengono eventi o attività"
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] "Verrà aggiunto un evento"
+msgstr[1] "Verranno aggiunti %1 eventi"
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] "Verrà aggiunta un'attività"
+msgstr[1] "Verranno aggiunte %1 attività"
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr "Verranno aggiunte %1 incidenze"
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr "Importazione completata correttamente"
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr "Si è verificato un errore nell'importazione"
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr ""
+"In caso di eventi giornalieri, la data di inizio e quella di fine devono "
+"essere uguali"
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr "L'ora di fine deve essere pari o successiva a quella di inizio"
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr "Gli eventi giornalieri non dovrebbero durare più giorni"
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr ""
+"In caso di attività giornaliere, la data di inizio e quella di scadenza "
+"devono essere uguali"
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr "L'ora di scadenza deve essere pari o successiva all'ora di inizio"
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr "Impossibile leggere il calendario. Esportazione non riuscita."
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr "Impossibile caricare il calendario. Esportazione non riuscita."
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr "Impossibile salvare il file del calendario. Esportazione non riuscita."
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr "Esportazione completata correttamente"
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr "Il nome del calendario contiene caratteri non validi"
+
+#: calindoriconfig.cpp:99
+#, kde-format
+msgid "Calendar already exists"
+msgstr "Il calendario esiste già"
+
+#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#, kde-format
+msgid "No contacts found"
+msgstr "Nessun contatto trovato"
+
+#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "Aggiungi"
+
+#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
+#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
+#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
+#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
+#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
+#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#, kde-format
+msgid "Cancel"
+msgstr "Annulla"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "Posta elettronica:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "Stato:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, kde-format
+msgid "Role:"
+msgstr "Ruolo:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, kde-format
+msgid "Required"
+msgstr "Obbligatorio"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, kde-format
+msgid "Optional"
+msgstr "Facoltativo"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr "Non partecipante"
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr "Presidente"
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr ""
+"La gestione dei partecipanti è disponibile solo nei calendari esterni "
+"sincronizzati in linea"
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr ""
+"Imposta il proprietario del calendario nelle impostazioni dell'applicazione"
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr "Ancora nessun partecipante"
+
+#: contents/ui/Attendees.qml:151
+#, kde-format
+msgid "Close"
+msgstr "Chiudi"
+
+#: contents/ui/CalendarEditor.qml:32
+#, kde-format
+msgid "New calendar"
+msgstr "Nuovo calendario"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "Calendario:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, kde-format
+msgid "File:"
+msgstr "File:"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "Proprietario"
+
+#: contents/ui/CalendarEditor.qml:92
+#, kde-format
+msgid "Name:"
+msgstr "Nome:"
+
+#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
+#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#, kde-format
+msgid "Save"
+msgstr "Salva"
+
+#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
+#, kde-format
+msgid "Today"
+msgstr "Oggi"
+
+#: contents/ui/CalendarMonthPage.qml:56
+#, kde-format
+msgid "Previous"
+msgstr "Precedente"
+
+#: contents/ui/CalendarMonthPage.qml:63
+#, kde-format
+msgid "Next"
+msgstr "Successivo"
+
+#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/TodosCardView.qml:19
+#, kde-format
+msgid "Tasks"
+msgstr "Attività"
+
+#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#, kde-format
+msgid "Events"
+msgstr "Eventi"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "Calendario"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "Vista mensile"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, kde-format
+msgid "Week View"
+msgstr "Vista settimanale"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, kde-format
+msgid "Day View"
+msgstr "Vista giorno"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, kde-format
+msgid "Tasks List"
+msgstr "Elenco attività"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, kde-format
+msgid "Events List"
+msgstr "Elenco eventi"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198
+#, kde-format
+msgid "Calendars"
+msgstr "Calendari"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:76
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr "Il calendario %1 è stato attivato"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#, kde-format
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: contents/ui/DayPage.qml:21
+#, kde-format
+msgid "Previous day"
+msgstr "Giorno precedente"
+
+#: contents/ui/DayPage.qml:35
+#, kde-format
+msgid "Next day"
+msgstr "Giorno successivo"
+
+#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
+#: contents/ui/WeekView.qml:156
+#, kde-format
+msgid "Create Event"
+msgstr "Crea evento"
+
+#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:163
+#, kde-format
+msgid "Create Task"
+msgstr "Crea attività"
+
+#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#, kde-format
+msgid "Summary:"
+msgstr "Riassunto:"
+
+#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#, kde-format
+msgid "Start:"
+msgstr "Inizio:"
+
+#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#, kde-format
+msgid "Start Date"
+msgstr "Data di inizio"
+
+#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#, kde-format
+msgid "Start Time"
+msgstr "Ora di inizio"
+
+#: contents/ui/EventEditorPage.qml:93
+#, kde-format
+msgid "End:"
+msgstr "Fine:"
+
+#: contents/ui/EventEditorPage.qml:100
+#, kde-format
+msgid "End Date"
+msgstr "Data di fine"
+
+#: contents/ui/EventEditorPage.qml:123
+#, kde-format
+msgid "End Time"
+msgstr "Ora di fine"
+
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#, kde-format
+msgid "All day"
+msgstr "Tutti i giorni"
+
+#: contents/ui/EventEditorPage.qml:156
+#, kde-format
+msgid "Repeat:"
+msgstr "Ripeti:"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, kde-format
+msgid "Details"
+msgstr "Dettagli"
+
+#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#, kde-format
+msgid "Reminders"
+msgstr "Promemoria"
+
+#: contents/ui/EventEditorPage.qml:183
+#, kde-format
+msgid "Attendees"
+msgstr "Partecipanti"
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr "Nessun evento in programma per %1"
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled"
+msgstr "Nessun evento in programma"
+
+#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
+#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:86
+#, kde-format
+msgid "Delete"
+msgstr "Elimina"
+
+#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, kde-format
+msgid "Edit"
+msgstr "Modifica"
+
+#: contents/ui/EventsCardView.qml:82
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr "L'evento %1 verrà cancellato"
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "Annullato"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "Confermato"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, kde-format
+msgid "Location:"
+msgstr "Posizione:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "Descrizione:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "Completato:"
+
+#: contents/ui/IncidenceListView.qml:53
+#, kde-format
+msgid "Show Completed"
+msgstr "Mostra i completati"
+
+#: contents/ui/IncidenceListView.qml:53
+#, kde-format
+msgid "Hide Completed"
+msgstr "Nascondi i completati"
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr "Niente in programma per %1"
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled"
+msgstr "Niente in programma"
+
+#: contents/ui/IncidencePage.qml:61
+#, kde-format
+msgid "%1 will be deleted"
+msgstr "%1 verrà eliminato"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "Un'attività"
+msgstr[1] "%1 attività"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "Un evento"
+msgstr[1] "%1 eventi"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:100
+#, kde-format
+msgid "AM"
+msgstr "AM"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:107
+#, kde-format
+msgid "PM"
+msgstr "PM"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "Crea"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr "Nessun calendario esterno trovato"
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, kde-format
+msgid "No calendars found"
+msgstr "Nessun calendario trovato"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr "Importa un file di calendario esistente."
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, kde-format
+msgid "Add a new calendar."
+msgstr "Aggiungi un nuovo calendario."
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, kde-format
+msgid "Modify "
+msgstr "Modifica "
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "Attiva"
+
+#: contents/ui/ManageCalendarsPage.qml:87
+#: contents/ui/ManageCalendarsPage.qml:102
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr "Il calendario non deve essere attivo quando viene eliminato."
+
+#: contents/ui/ManageCalendarsPage.qml:96
+#, kde-format
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: contents/ui/ManageCalendarsPage.qml:110
+#, kde-format
+msgid "Edit details"
+msgstr "Modifica i dettagli"
+
+#: contents/ui/ManageCalendarsPage.qml:119
+#, kde-format
+msgid "Import calendar file"
+msgstr "Importa file di calendario"
+
+#: contents/ui/ManageCalendarsPage.qml:129
+#, kde-format
+msgid "Export calendar to file"
+msgstr "Esporta il calendario su file"
+
+#: contents/ui/ManageCalendarsPage.qml:153
+#, kde-format
+msgid "Confirm"
+msgstr "Conferma"
+
+#: contents/ui/ManageCalendarsPage.qml:154
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr ""
+"Tutti i dati inclusi in questo calendario saranno eliminato. Procedo con "
+"l'eliminazione?"
+
+#: contents/ui/ManageCalendarsPage.qml:230
+#, kde-format
+msgid "Modify"
+msgstr "Modifica"
+
+#: contents/ui/MessageBoard.qml:32
+#, kde-format
+msgid "Proceed"
+msgstr "Procedi"
+
+#: contents/ui/MessageBoard.qml:58
+#, kde-format
+msgid "Open folder"
+msgstr "Apri cartella"
+
+#: contents/ui/RecurrencePickerSheet.qml:31
+#, kde-format
+msgid "Repeat"
+msgstr "Ripeti"
+
+#: contents/ui/RecurrencePickerSheet.qml:54
+#, kde-format
+msgid "Every:"
+msgstr "Ogni:"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "anno"
+msgstr[1] "anni"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, kde-format
+msgid "month"
+msgid_plural "months"
+msgstr[0] "mese"
+msgstr[1] "mesi"
+
+#: contents/ui/RecurrencePickerSheet.qml:66
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "settimana"
+msgstr[1] "settimane"
+
+#: contents/ui/RecurrencePickerSheet.qml:67
+#, kde-format
+msgid "day"
+msgid_plural "days"
+msgstr[0] "giorno"
+msgstr[1] "giorni"
+
+#: contents/ui/RecurrencePickerSheet.qml:72
+#, kde-format
+msgid "Stop After:"
+msgstr "Ferma dopo:"
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "ripetizione"
+msgstr[1] "ripetizioni"
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "Never stop"
+msgstr "Non interrompere mai"
+
+#: contents/ui/ReminderEditor.qml:27
+#, kde-format
+msgid "New Reminder"
+msgstr "Nuovo promemoria"
+
+#: contents/ui/ReminderEditor.qml:33
+#, kde-format
+msgid "Time before start"
+msgstr "Tempo prima dell'inizio"
+
+#: contents/ui/ReminderEditor.qml:46
+#, kde-format
+msgid "Seconds:"
+msgstr "Secondi:"
+
+#: contents/ui/ReminderEditor.qml:55
+#, kde-format
+msgid "Minutes:"
+msgstr "Minuti:"
+
+#: contents/ui/ReminderEditor.qml:65
+#, kde-format
+msgid "Hours:"
+msgstr "Ore:"
+
+#: contents/ui/ReminderEditor.qml:74
+#, kde-format
+msgid "Days:"
+msgstr "Giorni:"
+
+#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
+#, kde-format
+msgid "OK"
+msgstr "OK"
+
+#: contents/ui/Reminders.qml:57
+#, kde-format
+msgid "No reminders yet"
+msgstr "Ancora nessun promemoria"
+
+#: contents/ui/SettingsPage.qml:25
+#, kde-format
+msgid "More Info:"
+msgstr "Maggiori informazioni:"
+
+#: contents/ui/SettingsPage.qml:27
+#, kde-format
+msgid "About"
+msgstr "Informazioni su"
+
+#: contents/ui/SettingsPage.qml:40
+#, kde-format
+msgid "Calendars:"
+msgstr "Calendari:"
+
+#: contents/ui/SettingsPage.qml:41
+#, kde-format
+msgid "Manage internal calendars"
+msgstr "Gestisci i calendari interni"
+
+#: contents/ui/SettingsPage.qml:48
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr "Gestisci i calendari interni"
+
+#: contents/ui/SettingsPage.qml:57
+#, kde-format
+msgid "Manage external calendars"
+msgstr "Gestisci i calendari esterni"
+
+#: contents/ui/SettingsPage.qml:64
+#, kde-format
+msgid "Manage External Calendars"
+msgstr "Gestisci i calendari esterni"
+
+#: contents/ui/SettingsPage.qml:78
+#, kde-format
+msgid "Initial duration (minutes):"
+msgstr "Durata iniziale (minuti):"
+
+#: contents/ui/SettingsPage.qml:88
+#, kde-format
+msgid "Remind before event (minutes):"
+msgstr "Avviso prima dell'evento (minuti):"
+
+#: contents/ui/SettingsPage.qml:97
+#, kde-format
+msgid "Add reminder to new events:"
+msgstr "Aggiungi promemoria per i nuovi eventi:"
+
+#: contents/ui/TodoEditorPage.qml:99
+#, kde-format
+msgid "Due:"
+msgstr "Scadenza:"
+
+#: contents/ui/TodoEditorPage.qml:107
+#, kde-format
+msgid "Due Date"
+msgstr "Data di scadenza"
+
+#: contents/ui/TodoEditorPage.qml:135
+#, kde-format
+msgid "Due Time"
+msgstr "Ora di scadenza"
+
+#: contents/ui/TodoEditorPage.qml:160
+#, kde-format
+msgid "All day:"
+msgstr "Tutto il giorno:"
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr "Nessuna attività in programma per %1"
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled"
+msgstr "Nessuna attività in programma"
+
+#: contents/ui/TodosCardView.qml:81
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr "L'attività %1 verrà eliminata"
+
+#: contents/ui/WeekPage.qml:22
+#, kde-format
+msgid "Previous week"
+msgstr "Settimana precedente"
+
+#: contents/ui/WeekPage.qml:29
+#, kde-format
+msgid "Current Week"
+msgstr "Settimana corrente"
+
+#: contents/ui/WeekPage.qml:36
+#, kde-format
+msgid "Next week"
+msgstr "Settimana successiva"
+
+#: incidencealarmsmodel.cpp:157
+#, kde-format
+msgid "days before start"
+msgstr "giorni prima dell'inizio"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr "secondi prima dell'inizio"
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr "All'ora di inizio"
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "Un giorno prima dell'inizio"
+msgstr[1] "%1 giorni prima dell'inizio"
+
+#: incidencealarmsmodel.cpp:216
+#, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "Un'ora prima dell'inizio"
+msgstr[1] "%1 ore prima dell'inizio"
+
+#: incidencealarmsmodel.cpp:220
+#, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "Un minuto prima dell'inizio"
+msgstr[1] "%1 minuti prima dell'inizio"
+
+#: incidencealarmsmodel.cpp:223
+#, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "Un secondo prima dell'inizio"
+msgstr[1] "%1 secondi prima dell'inizio"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "Evento"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "Attività"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, kde-format
+msgid "all-day"
+msgstr "tutto il giorno"
+
+#: incidencemodel.cpp:523
+#, kde-format
+msgid "No Due Date"
+msgstr "Nessuna data di scadenza"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr "Esiste già un calendario con lo stesso nome"
+
+#: main.cpp:74
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "Applicazione calendario"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr "(c) 2018-2022 La squadra di Calindori"
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: main.cpp:79 main.cpp:81 main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Sviluppatore"
+
+#: main.cpp:81
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "Devin Lin"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "Non ripetere"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "Annualmente"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "Mensilmente"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "Settimanalmente"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "Giornalmente"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] "Ogni anno"
+msgstr[1] "Ogni %1 anni"
+
+#: recurrenceperiodmodel.cpp:134
+#, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "Ogni mese"
+msgstr[1] "Ogni %1 mesi"
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "Ogni settimana"
+msgstr[1] "Ogni %1 settimane"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Ogni giorno"
+msgstr[1] "Ogni %1 giorni"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "Mai"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] "; una volta"
+msgstr[1] "; %1 volte"
+
+#~ msgid "Import"
+#~ msgstr "Importa"
+
+#~ msgid "Export"
+#~ msgstr "Esporta"
+
+#~ msgid "Day"
+#~ msgstr "Giorno"
+
+#~ msgid "Week"
+#~ msgstr "Settimana"
+
+#~ msgid "All Tasks"
+#~ msgstr "Tutte le attività"
+
+#~ msgid "All Events"
+#~ msgstr "Tutti gli eventi"
+
+#~ msgid "Local"
+#~ msgstr "Locale"
+
+#~ msgid "External"
+#~ msgstr "Esterno"
+
+#~ msgid "Yes"
+#~ msgstr "Sì"
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer and Developer"
+#~ msgstr "Responsabile e sviluppatore"
+
+#~ msgid "New event"
+#~ msgstr "Nuovo evento"
+
+#~ msgid "New task"
+#~ msgstr "Nuova attività"
+
+#~ msgid "New Event"
+#~ msgstr "Nuovo evento"
+
+#~ msgid "New Task"
+#~ msgstr "Nuova attività"
+
+#, fuzzy
+#~| msgid "Start Date"
+#~ msgid "No Start Date"
+#~ msgstr "Data di inizio"
+
+#, fuzzy
+#~| msgid "End Date"
+#~ msgid "No End Date"
+#~ msgstr "Data di fine"
+
+#~ msgid "%1 month"
+#~ msgid_plural "%1 months"
+#~ msgstr[0] "un mese"
+#~ msgstr[1] "%1 mesi"
+
+#~ msgid "%1 day"
+#~ msgid_plural "%1 days"
+#~ msgstr[0] "un giorno"
+#~ msgstr[1] "%1 giorni"
+
+#~ msgid "%1 repeat"
+#~ msgid_plural "%1 repeats"
+#~ msgstr[0] "una ripetizione"
+#~ msgstr[1] "%1 ripetizioni"
+
+#~ msgid "Active:"
+#~ msgstr "Attiva:"
+
+#~ msgid "Add Event"
+#~ msgstr "Aggiungi evento"
+
+#~ msgid "Add Task"
+#~ msgstr "Aggiungi attività"
+
+#~ msgid "1 event"
+#~ msgid_plural "%1 events"
+#~ msgstr[0] "1 evento"
+#~ msgstr[1] "%1 eventi"
+
+#~ msgid "1 task"
+#~ msgid_plural "%1 tasks"
+#~ msgstr[0] "1 attività"
+#~ msgstr[1] "%1 attività"
+
+#~ msgid "and"
+#~ msgstr "e"
+
+#~ msgid "1 day"
+#~ msgid_plural "%1 days"
+#~ msgstr[0] "Un giorno"
+#~ msgstr[1] "%1 giorni"
+
+#~ msgid "1 hour"
+#~ msgid_plural "%1 hours"
+#~ msgstr[0] "%1 ora"
+#~ msgstr[1] "%1 ore"
+
+#~ msgid "1 minute"
+#~ msgid_plural "%1 minutes"
+#~ msgstr[0] "Un minuto"
+#~ msgstr[1] "%1 minuti"
+
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "Un secondo"
+#~ msgstr[1] "%1 secondi"
+
+#~ msgid "before start"
+#~ msgstr "prima dell'inizio"
+
+#~ msgid "Calendar Management"
+#~ msgstr "Gestione calendario"
+
+#~ msgid "Calendar not imported. %1"
+#~ msgstr "Calendario non importato. %1"
+
+#~ msgid "The calendar file cannot be saved"
+#~ msgstr "Il file del calendario non può essere salvato"
+
+#~ msgid "Unspecified due date"
+#~ msgstr "Data di scadenza non specificata"
+
+#~ msgid "Available Calendars"
+#~ msgstr "Calendari disponibili"
+
+#~ msgid "Select a file"
+#~ msgstr "Seleziona un file"
+
+#, fuzzy
+#~| msgid "All day"
+#~ msgid "(all day)"
+#~ msgstr "Tutti i giorni"
+
+#~ msgid "Previous month"
+#~ msgstr "Mese precedente"
+
+#~ msgid "Next month"
+#~ msgstr "Mese prossimo"
+
+#~ msgid "Add event"
+#~ msgstr "Aggiungi evento"
+
+#~ msgid "Edit event"
+#~ msgstr "Modifica evento"
+
+#~ msgid "Add task"
+#~ msgstr "Aggiungi attività"
+
+#~ msgid "No start date"
+#~ msgstr "Nessuna data di inizio"
+
+#~ msgid "Start time:"
+#~ msgstr "Ora d'inizio:"
+
+#~ msgid "Info"
+#~ msgstr "Informazioni"
+
+#~ msgid "Manage"
+#~ msgstr "Gestisci"
+
+#~ msgid "Show"
+#~ msgstr "Mostra"
+
+#~ msgid "Tasks (%1)"
+#~ msgstr "Attività (%1)"
+
+#~ msgid "Events (%1)"
+#~ msgstr "Eventi (%1)"
+
+#~ msgid "The active calendar cannot be deleted"
+#~ msgstr "Il calendario attivo non può essere eliminato"
+
+#~ msgid "Start date cannot be changed"
+#~ msgstr "La data di inizio non può essere modificata"
+
+#~ msgid "Please save or cancel this task"
+#~ msgstr "Salva o annulla quest'attività"

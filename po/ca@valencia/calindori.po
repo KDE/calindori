@@ -1,0 +1,991 @@
+# Translation of calindori.po to Catalan (Valencian)
+# Copyright (C) 2019-2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2022.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"PO-Revision-Date: 2022-03-02 08:47+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep M. Ferrer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "Acceptat"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "Provisional"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "Declinat"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "Delegat"
+
+#: attendeesmodel.cpp:195
+#, kde-format
+msgid "Not responded yet"
+msgstr "Encara no hi ha cap resposta"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr "L'URL o el fitxer proporcionat no conté dades vàlides de calendari"
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr "L'URL o el fitxer proporcionat no conté cap esdeveniment o tasca"
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] "s'ha afegit 1 esdeveniment"
+msgstr[1] "s'han afegit %1 esdeveniments"
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] "s'ha afegit 1 tasca"
+msgstr[1] "s'han afegit %1 tasques"
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr "s'han afegit %1 incidències"
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr "La importació s'ha completat correctament"
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr "S'ha detectat un error durant la importació"
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr ""
+"En cas d'esdeveniments de tot el dia, la data d'inici i la data de venciment "
+"cal que siguen iguals"
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr ""
+"La data i hora final han de ser iguals o més grans que la data i hora d'inici"
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr "Els esdeveniments diaris no haurien de durar diversos dies"
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr ""
+"En cas de tasques de tot el dia, la data d'inici i la data de venciment cal "
+"que siguen iguals"
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr ""
+"La data i hora de venciment han de ser iguals o més grans que la data i hora "
+"d'inici"
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr "No s'ha pogut llegir el calendari. L'exportació ha fallat."
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr "No s'ha pogut carregar el calendari. L'exportació ha fallat."
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr "No s'ha pogut guardar el fitxer de calendari. L'exportació ha fallat."
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr "L'exportació s'ha completat correctament"
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr "El nom del calendari conté caràcters no vàlids"
+
+#: calindoriconfig.cpp:99
+#, kde-format
+msgid "Calendar already exists"
+msgstr "El calendari ja existeix"
+
+#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#, kde-format
+msgid "No contacts found"
+msgstr "No s'ha trobat cap contacte"
+
+#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "Afig"
+
+#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
+#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
+#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
+#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
+#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
+#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#, kde-format
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "Correu electrònic:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "Estat:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, kde-format
+msgid "Role:"
+msgstr "Paper:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, kde-format
+msgid "Required"
+msgstr "Requerit"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, kde-format
+msgid "Optional"
+msgstr "Opcional"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr "No participant"
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr "President/a"
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr ""
+"La gestió dels assistents només està disponible en els calendaris externs "
+"que se sincronitzen en línia"
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr ""
+"Establiu els detalls del propietari del calendari a la configuració de "
+"l'aplicació"
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr "Encara no hi ha cap assistent"
+
+#: contents/ui/Attendees.qml:151
+#, kde-format
+msgid "Close"
+msgstr "Tanca"
+
+#: contents/ui/CalendarEditor.qml:32
+#, kde-format
+msgid "New calendar"
+msgstr "Calendari nou"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "Calendari:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, kde-format
+msgid "File:"
+msgstr "Fitxer:"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "Propietari"
+
+#: contents/ui/CalendarEditor.qml:92
+#, kde-format
+msgid "Name:"
+msgstr "Nom:"
+
+#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
+#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#, kde-format
+msgid "Save"
+msgstr "Guarda"
+
+#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
+#, kde-format
+msgid "Today"
+msgstr "Hui"
+
+#: contents/ui/CalendarMonthPage.qml:56
+#, kde-format
+msgid "Previous"
+msgstr "Anterior"
+
+#: contents/ui/CalendarMonthPage.qml:63
+#, kde-format
+msgid "Next"
+msgstr "Següent"
+
+#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/TodosCardView.qml:19
+#, kde-format
+msgid "Tasks"
+msgstr "Tasques"
+
+#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#, kde-format
+msgid "Events"
+msgstr "Esdeveniments"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "Calendari"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "Vista mensual"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, kde-format
+msgid "Week View"
+msgstr "Vista setmanal"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, kde-format
+msgid "Day View"
+msgstr "Vista del dia"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, kde-format
+msgid "Tasks List"
+msgstr "Llista de tasques"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, kde-format
+msgid "Events List"
+msgstr "Llista d'esdeveniments"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198
+#, kde-format
+msgid "Calendars"
+msgstr "Calendaris"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:76
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr "El calendari %1 ha estat activat"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#, kde-format
+msgid "Settings"
+msgstr "Configuració"
+
+#: contents/ui/DayPage.qml:21
+#, kde-format
+msgid "Previous day"
+msgstr "Dia anterior"
+
+#: contents/ui/DayPage.qml:35
+#, kde-format
+msgid "Next day"
+msgstr "Dia següent"
+
+#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
+#: contents/ui/WeekView.qml:156
+#, kde-format
+msgid "Create Event"
+msgstr "Crea un esdeveniment"
+
+#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:163
+#, kde-format
+msgid "Create Task"
+msgstr "Crea una tasca"
+
+#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#, kde-format
+msgid "Summary:"
+msgstr "Resum:"
+
+#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#, kde-format
+msgid "Start:"
+msgstr "Inici:"
+
+#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#, kde-format
+msgid "Start Date"
+msgstr "Data d'inici"
+
+#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#, kde-format
+msgid "Start Time"
+msgstr "Hora d'inici"
+
+#: contents/ui/EventEditorPage.qml:93
+#, kde-format
+msgid "End:"
+msgstr "Final:"
+
+#: contents/ui/EventEditorPage.qml:100
+#, kde-format
+msgid "End Date"
+msgstr "Data final"
+
+#: contents/ui/EventEditorPage.qml:123
+#, kde-format
+msgid "End Time"
+msgstr "Hora final"
+
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#, kde-format
+msgid "All day"
+msgstr "Tot el dia"
+
+#: contents/ui/EventEditorPage.qml:156
+#, kde-format
+msgid "Repeat:"
+msgstr "Repeteix:"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, kde-format
+msgid "Details"
+msgstr "Detalls"
+
+#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#, kde-format
+msgid "Reminders"
+msgstr "Recordatoris"
+
+#: contents/ui/EventEditorPage.qml:183
+#, kde-format
+msgid "Attendees"
+msgstr "Assistents"
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr "No hi ha cap esdeveniment planificat per a %1"
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled"
+msgstr "No hi ha cap esdeveniment planificat"
+
+#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
+#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:86
+#, kde-format
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, kde-format
+msgid "Edit"
+msgstr "Edita"
+
+#: contents/ui/EventsCardView.qml:82
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr "Se suprimirà l'esdeveniment %1"
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "Cancel·lada"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "Confirmada"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, kde-format
+msgid "Location:"
+msgstr "Ubicació:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "Descripció:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "Completat:"
+
+#: contents/ui/IncidenceListView.qml:53
+#, kde-format
+msgid "Show Completed"
+msgstr "Mostra els completats"
+
+#: contents/ui/IncidenceListView.qml:53
+#, kde-format
+msgid "Hide Completed"
+msgstr "Oculta els completats"
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr "No hi ha res planificat per a %1"
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled"
+msgstr "No hi ha res planificat"
+
+#: contents/ui/IncidencePage.qml:61
+#, kde-format
+msgid "%1 will be deleted"
+msgstr "Se suprimirà %1"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "%1 tasca"
+msgstr[1] "%1 tasques"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "%1 esdeveniment"
+msgstr[1] "%1 esdeveniments"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:100
+#, kde-format
+msgid "AM"
+msgstr "AM"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:107
+#, kde-format
+msgid "PM"
+msgstr "PM"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "Crea"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr "No s'ha trobat cap calendari extern"
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, kde-format
+msgid "No calendars found"
+msgstr "No s'ha trobat cap calendari"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr "Importa un fitxer de calendari existent."
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, kde-format
+msgid "Add a new calendar."
+msgstr "Afig un calendari nou."
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, kde-format
+msgid "Modify "
+msgstr "Modifica "
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "Activa"
+
+#: contents/ui/ManageCalendarsPage.qml:87
+#: contents/ui/ManageCalendarsPage.qml:102
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr "Cal que el calendari no estiga actiu en suprimir-se."
+
+#: contents/ui/ManageCalendarsPage.qml:96
+#, kde-format
+msgid "Remove"
+msgstr "Elimina"
+
+#: contents/ui/ManageCalendarsPage.qml:110
+#, kde-format
+msgid "Edit details"
+msgstr "Edita els detalls"
+
+#: contents/ui/ManageCalendarsPage.qml:119
+#, kde-format
+msgid "Import calendar file"
+msgstr "Importa un fitxer de calendari"
+
+#: contents/ui/ManageCalendarsPage.qml:129
+#, kde-format
+msgid "Export calendar to file"
+msgstr "Exporta el calendari a un fitxer"
+
+#: contents/ui/ManageCalendarsPage.qml:153
+#, kde-format
+msgid "Confirm"
+msgstr "Confirma"
+
+#: contents/ui/ManageCalendarsPage.qml:154
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr ""
+"Se suprimiran totes les dades incloses en este calendari. Voleu continuar "
+"amb la supressió?"
+
+#: contents/ui/ManageCalendarsPage.qml:230
+#, kde-format
+msgid "Modify"
+msgstr "Modifica"
+
+#: contents/ui/MessageBoard.qml:32
+#, kde-format
+msgid "Proceed"
+msgstr "Continua"
+
+#: contents/ui/MessageBoard.qml:58
+#, kde-format
+msgid "Open folder"
+msgstr "Obri una carpeta"
+
+#: contents/ui/RecurrencePickerSheet.qml:31
+#, kde-format
+msgid "Repeat"
+msgstr "Repeteix"
+
+#: contents/ui/RecurrencePickerSheet.qml:54
+#, kde-format
+msgid "Every:"
+msgstr "Cada:"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "any"
+msgstr[1] "anys"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, kde-format
+msgid "month"
+msgid_plural "months"
+msgstr[0] "mes"
+msgstr[1] "mesos"
+
+#: contents/ui/RecurrencePickerSheet.qml:66
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "setmana"
+msgstr[1] "setmanes"
+
+#: contents/ui/RecurrencePickerSheet.qml:67
+#, kde-format
+msgid "day"
+msgid_plural "days"
+msgstr[0] "dia"
+msgstr[1] "dies"
+
+#: contents/ui/RecurrencePickerSheet.qml:72
+#, kde-format
+msgid "Stop After:"
+msgstr "Para després de:"
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "repeteix"
+msgstr[1] "repeteix"
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "Never stop"
+msgstr "No pares mai"
+
+#: contents/ui/ReminderEditor.qml:27
+#, kde-format
+msgid "New Reminder"
+msgstr "Recordatori nou"
+
+#: contents/ui/ReminderEditor.qml:33
+#, kde-format
+msgid "Time before start"
+msgstr "Hora abans de l'inici"
+
+#: contents/ui/ReminderEditor.qml:46
+#, kde-format
+msgid "Seconds:"
+msgstr "Segons:"
+
+#: contents/ui/ReminderEditor.qml:55
+#, kde-format
+msgid "Minutes:"
+msgstr "Minuts:"
+
+#: contents/ui/ReminderEditor.qml:65
+#, kde-format
+msgid "Hours:"
+msgstr "Hores:"
+
+#: contents/ui/ReminderEditor.qml:74
+#, kde-format
+msgid "Days:"
+msgstr "Dies:"
+
+#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
+#, kde-format
+msgid "OK"
+msgstr "D'acord"
+
+#: contents/ui/Reminders.qml:57
+#, kde-format
+msgid "No reminders yet"
+msgstr "Encara no hi ha cap recordatori"
+
+#: contents/ui/SettingsPage.qml:25
+#, kde-format
+msgid "More Info:"
+msgstr "Més informació:"
+
+#: contents/ui/SettingsPage.qml:27
+#, kde-format
+msgid "About"
+msgstr "Quant a"
+
+#: contents/ui/SettingsPage.qml:40
+#, kde-format
+msgid "Calendars:"
+msgstr "Calendaris:"
+
+#: contents/ui/SettingsPage.qml:41
+#, kde-format
+msgid "Manage internal calendars"
+msgstr "Gestiona els calendaris interns"
+
+#: contents/ui/SettingsPage.qml:48
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr "Gestió dels calendaris interns"
+
+#: contents/ui/SettingsPage.qml:57
+#, kde-format
+msgid "Manage external calendars"
+msgstr "Gestiona els calendaris externs"
+
+#: contents/ui/SettingsPage.qml:64
+#, kde-format
+msgid "Manage External Calendars"
+msgstr "Gestió dels calendaris externs"
+
+#: contents/ui/SettingsPage.qml:78
+#, kde-format
+msgid "Initial duration (minutes):"
+msgstr "Duració inicial (minuts):"
+
+#: contents/ui/SettingsPage.qml:88
+#, kde-format
+msgid "Remind before event (minutes):"
+msgstr "Recorda abans de l'esdeveniment (minuts):"
+
+#: contents/ui/SettingsPage.qml:97
+#, kde-format
+msgid "Add reminder to new events:"
+msgstr "Afig un recordatori als esdeveniments nous:"
+
+#: contents/ui/TodoEditorPage.qml:99
+#, kde-format
+msgid "Due:"
+msgstr "Venciment:"
+
+#: contents/ui/TodoEditorPage.qml:107
+#, kde-format
+msgid "Due Date"
+msgstr "Data de venciment"
+
+#: contents/ui/TodoEditorPage.qml:135
+#, kde-format
+msgid "Due Time"
+msgstr "Hora de venciment"
+
+#: contents/ui/TodoEditorPage.qml:160
+#, kde-format
+msgid "All day:"
+msgstr "Tot el dia:"
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr "No hi ha cap tasca planificada per a %1"
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled"
+msgstr "No hi ha cap tasca planificada"
+
+#: contents/ui/TodosCardView.qml:81
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr "Se suprimirà la tasca %1"
+
+#: contents/ui/WeekPage.qml:22
+#, kde-format
+msgid "Previous week"
+msgstr "Setmana anterior"
+
+#: contents/ui/WeekPage.qml:29
+#, kde-format
+msgid "Current Week"
+msgstr "Setmana actual"
+
+#: contents/ui/WeekPage.qml:36
+#, kde-format
+msgid "Next week"
+msgstr "Setmana següent"
+
+#: incidencealarmsmodel.cpp:157
+#, kde-format
+msgid "days before start"
+msgstr "dies abans de l'inici"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr "segons abans de l'inici"
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr "a l'hora d'inici"
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "1 dia abans de l'inici"
+msgstr[1] "%1 dies abans de l'inici"
+
+#: incidencealarmsmodel.cpp:216
+#, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "1 hora abans de l'inici"
+msgstr[1] "%1 hores abans de l'inici"
+
+#: incidencealarmsmodel.cpp:220
+#, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "1 minut abans de l'inici"
+msgstr[1] "%1 minuts abans de l'inici"
+
+#: incidencealarmsmodel.cpp:223
+#, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "1 segon abans de l'inici"
+msgstr[1] "%1 segons abans de l'inici"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "Esdeveniment"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "Tasca"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, kde-format
+msgid "all-day"
+msgstr "tot el dia"
+
+#: incidencemodel.cpp:523
+#, kde-format
+msgid "No Due Date"
+msgstr "Sense data de venciment"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr "Ja existeix un calendari amb el mateix nom"
+
+#: main.cpp:74
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "Aplicació de calendari"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr "(c) 2018-2022 L'equip de Calindori"
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: main.cpp:79 main.cpp:81 main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Desenvolupador"
+
+#: main.cpp:81
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "Devin Lin"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "No repetisques"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "Anualment"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "Mensualment"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "Setmanalment"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "Diàriament"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] "Cada any"
+msgstr[1] "Cada %1 anys"
+
+#: recurrenceperiodmodel.cpp:134
+#, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "Cada mes"
+msgstr[1] "Cada %1 mesos"
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "Cada setmana"
+msgstr[1] "Cada %1 setmanes"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Cada dia"
+msgstr[1] "Cada %1 dies"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "Mai"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] "; una vegada"
+msgstr[1] "; %1 vegades"

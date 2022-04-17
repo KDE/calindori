@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"PO-Revision-Date: 2019-08-04 18:23-0700\n"
+"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Suspend"
+msgstr ""
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Dismiss"
+msgstr ""
+
+#: calindacmain.cpp:20 calindacmain.cpp:21
+#, kde-format
+msgid "Calindori Alarm Check Daemon"
+msgstr ""
+
+#: calindacmain.cpp:23
+#, kde-format
+msgid "(c) 2019 Dimitris Kardarakos"
+msgstr ""
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Dimitris Kardarakos"
+msgstr ""
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Maintainer"
+msgstr ""

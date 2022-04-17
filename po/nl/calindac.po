@@ -1,0 +1,58 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the calindori package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"PO-Revision-Date: 2021-01-07 12:11+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - 2020"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Suspend"
+msgstr "Onderbreken"
+
+#: alarmnotification.cpp:15
+#, kde-format
+msgid "Dismiss"
+msgstr "Wegdoen"
+
+#: calindacmain.cpp:20 calindacmain.cpp:21
+#, kde-format
+msgid "Calindori Alarm Check Daemon"
+msgstr "Calindori-daemon voor controleren van alarm"
+
+#: calindacmain.cpp:23
+#, kde-format
+msgid "(c) 2019 Dimitris Kardarakos"
+msgstr "(c) 2019 Dimitris Kardarakos"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Maintainer"
+msgstr "Onderhouder"

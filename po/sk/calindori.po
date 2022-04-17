@@ -1,0 +1,1124 @@
+# translation of calindori_qt.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori_qt\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"PO-Revision-Date: 2022-04-07 18:02+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Qt-Contexts: true\n"
+
+#, fuzzy, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+#, fuzzy, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "Akceptovaný"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "Nezáväzný"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "Zamietnutý"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "Zastúpený"
+
+#: attendeesmodel.cpp:195
+#, fuzzy, kde-format
+#| msgid "Reminders"
+msgid "Not responded yet"
+msgstr "Pripomienky"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr ""
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr ""
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr ""
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr ""
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr ""
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr ""
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr ""
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr ""
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr ""
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr ""
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr ""
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr ""
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr ""
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr ""
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr ""
+
+#: calindoriconfig.cpp:99
+#, fuzzy, kde-format
+msgid "Calendar already exists"
+msgstr "Kalendár už existuje: %1"
+
+#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#, kde-format
+msgid "No contacts found"
+msgstr ""
+
+#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "Pridať"
+
+#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
+#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
+#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
+#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
+#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
+#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#, kde-format
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "E-mail:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "Stav:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, fuzzy, kde-format
+msgid "Role:"
+msgstr "Funkcia:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, fuzzy, kde-format
+msgid "Required"
+msgstr "Vyžadované"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, fuzzy, kde-format
+msgid "Optional"
+msgstr "Voliteľné"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr ""
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr ""
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr ""
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr ""
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr ""
+
+#: contents/ui/Attendees.qml:151
+#, fuzzy, kde-format
+msgid "Close"
+msgstr "Zavrieť"
+
+#: contents/ui/CalendarEditor.qml:32
+#, fuzzy, kde-format
+msgid "New calendar"
+msgstr "Nový Kalendár"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "Kalendár:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, fuzzy, kde-format
+msgid "File:"
+msgstr "&Súbor"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "Vlastník"
+
+#: contents/ui/CalendarEditor.qml:92
+#, fuzzy, kde-format
+msgid "Name:"
+msgstr "Názov:"
+
+#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
+#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#, kde-format
+msgid "Save"
+msgstr "Uložiť"
+
+#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
+#, kde-format
+msgid "Today"
+msgstr "Dnes"
+
+#: contents/ui/CalendarMonthPage.qml:56
+#, fuzzy, kde-format
+msgid "Previous"
+msgstr "Predchádzajúci"
+
+#: contents/ui/CalendarMonthPage.qml:63
+#, fuzzy, kde-format
+msgid "Next"
+msgstr "Nasledujúci"
+
+#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/TodosCardView.qml:19
+#, fuzzy, kde-format
+msgid "Tasks"
+msgstr "Úlohy"
+
+#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#, kde-format
+msgid "Events"
+msgstr "Udalosti"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "Kalendár"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "Mesačný pohľad"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, fuzzy, kde-format
+msgid "Week View"
+msgstr "Zobraziť"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, fuzzy, kde-format
+msgid "Day View"
+msgstr "Zobraziť"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, fuzzy, kde-format
+msgid "Tasks List"
+msgstr "Úlohy"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, fuzzy, kde-format
+#| msgid "Events"
+msgid "Events List"
+msgstr "Udalosti"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198
+#, kde-format
+msgid "Calendars"
+msgstr "Kalendáre"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:76
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr ""
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#, fuzzy, kde-format
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: contents/ui/DayPage.qml:21
+#, fuzzy, kde-format
+msgid "Previous day"
+msgstr "Pre&dchádzajúci deň"
+
+#: contents/ui/DayPage.qml:35
+#, fuzzy, kde-format
+msgid "Next day"
+msgstr "Na&sledujúci %1 deň"
+
+#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
+#: contents/ui/WeekView.qml:156
+#, kde-format
+msgid "Create Event"
+msgstr "Vytvoriť udalosť"
+
+#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:163
+#, fuzzy, kde-format
+#| msgid "Add Task"
+msgid "Create Task"
+msgstr "Pridať úlohu"
+
+#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#, kde-format
+msgid "Summary:"
+msgstr "Súhrn:"
+
+#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#, fuzzy, kde-format
+msgid "Start:"
+msgstr "Začiatok:"
+
+#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#, fuzzy, kde-format
+#| msgid "Start time:"
+msgid "Start Date"
+msgstr "Počiatočný dátum"
+
+#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#, kde-format
+msgid "Start Time"
+msgstr "Čas spustenia"
+
+#: contents/ui/EventEditorPage.qml:93
+#, kde-format
+msgid "End:"
+msgstr "Koniec:"
+
+#: contents/ui/EventEditorPage.qml:100
+#, fuzzy, kde-format
+msgid "End Date"
+msgstr "Konečný dátum"
+
+#: contents/ui/EventEditorPage.qml:123
+#, kde-format
+msgid "End Time"
+msgstr "Čas konca"
+
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#, kde-format
+msgid "All day"
+msgstr "Celý deň"
+
+#: contents/ui/EventEditorPage.qml:156
+#, fuzzy, kde-format
+msgid "Repeat:"
+msgstr "Opakovanie:"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, fuzzy, kde-format
+msgid "Details"
+msgstr "Podrobnosti"
+
+#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#, kde-format
+msgid "Reminders"
+msgstr "Pripomienky"
+
+#: contents/ui/EventEditorPage.qml:183
+#, kde-format
+msgid "Attendees"
+msgstr "Účastníci"
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr ""
+
+#: contents/ui/EventsCardView.qml:38
+#, kde-format
+msgid "No events scheduled"
+msgstr ""
+
+#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
+#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:86
+#, fuzzy, kde-format
+msgid "Delete"
+msgstr "Vymazať"
+
+#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, fuzzy, kde-format
+msgid "Edit"
+msgstr "Upraviť"
+
+#: contents/ui/EventsCardView.qml:82
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr ""
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "Zrušené"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "Potvrdené"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, fuzzy, kde-format
+msgid "Location:"
+msgstr "Umiestnenie:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "Popis:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "Dokončené:"
+
+#: contents/ui/IncidenceListView.qml:53
+#, fuzzy, kde-format
+msgid "Show Completed"
+msgstr "Dokončené"
+
+#: contents/ui/IncidenceListView.qml:53
+#, fuzzy, kde-format
+msgid "Hide Completed"
+msgstr "Dokončené"
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr ""
+
+#: contents/ui/IncidenceListView.qml:63
+#, kde-format
+msgid "Nothing scheduled"
+msgstr ""
+
+#: contents/ui/IncidencePage.qml:61
+#, kde-format
+msgid "%1 will be deleted"
+msgstr ""
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "%1 úloha"
+msgstr[1] "%1 úlohy"
+msgstr[2] "%1 úloh"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, fuzzy, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "Udalosť"
+msgstr[1] "%1 udalosti"
+msgstr[2] "%1 udalostí"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:100
+#, fuzzy, kde-format
+msgid "AM"
+msgstr "dop."
+
+#: contents/ui/kirigami-playground/TimePicker.qml:107
+#, fuzzy, kde-format
+msgid "PM"
+msgstr "PM"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "Vytvoriť"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, fuzzy, kde-format
+msgid "No calendars found"
+msgstr "Nový Kalendár"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, fuzzy, kde-format
+msgid "Add a new calendar."
+msgstr "Nový Kalendár"
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, fuzzy, kde-format
+msgid "Modify "
+msgstr "Upraviť..."
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "Aktivovať"
+
+#: contents/ui/ManageCalendarsPage.qml:87
+#: contents/ui/ManageCalendarsPage.qml:102
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:96
+#, kde-format
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: contents/ui/ManageCalendarsPage.qml:110
+#, fuzzy, kde-format
+msgid "Edit details"
+msgstr "&Upraviť udalosť..."
+
+#: contents/ui/ManageCalendarsPage.qml:119
+#, kde-format
+msgid "Import calendar file"
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:129
+#, kde-format
+msgid "Export calendar to file"
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:153
+#, kde-format
+msgid "Confirm"
+msgstr "Potvrdiť"
+
+#: contents/ui/ManageCalendarsPage.qml:154
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr ""
+
+#: contents/ui/ManageCalendarsPage.qml:230
+#, fuzzy, kde-format
+msgid "Modify"
+msgstr "Zmeniť"
+
+#: contents/ui/MessageBoard.qml:32
+#, fuzzy, kde-format
+msgid "Proceed"
+msgstr "Pokračovať"
+
+#: contents/ui/MessageBoard.qml:58
+#, fuzzy, kde-format
+msgid "Open folder"
+msgstr "Otvoriť priečinok"
+
+#: contents/ui/RecurrencePickerSheet.qml:31
+#, fuzzy, kde-format
+msgid "Repeat"
+msgstr "Opakovanie"
+
+#: contents/ui/RecurrencePickerSheet.qml:54
+#, kde-format
+msgid "Every:"
+msgstr "Každých:"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, fuzzy, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "rok"
+msgstr[1] "rokov"
+msgstr[2] "rokov"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, fuzzy, kde-format
+#| msgid "Month"
+msgid "month"
+msgid_plural "months"
+msgstr[0] "mesiac"
+msgstr[1] "mesiacov"
+msgstr[2] "mesiacov"
+
+#: contents/ui/RecurrencePickerSheet.qml:66
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "týždeň"
+msgstr[1] "týždne"
+msgstr[2] "týždňov"
+
+#: contents/ui/RecurrencePickerSheet.qml:67
+#, fuzzy, kde-format
+#| msgid "Today"
+msgid "day"
+msgid_plural "days"
+msgstr[0] "deň"
+msgstr[1] "dní"
+msgstr[2] "dní"
+
+#: contents/ui/RecurrencePickerSheet.qml:72
+#, kde-format
+msgid "Stop After:"
+msgstr ""
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "opakovať"
+msgstr[1] "Opakovanie:"
+msgstr[2] "Opakovanie:"
+
+#: contents/ui/RecurrencePickerSheet.qml:82
+#, kde-format
+msgid "Never stop"
+msgstr ""
+
+#: contents/ui/ReminderEditor.qml:27
+#, fuzzy, kde-format
+#| msgid "Reminders"
+msgid "New Reminder"
+msgstr "Pripomienky"
+
+#: contents/ui/ReminderEditor.qml:33
+#, kde-format
+msgid "Time before start"
+msgstr ""
+
+#: contents/ui/ReminderEditor.qml:46
+#, fuzzy, kde-format
+msgid "Seconds:"
+msgstr "%1 sekúnd"
+
+#: contents/ui/ReminderEditor.qml:55
+#, kde-format
+msgid "Minutes:"
+msgstr "Minúty:"
+
+#: contents/ui/ReminderEditor.qml:65
+#, kde-format
+msgid "Hours:"
+msgstr "Hodiny:"
+
+#: contents/ui/ReminderEditor.qml:74
+#, kde-format
+msgid "Days:"
+msgstr "Dni:"
+
+#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
+#, kde-format
+msgid "OK"
+msgstr "OK"
+
+#: contents/ui/Reminders.qml:57
+#, fuzzy, kde-format
+#| msgid "Reminders"
+msgid "No reminders yet"
+msgstr "Pripomienky"
+
+#: contents/ui/SettingsPage.qml:25
+#, kde-format
+msgid "More Info:"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:27
+#, fuzzy, kde-format
+msgid "About"
+msgstr "O aplikácii"
+
+#: contents/ui/SettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Calendar:"
+msgid "Calendars:"
+msgstr "Kalendáre"
+
+#: contents/ui/SettingsPage.qml:41
+#, kde-format
+msgid "Manage internal calendars"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:48
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:57
+#, kde-format
+msgid "Manage external calendars"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:64
+#, kde-format
+msgid "Manage External Calendars"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:78
+#, kde-format
+msgid "Initial duration (minutes):"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:88
+#, kde-format
+msgid "Remind before event (minutes):"
+msgstr ""
+
+#: contents/ui/SettingsPage.qml:97
+#, kde-format
+msgid "Add reminder to new events:"
+msgstr ""
+
+#: contents/ui/TodoEditorPage.qml:99
+#, kde-format
+msgid "Due:"
+msgstr "Termín:"
+
+#: contents/ui/TodoEditorPage.qml:107
+#, fuzzy, kde-format
+msgid "Due Date"
+msgstr "Termín splnenia"
+
+#: contents/ui/TodoEditorPage.qml:135
+#, kde-format
+msgid "Due Time"
+msgstr "Čas termínu"
+
+#: contents/ui/TodoEditorPage.qml:160
+#, fuzzy, kde-format
+msgid "All day:"
+msgstr "Celý deň"
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr ""
+
+#: contents/ui/TodosCardView.qml:37
+#, kde-format
+msgid "No tasks scheduled"
+msgstr ""
+
+#: contents/ui/TodosCardView.qml:81
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr ""
+
+#: contents/ui/WeekPage.qml:22
+#, fuzzy, kde-format
+msgid "Previous week"
+msgstr "&Predchádzajúci týždeň"
+
+#: contents/ui/WeekPage.qml:29
+#, kde-format
+msgid "Current Week"
+msgstr ""
+
+#: contents/ui/WeekPage.qml:36
+#, kde-format
+msgid "Next week"
+msgstr "Nasledujúci týždeň"
+
+#: incidencealarmsmodel.cpp:157
+#, fuzzy, kde-format
+msgid "days before start"
+msgstr "%1 dní pred začatím"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr ""
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr ""
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, fuzzy, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "%1 deň pred začatím"
+msgstr[1] "%1 dni pred začatím"
+msgstr[2] "%1 dní pred začatím"
+
+#: incidencealarmsmodel.cpp:216
+#, fuzzy, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "%1 hodina pred začatím"
+msgstr[1] "%1 hodiny pred začatím"
+msgstr[2] "%1 hodín pred začatím"
+
+#: incidencealarmsmodel.cpp:220
+#, fuzzy, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "%1 minúta pred začatím"
+msgstr[1] "%1 minúty pred začatím"
+msgstr[2] "%1 minút pred začatím"
+
+#: incidencealarmsmodel.cpp:223
+#, fuzzy, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "%1 deň pred začatím"
+msgstr[1] "%1 dni pred začatím"
+msgstr[2] "%1 dní pred začatím"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "Udalosť"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "Úloha"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, fuzzy, kde-format
+msgid "all-day"
+msgstr "Celý deň"
+
+#: incidencemodel.cpp:523
+#, fuzzy, kde-format
+msgid "No Due Date"
+msgstr "Bez termínu"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "Aplikácia Calendar"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr ""
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: main.cpp:79 main.cpp:81 main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Vývojár"
+
+#: main.cpp:81
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "Devin Lin"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "Neopakovať"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "Ročne"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "Mesačne"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "Týždenne"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "Denne"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: recurrenceperiodmodel.cpp:134
+#, fuzzy, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "každý mesiac"
+msgstr[1] ""
+msgstr[2] ""
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: recurrenceperiodmodel.cpp:136
+#, fuzzy, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Každý deň"
+msgstr[1] ""
+msgstr[2] ""
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "Nikdy"
+
+#: recurrenceperiodmodel.cpp:136
+#, fuzzy, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] "Raz"
+msgstr[1] "(%1 krát)"
+msgstr[2] "(%1 krát)"
+
+#, fuzzy
+#~| msgid "Import calendar"
+#~ msgid "Import"
+#~ msgstr "Import kalendára"
+
+#~ msgid "Day"
+#~ msgstr "Deň"
+
+#~ msgid "Week"
+#~ msgstr "Týždeň"
+
+#~ msgid "All Tasks"
+#~ msgstr "Všetky úlohy"
+
+#, fuzzy
+#~ msgid "All Events"
+#~ msgstr "Všetky udalosti"
+
+#~ msgid "Yes"
+#~ msgstr "Áno"
+
+#~ msgid "No"
+#~ msgstr "Nie"
+
+#, fuzzy
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer and Developer"
+#~ msgstr "Správca (2014-2018) a vývojár"
+
+#, fuzzy
+#~ msgid "New event"
+#~ msgstr "Udalosť"
+
+#, fuzzy
+#~ msgid "New task"
+#~ msgstr "%1 úloha"
+
+#, fuzzy
+#~| msgid "Start time:"
+#~ msgid "No Start Date"
+#~ msgstr "Čas spustenia:"
+
+#, fuzzy
+#~ msgid "%1 month"
+#~ msgid_plural "%1 months"
+#~ msgstr[0] "%1 mesiac"
+#~ msgstr[1] "%1 mesiace"
+#~ msgstr[2] "%1 mesiacov"
+
+#, fuzzy
+#~ msgid "%1 day"
+#~ msgid_plural "%1 days"
+#~ msgstr[0] "%1 deň"
+#~ msgstr[1] "%1 dni"
+#~ msgstr[2] "%1 dní"
+
+#, fuzzy
+#~ msgid "%1 repeat"
+#~ msgid_plural "%1 repeats"
+#~ msgstr[0] "Opakovanie"
+#~ msgstr[1] "Opakovaní:"
+#~ msgstr[2] "Opakovaní:"
+
+#~ msgid "Add Task"
+#~ msgstr "Pridať úlohu"
+
+#, fuzzy
+#~ msgid "1 event"
+#~ msgid_plural "%1 events"
+#~ msgstr[0] "Udalosť"
+#~ msgstr[1] "%1 udalosti"
+#~ msgstr[2] "%1 udalostí"
+
+#, fuzzy
+#~ msgid "1 task"
+#~ msgid_plural "%1 tasks"
+#~ msgstr[0] "%1 úloha"
+#~ msgstr[1] "%1 úlohy"
+#~ msgstr[2] "%1 úloh"
+
+#, fuzzy
+#~ msgid "1 day"
+#~ msgid_plural "%1 days"
+#~ msgstr[0] "1 deň"
+#~ msgstr[1] "%1 dni"
+#~ msgstr[2] "%1 dní"
+
+#, fuzzy
+#~ msgid "1 hour"
+#~ msgid_plural "%1 hours"
+#~ msgstr[0] "1 hodina"
+#~ msgstr[1] "%1 hodiny"
+#~ msgstr[2] "%1 hodín"
+
+#, fuzzy
+#~ msgid "1 minute"
+#~ msgid_plural "%1 minutes"
+#~ msgstr[0] "1 minúta"
+#~ msgstr[1] "%1 minút"
+#~ msgstr[2] "%1 minút"
+
+#, fuzzy
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "1 sekunda"
+#~ msgstr[1] "%1 sekundy"
+#~ msgstr[2] "%1 sekúnd"
+
+#, fuzzy
+#~ msgid "(all day)"
+#~ msgstr "Celý deň"
+
+#~ msgid "Previous month"
+#~ msgstr "Predchádzajúci mesiac"
+
+#~ msgid "Next month"
+#~ msgstr "Nasledujúci mesiac"
+
+#~ msgid "Add task"
+#~ msgstr "Pridať úlohu"
+
+#~ msgid "Start time:"
+#~ msgstr "Čas spustenia:"
