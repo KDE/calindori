@@ -36,6 +36,7 @@
   <name xml:lang="sk">Calindori</name>
   <name xml:lang="sl">Calindori</name>
   <name xml:lang="sv">Calindori</name>
+  <name xml:lang="tr">Calindori</name>
   <name xml:lang="uk">Calindori</name>
   <name xml:lang="x-test">xxCalindorixx</name>
   <name xml:lang="zh-CN">Calindori</name>
@@ -68,6 +69,7 @@
   <summary xml:lang="sk">Aplikácia Calendar</summary>
   <summary xml:lang="sl">Aplikacija koledar</summary>
   <summary xml:lang="sv">Kalenderprogram</summary>
+  <summary xml:lang="tr">Takvim uygulaması</summary>
   <summary xml:lang="uk">Програма-календар</summary>
   <summary xml:lang="x-test">xxCalendar applicationxx</summary>
   <summary xml:lang="zh-CN">日历应用程序</summary>
@@ -99,6 +101,7 @@
     <p xml:lang="ru">Calindori — программа-календарь для сенсорных интерфейсов. Она разработана для мобильных устройств, но ей можно пользоваться и на обычных рабочих станциях. Пользователи Calindori могут проверять записи для прошедших и будущих дат и управлять соответствующими задачами и событиями.</p>
     <p xml:lang="sl">Calindori je dotikom prijazna aplikacija za koledar. Zasnovana je za mobilne naprave, vendar lahko deluje tudi v namiznih okoljih. Uporabniki Calindore lahko preverjajo prejšnje in prihodnje datume ter upravljajo z nalogami in dogodki.</p>
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
+    <p xml:lang="tr">Calindori, dokunmatik ekran dostu bir takvim uygulamasıdır. Taşınabilir aygıtlar için tasarlanmıştır; ancak masaüstü ortamlarında da çalışabilir. Calindori kullanıcıları, geçmiş ve gelecek tarihleri denetleyebilir, görevleri ve etkinlikleri düzenleyebilir.</p>
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
     <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
     <p xml:lang="zh-CN">Calindori 是一款适合触控的日历应用程序。它针对移动设备设计，也可以运行在桌面环境上。用户可以使用 Calindori 查看指定的日期，并管理任务和活动。</p>
@@ -128,6 +131,7 @@
     <p xml:lang="ru">При первом запуске программа создаёт файл календаря в формате ical. Кроме того, пользователь может создавать дополнительные календари или импортировать уже имеющиеся.</p>
     <p xml:lang="sl">Ko poženete program prvič, se ustvari nova koledarska datoteka, po standardu ical. Sicer uporabniki lahko ustvarjajo dodatne koledarje ali uvozijo obstoječe.</p>
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
+    <p xml:lang="tr">Uygulama ilk kez çalıştırılırken, ical standartını izleyen bir takvim dosyası oluşturulur. Alternatif olarak, kullanıcılar ek takvimler oluşturabilir veya var olanları içe aktarabilir.</p>
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
     <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其他日历，或者导入已有日历。</p>
@@ -159,6 +163,7 @@
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Možnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">程序功能：</p>
@@ -192,6 +197,7 @@
       <li xml:lang="sk">Agenda</li>
       <li xml:lang="sl">Dnevni red</li>
       <li xml:lang="sv">Agenda</li>
+      <li xml:lang="tr">Ajanda</li>
       <li xml:lang="uk">Порядок денний</li>
       <li xml:lang="x-test">xxAgendaxx</li>
       <li xml:lang="zh-CN">日程表</li>
@@ -223,6 +229,7 @@
       <li xml:lang="sk">Udalosti</li>
       <li xml:lang="sl">Dogodki</li>
       <li xml:lang="sv">Händelser</li>
+      <li xml:lang="tr">Etkinlikler</li>
       <li xml:lang="uk">Події</li>
       <li xml:lang="x-test">xxEventsxx</li>
       <li xml:lang="zh-CN">活动</li>
@@ -255,6 +262,7 @@
       <li xml:lang="sk">Úlohy</li>
       <li xml:lang="sl">Naloge</li>
       <li xml:lang="sv">Uppgifter</li>
+      <li xml:lang="tr">Yapılacaklar</li>
       <li xml:lang="uk">Завдання</li>
       <li xml:lang="x-test">xxTodosxx</li>
       <li xml:lang="zh-CN">待办事项</li>
@@ -286,6 +294,7 @@
       <li xml:lang="sk">Viac kalendárov</li>
       <li xml:lang="sl">Več koledarjev</li>
       <li xml:lang="sv">Flera kalendrar</li>
+      <li xml:lang="tr">Çoklu takvimler</li>
       <li xml:lang="uk">Користування декількома календарями</li>
       <li xml:lang="x-test">xxMultiple calendarsxx</li>
       <li xml:lang="zh-CN">多日历</li>
@@ -318,6 +327,7 @@
       <li xml:lang="sk">Import kalendára</li>
       <li xml:lang="sl">Uvozi koledar</li>
       <li xml:lang="sv">Importera kalender</li>
+      <li xml:lang="tr">Takvim içe aktarma</li>
       <li xml:lang="uk">Імпортування календарів</li>
       <li xml:lang="x-test">xxImport calendarxx</li>
       <li xml:lang="zh-CN">导入日历</li>
@@ -365,6 +375,7 @@
       <caption xml:lang="ru">Calindori на мобильном устройстве</caption>
       <caption xml:lang="sl">Calindori na mobilni napravi</caption>
       <caption xml:lang="sv">Calindori på mobil</caption>
+      <caption xml:lang="tr">Taşınabilirde Calindori</caption>
       <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
       <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
       <caption xml:lang="zh-CN">Calindori 移动版</caption>
@@ -397,6 +408,7 @@
       <caption xml:lang="ru">Calindori на компьютере</caption>
       <caption xml:lang="sl">Calindori na namizju</caption>
       <caption xml:lang="sv">Calindori på skrivbord</caption>
+      <caption xml:lang="tr">Masaüstünde Calindori</caption>
       <caption xml:lang="uk">Calindori на комп'ютері</caption>
       <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
       <caption xml:lang="zh-CN">Calindori 桌面版</caption>
