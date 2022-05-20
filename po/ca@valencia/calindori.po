@@ -220,7 +220,7 @@ msgid ""
 "Attendee management is available only in external calendars that are "
 "synchronized online"
 msgstr ""
-"La gestió dels assistents només està disponible en els calendaris externs "
+"La gestió dels assistents només estarà disponible en els calendaris externs "
 "que se sincronitzen en línia"
 
 #: contents/ui/Attendees.qml:31
