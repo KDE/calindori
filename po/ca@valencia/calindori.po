@@ -155,7 +155,7 @@ msgstr "El nom del calendari conté caràcters no vàlids"
 #: calindoriconfig.cpp:99
 #, kde-format
 msgid "Calendar already exists"
-msgstr "El calendari ja existeix"
+msgstr "El calendari ya existix"
 
 #: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "Afig"
 #: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
 #, kde-format
 msgid "Cancel"
-msgstr "Cancel·la"
+msgstr "Cancela"
 
 #: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
 #, kde-format
@@ -445,7 +445,7 @@ msgstr "No hi ha cap esdeveniment planificat"
 #: contents/ui/TodosCardView.qml:86
 #, kde-format
 msgid "Delete"
-msgstr "Suprimeix"
+msgstr "Suprimix"
 
 #: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
@@ -461,7 +461,7 @@ msgstr "Se suprimirà l'esdeveniment %1"
 #: contents/ui/IncidenceEditor.qml:23
 #, kde-format
 msgid "Canceled"
-msgstr "Cancel·lada"
+msgstr "Cancelada"
 
 #: contents/ui/IncidenceEditor.qml:24
 #, kde-format
@@ -882,7 +882,7 @@ msgstr "Sense data de venciment"
 #: localcalendar.cpp:97
 #, kde-format
 msgid "A calendar with the same name already exists"
-msgstr "Ja existeix un calendari amb el mateix nom"
+msgstr "Ya existix un calendari amb el mateix nom"
 
 #: main.cpp:74
 #, kde-format
