@@ -221,7 +221,7 @@ msgid ""
 "synchronized online"
 msgstr ""
 "La gestió dels assistents només estarà disponible en els calendaris externs "
-"que se sincronitzen en línia"
+"que se sincronisen en línia"
 
 #: contents/ui/Attendees.qml:31
 #, kde-format
