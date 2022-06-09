@@ -59,12 +59,12 @@ msgstr "Encara no hi ha cap resposta"
 #: calendarcontroller.cpp:47
 #, kde-format
 msgid "The url or file given does not contain valid calendar data"
-msgstr "L'URL o el ficher proporcionat no conté dades vàlides de calendari"
+msgstr "L'URL o el fitxer proporcionat no conté dades vàlides de calendari"
 
 #: calendarcontroller.cpp:56
 #, kde-format
 msgid "The url or file given does not contain any event or task"
-msgstr "L'URL o el ficher proporcionat no conté cap succés o tasca"
+msgstr "L'URL o el fitxer proporcionat no conté cap succés o tasca"
 
 #: calendarcontroller.cpp:63
 #, kde-format
@@ -140,7 +140,7 @@ msgstr "No s'ha pogut carregar el calendari. L'exportació ha fallat."
 #: calendarcontroller.cpp:509
 #, kde-format
 msgid "Cannot save calendar file. Export failed."
-msgstr "No s'ha pogut guardar el ficher de calendari. L'exportació ha fallat."
+msgstr "No s'ha pogut guardar el fitxer de calendari. L'exportació ha fallat."
 
 #: calendarcontroller.cpp:516
 #, kde-format
@@ -253,7 +253,7 @@ msgstr "Calendari:"
 #: contents/ui/CalendarEditor.qml:80
 #, kde-format
 msgid "File:"
-msgstr "Ficher:"
+msgstr "Fitxer:"
 
 #: contents/ui/CalendarEditor.qml:85
 #, kde-format
@@ -550,7 +550,7 @@ msgstr "No s'ha trobat cap calendari"
 #: contents/ui/ManageCalendarsPage.qml:43
 #, kde-format
 msgid "Import an existing calendar file."
-msgstr "Importa un ficher de calendari existent."
+msgstr "Importa un fitxer de calendari existent."
 
 #: contents/ui/ManageCalendarsPage.qml:44
 #, kde-format
@@ -586,12 +586,12 @@ msgstr "Edita els detalls"
 #: contents/ui/ManageCalendarsPage.qml:119
 #, kde-format
 msgid "Import calendar file"
-msgstr "Importa un ficher de calendari"
+msgstr "Importa un fitxer de calendari"
 
 #: contents/ui/ManageCalendarsPage.qml:129
 #, kde-format
 msgid "Export calendar to file"
-msgstr "Exporta el calendari a un ficher"
+msgstr "Exporta el calendari a un fitxer"
 
 #: contents/ui/ManageCalendarsPage.qml:153
 #, kde-format
