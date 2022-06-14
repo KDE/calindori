@@ -64,14 +64,14 @@ msgstr "L'URL o el fitxer proporcionat no conté dades vàlides de calendari"
 #: calendarcontroller.cpp:56
 #, kde-format
 msgid "The url or file given does not contain any event or task"
-msgstr "L'URL o el fitxer proporcionat no conté cap succés o tasca"
+msgstr "L'URL o el fitxer proporcionat no conté cap esdeveniment o tasca"
 
 #: calendarcontroller.cpp:63
 #, kde-format
 msgid "1 event will be added"
 msgid_plural "%1 events will be added"
-msgstr[0] "s'ha afegit 1 succés"
-msgstr[1] "s'han afegit %1 successos"
+msgstr[0] "s'ha afegit 1 esdeveniment"
+msgstr[1] "s'han afegit %1 esdeveniments"
 
 #: calendarcontroller.cpp:65
 #, kde-format
@@ -99,7 +99,7 @@ msgstr "S'ha detectat un error durant la importació"
 #, kde-format
 msgid "In case of all day events, start date and end date should be equal"
 msgstr ""
-"En cas de successos de tot el dia, la data d'inici i la data de venciment "
+"En cas d'esdeveniments de tot el dia, la data d'inici i la data de venciment "
 "cal que siguen iguals"
 
 #: calendarcontroller.cpp:322
@@ -111,7 +111,7 @@ msgstr ""
 #: calendarcontroller.cpp:334
 #, kde-format
 msgid "Daily events should not span multiple days"
-msgstr "Els successos diaris no haurien de durar diversos dies"
+msgstr "Els esdeveniments diaris no haurien de durar diversos dies"
 
 #: calendarcontroller.cpp:454
 #, kde-format
@@ -296,7 +296,7 @@ msgstr "Tasques"
 #: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
 #, kde-format
 msgid "Events"
-msgstr "Successos"
+msgstr "Esdeveniments"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:54
 #: contents/ui/CalindoriGlobalDrawer.qml:64
@@ -327,7 +327,7 @@ msgstr "Llista de tasques"
 #: contents/ui/CalindoriGlobalDrawer.qml:172
 #, kde-format
 msgid "Events List"
-msgstr "Llista de successos"
+msgstr "Llista d'esdeveniments"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
 #, kde-format
@@ -360,7 +360,7 @@ msgstr "Dia següent"
 #: contents/ui/WeekView.qml:156
 #, kde-format
 msgid "Create Event"
-msgstr "Crea un succés"
+msgstr "Crea un esdeveniment"
 
 #: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
@@ -412,7 +412,7 @@ msgstr "Tot el dia"
 #: contents/ui/EventEditorPage.qml:156
 #, kde-format
 msgid "Repeat:"
-msgstr "Repeteix:"
+msgstr "Repetix:"
 
 #: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
@@ -432,12 +432,12 @@ msgstr "Assistents"
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled for %1"
-msgstr "No hi ha cap succés planificat per a %1"
+msgstr "No hi ha cap esdeveniment planificat per a %1"
 
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled"
-msgstr "No hi ha cap succés planificat"
+msgstr "No hi ha cap esdeveniment planificat"
 
 #: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
 #: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
@@ -456,7 +456,7 @@ msgstr "Edita"
 #: contents/ui/EventsCardView.qml:82
 #, kde-format
 msgid "Event %1 will be deleted"
-msgstr "Se suprimirà el succés %1"
+msgstr "Se suprimirà l'esdeveniment %1"
 
 #: contents/ui/IncidenceEditor.qml:23
 #, kde-format
@@ -519,8 +519,8 @@ msgstr[1] "%1 tasques"
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
-msgstr[0] "%1 succés"
-msgstr[1] "%1 successos"
+msgstr[0] "%1 esdeveniment"
+msgstr[1] "%1 esdeveniments"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:100
 #, kde-format
@@ -624,7 +624,7 @@ msgstr "Obri una carpeta"
 #: contents/ui/RecurrencePickerSheet.qml:31
 #, kde-format
 msgid "Repeat"
-msgstr "Repeteix"
+msgstr "Repetix"
 
 #: contents/ui/RecurrencePickerSheet.qml:54
 #, kde-format
@@ -668,8 +668,8 @@ msgstr "Para després de:"
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
-msgstr[0] "repeteix"
-msgstr[1] "repeteix"
+msgstr[0] "repetix"
+msgstr[1] "repetix"
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
@@ -759,12 +759,12 @@ msgstr "Duració inicial (minuts):"
 #: contents/ui/SettingsPage.qml:88
 #, kde-format
 msgid "Remind before event (minutes):"
-msgstr "Recorda abans del succés (minuts):"
+msgstr "Recorda abans de l'esdeveniment (minuts):"
 
 #: contents/ui/SettingsPage.qml:97
 #, kde-format
 msgid "Add reminder to new events:"
-msgstr "Afig un recordatori als successos nous:"
+msgstr "Afig un recordatori als esdeveniments nous:"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
@@ -862,7 +862,7 @@ msgstr[1] "%1 segons abans de l'inici"
 #: incidencemodel.cpp:173
 #, kde-format
 msgid "Event"
-msgstr "Succés"
+msgstr "Esdeveniment"
 
 #: incidencemodel.cpp:175
 #, kde-format
