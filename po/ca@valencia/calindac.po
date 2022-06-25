@@ -32,7 +32,7 @@ msgstr "txemaq@gmail.com"
 #: alarmnotification.cpp:15
 #, kde-format
 msgid "Suspend"
-msgstr "Suspèn"
+msgstr "Suspén"
 
 #: alarmnotification.cpp:15
 #, kde-format
