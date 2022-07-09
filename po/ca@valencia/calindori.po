@@ -338,7 +338,7 @@ msgstr "Calendaris"
 #: contents/ui/ManageCalendarsPage.qml:76
 #, kde-format
 msgid "Calendar %1 has been activated"
-msgstr "El calendari %1 ha estat activat"
+msgstr "El calendari %1 ha sigut activat"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
 #, kde-format
