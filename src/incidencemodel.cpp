@@ -419,14 +419,14 @@ Incidence::List IncidenceModel::dayIncidences() const
 Incidence::List IncidenceModel::dayEvents() const
 {
     auto events = m_calendar->calendar()->rawEventsForDate(m_filter_dt, QTimeZone::systemTimeZone(), EventSortStartDate, SortDirectionAscending);
-    return toIncidences(Calendar::sortEvents(events, EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
+    return toIncidences(Calendar::sortEvents(std::move(events), EventSortField::EventSortStartDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::dayTodos() const
 {
     auto todos =  m_calendar->calendar()->rawTodos(m_filter_dt, m_filter_dt);
 
-    return toIncidences(Calendar::sortTodos(todos, TodoSortField::TodoSortDueDate, SortDirection::SortDirectionAscending));
+    return toIncidences(Calendar::sortTodos(std::move(todos), TodoSortField::TodoSortDueDate, SortDirection::SortDirectionAscending));
 }
 
 Incidence::List IncidenceModel::allIncidences() const
