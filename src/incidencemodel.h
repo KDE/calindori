@@ -79,6 +79,21 @@ public:
         IncidenceStatus
     };
 
+    // Copied from KCalendarCore::Incidence
+    enum Status {
+        StatusNone, /**< No status */
+        StatusTentative, /**< event is tentative */
+        StatusConfirmed, /**< event is definite */
+        StatusCompleted, /**< to-do completed */
+        StatusNeedsAction, /**< to-do needs action */
+        StatusCanceled, /**< event or to-do canceled; journal removed */
+        StatusInProcess, /**< to-do in process */
+        StatusDraft, /**< journal is draft */
+        StatusFinal, /**< journal is final */
+        StatusX, /**< a non-standard status string */
+    };
+    Q_ENUM(Status)
+
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

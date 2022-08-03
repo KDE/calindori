@@ -39,9 +39,9 @@ ColumnLayout {
 
             visible: incidenceType === 0
             model: [
-                {"name": canceledStatus, "code": Calindori.CalendarIncidence.StatusCanceled},
-                {"name": confirmedStatus, "code": Calindori.CalendarIncidence.StatusConfirmed},
-                {"name": tentativeStatus, "code": Calindori.CalendarIncidence.StatusTentative}
+                {"name": canceledStatus, "code": Calindori.IncidenceModel.StatusCanceled},
+                {"name": confirmedStatus, "code": Calindori.IncidenceModel.StatusConfirmed},
+                {"name": tentativeStatus, "code": Calindori.IncidenceModel.StatusTentative}
             ]
             textRole: "name"
             valueRole: "code"
@@ -49,7 +49,7 @@ ColumnLayout {
             Kirigami.FormData.label: i18n("Status:")
 
             Component.onCompleted: {
-                currentIndex = root.incidenceData ? indexOfValue(root.incidenceData.status) : indexOfValue(Calindori.CalendarIncidence.StatusConfirmed);
+                currentIndex = root.incidenceData ? indexOfValue(root.incidenceData.status) : indexOfValue(Calindori.IncidenceModel.StatusConfirmed);
             }
         }
 

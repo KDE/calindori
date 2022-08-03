@@ -107,7 +107,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<DaysOfMonthIncidenceModel>("org.kde.calindori", 0, 1, "DaysOfMonthIncidenceModel");
     qmlRegisterType<IncidenceModel>("org.kde.calindori", 0, 1, "IncidenceModel");
     qmlRegisterType<AttendeesModel>("org.kde.calindori", 0, 1, "AttendeesModel");
-    qmlRegisterUncreatableType<KCalendarCore::Incidence>("org.kde.calindori", 0, 1, "CalendarIncidence", QStringLiteral("Use Enums"));
     qmlRegisterUncreatableType<KCalendarCore::Attendee>("org.kde.calindori", 0, 1, "CalendarAttendee", QStringLiteral("Use Enums"));
 
     qmlRegisterSingletonType<DataHandler>("org.kde.calindori", 0, 1, "DataHandler", [](QQmlEngine * engine, QJSEngine *) -> QObject* {
