@@ -33,7 +33,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/version.h
 )
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     Core
     Gui
     Qml
@@ -41,10 +41,14 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
     QuickControls2
     Svg
     Network
-    QuickCompiler
 )
+
+if (QT_MAJOR_VERSION EQUAL "5")
+    find_package(Qt5QuickCompiler REQUIRED)
+endif()
+
 if (BUILD_TESTING)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Test)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Test)
 endif()
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -58,7 +62,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 if(NOT ANDROID)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DBusAddons)
 endif()
 

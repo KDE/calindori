@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-qtquick_compiler_add_resources(RESOURCES resources.qrc)
+if (QT_MAJOR_VERSION EQUAL "5")
+    qtquick_compiler_add_resources(RESOURCES resources.qrc)
+else()
+    qt_add_resources(RESOURCES resources.qrc)
+endif()
+
 add_executable(calindori
     main.cpp
     calindoriconfig.cpp
@@ -20,12 +25,12 @@ add_executable(calindori
 )
 
 target_link_libraries(calindori 
-    Qt5::Core 
-    Qt5::Qml 
-    Qt5::Quick 
-    Qt5::Svg 
-    Qt5::Network 
-    Qt5::QuickControls2
+    Qt::Core
+    Qt::Qml
+    Qt::Quick
+    Qt::Svg
+    Qt::Network
+    Qt::QuickControls2
     KF5::ConfigCore 
     KF5::I18n 
     KF5::CalendarCore 
@@ -33,7 +38,7 @@ target_link_libraries(calindori
     KF5::People
 )
 if (BUILD_TESTING)
-    target_link_libraries(calindori Qt5::Test)
+    target_link_libraries(calindori Qt::Test)
 endif()
 
 target_include_directories(calindori PRIVATE ${CMAKE_BINARY_DIR})
@@ -82,7 +87,7 @@ if(ANDROID)
     window-close-symbolic
 )
 else()
-    target_link_libraries(calindori Qt5::DBus KF5::DBusAddons)
+    target_link_libraries(calindori Qt::Widgets Qt::DBus KF5::DBusAddons)
 endif()
 
-install(TARGETS calindori ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS calindori ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
