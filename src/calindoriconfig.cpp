@@ -9,7 +9,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDebug>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDir>
 #include <QUrl>
 
@@ -71,7 +71,7 @@ void CalindoriConfig::setActiveCalendar(const QString &calendar)
 
 QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
 {
-    QRegExp invalidChars(QStringLiteral("[\\;\\\\/<>:\\?\\*|\"\']"));
+    QRegularExpression invalidChars(QStringLiteral("[\\;\\\\/<>:\\?\\*|\"\']"));
     if (calendar.contains(invalidChars)) {
         return QVariantMap({
             {QStringLiteral("success"), false},
