@@ -1,16 +1,16 @@
 # Translation for calindori.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2021, This file is copyright:
+# Copyright (C) 2020-2022, This file is copyright:
 # This file is distributed under the same license as the calindori package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2021-05-03 19:14+0200\n"
+"PO-Revision-Date: 2022-08-07 14:08+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.0\n"
+"X-Generator: Lokalize 22.04.3\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -29,7 +29,7 @@ msgstr "Iñigo Salvador Azurmendi"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "xalba@euskalnet.net"
+msgstr "xalba@ni.eus"
 
 #: attendeesmodel.cpp:183
 #, kde-format
@@ -299,40 +299,34 @@ msgstr "Gertaerak"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:54
 #: contents/ui/CalindoriGlobalDrawer.qml:64
-#, fuzzy, kde-format
-#| msgid "Calendar:"
+#, kde-format
 msgid "Calendar"
-msgstr "Egutegia:"
+msgstr "Egutegia"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:81
-#, fuzzy, kde-format
-#| msgid "Month"
+#, kde-format
 msgid "Month View"
-msgstr "Hilabetea"
+msgstr "Hilabeteko ikuspegia"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:104
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Week View"
-msgstr "Ikuspegia"
+msgstr "Astebeteko ikuspegia"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:127
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Day View"
-msgstr "Ikuspegia"
+msgstr "Eguneko ikuspegia"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:150
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Tasks List"
-msgstr "Eginkizunak"
+msgstr "Zereginen zerrenda"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:172
-#, fuzzy, kde-format
-#| msgid "Events"
+#, kde-format
 msgid "Events List"
-msgstr "Gertaerak"
+msgstr "Ekitaldien zerrenda"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
 #, kde-format
@@ -545,30 +539,27 @@ msgstr "Sortu"
 #: contents/ui/ManageCalendarsPage.qml:41
 #, kde-format
 msgid "No external calendars found"
-msgstr ""
+msgstr "Ez da kanpoko egutegirik aurkitu"
 
 #: contents/ui/ManageCalendarsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "No contacts found"
+#, kde-format
 msgid "No calendars found"
-msgstr "Ez da kontakturik aurkitu"
+msgstr "Ez da egutegirik aurkitu"
 
 #: contents/ui/ManageCalendarsPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Please import a calendar file"
+#, kde-format
 msgid "Import an existing calendar file."
-msgstr "Inportatu egutegiko fitxategi bat"
+msgstr "Inportatu dagoen egutegi-fitxategi bat."
 
 #: contents/ui/ManageCalendarsPage.qml:44
-#, fuzzy, kde-format
-#| msgid "New calendar"
+#, kde-format
 msgid "Add a new calendar."
-msgstr "Egutegi berria"
+msgstr "Gehitu egutegi berria."
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
 msgid "Modify "
-msgstr ""
+msgstr "Aldatu"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -579,7 +570,7 @@ msgstr "Aktibatu"
 #: contents/ui/ManageCalendarsPage.qml:102
 #, kde-format
 msgid "Calendar must not be active when being deleted."
-msgstr ""
+msgstr "Egutegia ez da aktibo egon behar ezabatzerakoan."
 
 #: contents/ui/ManageCalendarsPage.qml:96
 #, kde-format
@@ -587,22 +578,19 @@ msgid "Remove"
 msgstr "Kendu"
 
 #: contents/ui/ManageCalendarsPage.qml:110
-#, fuzzy, kde-format
-#| msgid "Edit task"
+#, kde-format
 msgid "Edit details"
-msgstr "Editatu eginkizuna"
+msgstr "Editatu xehetasunak"
 
 #: contents/ui/ManageCalendarsPage.qml:119
-#, fuzzy, kde-format
-#| msgid "Import calendar"
+#, kde-format
 msgid "Import calendar file"
-msgstr "Inportatu egutegia"
+msgstr "Inportatu egutegi-fitxategia"
 
 #: contents/ui/ManageCalendarsPage.qml:129
-#, fuzzy, kde-format
-#| msgid "Please import a calendar file"
+#, kde-format
 msgid "Export calendar to file"
-msgstr "Inportatu egutegiko fitxategi bat"
+msgstr "Esportatu egutegia fitxategira"
 
 #: contents/ui/ManageCalendarsPage.qml:153
 #, kde-format
@@ -620,7 +608,7 @@ msgstr ""
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
 msgid "Modify"
-msgstr ""
+msgstr "Aldatu"
 
 #: contents/ui/MessageBoard.qml:32
 #, kde-format
@@ -730,7 +718,7 @@ msgstr "Oroigarri ez oraindik"
 #: contents/ui/SettingsPage.qml:25
 #, kde-format
 msgid "More Info:"
-msgstr ""
+msgstr "Informazio gehiago:"
 
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
@@ -738,48 +726,44 @@ msgid "About"
 msgstr "Honi buruz"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Calendars"
+#, kde-format
 msgid "Calendars:"
-msgstr "Egutegiak"
+msgstr "Egutegiak:"
 
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Manage internal calendars"
-msgstr ""
+msgstr "Kudeatu barneko egutegiak"
 
 #: contents/ui/SettingsPage.qml:48
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr ""
+msgstr "Kudeatu barneko egutegiak"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage external calendars"
-msgstr ""
+msgstr "Kudeatu kanpoko egutegiak"
 
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage External Calendars"
-msgstr ""
+msgstr "Kudeatu kanpoko egutegiak"
 
 #: contents/ui/SettingsPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes)"
+#, kde-format
 msgid "Initial duration (minutes):"
-msgstr "Hasierako iraupena (minututan)"
+msgstr "Hasierako iraupena (minututan):"
 
 #: contents/ui/SettingsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes)"
+#, kde-format
 msgid "Remind before event (minutes):"
-msgstr "Oroitu gertaera aurretik (minutu)"
+msgstr "Oroitu gertaera aurretik (minutu):"
 
 #: contents/ui/SettingsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events"
+#, kde-format
 msgid "Add reminder to new events:"
-msgstr "Gehitu oroigarria gertaera berriei"
+msgstr "Gehitu oroigarria ekitaldi berriei:"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
@@ -822,8 +806,7 @@ msgid "Previous week"
 msgstr "Aurreko astea"
 
 #: contents/ui/WeekPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Current week"
+#, kde-format
 msgid "Current Week"
 msgstr "Uneko astea"
 
@@ -912,12 +895,10 @@ msgid "Calendar application"
 msgstr "Egutegiko aplikazioa"
 
 #: main.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2018-2021 The Calindori Team"
+#, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr "(c) 2018-2021 Calindori taldea"
+msgstr "(c) 2018-2022 Calindori taldea"
 
 #: main.cpp:79
 #, kde-format
@@ -941,7 +922,7 @@ msgstr "Nicolas Fella"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"
-msgstr ""
+msgstr "Devin Lin"
 
 #: recurrenceperiodmodel.cpp:114
 #, kde-format
