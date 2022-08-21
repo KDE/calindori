@@ -1,7 +1,8 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calindori package.
-#
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2021.
+# Frederik Schwarzer <schwarzer@kde.org>, 2022.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
@@ -34,7 +35,7 @@ msgstr "Aussetzen"
 #: alarmnotification.cpp:15
 #, kde-format
 msgid "Dismiss"
-msgstr "Abweisen"
+msgstr "Schließen"
 
 #: calindacmain.cpp:20 calindacmain.cpp:21
 #, kde-format
