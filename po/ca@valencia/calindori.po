@@ -227,7 +227,7 @@ msgstr ""
 #, kde-format
 msgid "Please set the calendar owner details in the application settings"
 msgstr ""
-"Establiu els detalls del propietari del calendari a la configuració de "
+"Establiu els detalls del propietari del calendari en la configuració de "
 "l'aplicació"
 
 #: contents/ui/Attendees.qml:114
