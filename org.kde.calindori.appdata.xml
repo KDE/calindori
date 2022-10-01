@@ -25,6 +25,7 @@
   <name xml:lang="ia">Calindori</name>
   <name xml:lang="id">Calindori</name>
   <name xml:lang="it">Calindori</name>
+  <name xml:lang="ka">Calindori</name>
   <name xml:lang="ko">Calindori</name>
   <name xml:lang="nl">Calindori</name>
   <name xml:lang="nn">Calindori</name>
@@ -58,6 +59,7 @@
   <summary xml:lang="ia">Application de calendario</summary>
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
+  <summary xml:lang="ka">კალენდრის აპლიკაცია</summary>
   <summary xml:lang="ko">캘린더 프로그램</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="nn">Kalenderprogram</summary>
@@ -152,6 +154,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -186,6 +189,7 @@
       <li xml:lang="ia">Agenda</li>
       <li xml:lang="id">Agenda</li>
       <li xml:lang="it">Agenda</li>
+      <li xml:lang="ka">აგენდა</li>
       <li xml:lang="ko">일정</li>
       <li xml:lang="nl">Agenda</li>
       <li xml:lang="nn">Timeplan</li>
@@ -218,6 +222,7 @@
       <li xml:lang="ia">Eventos</li>
       <li xml:lang="id">Peristiwa</li>
       <li xml:lang="it">Eventi</li>
+      <li xml:lang="ka">მოვლენები</li>
       <li xml:lang="ko">이벤트</li>
       <li xml:lang="nl">Afspraken</li>
       <li xml:lang="nn">Hendingar</li>
@@ -251,6 +256,7 @@
       <li xml:lang="ia">Cosas de facer</li>
       <li xml:lang="id">Kegiatan</li>
       <li xml:lang="it">Cose da fare</li>
+      <li xml:lang="ka">გეგმები</li>
       <li xml:lang="ko">할 일</li>
       <li xml:lang="nl">Taken</li>
       <li xml:lang="nn">Gjeremål</li>
@@ -283,6 +289,7 @@
       <li xml:lang="ia">Calendarios multiple</li>
       <li xml:lang="id">Multipel kalender</li>
       <li xml:lang="it">Calendari multipli</li>
+      <li xml:lang="ka">ბევრი კალენდარი</li>
       <li xml:lang="ko">다중 캘린더</li>
       <li xml:lang="nl">Meerdere agenda's</li>
       <li xml:lang="nn">Fleire kalendrar</li>
@@ -316,6 +323,7 @@
       <li xml:lang="ia">Importa calendario</li>
       <li xml:lang="id">Impor kalender</li>
       <li xml:lang="it">Importa calendario</li>
+      <li xml:lang="ka">კალენდრის შემოტანა</li>
       <li xml:lang="ko">캘린더 가져오기</li>
       <li xml:lang="nl">Agenda importeren </li>
       <li xml:lang="nn">Kalender­importering</li>
@@ -365,6 +373,7 @@
       <caption xml:lang="ia">Calindori sur Mobile</caption>
       <caption xml:lang="id">Calindori di Ponsel</caption>
       <caption xml:lang="it">Calindori su mobile</caption>
+      <caption xml:lang="ka">Calindori მობილურზე</caption>
       <caption xml:lang="ko">모바일 환경에서의 Calindori</caption>
       <caption xml:lang="nl">Calindori op mobiel</caption>
       <caption xml:lang="nn">Calindori på mobil</caption>
@@ -398,6 +407,7 @@
       <caption xml:lang="ia">Calindori sur scriptorio</caption>
       <caption xml:lang="id">Calindori di Desktop</caption>
       <caption xml:lang="it">Calindori su desktop</caption>
+      <caption xml:lang="ka">Calindori კომპიუტერზე</caption>
       <caption xml:lang="ko">데스크톱 환경에서의 Calindori</caption>
       <caption xml:lang="nl">Calindori op bureaublad</caption>
       <caption xml:lang="nn">Calindori på PC</caption>
