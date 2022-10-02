@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2022-09-30 15:29+0200\n"
+"PO-Revision-Date: 2022-10-01 16:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -288,7 +288,7 @@ msgstr "მოვლენები"
 #: contents/ui/CalindoriGlobalDrawer.qml:64
 #, kde-format
 msgid "Calendar"
-msgstr "კალენდერი"
+msgstr "კალენდარი"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:81
 #, kde-format
@@ -353,7 +353,7 @@ msgstr "მოვლენის შექმნა"
 #: contents/ui/WeekView.qml:163
 #, kde-format
 msgid "Create Task"
-msgstr ""
+msgstr "ამოცაის შექმნა"
 
 #: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
 #, kde-format
@@ -472,7 +472,7 @@ msgstr "დასრულებულია:"
 #: contents/ui/IncidenceListView.qml:53
 #, kde-format
 msgid "Show Completed"
-msgstr ""
+msgstr "დასრულებულების ჩვენება"
 
 #: contents/ui/IncidenceListView.qml:53
 #, kde-format
@@ -498,15 +498,15 @@ msgstr ""
 #, kde-format
 msgid "%1 task"
 msgid_plural "%1 tasks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ამოცანა"
+msgstr[1] "%1 ამოცანა"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:50
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 მოვლენა"
+msgstr[1] "%1 მოვლენა"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:100
 #, kde-format
@@ -620,28 +620,28 @@ msgstr "ყოველ:"
 msgid "year"
 msgid_plural "years"
 msgstr[0] "წელი"
-msgstr[1] ""
+msgstr[1] "წელი"
 
 #: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "month"
 msgid_plural "months"
 msgstr[0] "თვე"
-msgstr[1] ""
+msgstr[1] "თვე"
 
 #: contents/ui/RecurrencePickerSheet.qml:66
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] "კვირა"
-msgstr[1] ""
+msgstr[1] "კვირა"
 
 #: contents/ui/RecurrencePickerSheet.qml:67
 #, kde-format
 msgid "day"
 msgid_plural "days"
 msgstr[0] "დღე"
-msgstr[1] ""
+msgstr[1] "დღე"
 
 #: contents/ui/RecurrencePickerSheet.qml:72
 #, kde-format
@@ -652,13 +652,13 @@ msgstr ""
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
-msgstr[0] "გამეორებები"
-msgstr[1] ""
+msgstr[0] "გამეორება"
+msgstr[1] "გამეორებები"
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
 msgid "Never stop"
-msgstr ""
+msgstr "არასდროს გაჩერდე"
 
 #: contents/ui/ReminderEditor.qml:27
 #, kde-format
@@ -678,17 +678,17 @@ msgstr "წამი:"
 #: contents/ui/ReminderEditor.qml:55
 #, kde-format
 msgid "Minutes:"
-msgstr ""
+msgstr "წუთი:"
 
 #: contents/ui/ReminderEditor.qml:65
 #, kde-format
 msgid "Hours:"
-msgstr ""
+msgstr "საათი:"
 
 #: contents/ui/ReminderEditor.qml:74
 #, kde-format
 msgid "Days:"
-msgstr ""
+msgstr "დღე:"
 
 #: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
 #, kde-format
@@ -713,7 +713,7 @@ msgstr "შესახებ"
 #: contents/ui/SettingsPage.qml:40
 #, kde-format
 msgid "Calendars:"
-msgstr ""
+msgstr "კალენდრები:"
 
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
@@ -871,7 +871,7 @@ msgstr ""
 #: main.cpp:74
 #, kde-format
 msgid "Calindori"
-msgstr ""
+msgstr "Calindori"
 
 #: main.cpp:74
 #, kde-format
@@ -889,7 +889,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
-msgstr ""
+msgstr "Dimitris Kardarakos"
 
 #: main.cpp:79 main.cpp:81 main.cpp:83
 #, kde-format
