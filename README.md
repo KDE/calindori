@@ -10,7 +10,7 @@ Calendar application for Plasma Mobile.
 ## Links
 
 * Project page: https://invent.kde.org/plasma-mobile/calindori
-* File an issue: https://invent.kde.org/plasma-mobile/calindori/-/issues
+* File an issue: https://bugs.kde.org/describecomponents.cgi?product=calindori
 * Development channel: https://matrix.to/#/#plasmamobile:matrix.org
 
 ## Features
