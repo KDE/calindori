@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2022-10-01 16:25+0200\n"
+"PO-Revision-Date: 2022-11-29 10:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,56 +46,58 @@ msgstr "უარყოფილია"
 #: attendeesmodel.cpp:192
 #, kde-format
 msgid "Delegated"
-msgstr ""
+msgstr "დელეგირებული"
 
 #: attendeesmodel.cpp:195
 #, kde-format
 msgid "Not responded yet"
-msgstr ""
+msgstr "ჯერ პასუხის გარეშე"
 
 #: calendarcontroller.cpp:47
 #, kde-format
 msgid "The url or file given does not contain valid calendar data"
-msgstr ""
+msgstr "მითითებული ბმული ან ფაილი სწორ კალენდარის მონაცემებს არ შეიცავს"
 
 #: calendarcontroller.cpp:56
 #, kde-format
 msgid "The url or file given does not contain any event or task"
-msgstr ""
+msgstr "მითითებული ბმული ან ფაილი მოვლენას ან ამოცანას არ შეიცავს"
 
 #: calendarcontroller.cpp:63
 #, kde-format
 msgid "1 event will be added"
 msgid_plural "%1 events will be added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "დაემატება 1 მოვლენა"
+msgstr[1] "დაემატება %1 მოვლენა"
 
 #: calendarcontroller.cpp:65
 #, kde-format
 msgid "1 task will be added"
 msgid_plural "%1 tasks will be added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "დაემატება 1 ამოცანა"
+msgstr[1] "დაემატება %1 ამოცანა"
 
 #: calendarcontroller.cpp:68
 #, kde-format
 msgid "%1 incidences will be added"
-msgstr ""
+msgstr "დაემატება %1 ინციდენტი"
 
 #: calendarcontroller.cpp:132
 #, kde-format
 msgid "Import completed successfully"
-msgstr ""
+msgstr "შემოტანა წარმატებით დასრულდა"
 
 #: calendarcontroller.cpp:134
 #, kde-format
 msgid "An error has occurred during import"
-msgstr ""
+msgstr "შეცდომა შემოტანისას"
 
 #: calendarcontroller.cpp:312
 #, kde-format
 msgid "In case of all day events, start date and end date should be equal"
 msgstr ""
+"მთელდღიანი მოვლენების შემთხვევაში დაწყების და დასასრულის დროები ტოლი უნდა "
+"იყოს"
 
 #: calendarcontroller.cpp:322
 #, kde-format
@@ -105,12 +107,14 @@ msgstr ""
 #: calendarcontroller.cpp:334
 #, kde-format
 msgid "Daily events should not span multiple days"
-msgstr ""
+msgstr "დღიური მოვლენები ბევრ დღეზე არ უნდა იყოს გაჭიმული"
 
 #: calendarcontroller.cpp:454
 #, kde-format
 msgid "In case of all day tasks, start date and due date should be equal"
 msgstr ""
+"მთელდღიანი მოვლენების შემთხვევაში დაწყების და დასასრულის დროები ტოლი უნდა "
+"იყოს"
 
 #: calendarcontroller.cpp:461
 #, kde-format
@@ -120,32 +124,32 @@ msgstr ""
 #: calendarcontroller.cpp:484
 #, kde-format
 msgid "Cannot read calendar. Export failed."
-msgstr ""
+msgstr "კალენდარის წაკითხვის შეცდომა. გატანა შეუძლებელია."
 
 #: calendarcontroller.cpp:494
 #, kde-format
 msgid "Cannot load calendar. Export failed."
-msgstr ""
+msgstr "კალენდარის ჩატვირთვის შეცდომა. გატანა შეუძლებელია."
 
 #: calendarcontroller.cpp:509
 #, kde-format
 msgid "Cannot save calendar file. Export failed."
-msgstr ""
+msgstr "კალენდრის ფაილის შენახვის შეცდომა. გატანა წარუმატებელია."
 
 #: calendarcontroller.cpp:516
 #, kde-format
 msgid "Export completed successfully"
-msgstr ""
+msgstr "გატანა წარმატებით დასრულდა"
 
 #: calindoriconfig.cpp:78
 #, kde-format
 msgid "Calendar name contains invalid characters"
-msgstr ""
+msgstr "კალენდარის სახელი არასწორ სიმბოლოებს შეიცავს"
 
 #: calindoriconfig.cpp:99
 #, kde-format
 msgid "Calendar already exists"
-msgstr ""
+msgstr "კალენდარი უკვე არსებობს"
 
 #: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
 #, kde-format
@@ -197,7 +201,7 @@ msgstr "არასავალდებულო"
 #: contents/ui/AttendeeRoleEditor.qml:49
 #, kde-format
 msgid "Non-participant"
-msgstr ""
+msgstr "არამონაწილე"
 
 #: contents/ui/AttendeeRoleEditor.qml:56
 #, kde-format
@@ -219,7 +223,7 @@ msgstr ""
 #: contents/ui/Attendees.qml:114
 #, kde-format
 msgid "No attendees yet"
-msgstr ""
+msgstr "ჯერ დამსწრეების გარეშე"
 
 #: contents/ui/Attendees.qml:151
 #, kde-format
@@ -229,7 +233,7 @@ msgstr "დახურვა"
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
-msgstr ""
+msgstr "ახალი კალენდარი"
 
 #: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
 #, kde-format
@@ -324,7 +328,7 @@ msgstr "კალენდრები"
 #: contents/ui/ManageCalendarsPage.qml:76
 #, kde-format
 msgid "Calendar %1 has been activated"
-msgstr ""
+msgstr "კალენდარი %1 გააქტიურებულია"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
 #, kde-format
@@ -418,12 +422,12 @@ msgstr "დამსწრეები"
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled for %1"
-msgstr ""
+msgstr "%1-სთვის მოვლენები დაგეგმილი არაა"
 
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled"
-msgstr ""
+msgstr "დაგეგმილი მოვლენების გარეშე"
 
 #: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
 #: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
@@ -442,7 +446,7 @@ msgstr "ჩასწორება"
 #: contents/ui/EventsCardView.qml:82
 #, kde-format
 msgid "Event %1 will be deleted"
-msgstr ""
+msgstr "მოვლენა %1 წაიშლება"
 
 #: contents/ui/IncidenceEditor.qml:23
 #, kde-format
@@ -477,22 +481,22 @@ msgstr "დასრულებულების ჩვენება"
 #: contents/ui/IncidenceListView.qml:53
 #, kde-format
 msgid "Hide Completed"
-msgstr ""
+msgstr "დასრულებულის დამალვა"
 
 #: contents/ui/IncidenceListView.qml:63
 #, kde-format
 msgid "Nothing scheduled for %1"
-msgstr ""
+msgstr "%1-სთვის არაფერი დაგეგმილი არაა"
 
 #: contents/ui/IncidenceListView.qml:63
 #, kde-format
 msgid "Nothing scheduled"
-msgstr ""
+msgstr "დაგეგმილი არაფერი არაა"
 
 #: contents/ui/IncidencePage.qml:61
 #, kde-format
 msgid "%1 will be deleted"
-msgstr ""
+msgstr "%1 წაიშლება"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:48
 #, kde-format
@@ -526,27 +530,27 @@ msgstr "შექმნა"
 #: contents/ui/ManageCalendarsPage.qml:41
 #, kde-format
 msgid "No external calendars found"
-msgstr ""
+msgstr "გარე კალენდარები ვერ ვიპოვე"
 
 #: contents/ui/ManageCalendarsPage.qml:42
 #, kde-format
 msgid "No calendars found"
-msgstr ""
+msgstr "კალენდარები ვერ ვიპოვე"
 
 #: contents/ui/ManageCalendarsPage.qml:43
 #, kde-format
 msgid "Import an existing calendar file."
-msgstr ""
+msgstr "არსებული კალენდარის ფაილის შემოტანა."
 
 #: contents/ui/ManageCalendarsPage.qml:44
 #, kde-format
 msgid "Add a new calendar."
-msgstr ""
+msgstr "ახალი კალენდარის დამატება."
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
 msgid "Modify "
-msgstr ""
+msgstr "შეცვლა "
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -557,7 +561,7 @@ msgstr "აქტივაცია"
 #: contents/ui/ManageCalendarsPage.qml:102
 #, kde-format
 msgid "Calendar must not be active when being deleted."
-msgstr ""
+msgstr "წაშლისას კალენდარი აქტიური უნდა იყოს."
 
 #: contents/ui/ManageCalendarsPage.qml:96
 #, kde-format
@@ -572,7 +576,7 @@ msgstr "დეტალების ჩასწორება"
 #: contents/ui/ManageCalendarsPage.qml:119
 #, kde-format
 msgid "Import calendar file"
-msgstr ""
+msgstr "კალენდარის ფაილის შემოტანა"
 
 #: contents/ui/ManageCalendarsPage.qml:129
 #, kde-format
@@ -588,7 +592,7 @@ msgstr "დადასტურება"
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
-msgstr ""
+msgstr "ამ კალენდარში არსებული მონაცემები წაიშლება. გნებავთ, გააგრძელოთ?"
 
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
@@ -646,7 +650,7 @@ msgstr[1] "დღე"
 #: contents/ui/RecurrencePickerSheet.qml:72
 #, kde-format
 msgid "Stop After:"
-msgstr ""
+msgstr "გაჩერება შემდეგ:"
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
@@ -663,12 +667,12 @@ msgstr "არასდროს გაჩერდე"
 #: contents/ui/ReminderEditor.qml:27
 #, kde-format
 msgid "New Reminder"
-msgstr ""
+msgstr "ახალი შეხსენება"
 
 #: contents/ui/ReminderEditor.qml:33
 #, kde-format
 msgid "Time before start"
-msgstr ""
+msgstr "დრო დასაწყისამდე"
 
 #: contents/ui/ReminderEditor.qml:46
 #, kde-format
@@ -698,7 +702,7 @@ msgstr "კარგი"
 #: contents/ui/Reminders.qml:57
 #, kde-format
 msgid "No reminders yet"
-msgstr ""
+msgstr "შეხსენებების გარეშე"
 
 #: contents/ui/SettingsPage.qml:25
 #, kde-format
@@ -718,37 +722,37 @@ msgstr "კალენდრები:"
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Manage internal calendars"
-msgstr ""
+msgstr "შიდა კალენდარების მართვა"
 
 #: contents/ui/SettingsPage.qml:48
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr ""
+msgstr "შიდა კალენდარების მართვა"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage external calendars"
-msgstr ""
+msgstr "გარე კალენდარების მართვა"
 
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage External Calendars"
-msgstr ""
+msgstr "გარე კალენდარების მართვა"
 
 #: contents/ui/SettingsPage.qml:78
 #, kde-format
 msgid "Initial duration (minutes):"
-msgstr ""
+msgstr "ღამის ხანგრძლივობა (წუთებში):"
 
 #: contents/ui/SettingsPage.qml:88
 #, kde-format
 msgid "Remind before event (minutes):"
-msgstr ""
+msgstr "შეხსენება მოვლენამდე (წუთებში):"
 
 #: contents/ui/SettingsPage.qml:97
 #, kde-format
 msgid "Add reminder to new events:"
-msgstr ""
+msgstr "ახალი მოვლენებისთვის შეხსენების დამატება:"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
@@ -763,27 +767,27 @@ msgstr "თარიღამდე"
 #: contents/ui/TodoEditorPage.qml:135
 #, kde-format
 msgid "Due Time"
-msgstr ""
+msgstr "დრომდე"
 
 #: contents/ui/TodoEditorPage.qml:160
 #, kde-format
 msgid "All day:"
-msgstr ""
+msgstr "მთელი დღე:"
 
 #: contents/ui/TodosCardView.qml:37
 #, kde-format
 msgid "No tasks scheduled for %1"
-msgstr ""
+msgstr "%1-სთვის ამოცანები განრიგში არ გაქვთ"
 
 #: contents/ui/TodosCardView.qml:37
 #, kde-format
 msgid "No tasks scheduled"
-msgstr ""
+msgstr "ამოცანების განრიგში არ გაქვთ"
 
 #: contents/ui/TodosCardView.qml:81
 #, kde-format
 msgid "Task %1 will be deleted"
-msgstr ""
+msgstr "ამოცანა %1 წაიშლება"
 
 #: contents/ui/WeekPage.qml:22
 #, kde-format
@@ -793,7 +797,7 @@ msgstr "წინა კვირა"
 #: contents/ui/WeekPage.qml:29
 #, kde-format
 msgid "Current Week"
-msgstr ""
+msgstr "მიმდინარე კვირა"
 
 #: contents/ui/WeekPage.qml:36
 #, kde-format
@@ -803,45 +807,45 @@ msgstr "შემდეგი კვირა"
 #: incidencealarmsmodel.cpp:157
 #, kde-format
 msgid "days before start"
-msgstr ""
+msgstr "დღე დაწყებამდე"
 
 #: incidencealarmsmodel.cpp:160
 #, kde-format
 msgid "seconds before start"
-msgstr ""
+msgstr "წამი დაწყებამდე"
 
 #: incidencealarmsmodel.cpp:202
 #, kde-format
 msgid "At start time"
-msgstr ""
+msgstr "დაწყების დროს"
 
 #: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
 #, kde-format
 msgid "1 day before start"
 msgid_plural "%1 days before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 დღე დაწყებამდე"
+msgstr[1] "%1 დღე დაწყებამდე"
 
 #: incidencealarmsmodel.cpp:216
 #, kde-format
 msgid "1 hour before start"
 msgid_plural "%1 hours before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 საათი დაწყებამდე"
+msgstr[1] "%1 საათი დაწყებამდე"
 
 #: incidencealarmsmodel.cpp:220
 #, kde-format
 msgid "1 minute before start"
 msgid_plural "%1 minutes before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 წუთი დაწყებამდე"
+msgstr[1] "%1 წუთი დაწყებამდე"
 
 #: incidencealarmsmodel.cpp:223
 #, kde-format
 msgid "1 second before start"
 msgid_plural "%1 seconds before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 წამი დაწყებამდე"
+msgstr[1] "%1 წამი დაწყებამდე"
 
 #: incidencemodel.cpp:173
 #, kde-format
@@ -856,7 +860,7 @@ msgstr "დავალება"
 #: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
 #, kde-format
 msgid "all-day"
-msgstr ""
+msgstr "მთელი-დღე"
 
 #: incidencemodel.cpp:523
 #, kde-format
@@ -912,7 +916,7 @@ msgstr "Devin Lin"
 #: recurrenceperiodmodel.cpp:114
 #, kde-format
 msgid "Do not repeat"
-msgstr ""
+msgstr "არ გაიმეორო"
 
 #: recurrenceperiodmodel.cpp:118
 #, kde-format
