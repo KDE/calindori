@@ -30,9 +30,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://anongit.kde.org/kcalendarcore.git",
-                    "tag": "v5.76.0",
-                    "commit": "0d1c3cf8cb32d94e0cd85fc555f0ef5da81bf81d"
+                    "url": "https://invent.kde.org/frameworks/kcalendarcore.git",
+                    "branch": "master"
                 }
             ],
             "modules": [
@@ -45,7 +44,7 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz",
+                            "url": "https://github.com/libical/libical/releases/download/v3.0.16/libical-3.0.16.tar.gz",
                             "sha256": "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
                         }
                     ],
@@ -62,8 +61,7 @@
                 {
                 "type": "git",
                 "url": "https://invent.kde.org/frameworks/kpeople.git",
-                "tag": "v5.76.0",
-                "commit": "782a9316014563a79aaed32d6ac6f3cdb7329868"
+                "branch": "master"
                 }
             ]
         },
