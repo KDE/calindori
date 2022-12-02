@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2022-11-29 10:38+0100\n"
+"PO-Revision-Date: 2022-12-01 08:30+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -102,7 +102,7 @@ msgstr ""
 #: calendarcontroller.cpp:322
 #, kde-format
 msgid "End date time should be equal to or greater than the start date time"
-msgstr ""
+msgstr "დასრულებს თარიღი დასაწყისის თარიღზე მეტი ან ტოლი უნდა იყოს"
 
 #: calendarcontroller.cpp:334
 #, kde-format
@@ -119,7 +119,7 @@ msgstr ""
 #: calendarcontroller.cpp:461
 #, kde-format
 msgid "Due date time should be equal to or greater than the start date time"
-msgstr ""
+msgstr "გადაცილების თარიღი დასაწყისის თარიღზე მეტი ან ტოლი უნდა იყოს"
 
 #: calendarcontroller.cpp:484
 #, kde-format
@@ -206,7 +206,7 @@ msgstr "არამონაწილე"
 #: contents/ui/AttendeeRoleEditor.qml:56
 #, kde-format
 msgid "Chairperson"
-msgstr ""
+msgstr "თავმჯდომარე"
 
 #: contents/ui/Attendees.qml:25
 #, kde-format
@@ -214,11 +214,13 @@ msgid ""
 "Attendee management is available only in external calendars that are "
 "synchronized online"
 msgstr ""
+"დამსწრეების მართვა მხოლოდ ონლაინ სინქრონიზებად გარე კალენდარებშია "
+"ხელმისაწვდომი"
 
 #: contents/ui/Attendees.qml:31
 #, kde-format
 msgid "Please set the calendar owner details in the application settings"
-msgstr ""
+msgstr "დააყენეთ კალენდარის მფლობელის დეტალები აპლიკაციის პარამეტრებში"
 
 #: contents/ui/Attendees.qml:114
 #, kde-format
@@ -865,12 +867,12 @@ msgstr "მთელი-დღე"
 #: incidencemodel.cpp:523
 #, kde-format
 msgid "No Due Date"
-msgstr ""
+msgstr "გადაცილებული თარიღის გარეშე"
 
 #: localcalendar.cpp:97
 #, kde-format
 msgid "A calendar with the same name already exists"
-msgstr ""
+msgstr "კალენდარი ამ სახელით უკვე არსებობს"
 
 #: main.cpp:74
 #, kde-format
@@ -887,7 +889,7 @@ msgstr "კალენდრის აპლიკაცია"
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr ""
+msgstr "(c) 2018-2022 Calindori -ის გუნდი"
 
 #: main.cpp:79
 #, kde-format
@@ -975,5 +977,5 @@ msgstr "არასდროს"
 #, kde-format
 msgid "; once"
 msgid_plural "; %1 times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "; ერთხელ"
+msgstr[1] "; %1 -ჯერ"
