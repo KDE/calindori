@@ -8,7 +8,6 @@ Dependencies:
     'frameworks/kcoreaddons': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/ki18n': '@stable'
-    'frameworks/plasma-framework': '@stable'
     'frameworks/kirigami': '@stable'
     'frameworks/kdbusaddons': '@stable'
     'frameworks/knotifications': '@stable'
