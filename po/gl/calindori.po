@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.08.3\n"
-"X-Qt-Contexts: true\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -332,10 +331,9 @@ msgid "Events List"
 msgstr "Eventos"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
-#, fuzzy, kde-format
-#| msgid "Calendar:"
+#, kde-format
 msgid "Calendars"
-msgstr "Calendario:"
+msgstr "Calendarios"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
 #: contents/ui/ManageCalendarsPage.qml:76
@@ -903,10 +901,9 @@ msgstr[0] "segundos ata o comezo"
 msgstr[1] "segundos ata o comezo"
 
 #: incidencemodel.cpp:173
-#, fuzzy, kde-format
-#| msgid "Events"
+#, kde-format
 msgid "Event"
-msgstr "Eventos"
+msgstr "Evento"
 
 #: incidencemodel.cpp:175
 #, fuzzy, kde-format
