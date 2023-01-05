@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
-# Stelios <sstavra@gmail.com>, 2020, 2021.
+# Stelios <sstavra@gmail.com>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2021-06-03 12:18+0300\n"
+"PO-Revision-Date: 2023-01-04 11:37+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -540,30 +540,27 @@ msgstr "Δημιουργία"
 #: contents/ui/ManageCalendarsPage.qml:41
 #, kde-format
 msgid "No external calendars found"
-msgstr ""
+msgstr "Δεν βρέθηκαν εξωτερικά ημερολόγια"
 
 #: contents/ui/ManageCalendarsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "No contacts found"
+#, kde-format
 msgid "No calendars found"
-msgstr "Δεν βρέθηκαν επαφές"
+msgstr "Δεν βρέθηκαν ημερολόγια"
 
 #: contents/ui/ManageCalendarsPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Please import a calendar file"
+#, kde-format
 msgid "Import an existing calendar file."
-msgstr "Εισαγάγετε ένα αρχείο ημερολογίου"
+msgstr "Εισαγάγετε ένα υπαρκτό αρχείο ημερολογίου."
 
 #: contents/ui/ManageCalendarsPage.qml:44
-#, fuzzy, kde-format
-#| msgid "New calendar"
+#, kde-format
 msgid "Add a new calendar."
-msgstr "Νέο ημερολόγιο"
+msgstr "Προσθήκη νέου ημερολογίου."
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
 msgid "Modify "
-msgstr ""
+msgstr "Τροποποίηση "
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -574,7 +571,7 @@ msgstr "Ενεργοποίηση"
 #: contents/ui/ManageCalendarsPage.qml:102
 #, kde-format
 msgid "Calendar must not be active when being deleted."
-msgstr ""
+msgstr "Το ημερολόγιο δεν πρέπει να είναι ενεργό όταν διαγράφεται."
 
 #: contents/ui/ManageCalendarsPage.qml:96
 #, kde-format
@@ -582,22 +579,19 @@ msgid "Remove"
 msgstr "Αφαίρεση"
 
 #: contents/ui/ManageCalendarsPage.qml:110
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgid "Edit details"
-msgstr "Λεπτομέρειες"
+msgstr "Επεξεργασία λεπτομερειών"
 
 #: contents/ui/ManageCalendarsPage.qml:119
-#, fuzzy, kde-format
-#| msgid "Import calendar"
+#, kde-format
 msgid "Import calendar file"
-msgstr "Εισαγωγή ημερολογίου"
+msgstr "Εισαγωγή αρχείου ημερολογίου"
 
 #: contents/ui/ManageCalendarsPage.qml:129
-#, fuzzy, kde-format
-#| msgid "Please import a calendar file"
+#, kde-format
 msgid "Export calendar to file"
-msgstr "Εισαγάγετε ένα αρχείο ημερολογίου"
+msgstr "Εξαγωγή ημερολογίου σε αρχείο"
 
 #: contents/ui/ManageCalendarsPage.qml:153
 #, kde-format
@@ -615,7 +609,7 @@ msgstr ""
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
 msgid "Modify"
-msgstr ""
+msgstr "Τροποποίηση"
 
 #: contents/ui/MessageBoard.qml:32
 #, kde-format
@@ -725,7 +719,7 @@ msgstr "Χωρίς υπενθυμίσεις ακόμη"
 #: contents/ui/SettingsPage.qml:25
 #, kde-format
 msgid "More Info:"
-msgstr ""
+msgstr "Περισσότερες πληροφορίες:"
 
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
@@ -733,48 +727,44 @@ msgid "About"
 msgstr "Περίγραμμα"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Calendars"
+#, kde-format
 msgid "Calendars:"
 msgstr "Ημερολόγια:"
 
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Manage internal calendars"
-msgstr ""
+msgstr "Διαχείριση εσωτερικών ημερολογίων"
 
 #: contents/ui/SettingsPage.qml:48
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr ""
+msgstr "Διαχείριση εσωτερικών ημερολογίων"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage external calendars"
-msgstr ""
+msgstr "Διαχείριση εξωτερικών ημερολογίων"
 
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage External Calendars"
-msgstr ""
+msgstr "Διαχείριση εξωτερικών ημερολογίων"
 
 #: contents/ui/SettingsPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes)"
+#, kde-format
 msgid "Initial duration (minutes):"
-msgstr "Αρχική διάρκεια (λεπτά)"
+msgstr "Αρχική διάρκεια (λεπτά):"
 
 #: contents/ui/SettingsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes)"
+#, kde-format
 msgid "Remind before event (minutes):"
-msgstr "Υπενθύμιση πριν το γεγονός (λεπτά)"
+msgstr "Υπενθύμιση πριν το γεγονός (λεπτά):"
 
 #: contents/ui/SettingsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events"
+#, kde-format
 msgid "Add reminder to new events:"
-msgstr "Προσθήκη υπενθύμισης σε νέα γεγονότα"
+msgstr "Προσθήκη υπενθύμισης σε νέα γεγονότα:"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
@@ -817,8 +807,7 @@ msgid "Previous week"
 msgstr "Προηγούμενη εβδομάδα"
 
 #: contents/ui/WeekPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Current week"
+#, kde-format
 msgid "Current Week"
 msgstr "Τρέχουσα εβδομάδα"
 
@@ -907,12 +896,10 @@ msgid "Calendar application"
 msgstr "Εφαρμογή ημερολογίου"
 
 #: main.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2018-2021 The Calindori Team"
+#, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr "(c) 2018-2021 Η ομάδα του Calindori"
+msgstr "(c) 2018-2022 Η ομάδα του Calindori"
 
 #: main.cpp:79
 #, kde-format
@@ -936,7 +923,7 @@ msgstr "Nicolas Fella"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"
-msgstr ""
+msgstr "Devin Lin"
 
 #: recurrenceperiodmodel.cpp:114
 #, kde-format
