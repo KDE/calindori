@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2023-01-04 11:37+0200\n"
+"PO-Revision-Date: 2023-01-05 09:04+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -294,40 +294,34 @@ msgstr "Γεγονότα"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:54
 #: contents/ui/CalindoriGlobalDrawer.qml:64
-#, fuzzy, kde-format
-#| msgid "Calendar:"
+#, kde-format
 msgid "Calendar"
-msgstr "Ημερολόγιο:"
+msgstr "Ημερολόγιο"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:81
-#, fuzzy, kde-format
-#| msgid "Month"
+#, kde-format
 msgid "Month View"
-msgstr "Μήνας"
+msgstr "Προβολή μηνών"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:104
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Week View"
-msgstr "Προβολή"
+msgstr "Προβολή εβδομάδων"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:127
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Day View"
-msgstr "Προβολή"
+msgstr "Προβολή ημερών"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:150
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Tasks List"
-msgstr "Εργασίες"
+msgstr "Λίστα εργασιών"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:172
-#, fuzzy, kde-format
-#| msgid "Events"
+#, kde-format
 msgid "Events List"
-msgstr "Γεγονότα"
+msgstr "Λίστα γεγονότων"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
 #, kde-format
