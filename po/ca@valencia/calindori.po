@@ -739,7 +739,7 @@ msgstr "Gestiona els calendaris interns"
 #: contents/ui/SettingsPage.qml:48
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr "Gestió dels calendaris interns"
+msgstr "Gestioneu els calendaris interns"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -749,7 +749,7 @@ msgstr "Gestiona els calendaris externs"
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage External Calendars"
-msgstr "Gestió dels calendaris externs"
+msgstr "Gestioneu els calendaris externs"
 
 #: contents/ui/SettingsPage.qml:78
 #, kde-format
