@@ -13,7 +13,8 @@
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
                   android:label="Calindori"
                   android:windowSoftInputMode="adjustResize"
-                  android:launchMode="singleTop">
+                  android:launchMode="singleTop"
+                  android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
