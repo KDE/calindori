@@ -1,7 +1,7 @@
 {
     "id": "org.kde.calindori",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "5.15-22.08",
     "sdk": "org.kde.Sdk",
     "command": "calindori",
     "rename-icon": "calindori",
@@ -31,7 +31,7 @@
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/frameworks/kcalendarcore.git",
-                    "branch": "master"
+                    "branch": "kf5"
                 }
             ],
             "modules": [
@@ -61,7 +61,7 @@
                 {
                 "type": "git",
                 "url": "https://invent.kde.org/frameworks/kpeople.git",
-                "branch": "master"
+                "branch": "kf5"
                 }
             ]
         },
