@@ -373,7 +373,7 @@ msgstr "Início:"
 #: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
 #, kde-format
 msgid "Start Date"
-msgstr "Data Inicial"
+msgstr "Data de Início"
 
 #: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
 #, kde-format
