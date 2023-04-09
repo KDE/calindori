@@ -31,11 +31,11 @@ target_link_libraries(calindori
     Qt::Svg
     Qt::Network
     Qt::QuickControls2
-    KF5::ConfigCore 
-    KF5::I18n 
-    KF5::CalendarCore 
-    KF5::CoreAddons 
-    KF5::People
+    KF${QT_MAJOR_VERSION}::ConfigCore 
+    KF${QT_MAJOR_VERSION}::I18n 
+    KF${QT_MAJOR_VERSION}::CalendarCore 
+    KF${QT_MAJOR_VERSION}::CoreAddons 
+    KF${QT_MAJOR_VERSION}::People
 )
 if (BUILD_TESTING)
     target_link_libraries(calindori Qt::Test)
@@ -87,7 +87,7 @@ if(ANDROID)
     window-close-symbolic
 )
 else()
-    target_link_libraries(calindori Qt::Widgets Qt::DBus KF5::DBusAddons)
+    target_link_libraries(calindori Qt::Widgets Qt::DBus KF${QT_MAJOR_VERSION}::DBusAddons)
 endif()
 
 install(TARGETS calindori ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
