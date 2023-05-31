@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -64,14 +64,12 @@ msgstr ""
 msgid "1 event will be added"
 msgid_plural "%1 events will be added"
 msgstr[0] ""
-msgstr[1] ""
 
 #: calendarcontroller.cpp:65
 #, kde-format
 msgid "1 task will be added"
 msgid_plural "%1 tasks will be added"
 msgstr[0] ""
-msgstr[1] ""
 
 #: calendarcontroller.cpp:68
 #, kde-format
@@ -495,14 +493,12 @@ msgstr ""
 msgid "%1 task"
 msgid_plural "%1 tasks"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:50
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/kirigami-playground/TimePicker.qml:100
 #, kde-format
@@ -616,28 +612,24 @@ msgstr ""
 msgid "year"
 msgid_plural "years"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "month"
 msgid_plural "months"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/RecurrencePickerSheet.qml:66
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/RecurrencePickerSheet.qml:67
 #, kde-format
 msgid "day"
 msgid_plural "days"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/RecurrencePickerSheet.qml:72
 #, kde-format
@@ -649,7 +641,6 @@ msgstr ""
 msgid "repeat"
 msgid_plural "repeats"
 msgstr[0] ""
-msgstr[1] ""
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
@@ -816,28 +807,24 @@ msgstr ""
 msgid "1 day before start"
 msgid_plural "%1 days before start"
 msgstr[0] ""
-msgstr[1] ""
 
 #: incidencealarmsmodel.cpp:216
 #, kde-format
 msgid "1 hour before start"
 msgid_plural "%1 hours before start"
 msgstr[0] ""
-msgstr[1] ""
 
 #: incidencealarmsmodel.cpp:220
 #, kde-format
 msgid "1 minute before start"
 msgid_plural "%1 minutes before start"
 msgstr[0] ""
-msgstr[1] ""
 
 #: incidencealarmsmodel.cpp:223
 #, kde-format
 msgid "1 second before start"
 msgid_plural "%1 seconds before start"
 msgstr[0] ""
-msgstr[1] ""
 
 #: incidencemodel.cpp:173
 #, kde-format
@@ -935,28 +922,24 @@ msgstr ""
 msgid "Every year"
 msgid_plural "Every %1 years"
 msgstr[0] ""
-msgstr[1] ""
 
 #: recurrenceperiodmodel.cpp:134
 #, kde-format
 msgid "Every month"
 msgid_plural "Every %1 months"
 msgstr[0] ""
-msgstr[1] ""
 
 #: recurrenceperiodmodel.cpp:135
 #, kde-format
 msgid "Every week"
 msgid_plural "Every %1 weeks"
 msgstr[0] ""
-msgstr[1] ""
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
 msgid "Every day"
 msgid_plural "Every %1 days"
 msgstr[0] ""
-msgstr[1] ""
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
@@ -968,4 +951,3 @@ msgstr ""
 msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] ""
-msgstr[1] ""
