@@ -55,7 +55,7 @@
   <summary xml:lang="eu">Egutegiko aplikazioa</summary>
   <summary xml:lang="fi">Kalenterisovellus</summary>
   <summary xml:lang="fr">Application d'agenda</summary>
-  <summary xml:lang="gl">Aplicación de calendario</summary>
+  <summary xml:lang="gl">Aplicación de calendario.</summary>
   <summary xml:lang="ia">Application de calendario</summary>
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
@@ -372,6 +372,7 @@
       <caption xml:lang="eu">Calindori mugikorrean</caption>
       <caption xml:lang="fi">Mobiili-Calindori</caption>
       <caption xml:lang="fr">Calindori sur plate-forme mobile</caption>
+      <caption xml:lang="gl">Calindori nun móbil.</caption>
       <caption xml:lang="ia">Calindori sur Mobile</caption>
       <caption xml:lang="id">Calindori di Ponsel</caption>
       <caption xml:lang="it">Calindori su mobile</caption>
@@ -406,6 +407,7 @@
       <caption xml:lang="eu">Calindori mahaigainean</caption>
       <caption xml:lang="fi">Työpöytä-Calindori</caption>
       <caption xml:lang="fr">Calindori sur ordinateur de bureau</caption>
+      <caption xml:lang="gl">Calindori nun escritorio.</caption>
       <caption xml:lang="ia">Calindori sur scriptorio</caption>
       <caption xml:lang="id">Calindori di Desktop</caption>
       <caption xml:lang="it">Calindori su desktop</caption>
