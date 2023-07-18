@@ -37,7 +37,7 @@
   <name xml:lang="sk">Calindori</name>
   <name xml:lang="sl">Calindori</name>
   <name xml:lang="sv">Calindori</name>
-  <name xml:lang="tr">Yapraklı Takvim</name>
+  <name xml:lang="tr">Calindori</name>
   <name xml:lang="uk">Calindori</name>
   <name xml:lang="x-test">xxCalindorixx</name>
   <name xml:lang="zh-CN">Calindori</name>
@@ -104,7 +104,7 @@
     <p xml:lang="ru">Calindori — программа-календарь для сенсорных интерфейсов. Она разработана для мобильных устройств, но ей можно пользоваться и на обычных рабочих станциях. Пользователи Calindori могут проверять записи для прошедших и будущих дат и управлять соответствующими задачами и событиями.</p>
     <p xml:lang="sl">Calindori je dotikom prijazna aplikacija za koledar. Zasnovana je za mobilne naprave, vendar lahko deluje tudi v namiznih okoljih. Uporabniki Calindore lahko preverjajo prejšnje in prihodnje datume ter upravljajo z nalogami in dogodki.</p>
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
-    <p xml:lang="tr">Yapraklı Takvim, dokunmatik ekran dostu bir takvim uygulamasıdır. Taşınabilir aygıtlar için tasarlanmıştır; ancak masaüstü ortamlarında da çalışabilir. Yapraklı Takvim kullanıcıları, geçmiş ve gelecek tarihleri denetleyebilir, görevleri ve etkinlikleri düzenleyebilir.</p>
+    <p xml:lang="tr">Calindori, dokunmatik ekran dostu bir takvim uygulamasıdır. Taşınabilir aygıtlar için tasarlanmıştır; ancak masaüstü ortamlarında da çalışabilir. Calindori kullanıcıları, geçmiş ve gelecek tarihleri denetleyebilir, görevleri ve etkinlikleri düzenleyebilir.</p>
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
     <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
     <p xml:lang="zh-CN">Calindori 是一款适合触控的日历应用程序。它针对移动设备设计，也可以运行在桌面环境上。用户可以使用 Calindori 查看指定的日期，并管理任务和活动。</p>
@@ -387,7 +387,7 @@
       <caption xml:lang="ru">Calindori на мобильном устройстве</caption>
       <caption xml:lang="sl">Calindori na mobilni napravi</caption>
       <caption xml:lang="sv">Calindori på mobil</caption>
-      <caption xml:lang="tr">Taşınabilirde Yapraklı Takvim</caption>
+      <caption xml:lang="tr">Taşınabilirde Calindori</caption>
       <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
       <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
       <caption xml:lang="zh-CN">Calindori 移动版</caption>
@@ -422,7 +422,7 @@
       <caption xml:lang="ru">Calindori на компьютере</caption>
       <caption xml:lang="sl">Calindori na namizju</caption>
       <caption xml:lang="sv">Calindori på skrivbord</caption>
-      <caption xml:lang="tr">Masaüstünde Yapraklı Takvim</caption>
+      <caption xml:lang="tr">Masaüstünde Calindori</caption>
       <caption xml:lang="uk">Calindori на комп'ютері</caption>
       <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
       <caption xml:lang="zh-CN">Calindori 桌面版</caption>
