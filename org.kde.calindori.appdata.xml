@@ -60,7 +60,7 @@
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
   <summary xml:lang="ka">კალენდრის აპლიკაცია</summary>
-  <summary xml:lang="ko">캘린더 프로그램</summary>
+  <summary xml:lang="ko">캘린더 앱</summary>
   <summary xml:lang="nl">Agendatoepassing</summary>
   <summary xml:lang="nn">Kalenderprogram</summary>
   <summary xml:lang="pa">ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ</summary>
@@ -94,7 +94,7 @@
     <p xml:lang="id">Calindori adalah sebuah aplikasi kalender sentuhan yang akrab. Ini sudah dirancang untuk peranti genggam tetapi juga bisa berjalan pada lingkungan desktop. Penggunaan Calindori bisa untuk memeriksa sebelumnya dan  keakanan tanggal dan mengelola tugas dan peristiwa.</p>
     <p xml:lang="it">Calindori è un'applicazione calendario amichevole. È stato progettato per i dispositivi mobili, ma può anche funzionare in ambienti desktop. Gli utenti di Calindori sono in grado di controllare date precedenti e future, e di gestire attività ed eventi.</p>
     <p xml:lang="ka">Calindori სენსორულ ეკრანებთან მეგობრობს. ის შეიქმნა მობილური მოწყობილობებისათვის, მაგრამ კომპიუტერზეც მუშაობს. Calindori-ის მომხმარებლებს წინა და მომავალი თარიღების შემოწმება და ამოცანებისა და მოვლენების მართვა შეუძლიათ.</p>
-    <p xml:lang="ko">Calindort는 터치 친화적 캘린더 프로그램입니다. 모바일 장치뿐만 아니라 데스크톱 환경에서도 실행할 수 있습니다. Calindori를 사용하면 과거와 미래 날짜를 보고 작업과 이벤트를 관리할 수 있습니다.</p>
+    <p xml:lang="ko">Calindori는 터치 친화적 캘린더 앱입니다. 모바일 장치뿐만 아니라 데스크톱 환경에서도 실행할 수 있습니다. Calindori를 사용하면 과거와 미래 날짜를 보고 작업과 이벤트를 관리할 수 있습니다.</p>
     <p xml:lang="nl">Calindori is een agendatoepassing vriendelijk voor aanraken. Het is ontworpen voor mobiele apparaten maar het kan ook in een bureaubladomgeving werken. Gebruikers van Calindori kunnen eerdere en toekomstige datums controleren en taken en afspraken beheren.</p>
     <p xml:lang="nn">Calindori er eit kalender­program eigna for trykk­skjermar. Det er laga for mobil­telefonar, men kan òg brukast på vanlege datamaskiner. Du kan bruka det som ein kalender og til å halda oversikt over gjeremål og hendingar.</p>
     <p xml:lang="pa">ਕੈਲਿੰਡੋਰੀ ਟੱਚ ਲਈ ਢੁੱਕਵੀਂ ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਨੂੰ ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਪਰ ਇਹ ਡੈਸਕਟਾਪ ਮਾਹੌਲ ਵਿੱਚ ਵੀ ਚੱਲ ਸਕਦੀ ਹੈ। ਕੈਲਿੰਡੋਰੀ ਦੇ ਵਰਤੋਂਕਾਰ ਪਿਛਲੀਆਂ ਤੇ ਭਵਿੱਖ ਦੀਆਂ ਤਾਰੀਖਾਂ ਵੇਖ ਅਤੇ ਕੰਮ ਤੇ ਸਮਾਗਮਾਂ ਦਾ ਇੰਤਾਜ਼ਮ ਕਰ ਸਕਦੇ ਹਨ।</p>
@@ -125,7 +125,7 @@
     <p xml:lang="id">Ketika pengeksekusian aplikasi saat pertama kali, sebuah file kalender baru telah diciptakan yang mengikuti standar ical. Selain itu, pengguna bisa menciptakan kalender tambahan atau mengimpor yang sudah ada.</p>
     <p xml:lang="it">Quando si esegue l'applicazione per la prima volta viene creato un nuovo file di calendario che segue lo standard ical. In alternativa, gli utenti possono creare dei calendari aggiuntivi, oppure importare quelli esistenti.</p>
     <p xml:lang="ka">აპლიკაციის პირველა გაშვებისას იქმნება ახალი კალენდარის ფაილი, რომელიც ical-ის სტანდარტს მისდევს. ასევე შეგიძლიათ შექმნათ დამატებითი კალენდარები ან შემოიტანოთ უკვე არსებულები.</p>
-    <p xml:lang="ko">프로그램을 처음으로 실행하면 iCal 표준을 따르는 캘린더 파일을 생성합니다. 추가 캘린더를 만들거나 기존 캘린더를 가져올 수 있습니다.</p>
+    <p xml:lang="ko">앱을 처음으로 실행하면 iCal 표준을 따르는 캘린더 파일을 생성합니다. 추가 캘린더를 만들거나 기존 캘린더를 가져올 수 있습니다.</p>
     <p xml:lang="nl">Bij het de eeerste keer uitvoeren van de toepassing, wordt een nieuw agendabestand aangemaakt die de ical-standaard gebruikt. Alternatief kunnen gebruikers extra agenda's aanmaken of bestaande importeren.</p>
     <p xml:lang="nn">Når du startar programmet første gong, vert det automatisk laga ei ny kalenderfil som følgjer iCalendar-standarden. Men du kan òg oppretta fleire kalendrar eller importera nokon du har frå før.</p>
     <p xml:lang="pa">ਜਦੋਂ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਪਹਿਲੀ ਵਾਰ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ical ਮਿਆਰ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਨਵੀਂ ਕੈਲੰਡਰ ਫਾਇਲ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਬਦਲਵੇਂ ਰੂਪ ਵਿੱਚ ਵਰਤੋਂਕਾਰ ਵਧੀਕ ਕੈਲੰਡਰ ਬਣਾ ਜਾਂ ਮੌਜੂਦਾ ਕੈਲੰਡਰ ਦਰਾਮਦ ਕਰ ਸਕਦੇ ਹਨ।</p>
