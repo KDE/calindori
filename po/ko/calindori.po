@@ -211,7 +211,7 @@ msgstr "참석자 관리는 온라인으로 동기화되는 외부 캘린더에�
 #: contents/ui/Attendees.qml:31
 #, kde-format
 msgid "Please set the calendar owner details in the application settings"
-msgstr "프로그램 설정에서 캘린더 소유자 정보를 설정하십시오"
+msgstr "앱 설정에서 캘린더 소유자 정보를 설정하십시오"
 
 #: contents/ui/Attendees.qml:114
 #, kde-format
@@ -863,7 +863,7 @@ msgstr "Calindori"
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
-msgstr "캘린더 프로그램"
+msgstr "캘린더 앱"
 
 #: main.cpp:74
 #, kde-format
