@@ -31,7 +31,7 @@
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/frameworks/kcalendarcore.git",
-                    "branch": "kf5"
+                    "tag": "v5.108.0"
                 }
             ],
             "modules": [
@@ -61,7 +61,7 @@
                 {
                 "type": "git",
                 "url": "https://invent.kde.org/frameworks/kpeople.git",
-                "branch": "kf5"
+                "tag": "v5.108.0"
                 }
             ]
         },
