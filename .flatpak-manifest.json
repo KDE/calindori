@@ -21,40 +21,6 @@
 
     "modules": [
         {
-            "name": "kcalendarcore",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-            ],
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://invent.kde.org/frameworks/kcalendarcore.git",
-                    "tag": "v5.108.0"
-                }
-            ],
-            "modules": [
-                {
-                    "name": "libical",
-                    "buildsystem": "cmake-ninja",
-                    "config-opts": [
-                        "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/libical/libical/releases/download/v3.0.16/libical-3.0.16.tar.gz",
-                            "sha256": "b44705dd71ca4538c86fb16248483ab4b48978524fb1da5097bd76aa2e0f0c33"
-                        }
-                    ],
-                    "cleanup": [
-                        "/share/gtk-doc"
-                    ]
-                }
-            ]
-        },
-        {
             "name": "kpeople",
             "buildsystem": "cmake-ninja",
             "sources": [
