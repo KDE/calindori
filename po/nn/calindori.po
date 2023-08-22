@@ -1,12 +1,12 @@
 # Translation of calindori to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2021.
+# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2021-04-09 23:53+0200\n"
+"PO-Revision-Date: 2023-08-21 19:55+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -292,32 +292,32 @@ msgstr "Hendingar"
 #: contents/ui/CalindoriGlobalDrawer.qml:64
 #, kde-format
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:81
 #, kde-format
 msgid "Month View"
-msgstr ""
+msgstr "Månadsvising"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:104
 #, kde-format
 msgid "Week View"
-msgstr ""
+msgstr "Vekevising"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:127
 #, kde-format
 msgid "Day View"
-msgstr ""
+msgstr "Dagvising"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:150
 #, kde-format
 msgid "Tasks List"
-msgstr ""
+msgstr "Oppgåveliste"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:172
 #, kde-format
 msgid "Events List"
-msgstr ""
+msgstr "Hendingsliste"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
 #, kde-format
@@ -550,7 +550,7 @@ msgstr ""
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
 msgid "Modify "
-msgstr ""
+msgstr "Rediger "
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -571,17 +571,17 @@ msgstr "Fjern"
 #: contents/ui/ManageCalendarsPage.qml:110
 #, kde-format
 msgid "Edit details"
-msgstr ""
+msgstr "Rediger detaljar"
 
 #: contents/ui/ManageCalendarsPage.qml:119
 #, kde-format
 msgid "Import calendar file"
-msgstr ""
+msgstr "Importer kalenderfil"
 
 #: contents/ui/ManageCalendarsPage.qml:129
 #, kde-format
 msgid "Export calendar to file"
-msgstr ""
+msgstr "Eksporter kalender til fil"
 
 #: contents/ui/ManageCalendarsPage.qml:153
 #, kde-format
@@ -598,7 +598,7 @@ msgstr ""
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
 msgid "Modify"
-msgstr ""
+msgstr "Rediger"
 
 #: contents/ui/MessageBoard.qml:32
 #, kde-format
@@ -708,7 +708,7 @@ msgstr "Ingen påminningar enno"
 #: contents/ui/SettingsPage.qml:25
 #, kde-format
 msgid "More Info:"
-msgstr ""
+msgstr "Meir informasjon:"
 
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
@@ -718,7 +718,7 @@ msgstr "Om"
 #: contents/ui/SettingsPage.qml:40
 #, kde-format
 msgid "Calendars:"
-msgstr ""
+msgstr "Kalendrar:"
 
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
@@ -798,7 +798,7 @@ msgstr "Førre veke"
 #: contents/ui/WeekPage.qml:29
 #, kde-format
 msgid "Current Week"
-msgstr ""
+msgstr "Denne veka"
 
 #: contents/ui/WeekPage.qml:36
 #, kde-format
@@ -888,7 +888,7 @@ msgstr "Kalender­program"
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr ""
+msgstr "© 2018-2022 Calindori-gruppa"
 
 #: main.cpp:79
 #, kde-format
@@ -912,7 +912,7 @@ msgstr "Nicolas Fella"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"
-msgstr ""
+msgstr "Devin Lin"
 
 #: recurrenceperiodmodel.cpp:114
 #, kde-format
