@@ -12,10 +12,20 @@
 AlarmNotification::AlarmNotification(NotificationHandler *handler, const QString &uid) : m_uid {uid}, m_remind_at {QDateTime()}, m_notification_handler {handler}
 {
     m_notification = new KNotification(QStringLiteral("alarm"));
+
+#if QT_VERSION_MAJOR == 6
+    auto suspendAction = m_notification->addAction(i18n("Suspend"));
+    connect(suspendAction, &KNotificationAction::activated, this, &AlarmNotification::suspend);
+
+    auto dismissAction = m_notification->addAction(i18n("Dismiss"));
+    connect(dismissAction, &KNotificationAction::activated, this, &AlarmNotification::dismiss);
+#else
     m_notification->setActions({i18n("Suspend"), i18n("Dismiss")});
 
     connect(m_notification, &KNotification::action1Activated, this, &AlarmNotification::suspend);
     connect(m_notification, &KNotification::action2Activated, this, &AlarmNotification::dismiss);
+#endif
+
     connect(this, &AlarmNotification::suspend, m_notification_handler, [this]() {
         m_notification_handler->suspend(this);
     });
