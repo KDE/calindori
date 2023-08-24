@@ -93,6 +93,7 @@ Comment[tr]=Etkinlikleri ve görevleri düzenleyin
 Comment[uk]=Упорядкування записів подій і завдань
 Comment[x-test]=xxOrganize events and tasksxx
 Comment[zh_CN]=组织活动和任务
+Keywords=Calendar;Event;Reminder;
 Exec=calindori %f
 Icon=calindori
 Type=Application
