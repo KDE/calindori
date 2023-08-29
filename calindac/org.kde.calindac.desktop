@@ -4,6 +4,7 @@
 
 [Desktop Entry]
 Name=Calindori Reminder Client
+Name[ar]=عميل منبه كاليندوري
 Name[ca]=Client de recordatori del Calindori
 Name[ca@valencia]=Client de recordatori de Calindori
 Name[de]=Calindori-Erinnerungsprogramm
@@ -39,6 +40,7 @@ Icon=calindori
 Type=Application
 Categories=Qt;KDE;
 GenericName=Calindori Reminder Daemon Client
+GenericName[ar]=خدمة عميل منبه كاليندوري
 GenericName[ca]=Client del dimoni de recordatori del Calindori
 GenericName[ca@valencia]=Client del dimoni de recordatori de Calindori
 GenericName[de]=Dienst für das Calindori-Erinnerungsprogramm

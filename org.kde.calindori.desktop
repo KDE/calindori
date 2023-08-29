@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 [Desktop Entry]
 Name=Calindori
+Name[ar]=كاليندوري
 Name[ca]=Calindori
 Name[ca@valencia]=Calindori
 Name[cs]=Calindori
@@ -36,6 +37,7 @@ Name[x-test]=xxCalindorixx
 Name[zh_CN]=Calindori
 Name[zh_TW]=Calindori
 GenericName=Calendar
+GenericName[ar]=التقويم
 GenericName[ca]=Calendari
 GenericName[ca@valencia]=Calendari
 GenericName[cs]=Kalendář
@@ -67,6 +69,7 @@ GenericName[uk]=Календар
 GenericName[x-test]=xxCalendarxx
 GenericName[zh_CN]=日历
 Comment=Organize events and tasks
+Comment[ar]=تنظيم الأحداث والمهام
 Comment[ca]=Organitza els esdeveniments i les tasques
 Comment[ca@valencia]=Organitza els esdeveniments i les tasques
 Comment[cs]=Organizujte události a úkoly

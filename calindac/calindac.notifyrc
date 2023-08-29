@@ -2,6 +2,7 @@
 IconName=calindori
 DesktopEntry=org.kde.calindori
 Comment=Plasma Mobile Calendar
+Comment[ar]=تقويم هاتف بلازما
 Comment[ca]=Calendari del Plasma Mobile
 Comment[ca@valencia]=Calendari de Plasma Mobile
 Comment[de]=Kalender für Plasma Mobile
@@ -33,6 +34,7 @@ Comment[x-test]=xxPlasma Mobile Calendarxx
 Comment[zh_CN]=Plasma 移动环境日历
 Comment[zh_TW]=Plasma 行動行事曆
 Name=Calindori
+Name[ar]=كاليندوري
 Name[ca]=Calindori
 Name[ca@valencia]=Calindori
 Name[cs]=Calindori
@@ -68,6 +70,7 @@ Name[zh_TW]=Calindori
 
 [Context/uid]
 Name=Incidence uid
+Name[ar]=رقم الحادثة
 Name[ca]=UID de la incidència
 Name[ca@valencia]=UID de la incidència
 Name[de]=Ereigniskennung
@@ -98,6 +101,7 @@ Name[uk]=Ідентифікатор випадку
 Name[x-test]=xxIncidence uidxx
 Name[zh_CN]=事件 UID
 Comment=The uid of the incidence of the alarm
+Comment[ar]=رقم حادثة المنبه
 Comment[ca]=L'UID de la incidència de l'alarma
 Comment[ca@valencia]=L'UID de la incidència de l'alarma
 Comment[de]=Die Ereigniskennung der Erinnerung
@@ -130,6 +134,7 @@ Comment[zh_CN]=闹钟事件的 UID
 
 [Event/alarm]
 Name=Alarm
+Name[ar]=المنبه
 Name[ca]=Alarma
 Name[ca@valencia]=Alarma
 Name[cs]=Alarm
@@ -164,6 +169,7 @@ Name[zh_CN]=闹钟
 Name[zh_TW]=鬧鐘
 Contexts=uid
 Comment=Alarm Notification
+Comment[ar]=تنبيهات المنبه
 Comment[ca]=Notificació de l'alarma
 Comment[ca@valencia]=Notificació de l'alarma
 Comment[de]=Erinnerungs-Benachrichtigung
