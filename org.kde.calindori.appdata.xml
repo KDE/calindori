@@ -9,6 +9,7 @@
   <project_license>GPL-3.0+</project_license>
   <content_rating type="oars-1.1"/>
   <name>Calindori</name>
+  <name xml:lang="ar">كاليندوري</name>
   <name xml:lang="ca">Calindori</name>
   <name xml:lang="ca-valencia">Calindori</name>
   <name xml:lang="cs">Calindori</name>
@@ -44,6 +45,7 @@
   <name xml:lang="zh-CN">Calindori</name>
   <name xml:lang="zh-TW">Calindori</name>
   <summary>Calendar application</summary>
+  <summary xml:lang="ar">تطبيق تقويم</summary>
   <summary xml:lang="ca">Aplicació de calendari</summary>
   <summary xml:lang="ca-valencia">Aplicació de calendari</summary>
   <summary xml:lang="cs">Aplikace kalendáře</summary>
@@ -80,6 +82,7 @@
   <summary xml:lang="zh-TW">行事曆應用程式</summary>
   <description>
     <p>Calindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.</p>
+    <p xml:lang="ar">كاليندوري هو تطبيق متوافق مع اللمس. صمم للهواتف لكن يمكن استخدامه في بيئة سطح المكتب. مستخدمي كاليندوري يستطيعون التحقق من التواريخ الماضية والقادمة وإدارة المهام والأحداث.</p>
     <p xml:lang="ca">El Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar als entorns d'escriptori. Els usuaris del Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
     <p xml:lang="ca-valencia">Calindori és una aplicació de calendari tàctil. Està dissenyada per als dispositius mòbils, però també es pot executar en els entorns d'escriptori. Els usuaris de Calindori poden revisar dates anteriors i futures i gestionar tasques i esdeveniments.</p>
     <p xml:lang="da">Calindori er et touch-venligt kalenderprogram. Det er designet til mobile enheder, men det kan også køre i skrivebordsmiljøer. Brugere af Calindori kan tjekke tidligere og fremtidige datoer og håndtere opgaver og begivenheder.</p>
@@ -112,6 +115,7 @@
     <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
     <p xml:lang="zh-CN">Calindori 是一款适合触控的日历应用程序。它针对移动设备设计，也可以运行在桌面环境上。用户可以使用 Calindori 查看指定的日期，并管理任务和活动。</p>
     <p>When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
+    <p xml:lang="ar">عند تشغيل التطبيق لأول مرة، ملف تقويم جديد سيتم إنشائه بمعيار ical. بدلا عن ذلك، المستخدمون يستطيعون إنشاء تقاويم إضافية أو استيراد تقاويم موجودة مسبقة.</p>
     <p xml:lang="ca">En executar l'aplicació per primera vegada, es crea un fitxer nou de calendari que segueix l'estàndard «ical». Alternativament, els usuaris poden crear calendaris addicionals o importar-ne d'existents.</p>
     <p xml:lang="ca-valencia">En executar l'aplicació per primera vegada, es crea un fitxer nou de calendari que seguix l'estàndard «ical». De manera alternativa, els usuaris poden crear calendaris addicionals o importar-ne d'existents.</p>
     <p xml:lang="da">Når programmet køres første gang oprettes en ny kalenderfil som følger ical-standarden. Alternativt kan brugere oprette yderligere kalendere eller importere eksisterende kalendere.</p>
@@ -144,6 +148,7 @@
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
     <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其他日历，或者导入已有日历。</p>
     <p>Features:</p>
+    <p xml:lang="ar">المزايا:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -180,6 +185,7 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Agenda</li>
+      <li xml:lang="ar">جدول الأعمال</li>
       <li xml:lang="ca">Agenda</li>
       <li xml:lang="ca-valencia">Agenda</li>
       <li xml:lang="cs">Agenda</li>
@@ -214,6 +220,7 @@
       <li xml:lang="x-test">xxAgendaxx</li>
       <li xml:lang="zh-CN">日程表</li>
       <li>Events</li>
+      <li xml:lang="ar">الأحداث</li>
       <li xml:lang="ca">Esdeveniments</li>
       <li xml:lang="ca-valencia">Esdeveniments</li>
       <li xml:lang="cs">Události</li>
@@ -249,6 +256,7 @@
       <li xml:lang="zh-CN">活动</li>
       <li xml:lang="zh-TW">活動</li>
       <li>Todos</li>
+      <li xml:lang="ar">قوائم المهام</li>
       <li xml:lang="ca">Tasques pendents</li>
       <li xml:lang="ca-valencia">Tasques pendents</li>
       <li xml:lang="cs">Úlohy</li>
@@ -284,6 +292,7 @@
       <li xml:lang="zh-CN">待办事项</li>
       <li xml:lang="zh-TW">待辦事項</li>
       <li>Multiple calendars</li>
+      <li xml:lang="ar">تقاويم متعددة</li>
       <li xml:lang="ca">Calendaris múltiples</li>
       <li xml:lang="ca-valencia">Calendaris múltiples</li>
       <li xml:lang="da">Flere kalendere</li>
@@ -318,6 +327,7 @@
       <li xml:lang="zh-CN">多日历</li>
       <li xml:lang="zh-TW">多行事曆</li>
       <li>Import calendar</li>
+      <li xml:lang="ar">استورد تقويم</li>
       <li xml:lang="ca">Importa calendaris</li>
       <li xml:lang="ca-valencia">Importa calendaris</li>
       <li xml:lang="cs">Importovat kalendář</li>
@@ -370,6 +380,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Calindori on Mobile</caption>
+      <caption xml:lang="ar">كاليندوري على الهاتف</caption>
       <caption xml:lang="ca">El Calindori al mòbil</caption>
       <caption xml:lang="ca-valencia">Calindori al mòbil</caption>
       <caption xml:lang="cs">Calindori na mobilní zařízení</caption>
@@ -406,6 +417,7 @@
     </screenshot>
     <screenshot>
       <caption>Calindori on Desktop</caption>
+      <caption xml:lang="ar">كاليندوري على سطح المكتب</caption>
       <caption xml:lang="ca">El Calindori a l'escriptori</caption>
       <caption xml:lang="ca-valencia">Calindori en l'escriptori</caption>
       <caption xml:lang="cs">Calindori na počítač</caption>
