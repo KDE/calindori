@@ -70,7 +70,6 @@ Kirigami.ScrollablePage {
                     visible: !modifyDialog.calendarActive
 
                     onTriggered: {
-                        modifyDialog.close();
                         Calindori.CalindoriConfig.activeCalendar = modifyDialog.calendarName;
                         popExtraLayers();
                         showPassiveNotification(i18n("Calendar %1 has been activated", modifyDialog.calendarName));
@@ -82,7 +81,6 @@ Kirigami.ScrollablePage {
                     icon.name: "entry-delete"
                     visible: !Calindori.CalindoriConfig.isExternal(modifyDialog.calendarName)
                     onTriggered: {
-                        modifyDialog.close();
                         if (modifyDialog.calendarActive) {
                             showPassiveNotification(i18n("Calendar must not be active when being deleted."));
                         } else {
@@ -97,7 +95,6 @@ Kirigami.ScrollablePage {
                     icon.name: "edit-delete"
                     visible: Calindori.CalindoriConfig.isExternal(modifyDialog.calendarName)
                     onTriggered: {
-                        modifyDialog.close();
                         if (modifyDialog.calendarActive) {
                             showPassiveNotification(i18n("Calendar must not be active when being deleted."));
                         } else {
@@ -109,17 +106,13 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18n("Edit details")
                     icon.name: "edit-entry"
-                    onTriggered: {
-                        modifyDialog.close();
-                        applicationWindow().pageStack.push(editor, { calendarName: modifyDialog.calendarName });
-                    }
+                    onTriggered: applicationWindow().pageStack.push(editor, { calendarName: modifyDialog.calendarName })
                 },
 
                 Kirigami.Action {
                     text: i18n("Import calendar file")
                     icon.name: "document-import"
                     onTriggered: {
-                        modifyDialog.close();
                         root.applicationFooter.targetCalendarName = modifyDialog.calendarName;
                         fileChooser.open();
                     }
@@ -129,7 +122,6 @@ Kirigami.ScrollablePage {
                     text: i18n("Export calendar to file")
                     icon.name: "document-export"
                     onTriggered: {
-                        modifyDialog.close();
                         var exportResult = Calindori.CalendarController.exportData(modifyDialog.calendarName);
                         root.applicationFooter.text = exportResult.reason;
 
