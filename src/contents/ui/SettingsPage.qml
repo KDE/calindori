@@ -9,6 +9,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
@@ -30,7 +31,7 @@ Kirigami.ScrollablePage {
             
             Component {
                 id: aboutInfoPage
-                Kirigami.AboutPage {
+                FormCard.AboutPage {
                     aboutData: _aboutData
                 }
             }
