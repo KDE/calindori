@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 00:46+0000\n"
 "PO-Revision-Date: 2022-03-10 14:04-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -289,7 +289,7 @@ msgid "Tasks"
 msgstr "Tarefas"
 
 #: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "Eventos"
@@ -336,7 +336,7 @@ msgstr "Calendários"
 msgid "Calendar %1 has been activated"
 msgstr "O calendário %1 foi ativado"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
 #, kde-format
 msgid "Settings"
 msgstr "Configurações"
@@ -710,52 +710,52 @@ msgstr "OK"
 msgid "No reminders yet"
 msgstr "Nenhum lembrete ainda"
 
-#: contents/ui/SettingsPage.qml:25
+#: contents/ui/SettingsPage.qml:26
 #, kde-format
 msgid "More Info:"
 msgstr "Mais informação:"
 
-#: contents/ui/SettingsPage.qml:27
+#: contents/ui/SettingsPage.qml:28
 #, kde-format
 msgid "About"
 msgstr "Sobre"
 
-#: contents/ui/SettingsPage.qml:40
+#: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Calendars:"
 msgstr "Calendários:"
 
-#: contents/ui/SettingsPage.qml:41
+#: contents/ui/SettingsPage.qml:42
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "Gerenciar calendários internos"
 
-#: contents/ui/SettingsPage.qml:48
+#: contents/ui/SettingsPage.qml:49
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "Gerenciar calendários internos"
 
-#: contents/ui/SettingsPage.qml:57
+#: contents/ui/SettingsPage.qml:58
 #, kde-format
 msgid "Manage external calendars"
 msgstr "Gerenciar calendários externos"
 
-#: contents/ui/SettingsPage.qml:64
+#: contents/ui/SettingsPage.qml:65
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "Gerenciar calendários externos"
 
-#: contents/ui/SettingsPage.qml:78
+#: contents/ui/SettingsPage.qml:79
 #, kde-format
 msgid "Initial duration (minutes):"
 msgstr "Duração inicial (minutos):"
 
-#: contents/ui/SettingsPage.qml:88
+#: contents/ui/SettingsPage.qml:89
 #, kde-format
 msgid "Remind before event (minutes):"
 msgstr "Lembrar antes do evento (minutos):"
 
-#: contents/ui/SettingsPage.qml:97
+#: contents/ui/SettingsPage.qml:98
 #, kde-format
 msgid "Add reminder to new events:"
 msgstr "Adicionar lembrete aos novos eventos:"

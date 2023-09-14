@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 00:46+0000\n"
 "PO-Revision-Date: 2022-04-07 18:02+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -280,7 +280,7 @@ msgid "Tasks"
 msgstr "Úlohy"
 
 #: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "Udalosti"
@@ -328,7 +328,7 @@ msgstr "Kalendáre"
 msgid "Calendar %1 has been activated"
 msgstr ""
 
-#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
 #, fuzzy, kde-format
 msgid "Settings"
 msgstr "Nastavenia"
@@ -715,53 +715,53 @@ msgstr "OK"
 msgid "No reminders yet"
 msgstr "Pripomienky"
 
-#: contents/ui/SettingsPage.qml:25
+#: contents/ui/SettingsPage.qml:26
 #, kde-format
 msgid "More Info:"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:27
+#: contents/ui/SettingsPage.qml:28
 #, fuzzy, kde-format
 msgid "About"
 msgstr "O aplikácii"
 
-#: contents/ui/SettingsPage.qml:40
+#: contents/ui/SettingsPage.qml:41
 #, fuzzy, kde-format
 #| msgid "Calendar:"
 msgid "Calendars:"
 msgstr "Kalendáre"
 
-#: contents/ui/SettingsPage.qml:41
+#: contents/ui/SettingsPage.qml:42
 #, kde-format
 msgid "Manage internal calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:48
+#: contents/ui/SettingsPage.qml:49
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:57
+#: contents/ui/SettingsPage.qml:58
 #, kde-format
 msgid "Manage external calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:64
+#: contents/ui/SettingsPage.qml:65
 #, kde-format
 msgid "Manage External Calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:78
+#: contents/ui/SettingsPage.qml:79
 #, kde-format
 msgid "Initial duration (minutes):"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:88
+#: contents/ui/SettingsPage.qml:89
 #, kde-format
 msgid "Remind before event (minutes):"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:97
+#: contents/ui/SettingsPage.qml:98
 #, kde-format
 msgid "Add reminder to new events:"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-03 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 00:46+0000\n"
 "PO-Revision-Date: 2022-03-02 08:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -298,7 +298,7 @@ msgid "Tasks"
 msgstr "Завдання"
 
 #: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
+#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "Події"
@@ -345,7 +345,7 @@ msgstr "Календарі"
 msgid "Calendar %1 has been activated"
 msgstr "Календар %1 було активовано"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
@@ -735,52 +735,52 @@ msgstr "Гаразд"
 msgid "No reminders yet"
 msgstr "Нагадувань ще немає"
 
-#: contents/ui/SettingsPage.qml:25
+#: contents/ui/SettingsPage.qml:26
 #, kde-format
 msgid "More Info:"
 msgstr "Додаткова інформація:"
 
-#: contents/ui/SettingsPage.qml:27
+#: contents/ui/SettingsPage.qml:28
 #, kde-format
 msgid "About"
 msgstr "Про програму"
 
-#: contents/ui/SettingsPage.qml:40
+#: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Calendars:"
 msgstr "Календарі:"
 
-#: contents/ui/SettingsPage.qml:41
+#: contents/ui/SettingsPage.qml:42
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "Керування внутрішніми календарями"
 
-#: contents/ui/SettingsPage.qml:48
+#: contents/ui/SettingsPage.qml:49
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "Керування внутрішніми календарями"
 
-#: contents/ui/SettingsPage.qml:57
+#: contents/ui/SettingsPage.qml:58
 #, kde-format
 msgid "Manage external calendars"
 msgstr "Керування зовнішніми календарями"
 
-#: contents/ui/SettingsPage.qml:64
+#: contents/ui/SettingsPage.qml:65
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "Керування зовнішніми календарями"
 
-#: contents/ui/SettingsPage.qml:78
+#: contents/ui/SettingsPage.qml:79
 #, kde-format
 msgid "Initial duration (minutes):"
 msgstr "Початкова тривалість (у хвилинах):"
 
-#: contents/ui/SettingsPage.qml:88
+#: contents/ui/SettingsPage.qml:89
 #, kde-format
 msgid "Remind before event (minutes):"
 msgstr "Нагадування перед подією (хвилини):"
 
-#: contents/ui/SettingsPage.qml:97
+#: contents/ui/SettingsPage.qml:98
 #, kde-format
 msgid "Add reminder to new events:"
 msgstr "Додавати нагадування до нових записів подій:"
