@@ -202,5 +202,5 @@ Comment[x-test]=xxAlarm Notificationxx
 Comment[zh_CN]=闹钟通知
 Comment[zh_TW]=鬧鐘通知
 Action=Popup|Sound
-Sound=freedesktop/stereo/bell.oga
+Sound=bell-window-system
 Urgency=Critical
