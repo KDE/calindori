@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2019-10-09 22:32+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -30,12 +30,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com"
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
 msgstr "暫停"
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
 msgid "Dismiss"
 msgstr "忽略"

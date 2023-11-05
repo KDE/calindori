@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2020-04-15 11:38-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "elchevive@opensuse.org"
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
 msgstr "Suspender"
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
 msgid "Dismiss"
 msgstr "Descartar"

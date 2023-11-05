@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-31 18:14+0200\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,12 +24,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
 msgstr ""
 
-#: alarmnotification.cpp:15
+#: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
 msgid "Dismiss"
 msgstr ""
