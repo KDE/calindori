@@ -41,6 +41,7 @@
   <name xml:lang="sv">Calindori</name>
   <name xml:lang="tr">Yapraklı Takvim</name>
   <name xml:lang="uk">Calindori</name>
+  <name xml:lang="x-test">xxCalindorixx</name>
   <name xml:lang="zh-CN">Calindori</name>
   <name xml:lang="zh-TW">Calindori</name>
   <summary>Calendar application</summary>
@@ -76,6 +77,7 @@
   <summary xml:lang="sv">Kalenderprogram</summary>
   <summary xml:lang="tr">Takvim uygulaması</summary>
   <summary xml:lang="uk">Програма-календар</summary>
+  <summary xml:lang="x-test">xxCalendar applicationxx</summary>
   <summary xml:lang="zh-CN">日历应用程序</summary>
   <summary xml:lang="zh-TW">行事曆應用程式</summary>
   <description>
@@ -110,6 +112,7 @@
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
     <p xml:lang="tr">Yapraklı Takvim, dokunmatik ekran dostu bir takvim uygulamasıdır. Taşınabilir aygıtlar için tasarlanmıştır; ancak masaüstü ortamlarında da çalışabilir. Yapraklı Takvim kullanıcıları, geçmiş ve gelecek tarihleri denetleyebilir, görevleri ve etkinlikleri düzenleyebilir.</p>
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
+    <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
     <p xml:lang="zh-CN">Calindori 是一款适合触控的日历应用程序。它针对移动设备设计，也可以运行在桌面环境上。用户可以使用 Calindori 查看指定的日期，并管理任务和活动。</p>
     <p>When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
     <p xml:lang="ar">عند تشغيل التطبيق لأول مرة، ملف تقويم جديد سيتم إنشائه بمعيار ical. بدلا عن ذلك، المستخدمون يستطيعون إنشاء تقاويم إضافية أو استيراد تقاويم موجودة مسبقة.</p>
@@ -142,6 +145,7 @@
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
     <p xml:lang="tr">Uygulama ilk kez yürütülürken, ical standartını izleyen bir takvim dosyası oluşturulur. Alternatif olarak, kullanıcılar ek takvimler oluşturabilir veya var olanları içe aktarabilir.</p>
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
+    <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
     <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其他日历，或者导入已有日历。</p>
     <p>Features:</p>
     <p xml:lang="ar">المزايا:</p>
@@ -176,6 +180,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
+    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">程序功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -212,6 +217,7 @@
       <li xml:lang="sv">Agenda</li>
       <li xml:lang="tr">Ajanda</li>
       <li xml:lang="uk">Порядок денний</li>
+      <li xml:lang="x-test">xxAgendaxx</li>
       <li xml:lang="zh-CN">日程表</li>
       <li>Events</li>
       <li xml:lang="ar">الأحداث</li>
@@ -246,6 +252,7 @@
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="tr">Etkinlikler</li>
       <li xml:lang="uk">Події</li>
+      <li xml:lang="x-test">xxEventsxx</li>
       <li xml:lang="zh-CN">活动</li>
       <li xml:lang="zh-TW">活動</li>
       <li>Todos</li>
@@ -281,6 +288,7 @@
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="tr">Yapılacaklar</li>
       <li xml:lang="uk">Завдання</li>
+      <li xml:lang="x-test">xxTodosxx</li>
       <li xml:lang="zh-CN">待办事项</li>
       <li xml:lang="zh-TW">待辦事項</li>
       <li>Multiple calendars</li>
@@ -315,6 +323,7 @@
       <li xml:lang="sv">Flera kalendrar</li>
       <li xml:lang="tr">Çoklu takvimler</li>
       <li xml:lang="uk">Користування декількома календарями</li>
+      <li xml:lang="x-test">xxMultiple calendarsxx</li>
       <li xml:lang="zh-CN">多日历</li>
       <li xml:lang="zh-TW">多行事曆</li>
       <li>Import calendar</li>
@@ -350,6 +359,7 @@
       <li xml:lang="sv">Importera kalender</li>
       <li xml:lang="tr">Takvim içe aktarma</li>
       <li xml:lang="uk">Імпортування календарів</li>
+      <li xml:lang="x-test">xxImport calendarxx</li>
       <li xml:lang="zh-CN">导入日历</li>
       <li xml:lang="zh-TW">匯入行事曆</li>
     </ul>
@@ -401,6 +411,7 @@
       <caption xml:lang="sv">Calindori på mobil</caption>
       <caption xml:lang="tr">Taşınabilirde Yapraklı Takvim</caption>
       <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
+      <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
       <caption xml:lang="zh-CN">Calindori 移动版</caption>
       <image>https://cdn.kde.org/screenshots/calindori/mobile.png</image>
     </screenshot>
@@ -437,6 +448,7 @@
       <caption xml:lang="sv">Calindori på skrivbord</caption>
       <caption xml:lang="tr">Masaüstünde Yapraklı Takvim</caption>
       <caption xml:lang="uk">Calindori на комп'ютері</caption>
+      <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
       <caption xml:lang="zh-CN">Calindori 桌面版</caption>
       <image>https://cdn.kde.org/screenshots/calindori/desktop.png</image>
     </screenshot>
