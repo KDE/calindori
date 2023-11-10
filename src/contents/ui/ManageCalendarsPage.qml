@@ -14,37 +14,37 @@ import org.kde.calindori 0.1 as Calindori
 
 Kirigami.ScrollablePage {
     id: root
-    
+
     property var applicationFooter
     property var calendarModel
     property bool isExternal: false
-    
+
     mainAction: Kirigami.Action {
         text: root.isExternal ? i18n("Add") : i18n("Create")
         iconName: root.isExternal ? "resource-calendar-child-insert" : "resource-calendar-insert"
         onTriggered: {
-            applicationWindow().pageStack.push(calendarEditor, 
+            applicationWindow().pageStack.push(calendarEditor,
                                                {mode: root.isExternal ? CalendarEditor.Mode.AddExisting : CalendarEditor.Mode.Create});
         }
     }
-    
+
     ListView {
         id: listView
         model: calendarModel
         currentIndex: -1
-        
+
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             visible: listView.count === 0
-            
+
             icon.name: "view-calendar"
-            text: root.isExternal ? i18n("No external calendars found") : 
-                                    i18n("No calendars found") 
-            explanation: root.isExternal ? i18n("Import an existing calendar file.") : 
+            text: root.isExternal ? i18n("No external calendars found") :
+                                    i18n("No calendars found")
+            explanation: root.isExternal ? i18n("Import an existing calendar file.") :
                                            i18n("Add a new calendar.")
             helpfulAction: root.mainAction
         }
-        
+
         // create new calendar editor
         Component {
             id: calendarEditor
@@ -55,20 +55,20 @@ Kirigami.ScrollablePage {
                 onCalendarEditorCancelled: pageStack.pop()
             }
         }
-        
+
         // dialog that pops up for editing
         Kirigami.MenuDialog {
             id: modifyDialog
             property var calendarName: ""
             property bool calendarActive: Calindori.CalindoriConfig !== null ? (Calindori.CalindoriConfig.activeCalendar === calendarName) : false
-            
+
             title: i18n("Modify " + calendarName)
             actions: [
                 Kirigami.Action {
                     text: i18n("Activate")
                     iconName: "dialog-ok"
                     visible: !modifyDialog.calendarActive
-                    
+
                     onTriggered: {
                         modifyDialog.close();
                         Calindori.CalindoriConfig.activeCalendar = modifyDialog.calendarName;
@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
                         showPassiveNotification(i18n("Calendar %1 has been activated", modifyDialog.calendarName));
                     }
                 },
-                
+
                 Kirigami.Action {
                     text: i18n("Delete")
                     iconName: "entry-delete"
@@ -91,7 +91,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                 },
-                
+
                 Kirigami.Action {
                     text: i18n("Remove")
                     iconName: "edit-delete"
@@ -105,7 +105,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                 },
-                
+
                 Kirigami.Action {
                     text: i18n("Edit details")
                     iconName: "edit-entry"
@@ -114,7 +114,7 @@ Kirigami.ScrollablePage {
                         applicationWindow().pageStack.push(editor, { calendarName: modifyDialog.calendarName });
                     }
                 },
-                
+
                 Kirigami.Action {
                     text: i18n("Import calendar file")
                     iconName: "document-import"
@@ -124,7 +124,7 @@ Kirigami.ScrollablePage {
                         fileChooser.open();
                     }
                 },
-                
+
                 Kirigami.Action {
                     text: i18n("Export calendar to file")
                     iconName: "document-export"
@@ -144,8 +144,8 @@ Kirigami.ScrollablePage {
                 }
             ]
         }
-        
-        // confirmation dialog for deletion        
+
+        // confirmation dialog for deletion
         Kirigami.PromptDialog {
             id: deleteSheet
             property string calendarName
@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
                 toRemoveCalendarComponent.deleteCalendar();
                 Calindori.CalindoriConfig.removeCalendar(calendarName);
             }
-            
+
             // workaround for dialog closing immediately
             property var timer: Timer {
                 interval: 50
@@ -167,7 +167,7 @@ Kirigami.ScrollablePage {
                 onTriggered: deleteSheet.open();
             }
         }
-        
+
         // calendar editor
         Component {
             id: editor
@@ -198,10 +198,10 @@ Kirigami.ScrollablePage {
         // list delegate
         delegate: Kirigami.SwipeListItem {
             property string calendarName: modelData
-            
+
             RowLayout {
                 spacing: 0
-                
+
                 Kirigami.Icon {
                     Layout.leftMargin: Kirigami.Units.largeSpacing
                     Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -210,7 +210,7 @@ Kirigami.ScrollablePage {
                     implicitHeight: Kirigami.Units.iconSizes.smallMedium
                     implicitWidth: Kirigami.Units.iconSizes.smallMedium
                 }
-                
+
                 Kirigami.Heading {
                     Layout.fillWidth: true
                     type: Kirigami.Heading.Secondary
@@ -219,12 +219,12 @@ Kirigami.ScrollablePage {
                     elide: Text.ElideRight
                 }
             }
-            
+
             onClicked: {
                 modifyDialog.calendarName = calendarName
                 modifyDialog.open();
             }
-            
+
             actions: [
                 Kirigami.Action {
                     text: i18n("Modify")
@@ -236,6 +236,6 @@ Kirigami.ScrollablePage {
                 }
             ]
         }
-        
+
     }
 }
