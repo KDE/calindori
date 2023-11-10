@@ -105,7 +105,7 @@ ListView {
 
         alwaysVisibleActions: false
 
-        RowLayout {
+        contentItem: RowLayout {
             spacing: Kirigami.Units.largeSpacing * 2
 
             ColumnLayout  {

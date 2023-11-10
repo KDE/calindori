@@ -199,7 +199,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.SwipeListItem {
             property string calendarName: modelData
 
-            RowLayout {
+            contentItem: RowLayout {
                 spacing: 0
 
                 Kirigami.Icon {
