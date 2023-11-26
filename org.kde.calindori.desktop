@@ -114,6 +114,7 @@ Keywords[sv]=Kalender;Händelse;Påminnelse;
 Keywords[tr]=Takvim;Etkinlik;Anımsatıcı;Hatırlatıcı;
 Keywords[uk]=Calendar;Event;Reminder;Календар;Подія;Нагадування;
 Keywords[x-test]=xxCalendarxx;xxEventxx;xxReminderxx;
+Keywords[zh_CN]=Calendar;Event;Reminder;日历;事件;提醒;rili;shijian;tixing;
 Exec=calindori %f
 Icon=calindori
 Type=Application
