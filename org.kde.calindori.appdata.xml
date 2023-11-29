@@ -16,6 +16,7 @@
   <name xml:lang="de">Calindori</name>
   <name xml:lang="el">Calindori</name>
   <name xml:lang="en-GB">Calindori</name>
+  <name xml:lang="eo">Calindori</name>
   <name xml:lang="es">Calindori</name>
   <name xml:lang="et">Calindori</name>
   <name xml:lang="eu">Calindori</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="de">Kalenderprogramm</summary>
   <summary xml:lang="el">Εφαρμογή ημερολογίου</summary>
   <summary xml:lang="en-GB">Calendar application</summary>
+  <summary xml:lang="eo">Apliko de kalendaro</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
   <summary xml:lang="et">Kalendrirakendus</summary>
   <summary xml:lang="eu">Egutegiko aplikazioa</summary>
@@ -147,6 +149,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
@@ -182,6 +185,7 @@
       <li xml:lang="de">Agenda</li>
       <li xml:lang="el">Ατζέντα</li>
       <li xml:lang="en-GB">Agenda</li>
+      <li xml:lang="eo">Tagordo</li>
       <li xml:lang="es">Agenda</li>
       <li xml:lang="et">Päevakava</li>
       <li xml:lang="eu">Agenda</li>
@@ -215,6 +219,7 @@
       <li xml:lang="de">Ereignisse</li>
       <li xml:lang="el">Γεγονότα</li>
       <li xml:lang="en-GB">Events</li>
+      <li xml:lang="eo">Eventoj</li>
       <li xml:lang="es">Eventos</li>
       <li xml:lang="et">Sündmused</li>
       <li xml:lang="eu">Gertakizunak</li>
@@ -249,6 +254,7 @@
       <li xml:lang="de">Aufgaben</li>
       <li xml:lang="el">Εργασίες προς υλοποίηση</li>
       <li xml:lang="en-GB">To-dos</li>
+      <li xml:lang="eo">Ĉiuj</li>
       <li xml:lang="es">Listas de tareas</li>
       <li xml:lang="et">Ülesanded</li>
       <li xml:lang="eu">Zereginak</li>
@@ -282,6 +288,7 @@
       <li xml:lang="de">Mehrere Kalender</li>
       <li xml:lang="el">Πολλαπλά ημερολόγια</li>
       <li xml:lang="en-GB">Multiple calendars</li>
+      <li xml:lang="eo">Multoblaj kalendaroj</li>
       <li xml:lang="es">Múltiples calendarios</li>
       <li xml:lang="et">Mitme kalendri kasutamise võimalus</li>
       <li xml:lang="eu">Egunkari anizkoitzak</li>
@@ -316,6 +323,7 @@
       <li xml:lang="de">Kalender importieren</li>
       <li xml:lang="el">Εισαγωγή ημερολογίου</li>
       <li xml:lang="en-GB">Import calendar</li>
+      <li xml:lang="eo">Importi kalendaron</li>
       <li xml:lang="es">Importar calendario</li>
       <li xml:lang="et">Kalendri importimine</li>
       <li xml:lang="eu">Inportatu egutegia</li>
@@ -367,6 +375,7 @@
       <caption xml:lang="de">Calindori auf einem Mobilgerät</caption>
       <caption xml:lang="el">Calindori σε κινητό</caption>
       <caption xml:lang="en-GB">Calindori on Mobile</caption>
+      <caption xml:lang="eo">Calindori ĉe Poŝtelefono</caption>
       <caption xml:lang="es">Calindori en el móvil</caption>
       <caption xml:lang="et">Calindori mobiilis</caption>
       <caption xml:lang="eu">Calindori mugikorrean</caption>
@@ -402,6 +411,7 @@
       <caption xml:lang="de">Calindori auf einer Arbeitsfläche</caption>
       <caption xml:lang="el">Calindori σε υπολογιστή γραφείου</caption>
       <caption xml:lang="en-GB">Calindori on Desktop</caption>
+      <caption xml:lang="eo">Calindori sur labortablo</caption>
       <caption xml:lang="es">Calindori en el escritorio</caption>
       <caption xml:lang="et">Calindori arvutis</caption>
       <caption xml:lang="eu">Calindori mahaigainean</caption>
