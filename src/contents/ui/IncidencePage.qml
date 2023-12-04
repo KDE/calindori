@@ -68,10 +68,10 @@ Kirigami.Page {
                     var incidenceData = {uid: incidence.uid, summary: incidence.summary, type: incidence.type};
 
                     if(incidenceData.type === 0) {
-                        Calindori.CalendarController.removeEvent(root.calendar, incidenceData);
+                        Calindori.CalendarController.removeEvent(Calindori.CalendarController.activeCalendar, incidenceData);
                     }
                     else {
-                        Calindori.CalendarController.removeTodo(root.calendar, incidenceData);
+                        Calindori.CalendarController.removeTodo(Calindori.CalendarController.activeCalendar, incidenceData);
                     }
                     root.state = ""
                     pageStack.pop(incidencePage);
