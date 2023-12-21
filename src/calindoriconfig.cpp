@@ -33,7 +33,7 @@ CalindoriConfig::CalindoriConfig(QObject *parent)
     : QObject(parent)
     , d(new Private)
 {
-    if (internalCalendars().isEmpty() && (d->config.group("general").readEntry("externalCalendars", QString())).isEmpty()) {
+    if (internalCalendars().isEmpty() && (d->config.group(QStringLiteral("general")).readEntry("externalCalendars", QString())).isEmpty()) {
         qDebug() << "No calendar found, creating a default one";
         addInternalCalendar(QStringLiteral("personal"));
         setActiveCalendar(QStringLiteral("personal"));
@@ -45,26 +45,26 @@ CalindoriConfig::~CalindoriConfig() = default;
 
 QStringList CalindoriConfig::internalCalendars() const
 {
-    auto cals = d->config.group("general").readEntry("calendars", QString());
+    auto cals = d->config.group(QStringLiteral("general")).readEntry("calendars", QString());
 
     return cals.isEmpty() ? QStringList() : cals.split(QStringLiteral(";"));
 }
 
 QStringList CalindoriConfig::externalCalendars() const
 {
-    auto cals = d->config.group("general").readEntry("externalCalendars", QString());
+    auto cals = d->config.group(QStringLiteral("general")).readEntry("externalCalendars", QString());
 
     return cals.isEmpty() ? QStringList() : cals.split(QStringLiteral(";"));
 }
 
 QString CalindoriConfig::activeCalendar() const
 {
-    return d->config.group("general").readEntry("activeCalendar", QString());
+    return d->config.group(QStringLiteral("general")).readEntry("activeCalendar", QString());
 }
 
 void CalindoriConfig::setActiveCalendar(const QString &calendar)
 {
-    d->config.group("general").writeEntry("activeCalendar", calendar);
+    d->config.group(QStringLiteral("general")).writeEntry("activeCalendar", calendar);
     d->config.sync();
     Q_EMIT activeCalendarChanged();
 }
@@ -79,7 +79,7 @@ QVariantMap CalindoriConfig::canAddCalendar(const QString &calendar)
         });
     }
 
-    auto externalCalendars = d->config.group("general").readEntry("externalCalendars", QString());
+    auto externalCalendars = d->config.group(QStringLiteral("general")).readEntry("externalCalendars", QString());
 
     if (internalCalendars().isEmpty() && externalCalendars.isEmpty()) {
         return QVariantMap({
@@ -119,7 +119,7 @@ QVariantMap CalindoriConfig::addInternalCalendar(const QString &calendar, const 
 
     QStringList calendars = internalCalendars();
     calendars.append(calendar);
-    d->config.group("general").writeEntry("calendars", calendars.join(QStringLiteral(";")));
+    d->config.group(QStringLiteral("general")).writeEntry("calendars", calendars.join(QStringLiteral(";")));
 
     d->config.sync();
     setOwnerInfo(calendar, ownerName, ownerEmail);
@@ -143,13 +143,13 @@ QVariantMap CalindoriConfig::addExternalCalendar(const QString &calendar, const 
         });
     }
 
-    auto eCals = d->config.group("general").readEntry("externalCalendars", QString());
+    auto eCals = d->config.group(QStringLiteral("general")).readEntry("externalCalendars", QString());
     if (eCals.isEmpty()) {
-        d->config.group("general").writeEntry("externalCalendars", calendar);
+        d->config.group(QStringLiteral("general")).writeEntry("externalCalendars", calendar);
     } else {
         QStringList calendarsList = eCals.split(QStringLiteral(";"));
         calendarsList.append(calendar);
-        d->config.group("general").writeEntry("externalCalendars", calendarsList.join(QStringLiteral(";")));
+        d->config.group(QStringLiteral("general")).writeEntry("externalCalendars", calendarsList.join(QStringLiteral(";")));
     }
     d->config.group(calendar).writeEntry("file", calendarPathUrl.toString(QUrl::RemoveScheme));
     d->config.group(calendar).writeEntry("external", true);
@@ -169,19 +169,19 @@ void CalindoriConfig::removeCalendar(const QString &calendar)
     d->config.reparseConfiguration();
 
     QStringList iCalendarsList = internalCalendars();
-    auto eCalendarsStr = d->config.group("general").readEntry("externalCalendars", QString());
+    auto eCalendarsStr = d->config.group(QStringLiteral("general")).readEntry("externalCalendars", QString());
     auto eCalendarsList = eCalendarsStr.isEmpty() ? QStringList() : eCalendarsStr.split(QStringLiteral(";"));
 
     if (iCalendarsList.contains(calendar)) {
         iCalendarsList.removeAll(calendar);
-        d->config.group("general").writeEntry("calendars", iCalendarsList.join(QStringLiteral(";")));
+        d->config.group(QStringLiteral("general")).writeEntry("calendars", iCalendarsList.join(QStringLiteral(";")));
 
         Q_EMIT internalCalendarsChanged();
     }
 
     if (eCalendarsList.contains(calendar)) {
         eCalendarsList.removeAll(calendar);
-        d->config.group("general").writeEntry("externalCalendars", eCalendarsList.join(QStringLiteral(";")));
+        d->config.group(QStringLiteral("general")).writeEntry("externalCalendars", eCalendarsList.join(QStringLiteral(";")));
 
         Q_EMIT externalCalendarsChanged();
     }
@@ -216,12 +216,12 @@ QString CalindoriConfig::filenameToPath(const QString &calendarName)
 
 int CalindoriConfig::eventsDuration() const
 {
-    return d->config.group("events").readEntry("duration", 60);
+    return d->config.group(QStringLiteral("events")).readEntry("duration", 60);
 }
 
 void CalindoriConfig::setEventsDuration(int duration)
 {
-    d->config.group("events").writeEntry("duration", duration);
+    d->config.group(QStringLiteral("events")).writeEntry("duration", duration);
     d->config.sync();
 
     Q_EMIT eventsDurationChanged();
@@ -229,12 +229,12 @@ void CalindoriConfig::setEventsDuration(int duration)
 
 int CalindoriConfig::preEventRemindTime() const
 {
-    return d->config.group("events").readEntry("preEventRemindTime", 15);
+    return d->config.group(QStringLiteral("events")).readEntry("preEventRemindTime", 15);
 }
 
 void CalindoriConfig::setPreEventRemindTime(int remindBefore)
 {
-    d->config.group("events").writeEntry("preEventRemindTime", remindBefore);
+    d->config.group(QStringLiteral("events")).writeEntry("preEventRemindTime", remindBefore);
     d->config.sync();
 
     Q_EMIT preEventRemindTimeChanged();
@@ -242,12 +242,12 @@ void CalindoriConfig::setPreEventRemindTime(int remindBefore)
 
 bool CalindoriConfig::alwaysRemind() const
 {
-    return d->config.group("events").readEntry("alwaysRemind", true);
+    return d->config.group(QStringLiteral("events")).readEntry("alwaysRemind", true);
 }
 
 void CalindoriConfig::setAlwaysRemind(bool remind)
 {
-    d->config.group("events").writeEntry("alwaysRemind", remind);
+    d->config.group(QStringLiteral("events")).writeEntry("alwaysRemind", remind);
     d->config.sync();
 
     Q_EMIT alwaysRemindChanged();

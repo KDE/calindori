@@ -27,7 +27,7 @@ CalAlarmClient::CalAlarmClient(QObject *parent)
 
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/calindac"), this);
 
-    KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup generalGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     m_check_interval = generalGroup.readEntry("CheckInterval", 45);
     m_suspend_seconds = generalGroup.readEntry("SuspendSeconds", 60);
     m_last_check = generalGroup.readEntry("CalendarsLastChecked", QDateTime());
@@ -51,7 +51,7 @@ CalAlarmClient::~CalAlarmClient() = default;
 QStringList CalAlarmClient::calendarFileList() const
 {
     auto filesList { QStringList() };
-    KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig(QStringLiteral("calindorirc")), "general");
+    KConfigGroup calindoriCfgGeneral(KSharedConfig::openConfig(QStringLiteral("calindorirc")), QStringLiteral("general"));
     auto iCalendars = calindoriCfgGeneral.readEntry("calendars", QString());
     auto eCalendars = calindoriCfgGeneral.readEntry("externalCalendars", QString());
 
@@ -73,7 +73,7 @@ QStringList CalAlarmClient::calendarFileList() const
 
 void CalAlarmClient::checkAlarms()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(), "General");
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("General"));
 
     if (!cfg.readEntry("Enabled", true)) {
         return;
@@ -102,21 +102,21 @@ void CalAlarmClient::checkAlarms()
 
 void CalAlarmClient::saveLastCheckTime()
 {
-    KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup generalGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     generalGroup.writeEntry("CalendarsLastChecked", m_last_check);
     KSharedConfig::openConfig()->sync();
 }
 
 void CalAlarmClient::saveCheckInterval()
 {
-    KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup generalGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     generalGroup.writeEntry("CheckInterval", m_check_interval);
     KSharedConfig::openConfig()->sync();
 }
 
 void CalAlarmClient::saveSuspendSeconds()
 {
-    KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup generalGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     generalGroup.writeEntry("SuspendSeconds", m_suspend_seconds);
     KSharedConfig::openConfig()->sync();
 }
@@ -137,7 +137,7 @@ void CalAlarmClient::forceAlarmCheck()
 
 QString CalAlarmClient::dumpLastCheck() const
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(), "General");
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("General"));
     const QDateTime lastChecked = cfg.readEntry("CalendarsLastChecked", QDateTime());
 
     return QStringLiteral("Last Check: %1").arg(lastChecked.toString());
@@ -165,7 +165,7 @@ QStringList CalAlarmClient::dumpAlarms() const
 void CalAlarmClient::restoreSuspendedFromConfig()
 {
     qDebug() << "\nrestoreSuspendedFromConfig:Restore suspended alarms from config";
-    KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
+    KConfigGroup suspendedGroup(KSharedConfig::openConfig(), QStringLiteral("Suspended"));
     const auto suspendedAlarms = suspendedGroup.groupList();
 
     for (const auto &s : suspendedAlarms) {
@@ -199,7 +199,7 @@ QString CalAlarmClient::alarmText(const QString &uid) const
 
 void CalAlarmClient::flushSuspendedToConfig()
 {
-    KConfigGroup suspendedGroup(KSharedConfig::openConfig(), "Suspended");
+    KConfigGroup suspendedGroup(KSharedConfig::openConfig(), QStringLiteral("Suspended"));
     suspendedGroup.deleteGroup();
 
     const auto suspendedNotifications = m_notification_handler->suspendedNotifications();

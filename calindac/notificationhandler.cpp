@@ -13,7 +13,7 @@
 
 NotificationHandler::NotificationHandler(QObject *parent) : QObject(parent), m_active_notifications {QHash<QString, AlarmNotification*>()}, m_suspended_notifications {QHash<QString, AlarmNotification*>()}
 {
-    KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+    KConfigGroup generalGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     m_suspend_seconds = generalGroup.readEntry("SuspendSeconds", 60);
 }
 
