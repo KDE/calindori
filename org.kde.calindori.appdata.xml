@@ -114,6 +114,7 @@
     <p xml:lang="uk">Calindori — програма-календар для сенсорних інтерфейсів. Її розроблено для мобільних пристроїв, але нею можна користуватися на звичайних комп'ютерних робочих станціях. Користувачі Calindori можуть читати записи попередніх і майбутніх подій і керувати записами завдань і подій.</p>
     <p xml:lang="x-test">xxCalindori is a touch friendly calendar application. It has been designed for mobile devices but it can also run on desktop environments. Users of Calindori are able to check previous and future dates and manage tasks and events.xx</p>
     <p xml:lang="zh-CN">Calindori 是一款适合触控的日历应用程序。它针对移动设备设计，也可以运行在桌面环境上。用户可以使用 Calindori 查看指定的日期，并管理任务和活动。</p>
+    <p xml:lang="zh-TW">Calindori 是一個觸控友善的行事曆應用程式。它是為行動裝置設計的，但也可以在桌面的環境下使用。Calindori 的使用者可以用它來查看先前或未來的日期，並管理工作和事件。</p>
     <p>When executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.</p>
     <p xml:lang="ar">عند تشغيل التطبيق لأول مرة، ملف تقويم جديد سيتم إنشائه بمعيار ical. بدلا عن ذلك، المستخدمون يستطيعون إنشاء تقاويم إضافية أو استيراد تقاويم موجودة مسبقة.</p>
     <p xml:lang="ca">En executar l'aplicació per primera vegada, es crea un fitxer nou de calendari que segueix l'estàndard «ical». Alternativament, els usuaris poden crear calendaris addicionals o importar-ne d'existents.</p>
@@ -147,6 +148,7 @@
     <p xml:lang="uk">Під час першого запуску програма створить файл стандартного календаря у форматі ical. Крім того, користувач може створювати додаткові календарі або імпортувати вже створені.</p>
     <p xml:lang="x-test">xxWhen executing the application for the first time, a new calendar file is created that follows the ical standard. Alternatively, users may create additional calendars or import existing ones.xx</p>
     <p xml:lang="zh-CN">首次运行此程序时，它会自动按照 ical 标准创建一个新日历。用户也可以创建其他日历，或者导入已有日历。</p>
+    <p xml:lang="zh-TW">第一次執行此應用程式時，會建立一個跟隨 iCal 標準的新行事曆檔案。使用者也可以建立額外的行事曆或是匯入現有的行事曆。</p>
     <p>Features:</p>
     <p xml:lang="ar">المزايا:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -219,6 +221,7 @@
       <li xml:lang="uk">Порядок денний</li>
       <li xml:lang="x-test">xxAgendaxx</li>
       <li xml:lang="zh-CN">日程表</li>
+      <li xml:lang="zh-TW">行程</li>
       <li>Events</li>
       <li xml:lang="ar">الأحداث</li>
       <li xml:lang="ca">Esdeveniments</li>
@@ -413,6 +416,7 @@
       <caption xml:lang="uk">Calindori на мобільному телефоні</caption>
       <caption xml:lang="x-test">xxCalindori on Mobilexx</caption>
       <caption xml:lang="zh-CN">Calindori 移动版</caption>
+      <caption xml:lang="zh-TW">手機上的 Calindori</caption>
       <image>https://cdn.kde.org/screenshots/calindori/mobile.png</image>
     </screenshot>
     <screenshot>
@@ -450,6 +454,7 @@
       <caption xml:lang="uk">Calindori на комп'ютері</caption>
       <caption xml:lang="x-test">xxCalindori on Desktopxx</caption>
       <caption xml:lang="zh-CN">Calindori 桌面版</caption>
+      <caption xml:lang="zh-TW">桌面上的 Calindori</caption>
       <image>https://cdn.kde.org/screenshots/calindori/desktop.png</image>
     </screenshot>
   </screenshots>
