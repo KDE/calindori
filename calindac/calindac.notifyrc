@@ -97,6 +97,7 @@ Name[tr]=Olay kimliği
 Name[uk]=Ідентифікатор випадку
 Name[x-test]=xxIncidence uidxx
 Name[zh_CN]=事件 UID
+Name[zh_TW]=事件 UID
 Comment=The uid of the incidence of the alarm
 Comment[ca]=L'UID de la incidència de l'alarma
 Comment[ca@valencia]=L'UID de la incidència de l'alarma
@@ -127,6 +128,7 @@ Comment[tr]=Alarm olayının kimliği
 Comment[uk]=Ідентифікатор випадку нагадування
 Comment[x-test]=xxThe uid of the incidence of the alarmxx
 Comment[zh_CN]=闹钟事件的 UID
+Comment[zh_TW]=鬧鐘的事件的獨有 ID
 
 [Event/alarm]
 Name=Alarm
