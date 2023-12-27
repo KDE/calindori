@@ -2,161 +2,163 @@
 # calindori 套件的正體中文翻譯.
 # Copyright (C) 2019 This file is copyright:
 # This file is distributed under the same license as the calindori package.
-# Automatically generated, 2019.
 #
+# Automatically generated, 2019.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-03 00:46+0000\n"
-"PO-Revision-Date: 2019-08-07 03:14+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-12-26 21:38+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
 
 #: attendeesmodel.cpp:183
 #, kde-format
 msgid "Accepted"
-msgstr ""
+msgstr "已接受"
 
 #: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
 #, kde-format
 msgid "Tentative"
-msgstr ""
+msgstr "暫時的"
 
 #: attendeesmodel.cpp:189
 #, kde-format
 msgid "Declined"
-msgstr ""
+msgstr "已拒絕"
 
 #: attendeesmodel.cpp:192
 #, kde-format
 msgid "Delegated"
-msgstr ""
+msgstr "已委託"
 
 #: attendeesmodel.cpp:195
 #, kde-format
 msgid "Not responded yet"
-msgstr ""
+msgstr "尚未回應"
 
 #: calendarcontroller.cpp:47
 #, kde-format
 msgid "The url or file given does not contain valid calendar data"
-msgstr ""
+msgstr "提供的網址或檔案內不含有效的行事曆資料"
 
 #: calendarcontroller.cpp:56
 #, kde-format
 msgid "The url or file given does not contain any event or task"
-msgstr ""
+msgstr "提供的網址或檔案內不含任何事件或工作"
 
 #: calendarcontroller.cpp:63
 #, kde-format
 msgid "1 event will be added"
 msgid_plural "%1 events will be added"
-msgstr[0] ""
+msgstr[0] "將會新增 %1 個事件"
 
 #: calendarcontroller.cpp:65
 #, kde-format
 msgid "1 task will be added"
 msgid_plural "%1 tasks will be added"
-msgstr[0] ""
+msgstr[0] "將會新增 %1 項工作"
 
 #: calendarcontroller.cpp:68
 #, kde-format
 msgid "%1 incidences will be added"
-msgstr ""
+msgstr "將會新增 %1 次重複事件"
 
 #: calendarcontroller.cpp:132
 #, kde-format
 msgid "Import completed successfully"
-msgstr ""
+msgstr "匯入已成功完成"
 
 #: calendarcontroller.cpp:134
 #, kde-format
 msgid "An error has occurred during import"
-msgstr ""
+msgstr "匯入時發生錯誤"
 
 #: calendarcontroller.cpp:312
 #, kde-format
 msgid "In case of all day events, start date and end date should be equal"
-msgstr ""
+msgstr "整天的工作的開始日期和結束日期應該要相同"
 
 #: calendarcontroller.cpp:322
 #, kde-format
 msgid "End date time should be equal to or greater than the start date time"
-msgstr ""
+msgstr "結束日期時間必須與開始日期事件同時或是在它之後"
 
 #: calendarcontroller.cpp:334
 #, kde-format
 msgid "Daily events should not span multiple days"
-msgstr ""
+msgstr "每日事件長度不應超過一天"
 
 #: calendarcontroller.cpp:454
 #, kde-format
 msgid "In case of all day tasks, start date and due date should be equal"
-msgstr ""
+msgstr "整天的工作的開始日期和期限日期應該要相同"
 
 #: calendarcontroller.cpp:461
 #, kde-format
 msgid "Due date time should be equal to or greater than the start date time"
-msgstr ""
+msgstr "期限日期時間必須與開始日期事件同時或是在它之後"
 
 #: calendarcontroller.cpp:484
 #, kde-format
 msgid "Cannot read calendar. Export failed."
-msgstr ""
+msgstr "無法讀取行事曆。匯出失敗。"
 
 #: calendarcontroller.cpp:494
 #, kde-format
 msgid "Cannot load calendar. Export failed."
-msgstr ""
+msgstr "無法載入行事曆。匯出失敗。"
 
 #: calendarcontroller.cpp:509
 #, kde-format
 msgid "Cannot save calendar file. Export failed."
-msgstr ""
+msgstr "無法儲存行事曆檔案。匯出失敗。"
 
 #: calendarcontroller.cpp:516
 #, kde-format
 msgid "Export completed successfully"
-msgstr ""
+msgstr "匯出已成功完成"
 
 #: calindoriconfig.cpp:78
 #, kde-format
 msgid "Calendar name contains invalid characters"
-msgstr ""
+msgstr "行事曆名稱包含無效字元"
 
 #: calindoriconfig.cpp:99
 #, kde-format
 msgid "Calendar already exists"
-msgstr ""
+msgstr "行事曆已存在"
 
 #: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
 #, kde-format
 msgid "No contacts found"
-msgstr ""
+msgstr "沒有找到聯絡人"
 
 #: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
 #: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
 #: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
 #: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
@@ -166,263 +168,263 @@ msgstr ""
 #: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
 #, kde-format
 msgid "Email:"
-msgstr ""
+msgstr "電子郵件："
 
 #: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
 #, kde-format
 msgid "Status:"
-msgstr ""
+msgstr "狀態："
 
 #: contents/ui/AttendeeRoleEditor.qml:32
 #, kde-format
 msgid "Role:"
-msgstr ""
+msgstr "角色："
 
 #: contents/ui/AttendeeRoleEditor.qml:35
 #, kde-format
 msgid "Required"
-msgstr ""
+msgstr "必要"
 
 #: contents/ui/AttendeeRoleEditor.qml:42
 #, kde-format
 msgid "Optional"
-msgstr ""
+msgstr "可選"
 
 #: contents/ui/AttendeeRoleEditor.qml:49
 #, kde-format
 msgid "Non-participant"
-msgstr ""
+msgstr "非參加者"
 
 #: contents/ui/AttendeeRoleEditor.qml:56
 #, kde-format
 msgid "Chairperson"
-msgstr ""
+msgstr "主席"
 
 #: contents/ui/Attendees.qml:25
 #, kde-format
 msgid ""
 "Attendee management is available only in external calendars that are "
 "synchronized online"
-msgstr ""
+msgstr "參加者管理只在與線上同步的外部行事曆中可用"
 
 #: contents/ui/Attendees.qml:31
 #, kde-format
 msgid "Please set the calendar owner details in the application settings"
-msgstr ""
+msgstr "請在應用程式設定中設定行事曆擁有者詳細資訊"
 
 #: contents/ui/Attendees.qml:114
 #, kde-format
 msgid "No attendees yet"
-msgstr ""
+msgstr "尚無參加者"
 
 #: contents/ui/Attendees.qml:151
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
-msgstr ""
+msgstr "新行事曆"
 
 #: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
 #, kde-format
 msgid "Calendar:"
-msgstr ""
+msgstr "行事曆："
 
 #: contents/ui/CalendarEditor.qml:80
 #, kde-format
 msgid "File:"
-msgstr ""
+msgstr "檔案:"
 
 #: contents/ui/CalendarEditor.qml:85
 #, kde-format
 msgid "Owner"
-msgstr ""
+msgstr "擁有者"
 
 #: contents/ui/CalendarEditor.qml:92
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "名稱："
 
 #: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
 #: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
 #, kde-format
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: contents/ui/CalendarMonthPage.qml:56
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "往前"
 
 #: contents/ui/CalendarMonthPage.qml:63
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "往後"
 
 #: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
 #: contents/ui/TodosCardView.qml:19
 #, kde-format
 msgid "Tasks"
-msgstr ""
+msgstr "工作"
 
 #: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
 #: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:74
 #, kde-format
 msgid "Events"
-msgstr ""
+msgstr "事件"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:54
 #: contents/ui/CalindoriGlobalDrawer.qml:64
 #, kde-format
 msgid "Calendar"
-msgstr ""
+msgstr "行事曆"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:81
 #, kde-format
 msgid "Month View"
-msgstr ""
+msgstr "月份檢視"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:104
 #, kde-format
 msgid "Week View"
-msgstr ""
+msgstr "單週檢視"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:127
 #, kde-format
 msgid "Day View"
-msgstr ""
+msgstr "單日檢視"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:150
 #, kde-format
 msgid "Tasks List"
-msgstr ""
+msgstr "工作列表"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:172
 #, kde-format
 msgid "Events List"
-msgstr ""
+msgstr "事件列表"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:198
 #, kde-format
 msgid "Calendars"
-msgstr ""
+msgstr "行事曆"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
 #: contents/ui/ManageCalendarsPage.qml:76
 #, kde-format
 msgid "Calendar %1 has been activated"
-msgstr ""
+msgstr "行事曆 %1 已啟用。"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:18
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: contents/ui/DayPage.qml:21
 #, kde-format
 msgid "Previous day"
-msgstr ""
+msgstr "上一天"
 
 #: contents/ui/DayPage.qml:35
 #, kde-format
 msgid "Next day"
-msgstr ""
+msgstr "下一天"
 
 #: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
 #: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
 #: contents/ui/WeekView.qml:156
 #, kde-format
 msgid "Create Event"
-msgstr ""
+msgstr "建立事件"
 
 #: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
 #: contents/ui/WeekView.qml:163
 #, kde-format
 msgid "Create Task"
-msgstr ""
+msgstr "建立工作"
 
 #: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
 #, kde-format
 msgid "Summary:"
-msgstr ""
+msgstr "摘要："
 
 #: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
 #, kde-format
 msgid "Start:"
-msgstr ""
+msgstr "開始："
 
 #: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
 #, kde-format
 msgid "Start Date"
-msgstr ""
+msgstr "開始日期"
 
 #: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
 #, kde-format
 msgid "Start Time"
-msgstr ""
+msgstr "開始時間"
 
 #: contents/ui/EventEditorPage.qml:93
 #, kde-format
 msgid "End:"
-msgstr ""
+msgstr "結束："
 
 #: contents/ui/EventEditorPage.qml:100
 #, kde-format
 msgid "End Date"
-msgstr ""
+msgstr "結束日期"
 
 #: contents/ui/EventEditorPage.qml:123
 #, kde-format
 msgid "End Time"
-msgstr ""
+msgstr "結束時間"
 
 #: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
 #, kde-format
 msgid "All day"
-msgstr ""
+msgstr "整天"
 
 #: contents/ui/EventEditorPage.qml:156
 #, kde-format
 msgid "Repeat:"
-msgstr ""
+msgstr "重複："
 
 #: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
 msgid "Details"
-msgstr ""
+msgstr "詳細資料"
 
 #: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
 #, kde-format
 msgid "Reminders"
-msgstr ""
+msgstr "提醒"
 
 #: contents/ui/EventEditorPage.qml:183
 #, kde-format
 msgid "Attendees"
-msgstr ""
+msgstr "參加者"
 
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled for %1"
-msgstr ""
+msgstr "%1 沒有事件"
 
 #: contents/ui/EventsCardView.qml:38
 #, kde-format
 msgid "No events scheduled"
-msgstr ""
+msgstr "沒有事件"
 
 #: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
 #: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
@@ -430,532 +432,529 @@ msgstr ""
 #: contents/ui/TodosCardView.qml:86
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: contents/ui/EventsCardView.qml:82
 #, kde-format
 msgid "Event %1 will be deleted"
-msgstr ""
+msgstr "事件 %1 將被刪除"
 
 #: contents/ui/IncidenceEditor.qml:23
 #, kde-format
 msgid "Canceled"
-msgstr ""
+msgstr "已取消"
 
 #: contents/ui/IncidenceEditor.qml:24
 #, kde-format
 msgid "Confirmed"
-msgstr ""
+msgstr "已確認"
 
 #: contents/ui/IncidenceEditor.qml:62
 #, kde-format
 msgid "Location:"
-msgstr ""
+msgstr "位置："
 
 #: contents/ui/IncidenceEditor.qml:71
 #, kde-format
 msgid "Description:"
-msgstr ""
+msgstr "描述："
 
 #: contents/ui/IncidenceEditor.qml:78
 #, kde-format
 msgid "Completed:"
-msgstr ""
+msgstr "已完成："
 
 #: contents/ui/IncidenceListView.qml:53
 #, kde-format
 msgid "Show Completed"
-msgstr ""
+msgstr "顯示已完成"
 
 #: contents/ui/IncidenceListView.qml:53
 #, kde-format
 msgid "Hide Completed"
-msgstr ""
+msgstr "隱藏已完成"
 
 #: contents/ui/IncidenceListView.qml:63
 #, kde-format
 msgid "Nothing scheduled for %1"
-msgstr ""
+msgstr "%1 沒有行程"
 
 #: contents/ui/IncidenceListView.qml:63
 #, kde-format
 msgid "Nothing scheduled"
-msgstr ""
+msgstr "沒有行程"
 
 #: contents/ui/IncidencePage.qml:61
 #, kde-format
 msgid "%1 will be deleted"
-msgstr ""
+msgstr "%1 將被刪除"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:48
 #, kde-format
 msgid "%1 task"
 msgid_plural "%1 tasks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 個工作"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:50
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 個事件"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:100
 #, kde-format
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:107
 #, kde-format
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: contents/ui/ManageCalendarsPage.qml:23
 #, kde-format
 msgid "Create"
-msgstr ""
+msgstr "建立"
 
 #: contents/ui/ManageCalendarsPage.qml:41
 #, kde-format
 msgid "No external calendars found"
-msgstr ""
+msgstr "沒有找到外部行事曆"
 
 #: contents/ui/ManageCalendarsPage.qml:42
 #, kde-format
 msgid "No calendars found"
-msgstr ""
+msgstr "沒有找到行事曆"
 
 #: contents/ui/ManageCalendarsPage.qml:43
 #, kde-format
 msgid "Import an existing calendar file."
-msgstr ""
+msgstr "匯入現有的行事曆檔案。"
 
 #: contents/ui/ManageCalendarsPage.qml:44
 #, kde-format
 msgid "Add a new calendar."
-msgstr ""
+msgstr "新增行事曆。"
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
 msgid "Modify "
-msgstr ""
+msgstr "變更 "
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
 msgid "Activate"
-msgstr ""
+msgstr "啟用"
 
 #: contents/ui/ManageCalendarsPage.qml:87
 #: contents/ui/ManageCalendarsPage.qml:102
 #, kde-format
 msgid "Calendar must not be active when being deleted."
-msgstr ""
+msgstr "行事曆作用中時無法被刪除。"
 
 #: contents/ui/ManageCalendarsPage.qml:96
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: contents/ui/ManageCalendarsPage.qml:110
 #, kde-format
 msgid "Edit details"
-msgstr ""
+msgstr "編輯詳細資訊"
 
 #: contents/ui/ManageCalendarsPage.qml:119
 #, kde-format
 msgid "Import calendar file"
-msgstr ""
+msgstr "匯入行事曆檔案"
 
 #: contents/ui/ManageCalendarsPage.qml:129
 #, kde-format
 msgid "Export calendar to file"
-msgstr ""
+msgstr "匯出行事曆到檔案"
 
 #: contents/ui/ManageCalendarsPage.qml:153
 #, kde-format
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 #: contents/ui/ManageCalendarsPage.qml:154
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
-msgstr ""
+msgstr "這個行事曆中的所有資料都將被刪除。確認繼續刪除？"
 
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
 msgid "Modify"
-msgstr ""
+msgstr "修改"
 
 #: contents/ui/MessageBoard.qml:32
 #, kde-format
 msgid "Proceed"
-msgstr ""
+msgstr "繼續"
 
 #: contents/ui/MessageBoard.qml:58
 #, kde-format
 msgid "Open folder"
-msgstr ""
+msgstr "開啟資料夾"
 
 #: contents/ui/RecurrencePickerSheet.qml:31
 #, kde-format
 msgid "Repeat"
-msgstr ""
+msgstr "重複"
 
 #: contents/ui/RecurrencePickerSheet.qml:54
 #, kde-format
 msgid "Every:"
-msgstr ""
+msgstr "每："
 
 #: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
+msgstr[0] "年"
 
 #: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
+msgstr[0] "個月"
 
 #: contents/ui/RecurrencePickerSheet.qml:66
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
+msgstr[0] "週"
 
 #: contents/ui/RecurrencePickerSheet.qml:67
 #, kde-format
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
+msgstr[0] "天"
 
 #: contents/ui/RecurrencePickerSheet.qml:72
 #, kde-format
 msgid "Stop After:"
-msgstr ""
+msgstr "多久之後停止："
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
-msgstr[0] ""
+msgstr[0] "次重複"
 
 #: contents/ui/RecurrencePickerSheet.qml:82
 #, kde-format
 msgid "Never stop"
-msgstr ""
+msgstr "永不停止"
 
 #: contents/ui/ReminderEditor.qml:27
 #, kde-format
 msgid "New Reminder"
-msgstr ""
+msgstr "新提醒"
 
 #: contents/ui/ReminderEditor.qml:33
 #, kde-format
 msgid "Time before start"
-msgstr ""
+msgstr "開始之前的時間"
 
 #: contents/ui/ReminderEditor.qml:46
 #, kde-format
 msgid "Seconds:"
-msgstr ""
+msgstr "秒："
 
 #: contents/ui/ReminderEditor.qml:55
 #, kde-format
 msgid "Minutes:"
-msgstr ""
+msgstr "分鐘："
 
 #: contents/ui/ReminderEditor.qml:65
 #, kde-format
 msgid "Hours:"
-msgstr ""
+msgstr "小時："
 
 #: contents/ui/ReminderEditor.qml:74
 #, kde-format
 msgid "Days:"
-msgstr ""
+msgstr "天："
 
 #: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "確定"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
 msgid "No reminders yet"
-msgstr ""
+msgstr "尚無提醒"
 
 #: contents/ui/SettingsPage.qml:25
 #, kde-format
 msgid "More Info:"
-msgstr ""
+msgstr "更多資訊："
 
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: contents/ui/SettingsPage.qml:40
 #, kde-format
 msgid "Calendars:"
-msgstr ""
+msgstr "行事曆："
 
 #: contents/ui/SettingsPage.qml:41
 #, kde-format
 msgid "Manage internal calendars"
-msgstr ""
+msgstr "管理內部行事曆"
 
 #: contents/ui/SettingsPage.qml:48
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr ""
+msgstr "管理內部行事曆"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage external calendars"
-msgstr ""
+msgstr "管理外部行事曆"
 
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage External Calendars"
-msgstr ""
+msgstr "管理外部行事曆"
 
 #: contents/ui/SettingsPage.qml:78
 #, kde-format
 msgid "Initial duration (minutes):"
-msgstr ""
+msgstr "初始時長（分鐘）："
 
 #: contents/ui/SettingsPage.qml:88
 #, kde-format
 msgid "Remind before event (minutes):"
-msgstr ""
+msgstr "事件前提醒（分鐘）："
 
 #: contents/ui/SettingsPage.qml:97
 #, kde-format
 msgid "Add reminder to new events:"
-msgstr ""
+msgstr "為新事件新增提醒："
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
 msgid "Due:"
-msgstr ""
+msgstr "期限："
 
 #: contents/ui/TodoEditorPage.qml:107
 #, kde-format
 msgid "Due Date"
-msgstr ""
+msgstr "期限日期"
 
 #: contents/ui/TodoEditorPage.qml:135
 #, kde-format
 msgid "Due Time"
-msgstr ""
+msgstr "期限時間"
 
 #: contents/ui/TodoEditorPage.qml:160
 #, kde-format
 msgid "All day:"
-msgstr ""
+msgstr "整天："
 
 #: contents/ui/TodosCardView.qml:37
 #, kde-format
 msgid "No tasks scheduled for %1"
-msgstr ""
+msgstr "%1 沒有工作"
 
 #: contents/ui/TodosCardView.qml:37
 #, kde-format
 msgid "No tasks scheduled"
-msgstr ""
+msgstr "沒有工作"
 
 #: contents/ui/TodosCardView.qml:81
 #, kde-format
 msgid "Task %1 will be deleted"
-msgstr ""
+msgstr "工作 %1 將被刪除"
 
 #: contents/ui/WeekPage.qml:22
 #, kde-format
 msgid "Previous week"
-msgstr ""
+msgstr "上一週"
 
 #: contents/ui/WeekPage.qml:29
 #, kde-format
 msgid "Current Week"
-msgstr ""
+msgstr "這一週"
 
 #: contents/ui/WeekPage.qml:36
 #, kde-format
 msgid "Next week"
-msgstr ""
+msgstr "下一週"
 
 #: incidencealarmsmodel.cpp:157
 #, kde-format
 msgid "days before start"
-msgstr ""
+msgstr "天（開始前）"
 
 #: incidencealarmsmodel.cpp:160
 #, kde-format
 msgid "seconds before start"
-msgstr ""
+msgstr "秒（開始前）"
 
 #: incidencealarmsmodel.cpp:202
 #, kde-format
 msgid "At start time"
-msgstr ""
+msgstr "開始時"
 
 #: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
 #, kde-format
 msgid "1 day before start"
 msgid_plural "%1 days before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "開始前 %1 天"
 
 #: incidencealarmsmodel.cpp:216
 #, kde-format
 msgid "1 hour before start"
 msgid_plural "%1 hours before start"
-msgstr[0] ""
+msgstr[0] "開始前 %1 小時"
 
 #: incidencealarmsmodel.cpp:220
 #, kde-format
 msgid "1 minute before start"
 msgid_plural "%1 minutes before start"
-msgstr[0] ""
+msgstr[0] "開始前 %1 分鐘"
 
 #: incidencealarmsmodel.cpp:223
 #, kde-format
 msgid "1 second before start"
 msgid_plural "%1 seconds before start"
-msgstr[0] ""
+msgstr[0] "開始前 %1 秒"
 
 #: incidencemodel.cpp:173
 #, kde-format
 msgid "Event"
-msgstr ""
+msgstr "事件"
 
 #: incidencemodel.cpp:175
 #, kde-format
 msgid "Task"
-msgstr ""
+msgstr "工作"
 
 #: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
 #, kde-format
 msgid "all-day"
-msgstr ""
+msgstr "整天"
 
 #: incidencemodel.cpp:523
 #, kde-format
 msgid "No Due Date"
-msgstr ""
+msgstr "無期限日期"
 
 #: localcalendar.cpp:97
 #, kde-format
 msgid "A calendar with the same name already exists"
-msgstr ""
+msgstr "已經有同名的行事曆存在。"
 
 #: main.cpp:74
 #, kde-format
 msgid "Calindori"
-msgstr ""
+msgstr "Calindori"
 
 #: main.cpp:74
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
-msgstr ""
+msgstr "行事曆應用程式"
 
 #: main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr ""
+msgstr "(c) 2018-2022 Calindori 團隊"
 
 #: main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
-msgstr ""
+msgstr "Dimitris Kardarakos"
 
 #: main.cpp:79 main.cpp:81 main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "開發者"
 
 #: main.cpp:81
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
-msgstr ""
+msgstr "Nicolas Fella"
 
 #: main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"
-msgstr ""
+msgstr "Devin Lin"
 
 #: recurrenceperiodmodel.cpp:114
 #, kde-format
 msgid "Do not repeat"
-msgstr ""
+msgstr "不重複"
 
 #: recurrenceperiodmodel.cpp:118
 #, kde-format
 msgid "Yearly"
-msgstr ""
+msgstr "每年"
 
 #: recurrenceperiodmodel.cpp:121
 #, kde-format
 msgid "Monthly"
-msgstr ""
+msgstr "每個月"
 
 #: recurrenceperiodmodel.cpp:123
 #, kde-format
 msgid "Weekly"
-msgstr ""
+msgstr "每週"
 
 #: recurrenceperiodmodel.cpp:125
 #, kde-format
 msgid "Daily"
-msgstr ""
+msgstr "每天"
 
 #: recurrenceperiodmodel.cpp:133
 #, kde-format
 msgid "Every year"
 msgid_plural "Every %1 years"
-msgstr[0] ""
+msgstr[0] "每 %1 年"
 
 #: recurrenceperiodmodel.cpp:134
 #, kde-format
 msgid "Every month"
 msgid_plural "Every %1 months"
-msgstr[0] ""
+msgstr[0] "每 %1 個月"
 
 #: recurrenceperiodmodel.cpp:135
 #, kde-format
 msgid "Every week"
 msgid_plural "Every %1 weeks"
-msgstr[0] ""
+msgstr[0] "每 %1 週"
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
+msgstr[0] "每 %1 天"
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
 msgid "; once"
 msgid_plural "; %1 times"
-msgstr[0] ""
+msgstr[0] "；%1 次"
