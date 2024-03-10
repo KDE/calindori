@@ -5,12 +5,12 @@
  */
 
 import QtQuick 2.7
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami as Kirigami
 import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.3
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: root
 
     property int selectedRepeatType
@@ -26,13 +26,11 @@ Kirigami.OverlaySheet {
         root.open();
     }
 
-    header: Kirigami.Heading {
-        level:1
-        text: i18n("Repeat")
-    }
+    title: i18n("Repeat")
+    preferredWidth: Kirigami.Units.gridUnit * 15
+    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
     Kirigami.FormLayout {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 15
 
         Repeater {
             id: repeatTypesList
@@ -84,24 +82,9 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: RowLayout {
-        Item {
-            Layout.fillWidth: true
-        }
-
-        Controls.ToolButton {
-            text: i18n("Save")
-
-            onClicked: {
-                root.recurrencePicked();
-                root.close();
-            }
-        }
-
-        Controls.ToolButton {
-            text: i18n("Cancel")
-
-            onClicked: root.close()
-        }
+    onAccepted: {
+        root.recurrencePicked();
+        root.close();
     }
+    onRejected: root.close()
 }

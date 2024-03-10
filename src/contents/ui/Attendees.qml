@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.14 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
 ColumnLayout {
@@ -86,7 +86,7 @@ ColumnLayout {
                 Kirigami.Action {
                     id: removeAttendee
 
-                    iconName: "delete"
+                    icon.name: "delete"
                     enabled: Calindori.CalendarController.activeCalendar.isExternal && Calindori.CalendarController.activeCalendar.ownerName && Calindori.CalendarController.activeCalendar.ownerEmail
 
                     onTriggered: attendeesModel.removeItem(model.index)
@@ -95,7 +95,7 @@ ColumnLayout {
                 Kirigami.Action {
                     id: editAttendee
 
-                    iconName: "document-edit"
+                    icon.name: "document-edit"
                     enabled: Calindori.CalendarController.activeCalendar.isExternal && Calindori.CalendarController.activeCalendar.ownerName && Calindori.CalendarController.activeCalendar.ownerEmail
 
                     onTriggered: {
@@ -128,30 +128,15 @@ ColumnLayout {
         Layout.fillWidth: true
     }
 
-    Kirigami.OverlaySheet {
+    Kirigami.PromptDialog {
         id: infoEditor
 
         property var attendeeModelRow
 
-        header: Kirigami.Heading {
-            level: 1
-            text: infoEditor.attendeeModelRow && infoEditor.attendeeModelRow.name ? infoEditor.attendeeModelRow.name : ""
-        }
+        title: infoEditor.attendeeModelRow && infoEditor.attendeeModelRow.name ? infoEditor.attendeeModelRow.name : ""
 
-        contentItem: AttendeeRoleEditor {
+        AttendeeRoleEditor {
             attendeeModelRow: infoEditor.attendeeModelRow
-        }
-
-        footer: RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-
-            Controls2.ToolButton {
-                text: i18n("Close")
-
-                onClicked: infoEditor.close()
-            }
         }
     }
 }

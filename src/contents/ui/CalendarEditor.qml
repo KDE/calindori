@@ -100,20 +100,8 @@ Kirigami.Page {
 
     }
 
-    actions {
-
-        left: Kirigami.Action {
-            id: cancelAction
-
-            text: i18n("Cancel")
-            icon.name : "dialog-cancel"
-
-            onTriggered: {
-                calendarEditorCancelled();
-            }
-        }
-
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             id: saveAction
 
             text: i18n("Save")
@@ -147,9 +135,8 @@ Kirigami.Page {
                         return;
                 }
             }
-        }
-
-        right: Kirigami.Action {
+        },
+        Kirigami.Action {
             id: addFile
 
             visible: root.mode == CalendarEditor.Mode.AddExisting
@@ -157,9 +144,18 @@ Kirigami.Page {
             icon.name: "list-add"
 
             onTriggered: fileChooser.open()
-        }
+        },
+        Kirigami.Action {
+            id: cancelAction
 
-    }
+            text: i18n("Cancel")
+            icon.name : "dialog-cancel"
+
+            onTriggered: {
+                calendarEditorCancelled();
+            }
+        }
+    ]
 
     footer: Kirigami.InlineMessage {
         id: validationFooter
@@ -172,7 +168,7 @@ Kirigami.Page {
     FileChooser {
         id: fileChooser
 
-        onAccepted: root.calendarFile = fileUrl
+        onAccepted: root.calendarFile = selectedFile
     }
 
 }

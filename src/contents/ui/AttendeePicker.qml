@@ -4,12 +4,13 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.5 as Controls2
+import QtQuick
+import QtQuick.Controls as Controls2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.calindori 0.1 as Calindori
 import org.kde.people 1.0 as KPeople
+import org.kde.kirigamiaddons.delegates as Delegates
 
 Kirigami.OverlaySheet {
     id: root
@@ -54,14 +55,14 @@ Kirigami.OverlaySheet {
             visible: peopleList.count === 0
         }
 
-        delegate: Kirigami.DelegateRecycler {
-            sourceComponent: contactListDelegate
-        }
+        reuseItems: true
+        delegate: contactListDelegate
 
         Component {
             id: contactListDelegate
 
-            Kirigami.BasicListItem {
+            Delegates.RoundedItemDelegate {
+                id: delegate
                 property var itemEmail: personData && personData.person && personData.person.contactCustomProperty("email")
                 checkable: true
                 enabled: model && root.preEditEmails.indexOf(itemEmail) === -1
@@ -91,8 +92,13 @@ Kirigami.OverlaySheet {
                 }
 
                 icon: model && model.decoration
-                label: model && model.display
-                subtitle: itemEmail
+                text: model && model.display
+                property string subtitle: itemEmail
+
+                contentItem: Delegates.SubtitleContentItem {
+                    itemDelegate: delegate
+                    subtitle: delegate.subtitle
+                }
             }
         }
 

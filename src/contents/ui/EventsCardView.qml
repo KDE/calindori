@@ -22,29 +22,32 @@ Kirigami.ScrollablePage {
     rightPadding: 0
     visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
-    actions.main: Kirigami.Action {
-        id: mainAction
+    actions: [
+        Kirigami.Action {
+            id: mainAction
 
-        icon.name: "resource-calendar-insert"
-        text: i18n("Create Event")
-        onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : Calindori.CalendarController.localSystemDateTime()})
-    }
+            icon.name: "resource-calendar-insert"
+            text: i18n("Create Event")
+            onTriggered: pageStack.push(eventEditor, {startDt: (eventStartDt && !isNaN(eventStartDt)) ? new Date(root.eventStartDt.getTime() - root.eventStartDt.getMinutes()*60000 + 3600000) : Calindori.CalendarController.localSystemDateTime()})
+        }
+    ]
 
-    Kirigami.PlaceholderMessage {
-        anchors.centerIn: parent
-        icon.name: "tag-events"
-        width: parent.width - (Kirigami.Units.largeSpacing * 4)
-        visible: cardsListview.count == 0
-        text: !isNaN(eventStartDt) ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No events scheduled")
-        helpfulAction: mainAction
-    }
-
-    Kirigami.CardsListView {
+    ListView {
         id: cardsListview
+        spacing: 0
 
         model: eventsModel
         enabled: count > 0 && (root.state !== "deleting")
         clip: true
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            icon.name: "tag-events"
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            visible: cardsListview.count == 0
+            text: !isNaN(eventStartDt) ? i18n("No events scheduled for %1", eventStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No events scheduled")
+            helpfulAction: mainAction
+        }
 
         delegate: EventCard {
             id: cardDelegate
@@ -70,6 +73,24 @@ Kirigami.ScrollablePage {
                     onTriggered: pageStack.push(eventEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
+        }
+
+        Calindori.IncidenceModel {
+            id: eventsModel
+
+            appLocale: _appLocale
+            filterDt: root.eventStartDt
+            filterMode: 5
+        }
+
+        Component {
+            id: eventEditor
+
+            EventEditorPage {
+                calendar: Calindori.CalendarController.activeCalendar
+
+                onEditcompleted: pageStack.pop()
+            }
         }
     }
 
@@ -98,25 +119,6 @@ Kirigami.ScrollablePage {
                 onTriggered: root.state = ""
             }
         ]
-    }
-
-
-    Calindori.IncidenceModel {
-        id: eventsModel
-
-        appLocale: _appLocale
-        filterDt: root.eventStartDt
-        filterMode: 5
-    }
-
-    Component {
-        id: eventEditor
-
-        EventEditorPage {
-            calendar: Calindori.CalendarController.activeCalendar
-
-            onEditcompleted: pageStack.pop()
-        }
     }
 
     states: [

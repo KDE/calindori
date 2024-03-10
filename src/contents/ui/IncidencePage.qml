@@ -39,21 +39,22 @@ Kirigami.Page {
         }
     }
 
-    actions.left: Kirigami.Action {
-        text: i18n("Delete")
-        enabled: root.state !== "deleting"
-        icon.name: "delete"
+    actions: [
+        Kirigami.Action {
+            text: i18n("Delete")
+            enabled: root.state !== "deleting"
+            icon.name: "delete"
 
-        onTriggered: root.state = "deleting"
-    }
+            onTriggered: root.state = "deleting"
+        },
+        Kirigami.Action {
+            text: i18n("Edit")
+            enabled: root.state !== "deleting"
+            icon.name: "document-edit"
 
-    actions.right: Kirigami.Action {
-        text: i18n("Edit")
-        enabled: root.state !== "deleting"
-        icon.name: "document-edit"
-
-        onTriggered: pageStack.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
-    }
+            onTriggered: pageStack.push(incidence.type === 0 ? eventEditor : todoEditor, { startDt: incidence.dtstart, uid: incidence.uid, incidenceData: incidence })
+        }
+    ]
 
     footer: Kirigami.InlineMessage {
         id: deleteMsg

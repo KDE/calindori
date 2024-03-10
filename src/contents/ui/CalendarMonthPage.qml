@@ -42,52 +42,47 @@ Kirigami.Page {
 
     title: calendarMonthView.selectedDate.toLocaleDateString(_appLocale, Locale.ShortFormat)
 
-    actions {
-        main: Kirigami.Action {
-            iconName: "view-calendar-day"
+    actions: [
+        Kirigami.Action {
+            icon.name: "arrow-left"
+            text: i18n("Previous")
+            displayHint: Kirigami.Action.IconOnly
+            onTriggered: calendarMonthView.previousMonth()
+        },
+        
+        Kirigami.Action {
+            icon.name: "arrow-right"
+            text: i18n("Next")
+            displayHint: Kirigami.Action.IconOnly
+            onTriggered: calendarMonthView.nextMonth()
+        },
+        Kirigami.Action {
+            icon.name: "view-calendar-day"
             text: i18n("Today")
             
             onTriggered: calendarMonthView.goToday()
-        }
+        },
+        Kirigami.Action {
+            icon.name: "view-calendar-tasks"
+            text: i18n("Tasks")
 
-        contextualActions: [
-            Kirigami.Action {
-                iconName: "arrow-left"
-                text: i18n("Previous")
-                displayHint: Kirigami.Action.IconOnly
-                onTriggered: calendarMonthView.previousMonth()
-            },
-            
-            Kirigami.Action {
-                iconName: "arrow-right"
-                text: i18n("Next")
-                displayHint: Kirigami.Action.IconOnly
-                onTriggered: calendarMonthView.nextMonth()
-            },
-        
-            Kirigami.Action {
-                iconName: "view-calendar-tasks"
-                text: i18n("Tasks")
-
-                onTriggered: {
-                    latestContextualAction = 0;
-                    pageStack.pop(root);
-                    pageStack.push(todosCardView);
-                }
-            },
-
-            Kirigami.Action {
-                iconName: "tag-events"
-                text: i18n("Events")
-
-                onTriggered: {
-                    latestContextualAction = 1;
-                    pageStack.pop(root);
-                    pageStack.push(eventsCardView);
-                }
+            onTriggered: {
+                latestContextualAction = 0;
+                pageStack.pop(root);
+                pageStack.push(todosCardView);
             }
-        ]
-    }
+        },
+        Kirigami.Action {
+            icon.name: "tag-events"
+            text: i18n("Events")
+
+            onTriggered: {
+                latestContextualAction = 1;
+                pageStack.pop(root);
+                pageStack.push(eventsCardView);
+            }
+        }
+    ]
 
     Component.onCompleted: {
         if(loadWithAction >= 0)

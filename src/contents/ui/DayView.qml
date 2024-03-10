@@ -29,9 +29,6 @@ ListView {
     */
     function removeEditorPage() {
         pageStack.pop();
-        if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
-            pageStack.pop(incidencePage);
-        }
     }
 
     onNextDay: {
@@ -86,7 +83,7 @@ ListView {
 
                     IncidenceItemDelegate {
                         itemBackgroundColor: model.type === 0 ? Kirigami.Theme.backgroundColor : Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
-                        label: model.summary
+                        text: model.summary
                         subtitle: (model.type == 0 ? model.displayStartEndTime : (model.displayDueTime || model.displayStartTime))
                         Layout.fillWidth: true
 
@@ -104,7 +101,7 @@ ListView {
 
         actions: [
             Kirigami.Action {
-                iconName: "resource-calendar-insert"
+                icon.name: "resource-calendar-insert"
                 text: i18n("Create Event")
 
                 onTriggered: {
@@ -116,9 +113,8 @@ ListView {
                     pageStack.push(eventEditor, { startDt: eventDt });
                 }
             },
-
             Kirigami.Action {
-                iconName: "task-new"
+                icon.name: "task-new"
                 text: i18n("Create Task")
 
                 onTriggered: {

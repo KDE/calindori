@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.0 as Controls2
+import QtQuick
+import QtQuick.Controls as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.OverlaySheet {
+Kirigami.PromptDialog {
     id: reminderEditorSheet
 
     property alias secondsOffset: seconds.value
@@ -22,14 +22,12 @@ Kirigami.OverlaySheet {
 
     signal offsetSelected
 
-    header: Kirigami.Heading {
-        level:1
-        text: i18n("New Reminder")
-    }
+    title: i18n("New Reminder")
 
-    contentItem: ColumnLayout {
-        Kirigami.Heading {
-            level:2
+    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+
+    ColumnLayout {
+        Controls2.Label {
             text: i18n("Time before start")
         }
 
@@ -76,26 +74,9 @@ Kirigami.OverlaySheet {
         }
     }
 
-
-    footer: RowLayout {
-
-        Item {
-            Layout.fillWidth: true
-        }
-
-        Controls2.ToolButton {
-            text: i18n("OK")
-            onClicked: {
-                reminderEditorSheet.offsetSelected();
-                reminderEditorSheet.close();
-            }
-        }
-
-        Controls2.ToolButton {
-            text: i18n("Cancel")
-            onClicked: {
-                reminderEditorSheet.close();
-            }
-        }
+    onAccepted: {
+        reminderEditorSheet.offsetSelected();
+        reminderEditorSheet.close();
     }
+    onRejected: reminderEditorSheet.close();
 }
