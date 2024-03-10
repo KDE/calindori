@@ -7,9 +7,9 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami as Kirigami
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: datePickerSheet
 
     property alias selectedDate: calendarMonth.selectedDate
@@ -17,15 +17,12 @@ Kirigami.OverlaySheet {
 
     signal datePicked
 
+    title: datePickerSheet.headerText
 
-    header: Kirigami.Heading {
-        level:1
-        text: datePickerSheet.headerText
-    }
+    preferredWidth: calendarMonth.dayRectWidth * 8
+    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
     ColumnLayout {
-        Layout.preferredWidth: calendarMonth.dayRectWidth * 8
-
         PickerMonthView {
             id: calendarMonth
 
@@ -70,25 +67,9 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: RowLayout {
-
-        Item {
-            Layout.fillWidth: true
-        }
-
-        Controls2.ToolButton {
-            text: "OK"
-
-            onClicked: {
-                datePickerSheet.datePicked();
-                datePickerSheet.close();
-            }
-        }
-
-        Controls2.ToolButton {
-            text: "Cancel"
-
-            onClicked: datePickerSheet.close()
-        }
+    onAccepted: {
+        datePickerSheet.datePicked();
+        datePickerSheet.close();
     }
+    onRejected: datePickerSheet.close()
 }

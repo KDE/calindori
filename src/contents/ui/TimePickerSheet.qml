@@ -7,10 +7,10 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: timePickerSheet
 
     property string headerText
@@ -19,36 +19,21 @@ Kirigami.OverlaySheet {
     property alias pm: timePicker.pm
 
     signal datePicked
-    header: Kirigami.Heading {
-        level:1
-        text: timePickerSheet.headerText
-    }
+    title: timePickerSheet.headerText
+    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
-    contentItem: TimePicker {
+    preferredWidth: Kirigami.Units.gridUnit * 25
+    preferredHeight: Kirigami.Units.gridUnit * 25
+
+    TimePicker {
         id: timePicker
+        width: Kirigami.Units.gridUnit * 20
         height: Kirigami.Units.gridUnit * 25
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 25
     }
 
-    footer: RowLayout {
-
-        Item {
-            Layout.fillWidth: true
-        }
-
-        Controls2.ToolButton {
-            text: i18n("OK")
-            onClicked: {
-                timePickerSheet.datePicked();
-                timePickerSheet.close();
-            }
-        }
-
-        Controls2.ToolButton {
-            text: i18n("Cancel")
-            onClicked: {
-                timePickerSheet.close();
-            }
-        }
+    onAccepted: {
+        timePickerSheet.datePicked();
+        timePickerSheet.close();
     }
+    onRejected: timePickerSheet.close();
 }

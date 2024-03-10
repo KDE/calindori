@@ -208,19 +208,8 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions {
-
-        left: Kirigami.Action {
-            id: cancelAction
-
-            text: i18n("Cancel")
-            icon.name : "dialog-cancel"
-            shortcut: "Esc"
-
-            onTriggered: editcompleted(null)
-        }
-
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18n("Save")
             icon.name: "dialog-ok"
             enabled: summary.text
@@ -240,8 +229,17 @@ Kirigami.ScrollablePage {
                     validationFooter.visible = true;
                 }
             }
+        },
+        Kirigami.Action {
+            id: cancelAction
+
+            text: i18n("Cancel")
+            icon.name : "dialog-cancel"
+            shortcut: "Esc"
+
+            onTriggered: editcompleted(null)
         }
-    }
+    ]
 
     footer: Kirigami.InlineMessage {
         id: validationFooter

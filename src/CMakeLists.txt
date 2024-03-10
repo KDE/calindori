@@ -2,11 +2,7 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-if (QT_MAJOR_VERSION EQUAL "5")
-    qtquick_compiler_add_resources(RESOURCES resources.qrc)
-else()
-    qt_add_resources(RESOURCES resources.qrc)
-endif()
+qt_add_resources(RESOURCES resources.qrc)
 
 add_executable(calindori
     main.cpp

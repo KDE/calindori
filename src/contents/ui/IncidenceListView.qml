@@ -7,8 +7,9 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0 as Controls2
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.calindori 0.1 as Calindori
+import org.kde.kirigamiaddons.delegates as Delegates
 
 Kirigami.ScrollablePage {
     id: root
@@ -24,28 +25,24 @@ Kirigami.ScrollablePage {
     */
     function removeEditorPage() {
         pageStack.pop();
-        if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
-            pageStack.pop(incidencePage);
-        }
     }
 
     title: incidenceType == 0 ? i18n("Events") : i18n("Tasks")
     leftPadding: 0
     rightPadding: 0
 
-    actions.main: Kirigami.Action {
-        id: mainAction
+    actions: [
+        Kirigami.Action {
+            id: mainAction
 
-        icon.name: "resource-calendar-insert"
-        text: (incidenceType === 0) ? i18n("Create Event") : i18n("Create Task")
-        onTriggered: {
-            var currentDt = Calindori.CalendarController.localSystemDateTime();
-            var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
-            pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
-        }
-    }
-
-    contextualActions: [
+            icon.name: "resource-calendar-insert"
+            text: (incidenceType === 0) ? i18n("Create Event") : i18n("Create Task")
+            onTriggered: {
+                var currentDt = Calindori.CalendarController.localSystemDateTime();
+                var lStartDt = (incidenceType == 0 && (incidenceStartDt == null || isNaN(incidenceStartDt))) ? new Date(currentDt.getTime() - currentDt.getMinutes()*60000 + 3600000) : incidenceStartDt;
+                pageStack.push(incidenceType == 0 ? eventEditor : todoEditor, { startDt: lStartDt } );
+            }
+        },
         Kirigami.Action {
             property alias hide: incidenceModel.filterHideCompleted
             icon.name: hide ? "show_table_row" : "hide_table_row"
@@ -67,26 +64,33 @@ Kirigami.ScrollablePage {
     ListView {
         id: listView
 
+        currentIndex: -1
         anchors.fill: parent
         model: incidenceModel
         enabled: count > 0
-        spacing: Kirigami.Units.largeSpacing
+        spacing: 0
 
-        section {
-            property: incidenceType == 0 ? "displayStartDate" : "displayDueDate"
-            criteria: ViewSection.FullString
-            delegate: Kirigami.ListSectionHeader {
-                label: section
-            }
-        }
+        // TODO: doesn't seem to work, just leaves empty gap
+        // section {
+        //     property: incidenceType == 0 ? "displayStartDate" : "displayDueDate"
+        //     criteria: ViewSection.FullString
+        //     delegate: Kirigami.ListSectionHeader {
+        //         label: section
+        //     }
+        // }
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Delegates.RoundedItemDelegate {
             id: itemDelegate
 
-            reserveSpaceForIcon: false
-            label: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartTime : model.displayDueTime)).arg(model.summary)
+            text: "%1\t%2".arg(model.allday ? i18n("All day") : (incidenceType == 0 ? model.displayStartTime : model.displayDueTime)).arg(model.summary)
             topPadding: Kirigami.Units.gridUnit
             bottomPadding: Kirigami.Units.gridUnit
+            leftPadding: Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.smallSpacing
+
+            contentItem: Delegates.SubtitleContentItem {
+                itemDelegate: itemDelegate
+            }
 
             onClicked: {
                 if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {

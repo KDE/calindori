@@ -21,7 +21,7 @@ Kirigami.ScrollablePage {
     rightPadding: 0
     visible: Kirigami.Settings.isMobile || (!Kirigami.Settings.isMobile && !pageStack.lastVisibleItem.hasOwnProperty("isEditorPage"))
 
-    actions.main: Kirigami.Action {
+    actions: Kirigami.Action {
         id: mainAction
 
         icon.name: "resource-calendar-insert"
@@ -29,21 +29,21 @@ Kirigami.ScrollablePage {
         onTriggered: pageStack.push(todoEditor, {startDt: todoDt})
     }
 
-    Kirigami.PlaceholderMessage {
-        anchors.centerIn: parent
-        icon.name: "view-calendar-tasks"
-        width: parent.width - (Kirigami.Units.largeSpacing * 4)
-        visible: cardsListview.count == 0
-        text: !isNaN(todoDt) ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No tasks scheduled")
-        helpfulAction: mainAction
-    }
-
-    Kirigami.CardsListView {
+    ListView {
         id: cardsListview
 
         model: todosModel
         enabled: count > 0 && (root.state !== "deleting")
         clip: true
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            icon.name: "view-calendar-tasks"
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            visible: cardsListview.count == 0
+            text: !isNaN(todoDt) ? i18n("No tasks scheduled for %1", todoDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("No tasks scheduled")
+            helpfulAction: mainAction
+        }
 
         delegate: TodoCard {
             id: cardDelegate
@@ -69,6 +69,21 @@ Kirigami.ScrollablePage {
                     onTriggered: pageStack.push(todoEditor, { startDt: model.dtstart, uid: model.uid, incidenceData: model })
                 }
             ]
+        }
+
+        Calindori.IncidenceModel {
+            id: todosModel
+
+            appLocale: _appLocale
+            filterDt: root.todoDt
+            filterMode: 6
+        }
+
+        Component {
+            id: todoEditor
+            TodoEditorPage {
+                onEditcompleted: pageStack.pop()
+            }
         }
     }
 
@@ -97,21 +112,6 @@ Kirigami.ScrollablePage {
                 onTriggered: root.state = ""
             }
         ]
-    }
-
-    Calindori.IncidenceModel {
-        id: todosModel
-
-        appLocale: _appLocale
-        filterDt: root.todoDt
-        filterMode: 6
-    }
-
-    Component {
-        id: todoEditor
-        TodoEditorPage {
-            onEditcompleted: pageStack.pop()
-        }
     }
 
     states: [

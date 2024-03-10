@@ -15,28 +15,26 @@ Kirigami.ScrollablePage {
 
     title: dayView.selectedDate.toLocaleDateString(_appLocale, Locale.ShortFormat)
 
-    actions {
-        left: Kirigami.Action {
-            iconName: "arrow-left"
+    actions: [
+        Kirigami.Action {
+            icon.name: "arrow-left"
             text: i18n("Previous day")
             displayHint: Kirigami.Action.IconOnly
             onTriggered: dayView.previousDay()
-        }
-
-        main: Kirigami.Action {
-            iconName: "view-calendar-day"
+        },
+        Kirigami.Action {
+            icon.name: "arrow-right"
+            text: i18n("Next day")
+            displayHint: Kirigami.Action.IconOnly
+            onTriggered: dayView.nextDay()
+        },
+        Kirigami.Action {
+            icon.name: "view-calendar-day"
             text: i18n("Today")
 
             onTriggered: dayView.goToday()
         }
-
-        right: Kirigami.Action {
-            iconName: "arrow-right"
-            text: i18n("Next day")
-            displayHint: Kirigami.Action.IconOnly
-            onTriggered: dayView.nextDay()
-        }
-    }
+    ]
 
     DayView {
         id: dayView

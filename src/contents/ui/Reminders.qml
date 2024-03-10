@@ -40,10 +40,10 @@ ColumnLayout {
             Layout.fillWidth: true
 
             actions: [
-                    Kirigami.Action {
+                Kirigami.Action {
                     id: deleteAlarm
 
-                    iconName: "delete"
+                    icon.name: "delete"
                     onTriggered: alarmsModel.removeAlarm(model.index)
                 }
             ]

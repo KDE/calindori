@@ -16,29 +16,26 @@ Kirigami.ScrollablePage {
 
     title: weekView.selectedDate.toLocaleDateString(_appLocale, Locale.ShortFormat)
 
-    actions {
-        left: Kirigami.Action {
-            iconName: "arrow-left"
+    actions: [
+        Kirigami.Action {
+            icon.name: "arrow-left"
             text: i18n("Previous week")
             displayHint: Kirigami.Action.IconOnly
             onTriggered: weekView.previousWeek()
-        }
-
-        main: Kirigami.Action {
-            iconName: "view-calendar-day"
+        },
+        Kirigami.Action {
+            icon.name: "arrow-right"
+            text: i18n("Next week")
+            displayHint: Kirigami.Action.IconOnly
+            onTriggered: weekView.nextWeek()
+        },
+        Kirigami.Action {
+            icon.name: "view-calendar-day"
             text: i18n("Current Week")
 
             onTriggered: weekView.goCurrentWeek()
         }
-
-        right: Kirigami.Action {
-            iconName: "arrow-right"
-            text: i18n("Next week")
-            displayHint: Kirigami.Action.IconOnly
-            onTriggered: weekView.nextWeek()
-        }
-
-    }
+    ]
 
     WeekView {
         id: weekView

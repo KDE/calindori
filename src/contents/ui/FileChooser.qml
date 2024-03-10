@@ -5,12 +5,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs
 
 FileDialog {
 	id: fileDialog
 
-	folder: shortcuts.home
+	currentFolder: shortcuts.home
 	nameFilters: [
         "Calendar files (*.ics)",
         "All files (*)"
