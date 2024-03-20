@@ -95,11 +95,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     KDBusService service(KDBusService::Unique);
 #endif
 
-    QGuiApplication::setApplicationName(aboutData.componentName());
-    QGuiApplication::setApplicationDisplayName(aboutData.displayName());
-    QGuiApplication::setOrganizationDomain(aboutData.organizationDomain());
-    QGuiApplication::setApplicationVersion(aboutData.version());
-
     qmlRegisterType<LocalCalendar>("org.kde.calindori", 0, 1, "LocalCalendar");
     qmlRegisterType<IncidenceAlarmsModel>("org.kde.calindori", 0, 1, "IncidenceAlarmsModel");
     qmlRegisterType<DaysOfMonthModel>("org.kde.calindori", 0, 1, "DaysOfMonthModel");
