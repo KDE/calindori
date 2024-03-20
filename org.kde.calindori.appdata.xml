@@ -3,11 +3,14 @@
  SPDX-FileCopyrightText: 2020 Dimitris Kardarakos <dimkard@posteo.net>
  SPDX-License-Identifier: CC0-1.0
 -->
-<component type="desktop">
+<component type="desktop-application">
   <id>org.kde.calindori.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <content_rating type="oars-1.1"/>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>Calindori</name>
   <name xml:lang="ar">كاليندوري</name>
   <name xml:lang="ca">Calindori</name>
@@ -551,4 +554,5 @@
   <provides>
     <binary>calindori</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.calindori.desktop</launchable>
 </component>
