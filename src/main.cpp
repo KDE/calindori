@@ -82,7 +82,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     
     aboutData.addAuthor(i18nc("@info:credit", "Devin Lin"), i18nc("@info:credit", "Developer"), QStringLiteral("devin@kde.org"));
 
-    aboutData.setHomepage(QStringLiteral("https://invent.kde.org/kde/calindori"));
+    aboutData.setHomepage(QStringLiteral("https://invent.kde.org/plasma-mobile/calindori"));
 
     KAboutData::setApplicationData(aboutData);
 
