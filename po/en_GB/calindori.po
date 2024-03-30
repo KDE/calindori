@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2022-04-02 16:35+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -147,24 +147,23 @@ msgstr "Calendar name contains invalid characters"
 msgid "Calendar already exists"
 msgstr "Calendar already exists"
 
-#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
 #, kde-format
 msgid "No contacts found"
 msgstr "No contacts found"
 
-#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
-#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
 #: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
 #, kde-format
 msgid "Add"
 msgstr "Add"
 
-#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
-#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
-#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
-#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
-#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
-#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel"
@@ -223,11 +222,6 @@ msgstr "Please set the calendar owner details in the application settings"
 msgid "No attendees yet"
 msgstr "No attendees yet"
 
-#: contents/ui/Attendees.qml:151
-#, kde-format
-msgid "Close"
-msgstr "Close"
-
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
@@ -253,35 +247,35 @@ msgstr "Owner"
 msgid "Name:"
 msgstr "Name:"
 
-#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
-#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
 #, kde-format
 msgid "Save"
 msgstr "Save"
 
-#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
-#, kde-format
-msgid "Today"
-msgstr "Today"
-
-#: contents/ui/CalendarMonthPage.qml:56
+#: contents/ui/CalendarMonthPage.qml:48
 #, kde-format
 msgid "Previous"
 msgstr "Previous"
 
-#: contents/ui/CalendarMonthPage.qml:63
+#: contents/ui/CalendarMonthPage.qml:55
 #, kde-format
 msgid "Next"
 msgstr "Next"
 
-#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "Today"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
 #: contents/ui/TodosCardView.qml:19
 #, kde-format
 msgid "Tasks"
 msgstr "Tasks"
 
-#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "Events"
@@ -338,21 +332,21 @@ msgstr "Settings"
 msgid "Previous day"
 msgstr "Previous day"
 
-#: contents/ui/DayPage.qml:35
+#: contents/ui/DayPage.qml:27
 #, kde-format
 msgid "Next day"
 msgstr "Next day"
 
-#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
-#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
-#: contents/ui/WeekView.qml:156
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
 #, kde-format
 msgid "Create Event"
 msgstr "Create Event"
 
-#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
-#: contents/ui/WeekView.qml:163
+#: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "Create Task"
@@ -392,7 +386,7 @@ msgstr "End Date"
 msgid "End Time"
 msgstr "End Time"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
 #, kde-format
 msgid "All day"
 msgstr "All day"
@@ -417,31 +411,31 @@ msgstr "Reminders"
 msgid "Attendees"
 msgstr "Attendees"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled for %1"
 msgstr "No events scheduled for %1"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled"
 msgstr "No events scheduled"
 
-#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
-#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
 #: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
-#: contents/ui/TodosCardView.qml:86
+#: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
 msgstr "Delete"
 
-#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
 #, kde-format
 msgid "Edit"
 msgstr "Edit"
 
-#: contents/ui/EventsCardView.qml:82
+#: contents/ui/EventsCardView.qml:103
 #, kde-format
 msgid "Event %1 will be deleted"
 msgstr "Event %1 will be deleted"
@@ -471,27 +465,27 @@ msgstr "Description:"
 msgid "Completed:"
 msgstr "Completed:"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Show Completed"
 msgstr "Show Completed"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Hide Completed"
 msgstr "Hide Completed"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "Nothing scheduled for %1"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Nothing scheduled"
 
-#: contents/ui/IncidencePage.qml:61
+#: contents/ui/IncidencePage.qml:62
 #, kde-format
 msgid "%1 will be deleted"
 msgstr "%1 will be deleted"
@@ -608,95 +602,90 @@ msgstr "Proceed"
 msgid "Open folder"
 msgstr "Open folder"
 
-#: contents/ui/RecurrencePickerSheet.qml:31
+#: contents/ui/RecurrencePickerSheet.qml:29
 #, kde-format
 msgid "Repeat"
 msgstr "Repeat"
 
-#: contents/ui/RecurrencePickerSheet.qml:54
+#: contents/ui/RecurrencePickerSheet.qml:52
 #, kde-format
 msgid "Every:"
 msgstr "Every:"
 
-#: contents/ui/RecurrencePickerSheet.qml:64
+#: contents/ui/RecurrencePickerSheet.qml:62
 #, kde-format
 msgid "year"
 msgid_plural "years"
 msgstr[0] "year"
 msgstr[1] "years"
 
-#: contents/ui/RecurrencePickerSheet.qml:65
+#: contents/ui/RecurrencePickerSheet.qml:63
 #, kde-format
 msgid "month"
 msgid_plural "months"
 msgstr[0] "month"
 msgstr[1] "Month"
 
-#: contents/ui/RecurrencePickerSheet.qml:66
+#: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] "week"
 msgstr[1] "weeks"
 
-#: contents/ui/RecurrencePickerSheet.qml:67
+#: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "day"
 msgid_plural "days"
 msgstr[0] "day"
 msgstr[1] "Today"
 
-#: contents/ui/RecurrencePickerSheet.qml:72
+#: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
 msgid "Stop After:"
 msgstr "Stop After:"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
 msgstr[0] "repeat"
 msgstr[1] "Repeat"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "Never stop"
 msgstr "Never stop"
 
-#: contents/ui/ReminderEditor.qml:27
+#: contents/ui/ReminderEditor.qml:25
 #, kde-format
 msgid "New Reminder"
 msgstr "New Reminder"
 
-#: contents/ui/ReminderEditor.qml:33
+#: contents/ui/ReminderEditor.qml:31
 #, kde-format
 msgid "Time before start"
 msgstr "Time before start"
 
-#: contents/ui/ReminderEditor.qml:46
+#: contents/ui/ReminderEditor.qml:44
 #, kde-format
 msgid "Seconds:"
 msgstr "Seconds:"
 
-#: contents/ui/ReminderEditor.qml:55
+#: contents/ui/ReminderEditor.qml:53
 #, kde-format
 msgid "Minutes:"
 msgstr "Minutes:"
 
-#: contents/ui/ReminderEditor.qml:65
+#: contents/ui/ReminderEditor.qml:63
 #, kde-format
 msgid "Hours:"
 msgstr "Hours:"
 
-#: contents/ui/ReminderEditor.qml:74
+#: contents/ui/ReminderEditor.qml:72
 #, kde-format
 msgid "Days:"
 msgstr "Days:"
-
-#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
-#, kde-format
-msgid "OK"
-msgstr "OK"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
@@ -773,17 +762,17 @@ msgstr "Due Time"
 msgid "All day:"
 msgstr "All day:"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled for %1"
 msgstr "No tasks scheduled for %1"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled"
 msgstr "No tasks scheduled"
 
-#: contents/ui/TodosCardView.qml:81
+#: contents/ui/TodosCardView.qml:96
 #, kde-format
 msgid "Task %1 will be deleted"
 msgstr "Task %1 will be deleted"
@@ -793,15 +782,15 @@ msgstr "Task %1 will be deleted"
 msgid "Previous week"
 msgstr "Previous week"
 
-#: contents/ui/WeekPage.qml:29
-#, kde-format
-msgid "Current Week"
-msgstr "Current Week"
-
-#: contents/ui/WeekPage.qml:36
+#: contents/ui/WeekPage.qml:28
 #, kde-format
 msgid "Next week"
 msgstr "Next week"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "Current Week"
 
 #: incidencealarmsmodel.cpp:157
 #, kde-format
@@ -976,6 +965,12 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; once"
 msgstr[1] "; %1 times"
+
+#~ msgid "Close"
+#~ msgstr "Close"
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid "Import"
 #~ msgstr "Import"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2022-06-27 11:21+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Russian <l10n@basealt.ru>\n"
@@ -165,25 +165,24 @@ msgstr "Название календаря содержит недопусти�
 msgid "Calendar already exists"
 msgstr "Календарь уже существует"
 
-#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
 #, kde-format
 msgid "No contacts found"
 msgstr "Контакты не найдены"
 
 # BUGME: split strings, need to translate as "Добавить" or "Создать" depending on the context --aspotashev
-#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
-#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
 #: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
 #, kde-format
 msgid "Add"
 msgstr "Добавить"
 
-#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
-#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
-#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
-#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
-#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
-#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
@@ -242,11 +241,6 @@ msgstr "Укажите сведения о владельце календаря
 msgid "No attendees yet"
 msgstr "Участников ещё нет"
 
-#: contents/ui/Attendees.qml:151
-#, kde-format
-msgid "Close"
-msgstr "Закрыть"
-
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
@@ -272,35 +266,35 @@ msgstr "Владелец"
 msgid "Name:"
 msgstr "Имя:"
 
-#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
-#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
 #, kde-format
 msgid "Save"
 msgstr "Сохранить"
 
-#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
-#, kde-format
-msgid "Today"
-msgstr "Сегодня"
-
-#: contents/ui/CalendarMonthPage.qml:56
+#: contents/ui/CalendarMonthPage.qml:48
 #, kde-format
 msgid "Previous"
 msgstr "Предыдущий"
 
-#: contents/ui/CalendarMonthPage.qml:63
+#: contents/ui/CalendarMonthPage.qml:55
 #, kde-format
 msgid "Next"
 msgstr "Следующий"
 
-#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "Сегодня"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
 #: contents/ui/TodosCardView.qml:19
 #, kde-format
 msgid "Tasks"
 msgstr "Задачи"
 
-#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "События"
@@ -357,21 +351,21 @@ msgstr "Настроить..."
 msgid "Previous day"
 msgstr "Предыдущий день"
 
-#: contents/ui/DayPage.qml:35
+#: contents/ui/DayPage.qml:27
 #, kde-format
 msgid "Next day"
 msgstr "Следующий день"
 
-#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
-#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
-#: contents/ui/WeekView.qml:156
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
 #, kde-format
 msgid "Create Event"
 msgstr "Создать событие"
 
-#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
-#: contents/ui/WeekView.qml:163
+#: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "Создать задачу"
@@ -411,7 +405,7 @@ msgstr "Дата окончания"
 msgid "End Time"
 msgstr "Время окончания"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
 #, kde-format
 msgid "All day"
 msgstr "Весь день"
@@ -436,31 +430,31 @@ msgstr "Напоминания"
 msgid "Attendees"
 msgstr "Участники"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled for %1"
 msgstr "Нет запланированных на %1 событий"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled"
 msgstr "Нет запланированных событий"
 
-#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
-#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
 #: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
-#: contents/ui/TodosCardView.qml:86
+#: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
 msgstr "Удалить"
 
-#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
 #, kde-format
 msgid "Edit"
 msgstr "Изменить..."
 
-#: contents/ui/EventsCardView.qml:82
+#: contents/ui/EventsCardView.qml:103
 #, kde-format
 msgid "Event %1 will be deleted"
 msgstr "Событие %1 будет удалено"
@@ -490,27 +484,27 @@ msgstr "Описание:"
 msgid "Completed:"
 msgstr "Завершено:"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Show Completed"
 msgstr "Показать завершённые"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Hide Completed"
 msgstr "Скрыть завершённые"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "На %1 ничего не запланировано"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Ничего не запланировано"
 
-#: contents/ui/IncidencePage.qml:61
+#: contents/ui/IncidencePage.qml:62
 #, kde-format
 msgid "%1 will be deleted"
 msgstr "%1 будет удалено"
@@ -631,17 +625,17 @@ msgstr "Продолжить"
 msgid "Open folder"
 msgstr "Открыть папку"
 
-#: contents/ui/RecurrencePickerSheet.qml:31
+#: contents/ui/RecurrencePickerSheet.qml:29
 #, kde-format
 msgid "Repeat"
 msgstr "Повтор"
 
-#: contents/ui/RecurrencePickerSheet.qml:54
+#: contents/ui/RecurrencePickerSheet.qml:52
 #, kde-format
 msgid "Every:"
 msgstr "Периодичность:"
 
-#: contents/ui/RecurrencePickerSheet.qml:64
+#: contents/ui/RecurrencePickerSheet.qml:62
 #, kde-format
 msgid "year"
 msgid_plural "years"
@@ -650,7 +644,7 @@ msgstr[1] "года"
 msgstr[2] "лет"
 msgstr[3] "год"
 
-#: contents/ui/RecurrencePickerSheet.qml:65
+#: contents/ui/RecurrencePickerSheet.qml:63
 #, kde-format
 msgid "month"
 msgid_plural "months"
@@ -659,7 +653,7 @@ msgstr[1] "месяца"
 msgstr[2] "месяцев"
 msgstr[3] "месяц"
 
-#: contents/ui/RecurrencePickerSheet.qml:66
+#: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
@@ -668,7 +662,7 @@ msgstr[1] "недели"
 msgstr[2] "недель"
 msgstr[3] "неделя"
 
-#: contents/ui/RecurrencePickerSheet.qml:67
+#: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "day"
 msgid_plural "days"
@@ -677,12 +671,12 @@ msgstr[1] "дня"
 msgstr[2] "дней"
 msgstr[3] "день"
 
-#: contents/ui/RecurrencePickerSheet.qml:72
+#: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
 msgid "Stop After:"
 msgstr "Прекратить после:"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
@@ -691,45 +685,40 @@ msgstr[1] "повтора"
 msgstr[2] "повторов"
 msgstr[3] "повтор"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "Never stop"
 msgstr "Никогда не прекращать"
 
-#: contents/ui/ReminderEditor.qml:27
+#: contents/ui/ReminderEditor.qml:25
 #, kde-format
 msgid "New Reminder"
 msgstr "Создание напоминания"
 
-#: contents/ui/ReminderEditor.qml:33
+#: contents/ui/ReminderEditor.qml:31
 #, kde-format
 msgid "Time before start"
 msgstr "Время до начала"
 
-#: contents/ui/ReminderEditor.qml:46
+#: contents/ui/ReminderEditor.qml:44
 #, kde-format
 msgid "Seconds:"
 msgstr "Секунды:"
 
-#: contents/ui/ReminderEditor.qml:55
+#: contents/ui/ReminderEditor.qml:53
 #, kde-format
 msgid "Minutes:"
 msgstr "Минуты:"
 
-#: contents/ui/ReminderEditor.qml:65
+#: contents/ui/ReminderEditor.qml:63
 #, kde-format
 msgid "Hours:"
 msgstr "Часы:"
 
-#: contents/ui/ReminderEditor.qml:74
+#: contents/ui/ReminderEditor.qml:72
 #, kde-format
 msgid "Days:"
 msgstr "Дни:"
-
-#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
-#, kde-format
-msgid "OK"
-msgstr "ОК"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
@@ -806,17 +795,17 @@ msgstr "Время выполнения"
 msgid "All day:"
 msgstr "Весь день:"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled for %1"
 msgstr "Нет запланированных на %1 задач"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled"
 msgstr "Нет запланированных задач"
 
-#: contents/ui/TodosCardView.qml:81
+#: contents/ui/TodosCardView.qml:96
 #, kde-format
 msgid "Task %1 will be deleted"
 msgstr "Задача %1 будет удалена"
@@ -826,15 +815,15 @@ msgstr "Задача %1 будет удалена"
 msgid "Previous week"
 msgstr "Предыдущая неделя"
 
-#: contents/ui/WeekPage.qml:29
-#, kde-format
-msgid "Current Week"
-msgstr "Текущая неделя"
-
-#: contents/ui/WeekPage.qml:36
+#: contents/ui/WeekPage.qml:28
 #, kde-format
 msgid "Next week"
 msgstr "Следующая неделя"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "Текущая неделя"
 
 #: incidencealarmsmodel.cpp:157
 #, kde-format
@@ -1033,6 +1022,12 @@ msgstr[0] "; %1 раз"
 msgstr[1] "; %1 раза"
 msgstr[2] "; %1 раз"
 msgstr[3] "; один раз"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "OK"
+#~ msgstr "ОК"
 
 #~ msgid "Import"
 #~ msgstr "Импорт"

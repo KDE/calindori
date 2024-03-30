@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2022-03-02 11:25+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -148,24 +148,23 @@ msgstr "Agendanaam bevat ongeldige tekens"
 msgid "Calendar already exists"
 msgstr "Agenda bestaat al"
 
-#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
 #, kde-format
 msgid "No contacts found"
 msgstr "Geen contactpersonen gevonden"
 
-#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
-#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
 #: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
 #, kde-format
 msgid "Add"
 msgstr "Toevoegen"
 
-#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
-#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
-#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
-#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
-#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
-#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr "Annuleren"
@@ -225,11 +224,6 @@ msgstr ""
 msgid "No attendees yet"
 msgstr "Nog geen deelnemers"
 
-#: contents/ui/Attendees.qml:151
-#, kde-format
-msgid "Close"
-msgstr "Sluiten"
-
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
@@ -255,35 +249,35 @@ msgstr "Eigenaar"
 msgid "Name:"
 msgstr "Naam:"
 
-#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
-#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
-#, kde-format
-msgid "Today"
-msgstr "Vandaag"
-
-#: contents/ui/CalendarMonthPage.qml:56
+#: contents/ui/CalendarMonthPage.qml:48
 #, kde-format
 msgid "Previous"
 msgstr "Vorige"
 
-#: contents/ui/CalendarMonthPage.qml:63
+#: contents/ui/CalendarMonthPage.qml:55
 #, kde-format
 msgid "Next"
 msgstr "Volgende"
 
-#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "Vandaag"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
 #: contents/ui/TodosCardView.qml:19
 #, kde-format
 msgid "Tasks"
 msgstr "Taken"
 
-#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "Afspraken"
@@ -340,21 +334,21 @@ msgstr "Instellingen"
 msgid "Previous day"
 msgstr "Vorige dag"
 
-#: contents/ui/DayPage.qml:35
+#: contents/ui/DayPage.qml:27
 #, kde-format
 msgid "Next day"
 msgstr "Volgende dag"
 
-#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
-#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
-#: contents/ui/WeekView.qml:156
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
 #, kde-format
 msgid "Create Event"
 msgstr "Gebeurtenis aanmaken"
 
-#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
-#: contents/ui/WeekView.qml:163
+#: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "Taak aanmaken"
@@ -394,7 +388,7 @@ msgstr "Einddatum"
 msgid "End Time"
 msgstr "Eindtijd"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
 #, kde-format
 msgid "All day"
 msgstr "Gehele dag"
@@ -419,31 +413,31 @@ msgstr "Herinneringen"
 msgid "Attendees"
 msgstr "Deelnemers"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled for %1"
 msgstr "Geen gebeurtenissen gepland voor %1"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled"
 msgstr "Geen geplande gebeurtenissen"
 
-#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
-#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
 #: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
-#: contents/ui/TodosCardView.qml:86
+#: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
 #, kde-format
 msgid "Edit"
 msgstr "Bewerken"
 
-#: contents/ui/EventsCardView.qml:82
+#: contents/ui/EventsCardView.qml:103
 #, kde-format
 msgid "Event %1 will be deleted"
 msgstr "Gebeurtenis %1 zal verwijderd worden"
@@ -473,27 +467,27 @@ msgstr "Beschrijving:"
 msgid "Completed:"
 msgstr "Voltooid:"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Show Completed"
 msgstr "Tonen voltooid"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Hide Completed"
 msgstr "Verbergen voltooid"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "Niets gepland voor %1"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Niets gepland"
 
-#: contents/ui/IncidencePage.qml:61
+#: contents/ui/IncidencePage.qml:62
 #, kde-format
 msgid "%1 will be deleted"
 msgstr "%1 zal verwijderd worden"
@@ -611,95 +605,90 @@ msgstr "Doorgaan"
 msgid "Open folder"
 msgstr "Map openen"
 
-#: contents/ui/RecurrencePickerSheet.qml:31
+#: contents/ui/RecurrencePickerSheet.qml:29
 #, kde-format
 msgid "Repeat"
 msgstr "Herhalen"
 
-#: contents/ui/RecurrencePickerSheet.qml:54
+#: contents/ui/RecurrencePickerSheet.qml:52
 #, kde-format
 msgid "Every:"
 msgstr "Iedere:"
 
-#: contents/ui/RecurrencePickerSheet.qml:64
+#: contents/ui/RecurrencePickerSheet.qml:62
 #, kde-format
 msgid "year"
 msgid_plural "years"
 msgstr[0] "jaar"
 msgstr[1] "jaren"
 
-#: contents/ui/RecurrencePickerSheet.qml:65
+#: contents/ui/RecurrencePickerSheet.qml:63
 #, kde-format
 msgid "month"
 msgid_plural "months"
 msgstr[0] "maand"
 msgstr[1] "maanden"
 
-#: contents/ui/RecurrencePickerSheet.qml:66
+#: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] "week"
 msgstr[1] "weken"
 
-#: contents/ui/RecurrencePickerSheet.qml:67
+#: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "day"
 msgid_plural "days"
 msgstr[0] "dag"
 msgstr[1] "dagen"
 
-#: contents/ui/RecurrencePickerSheet.qml:72
+#: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
 msgid "Stop After:"
 msgstr "Stoppen na:"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
 msgstr[0] "herhaling"
 msgstr[1] "herhalingen"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "Never stop"
 msgstr "Nooit stoppen"
 
-#: contents/ui/ReminderEditor.qml:27
+#: contents/ui/ReminderEditor.qml:25
 #, kde-format
 msgid "New Reminder"
 msgstr "Nieuwe herinnering"
 
-#: contents/ui/ReminderEditor.qml:33
+#: contents/ui/ReminderEditor.qml:31
 #, kde-format
 msgid "Time before start"
 msgstr "Tijd voor het begin"
 
-#: contents/ui/ReminderEditor.qml:46
+#: contents/ui/ReminderEditor.qml:44
 #, kde-format
 msgid "Seconds:"
 msgstr "Seconden:"
 
-#: contents/ui/ReminderEditor.qml:55
+#: contents/ui/ReminderEditor.qml:53
 #, kde-format
 msgid "Minutes:"
 msgstr "Minuten:"
 
-#: contents/ui/ReminderEditor.qml:65
+#: contents/ui/ReminderEditor.qml:63
 #, kde-format
 msgid "Hours:"
 msgstr "Uren:"
 
-#: contents/ui/ReminderEditor.qml:74
+#: contents/ui/ReminderEditor.qml:72
 #, kde-format
 msgid "Days:"
 msgstr "Dagen:"
-
-#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
-#, kde-format
-msgid "OK"
-msgstr "OK"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
@@ -776,17 +765,17 @@ msgstr "Tijd van aflopen:"
 msgid "All day:"
 msgstr "Gehele dag:"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled for %1"
 msgstr "Geen taken gepland voor %1"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled"
 msgstr "Geen taken gepland"
 
-#: contents/ui/TodosCardView.qml:81
+#: contents/ui/TodosCardView.qml:96
 #, kde-format
 msgid "Task %1 will be deleted"
 msgstr "Taak %1 zal verwijderd worden"
@@ -796,15 +785,15 @@ msgstr "Taak %1 zal verwijderd worden"
 msgid "Previous week"
 msgstr "Vorige week"
 
-#: contents/ui/WeekPage.qml:29
-#, kde-format
-msgid "Current Week"
-msgstr "Huidige week"
-
-#: contents/ui/WeekPage.qml:36
+#: contents/ui/WeekPage.qml:28
 #, kde-format
 msgid "Next week"
 msgstr "Volgende week"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "Huidige week"
 
 #: incidencealarmsmodel.cpp:157
 #, kde-format
@@ -979,6 +968,12 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; eenmalig"
 msgstr[1] "; %1 keer"
+
+#~ msgid "Close"
+#~ msgstr "Sluiten"
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid "Import"
 #~ msgstr "Importeren"

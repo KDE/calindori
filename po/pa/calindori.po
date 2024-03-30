@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2021-05-01 23:36-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -146,24 +146,23 @@ msgstr "ਕੈਲੰਡਰ ਨਾਂ ਵਿੱਚ ਅਢੁੱਕਵਾਂ ਅ�
 msgid "Calendar already exists"
 msgstr "ਕੈਲੰਡਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: contents/ui/AttendeeEditor.qml:52 contents/ui/AttendeePicker.qml:53
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
 #, kde-format
 msgid "No contacts found"
 msgstr "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: contents/ui/AttendeeEditor.qml:109 contents/ui/AttendeePicker.qml:110
-#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:156
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
 #: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
 
-#: contents/ui/AttendeeEditor.qml:121 contents/ui/AttendeePicker.qml:122
-#: contents/ui/CalendarEditor.qml:108 contents/ui/EventEditorPage.qml:216
-#: contents/ui/EventsCardView.qml:96 contents/ui/IncidencePage.qml:82
-#: contents/ui/MessageBoard.qml:48 contents/ui/RecurrencePickerSheet.qml:102
-#: contents/ui/ReminderEditor.qml:95 contents/ui/TimePickerSheet.qml:48
-#: contents/ui/TodoEditorPage.qml:205 contents/ui/TodosCardView.qml:95
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -221,11 +220,6 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਕੈਲ
 msgid "No attendees yet"
 msgstr "ਹਾਲੇ ਕੋਈ ਦਰਸ਼ਕ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/Attendees.qml:151
-#, kde-format
-msgid "Close"
-msgstr "ਬੰਦ ਕਰੋ"
-
 #: contents/ui/CalendarEditor.qml:32
 #, kde-format
 msgid "New calendar"
@@ -251,35 +245,35 @@ msgstr "ਮਾਲਕ"
 msgid "Name:"
 msgstr "ਨਾਂ:"
 
-#: contents/ui/CalendarEditor.qml:119 contents/ui/EventEditorPage.qml:224
-#: contents/ui/RecurrencePickerSheet.qml:93 contents/ui/TodoEditorPage.qml:215
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: contents/ui/CalendarMonthPage.qml:48 contents/ui/DayPage.qml:28
-#, kde-format
-msgid "Today"
-msgstr "ਅੱਜ"
-
-#: contents/ui/CalendarMonthPage.qml:56
+#: contents/ui/CalendarMonthPage.qml:48
 #, kde-format
 msgid "Previous"
 msgstr "ਪਿੱਛੇ"
 
-#: contents/ui/CalendarMonthPage.qml:63
+#: contents/ui/CalendarMonthPage.qml:55
 #, kde-format
 msgid "Next"
 msgstr "ਅੱਗੇ"
 
-#: contents/ui/CalendarMonthPage.qml:70 contents/ui/IncidenceListView.qml:32
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "ਅੱਜ"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
 #: contents/ui/TodosCardView.qml:19
 #, kde-format
 msgid "Tasks"
 msgstr "ਕੰਮ"
 
-#: contents/ui/CalendarMonthPage.qml:81 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:32 contents/ui/SettingsPage.qml:75
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
 #, kde-format
 msgid "Events"
 msgstr "ਸਮਾਗਮ"
@@ -342,21 +336,21 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 msgid "Previous day"
 msgstr "ਪਿਛਲਾ ਦਿਨ"
 
-#: contents/ui/DayPage.qml:35
+#: contents/ui/DayPage.qml:27
 #, kde-format
 msgid "Next day"
 msgstr "ਅਗਲਾ ਦਿਨ"
 
-#: contents/ui/DayView.qml:108 contents/ui/EventEditorPage.qml:46
-#: contents/ui/EventsCardView.qml:29 contents/ui/IncidenceListView.qml:40
-#: contents/ui/WeekView.qml:156
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
 #, kde-format
 msgid "Create Event"
 msgstr "ਸਮਾਗਮ ਬਣਾਓ"
 
-#: contents/ui/DayView.qml:122 contents/ui/IncidenceListView.qml:40
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
 #: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
-#: contents/ui/WeekView.qml:163
+#: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "ਕੰਮ ਬਣਾਓ"
@@ -396,7 +390,7 @@ msgstr "ਅੰਤ ਤਾਰੀਖ"
 msgid "End Time"
 msgstr "ਅੰਤ ਸਮਾਂ"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:87
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
 #, kde-format
 msgid "All day"
 msgstr "ਸਾਰਾ ਦਿਨ"
@@ -421,31 +415,31 @@ msgstr "ਰਿਮਾਈਂਡਰ"
 msgid "Attendees"
 msgstr "ਦਰਸ਼ਕ"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled for %1"
 msgstr "%1 ਲਈ ਕਿਸੇ ਸਮਾਗਮ ਦਾ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/EventsCardView.qml:38
+#: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled"
 msgstr "ਕੋਈ ਸਮਾਗਮ ਦਾ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/EventsCardView.qml:56 contents/ui/EventsCardView.qml:87
-#: contents/ui/IncidencePage.qml:43 contents/ui/IncidencePage.qml:65
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
 #: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
-#: contents/ui/TodosCardView.qml:86
+#: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: contents/ui/EventsCardView.qml:67 contents/ui/IncidencePage.qml:51
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
 #: contents/ui/TodosCardView.qml:66
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
 
-#: contents/ui/EventsCardView.qml:82
+#: contents/ui/EventsCardView.qml:103
 #, kde-format
 msgid "Event %1 will be deleted"
 msgstr "ਸਮਾਗਮ %1 ਹਟਾਇਆ ਜਾਵੇਗਾ"
@@ -475,27 +469,27 @@ msgstr "ਵਰਣਨ:"
 msgid "Completed:"
 msgstr "ਪੂਰਾ ਹੋਏ:"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Show Completed"
 msgstr "ਪੂਰੇ ਹੋਏ ਵੇਖਾਓ"
 
-#: contents/ui/IncidenceListView.qml:53
+#: contents/ui/IncidenceListView.qml:50
 #, kde-format
 msgid "Hide Completed"
 msgstr "ਪੂਰੇ ਹੋਏ ਲੁਕਾਓ"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "%1 ਲਈ ਕਿਸੇ ਲਈ ਵੀ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/IncidenceListView.qml:63
+#: contents/ui/IncidenceListView.qml:60
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "ਕਿਸੇ ਲਈ ਵੀ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/IncidencePage.qml:61
+#: contents/ui/IncidencePage.qml:62
 #, kde-format
 msgid "%1 will be deleted"
 msgstr "%1 ਨੂੰ ਹਟਾਇਆ ਜਾਵੇਗਾ"
@@ -615,95 +609,90 @@ msgstr "ਜਾਰੀ ਰੱਖੋ"
 msgid "Open folder"
 msgstr "ਫੋਲਡਰ ਖੋਲ੍ਹੋ"
 
-#: contents/ui/RecurrencePickerSheet.qml:31
+#: contents/ui/RecurrencePickerSheet.qml:29
 #, kde-format
 msgid "Repeat"
 msgstr "ਦੁਹਰਾਓ"
 
-#: contents/ui/RecurrencePickerSheet.qml:54
+#: contents/ui/RecurrencePickerSheet.qml:52
 #, kde-format
 msgid "Every:"
 msgstr "ਹਰ:"
 
-#: contents/ui/RecurrencePickerSheet.qml:64
+#: contents/ui/RecurrencePickerSheet.qml:62
 #, kde-format
 msgid "year"
 msgid_plural "years"
 msgstr[0] "ਸਾਲ"
 msgstr[1] "ਸਾਲ"
 
-#: contents/ui/RecurrencePickerSheet.qml:65
+#: contents/ui/RecurrencePickerSheet.qml:63
 #, kde-format
 msgid "month"
 msgid_plural "months"
 msgstr[0] "ਮਹੀਨਾ"
 msgstr[1] "ਮਹੀਨੇ"
 
-#: contents/ui/RecurrencePickerSheet.qml:66
+#: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] "ਹਫ਼ਤਾ"
 msgstr[1] "ਹਫ਼ਤੇ"
 
-#: contents/ui/RecurrencePickerSheet.qml:67
+#: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "day"
 msgid_plural "days"
 msgstr[0] "ਅੱਜ"
 msgstr[1] "ਅੱਜ"
 
-#: contents/ui/RecurrencePickerSheet.qml:72
+#: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
 msgid "Stop After:"
 msgstr "ਇਸ ਦੇ ਬਾਦ ਰੋਕੋ:"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
 msgstr[0] "ਦੁਹਰਾਓ"
 msgstr[1] "ਦੁਹਰਾਓ"
 
-#: contents/ui/RecurrencePickerSheet.qml:82
+#: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
 msgid "Never stop"
 msgstr "ਕਦੇ ਨਾ ਰੋਕੋ"
 
-#: contents/ui/ReminderEditor.qml:27
+#: contents/ui/ReminderEditor.qml:25
 #, kde-format
 msgid "New Reminder"
 msgstr "ਨਵਾਂ ਰਿਮਾਈਂਡਰ"
 
-#: contents/ui/ReminderEditor.qml:33
+#: contents/ui/ReminderEditor.qml:31
 #, kde-format
 msgid "Time before start"
 msgstr "ਸ਼ੁਰੂ ਤੋਂ ਪਹਿਲਾਂ ਸਮਾਂ"
 
-#: contents/ui/ReminderEditor.qml:46
+#: contents/ui/ReminderEditor.qml:44
 #, kde-format
 msgid "Seconds:"
 msgstr "ਸਕਿੰਟ:"
 
-#: contents/ui/ReminderEditor.qml:55
+#: contents/ui/ReminderEditor.qml:53
 #, kde-format
 msgid "Minutes:"
 msgstr "ਮਿੰਟ"
 
-#: contents/ui/ReminderEditor.qml:65
+#: contents/ui/ReminderEditor.qml:63
 #, kde-format
 msgid "Hours:"
 msgstr "ਘੰਟੇ:"
 
-#: contents/ui/ReminderEditor.qml:74
+#: contents/ui/ReminderEditor.qml:72
 #, kde-format
 msgid "Days:"
 msgstr "ਦਿਨ:"
-
-#: contents/ui/ReminderEditor.qml:87 contents/ui/TimePickerSheet.qml:40
-#, kde-format
-msgid "OK"
-msgstr "ਠੀਕ ਹੈ"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
@@ -784,17 +773,17 @@ msgstr "ਨਿਯਤ ਸਮਾਂ"
 msgid "All day:"
 msgstr "ਸਾਰਾ ਦਿਨ:"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled for %1"
 msgstr "%1 ਲਈ ਕਿਸੇ ਕੰਮ ਦਾ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/TodosCardView.qml:37
+#: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled"
 msgstr "ਕਿਸੇ ਕੰਮ ਦਾ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ ਹੈ"
 
-#: contents/ui/TodosCardView.qml:81
+#: contents/ui/TodosCardView.qml:96
 #, kde-format
 msgid "Task %1 will be deleted"
 msgstr "%1 ਕੰਮ ਨੂੰ ਹਟਾਇਆ ਜਾਵੇਗਾ"
@@ -804,16 +793,16 @@ msgstr "%1 ਕੰਮ ਨੂੰ ਹਟਾਇਆ ਜਾਵੇਗਾ"
 msgid "Previous week"
 msgstr "ਪਿਛਲਾ ਹਫ਼ਤਾ"
 
-#: contents/ui/WeekPage.qml:29
+#: contents/ui/WeekPage.qml:28
+#, kde-format
+msgid "Next week"
+msgstr "ਅਗਲਾ ਹਫ਼ਤਾ"
+
+#: contents/ui/WeekPage.qml:34
 #, fuzzy, kde-format
 #| msgid "Current week"
 msgid "Current Week"
 msgstr "ਮੌਜੂਦਾ ਹਫ਼ਤਾ"
-
-#: contents/ui/WeekPage.qml:36
-#, kde-format
-msgid "Next week"
-msgstr "ਅਗਲਾ ਹਫ਼ਤਾ"
 
 #: incidencealarmsmodel.cpp:157
 #, kde-format
@@ -990,6 +979,12 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; ਇੱਕ ਵਾਰ"
 msgstr[1] "; %1 ਵਾਰ"
+
+#~ msgid "Close"
+#~ msgstr "ਬੰਦ ਕਰੋ"
+
+#~ msgid "OK"
+#~ msgstr "ਠੀਕ ਹੈ"
 
 #~ msgid "Import"
 #~ msgstr "ਇੰਪੋਰਟ ਕਰੋ"
