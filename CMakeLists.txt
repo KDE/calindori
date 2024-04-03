@@ -32,6 +32,7 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMPoQmTools)
 include(ECMConfiguredInstall)
+include(ECMAddAndroidApk)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX CALINDORI
@@ -80,6 +81,8 @@ endif()
 
 install(FILES org.kde.calindori.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(PROGRAMS org.kde.calindori.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+
+ecm_add_android_apk(calindori ANDROID_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
