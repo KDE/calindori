@@ -979,9 +979,3 @@ msgid_plural "; %1 times"
 msgstr[0] "; jednou"
 msgstr[1] "; %1-krát"
 msgstr[2] "; %1-krát"
-
-#~ msgid "Close"
-#~ msgstr "Zavřít"
-
-#~ msgid "OK"
-#~ msgstr "OK"
