@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-30 00:39+0000\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
+"PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -21,12 +21,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "okellogg@users.sourceforge.net"
 
 #: attendeesmodel.cpp:183
 #, kde-format
@@ -67,15 +67,15 @@ msgstr "La url aŭ dosiero donita ne enhavas ajnan eventon aŭ taskon"
 #, kde-format
 msgid "1 event will be added"
 msgid_plural "%1 events will be added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 evento estos aldonata"
+msgstr[1] "%1 eventoj estos aldonataj"
 
 #: calendarcontroller.cpp:65
 #, kde-format
 msgid "1 task will be added"
 msgid_plural "%1 tasks will be added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 tasko estos aldonata"
+msgstr[1] "%1 taskoj estos aldonataj"
 
 #: calendarcontroller.cpp:68
 #, kde-format
@@ -493,15 +493,15 @@ msgstr "%1 estos forigita"
 #, kde-format
 msgid "%1 task"
 msgid_plural "%1 tasks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 tasko"
+msgstr[1] "%1 taskoj"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:50
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 evento"
+msgstr[1] "%1 eventj"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:100
 #, kde-format
@@ -614,29 +614,29 @@ msgstr "Ĉiujn:"
 #, kde-format
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "jaro"
+msgstr[1] "jaroj"
 
 #: contents/ui/RecurrencePickerSheet.qml:63
 #, kde-format
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "monato"
+msgstr[1] "monatoj"
 
 #: contents/ui/RecurrencePickerSheet.qml:64
 #, kde-format
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "semajno"
+msgstr[1] "semajnoj"
 
 #: contents/ui/RecurrencePickerSheet.qml:65
 #, kde-format
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "tago"
+msgstr[1] "tagoj"
 
 #: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
@@ -647,8 +647,8 @@ msgstr "Halti Post:"
 #, kde-format
 msgid "repeat"
 msgid_plural "repeats"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ripeto"
+msgstr[1] "ripetoj"
 
 #: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
@@ -809,29 +809,29 @@ msgstr "Je la komenca tempo"
 #, kde-format
 msgid "1 day before start"
 msgid_plural "%1 days before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 tago antaŭ komenco"
+msgstr[1] "%1 tagoj antaŭ komenco"
 
 #: incidencealarmsmodel.cpp:216
 #, kde-format
 msgid "1 hour before start"
 msgid_plural "%1 hours before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 horo antaŭ komenco"
+msgstr[1] "%1 horoj antaŭ komenco"
 
 #: incidencealarmsmodel.cpp:220
 #, kde-format
 msgid "1 minute before start"
 msgid_plural "%1 minutes before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 minuto antaŭ komenco"
+msgstr[1] "%1 minutoj antaŭ komenco"
 
 #: incidencealarmsmodel.cpp:223
 #, kde-format
 msgid "1 second before start"
 msgid_plural "%1 seconds before start"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 sekundo antaŭ komenco"
+msgstr[1] "%1 sekundoj antaŭ komenco"
 
 #: incidencemodel.cpp:173
 #, kde-format
@@ -928,29 +928,29 @@ msgstr "Ĉiutage"
 #, kde-format
 msgid "Every year"
 msgid_plural "Every %1 years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun jaron"
+msgstr[1] "Ĉiujn %1 jarojn"
 
 #: recurrenceperiodmodel.cpp:134
 #, kde-format
 msgid "Every month"
 msgid_plural "Every %1 months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun monaton"
+msgstr[1] "Ĉiujn %1 monatojn"
 
 #: recurrenceperiodmodel.cpp:135
 #, kde-format
 msgid "Every week"
 msgid_plural "Every %1 weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun semajnon"
+msgstr[1] "Ĉiujn %1 semajnojn"
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun tagon"
+msgstr[1] "Ĉiujn %1 tagojn"
 
 #: recurrenceperiodmodel.cpp:136
 #, kde-format
@@ -961,11 +961,5 @@ msgstr "Neniam"
 #, kde-format
 msgid "; once"
 msgid_plural "; %1 times"
-msgstr[0] ""
-msgstr[1] ""
-
-#~ msgid "Close"
-#~ msgstr "Fermi"
-
-#~ msgid "OK"
-#~ msgstr "Bone"
+msgstr[0] "; unu fojon"
+msgstr[1] "; %1 fojojn"
