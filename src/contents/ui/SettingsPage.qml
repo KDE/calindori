@@ -12,20 +12,19 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 import org.kde.calindori 0.1 as Calindori
 
-Kirigami.ScrollablePage {
+FormCard.FormCardPage {
     id: root
     property var applicationFooter
     
     title: i18n("Settings")
 
-    Kirigami.FormLayout {
-        wideMode: false
-        width: root.width
+    FormCard.FormHeader {
+        title: i18n("About")
+    }
 
-        Controls.Button {
-            Kirigami.FormData.label: i18n("More Info:")
-            
-            text: i18n("About")
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18n("About Calindori")
             icon.name: "help-about-symbolic"
             onClicked: applicationWindow().pageStack.push(aboutInfoPage)
             
@@ -37,8 +36,24 @@ Kirigami.ScrollablePage {
             }
         }
         
-        Controls.Button {
-            Kirigami.FormData.label: i18n("Calendars:")
+        FormCard.FormButtonDelegate {
+            text: i18n("About KDE")
+            icon.name: "kde-symbolic"
+            onClicked: applicationWindow().pageStack.push(aboutKDEPage)
+
+            Component {
+                id: aboutKDEPage
+                FormCard.AboutKDE {}
+            }
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18n("Calendars")
+    }
+
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
             text: i18n("Manage internal calendars")
             icon.name: "view-calendar"
             onClicked: applicationWindow().pageStack.push(internalCalendarsPage)
@@ -54,11 +69,11 @@ Kirigami.ScrollablePage {
             }
         }
         
-        Controls.Button {
+        FormCard.FormButtonDelegate {
             text: i18n("Manage external calendars")
             icon.name: "view-calendar"
             onClicked: applicationWindow().pageStack.push(externalCalendarsPage)
-            
+
             Component {
                 id: externalCalendarsPage
                 ManageCalendarsPage {
@@ -69,33 +84,34 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-        
-        Item {
-            Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Events")
-        }
+    }
 
-        Controls.SpinBox {
-            Kirigami.FormData.label: i18n("Initial duration (minutes):")
+    FormCard.FormHeader {
+        title: i18n("Events")
+    }
+
+    FormCard.FormCard {
+
+        FormCard.FormSpinBoxDelegate {
+            label: i18n("Initial duration (minutes)")
 
             from: 0
             value: Calindori.CalindoriConfig.eventsDuration
 
-            onValueModified: Calindori.CalindoriConfig.eventsDuration = value
+            onValueChanged: Calindori.CalindoriConfig.eventsDuration = value
         }
 
-
-        Controls.SpinBox {
-            Kirigami.FormData.label: i18n("Remind before event (minutes):")
+        FormCard.FormSpinBoxDelegate {
+            label: i18n("Remind before event (minutes)")
 
             from: 0
             value: Calindori.CalindoriConfig.preEventRemindTime
 
-            onValueModified: Calindori.CalindoriConfig.preEventRemindTime = value
+            onValueChanged: Calindori.CalindoriConfig.preEventRemindTime = value
         }
 
-        Controls.SwitchDelegate {
-            Kirigami.FormData.label: i18n("Add reminder to new events:")
+        FormCard.FormSwitchDelegate {
+            text: i18n("Add reminder to new events")
 
             checked: Calindori.CalindoriConfig.alwaysRemind
             onCheckedChanged: Calindori.CalindoriConfig.alwaysRemind = checked
