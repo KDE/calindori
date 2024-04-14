@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-30 00:39+0000\n"
-"PO-Revision-Date: 2024-04-07 17:09+0100\n"
+"PO-Revision-Date: 2024-04-13 11:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -209,6 +209,8 @@ msgid ""
 "Attendee management is available only in external calendars that are "
 "synchronized online"
 msgstr ""
+"Administrado de ĉeestantoj disponeblas nur en eksteraj kalendaroj, kiuj "
+"estas sinkronigitaj interrete"
 
 #: contents/ui/Attendees.qml:31
 #, kde-format
@@ -584,6 +586,8 @@ msgstr "Konfirmi"
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
 msgstr ""
+"Ĉiuj datumoj inkluzivitaj en ĉi tiu kalendaro estos foritigaj. Ĉu procedi "
+"pri forigo?"
 
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
