@@ -1,58 +1,58 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the calindori package.
+#
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:36+0000\n"
-"PO-Revision-Date: 2024-04-22 15:59\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-04-23 14:55+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/calindori/calindac.pot\n"
-"X-Crowdin-File-ID: 53192\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国, Tyson Tan, Wordless Echo"
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org, tds00@qq.com, wordless@echo.moe"
+msgstr "kde-l10n-he@kde.org"
 
 #: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
-msgstr "推迟"
+msgstr "השהיה"
 
 #: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
 msgid "Dismiss"
-msgstr "取消"
+msgstr "התעלמות"
 
 #: calindacmain.cpp:20 calindacmain.cpp:21
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
-msgstr "Calindori 闹钟检查守护程序"
+msgstr "סוכן בדיקת התראות של Calindori"
 
 #: calindacmain.cpp:23
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
-msgstr "(c) 2019 Dimitris Kardarakos"
+msgstr "(c) 2019 דימיטריס קרדרקוס"
 
 #: calindacmain.cpp:25
 #, kde-format
 msgid "Dimitris Kardarakos"
-msgstr "Dimitris Kardarakos"
+msgstr "דימיטריס קרדרקוס"
 
 #: calindacmain.cpp:25
 #, kde-format
 msgid "Maintainer"
-msgstr "维护者"
+msgstr "מתחזק"
