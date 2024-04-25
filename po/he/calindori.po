@@ -1,0 +1,1000 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the calindori package.
+#
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"PO-Revision-Date: 2024-04-24 08:50+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "התקבל"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "על תנאי"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "סורב"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "מיופה כוח"
+
+#: attendeesmodel.cpp:195
+#, kde-format
+msgid "Not responded yet"
+msgstr "אין תגובה עדיין"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr "הכתובת או הקובץ שסופקו לא מכילים נתוני לוח שנה תקפים"
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr "הכתובת או הקובץ שסופקו לא מכילים אירוע או משימה כלשהם"
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] "אירוע יתווסף"
+msgstr[1] "שני אירועים יתווספו"
+msgstr[2] "%1 אירועים יתווספו"
+msgstr[3] "%1 אירועים יתווספו"
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] "משימה תווסף"
+msgstr[1] "שתי משימות תתווספנה"
+msgstr[2] "%1 משימות תתווספנה"
+msgstr[3] "%1 משימות תתווספנה"
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr "%1 מופעים יתווספו"
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr "הייבוא הושלם בהצלחה"
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr "אירעה שגיאה במהלך הייבוא"
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr "במקרה של אירועי יום שלם, תאריך ההתחלה ותאריך הסיום אמורים להיות זהים"
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr "תאריך ושעת הסיום אמורים להיות שווים או גדולים מתאריך ושעת ההתחלה"
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr "אירועים חד־יומיים לא אמורים להתפרס על פני מספר ימים"
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr "במקרה של משימות יום שלם, תאריך ההתחלה ותאריך היעד אמורים להיות זהים"
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr "תאריך ושעת היעד אמורים להיות שווים או גדולים מתאריך ושעת ההתחלה"
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr "לא ניתן לקרוא את לוח השנה. הייצוא נכשל."
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr "לא ניתן לטעון את לוח השנה. הייצוא נכשל."
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr "אי אפשר לשמור קובץ לוח שנה. הייצוא נכשל."
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr "הייצוא הושלם בהצלחה"
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr "בשם לוח השנה יש תווים שגויים"
+
+#: calindoriconfig.cpp:99
+#, kde-format
+msgid "Calendar already exists"
+msgstr "לוח השנה כבר קיים"
+
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
+#, kde-format
+msgid "No contacts found"
+msgstr "לא נמצאו אנשי קשר"
+
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "הוספה"
+
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
+#, kde-format
+msgid "Cancel"
+msgstr "ביטול"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "דוא״ל:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "מצב:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, kde-format
+msgid "Role:"
+msgstr "תפקיד:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, kde-format
+msgid "Required"
+msgstr "חובה"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, kde-format
+msgid "Optional"
+msgstr "רשות"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr "לא משתתף/ת"
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr "ניהול הישיבה"
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr "ניהול משתתפים זמין רק בלוחות שנה חיצוניים שמסונכרנים באופן מקוון"
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr "נא להגדיר את פרטי בעלות לוח השנה בהגדרות היישום"
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr "אין משתתפים עדיין"
+
+#: contents/ui/CalendarEditor.qml:32
+#, kde-format
+msgid "New calendar"
+msgstr "לוח שנה חדש"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "לוח שנה:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, kde-format
+msgid "File:"
+msgstr "קובץ:"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "בעלים"
+
+#: contents/ui/CalendarEditor.qml:92
+#, kde-format
+msgid "Name:"
+msgstr "שם:"
+
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
+#, kde-format
+msgid "Save"
+msgstr "שמירה"
+
+#: contents/ui/CalendarMonthPage.qml:48
+#, kde-format
+msgid "Previous"
+msgstr "הקודם"
+
+#: contents/ui/CalendarMonthPage.qml:55
+#, kde-format
+msgid "Next"
+msgstr "הבא"
+
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "היום"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
+#: contents/ui/TodosCardView.qml:19
+#, kde-format
+msgid "Tasks"
+msgstr "משימות"
+
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#, kde-format
+msgid "Events"
+msgstr "אירועים"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "לוח שנה"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "תצוגת חודש"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, kde-format
+msgid "Week View"
+msgstr "תצוגת שבוע"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, kde-format
+msgid "Day View"
+msgstr "תצוגת יום"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, kde-format
+msgid "Tasks List"
+msgstr "רשימת משימות"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, kde-format
+msgid "Events List"
+msgstr "רשימת אירועים"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198
+#, kde-format
+msgid "Calendars"
+msgstr "לוח שנה"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:76
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr "לוח השנה %1 הופעל"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
+#, kde-format
+msgid "Settings"
+msgstr "הגדרות"
+
+#: contents/ui/DayPage.qml:21
+#, kde-format
+msgid "Previous day"
+msgstr "היום הקודם"
+
+#: contents/ui/DayPage.qml:27
+#, kde-format
+msgid "Next day"
+msgstr "היום הבא"
+
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
+#, kde-format
+msgid "Create Event"
+msgstr "יצירת אירוע"
+
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
+#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:160
+#, kde-format
+msgid "Create Task"
+msgstr "יצירת משימה"
+
+#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#, kde-format
+msgid "Summary:"
+msgstr "תקציר:"
+
+#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#, kde-format
+msgid "Start:"
+msgstr "התחלה:"
+
+#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#, kde-format
+msgid "Start Date"
+msgstr "תאריך התחלה"
+
+#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#, kde-format
+msgid "Start Time"
+msgstr "שעת התחלה"
+
+#: contents/ui/EventEditorPage.qml:93
+#, kde-format
+msgid "End:"
+msgstr "סיום:"
+
+#: contents/ui/EventEditorPage.qml:100
+#, kde-format
+msgid "End Date"
+msgstr "תאריך סיום"
+
+#: contents/ui/EventEditorPage.qml:123
+#, kde-format
+msgid "End Time"
+msgstr "שעת סיום"
+
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#, kde-format
+msgid "All day"
+msgstr "יום שלם"
+
+#: contents/ui/EventEditorPage.qml:156
+#, kde-format
+msgid "Repeat:"
+msgstr "חזרה:"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, kde-format
+msgid "Details"
+msgstr "פרטים"
+
+#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#, kde-format
+msgid "Reminders"
+msgstr "תזכורות"
+
+#: contents/ui/EventEditorPage.qml:183
+#, kde-format
+msgid "Attendees"
+msgstr "משתתפים"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr "אין אירועים מתוזמנים ל־%1"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled"
+msgstr "לא תוזמנו אירועים"
+
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
+#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:101
+#, kde-format
+msgid "Delete"
+msgstr "מחיקה"
+
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, kde-format
+msgid "Edit"
+msgstr "עריכה"
+
+#: contents/ui/EventsCardView.qml:103
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr "האירוע %1 יימחק"
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "בוטל"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "אושר"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, kde-format
+msgid "Location:"
+msgstr "מקום:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "תיאור:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "הושלמו:"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Show Completed"
+msgstr "הצגת אלו שהושלמו"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Hide Completed"
+msgstr "הסתרת אלו שהושלמו"
+
+#: contents/ui/IncidenceListView.qml:60
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr "לא תוזמן שום דבר ל־%1"
+
+#: contents/ui/IncidenceListView.qml:60
+#, kde-format
+msgid "Nothing scheduled"
+msgstr "לא תוזמן שום דבר"
+
+#: contents/ui/IncidencePage.qml:62
+#, kde-format
+msgid "%1 will be deleted"
+msgstr "%1 יימחק"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "משימה"
+msgstr[1] "שתי משימות"
+msgstr[2] "%1 משימות"
+msgstr[3] "%1 משימות"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "אירוע"
+msgstr[1] "שני אירועים"
+msgstr[2] "%1 אירועים"
+msgstr[3] "%1 אירועים"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:100
+#, kde-format
+msgid "AM"
+msgstr "AM"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:107
+#, kde-format
+msgid "PM"
+msgstr "PM"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "יצירה"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr "לא נמצאו לוחות שנה חיצוניים"
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, kde-format
+msgid "No calendars found"
+msgstr "לא נמצאו לוחות שנה"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr "ייבוא קובץ לוח שנה קיים."
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, kde-format
+msgid "Add a new calendar."
+msgstr "הוספת לוח שנה חדש."
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, kde-format
+msgid "Modify "
+msgstr "שינוי"
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "הפעלה"
+
+#: contents/ui/ManageCalendarsPage.qml:87
+#: contents/ui/ManageCalendarsPage.qml:102
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr "לוח השנה לא יכול להיות פעיל בעת מחיקתו."
+
+#: contents/ui/ManageCalendarsPage.qml:96
+#, kde-format
+msgid "Remove"
+msgstr "הסרה"
+
+#: contents/ui/ManageCalendarsPage.qml:110
+#, kde-format
+msgid "Edit details"
+msgstr "עריכת פרטים"
+
+#: contents/ui/ManageCalendarsPage.qml:119
+#, kde-format
+msgid "Import calendar file"
+msgstr "ייבוא לוח שנה מקובץ"
+
+#: contents/ui/ManageCalendarsPage.qml:129
+#, kde-format
+msgid "Export calendar to file"
+msgstr "ייצוא לוח שנה לקובץ"
+
+#: contents/ui/ManageCalendarsPage.qml:153
+#, kde-format
+msgid "Confirm"
+msgstr "אישור"
+
+#: contents/ui/ManageCalendarsPage.qml:154
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr "כל הנתונים שבלוח השנה הזה יימחקו. להמשיך למחוק?"
+
+#: contents/ui/ManageCalendarsPage.qml:230
+#, kde-format
+msgid "Modify"
+msgstr "שינוי"
+
+#: contents/ui/MessageBoard.qml:32
+#, kde-format
+msgid "Proceed"
+msgstr "להמשיך"
+
+#: contents/ui/MessageBoard.qml:58
+#, kde-format
+msgid "Open folder"
+msgstr "פתיחת התיקייה"
+
+#: contents/ui/RecurrencePickerSheet.qml:29
+#, kde-format
+msgid "Repeat"
+msgstr "חזרה"
+
+#: contents/ui/RecurrencePickerSheet.qml:52
+#, kde-format
+msgid "Every:"
+msgstr "כל:"
+
+#: contents/ui/RecurrencePickerSheet.qml:62
+#, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "שנה"
+msgstr[1] "שנתיים"
+msgstr[2] "שנים"
+msgstr[3] "שנים"
+
+#: contents/ui/RecurrencePickerSheet.qml:63
+#, kde-format
+msgid "month"
+msgid_plural "months"
+msgstr[0] "חודש"
+msgstr[1] "חודשיים"
+msgstr[2] "חודשים"
+msgstr[3] "חודשים"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "שבוע"
+msgstr[1] "שבועיים"
+msgstr[2] "שבועות"
+msgstr[3] "שבועות"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, kde-format
+msgid "day"
+msgid_plural "days"
+msgstr[0] "יום"
+msgstr[1] "יומיים"
+msgstr[2] "ימים"
+msgstr[3] "ימים"
+
+#: contents/ui/RecurrencePickerSheet.qml:70
+#, kde-format
+msgid "Stop After:"
+msgstr "עצירה לאחר:"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "חוזר"
+msgstr[1] "חוזרים"
+msgstr[2] "חוזרים"
+msgstr[3] "חוזרים"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "Never stop"
+msgstr "לא עוצר לעולם"
+
+#: contents/ui/ReminderEditor.qml:25
+#, kde-format
+msgid "New Reminder"
+msgstr "תזכורת חדשה"
+
+#: contents/ui/ReminderEditor.qml:31
+#, kde-format
+msgid "Time before start"
+msgstr "זמן לפני ההתחלה"
+
+#: contents/ui/ReminderEditor.qml:44
+#, kde-format
+msgid "Seconds:"
+msgstr " שניות:"
+
+#: contents/ui/ReminderEditor.qml:53
+#, kde-format
+msgid "Minutes:"
+msgstr " דקות:"
+
+#: contents/ui/ReminderEditor.qml:63
+#, kde-format
+msgid "Hours:"
+msgstr " שעות:"
+
+#: contents/ui/ReminderEditor.qml:72
+#, kde-format
+msgid "Days:"
+msgstr "ימים:"
+
+#: contents/ui/Reminders.qml:57
+#, kde-format
+msgid "No reminders yet"
+msgstr "אין תזכורות עדיין"
+
+#: contents/ui/SettingsPage.qml:26
+#, kde-format
+msgid "More Info:"
+msgstr "מידע נוסף:"
+
+#: contents/ui/SettingsPage.qml:28
+#, kde-format
+msgid "About"
+msgstr "על אודות"
+
+#: contents/ui/SettingsPage.qml:41
+#, kde-format
+msgid "Calendars:"
+msgstr "לוחות שנה:"
+
+#: contents/ui/SettingsPage.qml:42
+#, kde-format
+msgid "Manage internal calendars"
+msgstr "ניהול לוחות שנה פנימיים"
+
+#: contents/ui/SettingsPage.qml:49
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr "ניהול לוחות שנה פנימיים"
+
+#: contents/ui/SettingsPage.qml:58
+#, kde-format
+msgid "Manage external calendars"
+msgstr "ניהול לוחות שנה חיצוניים"
+
+#: contents/ui/SettingsPage.qml:65
+#, kde-format
+msgid "Manage External Calendars"
+msgstr "ניהול לוחות שנה חיצוניים"
+
+#: contents/ui/SettingsPage.qml:79
+#, kde-format
+msgid "Initial duration (minutes):"
+msgstr "משך ראשוני (בדקות):"
+
+#: contents/ui/SettingsPage.qml:89
+#, kde-format
+msgid "Remind before event (minutes):"
+msgstr "תזכורת לפני האירוע (בדקות):"
+
+#: contents/ui/SettingsPage.qml:98
+#, kde-format
+msgid "Add reminder to new events:"
+msgstr "הוספת תזכורת לאירועים חדשים:"
+
+#: contents/ui/TodoEditorPage.qml:99
+#, kde-format
+msgid "Due:"
+msgstr "יעד:"
+
+#: contents/ui/TodoEditorPage.qml:107
+#, kde-format
+msgid "Due Date"
+msgstr "תאריך יעד"
+
+#: contents/ui/TodoEditorPage.qml:135
+#, kde-format
+msgid "Due Time"
+msgstr "שעת יעד"
+
+#: contents/ui/TodoEditorPage.qml:160
+#, kde-format
+msgid "All day:"
+msgstr "כל היום:"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr "אין משימות מתוזמנות ל־%1"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled"
+msgstr "אין משימות מתוזמנות"
+
+#: contents/ui/TodosCardView.qml:96
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr "המשימה %1 תימחק"
+
+#: contents/ui/WeekPage.qml:22
+#, kde-format
+msgid "Previous week"
+msgstr "השבוע הקודם"
+
+#: contents/ui/WeekPage.qml:28
+#, kde-format
+msgid "Next week"
+msgstr "השבוע הבא"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "השבוע הנוכחי"
+
+#: incidencealarmsmodel.cpp:157
+#, kde-format
+msgid "days before start"
+msgstr "ימים לפני ההתחלה"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr "שניות לפני ההתחלה"
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr "בשעת ההתחלה"
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "יום לפני ההתחלה"
+msgstr[1] "יומיים לפני ההתחלה"
+msgstr[2] "%1 ימים לפני ההתחלה"
+msgstr[3] "%1 ימים לפני ההתחלה"
+
+#: incidencealarmsmodel.cpp:216
+#, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "שעה לפני ההתחלה"
+msgstr[1] "שעתיים לפני ההתחלה"
+msgstr[2] "%1 שעות לפני ההתחלה"
+msgstr[3] "%1 שעות לפני ההתחלה"
+
+#: incidencealarmsmodel.cpp:220
+#, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "דקה לפני ההתחלה"
+msgstr[1] "שתי דקות לפני ההתחלה"
+msgstr[2] "%1 דקות לפני ההתחלה"
+msgstr[3] "%1 דקות לפני ההתחלה"
+
+#: incidencealarmsmodel.cpp:223
+#, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "שנייה לפני ההתחלה"
+msgstr[1] "שתי שניות לפני ההתחלה"
+msgstr[2] "%1 שניות לפני ההתחלה"
+msgstr[3] "%1 שניות לפני ההתחלה"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "אירוע"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "משימה"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, kde-format
+msgid "all-day"
+msgstr "יום שלם"
+
+#: incidencemodel.cpp:523
+#, kde-format
+msgid "No Due Date"
+msgstr "אין תאריך יעד"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr "כבר קיים לוח שנה בשם הזה"
+
+#: main.cpp:74
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "יישום לוח שנה"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr "(c) 2018‏-2022 צוות Calindori"
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "דימיטריס קרדרקוס"
+
+#: main.cpp:79 main.cpp:81 main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "מפתח"
+
+#: main.cpp:81
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "ניקולס פלה"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "דווין לין"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "לא חוזר"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "שנתית"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "חודשית"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "שבועית"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "יומית"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] "כל שנה"
+msgstr[1] "כל שנתיים"
+msgstr[2] "כל %1 שנים"
+msgstr[3] "כל %1 שנים"
+
+#: recurrenceperiodmodel.cpp:134
+#, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "כל חודש"
+msgstr[1] "כל חודשיים"
+msgstr[2] "כל %1 חודשים"
+msgstr[3] "כל %1 חודשים"
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "כל שבוע"
+msgstr[1] "כל שבועיים"
+msgstr[2] "כל %1 שבועות"
+msgstr[3] "כל %1 שבועות"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "כל יום"
+msgstr[1] "כל יומיים"
+msgstr[2] "כל %1 ימים"
+msgstr[3] "כל %1 ימים"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "אף פעם"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] ", פעם אחת"
+msgstr[1] ", פעמיים"
+msgstr[2] ", %1 פעמים"
+msgstr[3] ", %1 פעמים"
