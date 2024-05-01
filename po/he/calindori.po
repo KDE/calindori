@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-05-01 00:40+0000\n"
 "PO-Revision-Date: 2024-04-24 08:50+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -277,7 +277,7 @@ msgid "Tasks"
 msgstr "משימות"
 
 #: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:90
 #, kde-format
 msgid "Events"
 msgstr "אירועים"
@@ -313,7 +313,7 @@ msgstr "רשימת משימות"
 msgid "Events List"
 msgstr "רשימת אירועים"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:198
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:52
 #, kde-format
 msgid "Calendars"
 msgstr "לוח שנה"
@@ -707,54 +707,59 @@ msgstr "ימים:"
 msgid "No reminders yet"
 msgstr "אין תזכורות עדיין"
 
-#: contents/ui/SettingsPage.qml:26
-#, kde-format
-msgid "More Info:"
-msgstr "מידע נוסף:"
-
-#: contents/ui/SettingsPage.qml:28
+#: contents/ui/SettingsPage.qml:22
 #, kde-format
 msgid "About"
 msgstr "על אודות"
 
-#: contents/ui/SettingsPage.qml:41
-#, kde-format
-msgid "Calendars:"
-msgstr "לוחות שנה:"
+#: contents/ui/SettingsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Calindori"
+msgid "About Calindori"
+msgstr "Calindori"
 
-#: contents/ui/SettingsPage.qml:42
+#: contents/ui/SettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
+msgstr "על אודות"
+
+#: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "ניהול לוחות שנה פנימיים"
 
-#: contents/ui/SettingsPage.qml:49
+#: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "ניהול לוחות שנה פנימיים"
 
-#: contents/ui/SettingsPage.qml:58
+#: contents/ui/SettingsPage.qml:73
 #, kde-format
 msgid "Manage external calendars"
 msgstr "ניהול לוחות שנה חיצוניים"
 
-#: contents/ui/SettingsPage.qml:65
+#: contents/ui/SettingsPage.qml:80
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "ניהול לוחות שנה חיצוניים"
 
-#: contents/ui/SettingsPage.qml:79
-#, kde-format
-msgid "Initial duration (minutes):"
+#: contents/ui/SettingsPage.qml:96
+#, fuzzy, kde-format
+#| msgid "Initial duration (minutes):"
+msgid "Initial duration (minutes)"
 msgstr "משך ראשוני (בדקות):"
 
-#: contents/ui/SettingsPage.qml:89
-#, kde-format
-msgid "Remind before event (minutes):"
+#: contents/ui/SettingsPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Remind before event (minutes):"
+msgid "Remind before event (minutes)"
 msgstr "תזכורת לפני האירוע (בדקות):"
 
-#: contents/ui/SettingsPage.qml:98
-#, kde-format
-msgid "Add reminder to new events:"
+#: contents/ui/SettingsPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Add reminder to new events:"
+msgid "Add reminder to new events"
 msgstr "הוספת תזכורת לאירועים חדשים:"
 
 #: contents/ui/TodoEditorPage.qml:99
@@ -998,3 +1003,9 @@ msgstr[0] ", פעם אחת"
 msgstr[1] ", פעמיים"
 msgstr[2] ", %1 פעמים"
 msgstr[3] ", %1 פעמים"
+
+#~ msgid "More Info:"
+#~ msgstr "מידע נוסף:"
+
+#~ msgid "Calendars:"
+#~ msgstr "לוחות שנה:"

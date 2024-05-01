@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-05-01 00:40+0000\n"
 "PO-Revision-Date: 2020-11-02 20:10+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -281,7 +281,7 @@ msgid "Tasks"
 msgstr "Opgaver"
 
 #: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:90
 #, kde-format
 msgid "Events"
 msgstr "Begivenheder"
@@ -323,7 +323,7 @@ msgstr "Opgaver"
 msgid "Events List"
 msgstr "Begivenheder"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:198
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:52
 #, fuzzy, kde-format
 #| msgid "Calendar:"
 msgid "Calendars"
@@ -726,58 +726,59 @@ msgstr "Dage:"
 msgid "No reminders yet"
 msgstr "Ny påmindelse"
 
-#: contents/ui/SettingsPage.qml:26
-#, kde-format
-msgid "More Info:"
-msgstr ""
-
-#: contents/ui/SettingsPage.qml:28
+#: contents/ui/SettingsPage.qml:22
 #, kde-format
 msgid "About"
 msgstr "Om"
 
-#: contents/ui/SettingsPage.qml:41
+#: contents/ui/SettingsPage.qml:27
 #, fuzzy, kde-format
-#| msgid "Calendar:"
-msgid "Calendars:"
-msgstr "Kalender:"
+#| msgid "Calindori"
+msgid "About Calindori"
+msgstr "Calindori"
 
-#: contents/ui/SettingsPage.qml:42
+#: contents/ui/SettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
+msgstr "Om"
+
+#: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage internal calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:49
+#: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:58
+#: contents/ui/SettingsPage.qml:73
 #, kde-format
 msgid "Manage external calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:65
+#: contents/ui/SettingsPage.qml:80
 #, kde-format
 msgid "Manage External Calendars"
 msgstr ""
 
-#: contents/ui/SettingsPage.qml:79
+#: contents/ui/SettingsPage.qml:96
 #, fuzzy, kde-format
 #| msgid "Initial duration (minutes)"
-msgid "Initial duration (minutes):"
+msgid "Initial duration (minutes)"
 msgstr "Oprindelig varighed (minutter)"
 
-#: contents/ui/SettingsPage.qml:89
+#: contents/ui/SettingsPage.qml:105
 #, fuzzy, kde-format
 #| msgid "Remind before event (minutes)"
-msgid "Remind before event (minutes):"
+msgid "Remind before event (minutes)"
 msgstr "Påmind før begivenhed (minutter)"
 
-#: contents/ui/SettingsPage.qml:98
+#: contents/ui/SettingsPage.qml:114
 #, fuzzy, kde-format
 #| msgid "Add reminder to new events"
-msgid "Add reminder to new events:"
+msgid "Add reminder to new events"
 msgstr "Føj påmindelse til nye begivenheder"
 
 #: contents/ui/TodoEditorPage.qml:99
@@ -1012,6 +1013,11 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; en gang"
 msgstr[1] "; %1 gange"
+
+#, fuzzy
+#~| msgid "Calendar:"
+#~ msgid "Calendars:"
+#~ msgstr "Kalender:"
 
 #~ msgid "Close"
 #~ msgstr "Luk"

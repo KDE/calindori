@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-05-01 00:40+0000\n"
 "PO-Revision-Date: 2022-03-04 09:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -281,7 +281,7 @@ msgid "Tasks"
 msgstr "Naloge"
 
 #: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:90
 #, kde-format
 msgid "Events"
 msgstr "Dogodki"
@@ -317,7 +317,7 @@ msgstr "Seznam nalog"
 msgid "Events List"
 msgstr "Seznam dogodkov"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:198
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:52
 #, kde-format
 msgid "Calendars"
 msgstr "Koledarji"
@@ -712,54 +712,59 @@ msgstr "Dnevi:"
 msgid "No reminders yet"
 msgstr "Še ni nobenih opomnikov"
 
-#: contents/ui/SettingsPage.qml:26
-#, kde-format
-msgid "More Info:"
-msgstr "Več informacij:"
-
-#: contents/ui/SettingsPage.qml:28
+#: contents/ui/SettingsPage.qml:22
 #, kde-format
 msgid "About"
 msgstr "O koledarju"
 
-#: contents/ui/SettingsPage.qml:41
-#, kde-format
-msgid "Calendars:"
-msgstr "Koledarji:"
+#: contents/ui/SettingsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Calindori"
+msgid "About Calindori"
+msgstr "Calindori"
 
-#: contents/ui/SettingsPage.qml:42
+#: contents/ui/SettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
+msgstr "O koledarju"
+
+#: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "Upravljaj notranje koledarje"
 
-#: contents/ui/SettingsPage.qml:49
+#: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "Upravljaj notranje koledarje"
 
-#: contents/ui/SettingsPage.qml:58
+#: contents/ui/SettingsPage.qml:73
 #, kde-format
 msgid "Manage external calendars"
 msgstr "Upravljaj zunanje koledarje"
 
-#: contents/ui/SettingsPage.qml:65
+#: contents/ui/SettingsPage.qml:80
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "Upravljaj zunanje koledarje"
 
-#: contents/ui/SettingsPage.qml:79
-#, kde-format
-msgid "Initial duration (minutes):"
+#: contents/ui/SettingsPage.qml:96
+#, fuzzy, kde-format
+#| msgid "Initial duration (minutes):"
+msgid "Initial duration (minutes)"
 msgstr "Začetno trajanje (minute):"
 
-#: contents/ui/SettingsPage.qml:89
-#, kde-format
-msgid "Remind before event (minutes):"
+#: contents/ui/SettingsPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Remind before event (minutes):"
+msgid "Remind before event (minutes)"
 msgstr "Opomni pred dogodkom (minute):"
 
-#: contents/ui/SettingsPage.qml:98
-#, kde-format
-msgid "Add reminder to new events:"
+#: contents/ui/SettingsPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Add reminder to new events:"
+msgid "Add reminder to new events"
 msgstr "Dodaj opomnik k novim dogodkom:"
 
 #: contents/ui/TodoEditorPage.qml:99
@@ -1003,6 +1008,12 @@ msgstr[0] "; %1 krat"
 msgstr[1] "; %1 krat"
 msgstr[2] "; %1 krat"
 msgstr[3] "; %1 krat"
+
+#~ msgid "More Info:"
+#~ msgstr "Več informacij:"
+
+#~ msgid "Calendars:"
+#~ msgstr "Koledarji:"
 
 #~ msgid "Close"
 #~ msgstr "Zapri"

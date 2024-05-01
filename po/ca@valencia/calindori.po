@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-05-01 00:40+0000\n"
 "PO-Revision-Date: 2022-03-02 08:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -287,7 +287,7 @@ msgid "Tasks"
 msgstr "Tasques"
 
 #: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:90
 #, kde-format
 msgid "Events"
 msgstr "Esdeveniments"
@@ -323,7 +323,7 @@ msgstr "Llista de tasques"
 msgid "Events List"
 msgstr "Llista d'esdeveniments"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:198
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:52
 #, kde-format
 msgid "Calendars"
 msgstr "Calendaris"
@@ -705,54 +705,59 @@ msgstr "Dies:"
 msgid "No reminders yet"
 msgstr "Encara no hi ha cap recordatori"
 
-#: contents/ui/SettingsPage.qml:26
-#, kde-format
-msgid "More Info:"
-msgstr "Més informació:"
-
-#: contents/ui/SettingsPage.qml:28
+#: contents/ui/SettingsPage.qml:22
 #, kde-format
 msgid "About"
 msgstr "Quant a"
 
-#: contents/ui/SettingsPage.qml:41
-#, kde-format
-msgid "Calendars:"
-msgstr "Calendaris:"
+#: contents/ui/SettingsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Calindori"
+msgid "About Calindori"
+msgstr "Calindori"
 
-#: contents/ui/SettingsPage.qml:42
+#: contents/ui/SettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
+msgstr "Quant a"
+
+#: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "Gestiona els calendaris interns"
 
-#: contents/ui/SettingsPage.qml:49
+#: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "Gestioneu els calendaris interns"
 
-#: contents/ui/SettingsPage.qml:58
+#: contents/ui/SettingsPage.qml:73
 #, kde-format
 msgid "Manage external calendars"
 msgstr "Gestiona els calendaris externs"
 
-#: contents/ui/SettingsPage.qml:65
+#: contents/ui/SettingsPage.qml:80
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "Gestioneu els calendaris externs"
 
-#: contents/ui/SettingsPage.qml:79
-#, kde-format
-msgid "Initial duration (minutes):"
+#: contents/ui/SettingsPage.qml:96
+#, fuzzy, kde-format
+#| msgid "Initial duration (minutes):"
+msgid "Initial duration (minutes)"
 msgstr "Duració inicial (minuts):"
 
-#: contents/ui/SettingsPage.qml:89
-#, kde-format
-msgid "Remind before event (minutes):"
+#: contents/ui/SettingsPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Remind before event (minutes):"
+msgid "Remind before event (minutes)"
 msgstr "Recorda abans de l'esdeveniment (minuts):"
 
-#: contents/ui/SettingsPage.qml:98
-#, kde-format
-msgid "Add reminder to new events:"
+#: contents/ui/SettingsPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Add reminder to new events:"
+msgid "Add reminder to new events"
 msgstr "Afig un recordatori als esdeveniments nous:"
 
 #: contents/ui/TodoEditorPage.qml:99
@@ -978,6 +983,12 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; una vegada"
 msgstr[1] "; %1 vegades"
+
+#~ msgid "More Info:"
+#~ msgstr "Més informació:"
+
+#~ msgid "Calendars:"
+#~ msgstr "Calendaris:"
 
 #~ msgid "Close"
 #~ msgstr "Tanca"
