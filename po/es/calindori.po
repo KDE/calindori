@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the calindori package.
 #
 # Automatically generated, 2019.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2022-03-02 17:49+0100\n"
+"PO-Revision-Date: 2024-05-01 11:58+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -711,16 +711,14 @@ msgid "About"
 msgstr "Acerca de"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Acerca de Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Acerca de"
+msgstr "Acerca de KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -743,22 +741,19 @@ msgid "Manage External Calendars"
 msgstr "Gestión de calendarios externos"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Duración inicial (minutos):"
+msgstr "Duración inicial (minutos)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Recordar antes del evento (minutos):"
+msgstr "Recordar antes del evento (minutos)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Añadir recordatorio a los eventos nuevos:"
+msgstr "Añadir recordatorio a los eventos nuevos"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format

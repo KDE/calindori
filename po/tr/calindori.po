@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2024-02-09 18:00+0300\n"
+"PO-Revision-Date: 2024-05-01 14:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -702,16 +702,14 @@ msgid "About"
 msgstr "Hakkında"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Yapraklı Takvim"
+msgstr "Yapraklı Takvim Hakkında"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Hakkında"
+msgstr "KDE Hakkında"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -734,22 +732,19 @@ msgid "Manage External Calendars"
 msgstr "Dış Takvimleri Yönet"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "İlk süre (dakika):"
+msgstr "İlk süre (dakika)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Etkinlikten önce anımsat (dakika):"
+msgstr "Etkinlikten önce anımsat (dakika)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Yeni etkinliklere anımsatıcı ekle:"
+msgstr "Yeni etkinliklere anımsatıcı ekle"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format

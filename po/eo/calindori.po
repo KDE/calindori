@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
+"PO-Revision-Date: 2024-05-01 17:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -700,16 +700,14 @@ msgid "About"
 msgstr "Pri"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Pri Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Pri"
+msgstr "Pri KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -732,27 +730,24 @@ msgid "Manage External Calendars"
 msgstr "Administri Eksterajn Kalendarojn"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Komenca daŭro (minutoj):"
+msgstr "Komenca daŭro (minutoj)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Memorigi antaŭ evento (minutoj):"
+msgstr "Memorigi antaŭ evento (minutoj)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Aldoni memorigilon al novaj eventoj:"
+msgstr "Aldoni memorigilon al novaj eventoj"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
 msgid "Due:"
-msgstr "Paga:"
+msgstr "Pagenda je:"
 
 #: contents/ui/TodoEditorPage.qml:107
 #, kde-format
@@ -762,7 +757,7 @@ msgstr "Limdato"
 #: contents/ui/TodoEditorPage.qml:135
 #, kde-format
 msgid "Due Time"
-msgstr "Konvena Tempo"
+msgstr "Limhoro"
 
 #: contents/ui/TodoEditorPage.qml:160
 #, kde-format
@@ -972,9 +967,3 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; unu fojon"
 msgstr[1] "; %1 fojojn"
-
-#~ msgid "More Info:"
-#~ msgstr "Pliaj Informoj:"
-
-#~ msgid "Calendars:"
-#~ msgstr "Kalendaroj:"

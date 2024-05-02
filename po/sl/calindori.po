@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2022-03-04 09:39+0100\n"
+"PO-Revision-Date: 2024-05-01 06:32+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -542,7 +542,7 @@ msgstr "Ni najdenih koledarjev"
 #: contents/ui/ManageCalendarsPage.qml:43
 #, kde-format
 msgid "Import an existing calendar file."
-msgstr "Uvozi obstoječo koledarsko datoteko"
+msgstr "Uvozi obstoječo koledarsko datoteko."
 
 #: contents/ui/ManageCalendarsPage.qml:44
 #, kde-format
@@ -718,16 +718,14 @@ msgid "About"
 msgstr "O koledarju"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "O Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "O koledarju"
+msgstr "O KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -750,22 +748,19 @@ msgid "Manage External Calendars"
 msgstr "Upravljaj zunanje koledarje"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Začetno trajanje (minute):"
+msgstr "Začetno trajanje (minute)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Opomni pred dogodkom (minute):"
+msgstr "Opomni pred dogodkom (minute)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Dodaj opomnik k novim dogodkom:"
+msgstr "Dodaj opomnik k novim dogodkom"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
