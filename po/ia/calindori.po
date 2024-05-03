@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2020, 2021, 2022.
+# Giovanni Sora <g.sora@tiscali.it>, 2020, 2021, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2022-03-07 22:23+0100\n"
+"PO-Revision-Date: 2024-05-02 12:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -707,16 +707,14 @@ msgid "About"
 msgstr "A proposito"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "A proposito de Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "A proposito"
+msgstr "A proposito de KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -739,22 +737,19 @@ msgid "Manage External Calendars"
 msgstr "Gere calendarios externe"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Duration initial (minutas):"
+msgstr "Duration initial (minutas)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Memora ante evento (minutas):"
+msgstr "Memora ante evento (minutas)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Adde memento a nove eventos:"
+msgstr "Adde memento a nove eventos"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format

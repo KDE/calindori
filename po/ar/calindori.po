@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2023-08-28 20:53+0400\n"
+"PO-Revision-Date: 2024-05-02 10:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -731,16 +731,14 @@ msgid "About"
 msgstr "عن"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "كالندوري"
+msgstr "عن كالندوري"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "عن"
+msgstr "عن كِيدِي"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -763,22 +761,19 @@ msgid "Manage External Calendars"
 msgstr "إدارة التقاويم الخارجية"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "الوقت المبدئي (دقائق):"
+msgstr "الوقت المبدئي (دقائق)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "ذكر قبل الحدث (دقائق):"
+msgstr "ذكر قبل الحدث (دقائق)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "أضف تذكير للأحداث الجديدة:"
+msgstr "أضف تذكير للأحداث الجديدة"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
