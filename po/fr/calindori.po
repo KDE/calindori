@@ -742,22 +742,19 @@ msgid "Manage External Calendars"
 msgstr "Gérer les agendas externes"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Durée initiale (minutes) :"
+msgstr "Durée initiale (minutes)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Rappeler avant l'évènement (minutes) :"
+msgstr "Rappeler avant l'évènement (minutes)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Ajouter un rappel aux nouveaux évènements :"
+msgstr "Ajouter un rappel aux nouveaux évènements"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
