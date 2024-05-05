@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2022-12-01 08:30+0100\n"
+"PO-Revision-Date: 2024-05-04 05:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -701,16 +701,14 @@ msgid "About"
 msgstr "შესახებ"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Calindori-ის შესახებ"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "შესახებ"
+msgstr "KDE-ის შესახებ"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -733,22 +731,19 @@ msgid "Manage External Calendars"
 msgstr "გარე კალენდარების მართვა"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "ღამის ხანგრძლივობა (წუთებში):"
+msgstr "საწყისი ხანგრძლივობა (წუთებში)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "შეხსენება მოვლენამდე (წუთებში):"
+msgstr "შეხსენება მოვლენამდე (წუთებში)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "ახალი მოვლენებისთვის შეხსენების დამატება:"
+msgstr "ახალი მოვლენებისთვის შეხსენების დამატება"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
