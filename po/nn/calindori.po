@@ -969,9 +969,3 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; éin gong"
 msgstr[1] "; %1 gongar"
-
-#~ msgid "More Info:"
-#~ msgstr "Meir informasjon:"
-
-#~ msgid "Calendars:"
-#~ msgstr "Kalendrar:"
