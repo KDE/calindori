@@ -978,9 +978,3 @@ msgid "; once"
 msgid_plural "; %1 times"
 msgstr[0] "; una vegada"
 msgstr[1] "; %1 vegades"
-
-#~ msgid "Close"
-#~ msgstr "Tanca"
-
-#~ msgid "OK"
-#~ msgstr "D'acord"

@@ -1,4 +1,4 @@
-# Paolo Zamponi <feus73@gmail.com>, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Paolo Zamponi <feus73@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
