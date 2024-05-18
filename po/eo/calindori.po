@@ -1,15 +1,15 @@
 # translation of calindori.pot to Esperanto
 # Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the calindori package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-30 00:39+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-01 17:30+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "okellogg@users.sourceforge.net"
+msgstr "olivermkellogg@gmail.com"
 
 #: attendeesmodel.cpp:183
 #, kde-format
@@ -747,7 +747,7 @@ msgstr "Aldoni memorigilon al novaj eventoj:"
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
 msgid "Due:"
-msgstr "Paga:"
+msgstr "Pagenda je:"
 
 #: contents/ui/TodoEditorPage.qml:107
 #, kde-format
@@ -757,7 +757,7 @@ msgstr "Limdato"
 #: contents/ui/TodoEditorPage.qml:135
 #, kde-format
 msgid "Due Time"
-msgstr "Konvena Tempo"
+msgstr "Limhoro"
 
 #: contents/ui/TodoEditorPage.qml:160
 #, kde-format
