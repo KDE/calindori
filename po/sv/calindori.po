@@ -1,21 +1,21 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
-# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-01 00:40+0000\n"
-"PO-Revision-Date: 2022-03-03 18:18+0100\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
+"PO-Revision-Date: 2024-06-16 19:43+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -704,16 +704,14 @@ msgid "About"
 msgstr "Om"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Om Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Om"
+msgstr "Om KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -736,22 +734,19 @@ msgid "Manage External Calendars"
 msgstr "Hantera externa kalendrar"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Ursprunglig längd (minuter):"
+msgstr "Ursprunglig längd (minuter)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Påminnelse innan händelse (minuter):"
+msgstr "Påminnelse innan händelse (minuter)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Lägg till påminnelse för nya händelser:"
+msgstr "Lägg till påminnelse för nya händelser"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
