@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
             property var calendarName: ""
             property bool calendarActive: Calindori.CalindoriConfig !== null ? (Calindori.CalindoriConfig.activeCalendar === calendarName) : false
 
-            title: i18n("Modify " + calendarName)
+            title: i18n("Modify %1", calendarName)
             actions: [
                 Kirigami.Action {
                     text: i18n("Activate")
