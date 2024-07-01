@@ -1,0 +1,58 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the calindori package.
+#
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"PO-Revision-Date: 2024-06-30 20:25+0200\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.05.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@fsf.hu"
+
+#: alarmnotification.cpp:17 alarmnotification.cpp:23
+#, kde-format
+msgid "Suspend"
+msgstr "Felfüggesztés"
+
+#: alarmnotification.cpp:20 alarmnotification.cpp:23
+#, kde-format
+msgid "Dismiss"
+msgstr "Bezárás"
+
+#: calindacmain.cpp:20 calindacmain.cpp:21
+#, kde-format
+msgid "Calindori Alarm Check Daemon"
+msgstr "Calindori riasztásellenőrző démon"
+
+#: calindacmain.cpp:23
+#, kde-format
+msgid "(c) 2019 Dimitris Kardarakos"
+msgstr "(c) Dimitris Kardarakos, 2019."
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: calindacmain.cpp:25
+#, kde-format
+msgid "Maintainer"
+msgstr "Karbantartó"
