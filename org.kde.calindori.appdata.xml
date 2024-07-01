@@ -28,6 +28,7 @@
   <name xml:lang="fr">Calindori</name>
   <name xml:lang="gl">Calindori</name>
   <name xml:lang="he">Calindori</name>
+  <name xml:lang="hu">Calindori</name>
   <name xml:lang="ia">Calindori</name>
   <name xml:lang="id">Calindori</name>
   <name xml:lang="it">Calindori</name>
@@ -65,6 +66,7 @@
   <summary xml:lang="fr">Application d'agenda</summary>
   <summary xml:lang="gl">Aplicación de calendario.</summary>
   <summary xml:lang="he">יישום לוח שנה</summary>
+  <summary xml:lang="hu">Naptáralkalmazás</summary>
   <summary xml:lang="ia">Application de calendario</summary>
   <summary xml:lang="id">Aplikasi kalender</summary>
   <summary xml:lang="it">Applicazione calendario</summary>
@@ -102,6 +104,7 @@
     <p xml:lang="fr">Calindori est une application d'agenda ergonomique pour les écrans tactiles. Elle a été conçue pour les appareils mobiles mais fonctionne également sur les environnements de bureau. Les utilisateurs de Calindori peuvent consulter les dates passées et futures et gérer les tâches et les évènements.</p>
     <p xml:lang="gl">Calindori é unha aplicación de calendario optimizada para uso táctil. Deseñouse para dispositivos móbiles pero tamén pode usarse en contornos de escritorio. Os usuarios de Calindori poden consultar datas pasadas e futuras e xestionar tarefas e eventos.</p>
     <p xml:lang="he">Calindori הוא יישום לוח שנה ידידותי למסכי מגע. הוא תוכנן למכשירים ניידים אך יכול לפעול גם בסביבות מחשב מלאות. משתמשי Calindori יכולים לנווט קדימה ואחורה בתאריכים ולנהל משימות ואירועים.</p>
+    <p xml:lang="hu">A Calindori egy érintésbarát naptár alkalmazás. Mobileszközökre tervezték, de asztali környezetben is futtatható. A Calindori felhasználói ellenőrizhetik a korábbi és jövőbeli dátumokat, valamint kezelhetik a feladatokat és eseményeket.</p>
     <p xml:lang="ia">Calindori es un application de calendatio amicale de tocco. Illo ha essite designate per dispositivos mobile ma anque pote executar sur ambientes de scriptorio. Usators de Calindori es capace de verificar datas previe e future e gerer cargas e eventos.</p>
     <p xml:lang="id">Calindori adalah sebuah aplikasi kalender sentuhan yang akrab. Ini sudah dirancang untuk peranti genggam tetapi juga bisa berjalan pada lingkungan desktop. Penggunaan Calindori bisa untuk memeriksa sebelumnya dan  keakanan tanggal dan mengelola tugas dan peristiwa.</p>
     <p xml:lang="it">Calindori è un'applicazione calendario amichevole. È stato progettato per i dispositivi mobili, ma può anche funzionare in ambienti desktop. Gli utenti di Calindori sono in grado di controllare date precedenti e future, e di gestire attività ed eventi.</p>
@@ -137,6 +140,7 @@
     <p xml:lang="fr">Lors de sa première exécution, l'application crée un nouveau fichier agenda respectant la norme ical. Les utilisateurs peuvent également créer des agendas supplémentaires ou importer des agendas existants.</p>
     <p xml:lang="gl">Ao executar a aplicación por vez primeira, créase un novo ficheiro de calendario que segue o estándar de iCal. De maneira alternativa, os usuarios poden crear calendarios adicionais ou importar calendarios existentes.</p>
     <p xml:lang="he">עם הפעלת היישום לראשונה, נוצר קובץ לוח שנה חדש לפי תקן ical. לחלופין, משתמשים יכולים ליצור לוחות שנה נוספים או לייבא לוחות שנה קיימים.</p>
+    <p xml:lang="hu">Az alkalmazás első futtatásakor egy iCal szabványt követő új naptárfájl jön létre. Alternatívaként a felhasználók további naptárakat hozhatnak létre, vagy importálhatják a meglévőket.</p>
     <p xml:lang="ia">Quando executa le application per le prime vice, un nove file de calendario es create que seque le standard ical. Alternativemente, usatores pote crear calendarios additional o importar los que existe.</p>
     <p xml:lang="id">Ketika pengeksekusian aplikasi saat pertama kali, sebuah file kalender baru telah diciptakan yang mengikuti standar ical. Selain itu, pengguna bisa menciptakan kalender tambahan atau mengimpor yang sudah ada.</p>
     <p xml:lang="it">Quando si esegue l'applicazione per la prima volta viene creato un nuovo file di calendario che segue lo standard ical. In alternativa, gli utenti possono creare dei calendari aggiuntivi, oppure importare quelli esistenti.</p>
@@ -173,6 +177,7 @@
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="he">יכולות:</p>
+    <p xml:lang="hu">Funkciók:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
@@ -211,6 +216,7 @@
       <li xml:lang="fr">Agenda</li>
       <li xml:lang="gl">Axenda</li>
       <li xml:lang="he">סדר יום</li>
+      <li xml:lang="hu">Napirend</li>
       <li xml:lang="ia">Agenda</li>
       <li xml:lang="id">Agenda</li>
       <li xml:lang="it">Agenda</li>
@@ -248,6 +254,7 @@
       <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
       <li xml:lang="he">אירועים</li>
+      <li xml:lang="hu">Események</li>
       <li xml:lang="ia">Eventos</li>
       <li xml:lang="id">Peristiwa</li>
       <li xml:lang="it">Eventi</li>
@@ -285,6 +292,7 @@
       <li xml:lang="fr">Tâches</li>
       <li xml:lang="gl">Tarefas</li>
       <li xml:lang="he">מטלות</li>
+      <li xml:lang="hu">Feladatok</li>
       <li xml:lang="ia">Cosas de facer</li>
       <li xml:lang="id">Kegiatan</li>
       <li xml:lang="it">Cose da fare</li>
@@ -321,6 +329,7 @@
       <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
       <li xml:lang="he">ריבוי לוחות שנה</li>
+      <li xml:lang="hu">Több naptár</li>
       <li xml:lang="ia">Calendarios multiple</li>
       <li xml:lang="id">Multipel kalender</li>
       <li xml:lang="it">Calendari multipli</li>
@@ -358,6 +367,7 @@
       <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
       <li xml:lang="he">ייבוא לוח שנה</li>
+      <li xml:lang="hu">Naptár importálása</li>
       <li xml:lang="ia">Importa calendario</li>
       <li xml:lang="id">Impor kalender</li>
       <li xml:lang="it">Importa calendario</li>
@@ -412,6 +422,7 @@
       <caption xml:lang="fr">Calindori sur plate-forme mobile</caption>
       <caption xml:lang="gl">Calindori nun móbil.</caption>
       <caption xml:lang="he">Calindori בנייד</caption>
+      <caption xml:lang="hu">Calindori mobilon</caption>
       <caption xml:lang="ia">Calindori sur Mobile</caption>
       <caption xml:lang="id">Calindori di Ponsel</caption>
       <caption xml:lang="it">Calindori su mobile</caption>
@@ -451,6 +462,7 @@
       <caption xml:lang="fr">Calindori sur ordinateur de bureau</caption>
       <caption xml:lang="gl">Calindori nun escritorio.</caption>
       <caption xml:lang="he">Calindori במחשב</caption>
+      <caption xml:lang="hu">Calindori asztali környezetben</caption>
       <caption xml:lang="ia">Calindori sur scriptorio</caption>
       <caption xml:lang="id">Calindori di Desktop</caption>
       <caption xml:lang="it">Calindori su desktop</caption>
