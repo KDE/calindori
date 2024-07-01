@@ -1,0 +1,974 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the calindori package.
+#
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"PO-Revision-Date: 2024-06-30 20:57+0200\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.05.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@fsf.hu"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "Elfogadva"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "Talán"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "Elutasítva"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "Átruházva"
+
+#: attendeesmodel.cpp:195
+#, kde-format
+msgid "Not responded yet"
+msgstr "Nem válaszolt"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr "A megadott URL vagy fájl nem tartalmaz érvényes naptáradatokat"
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr "A megadott URL vagy fájl nem tartalmaz eseményeket vagy feladatokat"
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] "1 esemény kerül hozzáadásra"
+msgstr[1] "%1 esemény kerül hozzáadásra"
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] "1 feladat kerül hozzáadásra"
+msgstr[1] "%1 feladat kerül hozzáadásra"
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr "%1 esemény kerül hozzáadása"
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr "Importálás sikeresen befejezve"
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr "Hiba történt az importálás során"
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr ""
+"Egész napos események esetén a kezdő és a záró dátumnak meg kell egyeznie"
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr ""
+"A záró dátum időpontjának meg kell egyeznie vagy nagyobbnak kell lennie a "
+"kezdő dátum időpontjánál"
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr "A napi események nem terjedhetnek több napra"
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr ""
+"Egész napos feladatok esetén a kezdő dátumnak és a határidőnek meg kell "
+"egyeznie"
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr ""
+"A határidő időpontjának meg kell egyeznie vagy nagyobbnak kell lennie a "
+"kezdő dátum időpontjánál"
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr "Nem lehet olvasni a naptárat. Az exportálás sikertelen."
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr "Nem lehet betölteni a naptárat. Az exportálás sikertelen."
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr "Nem lehet menteni a naptárfájt. Az exportálás sikertelen."
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr "Exportálás sikeresen befejezve"
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr "A naptár neve érvénytelen karaktereket tartalmaz"
+
+#: calindoriconfig.cpp:99
+#, kde-format
+msgid "Calendar already exists"
+msgstr "A naptár már létezik"
+
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
+#, kde-format
+msgid "No contacts found"
+msgstr "Nincsenek névjegyek"
+
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "Hozzáadás"
+
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/TodosCardView.qml:110
+#, kde-format
+msgid "Cancel"
+msgstr "Mégse"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "E-mail:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "Állapot:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, kde-format
+msgid "Role:"
+msgstr "Szerep:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, kde-format
+msgid "Required"
+msgstr "Kötelező"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, kde-format
+msgid "Optional"
+msgstr "Opcionális"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr "Nem vesz részt"
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr "Elnök"
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr ""
+"A résztvevők kezelése csak olyan külső naptárakban érhető el, amelyek online "
+"szinkronizáltak"
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr ""
+"Kérjük, állítsa be a naptár tulajdonosának adatait az alkalmazás "
+"beállításaiban"
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr "Nincsenek résztvevők"
+
+#: contents/ui/CalendarEditor.qml:32
+#, kde-format
+msgid "New calendar"
+msgstr "Új naptár"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "Naptár:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, kde-format
+msgid "File:"
+msgstr "Fájl:"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "Tulajdonos"
+
+#: contents/ui/CalendarEditor.qml:92
+#, kde-format
+msgid "Name:"
+msgstr "Név:"
+
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
+#: contents/ui/TodoEditorPage.qml:203
+#, kde-format
+msgid "Save"
+msgstr "Mentés"
+
+#: contents/ui/CalendarMonthPage.qml:48
+#, kde-format
+msgid "Previous"
+msgstr "Előző"
+
+#: contents/ui/CalendarMonthPage.qml:55
+#, kde-format
+msgid "Next"
+msgstr "Következő"
+
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "Ma"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
+#: contents/ui/TodosCardView.qml:19
+#, kde-format
+msgid "Tasks"
+msgstr "Feladatok"
+
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:75
+#, kde-format
+msgid "Events"
+msgstr "Események"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "Naptár"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "Havi nézet"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, kde-format
+msgid "Week View"
+msgstr "Heti nézet"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, kde-format
+msgid "Day View"
+msgstr "Napi nézet"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, kde-format
+msgid "Tasks List"
+msgstr "Feladatlista"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, kde-format
+msgid "Events List"
+msgstr "Eseménylista"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198
+#, kde-format
+msgid "Calendars"
+msgstr "Naptárak"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:76
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr "A(z) %1 naptárat aktiválták"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
+#, kde-format
+msgid "Settings"
+msgstr "Beállítások"
+
+#: contents/ui/DayPage.qml:21
+#, kde-format
+msgid "Previous day"
+msgstr "Előző nap"
+
+#: contents/ui/DayPage.qml:27
+#, kde-format
+msgid "Next day"
+msgstr "Következő nap"
+
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
+#, kde-format
+msgid "Create Event"
+msgstr "Esemény létrehozása"
+
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
+#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:160
+#, kde-format
+msgid "Create Task"
+msgstr "Feladat létrehozása"
+
+#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#, kde-format
+msgid "Summary:"
+msgstr "Összegzés:"
+
+#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#, kde-format
+msgid "Start:"
+msgstr "Kezdés:"
+
+#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#, kde-format
+msgid "Start Date"
+msgstr "Kezdő dátum"
+
+#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#, kde-format
+msgid "Start Time"
+msgstr "Kezdési idő"
+
+#: contents/ui/EventEditorPage.qml:93
+#, kde-format
+msgid "End:"
+msgstr "Vége:"
+
+#: contents/ui/EventEditorPage.qml:100
+#, kde-format
+msgid "End Date"
+msgstr "Záró dátum"
+
+#: contents/ui/EventEditorPage.qml:123
+#, kde-format
+msgid "End Time"
+msgstr "Befejezési idő"
+
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#, kde-format
+msgid "All day"
+msgstr "Egész napos"
+
+#: contents/ui/EventEditorPage.qml:156
+#, kde-format
+msgid "Repeat:"
+msgstr "Ismétlődés:"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, kde-format
+msgid "Details"
+msgstr "Részletek"
+
+#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#, kde-format
+msgid "Reminders"
+msgstr "Emlékeztetők"
+
+#: contents/ui/EventEditorPage.qml:183
+#, kde-format
+msgid "Attendees"
+msgstr "Résztvevők"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr "Nincsenek tervezett események ekkor: %1"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled"
+msgstr "Nincsenek tervezett események"
+
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
+#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:101
+#, kde-format
+msgid "Delete"
+msgstr "Törlés"
+
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, kde-format
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: contents/ui/EventsCardView.qml:103
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr "A(z) %1 esemény törlésre kerül"
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "Lemondva"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "Megerősítve"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, kde-format
+msgid "Location:"
+msgstr "Hely:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "Leírás:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "Befejezve:"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Show Completed"
+msgstr "Befejezettek megjelenítése"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Hide Completed"
+msgstr "Befejezettek elrejtése"
+
+#: contents/ui/IncidenceListView.qml:60
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr "Nincs semmi tervezett ekkor: %1"
+
+#: contents/ui/IncidenceListView.qml:60
+#, kde-format
+msgid "Nothing scheduled"
+msgstr "Nincs semmi tervezett"
+
+#: contents/ui/IncidencePage.qml:62
+#, kde-format
+msgid "%1 will be deleted"
+msgstr "A(z) %1 törlésre kerül"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "%1 feladat"
+msgstr[1] "%1 feladat"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "%1 esemény"
+msgstr[1] "%1 esemény"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:100
+#, kde-format
+msgid "AM"
+msgstr "DE"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:107
+#, kde-format
+msgid "PM"
+msgstr "DU"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "Létrehozás"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr "Nincsenek külső naptárak"
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, kde-format
+msgid "No calendars found"
+msgstr "Nincsenek naptárak"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr "Meglévő naptárfájl importálása."
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, kde-format
+msgid "Add a new calendar."
+msgstr "Új naptár hozzáadása."
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, kde-format
+msgid "Modify "
+msgstr "Módosítás: "
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "Aktiválás"
+
+#: contents/ui/ManageCalendarsPage.qml:87
+#: contents/ui/ManageCalendarsPage.qml:102
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr "A naptár nem lehet aktív a törléskor."
+
+#: contents/ui/ManageCalendarsPage.qml:96
+#, kde-format
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: contents/ui/ManageCalendarsPage.qml:110
+#, kde-format
+msgid "Edit details"
+msgstr "Részletek szerkesztése"
+
+#: contents/ui/ManageCalendarsPage.qml:119
+#, kde-format
+msgid "Import calendar file"
+msgstr "Naptárfájl importálása"
+
+#: contents/ui/ManageCalendarsPage.qml:129
+#, kde-format
+msgid "Export calendar to file"
+msgstr "Naptár exportálása fájlba"
+
+#: contents/ui/ManageCalendarsPage.qml:153
+#, kde-format
+msgid "Confirm"
+msgstr "Megerősítés"
+
+#: contents/ui/ManageCalendarsPage.qml:154
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr "A naptárban szereplő összes adat törlésre kerül. Folytatja a törlést?"
+
+#: contents/ui/ManageCalendarsPage.qml:230
+#, kde-format
+msgid "Modify"
+msgstr "Módosítás"
+
+#: contents/ui/MessageBoard.qml:32
+#, kde-format
+msgid "Proceed"
+msgstr "Folytatás"
+
+#: contents/ui/MessageBoard.qml:58
+#, kde-format
+msgid "Open folder"
+msgstr "Mappa megnyitása"
+
+#: contents/ui/RecurrencePickerSheet.qml:29
+#, kde-format
+msgid "Repeat"
+msgstr "Ismétlődés"
+
+#: contents/ui/RecurrencePickerSheet.qml:52
+#, kde-format
+msgid "Every:"
+msgstr "Minden:"
+
+#: contents/ui/RecurrencePickerSheet.qml:62
+#, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "év"
+msgstr[1] "év"
+
+#: contents/ui/RecurrencePickerSheet.qml:63
+#, kde-format
+msgid "month"
+msgid_plural "months"
+msgstr[0] "hónap"
+msgstr[1] "hónap"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "hét"
+msgstr[1] "hét"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, kde-format
+msgid "day"
+msgid_plural "days"
+msgstr[0] "nap"
+msgstr[1] "nap"
+
+#: contents/ui/RecurrencePickerSheet.qml:70
+#, kde-format
+msgid "Stop After:"
+msgstr "Leállítás:"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "ismétlődés után"
+msgstr[1] "ismétlődés után"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "Never stop"
+msgstr "Soha"
+
+#: contents/ui/ReminderEditor.qml:25
+#, kde-format
+msgid "New Reminder"
+msgstr "Új emlékeztető"
+
+#: contents/ui/ReminderEditor.qml:31
+#, kde-format
+msgid "Time before start"
+msgstr "Idő kezdés előtt"
+
+#: contents/ui/ReminderEditor.qml:44
+#, kde-format
+msgid "Seconds:"
+msgstr "Másodperc:"
+
+#: contents/ui/ReminderEditor.qml:53
+#, kde-format
+msgid "Minutes:"
+msgstr "Perc:"
+
+#: contents/ui/ReminderEditor.qml:63
+#, kde-format
+msgid "Hours:"
+msgstr "Óra:"
+
+#: contents/ui/ReminderEditor.qml:72
+#, kde-format
+msgid "Days:"
+msgstr "Nap:"
+
+#: contents/ui/Reminders.qml:57
+#, kde-format
+msgid "No reminders yet"
+msgstr "Nincsenek emlékeztetők"
+
+#: contents/ui/SettingsPage.qml:26
+#, kde-format
+msgid "More Info:"
+msgstr "További információk:"
+
+#: contents/ui/SettingsPage.qml:28
+#, kde-format
+msgid "About"
+msgstr "Névjegy"
+
+#: contents/ui/SettingsPage.qml:41
+#, kde-format
+msgid "Calendars:"
+msgstr "Naptárak:"
+
+#: contents/ui/SettingsPage.qml:42
+#, kde-format
+msgid "Manage internal calendars"
+msgstr "Belső naptárak kezelése"
+
+#: contents/ui/SettingsPage.qml:49
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr "Belső naptárak kezelése"
+
+#: contents/ui/SettingsPage.qml:58
+#, kde-format
+msgid "Manage external calendars"
+msgstr "Külső naptárak kezelése"
+
+#: contents/ui/SettingsPage.qml:65
+#, kde-format
+msgid "Manage External Calendars"
+msgstr "Külső naptárak kezelése"
+
+#: contents/ui/SettingsPage.qml:79
+#, kde-format
+msgid "Initial duration (minutes):"
+msgstr "Kezdeti időtartam (perc):"
+
+#: contents/ui/SettingsPage.qml:89
+#, kde-format
+msgid "Remind before event (minutes):"
+msgstr "Emlékeztető esemény kezdete előtt (perc):"
+
+#: contents/ui/SettingsPage.qml:98
+#, kde-format
+msgid "Add reminder to new events:"
+msgstr "Emlékeztető hozzáadása új eseményekhez:"
+
+#: contents/ui/TodoEditorPage.qml:99
+#, kde-format
+msgid "Due:"
+msgstr "Esedékesség:"
+
+#: contents/ui/TodoEditorPage.qml:107
+#, kde-format
+msgid "Due Date"
+msgstr "Határidő"
+
+#: contents/ui/TodoEditorPage.qml:135
+#, kde-format
+msgid "Due Time"
+msgstr "Határidő (időpont)"
+
+#: contents/ui/TodoEditorPage.qml:160
+#, kde-format
+msgid "All day:"
+msgstr "Egész napos:"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr "Nincsenek tervezett feladatok ekkor: %1"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled"
+msgstr "Nincsenek tervezett feladatok"
+
+#: contents/ui/TodosCardView.qml:96
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr "A(z) %1 feladat törlésre kerül"
+
+#: contents/ui/WeekPage.qml:22
+#, kde-format
+msgid "Previous week"
+msgstr "Előző hét"
+
+#: contents/ui/WeekPage.qml:28
+#, kde-format
+msgid "Next week"
+msgstr "Következő hét"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "Jelenlegi hét"
+
+#: incidencealarmsmodel.cpp:157
+#, kde-format
+msgid "days before start"
+msgstr "nappal a kezdés előtt"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr "másodperccel a kezdés előtt"
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr "Kezdéskor"
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "1 nappal előtte"
+msgstr[1] "%1 nappal előtte"
+
+#: incidencealarmsmodel.cpp:216
+#, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "1 órával előtte"
+msgstr[1] "%1 órával előtte"
+
+#: incidencealarmsmodel.cpp:220
+#, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "1 perccel előtte"
+msgstr[1] "%1 perccel előtte"
+
+#: incidencealarmsmodel.cpp:223
+#, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "1 másodperccel előtte"
+msgstr[1] "%1 másodperccel előtte"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "Esemény"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "Feladat"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, kde-format
+msgid "all-day"
+msgstr "egész napos"
+
+#: incidencemodel.cpp:523
+#, kde-format
+msgid "No Due Date"
+msgstr "Nincs határidő"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr "Már létezik naptár ezen a néven"
+
+#: main.cpp:74
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "Naptáralkalmazás"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr "© A Calindori fejlesztői, 2018-2022."
+
+#: main.cpp:79
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: main.cpp:79 main.cpp:81 main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Fejlesztő"
+
+#: main.cpp:81
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "Devin Lin"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "Ne ismétlődjön"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "Évente"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "Havonta"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "Hetente"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "Naponta"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] "Minden évben"
+msgstr[1] "Minden %1. évben"
+
+#: recurrenceperiodmodel.cpp:134
+#, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "Minden hónapban"
+msgstr[1] "Minden %1. hónapban"
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "Minden héten"
+msgstr[1] "Minden %1. héten"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Minden nap"
+msgstr[1] "Minden %1. nap"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "Soha"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] "; egyszer"
+msgstr[1] "; %1 alkalommal"
