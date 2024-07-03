@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-03 00:41+0000\n"
 "PO-Revision-Date: 2022-03-13 11:11+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -547,8 +547,9 @@ msgid "Add a new calendar."
 msgstr "Dodaj nowy kalendarz."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, kde-format
-msgid "Modify "
+#, fuzzy, kde-format
+#| msgid "Modify "
+msgid "Modify %1"
 msgstr "Zmień "
 
 #: contents/ui/ManageCalendarsPage.qml:68

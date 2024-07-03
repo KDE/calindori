@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-03 00:41+0000\n"
 "PO-Revision-Date: 2019-12-05 03:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -546,7 +546,7 @@ msgstr ""
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, kde-format
-msgid "Modify "
+msgid "Modify %1"
 msgstr ""
 
 #: contents/ui/ManageCalendarsPage.qml:68

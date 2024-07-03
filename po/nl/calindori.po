@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-01 00:40+0000\n"
+"POT-Creation-Date: 2024-07-03 00:41+0000\n"
 "PO-Revision-Date: 2024-05-01 10:56+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -542,8 +542,9 @@ msgid "Add a new calendar."
 msgstr "Een nieuwe agenda toevoegen."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, kde-format
-msgid "Modify "
+#, fuzzy, kde-format
+#| msgid "Modify "
+msgid "Modify %1"
 msgstr "Wijzigen "
 
 #: contents/ui/ManageCalendarsPage.qml:68
