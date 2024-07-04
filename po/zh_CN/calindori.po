@@ -533,10 +533,9 @@ msgid "Add a new calendar."
 msgstr "添加新日历。"
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "修改 "
+msgstr ""
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format

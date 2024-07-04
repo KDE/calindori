@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2024-05-01 14:21+0300\n"
+"PO-Revision-Date: 2024-07-03 12:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -545,10 +545,9 @@ msgid "Add a new calendar."
 msgstr "Yeni bir takvim ekle."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Değiştir "
+msgstr "Değiştir: %1"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -880,7 +879,7 @@ msgstr "Takvim uygulaması"
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr "(c) 2018-2022 Yapraklı Takvim Takımı"
+msgstr "© 2018–2022 Yapraklı Takvim Takımı"
 
 #: main.cpp:79
 #, kde-format

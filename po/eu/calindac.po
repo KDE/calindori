@@ -1,10 +1,10 @@
 # Translation of calindac.po to Euskara/Basque (eu).
-# Copyright (C) 2020, This file is copyright:
+# Copyright (C) 2020-2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@euskalnet.net>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2020.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
