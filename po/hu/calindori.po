@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 20:57+0200\n"
+"PO-Revision-Date: 2024-07-07 15:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -548,10 +548,9 @@ msgid "Add a new calendar."
 msgstr "Új naptár hozzáadása."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Módosítás: "
+msgstr "%1 módosítása"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -708,12 +707,12 @@ msgstr "Névjegy"
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
 msgid "About Calindori"
-msgstr ""
+msgstr "A Calindori névjegye"
 
 #: contents/ui/SettingsPage.qml:40
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "A KDE névjegye"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -738,17 +737,17 @@ msgstr "Külső naptárak kezelése"
 #: contents/ui/SettingsPage.qml:96
 #, kde-format
 msgid "Initial duration (minutes)"
-msgstr ""
+msgstr "Kezdeti időtartam (perc)"
 
 #: contents/ui/SettingsPage.qml:105
 #, kde-format
 msgid "Remind before event (minutes)"
-msgstr ""
+msgstr "Emlékeztető az esemény előtt (perc)"
 
 #: contents/ui/SettingsPage.qml:114
 #, kde-format
 msgid "Add reminder to new events"
-msgstr ""
+msgstr "Emlékeztető hozzáadása új eseményekhez"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
