@@ -2,22 +2,22 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 ---
-name: calendori
+name: calindori
 confinement: strict
 grade: stable
 base: core22
-adopt-info: calendori
+adopt-info: calindori
 apps:
-    calendori:
+    calindori:
         extensions:
         - kde-neon-6
-        common-id: org.kde.calendori.desktop
-        desktop: usr/share/applications/org.kde.calendori.desktop
-        command: usr/bin/calendori
+        common-id: org.kde.calindori.desktop
+        desktop: usr/share/applications/org.kde.calindori.desktop
+        command: usr/bin/calindori
 slots:
     session-dbus-interface:
         interface: dbus
-        name: org.kde.calendori
+        name: org.kde.calindori
         bus: session
 package-repositories:
 -   type: apt
@@ -29,9 +29,9 @@ package-repositories:
     url: http://origin.archive.neon.kde.org/user
     key-server: keyserver.ubuntu.com
 parts:
-    calendori:
+    calindori:
         parse-info:
-        - usr/share/metainfo/org.kde.calendori.appdata.xml
+        - usr/share/metainfo/org.kde.calindori.appdata.xml
         plugin: cmake
         source: .
         source-type: local
@@ -57,14 +57,13 @@ parts:
         - -usr/include/*
         - -usr/share/ECM/*
         - -usr/share/man/*
-        - -usr/share/icons/breeze-dark*
         - -usr/bin/X11
         - -usr/lib/gcc/$SNAPCRAFT_ARCH_TRIPLET/6.0.0
         - -usr/lib/aspell/*
         - -usr/share/lintian
     cleanup:
         after:
-        - calendori
+        - calindori
         plugin: nil
         build-snaps:
         - core22
