@@ -35,6 +35,10 @@ parts:
         plugin: cmake
         source: .
         source-type: local
+        build-packages:
+        - libxkbcommon-dev
+        stage-packages:
+        - libxkbcommon0
         cmake-parameters:
         - -DCMAKE_INSTALL_PREFIX=/usr
         - -DCMAKE_BUILD_TYPE=Release
