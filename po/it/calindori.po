@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2024-05-07 18:06+0200\n"
+"PO-Revision-Date: 2024-07-19 19:06+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -542,10 +542,9 @@ msgid "Add a new calendar."
 msgstr "Aggiungi un nuovo calendario."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Modifica "
+msgstr "Modifica %1"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
