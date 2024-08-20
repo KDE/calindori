@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
-# Shinjo Park <kde@peremen.name>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2022-04-15 22:29+0200\n"
+"PO-Revision-Date: 2024-08-19 22:33+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -533,10 +533,9 @@ msgid "Add a new calendar."
 msgstr "새 캘린더를 추가합니다."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "수정"
+msgstr "%1 수정"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -686,16 +685,14 @@ msgid "About"
 msgstr "정보"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Calindori 정보"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "정보"
+msgstr "KDE 정보"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
@@ -718,22 +715,19 @@ msgid "Manage External Calendars"
 msgstr "외부 캘린더 관리"
 
 #: contents/ui/SettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "초기 시간 간격(분):"
+msgstr "초기 시간 간격(분)"
 
 #: contents/ui/SettingsPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "이벤트 시작 전에 알림(분):"
+msgstr "이벤트 시작 전에 알림(분)"
 
 #: contents/ui/SettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "새 이벤트에 알림 추가:"
+msgstr "새 이벤트에 알림 추가"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
