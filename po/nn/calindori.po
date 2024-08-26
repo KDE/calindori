@@ -543,7 +543,6 @@ msgstr ""
 
 #: contents/ui/ManageCalendarsPage.qml:65
 #, fuzzy, kde-format
-#| msgid "Modify "
 msgid "Modify %1"
 msgstr "Rediger "
 
@@ -702,13 +701,11 @@ msgstr "Om"
 
 #: contents/ui/SettingsPage.qml:27
 #, fuzzy, kde-format
-#| msgid "Calindori"
 msgid "About Calindori"
 msgstr "Calindori"
 
 #: contents/ui/SettingsPage.qml:40
 #, fuzzy, kde-format
-#| msgid "About"
 msgid "About KDE"
 msgstr "Om"
 
