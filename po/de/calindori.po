@@ -1,22 +1,23 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2022.
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2022-03-06 15:45+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-08-26 16:53+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -547,10 +548,9 @@ msgid "Add a new calendar."
 msgstr "Einen neuen Kalender hinzufügen."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Ändern "
+msgstr "%1 ändern"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -705,16 +705,14 @@ msgid "About"
 msgstr "Über"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Über Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Über"
+msgstr "Über KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
