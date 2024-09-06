@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: calindori\n"
+"Project-Id-Version: calindac\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2021-04-24 10:38+0200\n"
