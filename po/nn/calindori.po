@@ -1,12 +1,11 @@
 # Translation of calindori to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2023-08-24 21:38+0200\n"
+"PO-Revision-Date: 2024-09-27 20:40+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -534,17 +533,17 @@ msgstr "Fann ingen kalendrar"
 #: contents/ui/ManageCalendarsPage.qml:43
 #, kde-format
 msgid "Import an existing calendar file."
-msgstr ""
+msgstr "Importer gammal kalenderfil."
 
 #: contents/ui/ManageCalendarsPage.qml:44
 #, kde-format
 msgid "Add a new calendar."
-msgstr ""
+msgstr "Legg til ny kalender."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "Modify %1"
-msgstr "Rediger "
+msgstr "Endra %1"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -555,7 +554,7 @@ msgstr "Ta i bruk"
 #: contents/ui/ManageCalendarsPage.qml:102
 #, kde-format
 msgid "Calendar must not be active when being deleted."
-msgstr ""
+msgstr "Kalenderen kan ikkje vera i bruk når han vert sletta."
 
 #: contents/ui/ManageCalendarsPage.qml:96
 #, kde-format
@@ -700,49 +699,49 @@ msgid "About"
 msgstr "Om"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Om Calindori"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "About KDE"
-msgstr "Om"
+msgstr "Om KDE"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
 msgid "Manage internal calendars"
-msgstr ""
+msgstr "Handsam interne kalendrar"
 
 #: contents/ui/SettingsPage.qml:64
 #, kde-format
 msgid "Manage Internal Calendars"
-msgstr ""
+msgstr "Handsam interne kalendrar"
 
 #: contents/ui/SettingsPage.qml:73
 #, kde-format
 msgid "Manage external calendars"
-msgstr ""
+msgstr "Handsam eksterne kalendrar"
 
 #: contents/ui/SettingsPage.qml:80
 #, kde-format
 msgid "Manage External Calendars"
-msgstr ""
+msgstr "Handsam eksterne kalendrar"
 
 #: contents/ui/SettingsPage.qml:96
 #, kde-format
 msgid "Initial duration (minutes)"
-msgstr ""
+msgstr "Startlengd (minutt)"
 
 #: contents/ui/SettingsPage.qml:105
 #, kde-format
 msgid "Remind before event (minutes)"
-msgstr ""
+msgstr "Påminn før hending (minutt)"
 
 #: contents/ui/SettingsPage.qml:114
 #, kde-format
 msgid "Add reminder to new events"
-msgstr ""
+msgstr "Legg påminning på nye hendingar"
 
 #: contents/ui/TodoEditorPage.qml:99
 #, kde-format
