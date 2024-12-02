@@ -1,21 +1,21 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:41+0000\n"
-"PO-Revision-Date: 2022-09-07 17:55+0300\n"
+"PO-Revision-Date: 2024-10-17 18:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: KDE\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -539,10 +539,9 @@ msgid "Add a new calendar."
 msgstr "Lisää uusi kalenteri."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Muuta"
+msgstr "Muuta: %1"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -697,16 +696,14 @@ msgid "About"
 msgstr "Tietoa"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Tietoa Calindorista"
 
 #: contents/ui/SettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Tietoa"
+msgstr "Tietoa KDE:stä"
 
 #: contents/ui/SettingsPage.qml:57
 #, kde-format
