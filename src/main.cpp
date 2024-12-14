@@ -136,7 +136,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     ReccurencePeriodModel repeatModel;
     engine.rootContext()->setContextProperty(QStringLiteral("_repeatModel"), &repeatModel);
 
-    engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(aboutData));
     engine.rootContext()->setContextProperty(QStringLiteral("_appLocale"), QLocale::system());
 
     engine.load(QUrl(QStringLiteral("qrc:///Main.qml")));

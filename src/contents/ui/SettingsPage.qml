@@ -30,9 +30,7 @@ FormCard.FormCardPage {
             
             Component {
                 id: aboutInfoPage
-                FormCard.AboutPage {
-                    aboutData: _aboutData
-                }
+                FormCard.AboutPage {}
             }
         }
         
