@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 00:41+0000\n"
+"POT-Creation-Date: 2024-12-15 00:43+0000\n"
 "PO-Revision-Date: 2024-07-05 13:36+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -275,7 +275,7 @@ msgid "Tasks"
 msgstr "Tasks"
 
 #: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
-#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:90
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:88
 #, kde-format
 msgid "Events"
 msgstr "Events"
@@ -311,7 +311,7 @@ msgstr "Tasks List"
 msgid "Events List"
 msgstr "Events List"
 
-#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:52
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:50
 #, kde-format
 msgid "Calendars"
 msgstr "Calendars"
@@ -702,42 +702,42 @@ msgstr "About"
 msgid "About Calindori"
 msgstr "About Calindori"
 
-#: contents/ui/SettingsPage.qml:40
+#: contents/ui/SettingsPage.qml:38
 #, kde-format
 msgid "About KDE"
 msgstr "About KDE"
 
-#: contents/ui/SettingsPage.qml:57
+#: contents/ui/SettingsPage.qml:55
 #, kde-format
 msgid "Manage internal calendars"
 msgstr "Manage internal calendars"
 
-#: contents/ui/SettingsPage.qml:64
+#: contents/ui/SettingsPage.qml:62
 #, kde-format
 msgid "Manage Internal Calendars"
 msgstr "Manage Internal Calendars"
 
-#: contents/ui/SettingsPage.qml:73
+#: contents/ui/SettingsPage.qml:71
 #, kde-format
 msgid "Manage external calendars"
 msgstr "Manage external calendars"
 
-#: contents/ui/SettingsPage.qml:80
+#: contents/ui/SettingsPage.qml:78
 #, kde-format
 msgid "Manage External Calendars"
 msgstr "Manage External Calendars"
 
-#: contents/ui/SettingsPage.qml:96
+#: contents/ui/SettingsPage.qml:94
 #, kde-format
 msgid "Initial duration (minutes)"
 msgstr "Initial duration (minutes)"
 
-#: contents/ui/SettingsPage.qml:105
+#: contents/ui/SettingsPage.qml:103
 #, kde-format
 msgid "Remind before event (minutes)"
 msgstr "Remind before event (minutes)"
 
-#: contents/ui/SettingsPage.qml:114
+#: contents/ui/SettingsPage.qml:112
 #, kde-format
 msgid "Add reminder to new events"
 msgstr "Add reminder to new events"
