@@ -1,4 +1,4 @@
-# Sanskrit translations for calindori package.
+# Hindi translations for calindori package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,51 +8,50 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:36+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "भवतः नामानि"
+msgstr "तुम्हारे नाम"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr "आपके ईमेल"
 
 #: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
-msgstr "निलम्बनम्"
+msgstr "निलंबित करें"
 
 #: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
 msgid "Dismiss"
-msgstr "उत्सृज्"
+msgstr "नकार देना"
 
 #: calindacmain.cpp:20 calindacmain.cpp:21
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
-msgstr "Calindori अलार्म जाँच डेमन"
+msgstr "कैलिंडोरी अलार्म चेक डेमॉन"
 
 #: calindacmain.cpp:23
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
-msgstr "(ग) 2019 दिमित्री कर्दराकोस"
+msgstr "(c) 2019 Dimitris Kardarakos"
 
 #: calindacmain.cpp:25
 #, kde-format
 msgid "Dimitris Kardarakos"
-msgstr "दिमित्री कर्दराकोस"
+msgstr "Dimitris Kardarakos"
 
 #: calindacmain.cpp:25
 #, kde-format
 msgid "Maintainer"
-msgstr "परिपालकः"
+msgstr "मेंटेनर"
