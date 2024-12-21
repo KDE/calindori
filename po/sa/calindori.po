@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:43+0000\n"
-"PO-Revision-Date: 2024-12-14 01:42+0530\n"
+"PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -172,7 +172,7 @@ msgstr "निरसयतु"
 #: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
 #, kde-format
 msgid "Email:"
-msgstr "ईमेलः १."
+msgstr "ईमेलः"
 
 #: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
 #, kde-format
@@ -229,7 +229,7 @@ msgstr "नवीनं पञ्चाङ्गम्"
 #: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
 #, kde-format
 msgid "Calendar:"
-msgstr "पञ्चाङ्गः : १."
+msgstr "पञ्चाङ्गः :"
 
 #: contents/ui/CalendarEditor.qml:80
 #, kde-format
@@ -462,7 +462,7 @@ msgstr "वर्णनम्‌:"
 #: contents/ui/IncidenceEditor.qml:78
 #, kde-format
 msgid "Completed:"
-msgstr "सम्पन्न : १."
+msgstr "सम्पन्न :"
 
 #: contents/ui/IncidenceListView.qml:50
 #, kde-format
@@ -641,7 +641,7 @@ msgstr[1] "दिवसाः"
 #: contents/ui/RecurrencePickerSheet.qml:70
 #, kde-format
 msgid "Stop After:"
-msgstr "पश्चात् स्थगयन्तु : १."
+msgstr "पश्चात् स्थगयन्तु :"
 
 #: contents/ui/RecurrencePickerSheet.qml:80
 #, kde-format
@@ -668,7 +668,7 @@ msgstr "आरम्भात् पूर्वं समयः"
 #: contents/ui/ReminderEditor.qml:44
 #, kde-format
 msgid "Seconds:"
-msgstr "सेकण्ड् : १."
+msgstr "सेकण्ड् :"
 
 #: contents/ui/ReminderEditor.qml:53
 #, kde-format
@@ -683,7 +683,7 @@ msgstr "घण्टानः:"
 #: contents/ui/ReminderEditor.qml:72
 #, kde-format
 msgid "Days:"
-msgstr "दिवसाः : १."
+msgstr "दिवसाः :"
 
 #: contents/ui/Reminders.qml:57
 #, kde-format
@@ -728,7 +728,7 @@ msgstr "बाह्यपञ्चाङ्गानां प्रबन्�
 #: contents/ui/SettingsPage.qml:94
 #, kde-format
 msgid "Initial duration (minutes)"
-msgstr "प्रारम्भिक अवधि (निमेष) २."
+msgstr "प्रारम्भिक अवधि (निमेष)"
 
 #: contents/ui/SettingsPage.qml:103
 #, kde-format
@@ -758,7 +758,7 @@ msgstr "नियत समय"
 #: contents/ui/TodoEditorPage.qml:160
 #, kde-format
 msgid "All day:"
-msgstr "सर्वं दिवसं : १."
+msgstr "सर्वं दिवसं :"
 
 #: contents/ui/TodosCardView.qml:44
 #, kde-format
