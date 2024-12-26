@@ -3,7 +3,7 @@ Upstream-Name: Calindori
 Upstream-Contact: Dimitris Kardarakos <dimkard@posteo.net>
 Source: https://invent.kde.org/kde/calindori
 
-Files: icons/*
+Files: icons/* calindori-playstore.png
 Copyright: 2020 Breeze Icon Theme Developers
 License: LGPL-3.0-or-later
 
