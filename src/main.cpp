@@ -146,6 +146,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     handleArgument(&dataHandler, parser.positionalArguments());
 
+    // required for X11
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("calindori")));
+
     int ret = app.exec();
     return ret;
 }
