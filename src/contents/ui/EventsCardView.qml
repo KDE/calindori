@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
         spacing: 0
 
         model: eventsModel
-        enabled: count > 0 && (root.state !== "deleting")
+        enabled: root.state !== "deleting"
         clip: true
 
         Kirigami.PlaceholderMessage {

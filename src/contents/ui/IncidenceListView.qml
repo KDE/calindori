@@ -52,23 +52,22 @@ Kirigami.ScrollablePage {
         }
     ]
 
-    Kirigami.PlaceholderMessage {
-        anchors.centerIn: parent
-        icon.name: incidenceType == 0 ? "tag-events" : "view-calendar-tasks"
-        width: parent.width - (Kirigami.Units.largeSpacing * 4)
-        visible: listView.count == 0
-        text: !isNaN(incidenceStartDt) ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("Nothing scheduled")
-        helpfulAction: mainAction
-    }
-
     ListView {
         id: listView
 
         currentIndex: -1
         anchors.fill: parent
         model: incidenceModel
-        enabled: count > 0
         spacing: 0
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            icon.name: incidenceType == 0 ? "tag-events" : "view-calendar-tasks"
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            visible: listView.count == 0
+            text: !isNaN(incidenceStartDt) ? i18n("Nothing scheduled for %1", incidenceStartDt.toLocaleDateString(_appLocale, Locale.ShortFormat)) : i18n("Nothing scheduled")
+            helpfulAction: mainAction
+        }
 
         // TODO: doesn't seem to work, just leaves empty gap
         // section {

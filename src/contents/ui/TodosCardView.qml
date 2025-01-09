@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
         id: cardsListview
 
         model: todosModel
-        enabled: count > 0 && (root.state !== "deleting")
+        enabled: root.state !== "deleting"
         clip: true
 
         Kirigami.PlaceholderMessage {
