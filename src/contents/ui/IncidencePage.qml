@@ -75,7 +75,7 @@ Kirigami.Page {
                         Calindori.CalendarController.removeTodo(Calindori.CalendarController.activeCalendar, incidenceData);
                     }
                     root.state = ""
-                    pageStack.pop(incidencePage);
+                    pageStack.pop();
                 }
             },
 

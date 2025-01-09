@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
     *
     */
     function removeEditorPage() {
-        pageStack.pop();
+        pageStack.pop(0);
     }
 
     title: incidenceType == 0 ? i18n("Events") : i18n("Tasks")
@@ -93,7 +93,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
-                    pageStack.pop(incidencePage);
+                    pageStack.pop();
                 }
 
                 pageStack.push(incidencePage, { incidence: model })

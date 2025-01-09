@@ -47,7 +47,7 @@ ListView {
     *
     */
     function removeEditorPage() {
-        pageStack.pop();
+        pageStack.pop(0);
     }
 
     function moveDate(startDt, offset)
@@ -137,7 +137,7 @@ ListView {
 
                         onClicked: {
                             if(pageStack.lastItem && pageStack.lastItem.hasOwnProperty("isIncidencePage")) {
-                                pageStack.pop(incidencePage);
+                                pageStack.pop();
                             }
 
                             pageStack.push(incidencePage, { incidence: model })
