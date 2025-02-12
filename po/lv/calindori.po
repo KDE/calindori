@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-15 00:43+0000\n"
-"PO-Revision-Date: 2025-01-27 18:01+0200\n"
+"PO-Revision-Date: 2025-02-10 16:29+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -608,7 +608,7 @@ msgstr "Turpināt"
 #: contents/ui/MessageBoard.qml:58
 #, kde-format
 msgid "Open folder"
-msgstr "Atvērt datni"
+msgstr "Atvērt mapi"
 
 #: contents/ui/RecurrencePickerSheet.qml:29
 #, kde-format
