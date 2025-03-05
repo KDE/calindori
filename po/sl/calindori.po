@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:43+0000\n"
+"POT-Creation-Date: 2025-03-05 00:45+0000\n"
 "PO-Revision-Date: 2024-07-03 07:32+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -392,7 +392,7 @@ msgstr "Datum konca"
 msgid "End Time"
 msgstr "Čas konca"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Ves dan"
@@ -481,12 +481,12 @@ msgstr "Prikaz končan"
 msgid "Hide Completed"
 msgstr "Skrivanje končano"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "Nič ni planirano za %1"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Ni ni planirano"

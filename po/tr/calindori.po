@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:43+0000\n"
+"POT-Creation-Date: 2025-03-05 00:45+0000\n"
 "PO-Revision-Date: 2024-07-03 12:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -391,7 +391,7 @@ msgstr "Sonlanma Tarihi"
 msgid "End Time"
 msgstr "Sonlanma Zamanı"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Tüm gün"
@@ -480,12 +480,12 @@ msgstr "Tamamlananları Göster"
 msgid "Hide Completed"
 msgstr "Tamamlananları Gizle"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "%1 için bir şey zamanlanmadı"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Bir şey zamanlanmadı"

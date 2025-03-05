@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:43+0000\n"
+"POT-Creation-Date: 2025-03-05 00:45+0000\n"
 "PO-Revision-Date: 2024-07-03 19:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -403,7 +403,7 @@ msgstr "Дата завершення"
 msgid "End Time"
 msgstr "Час завершення"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Весь день"
@@ -492,12 +492,12 @@ msgstr "Показати завершені"
 msgid "Hide Completed"
 msgstr "Приховати завершені"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "На %1 нічого не заплановано"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Нічого не заплановано"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:43+0000\n"
+"POT-Creation-Date: 2025-03-05 00:45+0000\n"
 "PO-Revision-Date: 2024-07-03 05:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -390,7 +390,7 @@ msgstr "დასასრული თარიღი"
 msgid "End Time"
 msgstr "დასასრულის Დრო"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "მთელი დღე"
@@ -479,12 +479,12 @@ msgstr "დასრულებულების ჩვენება"
 msgid "Hide Completed"
 msgstr "დასრულებულის დამალვა"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "%1-სთვის არაფერი დაგეგმილი არაა"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "დაგეგმილი არაფერი არაა"

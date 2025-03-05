@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:43+0000\n"
+"POT-Creation-Date: 2025-03-05 00:45+0000\n"
 "PO-Revision-Date: 2024-07-07 15:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -394,7 +394,7 @@ msgstr "Záró dátum"
 msgid "End Time"
 msgstr "Befejezési idő"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:85
+#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Egész napos"
@@ -483,12 +483,12 @@ msgstr "Befejezettek megjelenítése"
 msgid "Hide Completed"
 msgstr "Befejezettek elrejtése"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
 msgstr "Nincs semmi tervezett ekkor: %1"
 
-#: contents/ui/IncidenceListView.qml:60
+#: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
 msgstr "Nincs semmi tervezett"
