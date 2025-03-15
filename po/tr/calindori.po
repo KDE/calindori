@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-05 00:45+0000\n"
-"PO-Revision-Date: 2024-07-03 12:49+0300\n"
+"PO-Revision-Date: 2025-03-14 20:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -419,12 +419,12 @@ msgstr "Katılımcılar"
 #: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled for %1"
-msgstr "%1 için bir etkinlik zamanlanmadı"
+msgstr "%1 için planlanmış etkinlik yok"
 
 #: contents/ui/EventsCardView.qml:48
 #, kde-format
 msgid "No events scheduled"
-msgstr "Bir etkinlik zamanlanmadı"
+msgstr "Planlanmış etkinlik yok"
 
 #: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
 #: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
@@ -483,12 +483,12 @@ msgstr "Tamamlananları Gizle"
 #: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled for %1"
-msgstr "%1 için bir şey zamanlanmadı"
+msgstr "%1 için planlanmış bir şey yok"
 
 #: contents/ui/IncidenceListView.qml:68
 #, kde-format
 msgid "Nothing scheduled"
-msgstr "Bir şey zamanlanmadı"
+msgstr "Planlanmış bir şey yok"
 
 #: contents/ui/IncidencePage.qml:62
 #, kde-format
@@ -769,12 +769,12 @@ msgstr "Tüm gün:"
 #: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled for %1"
-msgstr "%1 için zamanlanan görev yok"
+msgstr "%1 için planlanmış görev yok"
 
 #: contents/ui/TodosCardView.qml:44
 #, kde-format
 msgid "No tasks scheduled"
-msgstr "Zamanlanan görev yok"
+msgstr "Planlanmış görev yok"
 
 #: contents/ui/TodosCardView.qml:96
 #, kde-format
