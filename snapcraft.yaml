@@ -28,8 +28,10 @@ parts:
         source-type: local
         build-packages:
         - libxkbcommon-dev
+        - libpulse0
         stage-packages:
         - libxkbcommon0
+        - libpulse0
         cmake-parameters:
         - -DCMAKE_INSTALL_PREFIX=/usr
         - -DCMAKE_BUILD_TYPE=Release
