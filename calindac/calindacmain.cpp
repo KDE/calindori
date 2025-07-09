@@ -13,9 +13,7 @@
 
 int main(int argc, char **argv)
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KAboutData aboutData(QStringLiteral("calindac"), i18n("Calindori Alarm Check Daemon"),
                          QString(), i18n("Calindori Alarm Check Daemon"),

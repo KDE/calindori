@@ -60,7 +60,7 @@ QStringList CalAlarmClient::calendarFileList() const
         calendarsList.append(eCalendars.split(QStringLiteral(";")));
     }
 
-    for (const auto &c : qAsConst(calendarsList)) {
+    for (const auto &c : std::as_const(calendarsList)) {
         QString fileName = KSharedConfig::openConfig(QStringLiteral("calindorirc"))->group(c).readEntry("file");
 
         if (!(fileName.isNull())) {
@@ -92,7 +92,7 @@ void CalAlarmClient::checkAlarms()
     auto alarms = m_alarms_model->alarms();
     qDebug() << "checkAlarms:Alarms Found: " << alarms.count();
 
-    for (const auto &alarm : qAsConst(alarms)) {
+    for (const auto &alarm : std::as_const(alarms)) {
         m_notification_handler->addActiveNotification(alarm->parentUid(), QStringLiteral("%1\n%2").arg(alarm->time().toString(QStringLiteral("hh:mm")), alarm->text()));
     }
     m_notification_handler->sendNotifications();
@@ -145,7 +145,7 @@ QString CalAlarmClient::dumpLastCheck() const
 
 QStringList CalAlarmClient::dumpAlarms() const
 {
-    const auto start = QDateTime(QDate::currentDate(), QTime(0, 0), Qt::LocalTime);
+    const auto start = QDateTime(QDate::currentDate(), QTime(0, 0));
     const auto end = start.date().endOfDay();
 
     AlarmsModel model {};
@@ -155,7 +155,7 @@ QStringList CalAlarmClient::dumpAlarms() const
     auto lst = QStringList();
     const auto alarms = model.alarms();
 
-    for (const auto &alarm : qAsConst(alarms)) {
+    for (const auto &alarm : std::as_const(alarms)) {
         lst << QStringLiteral("%1: \"%2\"").arg(alarm->time().toString(QStringLiteral("hh:mm")), alarm->parentUid());
     }
 
@@ -188,7 +188,7 @@ QString CalAlarmClient::alarmText(const QString &uid) const
     model.setPeriod({.from = QDateTime(), .to = QDateTime::currentDateTime()});
     const auto alarms = model.alarms();
 
-    for (const auto &alarm : qAsConst(alarms)) {
+    for (const auto &alarm : std::as_const(alarms)) {
         if (alarm->parentUid() == uid) {
             return alarm->text();
         }

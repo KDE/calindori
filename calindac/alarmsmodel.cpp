@@ -29,7 +29,7 @@ void AlarmsModel::loadAlarms()
 
     openLoadStorages();
 
-    for (const auto &m : qAsConst(m_calendars)) {
+    for (const auto &m : std::as_const(m_calendars)) {
 
         Alarm::List calendarAlarms;
 
@@ -56,7 +56,7 @@ void AlarmsModel::setCalendars()
 
     qDebug() << "setCalendars:" << "Appending calendars" << m_calendar_files.join(QStringLiteral(","));
 
-    for (const auto &cf : qAsConst(m_calendar_files)) {
+    for (const auto &cf : std::as_const(m_calendar_files)) {
         Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZoneId()));
         FileStorage::Ptr storage(new FileStorage(calendar));
         storage->setFileName(cf);
@@ -72,7 +72,7 @@ void AlarmsModel::setCalendars()
 void AlarmsModel::openLoadStorages()
 {
     auto loaded { true };
-    for (const auto &fs : qAsConst(m_file_storages)) {
+    for (const auto &fs : std::as_const(m_file_storages)) {
         loaded = fs->open() && fs->load() && loaded;
     }
     qDebug() << "openLoadStorages:" << "Loaded:" << loaded;
@@ -82,7 +82,7 @@ void AlarmsModel::openLoadStorages()
 void AlarmsModel::closeStorages()
 {
     auto closed { true };
-    for (const auto &fs : qAsConst(m_file_storages)) {
+    for (const auto &fs : std::as_const(m_file_storages)) {
         closed = fs->close() && closed;
     }
 

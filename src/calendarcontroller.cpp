@@ -75,11 +75,11 @@ void CalendarController::importFromBuffer(LocalCalendar *localCalendar)
 {
     auto calendar = localCalendar->calendar();
 
-    for (const auto &event : qAsConst(m_events)) {
+    for (const auto &event : std::as_const(m_events)) {
         calendar->addEvent(event);
     }
 
-    for (const auto &todo : qAsConst(m_todos)) {
+    for (const auto &todo : std::as_const(m_todos)) {
         calendar->addTodo(todo);
     }
 
@@ -115,11 +115,11 @@ void CalendarController::importFromBuffer(const QString &targetCalendar)
         return;
     }
 
-    for (const auto &event : qAsConst(m_events)) {
+    for (const auto &event : std::as_const(m_events)) {
         calendar->addEvent(event);
     }
 
-    for (const auto &todo : qAsConst(m_todos)) {
+    for (const auto &todo : std::as_const(m_todos)) {
         calendar->addTodo(todo);
     }
 
@@ -201,7 +201,7 @@ void CalendarController::upsertEvent(const QVariantMap &eventData, const QVarian
     event->setLocation(eventData[QStringLiteral("location")].toString());
 
     event->clearAttendees();
-    for (auto &a : qAsConst(attendeesList)) {
+    for (auto &a : std::as_const(attendeesList)) {
         auto attendee = a.value<KCalendarCore::Attendee>();
         if (clearPartStatus) {
             qDebug() << "Participants need to be informed";

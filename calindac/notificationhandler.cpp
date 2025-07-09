@@ -51,7 +51,7 @@ void NotificationHandler::sendSuspendedNotifications()
 
 void NotificationHandler::sendActiveNotifications()
 {
-    for (const auto &n : qAsConst(m_active_notifications)) {
+    for (const auto &n : std::as_const(m_active_notifications)) {
         qDebug() << "sendNotifications:\tSending notification for alarm" <<  n->uid();
         n->send();
     }
@@ -115,7 +115,7 @@ QDateTime NotificationHandler::firstSuspended() const
 
     auto firstAlarmTime = m_suspended_notifications.values().first()->remindAt();
 
-    for (const auto &s : qAsConst(m_suspended_notifications)) {
+    for (const auto &s : std::as_const(m_suspended_notifications)) {
         auto alarmTime = s->remindAt();
         if (alarmTime < firstAlarmTime) {
             firstAlarmTime = alarmTime;

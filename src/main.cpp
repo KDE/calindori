@@ -54,7 +54,6 @@ void handleArgument(DataHandler *dataHandler, const QStringList &args)
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
 #else

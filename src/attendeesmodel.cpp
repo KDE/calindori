@@ -115,7 +115,7 @@ void AttendeesModel::addPersons(const QStringList uris)
 
     beginResetModel();
 
-    for (const auto &uri : qAsConst(uris)) {
+    for (const auto &uri : std::as_const(uris)) {
         KPeople::PersonData person {uri, this};
         m_attendees.append({person.name(), person.email(), true});
     }
@@ -127,7 +127,7 @@ QStringList AttendeesModel::emails() const
 {
     QStringList emails {};
 
-    for (const auto &a : qAsConst(m_attendees)) {
+    for (const auto &a : std::as_const(m_attendees)) {
         emails.append(a.email());
     }
 
