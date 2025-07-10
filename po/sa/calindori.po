@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 00:45+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -316,7 +316,7 @@ msgid "Calendars"
 msgstr "पञ्चाङ्गाः"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
-#: contents/ui/ManageCalendarsPage.qml:76
+#: contents/ui/ManageCalendarsPage.qml:75
 #, kde-format
 msgid "Calendar %1 has been activated"
 msgstr "पञ्चाङ्ग %1 सक्रियः अभवत्"
@@ -422,7 +422,7 @@ msgstr "कोऽपि कार्यक्रमः निर्धारि�
 
 #: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
 #: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
-#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/ManageCalendarsPage.qml:80 contents/ui/TodosCardView.qml:55
 #: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
@@ -548,44 +548,44 @@ msgstr "%1 परिवर्तनं कुर्वन्तु"
 msgid "Activate"
 msgstr "सक्रियं कुर्वन्तु"
 
-#: contents/ui/ManageCalendarsPage.qml:87
-#: contents/ui/ManageCalendarsPage.qml:102
+#: contents/ui/ManageCalendarsPage.qml:85
+#: contents/ui/ManageCalendarsPage.qml:99
 #, kde-format
 msgid "Calendar must not be active when being deleted."
 msgstr "विलोपने पञ्चाङ्गं सक्रियं न भवितुमर्हति ।"
 
-#: contents/ui/ManageCalendarsPage.qml:96
+#: contents/ui/ManageCalendarsPage.qml:94
 #, kde-format
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: contents/ui/ManageCalendarsPage.qml:110
+#: contents/ui/ManageCalendarsPage.qml:107
 #, kde-format
 msgid "Edit details"
 msgstr "विवरणं सम्पादयतु"
 
-#: contents/ui/ManageCalendarsPage.qml:119
+#: contents/ui/ManageCalendarsPage.qml:113
 #, kde-format
 msgid "Import calendar file"
 msgstr "पञ्चाङ्गसञ्चिकां आयातयन्तु"
 
-#: contents/ui/ManageCalendarsPage.qml:129
+#: contents/ui/ManageCalendarsPage.qml:122
 #, kde-format
 msgid "Export calendar to file"
 msgstr "पञ्चाङ्गं सञ्चिकायां निर्यातयन्तु"
 
-#: contents/ui/ManageCalendarsPage.qml:153
+#: contents/ui/ManageCalendarsPage.qml:145
 #, kde-format
 msgid "Confirm"
 msgstr "दृढी करोतु"
 
-#: contents/ui/ManageCalendarsPage.qml:154
+#: contents/ui/ManageCalendarsPage.qml:146
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
 msgstr "अस्मिन् पञ्चाङ्गे समाविष्टाः सर्वे दत्तांशाः विलोपिताः भविष्यन्ति । लोपं प्रवर्तयतु ?"
 
-#: contents/ui/ManageCalendarsPage.qml:230
+#: contents/ui/ManageCalendarsPage.qml:222
 #, kde-format
 msgid "Modify"
 msgstr "परिवर्तनं कुर्वन्तु"
@@ -858,42 +858,42 @@ msgstr "न द्वौ तिथौ"
 msgid "A calendar with the same name already exists"
 msgstr "समाननाम्ना पञ्चाङ्गं पूर्वमेव विद्यते"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Calindori"
 msgstr "कलिन्दोरी"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
 msgstr "पञ्चाङ्ग अनुप्रयोग"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
 msgstr "(ग) 2018-2022 द कैलिन्डोरी दल"
 
-#: main.cpp:79
+#: main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
 msgstr "दिमित्री कर्दराकोस"
 
-#: main.cpp:79 main.cpp:81 main.cpp:83
+#: main.cpp:78 main.cpp:80 main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "विकासकः"
 
-#: main.cpp:81
+#: main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "निकोलस फेला"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"

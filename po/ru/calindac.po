@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2021-12-28 10:54+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -39,22 +39,22 @@ msgstr "Приостановить"
 msgid "Dismiss"
 msgstr "Отклонить"
 
-#: calindacmain.cpp:20 calindacmain.cpp:21
+#: calindacmain.cpp:18 calindacmain.cpp:19
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
 msgstr "Фоновая служба проверки напоминаний Calindori"
 
-#: calindacmain.cpp:23
+#: calindacmain.cpp:21
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
 msgstr "© Dimitris Kardarakos, 2019"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Maintainer"
 msgstr "Сопровождающий"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2019-09-25 00:13+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -37,22 +37,22 @@ msgstr "일시 정지"
 msgid "Dismiss"
 msgstr "끄기"
 
-#: calindacmain.cpp:20 calindacmain.cpp:21
+#: calindacmain.cpp:18 calindacmain.cpp:19
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
 msgstr "Calindori 알람 확인 데몬"
 
-#: calindacmain.cpp:23
+#: calindacmain.cpp:21
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
 msgstr "(c) 2019 Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"

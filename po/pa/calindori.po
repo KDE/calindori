@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 00:45+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2021-05-01 23:36-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -321,7 +321,7 @@ msgid "Calendars"
 msgstr "ਕੈਲੰਡਰ"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
-#: contents/ui/ManageCalendarsPage.qml:76
+#: contents/ui/ManageCalendarsPage.qml:75
 #, kde-format
 msgid "Calendar %1 has been activated"
 msgstr "ਕੈਲੰਡਰ %1 ਸਰਗਰਮ ਕੀਤਾ ਗਿਆ"
@@ -427,7 +427,7 @@ msgstr "ਕੋਈ ਸਮਾਗਮ ਦਾ ਸਮਾਂ ਨਿਯਤ ਨਹੀਂ 
 
 #: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
 #: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
-#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/ManageCalendarsPage.qml:80 contents/ui/TodosCardView.qml:55
 #: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
@@ -555,46 +555,46 @@ msgstr ""
 msgid "Activate"
 msgstr "ਸਰਗਰਮ"
 
-#: contents/ui/ManageCalendarsPage.qml:87
-#: contents/ui/ManageCalendarsPage.qml:102
+#: contents/ui/ManageCalendarsPage.qml:85
+#: contents/ui/ManageCalendarsPage.qml:99
 #, kde-format
 msgid "Calendar must not be active when being deleted."
 msgstr ""
 
-#: contents/ui/ManageCalendarsPage.qml:96
+#: contents/ui/ManageCalendarsPage.qml:94
 #, kde-format
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: contents/ui/ManageCalendarsPage.qml:110
+#: contents/ui/ManageCalendarsPage.qml:107
 #, fuzzy, kde-format
 #| msgid "Details"
 msgid "Edit details"
 msgstr "ਵੇਰਵੇ"
 
-#: contents/ui/ManageCalendarsPage.qml:119
+#: contents/ui/ManageCalendarsPage.qml:113
 #, kde-format
 msgid "Import calendar file"
 msgstr ""
 
-#: contents/ui/ManageCalendarsPage.qml:129
+#: contents/ui/ManageCalendarsPage.qml:122
 #, fuzzy, kde-format
 #| msgid "Cannot read calendar. Export failed."
 msgid "Export calendar to file"
 msgstr "ਕੈਲੰਡਰ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ। ਐਕਸਪੋਰਟ ਅਸਫ਼ਲ ਹੈ।"
 
-#: contents/ui/ManageCalendarsPage.qml:153
+#: contents/ui/ManageCalendarsPage.qml:145
 #, kde-format
 msgid "Confirm"
 msgstr "ਤਸਦੀਕ ਕਰੋ"
 
-#: contents/ui/ManageCalendarsPage.qml:154
+#: contents/ui/ManageCalendarsPage.qml:146
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
 msgstr "ਇਸ ਕੈਲੰਡਰ ਵਿੱਚ ਮੌਜੂਦ ਸਾਰਾ ਡਾਟਾ ਹਟਾਇਆ ਜਾਵੇਗਾ। ਕੀ ਹਟਾਉਣਾ ਹੈ?"
 
-#: contents/ui/ManageCalendarsPage.qml:230
+#: contents/ui/ManageCalendarsPage.qml:222
 #, kde-format
 msgid "Modify"
 msgstr ""
@@ -873,18 +873,18 @@ msgstr "ਕੋਈ ਪੂਰਾ ਕਰਨ ਤਾਰੀਖ ਨਹੀਂ"
 msgid "A calendar with the same name already exists"
 msgstr "ਇਸ ਨਾਂ ਨਾਲ ਕੈਲੰਡਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Calindori"
 msgstr "ਕੈਲਿੰਡੋਰੀ"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
 msgstr "ਕੈਲੰਡਰ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: main.cpp:74
+#: main.cpp:73
 #, fuzzy, kde-format
 #| msgctxt "@info:credit"
 #| msgid "(c) 2018-2021 The Calindori Team"
@@ -892,25 +892,25 @@ msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
 msgstr "(c) 2018-2021 The Calindori Team"
 
-#: main.cpp:79
+#: main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: main.cpp:79 main.cpp:81 main.cpp:83
+#: main.cpp:78 main.cpp:80 main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
 
-#: main.cpp:81
+#: main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "ਨਿਕੋਲਸ ਫੇਲਾ"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 00:45+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2024-08-19 22:33+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -312,7 +312,7 @@ msgid "Calendars"
 msgstr "캘린더"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
-#: contents/ui/ManageCalendarsPage.qml:76
+#: contents/ui/ManageCalendarsPage.qml:75
 #, kde-format
 msgid "Calendar %1 has been activated"
 msgstr "%1 캘린더가 활성화됨"
@@ -418,7 +418,7 @@ msgstr "예정된 이벤트 없음"
 
 #: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
 #: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
-#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/ManageCalendarsPage.qml:80 contents/ui/TodosCardView.qml:55
 #: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
@@ -542,44 +542,44 @@ msgstr "%1 수정"
 msgid "Activate"
 msgstr "활성화"
 
-#: contents/ui/ManageCalendarsPage.qml:87
-#: contents/ui/ManageCalendarsPage.qml:102
+#: contents/ui/ManageCalendarsPage.qml:85
+#: contents/ui/ManageCalendarsPage.qml:99
 #, kde-format
 msgid "Calendar must not be active when being deleted."
 msgstr "삭제할 캘린더는 먼저 비활성화해야 합니다."
 
-#: contents/ui/ManageCalendarsPage.qml:96
+#: contents/ui/ManageCalendarsPage.qml:94
 #, kde-format
 msgid "Remove"
 msgstr "캘린더 삭제"
 
-#: contents/ui/ManageCalendarsPage.qml:110
+#: contents/ui/ManageCalendarsPage.qml:107
 #, kde-format
 msgid "Edit details"
 msgstr "자세한 정보 편집"
 
-#: contents/ui/ManageCalendarsPage.qml:119
+#: contents/ui/ManageCalendarsPage.qml:113
 #, kde-format
 msgid "Import calendar file"
 msgstr "캘린더 파일 가져오기"
 
-#: contents/ui/ManageCalendarsPage.qml:129
+#: contents/ui/ManageCalendarsPage.qml:122
 #, kde-format
 msgid "Export calendar to file"
 msgstr "파일로 캘린더 내보내기"
 
-#: contents/ui/ManageCalendarsPage.qml:153
+#: contents/ui/ManageCalendarsPage.qml:145
 #, kde-format
 msgid "Confirm"
 msgstr "확인"
 
-#: contents/ui/ManageCalendarsPage.qml:154
+#: contents/ui/ManageCalendarsPage.qml:146
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
 msgstr "캘린더에 있는 모든 데이터가 삭제됩니다. 계속 진행하시겠습니까?"
 
-#: contents/ui/ManageCalendarsPage.qml:230
+#: contents/ui/ManageCalendarsPage.qml:222
 #, kde-format
 msgid "Modify"
 msgstr "수정"
@@ -843,42 +843,42 @@ msgstr "만료 날짜 없음"
 msgid "A calendar with the same name already exists"
 msgstr "같은 이름으로 된 캘린더가 이미 존재함"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Calindori"
 msgstr "Calindori"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
 msgstr "캘린더 앱"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
 msgstr "(c) 2018-2022 The Calindori Team"
 
-#: main.cpp:79
+#: main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: main.cpp:79 main.cpp:81 main.cpp:83
+#: main.cpp:78 main.cpp:80 main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "개발자"
 
-#: main.cpp:81
+#: main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"

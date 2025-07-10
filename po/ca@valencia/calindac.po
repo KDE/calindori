@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2019-08-02 18:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -39,22 +39,22 @@ msgstr "Suspén"
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: calindacmain.cpp:20 calindacmain.cpp:21
+#: calindacmain.cpp:18 calindacmain.cpp:19
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
 msgstr "Dimoni de comprovació de l'alarma de Calindori"
 
-#: calindacmain.cpp:23
+#: calindacmain.cpp:21
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
 msgstr "(c) 2019 Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenidor"

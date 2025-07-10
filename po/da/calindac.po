@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2020-08-22 13:41+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -37,22 +37,22 @@ msgstr "Suspendér"
 msgid "Dismiss"
 msgstr "Afvis"
 
-#: calindacmain.cpp:20 calindacmain.cpp:21
+#: calindacmain.cpp:18 calindacmain.cpp:19
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
 msgstr "Calindori dæmon til alarmtjek"
 
-#: calindacmain.cpp:23
+#: calindacmain.cpp:21
 #, kde-format
 msgid "(c) 2019 Dimitris Kardarakos"
 msgstr "(c) 2019 Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: calindacmain.cpp:25
+#: calindacmain.cpp:23
 #, kde-format
 msgid "Maintainer"
 msgstr "Vedligeholder"

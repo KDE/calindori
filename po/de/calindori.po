@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-05 00:45+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2024-08-26 16:53+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -325,7 +325,7 @@ msgid "Calendars"
 msgstr "Kalender"
 
 #: contents/ui/CalindoriGlobalDrawer.qml:229
-#: contents/ui/ManageCalendarsPage.qml:76
+#: contents/ui/ManageCalendarsPage.qml:75
 #, kde-format
 msgid "Calendar %1 has been activated"
 msgstr "Der Kalender „%1“ wurde aktiviert"
@@ -431,7 +431,7 @@ msgstr "Keine Termine geplant"
 
 #: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
 #: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
-#: contents/ui/ManageCalendarsPage.qml:81 contents/ui/TodosCardView.qml:55
+#: contents/ui/ManageCalendarsPage.qml:80 contents/ui/TodosCardView.qml:55
 #: contents/ui/TodosCardView.qml:101
 #, kde-format
 msgid "Delete"
@@ -557,44 +557,44 @@ msgstr "%1 ändern"
 msgid "Activate"
 msgstr "Aktivieren"
 
-#: contents/ui/ManageCalendarsPage.qml:87
-#: contents/ui/ManageCalendarsPage.qml:102
+#: contents/ui/ManageCalendarsPage.qml:85
+#: contents/ui/ManageCalendarsPage.qml:99
 #, kde-format
 msgid "Calendar must not be active when being deleted."
 msgstr "Sie können einen aktiven Kalender nicht löschen."
 
-#: contents/ui/ManageCalendarsPage.qml:96
+#: contents/ui/ManageCalendarsPage.qml:94
 #, kde-format
 msgid "Remove"
 msgstr "Entfernen"
 
-#: contents/ui/ManageCalendarsPage.qml:110
+#: contents/ui/ManageCalendarsPage.qml:107
 #, kde-format
 msgid "Edit details"
 msgstr "Detail bearbeiten"
 
-#: contents/ui/ManageCalendarsPage.qml:119
+#: contents/ui/ManageCalendarsPage.qml:113
 #, kde-format
 msgid "Import calendar file"
 msgstr "Kalenderdatei importieren"
 
-#: contents/ui/ManageCalendarsPage.qml:129
+#: contents/ui/ManageCalendarsPage.qml:122
 #, kde-format
 msgid "Export calendar to file"
 msgstr "Kalender in Datei exportieren"
 
-#: contents/ui/ManageCalendarsPage.qml:153
+#: contents/ui/ManageCalendarsPage.qml:145
 #, kde-format
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#: contents/ui/ManageCalendarsPage.qml:154
+#: contents/ui/ManageCalendarsPage.qml:146
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
 msgstr "Alle Daten in diesem Kalender werden gelöscht. Möchten Sie fortfahren?"
 
-#: contents/ui/ManageCalendarsPage.qml:230
+#: contents/ui/ManageCalendarsPage.qml:222
 #, kde-format
 msgid "Modify"
 msgstr "Ändern"
@@ -867,42 +867,42 @@ msgstr "Kein Fälligkeitsdatum"
 msgid "A calendar with the same name already exists"
 msgstr "Es existiert bereits ein Kalender mit dem gleichen Namen"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Calindori"
 msgstr "Calindori"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Calendar application"
 msgstr "Kalender-Anwendung"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
 msgstr "Copyright 2018-2022 Das Calindori-Team"
 
-#: main.cpp:79
+#: main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dimitris Kardarakos"
 msgstr "Dimitris Kardarakos"
 
-#: main.cpp:79 main.cpp:81 main.cpp:83
+#: main.cpp:78 main.cpp:80 main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "Entwickler"
 
-#: main.cpp:81
+#: main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Devin Lin"
