@@ -19,7 +19,6 @@ Kirigami.ScrollablePage {
     property alias startDt: startDateSelector.selectorDate
     property alias startHour: startTimeSelector.selectorHour
     property alias startMinute: startTimeSelector.selectorMinutes
-    property alias startPm: startTimeSelector.selectorPm
     property alias allDay: allDaySelector.checked
     property alias location: incidenceEditor.location
     property var calendar
@@ -27,7 +26,6 @@ Kirigami.ScrollablePage {
     property alias endDt: endDateSelector.selectorDate
     property alias endHour: endTimeSelector.selectorHour
     property alias endMinute: endTimeSelector.selectorMinutes
-    property alias endPm: endTimeSelector.selectorPm
     property alias repeatType: repeatSelector.repeatType
     property alias repeatEvery: repeatSelector.repeatEvery
     property alias repeatStopAfter: repeatSelector.stopAfter
@@ -79,9 +77,8 @@ Kirigami.ScrollablePage {
 
                     selectorTitle: i18n("Start Time")
                     selectorDate: root.startDt
-                    selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() ) % 12
+                    selectorHour: (root.incidenceData ? root.incidenceData.dtstart.getHours() : root.startDt.getHours() )
                     selectorMinutes: root.incidenceData ? root.incidenceData.dtstart.getMinutes() : root.startDt.getMinutes()
-                    selectorPm: root.incidenceData ? (root.incidenceData.dtstart.getHours() >=12) : (root.startDt.getHours() >=12)
                     enabled: !allDaySelector.checked
                     Layout.alignment: Qt.AlignRight
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 4
@@ -122,9 +119,8 @@ Kirigami.ScrollablePage {
 
                     selectorTitle: i18n("End Time")
                     selectorDate: root.endDt
-                    selectorHour: root.endDt.getHours() % 12
+                    selectorHour: root.endDt.getHours()
                     selectorMinutes: root.endDt.getMinutes()
-                    selectorPm: (root.endDt.getHours() >=12)
                     enabled: !allDaySelector.checked && (root.endDt != undefined && !isNaN(root.endDt))
                     Layout.alignment: Qt.AlignRight
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 4
@@ -215,7 +211,7 @@ Kirigami.ScrollablePage {
             enabled: summary.text
 
             onTriggered: {
-                var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.endDt, "endHour": root.endHour + (root.endPm ? 12 : 0), "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter, "status": root.incidenceStatus};
+                var vevent = { "uid" : root.uid, "startDate": root.startDt, "summary": root.summary, "description": root.description, "startHour": root.startHour, "startMinute": root.startMinute, "allDay": root.allDay, "location": root.location, "endDate": root.endDt, "endHour": root.endHour, "endMinute": root.endMinute, "alarms": incidenceAlarmsModel.alarms(), "periodType": root.repeatType, "repeatEvery": root.repeatEvery, "stopAfter": root.repeatStopAfter, "status": root.incidenceStatus};
 
                 var validation = Calindori.CalendarController.validateEvent(vevent);
 

@@ -1,114 +1,119 @@
-/*
- * SPDX-FileCopyrightText: 2019 Dimitris Kardarakos <dimkard@posteo.net>
- *
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+// SPDX-FileCopyrightText: 2021 Devin Lin <devin@kde.org>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.12
-import QtQuick.Controls 2.5 as Controls2
-import org.kde.kirigami 2.0 as Kirigami
-import QtQuick.Layouts 1.11
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
-/**
- * A large time picker
- * Represented as a clock provides a very visual way for a user
- * to set and visulise a time being chosen
- */
+import org.kde.kirigami as Kirigami
 
-Item {
+RowLayout {
     id: root
 
-    property int hours
-    property int minutes
-    property bool pm
+    property int hours: 0
+    property int minutes: 0
+    readonly property bool twelveHourTime: true // TODO: disable for locales that don't use twelve hour time
 
-    ColumnLayout {
-        anchors.fill: parent
-        spacing: Kirigami.Units.largeSpacing * 2
+    onHoursChanged: updateHours()
+    onMinutesChanged: minutesSpinbox.value = minutes
+    onTwelveHourTimeChanged: updateHours()
 
-        Item {
-            id: clock
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+    Component.onCompleted: {
+        // needs to manually be triggered because onHoursChanged doesn't emit when set to 0
+        updateHours();
+    }
 
-            //Hours clock
-            PathView {
-                id: hoursClock
+    function updateHours() : void {
+        // manually do this instead of a binding so we can set the value without worrying about binding eval order
+        hoursSpinbox.from = root.twelveHourTime ? 1 : 0;
+        hoursSpinbox.to = root.twelveHourTime ? 12 : 23;
 
-                anchors.fill: parent
-                interactive: false
+        if (twelveHourTime) {
+            hoursSpinbox.value = ((root.hours % 12) === 0) ? 12 : root.hours % 12;
+        } else {
+            hoursSpinbox.value = root.hours;
+        }
+    }
 
-                delegate: ClockElement {
-                    type: "hours"
-                    selectedValue: root.hours
-                    onClicked: root.hours = index
-                }
-                model: 12
+    RowLayout {
+        spacing: Kirigami.Units.largeSpacing
+        Layout.alignment: Qt.AlignHCenter
 
-                path: Path {
-                    PathAngleArc {
-                        centerX: clock.width / 2
-                        centerY: clock.height / 2
-                        radiusX: (Math.min(clock.width, clock.height) - Kirigami.Units.gridUnit) / 4
-                        radiusY: radiusX
-                        startAngle: -90
-                        sweepAngle: 360
+        // note: for 12-hour time, we have hours from 1-12 (0'o clock displays as 12)
+        //       for 24-hour time, we have hours from 0-23
+        TimePickerSpinBox {
+            id: hoursSpinbox
+
+            onValueModified: {
+                if (root.twelveHourTime) {
+                    if (root.hours >= 12) {
+                        root.hours = value % 12 + 12;
+                    } else {
+                        root.hours = value % 12;
                     }
-                }
-            }
-
-            //Minutes clock
-            PathView {
-                id: minutesClock
-
-                anchors.fill: parent
-                interactive: false
-
-                model: 60
-
-                delegate: ClockElement {
-                    type: "minutes"
-                    selectedValue: root.minutes
-                    onClicked: root.minutes = index
-                }
-
-                path: Path {
-                    PathAngleArc {
-                        centerX: clock.width / 2
-                        centerY: clock.height / 2
-                        radiusX: (Math.min(clock.width, clock.height) - Kirigami.Units.gridUnit) / 2
-                        radiusY: radiusX
-                        startAngle: -90
-                        sweepAngle: 360
-                    }
+                } else {
+                    root.hours = value;
                 }
             }
         }
 
-        RowLayout {
-            Layout.alignment: Qt.AlignHCenter
+        Kirigami.Heading {
+            level: 1
+            text: ":"
+        }
 
-            Controls2.Label {
-                text: {
-                    var hour = (root.hours !== 0) ? root.hours : 12;
-                    return ((hour < 10) ? "0" : "" ) + hour + ":" + ( (root.minutes < 10) ? "0" : "") + root.minutes;
+        TimePickerSpinBox {
+            id: minutesSpinbox
+            from: 0
+            to: 59
+
+            onValueModified: {
+                root.minutes = value;
+            }
+        }
+
+        Button {
+            id: amPmToggle
+            visible: root.twelveHourTime
+            leftPadding: Kirigami.Units.largeSpacing
+            rightPadding: Kirigami.Units.largeSpacing
+            topPadding: Kirigami.Units.largeSpacing
+            bottomPadding: Kirigami.Units.largeSpacing
+            Layout.alignment: Qt.AlignVCenter
+
+            contentItem: Item {
+                implicitWidth: label.implicitWidth
+                implicitHeight: label.implicitHeight
+                Label {
+                    id: label
+                    anchors.centerIn: parent
+                    font.weight: Font.Light
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.3
+                    text: i18n(root.hours < 12 ? i18n("AM") : i18n("PM"))
+                }
+            }
+
+            background: Rectangle {
+                radius: Kirigami.Units.smallSpacing
+                border.color: {
+                    if (amPmToggle.enabled && (amPmToggle.visualFocus || amPmToggle.hovered || amPmToggle.down)) {
+                        return Kirigami.Theme.focusColor
+                    } else {
+                        return Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.15)
                     }
-                font.pointSize: Kirigami.Units.fontMetrics.font.pointSize * 1.5
+                }
+                border.width: 1
+                color: amPmToggle.down ? Kirigami.Theme.alternateBackgroundColor : Kirigami.Theme.backgroundColor
             }
 
-            Controls2.RadioButton {
-                text: i18n("AM")
-                checked: !root.pm
-
-                onClicked: root.pm = !checked
-            }
-
-            Controls2.RadioButton {
-                text: i18n("PM")
-                checked: root.pm
-
-                onClicked: root.pm = checked
+            onClicked: {
+                if (root.hours >= 12) {
+                    root.hours -= 12;
+                } else {
+                    root.hours += 12;
+                }
             }
         }
     }
 }
+

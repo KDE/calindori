@@ -15,7 +15,6 @@ Controls2.ToolButton {
     property date selectorDate
     property int selectorHour
     property int selectorMinutes
-    property bool selectorPm
 
     contentItem: Controls2.Label {
         leftPadding: Kirigami.Units.largeSpacing
@@ -25,7 +24,7 @@ Controls2.ToolButton {
         text: {
             if(!isNaN(root.selectorDate)) {
                 var textDt = root.selectorDate;
-                textDt.setHours(root.selectorHour + (root.selectorPm ? 12 : 0));
+                textDt.setHours(root.selectorHour);
                 textDt.setMinutes(root.selectorMinutes);
                 textDt.setSeconds(0);
 
@@ -40,7 +39,6 @@ Controls2.ToolButton {
     onClicked: {
         timePickerSheet.hours = selectorHour;
         timePickerSheet.minutes = selectorMinutes;
-        timePickerSheet.pm = selectorPm;
         timePickerSheet.open();
     }
 
@@ -52,7 +50,6 @@ Controls2.ToolButton {
         onDatePicked: {
             root.selectorHour = timePickerSheet.hours;
             root.selectorMinutes = timePickerSheet.minutes;
-            root.selectorPm = timePickerSheet.pm;
         }
     }
 }

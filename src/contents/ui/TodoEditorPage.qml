@@ -19,11 +19,9 @@ Kirigami.Page {
     property alias description: incidenceEditor.description
     property alias startHour: startTimeSelector.selectorHour
     property alias startMinute: startTimeSelector.selectorMinutes
-    property alias startPm: startTimeSelector.selectorPm
     property alias dueDt: dueDateSelector.selectorDate
     property alias dueHour: dueDtTimeSelector.selectorHour
     property alias dueMinute: dueDtTimeSelector.selectorMinutes
-    property alias duePm: dueDtTimeSelector.selectorPm
     property alias allDay: allDaySelector.checked
     property alias location: incidenceEditor.location
     property alias completed: incidenceEditor.completed
@@ -73,9 +71,8 @@ Kirigami.Page {
 
                     selectorDate: startDateSelector.selectorDate
                     selectorTitle: i18n("Start Time")
-                    selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
+                    selectorHour: validSelectedDt ? selectorDate.getHours() : 0
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
-                    selectorPm: (validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM")) ? true : false
                     enabled: !allDaySelector.checked && validSelectedDt
                     Layout.alignment: Qt.AlignRight
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 3
@@ -115,7 +112,7 @@ Kirigami.Page {
                         }
                         else if (root.incidenceData == undefined && (root.startDt != undefined) && !isNaN(root.startDt)) {
                             var t = root.startDt;
-                            t.setHours(root.startHour + (startPm ? 12 : 0));
+                            t.setHours(root.startHour);
                             t.setMinutes(root.startMinute);
                             t.setSeconds(0);
                             selectorDate = t;
@@ -133,9 +130,8 @@ Kirigami.Page {
 
                     selectorDate: dueDateSelector.selectorDate
                     selectorTitle: i18n("Due Time")
-                    selectorHour: validSelectedDt ? selectorDate.getHours() % 12 : 0
+                    selectorHour: validSelectedDt ? selectorDate.getHours() : 0
                     selectorMinutes: validSelectedDt ? selectorDate.getMinutes() : 0
-                    selectorPm: validSelectedDt && (selectorDate.toLocaleTimeString(Qt.locale("en_US"), "AP") == "PM") ? true : false
                     enabled: !allDaySelector.checked && validSelectedDt
                     Layout.alignment: Qt.AlignRight
                     Layout.minimumWidth: Kirigami.Units.gridUnit * 3
@@ -205,7 +201,7 @@ Kirigami.Page {
             enabled: summary.text
 
             onTriggered: {
-                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour + (root.startPm ? 12 : 0), "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description, "location": root.location, "completed": root.completed, "dueDate": root.dueDt, "dueHour": root.dueHour + (root.duePm ? 12 : 0), "dueMinute": root.dueMinute, "alarms": incidenceAlarmsModel.alarms() };
+                var vtodo = { "uid": root.uid, "summary":root.summary, "startDate": root.startDt , "startHour": root.startHour, "startMinute": root.startMinute, "allDay": root.allDay, "description":  root.description, "location": root.location, "completed": root.completed, "dueDate": root.dueDt, "dueHour": root.dueHour, "dueMinute": root.dueMinute, "alarms": incidenceAlarmsModel.alarms() };
 
                 var validation = Calindori.CalendarController.validateTodo(vtodo);
 

@@ -16,19 +16,22 @@ Kirigami.Dialog {
     property string headerText
     property alias hours: timePicker.hours
     property alias minutes: timePicker.minutes
-    property alias pm: timePicker.pm
 
     signal datePicked
     title: timePickerSheet.headerText
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
-    preferredWidth: Kirigami.Units.gridUnit * 25
-    preferredHeight: Kirigami.Units.gridUnit * 25
+    // preferredWidth: Kirigami.Units.gridUnit * 25
+    // preferredHeight: Kirigami.Units.gridUnit * 25
 
-    TimePicker {
-        id: timePicker
-        width: Kirigami.Units.gridUnit * 20
-        height: Kirigami.Units.gridUnit * 25
+    ColumnLayout {
+        TimePicker {
+            id: timePicker
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            implicitWidth: Kirigami.Units.gridUnit * 20
+            implicitHeight: Kirigami.Units.gridUnit * 20
+        }
     }
 
     onAccepted: {
