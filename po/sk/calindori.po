@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-30 00:45+0000\n"
 "PO-Revision-Date: 2022-04-07 18:02+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -161,9 +161,9 @@ msgid "Add"
 msgstr "Pridať"
 
 #: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
-#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:232
 #: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
-#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:222
 #: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
@@ -246,8 +246,8 @@ msgstr "Vlastník"
 msgid "Name:"
 msgstr "Názov:"
 
-#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
-#: contents/ui/TodoEditorPage.qml:203
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:209
+#: contents/ui/TodoEditorPage.qml:199
 #, kde-format
 msgid "Save"
 msgstr "Uložiť"
@@ -337,7 +337,7 @@ msgstr "Pre&dchádzajúci deň"
 msgid "Next day"
 msgstr "Na&sledujúci %1 deň"
 
-#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:44
 #: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
 #: contents/ui/WeekView.qml:153
 #, kde-format
@@ -345,70 +345,70 @@ msgid "Create Event"
 msgstr "Vytvoriť udalosť"
 
 #: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
-#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
 #: contents/ui/WeekView.qml:160
 #, fuzzy, kde-format
 #| msgid "Add Task"
 msgid "Create Task"
 msgstr "Pridať úlohu"
 
-#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#: contents/ui/EventEditorPage.qml:59 contents/ui/TodoEditorPage.qml:49
 #, kde-format
 msgid "Summary:"
 msgstr "Súhrn:"
 
-#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#: contents/ui/EventEditorPage.qml:64 contents/ui/TodoEditorPage.qml:53
 #, fuzzy, kde-format
 msgid "Start:"
 msgstr "Začiatok:"
 
-#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#: contents/ui/EventEditorPage.qml:70 contents/ui/TodoEditorPage.qml:62
 #, fuzzy, kde-format
 #| msgid "Start time:"
 msgid "Start Date"
 msgstr "Počiatočný dátum"
 
-#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#: contents/ui/EventEditorPage.qml:78 contents/ui/TodoEditorPage.qml:73
 #, kde-format
 msgid "Start Time"
 msgstr "Čas spustenia"
 
-#: contents/ui/EventEditorPage.qml:93
+#: contents/ui/EventEditorPage.qml:90
 #, kde-format
 msgid "End:"
 msgstr "Koniec:"
 
-#: contents/ui/EventEditorPage.qml:100
+#: contents/ui/EventEditorPage.qml:97
 #, fuzzy, kde-format
 msgid "End Date"
 msgstr "Konečný dátum"
 
-#: contents/ui/EventEditorPage.qml:123
+#: contents/ui/EventEditorPage.qml:120
 #, kde-format
 msgid "End Time"
 msgstr "Čas konca"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
+#: contents/ui/EventEditorPage.qml:135 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Celý deň"
 
-#: contents/ui/EventEditorPage.qml:156
+#: contents/ui/EventEditorPage.qml:152
 #, fuzzy, kde-format
 msgid "Repeat:"
 msgstr "Opakovanie:"
 
-#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#: contents/ui/EventEditorPage.qml:171 contents/ui/TodoEditorPage.qml:170
 #, fuzzy, kde-format
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
 msgid "Reminders"
 msgstr "Pripomienky"
 
-#: contents/ui/EventEditorPage.qml:183
+#: contents/ui/EventEditorPage.qml:179
 #, kde-format
 msgid "Attendees"
 msgstr "Účastníci"
@@ -508,12 +508,12 @@ msgstr[0] "Udalosť"
 msgstr[1] "%1 udalosti"
 msgstr[2] "%1 udalostí"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:100
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, fuzzy, kde-format
 msgid "AM"
 msgstr "dop."
 
-#: contents/ui/kirigami-playground/TimePicker.qml:107
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, fuzzy, kde-format
 msgid "PM"
 msgstr "PM"
@@ -755,22 +755,22 @@ msgstr ""
 msgid "Add reminder to new events"
 msgstr ""
 
-#: contents/ui/TodoEditorPage.qml:99
+#: contents/ui/TodoEditorPage.qml:96
 #, kde-format
 msgid "Due:"
 msgstr "Termín:"
 
-#: contents/ui/TodoEditorPage.qml:107
+#: contents/ui/TodoEditorPage.qml:104
 #, fuzzy, kde-format
 msgid "Due Date"
 msgstr "Termín splnenia"
 
-#: contents/ui/TodoEditorPage.qml:135
+#: contents/ui/TodoEditorPage.qml:132
 #, kde-format
 msgid "Due Time"
 msgstr "Čas termínu"
 
-#: contents/ui/TodoEditorPage.qml:160
+#: contents/ui/TodoEditorPage.qml:156
 #, fuzzy, kde-format
 msgid "All day:"
 msgstr "Celý deň"

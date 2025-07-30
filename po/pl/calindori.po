@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-30 00:45+0000\n"
 "PO-Revision-Date: 2024-07-20 09:09+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -165,9 +165,9 @@ msgid "Add"
 msgstr "Dodaj"
 
 #: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
-#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:232
 #: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
-#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:222
 #: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
@@ -252,8 +252,8 @@ msgstr "Właściciel"
 msgid "Name:"
 msgstr "Nazwa:"
 
-#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
-#: contents/ui/TodoEditorPage.qml:203
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:209
+#: contents/ui/TodoEditorPage.qml:199
 #, kde-format
 msgid "Save"
 msgstr "Zapisz"
@@ -342,7 +342,7 @@ msgstr "Poprzedni dzień"
 msgid "Next day"
 msgstr "Następny dzień"
 
-#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:44
 #: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
 #: contents/ui/WeekView.qml:153
 #, kde-format
@@ -350,68 +350,68 @@ msgid "Create Event"
 msgstr "Utwórz wydarzenie"
 
 #: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
-#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
 #: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "Utwórz zadanie"
 
-#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#: contents/ui/EventEditorPage.qml:59 contents/ui/TodoEditorPage.qml:49
 #, kde-format
 msgid "Summary:"
 msgstr "Podsumowanie:"
 
-#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#: contents/ui/EventEditorPage.qml:64 contents/ui/TodoEditorPage.qml:53
 #, kde-format
 msgid "Start:"
 msgstr "Początek:"
 
-#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#: contents/ui/EventEditorPage.qml:70 contents/ui/TodoEditorPage.qml:62
 #, kde-format
 msgid "Start Date"
 msgstr "Data rozpoczęcia"
 
-#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#: contents/ui/EventEditorPage.qml:78 contents/ui/TodoEditorPage.qml:73
 #, kde-format
 msgid "Start Time"
 msgstr "Czas rozpoczęcia"
 
-#: contents/ui/EventEditorPage.qml:93
+#: contents/ui/EventEditorPage.qml:90
 #, kde-format
 msgid "End:"
 msgstr "Zakończenie:"
 
-#: contents/ui/EventEditorPage.qml:100
+#: contents/ui/EventEditorPage.qml:97
 #, kde-format
 msgid "End Date"
 msgstr "Data zakończenia"
 
-#: contents/ui/EventEditorPage.qml:123
+#: contents/ui/EventEditorPage.qml:120
 #, kde-format
 msgid "End Time"
 msgstr "Czas zakończenia"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
+#: contents/ui/EventEditorPage.qml:135 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Całodniowe"
 
-#: contents/ui/EventEditorPage.qml:156
+#: contents/ui/EventEditorPage.qml:152
 #, kde-format
 msgid "Repeat:"
 msgstr "Powtórz:"
 
-#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#: contents/ui/EventEditorPage.qml:171 contents/ui/TodoEditorPage.qml:170
 #, kde-format
 msgid "Details"
 msgstr "Szczegóły"
 
-#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
 msgid "Reminders"
 msgstr "Przypomnienia"
 
-#: contents/ui/EventEditorPage.qml:183
+#: contents/ui/EventEditorPage.qml:179
 #, kde-format
 msgid "Attendees"
 msgstr "Uczestnicy"
@@ -511,12 +511,12 @@ msgstr[0] "%1 wydarzenie"
 msgstr[1] "%1 wydarzenia"
 msgstr[2] "%1 wydarzeń"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:100
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "AM"
 msgstr "AM"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:107
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "PM"
 msgstr "PM"
@@ -754,22 +754,22 @@ msgstr "Przypomnij przed wydarzeniem (w minutach)"
 msgid "Add reminder to new events"
 msgstr "Dodawaj przypomnienia do nowych wydarzeń"
 
-#: contents/ui/TodoEditorPage.qml:99
+#: contents/ui/TodoEditorPage.qml:96
 #, kde-format
 msgid "Due:"
 msgstr "Przedawnienie:"
 
-#: contents/ui/TodoEditorPage.qml:107
+#: contents/ui/TodoEditorPage.qml:104
 #, kde-format
 msgid "Due Date"
 msgstr "Data przedawnienia"
 
-#: contents/ui/TodoEditorPage.qml:135
+#: contents/ui/TodoEditorPage.qml:132
 #, kde-format
 msgid "Due Time"
 msgstr "Czas przedawnienia"
 
-#: contents/ui/TodoEditorPage.qml:160
+#: contents/ui/TodoEditorPage.qml:156
 #, kde-format
 msgid "All day:"
 msgstr "Całodniowe:"

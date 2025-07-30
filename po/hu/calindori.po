@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-30 00:45+0000\n"
 "PO-Revision-Date: 2024-07-07 15:06+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -166,9 +166,9 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 #: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
-#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:232
 #: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
-#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:222
 #: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
@@ -255,8 +255,8 @@ msgstr "Tulajdonos"
 msgid "Name:"
 msgstr "Név:"
 
-#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
-#: contents/ui/TodoEditorPage.qml:203
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:209
+#: contents/ui/TodoEditorPage.qml:199
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
@@ -345,7 +345,7 @@ msgstr "Előző nap"
 msgid "Next day"
 msgstr "Következő nap"
 
-#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:44
 #: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
 #: contents/ui/WeekView.qml:153
 #, kde-format
@@ -353,68 +353,68 @@ msgid "Create Event"
 msgstr "Esemény létrehozása"
 
 #: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
-#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
 #: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "Feladat létrehozása"
 
-#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#: contents/ui/EventEditorPage.qml:59 contents/ui/TodoEditorPage.qml:49
 #, kde-format
 msgid "Summary:"
 msgstr "Összegzés:"
 
-#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#: contents/ui/EventEditorPage.qml:64 contents/ui/TodoEditorPage.qml:53
 #, kde-format
 msgid "Start:"
 msgstr "Kezdés:"
 
-#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#: contents/ui/EventEditorPage.qml:70 contents/ui/TodoEditorPage.qml:62
 #, kde-format
 msgid "Start Date"
 msgstr "Kezdő dátum"
 
-#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#: contents/ui/EventEditorPage.qml:78 contents/ui/TodoEditorPage.qml:73
 #, kde-format
 msgid "Start Time"
 msgstr "Kezdési idő"
 
-#: contents/ui/EventEditorPage.qml:93
+#: contents/ui/EventEditorPage.qml:90
 #, kde-format
 msgid "End:"
 msgstr "Vége:"
 
-#: contents/ui/EventEditorPage.qml:100
+#: contents/ui/EventEditorPage.qml:97
 #, kde-format
 msgid "End Date"
 msgstr "Záró dátum"
 
-#: contents/ui/EventEditorPage.qml:123
+#: contents/ui/EventEditorPage.qml:120
 #, kde-format
 msgid "End Time"
 msgstr "Befejezési idő"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
+#: contents/ui/EventEditorPage.qml:135 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "Egész napos"
 
-#: contents/ui/EventEditorPage.qml:156
+#: contents/ui/EventEditorPage.qml:152
 #, kde-format
 msgid "Repeat:"
 msgstr "Ismétlődés:"
 
-#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#: contents/ui/EventEditorPage.qml:171 contents/ui/TodoEditorPage.qml:170
 #, kde-format
 msgid "Details"
 msgstr "Részletek"
 
-#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
 msgid "Reminders"
 msgstr "Emlékeztetők"
 
-#: contents/ui/EventEditorPage.qml:183
+#: contents/ui/EventEditorPage.qml:179
 #, kde-format
 msgid "Attendees"
 msgstr "Résztvevők"
@@ -512,12 +512,12 @@ msgid_plural "%1 events"
 msgstr[0] "%1 esemény"
 msgstr[1] "%1 esemény"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:100
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "AM"
 msgstr "DE"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:107
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "PM"
 msgstr "DU"
@@ -749,22 +749,22 @@ msgstr "Emlékeztető az esemény előtt (perc)"
 msgid "Add reminder to new events"
 msgstr "Emlékeztető hozzáadása új eseményekhez"
 
-#: contents/ui/TodoEditorPage.qml:99
+#: contents/ui/TodoEditorPage.qml:96
 #, kde-format
 msgid "Due:"
 msgstr "Esedékesség:"
 
-#: contents/ui/TodoEditorPage.qml:107
+#: contents/ui/TodoEditorPage.qml:104
 #, kde-format
 msgid "Due Date"
 msgstr "Határidő"
 
-#: contents/ui/TodoEditorPage.qml:135
+#: contents/ui/TodoEditorPage.qml:132
 #, kde-format
 msgid "Due Time"
 msgstr "Határidő (időpont)"
 
-#: contents/ui/TodoEditorPage.qml:160
+#: contents/ui/TodoEditorPage.qml:156
 #, kde-format
 msgid "All day:"
 msgstr "Egész napos:"

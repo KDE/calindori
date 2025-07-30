@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-30 00:45+0000\n"
 "PO-Revision-Date: 2021-05-01 23:36-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -159,9 +159,9 @@ msgid "Add"
 msgstr "ਜੋੜੋ"
 
 #: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
-#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:236
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:232
 #: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
-#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:226
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:222
 #: contents/ui/TodosCardView.qml:110
 #, kde-format
 msgid "Cancel"
@@ -245,8 +245,8 @@ msgstr "ਮਾਲਕ"
 msgid "Name:"
 msgstr "ਨਾਂ:"
 
-#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:213
-#: contents/ui/TodoEditorPage.qml:203
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:209
+#: contents/ui/TodoEditorPage.qml:199
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -341,7 +341,7 @@ msgstr "ਪਿਛਲਾ ਦਿਨ"
 msgid "Next day"
 msgstr "ਅਗਲਾ ਦਿਨ"
 
-#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:46
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:44
 #: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
 #: contents/ui/WeekView.qml:153
 #, kde-format
@@ -349,68 +349,68 @@ msgid "Create Event"
 msgstr "ਸਮਾਗਮ ਬਣਾਓ"
 
 #: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
-#: contents/ui/TodoEditorPage.qml:35 contents/ui/TodosCardView.qml:28
+#: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
 #: contents/ui/WeekView.qml:160
 #, kde-format
 msgid "Create Task"
 msgstr "ਕੰਮ ਬਣਾਓ"
 
-#: contents/ui/EventEditorPage.qml:61 contents/ui/TodoEditorPage.qml:51
+#: contents/ui/EventEditorPage.qml:59 contents/ui/TodoEditorPage.qml:49
 #, kde-format
 msgid "Summary:"
 msgstr "ਸਾਰ:"
 
-#: contents/ui/EventEditorPage.qml:66 contents/ui/TodoEditorPage.qml:55
+#: contents/ui/EventEditorPage.qml:64 contents/ui/TodoEditorPage.qml:53
 #, kde-format
 msgid "Start:"
 msgstr "ਸ਼ੁਰੂ:"
 
-#: contents/ui/EventEditorPage.qml:72 contents/ui/TodoEditorPage.qml:64
+#: contents/ui/EventEditorPage.qml:70 contents/ui/TodoEditorPage.qml:62
 #, kde-format
 msgid "Start Date"
 msgstr "ਸ਼ੁਰੂ ਤਾਰੀਖ:"
 
-#: contents/ui/EventEditorPage.qml:80 contents/ui/TodoEditorPage.qml:75
+#: contents/ui/EventEditorPage.qml:78 contents/ui/TodoEditorPage.qml:73
 #, kde-format
 msgid "Start Time"
 msgstr "ਸ਼ੁਰੂ ਸਮਾਂ"
 
-#: contents/ui/EventEditorPage.qml:93
+#: contents/ui/EventEditorPage.qml:90
 #, kde-format
 msgid "End:"
 msgstr "ਅੰਤ:"
 
-#: contents/ui/EventEditorPage.qml:100
+#: contents/ui/EventEditorPage.qml:97
 #, kde-format
 msgid "End Date"
 msgstr "ਅੰਤ ਤਾਰੀਖ"
 
-#: contents/ui/EventEditorPage.qml:123
+#: contents/ui/EventEditorPage.qml:120
 #, kde-format
 msgid "End Time"
 msgstr "ਅੰਤ ਸਮਾਂ"
 
-#: contents/ui/EventEditorPage.qml:139 contents/ui/IncidenceListView.qml:84
+#: contents/ui/EventEditorPage.qml:135 contents/ui/IncidenceListView.qml:84
 #, kde-format
 msgid "All day"
 msgstr "ਸਾਰਾ ਦਿਨ"
 
-#: contents/ui/EventEditorPage.qml:156
+#: contents/ui/EventEditorPage.qml:152
 #, kde-format
 msgid "Repeat:"
 msgstr "ਦੁਹਰਾਓ:"
 
-#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#: contents/ui/EventEditorPage.qml:171 contents/ui/TodoEditorPage.qml:170
 #, kde-format
 msgid "Details"
 msgstr "ਵੇਰਵੇ"
 
-#: contents/ui/EventEditorPage.qml:179 contents/ui/TodoEditorPage.qml:178
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
 #, kde-format
 msgid "Reminders"
 msgstr "ਰਿਮਾਈਂਡਰ"
 
-#: contents/ui/EventEditorPage.qml:183
+#: contents/ui/EventEditorPage.qml:179
 #, kde-format
 msgid "Attendees"
 msgstr "ਦਰਸ਼ਕ"
@@ -508,12 +508,12 @@ msgid_plural "%1 events"
 msgstr[0] "%1 ਸਮਾਗਮ"
 msgstr[1] "%1 ਸਮਾਗਮ"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:100
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "AM"
 msgstr "ਸਵੇਰ"
 
-#: contents/ui/kirigami-playground/TimePicker.qml:107
+#: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "PM"
 msgstr "ਸ਼ਾਮ"
@@ -754,22 +754,22 @@ msgstr "ਸਮਾਗਮ ਤੋਂ ਪਹਿਲਾਂ ਯਾਦ ਕਰਵਾਓ (
 msgid "Add reminder to new events"
 msgstr "ਨਵੇਂ ਸਮਾਗਮਾਂ ਲਈ ਰਿਮਾਈਂਡਰ ਜੋੜੋ"
 
-#: contents/ui/TodoEditorPage.qml:99
+#: contents/ui/TodoEditorPage.qml:96
 #, kde-format
 msgid "Due:"
 msgstr "ਨਿਯਤ:"
 
-#: contents/ui/TodoEditorPage.qml:107
+#: contents/ui/TodoEditorPage.qml:104
 #, kde-format
 msgid "Due Date"
 msgstr "ਨਿਯਤ ਤਾਰੀਖ"
 
-#: contents/ui/TodoEditorPage.qml:135
+#: contents/ui/TodoEditorPage.qml:132
 #, kde-format
 msgid "Due Time"
 msgstr "ਨਿਯਤ ਸਮਾਂ"
 
-#: contents/ui/TodoEditorPage.qml:160
+#: contents/ui/TodoEditorPage.qml:156
 #, kde-format
 msgid "All day:"
 msgstr "ਸਾਰਾ ਦਿਨ:"
