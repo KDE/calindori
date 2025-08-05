@@ -19,6 +19,10 @@
         "--talk-name=org.kde.Solid.PowerManagement",
         "--own-name=org.kde.calindac"
     ],
+    "cleanup": [
+        "/include",
+        "/lib/cmake"
+    ],
     "separate-locales": false,
     "modules": [
         {
