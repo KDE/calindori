@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calindori package.
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# SPDX-FileCopyrightText: 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-05 00:45+0000\n"
-"PO-Revision-Date: 2024-07-28 12:22+0400\n"
+"PO-Revision-Date: 2025-08-09 13:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -598,7 +598,7 @@ msgstr "أكد"
 #, kde-format
 msgid ""
 "All data included in this calendar will be deleted. Proceed with deletion?"
-msgstr "جميع البيانات في هذا التقويم سيتم حذفها. متابعة الحذف؟"
+msgstr "جميع البيانات في هذا التقويم ستُحذف. هل أتابع الحذف؟"
 
 #: contents/ui/ManageCalendarsPage.qml:230
 #, kde-format
