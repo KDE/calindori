@@ -1,21 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the calindori package.
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-30 00:45+0000\n"
-"PO-Revision-Date: 2022-03-10 14:04-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2025-08-29 09:15-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #, kde-format
@@ -548,10 +549,9 @@ msgid "Add a new calendar."
 msgstr "Adiciona um novo calendário."
 
 #: contents/ui/ManageCalendarsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Modify "
+#, kde-format
 msgid "Modify %1"
-msgstr "Modificar "
+msgstr "Modificar %1"
 
 #: contents/ui/ManageCalendarsPage.qml:68
 #, kde-format
@@ -706,16 +706,14 @@ msgid "About"
 msgstr "Sobre"
 
 #: contents/ui/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Calindori"
+#, kde-format
 msgid "About Calindori"
-msgstr "Calindori"
+msgstr "Sobre o Calindori"
 
 #: contents/ui/SettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Sobre"
+msgstr "Sobre o KDE"
 
 #: contents/ui/SettingsPage.qml:55
 #, kde-format
@@ -738,22 +736,19 @@ msgid "Manage External Calendars"
 msgstr "Gerenciar calendários externos"
 
 #: contents/ui/SettingsPage.qml:94
-#, fuzzy, kde-format
-#| msgid "Initial duration (minutes):"
+#, kde-format
 msgid "Initial duration (minutes)"
-msgstr "Duração inicial (minutos):"
+msgstr "Duração inicial (minutos)"
 
 #: contents/ui/SettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Remind before event (minutes):"
+#, kde-format
 msgid "Remind before event (minutes)"
-msgstr "Lembrar antes do evento (minutos):"
+msgstr "Lembrar antes do evento (minutos)"
 
 #: contents/ui/SettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Add reminder to new events:"
+#, kde-format
 msgid "Add reminder to new events"
-msgstr "Adicionar lembrete aos novos eventos:"
+msgstr "Adicionar lembrete aos novos eventos"
 
 #: contents/ui/TodoEditorPage.qml:96
 #, kde-format
