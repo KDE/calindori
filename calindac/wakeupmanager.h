@@ -38,13 +38,13 @@ public:
 
 Q_SIGNALS:
     /**
-     * @brief To be emited when the parent should take over and manage the wake-up
+     * @brief To be emitted when the parent should take over and manage the wake-up
      *
      */
     void wakeupAlarmClient();
 
     /**
-     * @brief To be emited when wake-up manager status (active/not active) is changed
+     * @brief To be emitted when wake-up manager status (active/not active) is changed
      *
      */
     void activeChanged(const bool activeBackend);

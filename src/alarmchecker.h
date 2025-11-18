@@ -20,7 +20,7 @@ public:
     virtual ~AlarmChecker() = default;
 
     /**
-     * @brief Shedule the next alarm check
+     * @brief Schedule the next alarm check
      *
      */
     void scheduleAlarmCheck();

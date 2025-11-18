@@ -30,7 +30,7 @@ WakeupManager::WakeupManager(QObject *parent) : QObject(parent), m_wakeup_backen
 void WakeupManager::scheduleWakeup(const QDateTime wakeupAt)
 {
     if (wakeupAt <= QDateTime::currentDateTime()) {
-        qDebug() << "WakeupManager:" << "Requested to schedule wake up at" << wakeupAt.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << "Can't chedule a wakeup in the past";
+        qDebug() << "WakeupManager:" << "Requested to schedule wake up at" << wakeupAt.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")) << "Can't schedule a wakeup in the past";
         return;
     }
 
