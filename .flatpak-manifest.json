@@ -9,15 +9,15 @@
         "nightly"
     ],
     "finish-args": [
+        "--device=dri",
+        "--filesystem=home",
+        "--own-name=org.kde.calindac",
         "--share=ipc",
         "--share=network",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--device=dri",
-        "--filesystem=home",
         "--talk-name=org.freedesktop.Notifications",
-        "--talk-name=org.kde.Solid.PowerManagement",
-        "--own-name=org.kde.calindac"
+        "--talk-name=org.kde.Solid.PowerManagement"
     ],
     "cleanup": [
         "/include",
