@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2025-03-14 20:22+0300\n"
+"PO-Revision-Date: 2025-12-22 18:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -704,7 +704,7 @@ msgstr "Hakkında"
 #: contents/ui/SettingsPage.qml:27
 #, kde-format
 msgid "About Calindori"
-msgstr "Yapraklı Takvim Hakkında"
+msgstr "Calindori Hakkında"
 
 #: contents/ui/SettingsPage.qml:38
 #, kde-format
@@ -867,7 +867,7 @@ msgstr "Aynı adlı bir takvim halihazırda var"
 #: main.cpp:73
 #, kde-format
 msgid "Calindori"
-msgstr "Yapraklı Takvim"
+msgstr "Calindori"
 
 #: main.cpp:73
 #, kde-format
@@ -879,7 +879,7 @@ msgstr "Takvim uygulaması"
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2018-2022 The Calindori Team"
-msgstr "© 2018–2022 Yapraklı Takvim Takımı"
+msgstr "© 2018–2022 Calindori Takımı"
 
 #: main.cpp:78
 #, kde-format
