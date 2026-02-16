@@ -567,6 +567,10 @@
       <description>
         <ul>
           <li>General user interface improvements and backend rework</li>
+          <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
+          <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
+          <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
+          <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
         </ul>
       </description>
     </release>
@@ -575,6 +579,10 @@
       <description>
         <ul>
           <li>General user interface improvements and backend rework</li>
+          <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
+          <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
+          <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
+          <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
         </ul>
       </description>
     </release>
@@ -590,11 +598,31 @@
     <release version="21.06" date="2021-06-10">
       <description>
         <p>Improvements and fixes</p>
+        <p xml:lang="ca">Millores i correccions</p>
+        <p xml:lang="ca-valencia">Millores i correccions</p>
+        <p xml:lang="pt-BR">Melhorias e correções</p>
+        <p xml:lang="ru">Улучшения и исправления:</p>
         <ul>
           <li>Ensure that the footer inline message is displayed on top of the content</li>
+          <li xml:lang="ca">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
+          <li xml:lang="ca-valencia">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
+          <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
+          <li xml:lang="ru">Проверка, что встроенное сообщение в нижнем колонтитуле отображается поверх содержимого;</li>
           <li>Show events by default only on wide screens</li>
+          <li xml:lang="ca">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
+          <li xml:lang="ca-valencia">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
+          <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
+          <li xml:lang="ru">Показ события по умолчанию только на широких экранах;</li>
           <li>On desktop, ensure that no more than two page columns are visible at the same time</li>
+          <li xml:lang="ca">A l'escriptori, assegura que no hi hagi més de dues columnes de pàgina visibles alhora</li>
+          <li xml:lang="ca-valencia">A l'escriptori, assegura que no hi haja més de dues columnes de pàgina visibles alhora</li>
+          <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
+          <li xml:lang="ru">На настольных устройствах добавлена проверка, что одновременно видно не более двух столбцов страницы;</li>
           <li>Update translations</li>
+          <li xml:lang="ca">Actualitza les traduccions</li>
+          <li xml:lang="ca-valencia">Actualitza les traduccions</li>
+          <li xml:lang="pt-BR">Atualização de traduções</li>
+          <li xml:lang="ru">Обновлены переводы;</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
@@ -603,23 +631,91 @@
     <release version="1.4.0" date="2021-03-01">
       <description>
         <p>New features, improvements and fixes</p>
+        <p xml:lang="ca">Característiques noves, millores i correccions</p>
+        <p xml:lang="ca-valencia">Característiques noves, millores i correccions</p>
+        <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
+        <p xml:lang="ru">Новые возможности, улучшения и исправления;</p>
         <ul>
           <li>Show progress of month swipes</li>
+          <li xml:lang="ca">Mostra el progrés dels lliscaments de mes</li>
+          <li xml:lang="ca-valencia">Mostra el progrés dels lliscaments de mes</li>
+          <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
+          <li xml:lang="ru">Отображение прогресса перелистывания месяцев;</li>
           <li>Improve calendar month performance</li>
+          <li xml:lang="ca">Millora el rendiment del mes de calendari</li>
+          <li xml:lang="ca-valencia">Millora el rendiment del mes de calendari</li>
+          <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
+          <li xml:lang="ru">Улучшение производительности календаря на месяц;</li>
           <li>Directly open calendar files</li>
+          <li xml:lang="ca">Obre directament els fitxers de calendari</li>
+          <li xml:lang="ca-valencia">Obri directament els fitxers de calendari</li>
+          <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
+          <li xml:lang="ru">Прямое открытие файлов календаря;</li>
           <li>Show import notifications in the app footer</li>
+          <li xml:lang="ca">Mostra les notificacions d'importació al peu de pàgina de l'aplicació</li>
+          <li xml:lang="ca-valencia">Mostra les notificacions d'importació cap al peu de pàgina de l'aplicació</li>
+          <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
+          <li xml:lang="ru">Показывать уведомления об импорте в нижней части приложения</li>
           <li>Fix inline message display on desktop</li>
+          <li xml:lang="ca">Corregeix la visualització de missatges inclosos a l'escriptori</li>
+          <li xml:lang="ca-valencia">Corregix la visualització de missatges inclosos a l'escriptori</li>
+          <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
+          <li xml:lang="ru">Исправлено отображение встроенных сообщений на рабочем столе;</li>
           <li>Introduce the import-calendar-data action</li>
+          <li xml:lang="ca">Presenta l'acció «import-calendar-data»</li>
+          <li xml:lang="ca-valencia">Presenta l'acció «import-calendar-data»</li>
+          <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
+          <li xml:lang="ru">Представлено действие импорта данных календаря;</li>
           <li>Fix scheduling of repeating events</li>
+          <li xml:lang="ca">Corregeix la planificació de repetició d'esdeveniments</li>
+          <li xml:lang="ca-valencia">Corregix la planificació de repetició d'esdeveniments</li>
+          <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
+          <li xml:lang="ru">Исправлено планирование повторяющихся событий;</li>
           <li>Fix time picker display</li>
+          <li xml:lang="ca">Corregeix la visualització del selector de temps</li>
+          <li xml:lang="ca-valencia">Corregix la visualització del selector de temps</li>
+          <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
+          <li xml:lang="ru">Исправлено отображение выбора времени;</li>
           <li>Add attendees support to events</li>
+          <li xml:lang="ca">Afegeix la implementació d'assistents als esdeveniments</li>
+          <li xml:lang="ca-valencia">Afig la implementació d'assistents als esdeveniments</li>
+          <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
+          <li xml:lang="ru">Добавлена поддержка участников для событий;</li>
           <li>Refactor event and task editor pages</li>
+          <li xml:lang="ca">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
+          <li xml:lang="ca-valencia">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
+          <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
+          <li xml:lang="ru">Реорганизованы страницы редактора событий и задач;</li>
           <li>Prevent accidental task or event deletion</li>
+          <li xml:lang="ca">Evita l'eliminació accidental de tasques o esdeveniments</li>
+          <li xml:lang="ca-valencia">Evita l'eliminació accidental de tasques o esdeveniments</li>
+          <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
+          <li xml:lang="ru">Предотвращено случайное удаление задач или событий;</li>
           <li>Offer attendee role editing</li>
+          <li xml:lang="ca">Ofereix l'edició de rols d'assistent</li>
+          <li xml:lang="ca-valencia">Oferix l'edició de rols d'assistent</li>
+          <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
+          <li xml:lang="ru">Добавлена возможность редактирования роли участника;</li>
           <li>Solve string puzzles</li>
+          <li xml:lang="ca">Soluciona els trencaclosques de cadenes</li>
+          <li xml:lang="ca-valencia">Soluciona els trencaclosques de cadenes</li>
+          <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
+          <li xml:lang="ru">Исправлены «головоломки» в текстах для переводов;</li>
           <li>Add a proper generic name for the application</li>
+          <li xml:lang="ca">Afegeix un nom genèric adequat per a l'aplicació</li>
+          <li xml:lang="ca-valencia">Afig un nom genèric adequat per a l'aplicació</li>
+          <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
+          <li xml:lang="ru">Добавлено общее название приложения;</li>
           <li>Offer export functionality</li>
+          <li xml:lang="ca">Ofereix la funcionalitat d'exportació</li>
+          <li xml:lang="ca-valencia">Oferix la funcionalitat d'exportació</li>
+          <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
+          <li xml:lang="ru">Предоставлена возможность экспорта;</li>
           <li>Offer import on specific calendars</li>
+          <li xml:lang="ca">Ofereix la importació en calendaris específics</li>
+          <li xml:lang="ca-valencia">Oferix la importació en calendaris específics</li>
+          <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
+          <li xml:lang="ru">Представлена возможность импорта в определённые календари;</li>
         </ul>
       </description>
     </release>
