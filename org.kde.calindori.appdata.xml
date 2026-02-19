@@ -577,6 +577,7 @@
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
+          <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
         </ul>
       </description>
     </release>
@@ -595,6 +596,7 @@
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
+          <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
         </ul>
       </description>
     </release>
@@ -620,6 +622,7 @@
         <p xml:lang="pt-BR">Melhorias e correções</p>
         <p xml:lang="ru">Улучшения и исправления:</p>
         <p xml:lang="sl">Izboljšave in popravki</p>
+        <p xml:lang="uk">Удосконалення і виправлення</p>
         <ul>
           <li>Ensure that the footer inline message is displayed on top of the content</li>
           <li xml:lang="ar">التأكد من ظهور الرسالة المضمنة في التذييل فوق المحتوى</li>
@@ -632,6 +635,7 @@
           <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
           <li xml:lang="ru">Проверка, что встроенное сообщение в нижнем колонтитуле отображается поверх содержимого;</li>
           <li xml:lang="sl">Zagotovi, da je sporočilo v podnožju prikazano na vrhu vsebine</li>
+          <li xml:lang="uk">Забезпечено показ вбудованого повідомлення нижнього колонтитула над вмістом сторінки</li>
           <li>Show events by default only on wide screens</li>
           <li xml:lang="ar">إظهار الأحداث بشكل مبدئي على الشاشات العريضة فقط</li>
           <li xml:lang="ca">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
@@ -643,6 +647,7 @@
           <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
           <li xml:lang="ru">Показ события по умолчанию только на широких экранах;</li>
           <li xml:lang="sl">Privzeto prikazje dogodke samo na širokih zaslonih</li>
+          <li xml:lang="uk">Реалізовано типовий показ подій лише на широких екранах</li>
           <li>On desktop, ensure that no more than two page columns are visible at the same time</li>
           <li xml:lang="ar">التأكد من عدم ظهور أكثر من عمودي صفحات في نفس الوقت على سطح المكتب</li>
           <li xml:lang="ca">A l'escriptori, assegura que no hi hagi més de dues columnes de pàgina visibles alhora</li>
@@ -654,6 +659,7 @@
           <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
           <li xml:lang="ru">На настольных устройствах добавлена проверка, что одновременно видно не более двух столбцов страницы;</li>
           <li xml:lang="sl">Na namizju zagotovi, da hkrati nista vidna več kot dva stolpca strani.</li>
+          <li xml:lang="uk">На стільничній версії забезпечено одночасний показ не більше ніж двох стовпчиків на сторінці</li>
           <li>Update translations</li>
           <li xml:lang="ar">تحديث الترجمات</li>
           <li xml:lang="ca">Actualitza les traduccions</li>
@@ -665,6 +671,7 @@
           <li xml:lang="pt-BR">Atualização de traduções</li>
           <li xml:lang="ru">Обновлены переводы;</li>
           <li xml:lang="sl">Posodobi prevode</li>
+          <li xml:lang="uk">Оновлено переклади</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
@@ -683,6 +690,7 @@
         <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
         <p xml:lang="ru">Новые возможности, улучшения и исправления;</p>
         <p xml:lang="sl">Nove zmožnosti, izboljšave in popravki</p>
+        <p xml:lang="uk">Нові можливості, удосконалення і виправлення</p>
         <ul>
           <li>Show progress of month swipes</li>
           <li xml:lang="ar">إظهار تقدم عمليات سحب الشهور</li>
@@ -695,6 +703,7 @@
           <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
           <li xml:lang="ru">Отображение прогресса перелистывания месяцев;</li>
           <li xml:lang="sl">Prikaži napredek mesečnih prehodov</li>
+          <li xml:lang="uk">Реалізовано показ поступу під час пересування місяцями</li>
           <li>Improve calendar month performance</li>
           <li xml:lang="ar">تحسين أداء عرض الشهر في التقويم</li>
           <li xml:lang="ca">Millora el rendiment del mes de calendari</li>
@@ -706,6 +715,7 @@
           <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
           <li xml:lang="ru">Улучшение производительности календаря на месяц;</li>
           <li xml:lang="sl">Izboljša uspešnost koledarskega meseca</li>
+          <li xml:lang="uk">Пришвидшено показ місяців у календарі</li>
           <li>Directly open calendar files</li>
           <li xml:lang="ar">فتح ملفات التقويم مباشرة</li>
           <li xml:lang="ca">Obre directament els fitxers de calendari</li>
@@ -717,6 +727,7 @@
           <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
           <li xml:lang="ru">Прямое открытие файлов календаря;</li>
           <li xml:lang="sl">Neposredno odpira datoteke koledarja</li>
+          <li xml:lang="uk">Реалізовано безпосереднє відкриття файлів календаря</li>
           <li>Show import notifications in the app footer</li>
           <li xml:lang="ar">إظهار إشعارات الاستيراد في تذييل التطبيق</li>
           <li xml:lang="ca">Mostra les notificacions d'importació al peu de pàgina de l'aplicació</li>
@@ -728,6 +739,7 @@
           <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
           <li xml:lang="ru">Показывать уведомления об импорте в нижней части приложения</li>
           <li xml:lang="sl">Prikaže obvestila o uvozu v nogi aplikacije</li>
+          <li xml:lang="uk">Реалізовано показ сповіщень щодо імпортування у нижньому колонтитулі вікна програми</li>
           <li>Fix inline message display on desktop</li>
           <li xml:lang="ar">إصلاح عرض الرسائل المضمنة على سطح المكتب</li>
           <li xml:lang="ca">Corregeix la visualització de missatges inclosos a l'escriptori</li>
@@ -739,6 +751,7 @@
           <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
           <li xml:lang="ru">Исправлено отображение встроенных сообщений на рабочем столе;</li>
           <li xml:lang="sl">Popravi prikaz sporočil v vrstici na namizju</li>
+          <li xml:lang="uk">Виправлено показ вбудованих повідомлень у версії для робочих станцій</li>
           <li>Introduce the import-calendar-data action</li>
           <li xml:lang="ar">تقديم إجراء استيراد بيانات التقويم</li>
           <li xml:lang="ca">Presenta l'acció «import-calendar-data»</li>
@@ -750,6 +763,7 @@
           <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
           <li xml:lang="ru">Представлено действие импорта данных календаря;</li>
           <li xml:lang="sl">Uvaja dejanja uvoza podatkov koledarja</li>
+          <li xml:lang="uk">Впроваджено дію import-calendar-data</li>
           <li>Fix scheduling of repeating events</li>
           <li xml:lang="ar">إصلاح جدولة الأحداث المتكررة</li>
           <li xml:lang="ca">Corregeix la planificació de repetició d'esdeveniments</li>
@@ -761,6 +775,7 @@
           <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
           <li xml:lang="ru">Исправлено планирование повторяющихся событий;</li>
           <li xml:lang="sl">Popravi razporejanje ponavljajočih se dogodkov</li>
+          <li xml:lang="uk">Виправлення планування повторюваних подій</li>
           <li>Fix time picker display</li>
           <li xml:lang="ar">إصلاح عرض منتقي الوقت</li>
           <li xml:lang="ca">Corregeix la visualització del selector de temps</li>
@@ -772,6 +787,7 @@
           <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
           <li xml:lang="ru">Исправлено отображение выбора времени;</li>
           <li xml:lang="sl">Popravi prikaz izbirnika časa</li>
+          <li xml:lang="uk">Виправлено показ панелі вибору часу</li>
           <li>Add attendees support to events</li>
           <li xml:lang="ar">إضافة دعم الحاضرين للأحداث</li>
           <li xml:lang="ca">Afegeix la implementació d'assistents als esdeveniments</li>
@@ -783,6 +799,7 @@
           <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
           <li xml:lang="ru">Добавлена поддержка участников для событий;</li>
           <li xml:lang="sl">Dodaja podporo udeležencem dogodkov</li>
+          <li xml:lang="uk">Додано підтримку учасників для записів подій</li>
           <li>Refactor event and task editor pages</li>
           <li xml:lang="ar">إعادة هيكلة صفحات محرر الأحداث والمهام</li>
           <li xml:lang="ca">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
@@ -794,6 +811,7 @@
           <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
           <li xml:lang="ru">Реорганизованы страницы редактора событий и задач;</li>
           <li xml:lang="sl">Premesti strani urejevalnika dogodkov in opravil za preoblikovanje</li>
+          <li xml:lang="uk">Переформатовано сторінки редактора подій і завдань</li>
           <li>Prevent accidental task or event deletion</li>
           <li xml:lang="ar">منع حذف المهام أو الأحداث عن طريق الخطأ</li>
           <li xml:lang="ca">Evita l'eliminació accidental de tasques o esdeveniments</li>
@@ -805,6 +823,7 @@
           <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
           <li xml:lang="ru">Предотвращено случайное удаление задач или событий;</li>
           <li xml:lang="sl">Prepreči nenamerno brisanje opravil ali dogodkov</li>
+          <li xml:lang="uk">Реалізовано запобігання випадковому вилученню записів завдань або подій</li>
           <li>Offer attendee role editing</li>
           <li xml:lang="ar">توفير تحرير أدوار الحاضرين</li>
           <li xml:lang="ca">Ofereix l'edició de rols d'assistent</li>
@@ -816,6 +835,7 @@
           <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
           <li xml:lang="ru">Добавлена возможность редактирования роли участника;</li>
           <li xml:lang="sl">Nudi urejanje vloge udeleženca</li>
+          <li xml:lang="uk">Реалізовано пропозицію редагування ролі учасників</li>
           <li>Solve string puzzles</li>
           <li xml:lang="ar">حل مشاكل تركيب النصوص</li>
           <li xml:lang="ca">Soluciona els trencaclosques de cadenes</li>
@@ -827,6 +847,7 @@
           <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
           <li xml:lang="ru">Исправлены «головоломки» в текстах для переводов;</li>
           <li xml:lang="sl">Reši uganke z nizi</li>
+          <li xml:lang="uk">Розв'язування головоломок з рядків</li>
           <li>Add a proper generic name for the application</li>
           <li xml:lang="ar">إضافة اسم عام مناسب للتطبيق</li>
           <li xml:lang="ca">Afegeix un nom genèric adequat per a l'aplicació</li>
@@ -838,6 +859,7 @@
           <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
           <li xml:lang="ru">Добавлено общее название приложения;</li>
           <li xml:lang="sl">Doda pravilno generično ime za aplikacijo</li>
+          <li xml:lang="uk">Додано належну загальну назву для програми</li>
           <li>Offer export functionality</li>
           <li xml:lang="ar">توفير وظيفة التصدير</li>
           <li xml:lang="ca">Ofereix la funcionalitat d'exportació</li>
@@ -849,6 +871,7 @@
           <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
           <li xml:lang="ru">Предоставлена возможность экспорта;</li>
           <li xml:lang="sl">Nudi funkcionalnost izvoza</li>
+          <li xml:lang="uk">Реалізовано функціональну можливість експортування</li>
           <li>Offer import on specific calendars</li>
           <li xml:lang="ar">توفير الاستيراد لتقاويم محددة</li>
           <li xml:lang="ca">Ofereix la importació en calendaris específics</li>
@@ -860,6 +883,7 @@
           <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
           <li xml:lang="ru">Представлена возможность импорта в определённые календари;</li>
           <li xml:lang="sl">Nudi uvoz za določene koledarje</li>
+          <li xml:lang="uk">Реалізовано імпортування певних календарів</li>
         </ul>
       </description>
     </release>
