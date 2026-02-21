@@ -571,6 +571,7 @@
           <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
@@ -589,6 +590,7 @@
           <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
@@ -614,6 +616,7 @@
         <p xml:lang="ca">Millores i correccions</p>
         <p xml:lang="ca-valencia">Millores i correccions</p>
         <p xml:lang="es">Mejoras y correcciones</p>
+        <p xml:lang="he">שיפורים ותיקונים</p>
         <p xml:lang="ia">Melioramentos e correctiones</p>
         <p xml:lang="nl">Verbetering van reparaties</p>
         <p xml:lang="pt-BR">Melhorias e correções</p>
@@ -626,6 +629,7 @@
           <li xml:lang="ca">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
           <li xml:lang="ca-valencia">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
           <li xml:lang="es">Asegurar que el mensaje en línea del pie de página se muestre encima del contenido</li>
+          <li xml:lang="he">לוודא שההודעה הפנימית התחתונה מוצגת על גבי התוכן</li>
           <li xml:lang="ia">Assecura que le message in linea del pede de pagina es monstrate a culmine del contento </li>
           <li xml:lang="nl">Zorg ervoor dat het inline-bericht in de voettekst boven de inhoud wordt weergegeven</li>
           <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
@@ -637,6 +641,7 @@
           <li xml:lang="ca">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
           <li xml:lang="ca-valencia">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
           <li xml:lang="es">Mostrar eventos de forma predeterminada solo en pantallas anchas</li>
+          <li xml:lang="he">הצגת אירועים כברירת מחדל רק במסכים רחבים</li>
           <li xml:lang="ia">Monstra eventos solmente per definition sur schermos large</li>
           <li xml:lang="nl">Toon evenementen standaard alleen op breedbeeldschermen</li>
           <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
@@ -648,6 +653,7 @@
           <li xml:lang="ca">A l'escriptori, assegura que no hi hagi més de dues columnes de pàgina visibles alhora</li>
           <li xml:lang="ca-valencia">A l'escriptori, assegura que no hi haja més de dues columnes de pàgina visibles alhora</li>
           <li xml:lang="es">En el escritorio, asegurar que no haya más de dos columnas de página visibles al mismo tiempo</li>
+          <li xml:lang="he">בשולחן עבודה, לוודא של יותר משני עמודות בעמוד מופיעות בו זמנית.</li>
           <li xml:lang="ia">Sur scriptorios, assecura que non plus que duo columnas de pagina es visibile al mesme tempore</li>
           <li xml:lang="nl">Zorg er op het bureaublad voor dat er niet meer dan twee paginakolommen tegelijk zichtbaar zijn</li>
           <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
@@ -659,6 +665,7 @@
           <li xml:lang="ca">Actualitza les traduccions</li>
           <li xml:lang="ca-valencia">Actualitza les traduccions</li>
           <li xml:lang="es">Actualización de las traducciones</li>
+          <li xml:lang="he">עדכוני תרגומים</li>
           <li xml:lang="ia">Actualisa traductiones</li>
           <li xml:lang="nl">Vertalingen bijwerken</li>
           <li xml:lang="pt-BR">Atualização de traduções</li>
@@ -677,6 +684,7 @@
         <p xml:lang="ca">Característiques noves, millores i correccions</p>
         <p xml:lang="ca-valencia">Característiques noves, millores i correccions</p>
         <p xml:lang="es">Nuevas funciones, mejoras y correcciones</p>
+        <p xml:lang="he">יכולות, שיפורים ותיקונים חדשים</p>
         <p xml:lang="ia">Nove characteristicas, melioramentos e correctiones</p>
         <p xml:lang="nl">Nieuwe functies, verbetering van reparaties</p>
         <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
@@ -689,6 +697,7 @@
           <li xml:lang="ca">Mostra el progrés dels lliscaments de mes</li>
           <li xml:lang="ca-valencia">Mostra el progrés dels lliscaments de mes</li>
           <li xml:lang="es">Mostrar el avance de los deslizamientos mensuales</li>
+          <li xml:lang="he">הצגת התקדמות על החלקות על חודשים</li>
           <li xml:lang="ia">Monstra progresso del glissares (swipes) mensual</li>
           <li xml:lang="nl">Toon de voortgang van de maandelijkse swipes</li>
           <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
@@ -700,6 +709,7 @@
           <li xml:lang="ca">Millora el rendiment del mes de calendari</li>
           <li xml:lang="ca-valencia">Millora el rendiment del mes de calendari</li>
           <li xml:lang="es">Se ha mejorado el rendimiento del calendario mensual</li>
+          <li xml:lang="he">שיפור ביצועי חודש לוח שנה</li>
           <li xml:lang="ia">Meliora prestation menaual de calendario</li>
           <li xml:lang="nl">Verbeter de prestaties van kalendermaanden</li>
           <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
@@ -711,6 +721,7 @@
           <li xml:lang="ca">Obre directament els fitxers de calendari</li>
           <li xml:lang="ca-valencia">Obri directament els fitxers de calendari</li>
           <li xml:lang="es">Abrir directamente archivos de calendario</li>
+          <li xml:lang="he">פתיחת קובצי לוח שנה ישירות</li>
           <li xml:lang="ia">Aperir directemente files de calendario</li>
           <li xml:lang="nl">Agendabestanden direct openen</li>
           <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
@@ -722,6 +733,7 @@
           <li xml:lang="ca">Mostra les notificacions d'importació al peu de pàgina de l'aplicació</li>
           <li xml:lang="ca-valencia">Mostra les notificacions d'importació cap al peu de pàgina de l'aplicació</li>
           <li xml:lang="es">Mostrar notificaciones de importación en el pie de página de la aplicación</li>
+          <li xml:lang="he">הצגת התראות ייבוא בכותרת התחתונה של היישום</li>
           <li xml:lang="ia">Monstra notificationes de importar in le pede de pagina de app</li>
           <li xml:lang="nl">Toon importmeldingen in de voettekst van de toepassing</li>
           <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
@@ -733,6 +745,7 @@
           <li xml:lang="ca">Corregeix la visualització de missatges inclosos a l'escriptori</li>
           <li xml:lang="ca-valencia">Corregix la visualització de missatges inclosos a l'escriptori</li>
           <li xml:lang="es">Se ha corregido la visualización de mensajes en línea en el escritorio</li>
+          <li xml:lang="he">תיקון תצוגת הודעה פנימית בשולחן העבודה</li>
           <li xml:lang="ia">Corrige monstrar message in linea sur scriptorio</li>
           <li xml:lang="nl">Correctie van de weergave van inline berichten op het bureaublad</li>
           <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
@@ -744,6 +757,7 @@
           <li xml:lang="ca">Presenta l'acció «import-calendar-data»</li>
           <li xml:lang="ca-valencia">Presenta l'acció «import-calendar-data»</li>
           <li xml:lang="es">Se ha introducido la acción para importar datos de calendario</li>
+          <li xml:lang="he">הצגת הפעולה ייבוא נתוני לוח שנה</li>
           <li xml:lang="ia">Introduce le action de datos de calendario de importar</li>
           <li xml:lang="nl">Introduceer de actie 'kalendergegevens importeren'</li>
           <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
@@ -755,6 +769,7 @@
           <li xml:lang="ca">Corregeix la planificació de repetició d'esdeveniments</li>
           <li xml:lang="ca-valencia">Corregix la planificació de repetició d'esdeveniments</li>
           <li xml:lang="es">Se ha corregido la programación de eventos repetitivos</li>
+          <li xml:lang="he">תוקן תזמון של אירועים מחזוריים</li>
           <li xml:lang="ia">Corrige planificationj del repetir eventos</li>
           <li xml:lang="nl">Corrigeer de planning van terugkerende evenementen</li>
           <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
@@ -766,6 +781,7 @@
           <li xml:lang="ca">Corregeix la visualització del selector de temps</li>
           <li xml:lang="ca-valencia">Corregix la visualització del selector de temps</li>
           <li xml:lang="es">Se ha corregido la visualización del selector de hora</li>
+          <li xml:lang="he">תוקנה תצוגת בורר זמן</li>
           <li xml:lang="ia">Corrige monstrator de recoltor de tempore</li>
           <li xml:lang="nl">Correctie van de weergave van de tijdkiezer</li>
           <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
@@ -777,6 +793,7 @@
           <li xml:lang="ca">Afegeix la implementació d'assistents als esdeveniments</li>
           <li xml:lang="ca-valencia">Afig la implementació d'assistents als esdeveniments</li>
           <li xml:lang="es">Se ha añadido la implementación de asistentes a eventos</li>
+          <li xml:lang="he">הוספת תמיכה במשתתפים לאירועים</li>
           <li xml:lang="ia">Adde supporto de participantes per eventos</li>
           <li xml:lang="nl">Voeg deelnemersondersteuning toe aan evenementen</li>
           <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
@@ -788,6 +805,7 @@
           <li xml:lang="ca">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
           <li xml:lang="ca-valencia">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
           <li xml:lang="es">Refactorización de las páginas del editor de eventos y tareas</li>
+          <li xml:lang="he">עמודי האירועים ועורך המשימות נכתבו מחדש</li>
           <li xml:lang="ia">Refactorisa evento e paginas de editor de carga</li>
           <li xml:lang="nl">Herstructureer de pagina's van de gebeurtenis- en taakbewerker</li>
           <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
@@ -799,6 +817,7 @@
           <li xml:lang="ca">Evita l'eliminació accidental de tasques o esdeveniments</li>
           <li xml:lang="ca-valencia">Evita l'eliminació accidental de tasques o esdeveniments</li>
           <li xml:lang="es">Impedir el borrado accidental de tareas y eventos</li>
+          <li xml:lang="he">למנוע מחיקה מקרית של משימה או אירוע</li>
           <li xml:lang="ia">Preveni deletion accidental de carga o evento</li>
           <li xml:lang="nl">Voorkom dat taken of gebeurtenissen per ongeluk worden verwijderd</li>
           <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
@@ -810,6 +829,7 @@
           <li xml:lang="ca">Ofereix l'edició de rols d'assistent</li>
           <li xml:lang="ca-valencia">Oferix l'edició de rols d'assistent</li>
           <li xml:lang="es">Ofrecer la edición del rol de asistente</li>
+          <li xml:lang="he">להציע עריכת תפקיד של משתמשים</li>
           <li xml:lang="ia">Offeri modificar de rolo de participante</li>
           <li xml:lang="nl">Bied deelnemers de mogelijkheid om hun rol te bewerken</li>
           <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
@@ -821,6 +841,7 @@
           <li xml:lang="ca">Soluciona els trencaclosques de cadenes</li>
           <li xml:lang="ca-valencia">Soluciona els trencaclosques de cadenes</li>
           <li xml:lang="es">Se han corregido rompecabezas de textos</li>
+          <li xml:lang="he">פתרון חידות מחרוזות</li>
           <li xml:lang="ia">Resolve puzzles  de catena</li>
           <li xml:lang="nl">Los tekenreekspuzzels op</li>
           <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
@@ -832,6 +853,7 @@
           <li xml:lang="ca">Afegeix un nom genèric adequat per a l'aplicació</li>
           <li xml:lang="ca-valencia">Afig un nom genèric adequat per a l'aplicació</li>
           <li xml:lang="es">Se ha añadido un nombre genérico apropiado para la aplicación</li>
+          <li xml:lang="he">הוספת שם גנרי מתאים ליישום</li>
           <li xml:lang="ia">Adde un proprie nomine generic per le application</li>
           <li xml:lang="nl">Voeg een geschikte, algemene naam toe voor de toepassing</li>
           <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
@@ -843,6 +865,7 @@
           <li xml:lang="ca">Ofereix la funcionalitat d'exportació</li>
           <li xml:lang="ca-valencia">Oferix la funcionalitat d'exportació</li>
           <li xml:lang="es">Ofrecer la funcionalidad de exportación</li>
+          <li xml:lang="he">הצעת יכולת ייצוא</li>
           <li xml:lang="ia">Offere functionalitate de exportar</li>
           <li xml:lang="nl">Bied exportfunctionaliteit aan</li>
           <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
@@ -854,6 +877,7 @@
           <li xml:lang="ca">Ofereix la importació en calendaris específics</li>
           <li xml:lang="ca-valencia">Oferix la importació en calendaris específics</li>
           <li xml:lang="es">Ofrecer la importación de determinados calendarios</li>
+          <li xml:lang="he">הצעת ייבוא בלוחות שנה מסוימים</li>
           <li xml:lang="ia">Offere importar sur calendarios specific</li>
           <li xml:lang="nl">Bied import aan op specifieke agenda's</li>
           <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
