@@ -571,6 +571,7 @@
           <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="fr">Améliorations générales de l'interface utilisateur et refonte du moteur</li>
           <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
@@ -592,6 +593,7 @@
           <li xml:lang="ca">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="fr">Améliorations générales de l'interface utilisateur et refonte du moteur</li>
           <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
@@ -620,6 +622,7 @@
         <p xml:lang="ca">Millores i correccions</p>
         <p xml:lang="ca-valencia">Millores i correccions</p>
         <p xml:lang="es">Mejoras y correcciones</p>
+        <p xml:lang="fr">Améliorations et corrections</p>
         <p xml:lang="he">שיפורים ותיקונים</p>
         <p xml:lang="ia">Melioramentos e correctiones</p>
         <p xml:lang="ka">გაუმჯობესებები და შეცდომების გასწორება</p>
@@ -635,6 +638,7 @@
           <li xml:lang="ca">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
           <li xml:lang="ca-valencia">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
           <li xml:lang="es">Asegurar que el mensaje en línea del pie de página se muestre encima del contenido</li>
+          <li xml:lang="fr">Vérification que le message intégré en pied de page s'affiche bien au-dessus du contenu</li>
           <li xml:lang="he">לוודא שההודעה הפנימית התחתונה מוצגת על גבי התוכן</li>
           <li xml:lang="ia">Assecura que le message in linea del pede de pagina es monstrate a culmine del contento </li>
           <li xml:lang="ka">უზრუნველყოფილია ქვედა კოლონტიტულის შიდა შეტყობინების ჩვენება შინაარსის ზემოდან</li>
@@ -649,6 +653,7 @@
           <li xml:lang="ca">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
           <li xml:lang="ca-valencia">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
           <li xml:lang="es">Mostrar eventos de forma predeterminada solo en pantallas anchas</li>
+          <li xml:lang="fr">Affichage des évènements par défaut uniquement sur les grands écrans</li>
           <li xml:lang="he">הצגת אירועים כברירת מחדל רק במסכים רחבים</li>
           <li xml:lang="ia">Monstra eventos solmente per definition sur schermos large</li>
           <li xml:lang="ka">მოვლენების ნაგულისხმევად, მხოლოდ, ფართო ეკრანებზე ჩვენება</li>
@@ -663,6 +668,7 @@
           <li xml:lang="ca">A l'escriptori, assegura que no hi hagi més de dues columnes de pàgina visibles alhora</li>
           <li xml:lang="ca-valencia">A l'escriptori, assegura que no hi haja més de dues columnes de pàgina visibles alhora</li>
           <li xml:lang="es">En el escritorio, asegurar que no haya más de dos columnas de página visibles al mismo tiempo</li>
+          <li xml:lang="fr">Sur un ordinateur de bureau, assurez-vous que pas plus de deux colonnes de page ne sont visibles en même temps.</li>
           <li xml:lang="he">בשולחן עבודה, לוודא של יותר משני עמודות בעמוד מופיעות בו זמנית.</li>
           <li xml:lang="ia">Sur scriptorios, assecura que non plus que duo columnas de pagina es visibile al mesme tempore</li>
           <li xml:lang="ka">კომპიუტერზე უზრუნველყოფა, რომ ერთდროულად 2-ზე მეტი გვერდის სვეტი ხილული არ იყოს</li>
@@ -677,6 +683,7 @@
           <li xml:lang="ca">Actualitza les traduccions</li>
           <li xml:lang="ca-valencia">Actualitza les traduccions</li>
           <li xml:lang="es">Actualización de las traducciones</li>
+          <li xml:lang="fr">Mise à jour des traductions</li>
           <li xml:lang="he">עדכוני תרגומים</li>
           <li xml:lang="ia">Actualisa traductiones</li>
           <li xml:lang="ka">თარგმანების განახლება</li>
@@ -698,6 +705,7 @@
         <p xml:lang="ca">Característiques noves, millores i correccions</p>
         <p xml:lang="ca-valencia">Característiques noves, millores i correccions</p>
         <p xml:lang="es">Nuevas funciones, mejoras y correcciones</p>
+        <p xml:lang="fr">Nouvelles fonctionnalités, améliorations et corrections</p>
         <p xml:lang="he">יכולות, שיפורים ותיקונים חדשים</p>
         <p xml:lang="ia">Nove characteristicas, melioramentos e correctiones</p>
         <p xml:lang="ka">ახალი ფუნქციები, გაუმჯობესებები და შეცდომების გასწორება</p>
@@ -713,6 +721,7 @@
           <li xml:lang="ca">Mostra el progrés dels lliscaments de mes</li>
           <li xml:lang="ca-valencia">Mostra el progrés dels lliscaments de mes</li>
           <li xml:lang="es">Mostrar el avance de los deslizamientos mensuales</li>
+          <li xml:lang="fr">Affichage de l'avancement des balayages de mois</li>
           <li xml:lang="he">הצגת התקדמות על החלקות על חודשים</li>
           <li xml:lang="ia">Monstra progresso del glissares (swipes) mensual</li>
           <li xml:lang="ka">თვიური გასმების მიმდინარეობის ჩვენება</li>
@@ -727,6 +736,7 @@
           <li xml:lang="ca">Millora el rendiment del mes de calendari</li>
           <li xml:lang="ca-valencia">Millora el rendiment del mes de calendari</li>
           <li xml:lang="es">Se ha mejorado el rendimiento del calendario mensual</li>
+          <li xml:lang="fr">Amélioration de la performance du mois de l'agenda</li>
           <li xml:lang="he">שיפור ביצועי חודש לוח שנה</li>
           <li xml:lang="ia">Meliora prestation menaual de calendario</li>
           <li xml:lang="ka">გაუმჯობესდა კალენდრის თვის წარმადობა</li>
@@ -741,6 +751,7 @@
           <li xml:lang="ca">Obre directament els fitxers de calendari</li>
           <li xml:lang="ca-valencia">Obri directament els fitxers de calendari</li>
           <li xml:lang="es">Abrir directamente archivos de calendario</li>
+          <li xml:lang="fr">Ouverture directe des fichiers d'agenda</li>
           <li xml:lang="he">פתיחת קובצי לוח שנה ישירות</li>
           <li xml:lang="ia">Aperir directemente files de calendario</li>
           <li xml:lang="ka">კალენდრის ფაილების პირდაპირ გახსნა</li>
@@ -755,6 +766,7 @@
           <li xml:lang="ca">Mostra les notificacions d'importació al peu de pàgina de l'aplicació</li>
           <li xml:lang="ca-valencia">Mostra les notificacions d'importació cap al peu de pàgina de l'aplicació</li>
           <li xml:lang="es">Mostrar notificaciones de importación en el pie de página de la aplicación</li>
+          <li xml:lang="fr">Affichage des notifications d'importation dans le pied de page de l'application</li>
           <li xml:lang="he">הצגת התראות ייבוא בכותרת התחתונה של היישום</li>
           <li xml:lang="ia">Monstra notificationes de importar in le pede de pagina de app</li>
           <li xml:lang="ka">შემოტანის გაფრთხილების ჩვენება აპის ქვედა კოლონტიტულში</li>
@@ -769,6 +781,7 @@
           <li xml:lang="ca">Corregeix la visualització de missatges inclosos a l'escriptori</li>
           <li xml:lang="ca-valencia">Corregix la visualització de missatges inclosos a l'escriptori</li>
           <li xml:lang="es">Se ha corregido la visualización de mensajes en línea en el escritorio</li>
+          <li xml:lang="fr">Correction de l'affichage intégré au bureau des messages</li>
           <li xml:lang="he">תיקון תצוגת הודעה פנימית בשולחן העבודה</li>
           <li xml:lang="ia">Corrige monstrar message in linea sur scriptorio</li>
           <li xml:lang="ka">გასწორდა ხაზშივე შეტყობინებების ჩვენება კომპიუტერზე</li>
@@ -783,6 +796,7 @@
           <li xml:lang="ca">Presenta l'acció «import-calendar-data»</li>
           <li xml:lang="ca-valencia">Presenta l'acció «import-calendar-data»</li>
           <li xml:lang="es">Se ha introducido la acción para importar datos de calendario</li>
+          <li xml:lang="fr">Introduction de l'action importation-calendrier-données</li>
           <li xml:lang="he">הצגת הפעולה ייבוא נתוני לוח שנה</li>
           <li xml:lang="ia">Introduce le action de datos de calendario de importar</li>
           <li xml:lang="ka">დაემატა კალენდრის მონაცემების შემოტანის ქმედება</li>
@@ -797,6 +811,7 @@
           <li xml:lang="ca">Corregeix la planificació de repetició d'esdeveniments</li>
           <li xml:lang="ca-valencia">Corregix la planificació de repetició d'esdeveniments</li>
           <li xml:lang="es">Se ha corregido la programación de eventos repetitivos</li>
+          <li xml:lang="fr">Correction de la planification des évènements récurrents</li>
           <li xml:lang="he">תוקן תזמון של אירועים מחזוריים</li>
           <li xml:lang="ia">Corrige planificationj del repetir eventos</li>
           <li xml:lang="ka">გასწორდა განმეორებადი მოვლენების დაგეგმვა</li>
@@ -811,6 +826,7 @@
           <li xml:lang="ca">Corregeix la visualització del selector de temps</li>
           <li xml:lang="ca-valencia">Corregix la visualització del selector de temps</li>
           <li xml:lang="es">Se ha corregido la visualización del selector de hora</li>
+          <li xml:lang="fr">Correction de l'affichage du sélecteur d'heure</li>
           <li xml:lang="he">תוקנה תצוגת בורר זמן</li>
           <li xml:lang="ia">Corrige monstrator de recoltor de tempore</li>
           <li xml:lang="ka">გასწორდა დროის ამრჩევის ჩვენება</li>
@@ -825,6 +841,7 @@
           <li xml:lang="ca">Afegeix la implementació d'assistents als esdeveniments</li>
           <li xml:lang="ca-valencia">Afig la implementació d'assistents als esdeveniments</li>
           <li xml:lang="es">Se ha añadido la implementación de asistentes a eventos</li>
+          <li xml:lang="fr">Ajout de la prise en charge des participants aux évènements</li>
           <li xml:lang="he">הוספת תמיכה במשתתפים לאירועים</li>
           <li xml:lang="ia">Adde supporto de participantes per eventos</li>
           <li xml:lang="ka">დაემატა მოვლენებზე დამსწრეების მხარდაჭერა</li>
@@ -839,6 +856,7 @@
           <li xml:lang="ca">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
           <li xml:lang="ca-valencia">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
           <li xml:lang="es">Refactorización de las páginas del editor de eventos y tareas</li>
+          <li xml:lang="fr">Ré-agencement des pages d'édition pour les évènements et des tâches</li>
           <li xml:lang="he">עמודי האירועים ועורך המשימות נכתבו מחדש</li>
           <li xml:lang="ia">Refactorisa evento e paginas de editor de carga</li>
           <li xml:lang="ka">გადაიწერა მოვლენებისა და ამოცანების რედაქტორის გვერდები</li>
@@ -853,6 +871,7 @@
           <li xml:lang="ca">Evita l'eliminació accidental de tasques o esdeveniments</li>
           <li xml:lang="ca-valencia">Evita l'eliminació accidental de tasques o esdeveniments</li>
           <li xml:lang="es">Impedir el borrado accidental de tareas y eventos</li>
+          <li xml:lang="fr">Prévention de la suppression accidentelle d'une tâche ou d'un évènement</li>
           <li xml:lang="he">למנוע מחיקה מקרית של משימה או אירוע</li>
           <li xml:lang="ia">Preveni deletion accidental de carga o evento</li>
           <li xml:lang="ka">ამოცანის, ან მოვლენის უნებლიე წაშლის ტავიდან აცილება</li>
@@ -867,6 +886,7 @@
           <li xml:lang="ca">Ofereix l'edició de rols d'assistent</li>
           <li xml:lang="ca-valencia">Oferix l'edició de rols d'assistent</li>
           <li xml:lang="es">Ofrecer la edición del rol de asistente</li>
+          <li xml:lang="fr">Fourniture de l'édition du rôle de participant</li>
           <li xml:lang="he">להציע עריכת תפקיד של משתמשים</li>
           <li xml:lang="ia">Offeri modificar de rolo de participante</li>
           <li xml:lang="ka">დამსწრის როლის ჩასწორების შეთავაზება</li>
@@ -881,6 +901,7 @@
           <li xml:lang="ca">Soluciona els trencaclosques de cadenes</li>
           <li xml:lang="ca-valencia">Soluciona els trencaclosques de cadenes</li>
           <li xml:lang="es">Se han corregido rompecabezas de textos</li>
+          <li xml:lang="fr">Résoudre des puzzles de chaînes</li>
           <li xml:lang="he">פתרון חידות מחרוזות</li>
           <li xml:lang="ia">Resolve puzzles  de catena</li>
           <li xml:lang="ka">სტრიქონი თავსატეხების ამოხსნა</li>
@@ -895,6 +916,7 @@
           <li xml:lang="ca">Afegeix un nom genèric adequat per a l'aplicació</li>
           <li xml:lang="ca-valencia">Afig un nom genèric adequat per a l'aplicació</li>
           <li xml:lang="es">Se ha añadido un nombre genérico apropiado para la aplicación</li>
+          <li xml:lang="fr">Ajout d'un nom générique approprié pour l'application</li>
           <li xml:lang="he">הוספת שם גנרי מתאים ליישום</li>
           <li xml:lang="ia">Adde un proprie nomine generic per le application</li>
           <li xml:lang="ka">დაემატა აპლიკაციის სწორი ზოგადი სახელი</li>
@@ -909,6 +931,7 @@
           <li xml:lang="ca">Ofereix la funcionalitat d'exportació</li>
           <li xml:lang="ca-valencia">Oferix la funcionalitat d'exportació</li>
           <li xml:lang="es">Ofrecer la funcionalidad de exportación</li>
+          <li xml:lang="fr">Fourniture d'une fonctionnalité d'exportation</li>
           <li xml:lang="he">הצעת יכולת ייצוא</li>
           <li xml:lang="ia">Offere functionalitate de exportar</li>
           <li xml:lang="ka">გატანის ფუნქციონალის შეთავაზება</li>
@@ -923,6 +946,7 @@
           <li xml:lang="ca">Ofereix la importació en calendaris específics</li>
           <li xml:lang="ca-valencia">Oferix la importació en calendaris específics</li>
           <li xml:lang="es">Ofrecer la importación de determinados calendarios</li>
+          <li xml:lang="fr">Fourniture de l'importation de calendriers spécifiques</li>
           <li xml:lang="he">הצעת ייבוא בלוחות שנה מסוימים</li>
           <li xml:lang="ia">Offere importar sur calendarios specific</li>
           <li xml:lang="ka">შემოტანის შეთავაზება მითითებულ კალენდრებზე</li>
