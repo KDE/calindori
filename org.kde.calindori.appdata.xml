@@ -125,6 +125,7 @@
     <p xml:lang="pt-BR">O Calindori é um aplicativo de calendário amigável ao toque. Ele foi desenhado para dispositivos móveis mas também pode ser executado em ambientes de trabalho. Os usuários do Calindori podem verificar as datas anteriores e futuras e gerenciar tarefas e eventos.</p>
     <p xml:lang="ru">Calindori — программа-календарь для сенсорных интерфейсов. Она разработана для мобильных устройств, но ей можно пользоваться и на обычных рабочих станциях. Пользователи Calindori могут проверять записи для прошедших и будущих дат и управлять соответствующими задачами и событиями.</p>
     <p xml:lang="sa">कैलिन्डोरी स्पर्श-अनुकूलः पञ्चाङ्ग-अनुप्रयोगः अस्ति । इदं चलयन्त्राणां कृते डिजाइनं कृतम् अस्ति किन्तु डेस्कटॉप् वातावरणेषु अपि चालयितुं शक्यते । Calindori इत्यस्य उपयोक्तारः पूर्ववर्तीनां भविष्यस्य च तिथयः पश्यितुं कार्याणि, घटनाः च प्रबन्धयितुं च समर्थाः सन्ति ।</p>
+    <p xml:lang="sk">Calindori je dotykovo prívetivá kalendárová aplikácia. Bola navrhnutá pre mobilné zariadenia, ale môže bežať aj na desktopových prostrediach.</p>
     <p xml:lang="sl">Calindori je dotikom prijazna aplikacija za koledar. Zasnovana je za mobilne naprave, vendar lahko deluje tudi v namiznih okoljih. Uporabniki Calindore lahko preverjajo prejšnje in prihodnje datume ter upravljajo z nalogami in dogodki.</p>
     <p xml:lang="sv">Calindori är ett pekvänligt kalenderprogram. Det har konstruerats för mobilenheter men kan också köra på skrivbordsmiljöer. Användare av Calindori kan kontrollera tidigare och framtida datum, samt hantera uppgifter och händelser.</p>
     <p xml:lang="tr">Yapraklı Takvim, dokunmatik ekran dostu bir takvim uygulamasıdır. Taşınabilir aygıtlar için tasarlanmıştır; ancak masaüstü ortamlarında da çalışabilir. Yapraklı Takvim kullanıcıları, geçmiş ve gelecek tarihleri denetleyebilir, görevleri ve etkinlikleri düzenleyebilir.</p>
@@ -164,6 +165,7 @@
     <p xml:lang="pt-BR">Ao executar o aplicativo pela primeira vez, um novo arquivo de calendário que segue o padrão ical é criado. Alternativamente, os usuários podem criar calendários adicionais ou importar os existentes.</p>
     <p xml:lang="ru">При первом запуске программа создаёт файл календаря в формате ical. Кроме того, пользователь может создавать дополнительные календари или импортировать уже имеющиеся.</p>
     <p xml:lang="sa">प्रथमवारं अनुप्रयोगस्य निष्पादनकाले नूतनं पञ्चाङ्गसञ्चिका निर्मीयते या ical मानकस्य अनुसरणं करोति । वैकल्पिकरूपेण उपयोक्तारः अतिरिक्तपञ्चाङ्गं निर्मातुम् अथवा विद्यमानानाम् आयातं कर्तुं शक्नुवन्ति ।</p>
+    <p xml:lang="sk">Pri prvom spustení aplikácie sa vytvorí nový kalendárový súbor, ktorý dodržiava štandard ical. Prípadne si používatelia môžu vytvoriť ďalšie lokálne a pridať online kalendáre.</p>
     <p xml:lang="sl">Ko poženete program prvič, se ustvari nova koledarska datoteka, po standardu ical. Sicer uporabniki lahko ustvarjajo dodatne koledarje ali uvozijo obstoječe.</p>
     <p xml:lang="sv">När programmet körs för första gången skapas en ny kalenderfil som följer ical-standarden. Som alternativ kan användare skapa ytterligare kalendrar eller importera befintliga.</p>
     <p xml:lang="tr">Uygulama ilk kez yürütülürken, ical standartını izleyen bir takvim dosyası oluşturulur. Alternatif olarak, kullanıcılar ek takvimler oluşturabilir veya var olanları içe aktarabilir.</p>
@@ -461,6 +463,7 @@
       <caption xml:lang="pt-BR">Calindori no celular</caption>
       <caption xml:lang="ru">Calindori на мобильном устройстве</caption>
       <caption xml:lang="sa">मोबाईल इत्यत्र कैलिन्डोरी</caption>
+      <caption xml:lang="sk">Calindori na mobile</caption>
       <caption xml:lang="sl">Calindori na mobilni napravi</caption>
       <caption xml:lang="sv">Calindori på mobil</caption>
       <caption xml:lang="tr">Taşınabilirde Yapraklı Takvim</caption>
@@ -503,6 +506,7 @@
       <caption xml:lang="pt-BR">Calindori na área de trabalho</caption>
       <caption xml:lang="ru">Calindori на компьютере</caption>
       <caption xml:lang="sa">डेस्कटॉप् इत्यत्र कैलिन्डोरी</caption>
+      <caption xml:lang="sk">Calindori na desktope</caption>
       <caption xml:lang="sl">Calindori na namizju</caption>
       <caption xml:lang="sv">Calindori på skrivbord</caption>
       <caption xml:lang="tr">Masaüstünde Yapraklı Takvim</caption>
@@ -582,6 +586,7 @@
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
+          <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
           <li xml:lang="tr">Genel kullanıcı arayüzü iyileştirmeleri ve arka uç yeniden yapılandırması</li>
           <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
@@ -607,6 +612,7 @@
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
+          <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
           <li xml:lang="tr">Genel kullanıcı arayüzü iyileştirmeleri ve arka uç yeniden yapılandırması</li>
           <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
@@ -639,6 +645,7 @@
         <p xml:lang="nl">Verbetering van reparaties</p>
         <p xml:lang="pt-BR">Melhorias e correções</p>
         <p xml:lang="ru">Улучшения и исправления:</p>
+        <p xml:lang="sk">Vylepšenia a opravy</p>
         <p xml:lang="sl">Izboljšave in popravki</p>
         <p xml:lang="tr">İyileştirmeler ve düzeltmeler</p>
         <p xml:lang="uk">Удосконалення і виправлення</p>
@@ -658,6 +665,7 @@
           <li xml:lang="nl">Zorg ervoor dat het inline-bericht in de voettekst boven de inhoud wordt weergegeven</li>
           <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
           <li xml:lang="ru">Проверка, что встроенное сообщение в нижнем колонтитуле отображается поверх содержимого;</li>
+          <li xml:lang="sk">Zabezpečenie, že správa v päte je zobrazená nad obsahom</li>
           <li xml:lang="sl">Zagotovi, da je sporočilo v podnožju prikazano na vrhu vsebine</li>
           <li xml:lang="tr">Altbilgideki satır içi iletinin içeriğin üstünde görüntülendiğinden emin ol</li>
           <li xml:lang="uk">Забезпечено показ вбудованого повідомлення нижнього колонтитула над вмістом сторінки</li>
@@ -676,6 +684,7 @@
           <li xml:lang="nl">Toon evenementen standaard alleen op breedbeeldschermen</li>
           <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
           <li xml:lang="ru">Показ события по умолчанию только на широких экранах;</li>
+          <li xml:lang="sk">Predvolené zobrazenie udalostí iba na širokých obrazovkách</li>
           <li xml:lang="sl">Privzeto prikazje dogodke samo na širokih zaslonih</li>
           <li xml:lang="tr">Etkinlikleri öntanımlı olarak yalnızca geniş ekranlarda göster</li>
           <li xml:lang="uk">Реалізовано типовий показ подій лише на широких екранах</li>
@@ -694,6 +703,7 @@
           <li xml:lang="nl">Zorg er op het bureaublad voor dat er niet meer dan twee paginakolommen tegelijk zichtbaar zijn</li>
           <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
           <li xml:lang="ru">На настольных устройствах добавлена проверка, что одновременно видно не более двух столбцов страницы;</li>
+          <li xml:lang="sk">Na pracovnej ploche zabezpečte, aby boli viditeľné maximálne dva stĺpce strán súčasne</li>
           <li xml:lang="sl">Na namizju zagotovi, da hkrati nista vidna več kot dva stolpca strani.</li>
           <li xml:lang="tr">Masaüstü bilgisayarlarda, aynı anda en fazla iki sayfa sütununun görünür olmamasına dikkat et</li>
           <li xml:lang="uk">На стільничній версії забезпечено одночасний показ не більше ніж двох стовпчиків на сторінці</li>
@@ -712,6 +722,7 @@
           <li xml:lang="nl">Vertalingen bijwerken</li>
           <li xml:lang="pt-BR">Atualização de traduções</li>
           <li xml:lang="ru">Обновлены переводы;</li>
+          <li xml:lang="sk">Aktualizácia prekladov</li>
           <li xml:lang="sl">Posodobi prevode</li>
           <li xml:lang="tr">Çevirileri güncelle</li>
           <li xml:lang="uk">Оновлено переклади</li>
@@ -737,6 +748,7 @@
         <p xml:lang="nl">Nieuwe functies, verbetering van reparaties</p>
         <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
         <p xml:lang="ru">Новые возможности, улучшения и исправления;</p>
+        <p xml:lang="sk">Nové funkcie, vylepšenia a opravy</p>
         <p xml:lang="sl">Nove zmožnosti, izboljšave in popravki</p>
         <p xml:lang="tr">Yeni özellikler, iyileştirmeler ve düzeltmeler</p>
         <p xml:lang="uk">Нові можливості, удосконалення і виправлення</p>
@@ -756,6 +768,7 @@
           <li xml:lang="nl">Toon de voortgang van de maandelijkse swipes</li>
           <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
           <li xml:lang="ru">Отображение прогресса перелистывания месяцев;</li>
+          <li xml:lang="sk">Zobrazenie postupu potiahnutí po mesiaci</li>
           <li xml:lang="sl">Prikaži napredek mesečnih prehodov</li>
           <li xml:lang="tr">Aylık kaydırma işlemlerinin ilerlemesini göster</li>
           <li xml:lang="uk">Реалізовано показ поступу під час пересування місяцями</li>
@@ -773,6 +786,7 @@
           <li xml:lang="nl">Verbeter de prestaties van kalendermaanden</li>
           <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
           <li xml:lang="ru">Улучшение производительности календаря на месяц;</li>
+          <li xml:lang="sk">Zlepšenie výkonu mesačného zobrazenia kalendára</li>
           <li xml:lang="sl">Izboljša uspešnost koledarskega meseca</li>
           <li xml:lang="tr">Takvim ayı başarımını iyileştir</li>
           <li xml:lang="uk">Пришвидшено показ місяців у календарі</li>
@@ -791,6 +805,7 @@
           <li xml:lang="nl">Agendabestanden direct openen</li>
           <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
           <li xml:lang="ru">Прямое открытие файлов календаря;</li>
+          <li xml:lang="sk">Priamo otvárať súbory kalendára</li>
           <li xml:lang="sl">Neposredno odpira datoteke koledarja</li>
           <li xml:lang="tr">Takvim dosyalarını doğrudan aç</li>
           <li xml:lang="uk">Реалізовано безпосереднє відкриття файлів календаря</li>
@@ -809,6 +824,7 @@
           <li xml:lang="nl">Toon importmeldingen in de voettekst van de toepassing</li>
           <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
           <li xml:lang="ru">Показывать уведомления об импорте в нижней части приложения</li>
+          <li xml:lang="sk">Zobrazovanie upozornení o importe v päte aplikácie</li>
           <li xml:lang="sl">Prikaže obvestila o uvozu v nogi aplikacije</li>
           <li xml:lang="tr">Uygulama altbilgisinde içe aktarma bildirimlerini göster</li>
           <li xml:lang="uk">Реалізовано показ сповіщень щодо імпортування у нижньому колонтитулі вікна програми</li>
@@ -827,6 +843,7 @@
           <li xml:lang="nl">Correctie van de weergave van inline berichten op het bureaublad</li>
           <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
           <li xml:lang="ru">Исправлено отображение встроенных сообщений на рабочем столе;</li>
+          <li xml:lang="sk">Opravenie zobrazenia správ v riadku na desktope</li>
           <li xml:lang="sl">Popravi prikaz sporočil v vrstici na namizju</li>
           <li xml:lang="tr">Masaüstünde satır içi ileti görüntüleme sorununu düzelt</li>
           <li xml:lang="uk">Виправлено показ вбудованих повідомлень у версії для робочих станцій</li>
@@ -845,6 +862,7 @@
           <li xml:lang="nl">Introduceer de actie 'kalendergegevens importeren'</li>
           <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
           <li xml:lang="ru">Представлено действие импорта данных календаря;</li>
+          <li xml:lang="sk">Zavedenie akcie import-calendar-data</li>
           <li xml:lang="sl">Uvaja dejanja uvoza podatkov koledarja</li>
           <li xml:lang="tr">import-calendar-data eylemini tanıt</li>
           <li xml:lang="uk">Впроваджено дію import-calendar-data</li>
@@ -863,6 +881,7 @@
           <li xml:lang="nl">Corrigeer de planning van terugkerende evenementen</li>
           <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
           <li xml:lang="ru">Исправлено планирование повторяющихся событий;</li>
+          <li xml:lang="sk">Opravenie plánovania opakujúcich sa udalostí</li>
           <li xml:lang="sl">Popravi razporejanje ponavljajočih se dogodkov</li>
           <li xml:lang="tr">Yinelenen etkinliklerin zamanlamasını düzelt</li>
           <li xml:lang="uk">Виправлення планування повторюваних подій</li>
@@ -881,6 +900,7 @@
           <li xml:lang="nl">Correctie van de weergave van de tijdkiezer</li>
           <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
           <li xml:lang="ru">Исправлено отображение выбора времени;</li>
+          <li xml:lang="sk">Opravenie zobrazenia výberu času</li>
           <li xml:lang="sl">Popravi prikaz izbirnika časa</li>
           <li xml:lang="tr">Zaman seçicisi ekranını düzelt</li>
           <li xml:lang="uk">Виправлено показ панелі вибору часу</li>
@@ -899,6 +919,7 @@
           <li xml:lang="nl">Voeg deelnemersondersteuning toe aan evenementen</li>
           <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
           <li xml:lang="ru">Добавлена поддержка участников для событий;</li>
+          <li xml:lang="sk">Pridanie podpory účastníkov k udalostiam</li>
           <li xml:lang="sl">Dodaja podporo udeležencem dogodkov</li>
           <li xml:lang="tr">Etkinliklere katılımcı desteği ekle</li>
           <li xml:lang="uk">Додано підтримку учасників для записів подій</li>
@@ -917,6 +938,7 @@
           <li xml:lang="nl">Herstructureer de pagina's van de gebeurtenis- en taakbewerker</li>
           <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
           <li xml:lang="ru">Реорганизованы страницы редактора событий и задач;</li>
+          <li xml:lang="sk">Refaktoring stránok editora udalostí a úloh</li>
           <li xml:lang="sl">Premesti strani urejevalnika dogodkov in opravil za preoblikovanje</li>
           <li xml:lang="tr">Etkinlik ve görev düzenleyici sayfalarını yeniden düzenle</li>
           <li xml:lang="uk">Переформатовано сторінки редактора подій і завдань</li>
@@ -934,6 +956,7 @@
           <li xml:lang="nl">Voorkom dat taken of gebeurtenissen per ongeluk worden verwijderd</li>
           <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
           <li xml:lang="ru">Предотвращено случайное удаление задач или событий;</li>
+          <li xml:lang="sk">Predchádzanie náhodnému odstráneniu úlohy alebo udalosti</li>
           <li xml:lang="sl">Prepreči nenamerno brisanje opravil ali dogodkov</li>
           <li xml:lang="tr">Yanlışlıkla görev veya etkinlik silinmesini önle</li>
           <li xml:lang="uk">Реалізовано запобігання випадковому вилученню записів завдань або подій</li>
@@ -951,6 +974,7 @@
           <li xml:lang="nl">Bied deelnemers de mogelijkheid om hun rol te bewerken</li>
           <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
           <li xml:lang="ru">Добавлена возможность редактирования роли участника;</li>
+          <li xml:lang="sk">Ponúknuť úpravu roly účastníka</li>
           <li xml:lang="sl">Nudi urejanje vloge udeleženca</li>
           <li xml:lang="tr">Katılımcı rolü düzenleme olanağı sun</li>
           <li xml:lang="uk">Реалізовано пропозицію редагування ролі учасників</li>
@@ -968,6 +992,7 @@
           <li xml:lang="nl">Los tekenreekspuzzels op</li>
           <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
           <li xml:lang="ru">Исправлены «головоломки» в текстах для переводов;</li>
+          <li xml:lang="sk">Vyriešiť problémy s reťazcami</li>
           <li xml:lang="sl">Reši uganke z nizi</li>
           <li xml:lang="tr">İp bulmacalarını çöz</li>
           <li xml:lang="uk">Розв'язування головоломок з рядків</li>
@@ -985,6 +1010,7 @@
           <li xml:lang="nl">Voeg een geschikte, algemene naam toe voor de toepassing</li>
           <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
           <li xml:lang="ru">Добавлено общее название приложения;</li>
+          <li xml:lang="sk">Pridanie vhodného generického názvu pre aplikáciu</li>
           <li xml:lang="sl">Doda pravilno generično ime za aplikacijo</li>
           <li xml:lang="tr">Uygulama için uygun bir genel ad ekle</li>
           <li xml:lang="uk">Додано належну загальну назву для програми</li>
@@ -1002,6 +1028,7 @@
           <li xml:lang="nl">Bied exportfunctionaliteit aan</li>
           <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
           <li xml:lang="ru">Предоставлена возможность экспорта;</li>
+          <li xml:lang="sk">Ponúknuť funkciu exportu</li>
           <li xml:lang="sl">Nudi funkcionalnost izvoza</li>
           <li xml:lang="tr">Dışa aktarma işlevi sun</li>
           <li xml:lang="uk">Реалізовано функціональну можливість експортування</li>
@@ -1019,6 +1046,7 @@
           <li xml:lang="nl">Bied import aan op specifieke agenda's</li>
           <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
           <li xml:lang="ru">Представлена возможность импорта в определённые календари;</li>
+          <li xml:lang="sk">Ponúknuť import do konkrétnych kalendárov</li>
           <li xml:lang="sl">Nudi uvoz za določene koledarje</li>
           <li xml:lang="tr">Belirli takvimlerde içe aktarma seçeneği sun</li>
           <li xml:lang="uk">Реалізовано імпортування певних календарів</li>
