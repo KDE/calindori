@@ -209,6 +209,7 @@
     <p xml:lang="sl">Možnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">程序功能：</p>
     <p xml:lang="zh-TW">功能：</p>
@@ -250,6 +251,7 @@
       <li xml:lang="sl">Dnevni red</li>
       <li xml:lang="sv">Agenda</li>
       <li xml:lang="tr">Ajanda</li>
+      <li xml:lang="ug">كۈنتەرتىپ</li>
       <li xml:lang="uk">Порядок денний</li>
       <li xml:lang="zh-CN">日程表</li>
       <li xml:lang="zh-TW">行程</li>
@@ -290,6 +292,7 @@
       <li xml:lang="sl">Dogodki</li>
       <li xml:lang="sv">Händelser</li>
       <li xml:lang="tr">Etkinlikler</li>
+      <li xml:lang="ug">ھادىسە</li>
       <li xml:lang="uk">Події</li>
       <li xml:lang="zh-CN">活动</li>
       <li xml:lang="zh-TW">活動</li>
@@ -330,6 +333,7 @@
       <li xml:lang="sl">Za narediti</li>
       <li xml:lang="sv">Uppgifter</li>
       <li xml:lang="tr">Yapılacaklar</li>
+      <li xml:lang="ug">بېجىرىدىغان</li>
       <li xml:lang="uk">Завдання</li>
       <li xml:lang="zh-CN">待办事项</li>
       <li xml:lang="zh-TW">待辦事項</li>
@@ -741,6 +745,7 @@
           <li xml:lang="sk">Aktualizácia prekladov</li>
           <li xml:lang="sl">Posodobi prevode</li>
           <li xml:lang="tr">Çevirileri güncelle</li>
+          <li xml:lang="ug">تەرجىمە يېڭىلا</li>
           <li xml:lang="uk">Оновлено переклади</li>
           <li xml:lang="zh-CN">更新翻译</li>
           <li xml:lang="zh-TW">更新翻譯</li>
