@@ -31,8 +31,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/stable/frameworks/6.20/kpeople-6.20.0.tar.xz",
-                    "sha256": "72f7751d589e7d7204665a1adf8751abdbdbd6e4b582662c313ec79ddb013fb2",
+                    "url": "https://download.kde.org/stable/frameworks/6.27/kpeople-6.27.0.tar.xz",
+                    "sha256": "586407310370f9a7fe88773c90e83e227bec7f5f6f860df6540d69db425581d6",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 8762,
