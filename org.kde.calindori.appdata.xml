@@ -592,6 +592,7 @@
           <li xml:lang="it">Miglioramenti generali dell'interfaccia utente e rielaborazione del motore</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
+          <li xml:lang="nn">Generelle forbetringar for brukarflata samt arbeid på datamotoren</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
@@ -620,6 +621,7 @@
           <li xml:lang="it">Miglioramenti generali dell'interfaccia utente e rielaborazione del motore</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
+          <li xml:lang="nn">Generelle forbetringar for brukarflata samt arbeid på datamotoren</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
@@ -655,6 +657,7 @@
         <p xml:lang="it">Miglioramenti e correzioni</p>
         <p xml:lang="ka">გაუმჯობესებები და შეცდომების გასწორება</p>
         <p xml:lang="nl">Verbetering van reparaties</p>
+        <p xml:lang="nn">Forbetringar og rettingar</p>
         <p xml:lang="pt-BR">Melhorias e correções</p>
         <p xml:lang="ru">Улучшения и исправления:</p>
         <p xml:lang="sk">Vylepšenia a opravy</p>
@@ -740,6 +743,7 @@
           <li xml:lang="it">Traduzioni aggiornate</li>
           <li xml:lang="ka">თარგმანების განახლება</li>
           <li xml:lang="nl">Vertalingen bijwerken</li>
+          <li xml:lang="nn">Oppdaterte omsetjignar</li>
           <li xml:lang="pt-BR">Atualização de traduções</li>
           <li xml:lang="ru">Обновлены переводы;</li>
           <li xml:lang="sk">Aktualizácia prekladov</li>
@@ -769,6 +773,7 @@
         <p xml:lang="it">Nuove funzionalità, miglioramenti e correzioni</p>
         <p xml:lang="ka">ახალი ფუნქციები, გაუმჯობესებები და შეცდომების გასწორება</p>
         <p xml:lang="nl">Nieuwe functies, verbetering van reparaties</p>
+        <p xml:lang="nn">Nye funksjonar, forbetringar og rettingar</p>
         <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
         <p xml:lang="ru">Новые возможности, улучшения и исправления;</p>
         <p xml:lang="sk">Nové funkcie, vylepšenia a opravy</p>
@@ -832,6 +837,7 @@
           <li xml:lang="it">Apre direttamente i file del calendario</li>
           <li xml:lang="ka">კალენდრის ფაილების პირდაპირ გახსნა</li>
           <li xml:lang="nl">Agendabestanden direct openen</li>
+          <li xml:lang="nn">Opna kalenderfiler direkte</li>
           <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
           <li xml:lang="ru">Прямое открытие файлов календаря;</li>
           <li xml:lang="sk">Priamo otvárať súbory kalendára</li>
