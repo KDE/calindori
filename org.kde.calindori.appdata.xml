@@ -804,6 +804,7 @@
           <li xml:lang="tr">Aylık kaydırma işlemlerinin ilerlemesini göster</li>
           <li xml:lang="uk">Реалізовано показ поступу під час пересування місяцями</li>
           <li xml:lang="zh-CN">显示月滑过的进度</li>
+          <li xml:lang="zh-TW">顯示月份滑動的進度</li>
           <li>Improve calendar month performance</li>
           <li xml:lang="ar">تحسين أداء عرض الشهر في التقويم</li>
           <li xml:lang="ca">Millora el rendiment del mes de calendari</li>
@@ -993,6 +994,7 @@
           <li xml:lang="tr">Etkinlik ve görev düzenleyici sayfalarını yeniden düzenle</li>
           <li xml:lang="uk">Переформатовано сторінки редактора подій і завдань</li>
           <li xml:lang="zh-CN">重整事件和任务编辑页面</li>
+          <li xml:lang="zh-TW">重構活動與工作項目編輯器頁面</li>
           <li>Prevent accidental task or event deletion</li>
           <li xml:lang="ar">منع حذف المهام أو الأحداث عن طريق الخطأ</li>
           <li xml:lang="ca">Evita l'eliminació accidental de tasques o esdeveniments</li>
@@ -1013,6 +1015,7 @@
           <li xml:lang="tr">Yanlışlıkla görev veya etkinlik silinmesini önle</li>
           <li xml:lang="uk">Реалізовано запобігання випадковому вилученню записів завдань або подій</li>
           <li xml:lang="zh-CN">防止意外任务或事件删除</li>
+          <li xml:lang="zh-TW">防止意外刪除工作項目或活動</li>
           <li>Offer attendee role editing</li>
           <li xml:lang="ar">توفير تحرير أدوار الحاضرين</li>
           <li xml:lang="ca">Ofereix l'edició de rols d'assistent</li>
@@ -1033,6 +1036,7 @@
           <li xml:lang="tr">Katılımcı rolü düzenleme olanağı sun</li>
           <li xml:lang="uk">Реалізовано пропозицію редагування ролі учасників</li>
           <li xml:lang="zh-CN">提供参与者角色编辑功能</li>
+          <li xml:lang="zh-TW">提供參加者角色的編輯</li>
           <li>Solve string puzzles</li>
           <li xml:lang="ar">حل مشاكل تركيب النصوص</li>
           <li xml:lang="ca">Soluciona els trencaclosques de cadenes</li>
@@ -1053,6 +1057,7 @@
           <li xml:lang="tr">İp bulmacalarını çöz</li>
           <li xml:lang="uk">Розв'язування головоломок з рядків</li>
           <li xml:lang="zh-CN">解决字符串问题</li>
+          <li xml:lang="zh-TW">解決字串謎團</li>
           <li>Add a proper generic name for the application</li>
           <li xml:lang="ar">إضافة اسم عام مناسب للتطبيق</li>
           <li xml:lang="ca">Afegeix un nom genèric adequat per a l'aplicació</li>
@@ -1073,6 +1078,7 @@
           <li xml:lang="tr">Uygulama için uygun bir genel ad ekle</li>
           <li xml:lang="uk">Додано належну загальну назву для програми</li>
           <li xml:lang="zh-CN">为应用程序添加一个适当的通用名称</li>
+          <li xml:lang="zh-TW">新增這個應用程式正式的通用名稱</li>
           <li>Offer export functionality</li>
           <li xml:lang="ar">توفير وظيفة التصدير</li>
           <li xml:lang="ca">Ofereix la funcionalitat d'exportació</li>
@@ -1093,6 +1099,7 @@
           <li xml:lang="tr">Dışa aktarma işlevi sun</li>
           <li xml:lang="uk">Реалізовано функціональну можливість експортування</li>
           <li xml:lang="zh-CN">提供导出功能</li>
+          <li xml:lang="zh-TW">提供匯出功能</li>
           <li>Offer import on specific calendars</li>
           <li xml:lang="ar">توفير الاستيراد لتقاويم محددة</li>
           <li xml:lang="ca">Ofereix la importació en calendaris específics</li>
@@ -1113,6 +1120,7 @@
           <li xml:lang="tr">Belirli takvimlerde içe aktarma seçeneği sun</li>
           <li xml:lang="uk">Реалізовано імпортування певних календарів</li>
           <li xml:lang="zh-CN">提供导入特定日历</li>
+          <li xml:lang="zh-TW">提供匯入到指定行事曆</li>
         </ul>
       </description>
     </release>
