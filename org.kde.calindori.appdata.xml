@@ -598,6 +598,7 @@
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
+          <li xml:lang="sv">Allmänna förbättringar av användargränssnitt och omarbetning av bakgrundsprogram</li>
           <li xml:lang="tr">Genel kullanıcı arayüzü iyileştirmeleri ve arka uç yeniden yapılandırması</li>
           <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
           <li xml:lang="zh-CN">一般用户界面改进和后端重写</li>
@@ -627,6 +628,7 @@
           <li xml:lang="ru">Улучшения общего интерфейса пользователя и переработка внутренней логики</li>
           <li xml:lang="sk">Všeobecné vylepšenia používateľského rozhrania a prepracovanie backendu</li>
           <li xml:lang="sl">Splošne izboljšave uporabniškega vmesnika in predelava zalednega sistema</li>
+          <li xml:lang="sv">Allmänna förbättringar av användargränssnitt och omarbetning av bakgrundsprogram</li>
           <li xml:lang="tr">Genel kullanıcı arayüzü iyileştirmeleri ve arka uç yeniden yapılandırması</li>
           <li xml:lang="uk">Загальні удосконалення інтерфейсу користувача та переписування модуля обробки</li>
           <li xml:lang="zh-CN">一般用户界面改进和后端重写</li>
@@ -663,6 +665,7 @@
         <p xml:lang="ru">Улучшения и исправления:</p>
         <p xml:lang="sk">Vylepšenia a opravy</p>
         <p xml:lang="sl">Izboljšave in popravki</p>
+        <p xml:lang="sv">Förbättringar och rättningar</p>
         <p xml:lang="tr">İyileştirmeler ve düzeltmeler</p>
         <p xml:lang="uk">Удосконалення і виправлення</p>
         <p xml:lang="zh-CN">改进和修复</p>
@@ -685,6 +688,7 @@
           <li xml:lang="ru">Проверка, что встроенное сообщение в нижнем колонтитуле отображается поверх содержимого;</li>
           <li xml:lang="sk">Zabezpečenie, že správa v päte je zobrazená nad obsahom</li>
           <li xml:lang="sl">Zagotovi, da je sporočilo v podnožju prikazano na vrhu vsebine</li>
+          <li xml:lang="sv">Se till att sidfotens meddelande på plats visas ovanpå innehållet</li>
           <li xml:lang="tr">Altbilgideki satır içi iletinin içeriğin üstünde görüntülendiğinden emin ol</li>
           <li xml:lang="uk">Забезпечено показ вбудованого повідомлення нижнього колонтитула над вмістом сторінки</li>
           <li xml:lang="zh-CN">确保页脚内消息显示在内容顶部</li>
@@ -706,6 +710,7 @@
           <li xml:lang="ru">Показ события по умолчанию только на широких экранах;</li>
           <li xml:lang="sk">Predvolené zobrazenie udalostí iba na širokých obrazovkách</li>
           <li xml:lang="sl">Privzeto prikazje dogodke samo na širokih zaslonih</li>
+          <li xml:lang="sv">Visa bara normalt händelser på breda skärmar</li>
           <li xml:lang="tr">Etkinlikleri öntanımlı olarak yalnızca geniş ekranlarda göster</li>
           <li xml:lang="uk">Реалізовано типовий показ подій лише на широких екранах</li>
           <li xml:lang="zh-CN">默认只在宽屏幕上显示事件</li>
@@ -727,6 +732,7 @@
           <li xml:lang="ru">На настольных устройствах добавлена проверка, что одновременно видно не более двух столбцов страницы;</li>
           <li xml:lang="sk">Na pracovnej ploche zabezpečte, aby boli viditeľné maximálne dva stĺpce strán súčasne</li>
           <li xml:lang="sl">Na namizju zagotovi, da hkrati nista vidna več kot dva stolpca strani.</li>
+          <li xml:lang="sv">På skrivbord, se till att inte fler än två sidkolumner är synliga samtidigt</li>
           <li xml:lang="tr">Masaüstü bilgisayarlarda, aynı anda en fazla iki sayfa sütununun görünür olmamasına dikkat et</li>
           <li xml:lang="uk">На стільничній версії забезпечено одночасний показ не більше ніж двох стовпчиків на сторінці</li>
           <li xml:lang="zh-CN">在桌面上，确保同时显示最多两个页面列</li>
@@ -749,6 +755,7 @@
           <li xml:lang="ru">Обновлены переводы;</li>
           <li xml:lang="sk">Aktualizácia prekladov</li>
           <li xml:lang="sl">Posodobi prevode</li>
+          <li xml:lang="sv">Uppdatera översättningar</li>
           <li xml:lang="tr">Çevirileri güncelle</li>
           <li xml:lang="ug">تەرجىمە يېڭىلا</li>
           <li xml:lang="uk">Оновлено переклади</li>
@@ -779,6 +786,7 @@
         <p xml:lang="ru">Новые возможности, улучшения и исправления;</p>
         <p xml:lang="sk">Nové funkcie, vylepšenia a opravy</p>
         <p xml:lang="sl">Nove zmožnosti, izboljšave in popravki</p>
+        <p xml:lang="sv">Nya funktioner, förbättringar och rättningar</p>
         <p xml:lang="tr">Yeni özellikler, iyileştirmeler ve düzeltmeler</p>
         <p xml:lang="uk">Нові можливості, удосконалення і виправлення</p>
         <p xml:lang="zh-CN">新功能、改进和修复</p>
@@ -801,6 +809,7 @@
           <li xml:lang="ru">Отображение прогресса перелистывания месяцев;</li>
           <li xml:lang="sk">Zobrazenie postupu potiahnutí po mesiaci</li>
           <li xml:lang="sl">Prikaži napredek mesečnih prehodov</li>
+          <li xml:lang="sv">Visa månadssvepningars förlopp</li>
           <li xml:lang="tr">Aylık kaydırma işlemlerinin ilerlemesini göster</li>
           <li xml:lang="uk">Реалізовано показ поступу під час пересування місяцями</li>
           <li xml:lang="zh-CN">显示月滑过的进度</li>
@@ -822,6 +831,7 @@
           <li xml:lang="ru">Улучшение производительности календаря на месяц;</li>
           <li xml:lang="sk">Zlepšenie výkonu mesačného zobrazenia kalendára</li>
           <li xml:lang="sl">Izboljša uspešnost koledarskega meseca</li>
+          <li xml:lang="sv">Förbättra kalenderns månadsprestanda</li>
           <li xml:lang="tr">Takvim ayı başarımını iyileştir</li>
           <li xml:lang="uk">Пришвидшено показ місяців у календарі</li>
           <li xml:lang="zh-CN">提高日历的月性能</li>
@@ -844,6 +854,7 @@
           <li xml:lang="ru">Прямое открытие файлов календаря;</li>
           <li xml:lang="sk">Priamo otvárať súbory kalendára</li>
           <li xml:lang="sl">Neposredno odpira datoteke koledarja</li>
+          <li xml:lang="sv">Öppna kalenderfiler direkt</li>
           <li xml:lang="tr">Takvim dosyalarını doğrudan aç</li>
           <li xml:lang="uk">Реалізовано безпосереднє відкриття файлів календаря</li>
           <li xml:lang="zh-CN">直接打开日历文件</li>
@@ -865,6 +876,7 @@
           <li xml:lang="ru">Показывать уведомления об импорте в нижней части приложения</li>
           <li xml:lang="sk">Zobrazovanie upozornení o importe v päte aplikácie</li>
           <li xml:lang="sl">Prikaže obvestila o uvozu v nogi aplikacije</li>
+          <li xml:lang="sv">Visa importunderrättelser i programmets sidfot</li>
           <li xml:lang="tr">Uygulama altbilgisinde içe aktarma bildirimlerini göster</li>
           <li xml:lang="uk">Реалізовано показ сповіщень щодо імпортування у нижньому колонтитулі вікна програми</li>
           <li xml:lang="zh-CN">在应用页脚显示导入通知</li>
@@ -886,6 +898,7 @@
           <li xml:lang="ru">Исправлено отображение встроенных сообщений на рабочем столе;</li>
           <li xml:lang="sk">Opravenie zobrazenia správ v riadku na desktope</li>
           <li xml:lang="sl">Popravi prikaz sporočil v vrstici na namizju</li>
+          <li xml:lang="sv">Rätta visning av meddelanden på plats på skrivbord</li>
           <li xml:lang="tr">Masaüstünde satır içi ileti görüntüleme sorununu düzelt</li>
           <li xml:lang="uk">Виправлено показ вбудованих повідомлень у версії для робочих станцій</li>
           <li xml:lang="zh-CN">修复桌面上的内联消息显示</li>
@@ -907,6 +920,7 @@
           <li xml:lang="ru">Представлено действие импорта данных календаря;</li>
           <li xml:lang="sk">Zavedenie akcie import-calendar-data</li>
           <li xml:lang="sl">Uvaja dejanja uvoza podatkov koledarja</li>
+          <li xml:lang="sv">Introducera åtgärden import-calendar-data</li>
           <li xml:lang="tr">import-calendar-data eylemini tanıt</li>
           <li xml:lang="uk">Впроваджено дію import-calendar-data</li>
           <li xml:lang="zh-CN">新增 导入日历数据 动作</li>
@@ -928,6 +942,7 @@
           <li xml:lang="ru">Исправлено планирование повторяющихся событий;</li>
           <li xml:lang="sk">Opravenie plánovania opakujúcich sa udalostí</li>
           <li xml:lang="sl">Popravi razporejanje ponavljajočih se dogodkov</li>
+          <li xml:lang="sv">Rätta schemaläggning av upprepade händelser</li>
           <li xml:lang="tr">Yinelenen etkinliklerin zamanlamasını düzelt</li>
           <li xml:lang="uk">Виправлення планування повторюваних подій</li>
           <li xml:lang="zh-CN">修复重复事件的时间预计</li>
@@ -949,6 +964,7 @@
           <li xml:lang="ru">Исправлено отображение выбора времени;</li>
           <li xml:lang="sk">Opravenie zobrazenia výberu času</li>
           <li xml:lang="sl">Popravi prikaz izbirnika časa</li>
+          <li xml:lang="sv">Rätta visning av tidsväljare</li>
           <li xml:lang="tr">Zaman seçicisi ekranını düzelt</li>
           <li xml:lang="uk">Виправлено показ панелі вибору часу</li>
           <li xml:lang="zh-CN">修复时间选择器显示</li>
@@ -970,6 +986,7 @@
           <li xml:lang="ru">Добавлена поддержка участников для событий;</li>
           <li xml:lang="sk">Pridanie podpory účastníkov k udalostiam</li>
           <li xml:lang="sl">Dodaja podporo udeležencem dogodkov</li>
+          <li xml:lang="sv">Tillägg av stöd för deltagare i händelser</li>
           <li xml:lang="tr">Etkinliklere katılımcı desteği ekle</li>
           <li xml:lang="uk">Додано підтримку учасників для записів подій</li>
           <li xml:lang="zh-CN">为事件新增参与者支持</li>
@@ -991,6 +1008,7 @@
           <li xml:lang="ru">Реорганизованы страницы редактора событий и задач;</li>
           <li xml:lang="sk">Refaktoring stránok editora udalostí a úloh</li>
           <li xml:lang="sl">Premesti strani urejevalnika dogodkov in opravil za preoblikovanje</li>
+          <li xml:lang="sv">Omstrukturera händelse- och uppgiftsredigeringssidor</li>
           <li xml:lang="tr">Etkinlik ve görev düzenleyici sayfalarını yeniden düzenle</li>
           <li xml:lang="uk">Переформатовано сторінки редактора подій і завдань</li>
           <li xml:lang="zh-CN">重整事件和任务编辑页面</li>
@@ -1012,6 +1030,7 @@
           <li xml:lang="ru">Предотвращено случайное удаление задач или событий;</li>
           <li xml:lang="sk">Predchádzanie náhodnému odstráneniu úlohy alebo udalosti</li>
           <li xml:lang="sl">Prepreči nenamerno brisanje opravil ali dogodkov</li>
+          <li xml:lang="sv">Förhindra oavsiktlig borttagning av uppgifter eller händelser</li>
           <li xml:lang="tr">Yanlışlıkla görev veya etkinlik silinmesini önle</li>
           <li xml:lang="uk">Реалізовано запобігання випадковому вилученню записів завдань або подій</li>
           <li xml:lang="zh-CN">防止意外任务或事件删除</li>
@@ -1033,6 +1052,7 @@
           <li xml:lang="ru">Добавлена возможность редактирования роли участника;</li>
           <li xml:lang="sk">Ponúknuť úpravu roly účastníka</li>
           <li xml:lang="sl">Nudi urejanje vloge udeleženca</li>
+          <li xml:lang="sv">Erbjud redigering av deltagarroll</li>
           <li xml:lang="tr">Katılımcı rolü düzenleme olanağı sun</li>
           <li xml:lang="uk">Реалізовано пропозицію редагування ролі учасників</li>
           <li xml:lang="zh-CN">提供参与者角色编辑功能</li>
@@ -1054,6 +1074,7 @@
           <li xml:lang="ru">Исправлены «головоломки» в текстах для переводов;</li>
           <li xml:lang="sk">Vyriešiť problémy s reťazcami</li>
           <li xml:lang="sl">Reši uganke z nizi</li>
+          <li xml:lang="sv">Lös strängpussel</li>
           <li xml:lang="tr">İp bulmacalarını çöz</li>
           <li xml:lang="uk">Розв'язування головоломок з рядків</li>
           <li xml:lang="zh-CN">解决字符串问题</li>
@@ -1075,6 +1096,7 @@
           <li xml:lang="ru">Добавлено общее название приложения;</li>
           <li xml:lang="sk">Pridanie vhodného generického názvu pre aplikáciu</li>
           <li xml:lang="sl">Doda pravilno generično ime za aplikacijo</li>
+          <li xml:lang="sv">Tillägg av en riktig generellt namn på programmet</li>
           <li xml:lang="tr">Uygulama için uygun bir genel ad ekle</li>
           <li xml:lang="uk">Додано належну загальну назву для програми</li>
           <li xml:lang="zh-CN">为应用程序添加一个适当的通用名称</li>
@@ -1096,6 +1118,7 @@
           <li xml:lang="ru">Предоставлена возможность экспорта;</li>
           <li xml:lang="sk">Ponúknuť funkciu exportu</li>
           <li xml:lang="sl">Nudi funkcionalnost izvoza</li>
+          <li xml:lang="sv">Erbjud exportfunktioner</li>
           <li xml:lang="tr">Dışa aktarma işlevi sun</li>
           <li xml:lang="uk">Реалізовано функціональну можливість експортування</li>
           <li xml:lang="zh-CN">提供导出功能</li>
@@ -1117,6 +1140,7 @@
           <li xml:lang="ru">Представлена возможность импорта в определённые календари;</li>
           <li xml:lang="sk">Ponúknuť import do konkrétnych kalendárov</li>
           <li xml:lang="sl">Nudi uvoz za določene koledarje</li>
+          <li xml:lang="sv">Erbjud import av specifika kalendrar</li>
           <li xml:lang="tr">Belirli takvimlerde içe aktarma seçeneği sun</li>
           <li xml:lang="uk">Реалізовано імпортування певних календарів</li>
           <li xml:lang="zh-CN">提供导入特定日历</li>
