@@ -30,15 +30,8 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.kde.org/stable/frameworks/6.28/kpeople-6.28.0.tar.xz",
-                    "sha256": "a5bcf11a6cbca46d4bf83399fe9c0c3c9aaf228be81b05ba966a4ba51256fd0a",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 8762,
-                        "stable-only": true,
-                        "url-template": "https://download.kde.org/stable/frameworks/${major}.${minor}/kpeople-$version.tar.xz"
-                    }
+                    "type": "git",
+                    "url": "https://invent.kde.org/frameworks/kpeople.git"
                 }
             ]
         },
