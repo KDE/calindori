@@ -706,6 +706,7 @@
           <li xml:lang="it">Mostra gli eventi per impostazione predefinita solo su schermi larghi</li>
           <li xml:lang="ka">მოვლენების ნაგულისხმევად, მხოლოდ, ფართო ეკრანებზე ჩვენება</li>
           <li xml:lang="nl">Toon evenementen standaard alleen op breedbeeldschermen</li>
+          <li xml:lang="nn">Viser som standard berre hendingar på breie skjermar</li>
           <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
           <li xml:lang="ru">Показ события по умолчанию только на широких экранах;</li>
           <li xml:lang="sk">Predvolené zobrazenie udalostí iba na širokých obrazovkách</li>
@@ -728,6 +729,7 @@
           <li xml:lang="it">Sul desktop, assicura che non siano visibili più di due colonne di pagina contemporaneamente</li>
           <li xml:lang="ka">კომპიუტერზე უზრუნველყოფა, რომ ერთდროულად 2-ზე მეტი გვერდის სვეტი ხილული არ იყოს</li>
           <li xml:lang="nl">Zorg er op het bureaublad voor dat er niet meer dan twee paginakolommen tegelijk zichtbaar zijn</li>
+          <li xml:lang="nn">På skrivebordet, ser til at ikkje meir enn to side­kolonnar er synlege samtidig</li>
           <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
           <li xml:lang="ru">На настольных устройствах добавлена проверка, что одновременно видно не более двух столбцов страницы;</li>
           <li xml:lang="sk">Na pracovnej ploche zabezpečte, aby boli viditeľné maximálne dva stĺpce strán súčasne</li>
@@ -827,6 +829,7 @@
           <li xml:lang="it">Migliora le prestazioni del mese solare</li>
           <li xml:lang="ka">გაუმჯობესდა კალენდრის თვის წარმადობა</li>
           <li xml:lang="nl">Verbeter de prestaties van kalendermaanden</li>
+          <li xml:lang="nn">Forbetra yting ved månadsvising</li>
           <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
           <li xml:lang="ru">Улучшение производительности календаря на месяц;</li>
           <li xml:lang="sk">Zlepšenie výkonu mesačného zobrazenia kalendára</li>
@@ -872,6 +875,7 @@
           <li xml:lang="it">Mostra le notifiche di importazione nel piè di pagina dell'applicazione</li>
           <li xml:lang="ka">შემოტანის გაფრთხილების ჩვენება აპის ქვედა კოლონტიტულში</li>
           <li xml:lang="nl">Toon importmeldingen in de voettekst van de toepassing</li>
+          <li xml:lang="nn">Vist importerings­meldingar ved botnen av programmet</li>
           <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
           <li xml:lang="ru">Показывать уведомления об импорте в нижней части приложения</li>
           <li xml:lang="sk">Zobrazovanie upozornení o importe v päte aplikácie</li>
