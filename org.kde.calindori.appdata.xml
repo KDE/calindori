@@ -684,6 +684,7 @@
           <li xml:lang="it">Assicura che il messaggio in linea del piè di pagina venga visualizzato sopra il contenuto</li>
           <li xml:lang="ka">უზრუნველყოფილია ქვედა კოლონტიტულის შიდა შეტყობინების ჩვენება შინაარსის ზემოდან</li>
           <li xml:lang="nl">Zorg ervoor dat het inline-bericht in de voettekst boven de inhoud wordt weergegeven</li>
+          <li xml:lang="nn">Sørg for at meldingar ved botnen vert vist oppå innhaldet</li>
           <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
           <li xml:lang="ru">Проверка, что встроенное сообщение в нижнем колонтитуле отображается поверх содержимого;</li>
           <li xml:lang="sk">Zabezpečenie, že správa v päte je zobrazená nad obsahom</li>
@@ -807,6 +808,7 @@
           <li xml:lang="it">Mostra l'avanzamento degli scorrimenti mensili</li>
           <li xml:lang="ka">თვიური გასმების მიმდინარეობის ჩვენება</li>
           <li xml:lang="nl">Toon de voortgang van de maandelijkse swipes</li>
+          <li xml:lang="nn">Vis framgang ved sveiping mellom månadar</li>
           <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
           <li xml:lang="ru">Отображение прогресса перелистывания месяцев;</li>
           <li xml:lang="sk">Zobrazenie postupu potiahnutí po mesiaci</li>
@@ -898,6 +900,7 @@
           <li xml:lang="it">Corregge la visualizzazione dei messaggi in linea sul desktop</li>
           <li xml:lang="ka">გასწორდა ხაზშივე შეტყობინებების ჩვენება კომპიუტერზე</li>
           <li xml:lang="nl">Correctie van de weergave van inline berichten op het bureaublad</li>
+          <li xml:lang="nn">Retta vising av meldingar på skrivebordet</li>
           <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
           <li xml:lang="ru">Исправлено отображение встроенных сообщений на рабочем столе;</li>
           <li xml:lang="sk">Opravenie zobrazenia správ v riadku na desktope</li>
@@ -920,6 +923,7 @@
           <li xml:lang="it">Introduce l'azione import-calendar-data</li>
           <li xml:lang="ka">დაემატა კალენდრის მონაცემების შემოტანის ქმედება</li>
           <li xml:lang="nl">Introduceer de actie 'kalendergegevens importeren'</li>
+          <li xml:lang="nn">Introduser handlinga import-calendar-data</li>
           <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
           <li xml:lang="ru">Представлено действие импорта данных календаря;</li>
           <li xml:lang="sk">Zavedenie akcie import-calendar-data</li>
@@ -942,6 +946,7 @@
           <li xml:lang="it">Corregge la pianificazione di eventi ricorrenti</li>
           <li xml:lang="ka">გასწორდა განმეორებადი მოვლენების დაგეგმვა</li>
           <li xml:lang="nl">Corrigeer de planning van terugkerende evenementen</li>
+          <li xml:lang="nn">Retta planlegging av gjentekne hendingar</li>
           <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
           <li xml:lang="ru">Исправлено планирование повторяющихся событий;</li>
           <li xml:lang="sk">Opravenie plánovania opakujúcich sa udalostí</li>
@@ -964,6 +969,7 @@
           <li xml:lang="it">Corregge la visualizzazione del selettore dell'ora</li>
           <li xml:lang="ka">გასწორდა დროის ამრჩევის ჩვენება</li>
           <li xml:lang="nl">Correctie van de weergave van de tijdkiezer</li>
+          <li xml:lang="nn">Retta vising av tidspunktveljar</li>
           <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
           <li xml:lang="ru">Исправлено отображение выбора времени;</li>
           <li xml:lang="sk">Opravenie zobrazenia výberu času</li>
@@ -986,6 +992,7 @@
           <li xml:lang="it">Aggiungi il supporto dei partecipanti agli eventi</li>
           <li xml:lang="ka">დაემატა მოვლენებზე დამსწრეების მხარდაჭერა</li>
           <li xml:lang="nl">Voeg deelnemersondersteuning toe aan evenementen</li>
+          <li xml:lang="nn">Legg til støtte for deltakarar i hendingar</li>
           <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
           <li xml:lang="ru">Добавлена поддержка участников для событий;</li>
           <li xml:lang="sk">Pridanie podpory účastníkov k udalostiam</li>
@@ -1008,6 +1015,7 @@
           <li xml:lang="it">Riscrittura delle pagine dell'editor di eventi e attività</li>
           <li xml:lang="ka">გადაიწერა მოვლენებისა და ამოცანების რედაქტორის გვერდები</li>
           <li xml:lang="nl">Herstructureer de pagina's van de gebeurtenis- en taakbewerker</li>
+          <li xml:lang="nn">Refaktorering av hendings- og oppgåvesidene</li>
           <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
           <li xml:lang="ru">Реорганизованы страницы редактора событий и задач;</li>
           <li xml:lang="sk">Refaktoring stránok editora udalostí a úloh</li>
@@ -1030,6 +1038,7 @@
           <li xml:lang="it">Previene l'eliminazione accidentale di attività o eventi</li>
           <li xml:lang="ka">ამოცანის, ან მოვლენის უნებლიე წაშლის ტავიდან აცილება</li>
           <li xml:lang="nl">Voorkom dat taken of gebeurtenissen per ongeluk worden verwijderd</li>
+          <li xml:lang="nn">Hindra utsilkta sletting av oppgåver og hendingar</li>
           <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
           <li xml:lang="ru">Предотвращено случайное удаление задач или событий;</li>
           <li xml:lang="sk">Predchádzanie náhodnému odstráneniu úlohy alebo udalosti</li>
@@ -1052,6 +1061,7 @@
           <li xml:lang="it">Offre la modifica del ruolo del partecipante</li>
           <li xml:lang="ka">დამსწრის როლის ჩასწორების შეთავაზება</li>
           <li xml:lang="nl">Bied deelnemers de mogelijkheid om hun rol te bewerken</li>
+          <li xml:lang="nn">Tilby redigering av deltakarrolle</li>
           <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
           <li xml:lang="ru">Добавлена возможность редактирования роли участника;</li>
           <li xml:lang="sk">Ponúknuť úpravu roly účastníka</li>
@@ -1074,6 +1084,7 @@
           <li xml:lang="it">Risolve i puzzle di stringhe</li>
           <li xml:lang="ka">სტრიქონი თავსატეხების ამოხსნა</li>
           <li xml:lang="nl">Los tekenreekspuzzels op</li>
+          <li xml:lang="nn">Løyst teksttreng-nøtter</li>
           <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
           <li xml:lang="ru">Исправлены «головоломки» в текстах для переводов;</li>
           <li xml:lang="sk">Vyriešiť problémy s reťazcami</li>
@@ -1096,6 +1107,7 @@
           <li xml:lang="it">Aggiunge un nome generico appropriato per l'applicazione</li>
           <li xml:lang="ka">დაემატა აპლიკაციის სწორი ზოგადი სახელი</li>
           <li xml:lang="nl">Voeg een geschikte, algemene naam toe voor de toepassing</li>
+          <li xml:lang="nn">Lagt til skikkeleg generisk namn på programmet</li>
           <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
           <li xml:lang="ru">Добавлено общее название приложения;</li>
           <li xml:lang="sk">Pridanie vhodného generického názvu pre aplikáciu</li>
@@ -1118,6 +1130,7 @@
           <li xml:lang="it">Offre una funzionalità di esportazione</li>
           <li xml:lang="ka">გატანის ფუნქციონალის შეთავაზება</li>
           <li xml:lang="nl">Bied exportfunctionaliteit aan</li>
+          <li xml:lang="nn">Tilby eksportfunksjonalitet</li>
           <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
           <li xml:lang="ru">Предоставлена возможность экспорта;</li>
           <li xml:lang="sk">Ponúknuť funkciu exportu</li>
@@ -1140,6 +1153,7 @@
           <li xml:lang="it">Offre l'importazione su calendari specifici</li>
           <li xml:lang="ka">შემოტანის შეთავაზება მითითებულ კალენდრებზე</li>
           <li xml:lang="nl">Bied import aan op specifieke agenda's</li>
+          <li xml:lang="nn">Tilby importering på spesifikke kalendrar</li>
           <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
           <li xml:lang="ru">Представлена возможность импорта в определённые календари;</li>
           <li xml:lang="sk">Ponúknuť import do konkrétnych kalendárov</li>
