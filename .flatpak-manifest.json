@@ -30,22 +30,15 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://invent.kde.org/frameworks/kpeople.git"
-                }
-            ]
-        },
-        {
-            "name": "kirigami-addons",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-            ],
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/kirigami-addons.git"
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/frameworks/6.27/kpeople-6.27.0.tar.xz",
+                    "sha256": "586407310370f9a7fe88773c90e83e227bec7f5f6f860df6540d69db425581d6",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 8762,
+                        "stable-only": true,
+                        "url-template": "https://download.kde.org/stable/frameworks/$major.$minor/kpeople-$version.tar.xz"
+                    }
                 }
             ]
         },
