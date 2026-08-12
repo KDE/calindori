@@ -71,7 +71,7 @@ msgstr[0] "لن يضاف أي حدث"
 msgstr[1] "سيضاف حدث واحد"
 msgstr[2] "سيضاف حدثان"
 msgstr[3] "سيضاف %1 أحدث"
-msgstr[4] "سيضاف %1 حدثاً"
+msgstr[4] "سيضاف %1 حدثًا"
 msgstr[5] "سيضاف %1 حدث"
 
 #: calendarcontroller.cpp:65
@@ -348,7 +348,7 @@ msgstr "اليوم التالي"
 #: contents/ui/WeekView.qml:153
 #, kde-format
 msgid "Create Event"
-msgstr "أنشئ حدثاً"
+msgstr "أنشئ حدثًا"
 
 #: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
 #: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
@@ -521,7 +521,7 @@ msgstr[5] "%1 حدث"
 #: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
 msgid "AM"
-msgstr "صباحاً"
+msgstr "صباحًا"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:92
 #, kde-format
@@ -644,7 +644,7 @@ msgstr[0] " "
 msgstr[1] "شهر واحد"
 msgstr[2] "شهران"
 msgstr[3] "أشهر"
-msgstr[4] "شهراً"
+msgstr[4] "شهرًا"
 msgstr[5] "شهر"
 
 #: contents/ui/RecurrencePickerSheet.qml:64
@@ -655,7 +655,7 @@ msgstr[0] " "
 msgstr[1] "أسبوع واحد"
 msgstr[2] "أسبوعان"
 msgstr[3] "أسابيع"
-msgstr[4] "أسبوعاً"
+msgstr[4] "أسبوعًا"
 msgstr[5] "أسبوع"
 
 #: contents/ui/RecurrencePickerSheet.qml:65
@@ -666,7 +666,7 @@ msgstr[0] " "
 msgstr[1] "يوم واحد"
 msgstr[2] "يومان"
 msgstr[3] "أيام"
-msgstr[4] "يوماً"
+msgstr[4] "يومًا"
 msgstr[5] "يوم"
 
 #: contents/ui/RecurrencePickerSheet.qml:70
@@ -682,7 +682,7 @@ msgstr[0] "دون تكرار"
 msgstr[1] "تكرار واحد"
 msgstr[2] "تكراران"
 msgstr[3] "تكرارات"
-msgstr[4] "تكراراً"
+msgstr[4] "تكرارًا"
 msgstr[5] "تكرار"
 
 #: contents/ui/RecurrencePickerSheet.qml:80
@@ -994,7 +994,7 @@ msgstr[0] " "
 msgstr[1] "كل شهر"
 msgstr[2] "كل شهرين"
 msgstr[3] "كل %1 شهور"
-msgstr[4] "كل %1 شهراً"
+msgstr[4] "كل %1 شهرًا"
 msgstr[5] "كل %1 شهر"
 
 #: recurrenceperiodmodel.cpp:135
@@ -1005,7 +1005,7 @@ msgstr[0] " "
 msgstr[1] "كل أسبوع"
 msgstr[2] "كل أسبوعين"
 msgstr[3] "كل %1 أسابيع"
-msgstr[4] "كل %1 أسبوعاً"
+msgstr[4] "كل %1 أسبوعًا"
 msgstr[5] "كل %1 أسبوع"
 
 #: recurrenceperiodmodel.cpp:136
@@ -1016,7 +1016,7 @@ msgstr[0] " "
 msgstr[1] "كل يوم"
 msgstr[2] "كل يومين"
 msgstr[3] "كل %1 أيام"
-msgstr[4] "كل %1 يوماً"
+msgstr[4] "كل %1 يومًا"
 msgstr[5] "كل %1 يوم"
 
 #: recurrenceperiodmodel.cpp:136
