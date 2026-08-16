@@ -156,7 +156,7 @@
     <p xml:lang="it">Quando si esegue l'applicazione per la prima volta viene creato un nuovo file di calendario che segue lo standard ical. In alternativa, gli utenti possono creare dei calendari aggiuntivi, oppure importare quelli esistenti.</p>
     <p xml:lang="ka">აპლიკაციის პირველა გაშვებისას იქმნება ახალი კალენდარის ფაილი, რომელიც ical-ის სტანდარტს მისდევს. ასევე შეგიძლიათ შექმნათ დამატებითი კალენდარები ან შემოიტანოთ უკვე არსებულები.</p>
     <p xml:lang="ko">앱을 처음으로 실행하면 iCal 표준을 따르는 캘린더 파일을 생성합니다. 추가 캘린더를 만들거나 기존 캘린더를 가져올 수 있습니다.</p>
-    <p xml:lang="lv">Pirmajā programmas ieslēgšanas reizē „Calindori“ izveidos jaunu kalendāru, ievērojot „ical“ standartu. Pretējā gadījumā lietotāji var izmantot papildu kalendārus vai importēt jau esošos.</p>
+    <p xml:lang="lv">Pirmajā programmas ieslēgšanas reizē „Calindori“ izveidos jaunu kalendāru, ievērojot „ical“ standartu. Programmas lietotāji var izmantot papildu kalendārus vai importēt jau esošos.</p>
     <p xml:lang="nl">Bij het de eeerste keer uitvoeren van de toepassing, wordt een nieuw agendabestand aangemaakt die de ical-standaard gebruikt. Alternatief kunnen gebruikers extra agenda's aanmaken of bestaande importeren.</p>
     <p xml:lang="nn">Når du startar programmet første gong, vert det automatisk laga ei ny kalenderfil som følgjer iCalendar-standarden. Men du kan òg oppretta fleire kalendrar eller importera nokon du har frå før.</p>
     <p xml:lang="pa">ਜਦੋਂ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਪਹਿਲੀ ਵਾਰ ਚਲਾਇਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ical ਮਿਆਰ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਨਵੀਂ ਕੈਲੰਡਰ ਫਾਇਲ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਬਦਲਵੇਂ ਰੂਪ ਵਿੱਚ ਵਰਤੋਂਕਾਰ ਵਧੀਕ ਕੈਲੰਡਰ ਬਣਾ ਜਾਂ ਮੌਜੂਦਾ ਕੈਲੰਡਰ ਦਰਾਮਦ ਕਰ ਸਕਦੇ ਹਨ।</p>
@@ -593,6 +593,7 @@
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="it">Miglioramenti generali dell'interfaccia utente e rielaborazione del motore</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
+          <li xml:lang="lv">Uzlabota lietotāja saskarne un pārstrādāta aizmugursistēma</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="nn">Generelle forbetringar for brukarflata samt arbeid på datamotoren</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
@@ -623,6 +624,7 @@
           <li xml:lang="ia">Melioramentos general de interfacie de usator e re-elaboration de retro administration</li>
           <li xml:lang="it">Miglioramenti generali dell'interfaccia utente e rielaborazione del motore</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის ზოგადი გაუმჯობესება და უკანაბოლოს გადაწერა</li>
+          <li xml:lang="lv">Uzlabota lietotāja saskarne un pārstrādāta aizmugursistēma</li>
           <li xml:lang="nl">Algemene verbeteringen aan de gebruikersinterface en herziening van de backend.</li>
           <li xml:lang="nn">Generelle forbetringar for brukarflata samt arbeid på datamotoren</li>
           <li xml:lang="pt-BR">Melhorias gerais na interface do usuário e reformulação do backend</li>
@@ -660,6 +662,7 @@
         <p xml:lang="ia">Melioramentos e correctiones</p>
         <p xml:lang="it">Miglioramenti e correzioni</p>
         <p xml:lang="ka">გაუმჯობესებები და შეცდომების გასწორება</p>
+        <p xml:lang="lv">Uzlabojumi un labojumi</p>
         <p xml:lang="nl">Verbetering van reparaties</p>
         <p xml:lang="nn">Forbetringar og rettingar</p>
         <p xml:lang="pt-BR">Melhorias e correções</p>
@@ -684,6 +687,7 @@
           <li xml:lang="ia">Assecura que le message in linea del pede de pagina es monstrate a culmine del contento </li>
           <li xml:lang="it">Assicura che il messaggio in linea del piè di pagina venga visualizzato sopra il contenuto</li>
           <li xml:lang="ka">უზრუნველყოფილია ქვედა კოლონტიტულის შიდა შეტყობინების ჩვენება შინაარსის ზემოდან</li>
+          <li xml:lang="lv">Nodrošina, ka kājenes rindā esošie ziņojumi tiek parādīti virs satura</li>
           <li xml:lang="nl">Zorg ervoor dat het inline-bericht in de voettekst boven de inhoud wordt weergegeven</li>
           <li xml:lang="nn">Sørg for at meldingar ved botnen vert vist oppå innhaldet</li>
           <li xml:lang="pt-BR">Certifica-se de que a mensagem de rodapé seja exibida acima do conteúdo</li>
@@ -707,6 +711,7 @@
           <li xml:lang="ia">Monstra eventos solmente per definition sur schermos large</li>
           <li xml:lang="it">Mostra gli eventi per impostazione predefinita solo su schermi larghi</li>
           <li xml:lang="ka">მოვლენების ნაგულისხმევად, მხოლოდ, ფართო ეკრანებზე ჩვენება</li>
+          <li xml:lang="lv">Pēc noklusējuma notikumus rāda tikai platos ekrānos</li>
           <li xml:lang="nl">Toon evenementen standaard alleen op breedbeeldschermen</li>
           <li xml:lang="nn">Viser som standard berre hendingar på breie skjermar</li>
           <li xml:lang="pt-BR">Exibe eventos por padrão apenas em telas wide</li>
@@ -730,6 +735,7 @@
           <li xml:lang="ia">Sur scriptorios, assecura que non plus que duo columnas de pagina es visibile al mesme tempore</li>
           <li xml:lang="it">Sul desktop, assicura che non siano visibili più di due colonne di pagina contemporaneamente</li>
           <li xml:lang="ka">კომპიუტერზე უზრუნველყოფა, რომ ერთდროულად 2-ზე მეტი გვერდის სვეტი ხილული არ იყოს</li>
+          <li xml:lang="lv">Nodrošina, ka datorā vienlaicīgi nav redzamas vairāk par divām lapu kolonnām</li>
           <li xml:lang="nl">Zorg er op het bureaublad voor dat er niet meer dan twee paginakolommen tegelijk zichtbaar zijn</li>
           <li xml:lang="nn">På skrivebordet, ser til at ikkje meir enn to side­kolonnar er synlege samtidig</li>
           <li xml:lang="pt-BR">Em computadores, certifica-se de que não mais do que duas colunas da página estejam visíveis ao mesmo tempo</li>
@@ -753,6 +759,7 @@
           <li xml:lang="ia">Actualisa traductiones</li>
           <li xml:lang="it">Traduzioni aggiornate</li>
           <li xml:lang="ka">თარგმანების განახლება</li>
+          <li xml:lang="lv">Atjaunināti tulkojumi</li>
           <li xml:lang="nl">Vertalingen bijwerken</li>
           <li xml:lang="nn">Oppdaterte omsetjingar</li>
           <li xml:lang="pt-BR">Atualização de traduções</li>
@@ -784,6 +791,7 @@
         <p xml:lang="ia">Nove characteristicas, melioramentos e correctiones</p>
         <p xml:lang="it">Nuove funzionalità, miglioramenti e correzioni</p>
         <p xml:lang="ka">ახალი ფუნქციები, გაუმჯობესებები და შეცდომების გასწორება</p>
+        <p xml:lang="lv">Jaunas iespējas, uzlabojumi un labojumi</p>
         <p xml:lang="nl">Nieuwe functies, verbetering van reparaties</p>
         <p xml:lang="nn">Nye funksjonar, forbetringar og rettingar</p>
         <p xml:lang="pt-BR">Novas funcionalidades, melhorias e correções</p>
@@ -808,6 +816,7 @@
           <li xml:lang="ia">Monstra progresso del glissares (swipes) mensual</li>
           <li xml:lang="it">Mostra l'avanzamento degli scorrimenti mensili</li>
           <li xml:lang="ka">თვიური გასმების მიმდინარეობის ჩვენება</li>
+          <li xml:lang="lv">Rāda mēneša navigācijas progresu</li>
           <li xml:lang="nl">Toon de voortgang van de maandelijkse swipes</li>
           <li xml:lang="nn">Vis framgang ved sveiping mellom månadar</li>
           <li xml:lang="pt-BR">Mostrar o progresso dos deslizes mensais</li>
@@ -831,6 +840,7 @@
           <li xml:lang="ia">Meliora prestation menaual de calendario</li>
           <li xml:lang="it">Migliora le prestazioni del mese solare</li>
           <li xml:lang="ka">გაუმჯობესდა კალენდრის თვის წარმადობა</li>
+          <li xml:lang="lv">Uzlabota kalendāra mēneša skata veiktspēja</li>
           <li xml:lang="nl">Verbeter de prestaties van kalendermaanden</li>
           <li xml:lang="nn">Forbetra yting ved månadsvising</li>
           <li xml:lang="pt-BR">Melhoria do desempenho mensal do calendário</li>
@@ -854,6 +864,7 @@
           <li xml:lang="ia">Aperir directemente files de calendario</li>
           <li xml:lang="it">Apre direttamente i file del calendario</li>
           <li xml:lang="ka">კალენდრის ფაილების პირდაპირ გახსნა</li>
+          <li xml:lang="lv">Tiešā veidā atver kalendāra datnes</li>
           <li xml:lang="nl">Agendabestanden direct openen</li>
           <li xml:lang="nn">Opna kalenderfiler direkte</li>
           <li xml:lang="pt-BR">Abrir diretamente os arquivos do calendário</li>
@@ -877,6 +888,7 @@
           <li xml:lang="ia">Monstra notificationes de importar in le pede de pagina de app</li>
           <li xml:lang="it">Mostra le notifiche di importazione nel piè di pagina dell'applicazione</li>
           <li xml:lang="ka">შემოტანის გაფრთხილების ჩვენება აპის ქვედა კოლონტიტულში</li>
+          <li xml:lang="lv">Lietojumprogrammas kājenē rādīt svarīgus paziņojumu</li>
           <li xml:lang="nl">Toon importmeldingen in de voettekst van de toepassing</li>
           <li xml:lang="nn">Vist importerings­meldingar ved botnen av programmet</li>
           <li xml:lang="pt-BR">Exibir notificações de importação no rodapé do aplicativo</li>
@@ -900,6 +912,7 @@
           <li xml:lang="ia">Corrige monstrar message in linea sur scriptorio</li>
           <li xml:lang="it">Corregge la visualizzazione dei messaggi in linea sul desktop</li>
           <li xml:lang="ka">გასწორდა ხაზშივე შეტყობინებების ჩვენება კომპიუტერზე</li>
+          <li xml:lang="lv">Labota rindā esošu ziņojumu parādīšana darbvirsmā</li>
           <li xml:lang="nl">Correctie van de weergave van inline berichten op het bureaublad</li>
           <li xml:lang="nn">Retta vising av meldingar på skrivebordet</li>
           <li xml:lang="pt-BR">Correção da exibição de mensagens embutidas no desktop</li>
@@ -923,6 +936,7 @@
           <li xml:lang="ia">Introduce le action de datos de calendario de importar</li>
           <li xml:lang="it">Introduce l'azione import-calendar-data</li>
           <li xml:lang="ka">დაემატა კალენდრის მონაცემების შემოტანის ქმედება</li>
+          <li xml:lang="lv">Ieviesta kalendāra datu importēšana</li>
           <li xml:lang="nl">Introduceer de actie 'kalendergegevens importeren'</li>
           <li xml:lang="nn">Introduser handlinga import-calendar-data</li>
           <li xml:lang="pt-BR">Introduz a ação import-calendar-data</li>
@@ -946,6 +960,7 @@
           <li xml:lang="ia">Corrige planificationj del repetir eventos</li>
           <li xml:lang="it">Corregge la pianificazione di eventi ricorrenti</li>
           <li xml:lang="ka">გასწორდა განმეორებადი მოვლენების დაგეგმვა</li>
+          <li xml:lang="lv">Labota atkārtojošos notikumu plānošana</li>
           <li xml:lang="nl">Corrigeer de planning van terugkerende evenementen</li>
           <li xml:lang="nn">Retta planlegging av gjentekne hendingar</li>
           <li xml:lang="pt-BR">Correção do agendamento de eventos recorrentes</li>
@@ -969,6 +984,7 @@
           <li xml:lang="ia">Corrige monstrator de recoltor de tempore</li>
           <li xml:lang="it">Corregge la visualizzazione del selettore dell'ora</li>
           <li xml:lang="ka">გასწორდა დროის ამრჩევის ჩვენება</li>
+          <li xml:lang="lv">Labots laika paņemšanas lodziņš</li>
           <li xml:lang="nl">Correctie van de weergave van de tijdkiezer</li>
           <li xml:lang="nn">Retta vising av tidspunktveljar</li>
           <li xml:lang="pt-BR">Correção da exibição do seletor de tempo</li>
@@ -992,6 +1008,7 @@
           <li xml:lang="ia">Adde supporto de participantes per eventos</li>
           <li xml:lang="it">Aggiungi il supporto dei partecipanti agli eventi</li>
           <li xml:lang="ka">დაემატა მოვლენებზე დამსწრეების მხარდაჭერა</li>
+          <li xml:lang="lv">Notikumiem pievienots apmeklētāju atbalsts</li>
           <li xml:lang="nl">Voeg deelnemersondersteuning toe aan evenementen</li>
           <li xml:lang="nn">Legg til støtte for deltakarar i hendingar</li>
           <li xml:lang="pt-BR">Adicionado suporte aos participantes em eventos</li>
@@ -1015,6 +1032,7 @@
           <li xml:lang="ia">Refactorisa evento e paginas de editor de carga</li>
           <li xml:lang="it">Riscrittura delle pagine dell'editor di eventi e attività</li>
           <li xml:lang="ka">გადაიწერა მოვლენებისა და ამოცანების რედაქტორის გვერდები</li>
+          <li xml:lang="lv">Pārstrādātas notikumu un uzdevumu redaktora lapas</li>
           <li xml:lang="nl">Herstructureer de pagina's van de gebeurtenis- en taakbewerker</li>
           <li xml:lang="nn">Refaktorering av hendings- og oppgåvesidene</li>
           <li xml:lang="pt-BR">Refatoração das páginas do editor de eventos e tarefas</li>
@@ -1038,6 +1056,7 @@
           <li xml:lang="ia">Preveni deletion accidental de carga o evento</li>
           <li xml:lang="it">Previene l'eliminazione accidentale di attività o eventi</li>
           <li xml:lang="ka">ამოცანის, ან მოვლენის უნებლიე წაშლის ტავიდან აცილება</li>
+          <li xml:lang="lv">Novērsta nejauša uzdevuma vai notikuma dzēšana</li>
           <li xml:lang="nl">Voorkom dat taken of gebeurtenissen per ongeluk worden verwijderd</li>
           <li xml:lang="nn">Hindra utsilkta sletting av oppgåver og hendingar</li>
           <li xml:lang="pt-BR">Impedir a exclusão acidental de tarefas ou eventos</li>
@@ -1061,6 +1080,7 @@
           <li xml:lang="ia">Offeri modificar de rolo de participante</li>
           <li xml:lang="it">Offre la modifica del ruolo del partecipante</li>
           <li xml:lang="ka">დამსწრის როლის ჩასწორების შეთავაზება</li>
+          <li xml:lang="lv">Apmeklētājam tiek piedāvāta lomas rediģēšana</li>
           <li xml:lang="nl">Bied deelnemers de mogelijkheid om hun rol te bewerken</li>
           <li xml:lang="nn">Tilby redigering av deltakarrolle</li>
           <li xml:lang="pt-BR">Oferecer edição de função de participante</li>
@@ -1084,6 +1104,7 @@
           <li xml:lang="ia">Resolve puzzles  de catena</li>
           <li xml:lang="it">Risolve i puzzle di stringhe</li>
           <li xml:lang="ka">სტრიქონი თავსატეხების ამოხსნა</li>
+          <li xml:lang="lv">Atrisinātas teksta mīklas</li>
           <li xml:lang="nl">Los tekenreekspuzzels op</li>
           <li xml:lang="nn">Løyst teksttreng-nøtter</li>
           <li xml:lang="pt-BR">Solucionar quebra-cabeças de string</li>
@@ -1107,6 +1128,7 @@
           <li xml:lang="ia">Adde un proprie nomine generic per le application</li>
           <li xml:lang="it">Aggiunge un nome generico appropriato per l'applicazione</li>
           <li xml:lang="ka">დაემატა აპლიკაციის სწორი ზოგადი სახელი</li>
+          <li xml:lang="lv">Programmai pievienots pareizs vispārīgais nosaukums</li>
           <li xml:lang="nl">Voeg een geschikte, algemene naam toe voor de toepassing</li>
           <li xml:lang="nn">Lagt til skikkeleg generisk namn på programmet</li>
           <li xml:lang="pt-BR">Adicionado um nome genérico apropriado para o aplicativo</li>
@@ -1130,6 +1152,7 @@
           <li xml:lang="ia">Offere functionalitate de exportar</li>
           <li xml:lang="it">Offre una funzionalità di esportazione</li>
           <li xml:lang="ka">გატანის ფუნქციონალის შეთავაზება</li>
+          <li xml:lang="lv">Piedāvāta eksporta funkcija</li>
           <li xml:lang="nl">Bied exportfunctionaliteit aan</li>
           <li xml:lang="nn">Tilby eksportfunksjonalitet</li>
           <li xml:lang="pt-BR">Oferecer funcionalidade de exportação</li>
@@ -1153,6 +1176,7 @@
           <li xml:lang="ia">Offere importar sur calendarios specific</li>
           <li xml:lang="it">Offre l'importazione su calendari specifici</li>
           <li xml:lang="ka">შემოტანის შეთავაზება მითითებულ კალენდრებზე</li>
+          <li xml:lang="lv">Noteiktiem kalendāriem iespējama importēšana</li>
           <li xml:lang="nl">Bied import aan op specifieke agenda's</li>
           <li xml:lang="nn">Tilby importering på spesifikke kalendrar</li>
           <li xml:lang="pt-BR">Oferecer importação em calendários específicos</li>
