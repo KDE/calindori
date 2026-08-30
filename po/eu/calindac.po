@@ -1,24 +1,31 @@
 # Translation of calindac.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2024 This file is copyright:
+# Copyright (C) 2020-2026 This file is copyright:
 # This file is distributed under the same license as the calindori package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@euskalnet.net>.
+# SPDX-FileCopyrightText: 2026 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2024.
+# SPDX-FileCopyrightText: 2020, 2024, 2026 Iñigo Salvador Azurmendi <xalba@ni.eus>
+#
+# Egoera:
+# Proiektu osoaren berrikuspen integrala: Hasiera 2026-08-30.
+# Azken berrikuspena: UUUU-HH-EE — egoera ondua mantendu da.
+# Terminologia, estiloa, ortotipografia, kohesioa eta koherentzia berrikusi dira.
+# Erreferentzia-gida: kde-pim-aplikazioen_eu_itzulpen-gida.md
+# Ikus, halaber: KDE-eu-berrikuspen-integralen-erregistroa.md
 msgid ""
 msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2020-05-09 10:01+0200\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"PO-Revision-Date: 2026-08-30 01:51+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,12 +35,12 @@ msgstr "Iñigo Salvador Azurmendi"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "xalba@euskalnet.net"
+msgstr "xalba@ni.eus"
 
 #: alarmnotification.cpp:17 alarmnotification.cpp:23
 #, kde-format
 msgid "Suspend"
-msgstr "Eseki"
+msgstr "Geroratu"
 
 #: alarmnotification.cpp:20 alarmnotification.cpp:23
 #, kde-format
@@ -43,7 +50,7 @@ msgstr "Baztertu"
 #: calindacmain.cpp:18 calindacmain.cpp:19
 #, kde-format
 msgid "Calindori Alarm Check Daemon"
-msgstr "Calindori-ko alarma ikuskatzeko daimona"
+msgstr "Calindoriren alarmak egiaztatzeko daimona"
 
 #: calindacmain.cpp:21
 #, kde-format
@@ -58,4 +65,4 @@ msgstr "Dimitris Kardarakos"
 #: calindacmain.cpp:23
 #, kde-format
 msgid "Maintainer"
-msgstr "Arduraduna"
+msgstr "Mantentzailea"
