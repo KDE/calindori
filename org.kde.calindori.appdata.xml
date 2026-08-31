@@ -63,7 +63,7 @@
   <summary xml:lang="eo">Apliko de kalendaro</summary>
   <summary xml:lang="es">Aplicación de calendarios</summary>
   <summary xml:lang="et">Kalendrirakendus</summary>
-  <summary xml:lang="eu">Egutegiko aplikazioa</summary>
+  <summary xml:lang="eu">Egutegi-aplikazioa</summary>
   <summary xml:lang="fi">Kalenterisovellus</summary>
   <summary xml:lang="fr">Application d'agenda</summary>
   <summary xml:lang="gl">Aplicación de calendario</summary>
@@ -104,7 +104,7 @@
     <p xml:lang="eo">Calindori estas tuŝamika kalendara aplikaĵo. Ĝi estis desegnita por porteblaj aparatoj sed ĝi ankaŭ povas funkcii en labortablaj medioj. Uzantoj de Calindori povas kontroli antaŭajn kaj estontajn datojn kaj administri taskojn kaj eventojn.</p>
     <p xml:lang="es">Calindori es una aplicación de calendarios táctil. Ha sido diseñada para dispositivos móviles, aunque también se puede ejecutar en entornos de escritorio. Los usuarios de Calindori pueden comprobar fechas anteriores y futuras, así como gestionar tareas y eventos.</p>
     <p xml:lang="et">Calindori on puutetundlik kalendrirakendus. See loodi eelkõige mobiilseadmetele, aga seda saab kasutada ka töölauaarvutites. Calindori kasutajatel on võimalik uurida möödunud ja tulevasi kuupäevi ning korraldada oma ülesandeid ja sündmusi.</p>
-    <p xml:lang="eu">Calindori ukimena onartzen duen egutegiko aplikazio bat da. Gailu mugikorretarako diseinatu den arren, mahaigaineko inguruneetan ere ibili daiteke. Calindori-ren erabiltzaileek igarotako eta etorkizuneko datak arakatu eta eginkizunak eta gertakizunak kudeatu ditzakete.</p>
+    <p xml:lang="eu">Calindori ukimen bidez erabiltzeko egokia den egutegi-aplikazioa da. Gailu mugikorretarako diseinatu da, baina mahaigain-inguruneetan ere exekuta daiteke. Calindoriren erabiltzaileek iraganeko eta etorkizuneko datak kontsultatu eta zereginak eta gertaerak kudea ditzakete.</p>
     <p xml:lang="fi">Calindori on kosketusnäytölle sopiva kalenterisovellus, joka on suunniteltu mobiililaitteille mutta toimii myös työpöytäympäristössä. Calindorin käyttäjät voivat tarkistaa menneitä ja tulevia päivämääriä sekä hallita tehtäviä ja tapahtumia.</p>
     <p xml:lang="fr">Calindori est une application d'agenda ergonomique pour les écrans tactiles. Elle a été conçue pour les appareils mobiles mais fonctionne également sur les environnements de bureau. Les utilisateurs de Calindori peuvent consulter les dates passées et futures et gérer les tâches et les évènements.</p>
     <p xml:lang="gl">Calindori é unha aplicación de calendario optimizada para uso táctil. Deseñouse para dispositivos móbiles pero tamén pode usarse en contornos de escritorio. Os usuarios de Calindori poden consultar datas pasadas e futuras e xestionar tarefas e eventos.</p>
@@ -144,7 +144,7 @@
     <p xml:lang="eo">Kiam oni efektivigas la aplikaĵon por la unua fojo, nova kalendara dosiero estas kreita, kiu sekvas la normon. Alternative, uzantoj povas krei pliajn kalendarojn aŭ importi ekzistantajn.</p>
     <p xml:lang="es">Al ejecutar la aplicación por primera vez, se crea un nuevo archivo de calendario conforme al estándar ical. De forma alternativa, los usuarios pueden crear calendarios adicionales o importar otros existentes.</p>
     <p xml:lang="et">Rakenduse esmakäivitusel luuakse uus, iCali standardit järgiv kalender. Soovi korral võib kasutaja mõistagi luua lisakalendreid või importida juba olemasolevaid.</p>
-    <p xml:lang="eu">Aplikazioa aurreneko aldiz exekutatzean, egutegiko fitxategi berri bat sortzen da, «ical» estandarrari jarraitzen diona. Horrez gain, erabiltzaileek egutegi osagarriak sortu edo inportatu ditzakete.</p>
+    <p xml:lang="eu">Aplikazioa lehen aldiz exekutatzean, ical estandarrari jarraitzen dion egutegi-fitxategi berri bat sortzen da. Bestela, erabiltzaileek beste egutegi batzuk sortu edo lehendik daudenak inportatu ditzakete.</p>
     <p xml:lang="fi">Käynnistettäessä ohjelma ensi kertaa luodaan uusi iCal-standardia noudattava kalenteritiedosto. Käyttäjä voi myös luoda lisää kalentereja tai tuoda olemassa olevia.</p>
     <p xml:lang="fr">Lors de sa première exécution, l'application crée un nouveau fichier agenda respectant la norme ical. Les utilisateurs peuvent également créer des agendas supplémentaires ou importer des agendas existants.</p>
     <p xml:lang="gl">Ao executar a aplicación por vez primeira, créase un novo ficheiro de calendario que segue o estándar de iCal. De maneira alternativa, os usuarios poden crear calendarios adicionais ou importar calendarios existentes.</p>
@@ -267,7 +267,7 @@
       <li xml:lang="eo">Eventoj</li>
       <li xml:lang="es">Eventos</li>
       <li xml:lang="et">Sündmused</li>
-      <li xml:lang="eu">Gertakizunak</li>
+      <li xml:lang="eu">Gertaerak</li>
       <li xml:lang="fi">Tapahtumat</li>
       <li xml:lang="fr">Évènements</li>
       <li xml:lang="gl">Eventos</li>
@@ -349,7 +349,7 @@
       <li xml:lang="eo">Multoblaj kalendaroj</li>
       <li xml:lang="es">Múltiples calendarios</li>
       <li xml:lang="et">Mitme kalendri kasutamise võimalus</li>
-      <li xml:lang="eu">Egunkari anizkoitzak</li>
+      <li xml:lang="eu">Hainbat egutegi</li>
       <li xml:lang="fi">Useammat kalenterit</li>
       <li xml:lang="fr">Agendas multiples</li>
       <li xml:lang="gl">Varios calendarios</li>
@@ -389,7 +389,7 @@
       <li xml:lang="eo">Importi kalendaron</li>
       <li xml:lang="es">Importar calendario</li>
       <li xml:lang="et">Kalendri importimine</li>
-      <li xml:lang="eu">Inportatu egutegia</li>
+      <li xml:lang="eu">Egutegia inportatu</li>
       <li xml:lang="fi">Kalenterin tuonti</li>
       <li xml:lang="fr">Importer un agenda</li>
       <li xml:lang="gl">Importar un calendario</li>
@@ -587,6 +587,7 @@
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="cs">Obecná vylepšení uživatelského rozhraní a přepracování části podpůrné vrstvy</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="eu">Erabiltzaile-interfazearen hobekuntza orokorrak eta bizkarraldekoaren berregitea</li>
           <li xml:lang="fi">yleisiä käyttöliittymäparannuksia ja taustajärjestelmän työstämistä</li>
           <li xml:lang="fr">Améliorations générales de l'interface utilisateur et refonte du moteur</li>
           <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
@@ -618,6 +619,7 @@
           <li xml:lang="ca-valencia">Millores generals en la interfície d'usuari i refà el dorsal</li>
           <li xml:lang="cs">Obecná vylepšení uživatelského rozhraní a přepracování části podpůrné vrstvy</li>
           <li xml:lang="es">Mejoras generales de la interfaz de usuario y revisión del motor</li>
+          <li xml:lang="eu">Erabiltzaile-interfazearen hobekuntza orokorrak eta bizkarraldekoaren berregitea</li>
           <li xml:lang="fi">yleisiä käyttöliittymäparannuksia ja taustajärjestelmän työstämistä</li>
           <li xml:lang="fr">Améliorations générales de l'interface utilisateur et refonte du moteur</li>
           <li xml:lang="he">שיפורים כלליים בממשק המשתמש וכתיבה מחדש של חלק מהמנגנון</li>
@@ -656,6 +658,7 @@
         <p xml:lang="ca-valencia">Millores i correccions</p>
         <p xml:lang="cs">Vylepšení a opravy</p>
         <p xml:lang="es">Mejoras y correcciones</p>
+        <p xml:lang="eu">Hobekuntzak eta konponketak</p>
         <p xml:lang="fi">parannuksia ja korjauksia</p>
         <p xml:lang="fr">Améliorations et corrections</p>
         <p xml:lang="he">שיפורים ותיקונים</p>
@@ -681,6 +684,7 @@
           <li xml:lang="ca-valencia">Assegura que el missatge inclòs del peu de pàgina es mostra a la part superior del contingut</li>
           <li xml:lang="cs">Zajištěno, aby se zpráva v zápatí zobrazovala nad obsahem</li>
           <li xml:lang="es">Asegurar que el mensaje en línea del pie de página se muestre encima del contenido</li>
+          <li xml:lang="eu">Ziurtatu oineko lerro barruko mezua edukiaren gainean bistaratzen dela</li>
           <li xml:lang="fi">varmistetaan, että alatunnisteen viestirivi näytetään sisällön alussa</li>
           <li xml:lang="fr">Vérification que le message intégré en pied de page s'affiche bien au-dessus du contenu</li>
           <li xml:lang="he">לוודא שההודעה הפנימית התחתונה מוצגת על גבי התוכן</li>
@@ -705,6 +709,7 @@
           <li xml:lang="ca-valencia">Mostra els esdeveniments de manera predeterminada només en pantalles amples</li>
           <li xml:lang="cs">Ve výchozím nastavení se zobrazují události pouze na širokoúhlých obrazovkách</li>
           <li xml:lang="es">Mostrar eventos de forma predeterminada solo en pantallas anchas</li>
+          <li xml:lang="eu">Gertaerak lehenespenez pantaila zabaletan bakarrik erakutsi</li>
           <li xml:lang="fi">näytetään tapahtumat oletuksena vain leveillä näytöillä</li>
           <li xml:lang="fr">Affichage des évènements par défaut uniquement sur les grands écrans</li>
           <li xml:lang="he">הצגת אירועים כברירת מחדל רק במסכים רחבים</li>
@@ -729,6 +734,7 @@
           <li xml:lang="ca-valencia">A l'escriptori, assegura que no hi haja més de dues columnes de pàgina visibles alhora</li>
           <li xml:lang="cs">Na počítači bylo zajištěno, aby nebyly současně viditelné více než dva sloupce stránky</li>
           <li xml:lang="es">En el escritorio, asegurar que no haya más de dos columnas de página visibles al mismo tiempo</li>
+          <li xml:lang="eu">Mahaigainean, ziurtatu aldi berean bi orri-zutabe baino gehiago ikusgai ez daudela</li>
           <li xml:lang="fi">työpöydällä varmistetaan, ettei kahta useampi sivusarake ole näkyvissä yhtä aikaa</li>
           <li xml:lang="fr">Sur un ordinateur de bureau, assurez-vous que pas plus de deux colonnes de page ne sont visibles en même temps.</li>
           <li xml:lang="he">בשולחן עבודה, לוודא של יותר משני עמודות בעמוד מופיעות בו זמנית.</li>
@@ -753,6 +759,7 @@
           <li xml:lang="ca-valencia">Actualitza les traduccions</li>
           <li xml:lang="cs">Aktualizované překlady</li>
           <li xml:lang="es">Actualización de las traducciones</li>
+          <li xml:lang="eu">Itzulpenak eguneratu</li>
           <li xml:lang="fi">käännöspäivityksiä</li>
           <li xml:lang="fr">Mise à jour des traductions</li>
           <li xml:lang="he">עדכוני תרגומים</li>
@@ -785,6 +792,7 @@
         <p xml:lang="ca-valencia">Característiques noves, millores i correccions</p>
         <p xml:lang="cs">Nové funkce, vylepšení a opravy</p>
         <p xml:lang="es">Nuevas funciones, mejoras y correcciones</p>
+        <p xml:lang="eu">Ezaugarri berriak, hobekuntzak eta konponketak</p>
         <p xml:lang="fi">uusia ominaisuuksia, parannuksia ja korjauksia</p>
         <p xml:lang="fr">Nouvelles fonctionnalités, améliorations et corrections</p>
         <p xml:lang="he">יכולות, שיפורים ותיקונים חדשים</p>
@@ -810,6 +818,7 @@
           <li xml:lang="ca-valencia">Mostra el progrés dels lliscaments de mes</li>
           <li xml:lang="cs">Zobrazen přehled měsíčních změn</li>
           <li xml:lang="es">Mostrar el avance de los deslizamientos mensuales</li>
+          <li xml:lang="eu">Hilabeteen arteko irristatze-keinuen aurrerapena erakutsi</li>
           <li xml:lang="fi">näytetään kuukausipyyhkäisyjen eteneminen</li>
           <li xml:lang="fr">Affichage de l'avancement des balayages de mois</li>
           <li xml:lang="he">הצגת התקדמות על החלקות על חודשים</li>
@@ -834,6 +843,7 @@
           <li xml:lang="ca-valencia">Millora el rendiment del mes de calendari</li>
           <li xml:lang="cs">Zlepšená výkonnost v kalendářním měsíci</li>
           <li xml:lang="es">Se ha mejorado el rendimiento del calendario mensual</li>
+          <li xml:lang="eu">Egutegiaren hilabeteko ikuspegiaren errendimendua hobetu</li>
           <li xml:lang="fi">parannettu kalenterin kuukausisuorituskykyä</li>
           <li xml:lang="fr">Amélioration de la performance du mois de l'agenda</li>
           <li xml:lang="he">שיפור ביצועי חודש לוח שנה</li>
@@ -858,6 +868,7 @@
           <li xml:lang="ca-valencia">Obri directament els fitxers de calendari</li>
           <li xml:lang="cs">Přímé otevírání souborů kalendáře</li>
           <li xml:lang="es">Abrir directamente archivos de calendario</li>
+          <li xml:lang="eu">Egutegi-fitxategiak zuzenean ireki</li>
           <li xml:lang="fi">avataan kalenteritiedostot suoraan</li>
           <li xml:lang="fr">Ouverture directe des fichiers d'agenda</li>
           <li xml:lang="he">פתיחת קובצי לוח שנה ישירות</li>
@@ -882,6 +893,7 @@
           <li xml:lang="ca-valencia">Mostra les notificacions d'importació cap al peu de pàgina de l'aplicació</li>
           <li xml:lang="cs">V zápatí aplikace se zobrazují oznámení o importu</li>
           <li xml:lang="es">Mostrar notificaciones de importación en el pie de página de la aplicación</li>
+          <li xml:lang="eu">Inportazio-jakinarazpenak aplikazioaren oinean erakutsi</li>
           <li xml:lang="fi">näytetään tuonti-ilmoitukset sovelluksen alatunnisteessa</li>
           <li xml:lang="fr">Affichage des notifications d'importation dans le pied de page de l'application</li>
           <li xml:lang="he">הצגת התראות ייבוא בכותרת התחתונה של היישום</li>
@@ -906,6 +918,7 @@
           <li xml:lang="ca-valencia">Corregix la visualització de missatges inclosos a l'escriptori</li>
           <li xml:lang="cs">Opraveno zobrazení zpráv na počítači</li>
           <li xml:lang="es">Se ha corregido la visualización de mensajes en línea en el escritorio</li>
+          <li xml:lang="eu">Lerro barruko mezua mahaigainean bistaratzea konpondu</li>
           <li xml:lang="fi">korjattu työpöydän viestirivinäkymä</li>
           <li xml:lang="fr">Correction de l'affichage intégré au bureau des messages</li>
           <li xml:lang="he">תיקון תצוגת הודעה פנימית בשולחן העבודה</li>
@@ -930,6 +943,7 @@
           <li xml:lang="ca-valencia">Presenta l'acció «import-calendar-data»</li>
           <li xml:lang="cs">Byla zavedena akce import-calendar-data</li>
           <li xml:lang="es">Se ha introducido la acción para importar datos de calendario</li>
+          <li xml:lang="eu">import-calendar-data ekintza gehitu</li>
           <li xml:lang="fi">esitelty kalenterin tuontitoiminto</li>
           <li xml:lang="fr">Introduction de l'action importation-calendrier-données</li>
           <li xml:lang="he">הצגת הפעולה ייבוא נתוני לוח שנה</li>
@@ -954,6 +968,7 @@
           <li xml:lang="ca-valencia">Corregix la planificació de repetició d'esdeveniments</li>
           <li xml:lang="cs">Opraveno plánování opakujících se událostí</li>
           <li xml:lang="es">Se ha corregido la programación de eventos repetitivos</li>
+          <li xml:lang="eu">Errepikatzen diren gertaeren programazioa konpondu</li>
           <li xml:lang="fi">korjattu toistuvien tapahtumien aikataulutus</li>
           <li xml:lang="fr">Correction de la planification des évènements récurrents</li>
           <li xml:lang="he">תוקן תזמון של אירועים מחזוריים</li>
@@ -978,6 +993,7 @@
           <li xml:lang="ca-valencia">Corregix la visualització del selector de temps</li>
           <li xml:lang="cs">Opraveno zobrazení výběru času</li>
           <li xml:lang="es">Se ha corregido la visualización del selector de hora</li>
+          <li xml:lang="eu">Ordu-hautatzailea bistaratzea konpondu</li>
           <li xml:lang="fi">korjattu ajanvalintanäkymä</li>
           <li xml:lang="fr">Correction de l'affichage du sélecteur d'heure</li>
           <li xml:lang="he">תוקנה תצוגת בורר זמן</li>
@@ -1002,6 +1018,7 @@
           <li xml:lang="ca-valencia">Afig la implementació d'assistents als esdeveniments</li>
           <li xml:lang="cs">Přidána podpora účastníků akcí</li>
           <li xml:lang="es">Se ha añadido la implementación de asistentes a eventos</li>
+          <li xml:lang="eu">Gertaerei partaideentzako euskarria gehitu</li>
           <li xml:lang="fi">lisätty tapahtumiin osanottajatuki</li>
           <li xml:lang="fr">Ajout de la prise en charge des participants aux évènements</li>
           <li xml:lang="he">הוספת תמיכה במשתתפים לאירועים</li>
@@ -1026,6 +1043,7 @@
           <li xml:lang="ca-valencia">Reestructura les pàgines de l'editor d'esdeveniments i tasques</li>
           <li xml:lang="cs">Přepracovány stránky editoru událostí a úkolů</li>
           <li xml:lang="es">Refactorización de las páginas del editor de eventos y tareas</li>
+          <li xml:lang="eu">Gertaeren eta zereginen editore-orriak berrantolatu</li>
           <li xml:lang="fi">uudelleen rakennetut tapahtuma- ja tehtävämuokkainsivut</li>
           <li xml:lang="fr">Ré-agencement des pages d'édition pour les évènements et des tâches</li>
           <li xml:lang="he">עמודי האירועים ועורך המשימות נכתבו מחדש</li>
@@ -1050,6 +1068,7 @@
           <li xml:lang="ca-valencia">Evita l'eliminació accidental de tasques o esdeveniments</li>
           <li xml:lang="cs">Zabráněno náhodnému smazání úkolu nebo události</li>
           <li xml:lang="es">Impedir el borrado accidental de tareas y eventos</li>
+          <li xml:lang="eu">Zereginak edo gertaerak nahi gabe ezabatzea eragotzi</li>
           <li xml:lang="fi">estetty tehtävän tai tapahtuman poistaminen vahingossa</li>
           <li xml:lang="fr">Prévention de la suppression accidentelle d'une tâche ou d'un évènement</li>
           <li xml:lang="he">למנוע מחיקה מקרית של משימה או אירוע</li>
@@ -1074,6 +1093,7 @@
           <li xml:lang="ca-valencia">Oferix l'edició de rols d'assistent</li>
           <li xml:lang="cs">Umožněna úprava rolí účastníků</li>
           <li xml:lang="es">Ofrecer la edición del rol de asistente</li>
+          <li xml:lang="eu">Partaideen rolak editatzeko aukera eskaini</li>
           <li xml:lang="fi">tarjotaan osanottajan roolin muokkaamista</li>
           <li xml:lang="fr">Fourniture de l'édition du rôle de participant</li>
           <li xml:lang="he">להציע עריכת תפקיד של משתמשים</li>
@@ -1098,6 +1118,7 @@
           <li xml:lang="ca-valencia">Soluciona els trencaclosques de cadenes</li>
           <li xml:lang="cs">Vyřešeny puzzle s textovými řetězci</li>
           <li xml:lang="es">Se han corregido rompecabezas de textos</li>
+          <li xml:lang="eu">Testu-kateen buru-hausgarriak ebatzi</li>
           <li xml:lang="fi">ratkaistu merkkijonoarvoituksia</li>
           <li xml:lang="fr">Résoudre des puzzles de chaînes</li>
           <li xml:lang="he">פתרון חידות מחרוזות</li>
@@ -1122,6 +1143,7 @@
           <li xml:lang="ca-valencia">Afig un nom genèric adequat per a l'aplicació</li>
           <li xml:lang="cs">Přidán správný obecný název aplikace</li>
           <li xml:lang="es">Se ha añadido un nombre genérico apropiado para la aplicación</li>
+          <li xml:lang="eu">Aplikazioari izen generiko egokia gehitu</li>
           <li xml:lang="fi">lisätty sovellukselle kunnollinen yleisnimi</li>
           <li xml:lang="fr">Ajout d'un nom générique approprié pour l'application</li>
           <li xml:lang="he">הוספת שם גנרי מתאים ליישום</li>
@@ -1146,6 +1168,7 @@
           <li xml:lang="ca-valencia">Oferix la funcionalitat d'exportació</li>
           <li xml:lang="cs">Nabídka funkce pro export</li>
           <li xml:lang="es">Ofrecer la funcionalidad de exportación</li>
+          <li xml:lang="eu">Esportatzeko aukera eskaini</li>
           <li xml:lang="fi">tarjotaan vientitoimintoa</li>
           <li xml:lang="fr">Fourniture d'une fonctionnalité d'exportation</li>
           <li xml:lang="he">הצעת יכולת ייצוא</li>
@@ -1170,6 +1193,7 @@
           <li xml:lang="ca-valencia">Oferix la importació en calendaris específics</li>
           <li xml:lang="cs">Nabídka importu do konkrétních kalendářů</li>
           <li xml:lang="es">Ofrecer la importación de determinados calendarios</li>
+          <li xml:lang="eu">Egutegi jakinetara inportatzeko aukera eskaini</li>
           <li xml:lang="fi">tarjotaan määräkalenterien tuontia</li>
           <li xml:lang="fr">Fourniture de l'importation de calendriers spécifiques</li>
           <li xml:lang="he">הצעת ייבוא בלוחות שנה מסוימים</li>
