@@ -7,8 +7,8 @@
 # SPDX-FileCopyrightText: 2020, 2024, 2026 Iñigo Salvador Azurmendi <xalba@ni.eus>
 #
 # Egoera:
-# Proiektu osoaren berrikuspen integrala: Hasiera 2026-08-30.
-# Azken berrikuspena: UUUU-HH-EE — egoera ondua mantendu da.
+# Proiektu osoaren berrikuspen integrala: 2026-08-30.
+# Azken berrikuspena: 2026-08-30 — egoera ondua mantendu da.
 # Terminologia, estiloa, ortotipografia, kohesioa eta koherentzia berrikusi dira.
 # Erreferentzia-gida: kde-pim-aplikazioen_eu_itzulpen-gida.md
 # Ikus, halaber: KDE-eu-berrikuspen-integralen-erregistroa.md
