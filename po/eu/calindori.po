@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: calindori\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-08-30 20:21+0200\n"
+"PO-Revision-Date: 2026-08-31 01:59+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -512,14 +512,14 @@ msgstr "«%1» ezabatuko da"
 #, kde-format
 msgid "%1 task"
 msgid_plural "%1 tasks"
-msgstr[0] "%1 zeregin"
+msgstr[0] "Zeregin %1"
 msgstr[1] "%1 zeregin"
 
 #: contents/ui/kirigami-playground/CalendarHeader.qml:50
 #, kde-format
 msgid "%1 event"
 msgid_plural "%1 events"
-msgstr[0] "%1 gertaera"
+msgstr[0] "Gertaera %1"
 msgstr[1] "%1 gertaera"
 
 #: contents/ui/kirigami-playground/TimePicker.qml:92
