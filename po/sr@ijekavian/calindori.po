@@ -1,0 +1,1002 @@
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: calindori\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"PO-Revision-Date: 2026-11-19 09:26+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Немања Хиршл"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "nemhirsl@gmail.com"
+
+#: attendeesmodel.cpp:183
+#, kde-format
+msgid "Accepted"
+msgstr "прихваћено"
+
+#: attendeesmodel.cpp:186 contents/ui/IncidenceEditor.qml:25
+#, kde-format
+msgid "Tentative"
+msgstr "условно"
+
+#: attendeesmodel.cpp:189
+#, kde-format
+msgid "Declined"
+msgstr "одбијено"
+
+#: attendeesmodel.cpp:192
+#, kde-format
+msgid "Delegated"
+msgstr "делегирано"
+
+#: attendeesmodel.cpp:195
+#, kde-format
+msgid "Not responded yet"
+msgstr "још без одговора"
+
+#: calendarcontroller.cpp:47
+#, kde-format
+msgid "The url or file given does not contain valid calendar data"
+msgstr "Задати УРЛ или фајл не садржи исправне податке календара"
+
+#: calendarcontroller.cpp:56
+#, kde-format
+msgid "The url or file given does not contain any event or task"
+msgstr "Задати УРЛ или фајл не садржи ниједан догађај ни задатак"
+
+#: calendarcontroller.cpp:63
+#, kde-format
+msgid "1 event will be added"
+msgid_plural "%1 events will be added"
+msgstr[0] "Биће додат %1 догађај"
+msgstr[1] "Биће додата %1 догађаја"
+msgstr[2] "Биће додато %1 догађаја"
+msgstr[3] "Биће додат један догађај"
+
+#: calendarcontroller.cpp:65
+#, kde-format
+msgid "1 task will be added"
+msgid_plural "%1 tasks will be added"
+msgstr[0] "Биће додат %1 задатак"
+msgstr[1] "Биће додата %1 задатка"
+msgstr[2] "Биће додато %1 задатака"
+msgstr[3] "Биће додат један задатак"
+
+#: calendarcontroller.cpp:68
+#, kde-format
+msgid "%1 incidences will be added"
+msgstr "Биће додато догађаја и задатака: %1"
+
+#: calendarcontroller.cpp:132
+#, kde-format
+msgid "Import completed successfully"
+msgstr "Увоз је успјешно завршен"
+
+#: calendarcontroller.cpp:134
+#, kde-format
+msgid "An error has occurred during import"
+msgstr "Дошло је до грешке при увозу"
+
+#: calendarcontroller.cpp:312
+#, kde-format
+msgid "In case of all day events, start date and end date should be equal"
+msgstr "Код цјелодневних догађаја датуми почетка и краја треба да буду исти"
+
+#: calendarcontroller.cpp:322
+#, kde-format
+msgid "End date time should be equal to or greater than the start date time"
+msgstr "Датум и вријеме краја не смију бити прије датума и времена почетка"
+
+#: calendarcontroller.cpp:334
+#, kde-format
+msgid "Daily events should not span multiple days"
+msgstr ""
+"Догађаји који се понављају сваког дана не треба да трају више од једног дана"
+
+#: calendarcontroller.cpp:454
+#, kde-format
+msgid "In case of all day tasks, start date and due date should be equal"
+msgstr "Код цјелодневних задатака датуми почетка и рока треба да буду исти"
+
+#: calendarcontroller.cpp:461
+#, kde-format
+msgid "Due date time should be equal to or greater than the start date time"
+msgstr "Датум и вријеме рока не смију бити прије датума и времена почетка"
+
+#: calendarcontroller.cpp:484
+#, kde-format
+msgid "Cannot read calendar. Export failed."
+msgstr "Не могу да прочитам календар. Извоз није успио."
+
+#: calendarcontroller.cpp:494
+#, kde-format
+msgid "Cannot load calendar. Export failed."
+msgstr "Не могу да учитам календар. Извоз није успио."
+
+#: calendarcontroller.cpp:509
+#, kde-format
+msgid "Cannot save calendar file. Export failed."
+msgstr "Не могу да сачувам фајл календара. Извоз није успио."
+
+#: calendarcontroller.cpp:516
+#, kde-format
+msgid "Export completed successfully"
+msgstr "Извоз је успјешно завршен"
+
+#: calindoriconfig.cpp:78
+#, kde-format
+msgid "Calendar name contains invalid characters"
+msgstr "Име календара садржи лоше знакове"
+
+#: calindoriconfig.cpp:99
+#, kde-format
+msgid "Calendar already exists"
+msgstr "Календар већ постоји"
+
+#: contents/ui/AttendeeEditor.qml:53 contents/ui/AttendeePicker.qml:54
+#, kde-format
+msgid "No contacts found"
+msgstr "Није нађен ниједан контакт"
+
+#: contents/ui/AttendeeEditor.qml:116 contents/ui/AttendeePicker.qml:116
+#: contents/ui/Attendees.qml:20 contents/ui/CalendarEditor.qml:143
+#: contents/ui/ManageCalendarsPage.qml:23 contents/ui/Reminders.qml:19
+#, kde-format
+msgid "Add"
+msgstr "Додај"
+
+#: contents/ui/AttendeeEditor.qml:128 contents/ui/AttendeePicker.qml:128
+#: contents/ui/CalendarEditor.qml:151 contents/ui/EventEditorPage.qml:232
+#: contents/ui/EventsCardView.qml:117 contents/ui/IncidencePage.qml:83
+#: contents/ui/MessageBoard.qml:48 contents/ui/TodoEditorPage.qml:222
+#: contents/ui/TodosCardView.qml:110
+#, kde-format
+msgid "Cancel"
+msgstr "Одустани"
+
+#: contents/ui/AttendeeRoleEditor.qml:22 contents/ui/CalendarEditor.qml:98
+#, kde-format
+msgid "Email:"
+msgstr "Е‑пошта:"
+
+#: contents/ui/AttendeeRoleEditor.qml:28 contents/ui/IncidenceEditor.qml:49
+#, kde-format
+msgid "Status:"
+msgstr "Стање:"
+
+#: contents/ui/AttendeeRoleEditor.qml:32
+#, kde-format
+msgid "Role:"
+msgstr "Улога:"
+
+#: contents/ui/AttendeeRoleEditor.qml:35
+#, kde-format
+msgid "Required"
+msgstr "Обавезан учесник"
+
+#: contents/ui/AttendeeRoleEditor.qml:42
+#, kde-format
+msgid "Optional"
+msgstr "Могући учесник"
+
+#: contents/ui/AttendeeRoleEditor.qml:49
+#, kde-format
+msgid "Non-participant"
+msgstr "Није учесник"
+
+#: contents/ui/AttendeeRoleEditor.qml:56
+#, kde-format
+msgid "Chairperson"
+msgstr "Предсједавајући"
+
+#: contents/ui/Attendees.qml:25
+#, kde-format
+msgid ""
+"Attendee management is available only in external calendars that are "
+"synchronized online"
+msgstr ""
+"Управљање присутнима доступно је само у спољашњим календарима који се "
+"синхронизују на вези"
+
+#: contents/ui/Attendees.qml:31
+#, kde-format
+msgid "Please set the calendar owner details in the application settings"
+msgstr "Задајте податке о власнику календара у поставкама програма"
+
+#: contents/ui/Attendees.qml:114
+#, kde-format
+msgid "No attendees yet"
+msgstr "Још нема присутних"
+
+#: contents/ui/CalendarEditor.qml:32
+#, kde-format
+msgid "New calendar"
+msgstr "Нови календар"
+
+#: contents/ui/CalendarEditor.qml:71 contents/ui/IncidenceEditor.qml:34
+#, kde-format
+msgid "Calendar:"
+msgstr "Календар:"
+
+#: contents/ui/CalendarEditor.qml:80
+#, kde-format
+msgid "File:"
+msgstr "Фајл:"
+
+#: contents/ui/CalendarEditor.qml:85
+#, kde-format
+msgid "Owner"
+msgstr "Власник"
+
+#: contents/ui/CalendarEditor.qml:92
+#, kde-format
+msgid "Name:"
+msgstr "Име:"
+
+#: contents/ui/CalendarEditor.qml:107 contents/ui/EventEditorPage.qml:209
+#: contents/ui/TodoEditorPage.qml:199
+#, kde-format
+msgid "Save"
+msgstr "Сачувај"
+
+#: contents/ui/CalendarMonthPage.qml:48
+#, kde-format
+msgid "Previous"
+msgstr "Претходно"
+
+#: contents/ui/CalendarMonthPage.qml:55
+#, kde-format
+msgid "Next"
+msgstr "Сљедеће"
+
+#: contents/ui/CalendarMonthPage.qml:61 contents/ui/DayPage.qml:33
+#, kde-format
+msgid "Today"
+msgstr "Данас"
+
+#: contents/ui/CalendarMonthPage.qml:67 contents/ui/IncidenceListView.qml:30
+#: contents/ui/TodosCardView.qml:19
+#, kde-format
+msgid "Tasks"
+msgstr "Задаци"
+
+#: contents/ui/CalendarMonthPage.qml:77 contents/ui/EventsCardView.qml:19
+#: contents/ui/IncidenceListView.qml:30 contents/ui/SettingsPage.qml:88
+#, kde-format
+msgid "Events"
+msgstr "Догађаји"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:54
+#: contents/ui/CalindoriGlobalDrawer.qml:64
+#, kde-format
+msgid "Calendar"
+msgstr "Календар"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:81
+#, kde-format
+msgid "Month View"
+msgstr "Приказ мјесеца"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:104
+#, kde-format
+msgid "Week View"
+msgstr "Приказ седмице"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:127
+#, kde-format
+msgid "Day View"
+msgstr "Приказ дана"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:150
+#, kde-format
+msgid "Tasks List"
+msgstr "Списак задатака"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:172
+#, kde-format
+msgid "Events List"
+msgstr "Списак догађаја"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:198 contents/ui/SettingsPage.qml:50
+#, kde-format
+msgid "Calendars"
+msgstr "Календари"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:229
+#: contents/ui/ManageCalendarsPage.qml:75
+#, kde-format
+msgid "Calendar %1 has been activated"
+msgstr "Календар „%1“ је активиран"
+
+#: contents/ui/CalindoriGlobalDrawer.qml:247 contents/ui/SettingsPage.qml:19
+#, kde-format
+msgid "Settings"
+msgstr "Поставке"
+
+#: contents/ui/DayPage.qml:21
+#, kde-format
+msgid "Previous day"
+msgstr "Претходни дан"
+
+#: contents/ui/DayPage.qml:27
+#, kde-format
+msgid "Next day"
+msgstr "Сљедећи дан"
+
+#: contents/ui/DayView.qml:105 contents/ui/EventEditorPage.qml:44
+#: contents/ui/EventsCardView.qml:30 contents/ui/IncidenceListView.qml:39
+#: contents/ui/WeekView.qml:153
+#, kde-format
+msgid "Create Event"
+msgstr "Направи догађај"
+
+#: contents/ui/DayView.qml:118 contents/ui/IncidenceListView.qml:39
+#: contents/ui/TodoEditorPage.qml:33 contents/ui/TodosCardView.qml:28
+#: contents/ui/WeekView.qml:160
+#, kde-format
+msgid "Create Task"
+msgstr "Направи задатак"
+
+#: contents/ui/EventEditorPage.qml:59 contents/ui/TodoEditorPage.qml:49
+#, kde-format
+msgid "Summary:"
+msgstr "Сажетак:"
+
+#: contents/ui/EventEditorPage.qml:64 contents/ui/TodoEditorPage.qml:53
+#, kde-format
+msgid "Start:"
+msgstr "Почетак:"
+
+#: contents/ui/EventEditorPage.qml:70 contents/ui/TodoEditorPage.qml:62
+#, kde-format
+msgid "Start Date"
+msgstr "Датум почетка"
+
+#: contents/ui/EventEditorPage.qml:78 contents/ui/TodoEditorPage.qml:73
+#, kde-format
+msgid "Start Time"
+msgstr "Вријеме почетка"
+
+#: contents/ui/EventEditorPage.qml:90
+#, kde-format
+msgid "End:"
+msgstr "Завршетак:"
+
+#: contents/ui/EventEditorPage.qml:97
+#, kde-format
+msgid "End Date"
+msgstr "Датум краја"
+
+#: contents/ui/EventEditorPage.qml:120
+#, kde-format
+msgid "End Time"
+msgstr "Вријеме краја"
+
+#: contents/ui/EventEditorPage.qml:135 contents/ui/IncidenceListView.qml:84
+#, kde-format
+msgid "All day"
+msgstr "Цио дан"
+
+#: contents/ui/EventEditorPage.qml:152
+#, kde-format
+msgid "Repeat:"
+msgstr "Понављање:"
+
+#: contents/ui/EventEditorPage.qml:171 contents/ui/TodoEditorPage.qml:170
+#, kde-format
+msgid "Details"
+msgstr "Детаљи"
+
+#: contents/ui/EventEditorPage.qml:175 contents/ui/TodoEditorPage.qml:174
+#, kde-format
+msgid "Reminders"
+msgstr "Подсјетници"
+
+#: contents/ui/EventEditorPage.qml:179
+#, kde-format
+msgid "Attendees"
+msgstr "Присутни"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled for %1"
+msgstr "Нема догађаја заказаних за %1"
+
+#: contents/ui/EventsCardView.qml:48
+#, kde-format
+msgid "No events scheduled"
+msgstr "Нема заказаних догађаја"
+
+#: contents/ui/EventsCardView.qml:59 contents/ui/EventsCardView.qml:108
+#: contents/ui/IncidencePage.qml:44 contents/ui/IncidencePage.qml:66
+#: contents/ui/ManageCalendarsPage.qml:80 contents/ui/TodosCardView.qml:55
+#: contents/ui/TodosCardView.qml:101
+#, kde-format
+msgid "Delete"
+msgstr "Обриши"
+
+#: contents/ui/EventsCardView.qml:70 contents/ui/IncidencePage.qml:51
+#: contents/ui/TodosCardView.qml:66
+#, kde-format
+msgid "Edit"
+msgstr "Уреди"
+
+#: contents/ui/EventsCardView.qml:103
+#, kde-format
+msgid "Event %1 will be deleted"
+msgstr "Догађај „%1“ биће обрисан"
+
+#: contents/ui/IncidenceEditor.qml:23
+#, kde-format
+msgid "Canceled"
+msgstr "отказано"
+
+#: contents/ui/IncidenceEditor.qml:24
+#, kde-format
+msgid "Confirmed"
+msgstr "потврђено"
+
+#: contents/ui/IncidenceEditor.qml:62
+#, kde-format
+msgid "Location:"
+msgstr "Локација:"
+
+#: contents/ui/IncidenceEditor.qml:71
+#, kde-format
+msgid "Description:"
+msgstr "Опис:"
+
+#: contents/ui/IncidenceEditor.qml:78
+#, kde-format
+msgid "Completed:"
+msgstr "Довршен:"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Show Completed"
+msgstr "Прикажи довршене"
+
+#: contents/ui/IncidenceListView.qml:50
+#, kde-format
+msgid "Hide Completed"
+msgstr "Сакриј довршене"
+
+#: contents/ui/IncidenceListView.qml:68
+#, kde-format
+msgid "Nothing scheduled for %1"
+msgstr "Ништа није заказано за %1"
+
+#: contents/ui/IncidenceListView.qml:68
+#, kde-format
+msgid "Nothing scheduled"
+msgstr "Ништа није заказано"
+
+#: contents/ui/IncidencePage.qml:62
+#, kde-format
+msgid "%1 will be deleted"
+msgstr "Биће обрисано: „%1“"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:48
+#, kde-format
+msgid "%1 task"
+msgid_plural "%1 tasks"
+msgstr[0] "%1 задатак"
+msgstr[1] "%1 задатка"
+msgstr[2] "%1 задатака"
+msgstr[3] "%1 задатак"
+
+#: contents/ui/kirigami-playground/CalendarHeader.qml:50
+#, kde-format
+msgid "%1 event"
+msgid_plural "%1 events"
+msgstr[0] "%1 догађај"
+msgstr[1] "%1 догађаја"
+msgstr[2] "%1 догађаја"
+msgstr[3] "један догађај"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:92
+#, kde-format
+msgid "AM"
+msgstr "Пријеподне"
+
+#: contents/ui/kirigami-playground/TimePicker.qml:92
+#, kde-format
+msgid "PM"
+msgstr "Послијеподне"
+
+#: contents/ui/ManageCalendarsPage.qml:23
+#, kde-format
+msgid "Create"
+msgstr "Направи"
+
+#: contents/ui/ManageCalendarsPage.qml:41
+#, kde-format
+msgid "No external calendars found"
+msgstr "Није нађен ниједан спољашњи календар"
+
+#: contents/ui/ManageCalendarsPage.qml:42
+#, kde-format
+msgid "No calendars found"
+msgstr "Није нађен ниједан календар"
+
+#: contents/ui/ManageCalendarsPage.qml:43
+#, kde-format
+msgid "Import an existing calendar file."
+msgstr "Увезите постојећи фајл календара."
+
+#: contents/ui/ManageCalendarsPage.qml:44
+#, kde-format
+msgid "Add a new calendar."
+msgstr "Додајте нови календар."
+
+#: contents/ui/ManageCalendarsPage.qml:65
+#, kde-format
+msgid "Modify %1"
+msgstr "Измјена календара „%1“"
+
+#: contents/ui/ManageCalendarsPage.qml:68
+#, kde-format
+msgid "Activate"
+msgstr "Активирај"
+
+#: contents/ui/ManageCalendarsPage.qml:85
+#: contents/ui/ManageCalendarsPage.qml:99
+#, kde-format
+msgid "Calendar must not be active when being deleted."
+msgstr "Календар не смије бити активан док се брише."
+
+#: contents/ui/ManageCalendarsPage.qml:94
+#, kde-format
+msgid "Remove"
+msgstr "Уклони"
+
+#: contents/ui/ManageCalendarsPage.qml:107
+#, kde-format
+msgid "Edit details"
+msgstr "Уреди детаље"
+
+#: contents/ui/ManageCalendarsPage.qml:113
+#, kde-format
+msgid "Import calendar file"
+msgstr "Увези фајл календара"
+
+#: contents/ui/ManageCalendarsPage.qml:122
+#, kde-format
+msgid "Export calendar to file"
+msgstr "Извези календар у фајл"
+
+#: contents/ui/ManageCalendarsPage.qml:145
+#, kde-format
+msgid "Confirm"
+msgstr "Потврда"
+
+#: contents/ui/ManageCalendarsPage.qml:146
+#, kde-format
+msgid ""
+"All data included in this calendar will be deleted. Proceed with deletion?"
+msgstr "Сви подаци у овом календару биће обрисани. Наставити са брисањем?"
+
+#: contents/ui/ManageCalendarsPage.qml:222
+#, kde-format
+msgid "Modify"
+msgstr "Измијени"
+
+#: contents/ui/MessageBoard.qml:32
+#, kde-format
+msgid "Proceed"
+msgstr "Настави"
+
+#: contents/ui/MessageBoard.qml:58
+#, kde-format
+msgid "Open folder"
+msgstr "Отвори фасциклу"
+
+#: contents/ui/RecurrencePickerSheet.qml:29
+#, kde-format
+msgid "Repeat"
+msgstr "Понављање"
+
+#: contents/ui/RecurrencePickerSheet.qml:52
+#, kde-format
+msgid "Every:"
+msgstr "Интервал:"
+
+#: contents/ui/RecurrencePickerSheet.qml:62
+#, kde-format
+msgid "year"
+msgid_plural "years"
+msgstr[0] "година"
+msgstr[1] "године"
+msgstr[2] "година"
+msgstr[3] "година"
+
+#: contents/ui/RecurrencePickerSheet.qml:63
+#, kde-format
+msgid "month"
+msgid_plural "months"
+msgstr[0] "мјесец"
+msgstr[1] "мјесеца"
+msgstr[2] "мјесеци"
+msgstr[3] "мјесец"
+
+#: contents/ui/RecurrencePickerSheet.qml:64
+#, kde-format
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "седмица"
+msgstr[1] "седмице"
+msgstr[2] "седмица"
+msgstr[3] "седмица"
+
+#: contents/ui/RecurrencePickerSheet.qml:65
+#, kde-format
+msgid "day"
+msgid_plural "days"
+msgstr[0] "дан"
+msgstr[1] "дана"
+msgstr[2] "дана"
+msgstr[3] "дан"
+
+#: contents/ui/RecurrencePickerSheet.qml:70
+#, kde-format
+msgid "Stop After:"
+msgstr "Заустави послије:"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "repeat"
+msgid_plural "repeats"
+msgstr[0] "понављања"
+msgstr[1] "понављања"
+msgstr[2] "понављања"
+msgstr[3] "понављања"
+
+#: contents/ui/RecurrencePickerSheet.qml:80
+#, kde-format
+msgid "Never stop"
+msgstr "Без краја"
+
+#: contents/ui/ReminderEditor.qml:25
+#, kde-format
+msgid "New Reminder"
+msgstr "Нови подсјетник"
+
+#: contents/ui/ReminderEditor.qml:31
+#, kde-format
+msgid "Time before start"
+msgstr "Вријеме прије почетка"
+
+#: contents/ui/ReminderEditor.qml:44
+#, kde-format
+msgid "Seconds:"
+msgstr "Секунди:"
+
+#: contents/ui/ReminderEditor.qml:53
+#, kde-format
+msgid "Minutes:"
+msgstr "Минути:"
+
+#: contents/ui/ReminderEditor.qml:63
+#, kde-format
+msgid "Hours:"
+msgstr "Сати:"
+
+#: contents/ui/ReminderEditor.qml:72
+#, kde-format
+msgid "Days:"
+msgstr "Дани:"
+
+#: contents/ui/Reminders.qml:57
+#, kde-format
+msgid "No reminders yet"
+msgstr "Још нема подсјетника"
+
+#: contents/ui/SettingsPage.qml:22
+#, kde-format
+msgid "About"
+msgstr "О програму"
+
+#: contents/ui/SettingsPage.qml:27
+#, kde-format
+msgid "About Calindori"
+msgstr "О програму Calindori"
+
+#: contents/ui/SettingsPage.qml:38
+#, kde-format
+msgid "About KDE"
+msgstr "О КДЕ‑у"
+
+#: contents/ui/SettingsPage.qml:55
+#, kde-format
+msgid "Manage internal calendars"
+msgstr "Управљај унутрашњим календарима"
+
+#: contents/ui/SettingsPage.qml:62
+#, kde-format
+msgid "Manage Internal Calendars"
+msgstr "Управљање унутрашњим календарима"
+
+#: contents/ui/SettingsPage.qml:71
+#, kde-format
+msgid "Manage external calendars"
+msgstr "Управљај спољашњим календарима"
+
+#: contents/ui/SettingsPage.qml:78
+#, kde-format
+msgid "Manage External Calendars"
+msgstr "Управљање спољашњим календарима"
+
+#: contents/ui/SettingsPage.qml:94
+#, kde-format
+msgid "Initial duration (minutes)"
+msgstr "Почетно трајање (у минутима)"
+
+#: contents/ui/SettingsPage.qml:103
+#, kde-format
+msgid "Remind before event (minutes)"
+msgstr "Подсјети прије догађаја (у минутима)"
+
+#: contents/ui/SettingsPage.qml:112
+#, kde-format
+msgid "Add reminder to new events"
+msgstr "Додај подсјетник новим догађајима"
+
+#: contents/ui/TodoEditorPage.qml:96
+#, kde-format
+msgid "Due:"
+msgstr "Рок:"
+
+#: contents/ui/TodoEditorPage.qml:104
+#, kde-format
+msgid "Due Date"
+msgstr "Датум рока"
+
+#: contents/ui/TodoEditorPage.qml:132
+#, kde-format
+msgid "Due Time"
+msgstr "Вријеме рока"
+
+#: contents/ui/TodoEditorPage.qml:156
+#, kde-format
+msgid "All day:"
+msgstr "Цио дан:"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled for %1"
+msgstr "Нема задатака заказаних за %1"
+
+#: contents/ui/TodosCardView.qml:44
+#, kde-format
+msgid "No tasks scheduled"
+msgstr "Нема заказаних задатака"
+
+#: contents/ui/TodosCardView.qml:96
+#, kde-format
+msgid "Task %1 will be deleted"
+msgstr "Задатак „%1“ биће обрисан"
+
+#: contents/ui/WeekPage.qml:22
+#, kde-format
+msgid "Previous week"
+msgstr "Претходна седмица"
+
+#: contents/ui/WeekPage.qml:28
+#, kde-format
+msgid "Next week"
+msgstr "Сљедећа седмица"
+
+#: contents/ui/WeekPage.qml:34
+#, kde-format
+msgid "Current Week"
+msgstr "Текућа седмица"
+
+#: incidencealarmsmodel.cpp:157
+#, kde-format
+msgid "days before start"
+msgstr "дана прије почетка"
+
+#: incidencealarmsmodel.cpp:160
+#, kde-format
+msgid "seconds before start"
+msgstr "секунди прије почетка"
+
+#: incidencealarmsmodel.cpp:202
+#, kde-format
+msgid "At start time"
+msgstr "У вријеме почетка"
+
+#: incidencealarmsmodel.cpp:207 incidencealarmsmodel.cpp:212
+#, kde-format
+msgid "1 day before start"
+msgid_plural "%1 days before start"
+msgstr[0] "%1 дан прије почетка"
+msgstr[1] "%1 дана прије почетка"
+msgstr[2] "%1 дана прије почетка"
+msgstr[3] "Дан прије почетка"
+
+#: incidencealarmsmodel.cpp:216
+#, kde-format
+msgid "1 hour before start"
+msgid_plural "%1 hours before start"
+msgstr[0] "%1 сат прије почетка"
+msgstr[1] "%1 сата прије почетка"
+msgstr[2] "%1 сати прије почетка"
+msgstr[3] "Сат прије почетка"
+
+#: incidencealarmsmodel.cpp:220
+#, kde-format
+msgid "1 minute before start"
+msgid_plural "%1 minutes before start"
+msgstr[0] "%1 минут прије почетка"
+msgstr[1] "%1 минута прије почетка"
+msgstr[2] "%1 минута прије почетка"
+msgstr[3] "Минут прије почетка"
+
+#: incidencealarmsmodel.cpp:223
+#, kde-format
+msgid "1 second before start"
+msgid_plural "%1 seconds before start"
+msgstr[0] "%1 секунда прије почетка"
+msgstr[1] "%1 секунде прије почетка"
+msgstr[2] "%1 секунди прије почетка"
+msgstr[3] "Секунда прије почетка"
+
+#: incidencemodel.cpp:173
+#, kde-format
+msgid "Event"
+msgstr "Догађај"
+
+#: incidencemodel.cpp:175
+#, kde-format
+msgid "Task"
+msgstr "Задатак"
+
+#: incidencemodel.cpp:492 incidencemodel.cpp:531 incidencemodel.cpp:548
+#, kde-format
+msgid "all-day"
+msgstr "цио дан"
+
+#: incidencemodel.cpp:523
+#, kde-format
+msgid "No Due Date"
+msgstr "Без рока"
+
+#: localcalendar.cpp:97
+#, kde-format
+msgid "A calendar with the same name already exists"
+msgstr "Календар са истим именом већ постоји"
+
+#: main.cpp:73
+#, kde-format
+msgid "Calindori"
+msgstr "Calindori"
+
+#: main.cpp:73
+#, kde-format
+msgctxt "@title"
+msgid "Calendar application"
+msgstr "Календарски програм"
+
+#: main.cpp:73
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2018-2022 The Calindori Team"
+msgstr "© 2018–2022, тим Calindori"
+
+#: main.cpp:78
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dimitris Kardarakos"
+msgstr "Dimitris Kardarakos"
+
+#: main.cpp:78 main.cpp:80 main.cpp:82
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Програмер"
+
+#: main.cpp:80
+#, kde-format
+msgctxt "@info:credit"
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:82
+#, kde-format
+msgctxt "@info:credit"
+msgid "Devin Lin"
+msgstr "Devin Lin"
+
+#: recurrenceperiodmodel.cpp:114
+#, kde-format
+msgid "Do not repeat"
+msgstr "Не понављај"
+
+#: recurrenceperiodmodel.cpp:118
+#, kde-format
+msgid "Yearly"
+msgstr "Годишње"
+
+#: recurrenceperiodmodel.cpp:121
+#, kde-format
+msgid "Monthly"
+msgstr "Мјесечно"
+
+#: recurrenceperiodmodel.cpp:123
+#, kde-format
+msgid "Weekly"
+msgstr "Седмично"
+
+#: recurrenceperiodmodel.cpp:125
+#, kde-format
+msgid "Daily"
+msgstr "Дневно"
+
+#: recurrenceperiodmodel.cpp:133
+#, kde-format
+msgid "Every year"
+msgid_plural "Every %1 years"
+msgstr[0] "Сваку %1 годину"
+msgstr[1] "Сваке %1 године"
+msgstr[2] "Сваких %1 година"
+msgstr[3] "Сваке године"
+
+#: recurrenceperiodmodel.cpp:134
+#, kde-format
+msgid "Every month"
+msgid_plural "Every %1 months"
+msgstr[0] "Сваки %1 мјесец"
+msgstr[1] "Свака %1 мјесеца"
+msgstr[2] "Сваких %1 мјесеци"
+msgstr[3] "Сваког мјесеца"
+
+#: recurrenceperiodmodel.cpp:135
+#, kde-format
+msgid "Every week"
+msgid_plural "Every %1 weeks"
+msgstr[0] "Сваку %1 седмицу"
+msgstr[1] "Сваке %1 седмице"
+msgstr[2] "Сваких %1 седмица"
+msgstr[3] "Сваке седмице"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Сваки %1 дан"
+msgstr[1] "Свака %1 дана"
+msgstr[2] "Сваких %1 дана"
+msgstr[3] "Сваког дана"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "Never"
+msgstr "Никад"
+
+#: recurrenceperiodmodel.cpp:136
+#, kde-format
+msgid "; once"
+msgid_plural "; %1 times"
+msgstr[0] "; %1 пут"
+msgstr[1] "; %1 пута"
+msgstr[2] "; %1 пута"
+msgstr[3] "; једном"
